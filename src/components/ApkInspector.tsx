@@ -75,53 +75,37 @@ export const ApkInspector: React.FC<ApkInspectorProps> = ({ onViewContent }) => 
       {summary && (
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 flex-shrink-0">
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
-            <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Package</span>
-            <div className="text-sm font-bold font-mono text-sky-400 truncate mt-1">
-              {summary.packageName}
-            </div>
-            <span className="text-[10px] text-slate-400">v{summary.versionName} ({summary.versionCode})</span>
+            <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Archive</span>
+            <div className="text-sm font-bold font-mono text-sky-400 truncate mt-1">{summary.fileName}</div>
+            <span className="text-[10px] text-slate-400">{(summary.fileSizeBytes / (1024*1024)).toFixed(1)} MB</span>
           </div>
-
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
-            <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Target SDK</span>
-            <div className="text-sm font-bold text-slate-100 mt-1">
-              Android 14 (API {summary.targetSdkVersion})
-            </div>
-            <span className="text-[10px] text-slate-400">Min SDK: {summary.minSdkVersion}</span>
+            <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Package</span>
+            <div className="text-sm font-bold text-slate-100 mt-1">{summary.packageName || 'Not decoded'}</div>
+            <span className="text-[10px] text-slate-400">{summary.versionName ? `v${summary.versionName}` : 'Binary manifest parser unavailable'}</span>
           </div>
-
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
             <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Multi-DEX</span>
             <div className="text-sm font-bold text-indigo-400 mt-1 flex items-center space-x-1">
               <Layers className="w-3.5 h-3.5" />
-              <span>5 DEX Files</span>
+              <span>{summary.dexFiles?.length || 0} DEX Files</span>
             </div>
-            <span className="text-[10px] text-slate-400">~38.9 MB bytecode</span>
+            <span className="text-[10px] text-slate-400">Archive inventory</span>
           </div>
-
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
             <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Total Entries</span>
-            <div className="text-sm font-bold text-slate-100 mt-1">
-              {summary.totalEntries.toLocaleString()} files
-            </div>
-            <span className="text-[10px] text-slate-400">Size: {(summary.fileSizeBytes / (1024*1024)).toFixed(1)} MB</span>
+            <div className="text-sm font-bold text-slate-100 mt-1">{summary.totalEntries.toLocaleString()} files</div>
+            <span className="text-[10px] text-slate-400">ZIP entries</span>
           </div>
-
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
             <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Permissions</span>
-            <div className="text-sm font-bold text-amber-400 mt-1">
-              {summary.permissions.length} Declared
-            </div>
-            <span className="text-[10px] text-slate-400">Elevated Storage</span>
+            <div className="text-sm font-bold text-amber-400 mt-1">{summary.permissions?.length || 0} decoded</div>
+            <span className="text-[10px] text-slate-400">Null/empty means not decoded</span>
           </div>
-
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
             <span className="text-[11px] uppercase font-semibold text-slate-500 tracking-wider">Signature</span>
-            <div className="text-sm font-bold text-emerald-400 flex items-center space-x-1 mt-1">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>APK v2 + v3</span>
-            </div>
-            <span className="text-[10px] text-slate-400 truncate">SHA256withRSA</span>
+            <div className="text-sm font-bold text-amber-400 mt-1">{summary.signatureInfo?.status || 'unverified'}</div>
+            <span className="text-[10px] text-slate-400">Requires APK verifier</span>
           </div>
         </div>
       )}
