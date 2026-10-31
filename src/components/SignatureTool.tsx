@@ -9,7 +9,7 @@ export const SignatureTool: React.FC = () => {
     v2: true,
     v3: true
   });
-  const [signingStatus, setSigningStatus] = useState<'idle' | 'signing' | 'success'>('idle');
+  const [signingStatus, setSigningStatus] = useState<'idle' | 'unsupported'>('idle');
   const [signingLog, setSigningLog] = useState<string[]>([]);
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -20,31 +20,13 @@ export const SignatureTool: React.FC = () => {
       .catch(err => console.error('Failed to load certificate:', err));
   }, []);
 
-  const handleSign = async () => {
-    setSigningStatus('signing');
-    setSigningLog(['[ApkSigner] Reading testkey.x509.pem and testkey.pk8 private key...']);
-
-    await new Promise(r => setTimeout(r, 400));
-    setSigningLog(prev => [
-      ...prev,
-      `[ApkSigner] Parsing APK archive for target package: ${targetPackage}`,
-      '[Digest] Calculating SHA-1 & SHA-256 for 2,261 zip central directory entries',
-      '[Digest] Entry classes.dex: SHA-256 verified',
-      '[Digest] Entry classes2.dex: SHA-256 verified',
-      '[Digest] Entry classes3.dex: SHA-256 verified',
-      '[Digest] Entry classes4.dex: SHA-256 verified',
-      '[Digest] Entry classes5.dex: SHA-256 verified'
+  const handleSign = () => {
+    setSigningStatus('unsupported');
+    setSigningLog([
+      '[Not executed] This browser tool does not contain apksigner or a real APK signing pipeline.',
+      'No APK bytes were modified and no signature was created.',
+      'Use a dedicated Android build/signing environment with an authorized signing key.'
     ]);
-
-    await new Promise(r => setTimeout(r, 500));
-    setSigningLog(prev => [
-      ...prev,
-      signingScheme.v1 ? '[v1 JAR Signature] Created META-INF/MANIFEST.MF, CERT.SF, and CERT.RSA' : '[v1 JAR Signature] Skipped',
-      signingScheme.v2 ? '[v2 APK Scheme] Embedded APK Signing Block ID 0x7109871a (2048-bit RSA signature)' : '[v2 APK Scheme] Skipped',
-      signingScheme.v3 ? '[v3 APK Scheme] Embedded APK Signing Block ID 0xf05368c0 (Proof of rotation capabilities)' : '[v3 APK Scheme] Skipped',
-      `SUCCESS: Signed ${targetPackage}.apk successfully! Verification passes on Android 5.0 - Android 14+`
-    ]);
-    setSigningStatus('success');
   };
 
   const copyCert = () => {
@@ -65,17 +47,17 @@ export const SignatureTool: React.FC = () => {
             <span>APK Signing & Certificate Manager (testkey.pk8 / testkey.x509.pem)</span>
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            Cryptographic signing keys extracted from <code className="text-sky-300 font-mono">assets/testkey.*</code> in the repository APK for virtual re-signing and integrity testing.
+            Certificate material found in <code className="text-sky-300 font-mono">assets/testkey.*</code> in the repository APK for certificate inspection only. Possession of a key does not mean the APK is signed or verified.
           </p>
         </div>
 
         <button
           onClick={handleSign}
-          disabled={signingStatus === 'signing'}
+          disabled={false}
           className="flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 disabled:bg-slate-800 text-white text-xs font-semibold shadow-md transition"
         >
           <FileSignature className="w-4 h-4" />
-          <span>{signingStatus === 'signing' ? 'Signing APK...' : 'Sign Target APK'}</span>
+          <span>{signingStatus === 'unsupported' ? 'Signing unavailable here' : 'Check signing capability'}</span>
         </button>
       </div>
 
@@ -143,7 +125,7 @@ export const SignatureTool: React.FC = () => {
         {/* Right: Signature Execution & Schemes */}
         <div className="w-full lg:w-1/2 flex flex-col bg-slate-900 border border-slate-800 rounded-xl overflow-hidden p-4 space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-300 border-b border-slate-800 pb-2">
-            Signature Configuration & Simulator
+            Signature Capability Status
           </span>
 
           <div className="space-y-3 text-xs">
@@ -195,7 +177,7 @@ export const SignatureTool: React.FC = () => {
           <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg p-3 font-mono text-[11px] overflow-y-auto space-y-1 text-slate-300">
             {signingLog.length === 0 ? (
               <div className="text-slate-600 italic">
-                Click "Sign Target APK" to execute virtual cryptographic signing with testkey.pk8.
+                Signing is not executed in this web interface. The button explains the limitation.
               </div>
             ) : (
               signingLog.map((log, i) => (
