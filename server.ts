@@ -872,117 +872,41 @@ SUCCESS: APK signed successfully! Verified with APK Signature Scheme v2 + v3.`;
 });
 
 // Virtual Feature Tests Runner
-app.post('/api/tests/run', (req: Request, res: Response) => {
-  const { testId } = req.body;
-
-  const testDefinitions: Record<string, any> = {
-    integrity: {
-      id: 'integrity',
-      name: 'APK Archive & Integrity Verification',
-      category: 'integrity',
-      status: 'passed',
-      durationMs: 84,
-      summary: 'Verified SHA-256 hash match against PARTS-MANIFEST.json (8f83cef8ac63...) and validated zip central directory structure.',
-      details: [
-        'Checked PARTS-MANIFEST.json reassembly criteria: passed',
-        'Computed SHA-256: 8f83cef8ac63f76a81e1fee3ededb213f6ba43cc19761e38bc4e567c87edd47d',
-        'Central Directory validated: 2,261 entries without corruption',
-        'Deflate compression streams tested: 0 checksum errors'
-      ]
-    },
-    dex: {
-      id: 'dex',
-      name: 'Multi-DEX Structure & Method Limit Analysis',
-      category: 'dex',
-      status: 'passed',
-      durationMs: 142,
-      summary: 'Processed 5 DEX files containing ~37,120 classes and 248,310 method references without exceeding per-file 64k limits.',
-      details: [
-        'classes.dex: 9.08 MB (65,120 method IDs - 99.3% capacity)',
-        'classes2.dex: 8.54 MB (61,420 method IDs)',
-        'classes3.dex: 8.88 MB (64,100 method IDs)',
-        'classes4.dex: 8.78 MB (62,890 method IDs)',
-        'classes5.dex: 3.60 MB (24,780 method IDs)',
-        'All DEX headers validated with DEX 039 format'
-      ]
-    },
-    injection: {
-      id: 'injection',
-      name: 'Smali Hook & Log Injection Engine Test',
-      category: 'runtime',
-      status: 'passed',
-      durationMs: 98,
-      summary: 'Verified InjectedLog.smali bytecode structure and dynamic execution hook in virtual environment.',
-      details: [
-        'Disassembled assets/Log.smali: Found Lbin/tools/inject/InjectedLog;',
-        'Linked blocking queue buffer validated: java.util.concurrent.LinkedBlockingQueue',
-        'Thread safety check: ThreadLocal parameter buffer verified',
-        'Virtual hook dispatcher active and ready for method interception'
-      ]
-    },
-    permissions: {
-      id: 'permissions',
-      name: 'Android Permissions & Security Audit',
-      category: 'security',
-      status: 'warning',
-      durationMs: 65,
-      summary: 'Audited 11 declared Android permissions. 3 elevated storage/package privileges flagged for virtual isolation.',
-      details: [
-        'MANAGE_EXTERNAL_STORAGE: Elevated file access required for dual-pane file management',
-        'REQUEST_INSTALL_PACKAGES: Required for APK test deployments',
-        'QUERY_ALL_PACKAGES: Allows inspection of installed target applications',
-        'Isolation state: Virtual sandbox interceptor engaged to prevent host leakage'
-      ]
-    },
-    abi: {
-      id: 'abi',
-      name: 'Native Libraries ABI Architecture Compatibility',
-      category: 'abi',
-      status: 'passed',
-      durationMs: 52,
-      summary: 'Verified multi-architecture support across arm64-v8a, armeabi-v7a, x86_64, and x86.',
-      details: [
-        'assets/killer_a64: 64-bit ARM ELF executable binary',
-        'assets/killer_arm: 32-bit ARM ELF executable binary',
-        'assets/killer_x64: 64-bit x86 ELF executable binary',
-        'assets/killer_x86: 32-bit x86 ELF executable binary',
-        'Architecture translation: Emulated in software sandbox for aarch64 & x86_64'
-      ]
-    },
-    certificate: {
-      id: 'certificate',
-      name: 'APK Signing Key & X.509 Certificate Validation',
-      category: 'integrity',
-      status: 'passed',
-      durationMs: 44,
-      summary: 'Validated testkey.x509.pem and testkey.pk8 private key against AOSP signer specifications.',
-      details: [
-        'Certificate type: X.509 v3 (RSA 2048-bit)',
-        'Subject DN: CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US',
-        'SHA-256 Fingerprint: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc',
-        'Signature scheme support: v1, v2, and v3 ready for virtual re-signing'
-      ]
-    },
-    localization: {
-      id: 'localization',
-      name: 'ARSC & Multi-Language Localization Check',
-      category: 'runtime',
-      status: 'passed',
-      durationMs: 38,
-      summary: 'Verified 12 language dictionaries (Chinese, Spanish, Russian, Italian, Turkish, Ukrainian, etc.).',
-      details: [
-        'Loaded lang-zh-CN.mtl, lang-zh-TW.mtl, lang-es.mtl, lang-ru.mtl, lang-it.mtl',
-        'Total localized resource strings: ~3,400 translation pairs',
-        'Encoding check: UTF-8 without byte-order-mark errors'
-      ]
-    }
-  };
-
-  if (testId && testDefinitions[testId]) {
-    res.json({ tests: [testDefinitions[testId]] });
-  } else {
-    res.json({ tests: Object.values(testDefinitions) });
+// Tests report static verifications only; dynamic execution is intentionally marked unsupported.
+app.post('/api/tests/run', async (_req: Request, res: Response) => {
+  const zip = await getZip();
+  if (!zip) {
+    res.status(503).json({ tests: [], error: 'Archive not available' });
+    return;
   }
+
+  const names = Object.keys(zip.files).filter(name => !zip.files[name].dir);
+  const dex = names.filter(name => /^classes(\\d+)?\\.dex$/.test(name));
+  const abis = [...new Set(names.map(name => name.match(/^lib\\/([^/]+)\\//)?.[1]).filter(Boolean))];
+  const syntaxCount = names.filter(name => name.startsWith('assets/syntax/') && name.endsWith('.mtsx')).length;
+  const languageCount = names.filter(name => /^assets\\/(lang|strings)(-[^/]+)?\\.mtl$/.test(name)).length;
+  const checks = [
+    { id: 'integrity', name: 'ZIP archive readability', category: 'integrity', ok: true, summary: 'JSZip loaded the archive and enumerated entries.', details: [`${names.length} file entries discovered`] },
+    { id: 'dex', name: 'DEX container presence', category: 'dex', ok: dex.length === 5, summary: `${dex.length} DEX container(s) found; DEX code was not executed.`, details: dex },
+    { id: 'abi', name: 'Native ABI directory presence', category: 'abi', ok: abis.length > 0, summary: `${abis.length} ABI folder(s) found; ELF compatibility has not been run.`, details: abis },
+    { id: 'localization', name: 'Localization assets presence', category: 'runtime', ok: languageCount > 0, summary: `${languageCount} locale-related files found; translation completeness has not been checked.`, details: [] },
+    { id: 'syntax', name: 'Syntax definition presence', category: 'runtime', ok: syntaxCount > 0, summary: `${syntaxCount} syntax definitions found; parser execution has not been checked.`, details: [] },
+    { id: 'runtime', name: 'Android runtime launch', category: 'runtime', ok: false, summary: 'Not run: this web server does not contain an Android emulator or device bridge.', details: ['No app process, Activity lifecycle, ART, or system services were started.'] },
+    { id: 'signature', name: 'APK signature verification', category: 'security', ok: false, summary: 'Not run: apksigner or an equivalent APK Signature Scheme verifier is not configured.', details: ['Certificate file presence alone does not prove APK signature validity.'] },
+    { id: 'root', name: 'Root / privileged operations', category: 'security', ok: false, summary: 'Not run: no Android device, root daemon, or Shizuku connection is attached.', details: ['Terminal output is not a real Android shell.'] }
+  ];
+
+  res.json({
+    tests: checks.map(check => ({
+      id: check.id,
+      name: check.name,
+      category: check.category,
+      status: check.ok ? 'passed' : 'warning',
+      durationMs: 0,
+      summary: check.summary,
+      details: check.details
+    }))
+  });
 });
 
 // Vite middleware or production static
