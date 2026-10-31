@@ -411,23 +411,26 @@ app.get('/api/tools/killer-modules', (req: Request, res: Response) => {
   res.json({ modules });
 });
 
-// Status API
-app.get('/api/status', async (req: Request, res: Response) => {
+// Web service status only. This server is not an Android emulator and has no root/device session.
+app.get('/api/status', async (_req: Request, res: Response) => {
   const zipExists = fs.existsSync(path.join(__dirname, 'test.zip'));
   res.json({
     status: 'ONLINE',
     environment: {
-      name: 'Android Virtual Testing Environment',
-      type: 'Virtual Sandbox & Emulation Layer',
-      androidVersion: '14.0 (API 34, UpsideDownCake)',
-      kernel: 'Linux 6.1.0-virtual-aarch64 #1 SMP PREEMPT',
-      architecture: 'aarch64 / x86_64',
-      rootAccess: true,
-      selinux: 'Permissive',
-      deviceModel: 'Pixel 7 Pro (Virtual Testbed)'
+      name: 'Web inspection service',
+      type: 'Browser-based archive inspection; no Android runtime attached',
+      androidVersion: null,
+      kernel: null,
+      architecture: process.arch,
+      rootAccess: false,
+      deviceConnected: false,
+      selinux: null,
+      deviceModel: null
     },
     apkLoaded: zipExists,
-    loadedApkPath: 'test.zip (Test-Features-virtually)',
+    loadedApkPath: zipExists ? 'test.zip' : null,
+    runtimeTesting: 'unavailable',
+    signing: 'unavailable',
     uptimeSeconds: Math.floor(process.uptime()),
     timestamp: new Date().toISOString()
   });
