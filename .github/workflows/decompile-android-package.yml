@@ -62,7 +62,7 @@ jobs:
           fi
           echo "$EXPECTED_SHA256  work/input.zip" | sha256sum --check -
           unzip -t work/input.zip >/dev/null
-          if unzip -l work/input.zip | grep -Eq '(^|/)AndroidManifest.xml$'; then
+          if unzip -Z1 work/input.zip | grep -Fxq 'AndroidManifest.xml'; then
             cp work/input.zip work/input.apk
           else
             echo "The supplied ZIP does not appear to contain an AndroidManifest.xml; refusing to treat it as an APK."
