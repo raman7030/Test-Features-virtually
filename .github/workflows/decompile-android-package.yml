@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       archive_url:
-        description: "HTTPS direct-download URL for the authorized APK/ZIP (leave blank only if decompile-input/test.zip is already in the repository)"
+        description: "Google Drive sharing URL or HTTPS direct-download URL (leave blank only if decompile-input/test.zip is already in the repository)"
         required: false
         type: string
       expected_sha256:
@@ -44,7 +44,12 @@ jobs:
           mkdir -p work
           if [ -n "$ARCHIVE_URL" ]; then
             case "$ARCHIVE_URL" in https://*) ;; *) echo "Only HTTPS archive URLs are accepted"; exit 1;; esac
-            curl --fail --location --retry 3 --output work/input.zip "$ARCHIVE_URL"
+            if [[ "$ARCHIVE_URL" == *"drive.google.com"* ]]; then
+              python -m pip install --disable-pip-version-check gdown
+              gdown --fuzzy "$ARCHIVE_URL" -O work/input.zip
+            else
+              curl --fail --location --retry 3 --output work/input.zip "$ARCHIVE_URL"
+            fi
           elif [ -f decompile-input/test.zip ]; then
             cp decompile-input/test.zip work/input.zip
           else
