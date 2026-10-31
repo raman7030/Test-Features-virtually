@@ -1,0 +1,117 @@
+name: Decompile authorized Android package
+
+on:
+  workflow_dispatch:
+    inputs:
+      archive_url:
+        description: "HTTPS direct-download URL for the authorized APK/ZIP (leave blank only if decompile-input/test.zip is already in the repository)"
+        required: false
+        type: string
+      expected_sha256:
+        description: "Expected SHA-256 of the input archive"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-decompile-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  decompile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Obtain and verify input
+        env:
+          ARCHIVE_URL: ${{ inputs.archive_url }}
+          EXPECTED_SHA256: ${{ inputs.expected_sha256 }}
+        run: |
+          set -euo pipefail
+          mkdir -p work
+          if [ -n "$ARCHIVE_URL" ]; then
+            case "$ARCHIVE_URL" in https://*) ;; *) echo "Only HTTPS archive URLs are accepted"; exit 1;; esac
+            curl --fail --location --retry 3 --output work/input.zip "$ARCHIVE_URL"
+          elif [ -f decompile-input/test.zip ]; then
+            cp decompile-input/test.zip work/input.zip
+          else
+            echo "No input archive. Supply an HTTPS direct-download URL or add decompile-input/test.zip."
+            exit 1
+          fi
+          echo "$EXPECTED_SHA256  work/input.zip" | sha256sum --check -
+          unzip -t work/input.zip >/dev/null
+          if unzip -l work/input.zip | grep -Eq '(^|/)AndroidManifest.xml$'; then
+            cp work/input.zip work/input.apk
+          else
+            echo "The supplied ZIP does not appear to contain an AndroidManifest.xml; refusing to treat it as an APK."
+            exit 1
+          fi
+
+      - name: Download and verify JADX
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o work/jadx.zip https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip
+          echo "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974  work/jadx.zip" | sha256sum --check -
+          mkdir -p work/jadx
+          unzip -q work/jadx.zip -d work/jadx
+
+      - name: Download and verify Apktool
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o work/apktool.jar https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar
+          echo "dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423  work/apktool.jar" | sha256sum --check -
+
+      - name: Decompile code and decode package resources
+        run: |
+          set -euo pipefail
+          rm -rf decompiled
+          mkdir -p decompiled
+          JADX_BIN="$(find work/jadx -type f -path '*/bin/jadx' -print -quit)"
+          if [ -z "$JADX_BIN" ]; then echo "JADX executable not found"; exit 1; fi
+          chmod +x "$JADX_BIN"
+          "$JADX_BIN" --show-bad-code -d decompiled/jadx work/input.apk
+          java -jar work/apktool.jar d -f -o decompiled/apktool work/input.apk
+          {
+            echo "# Decompilation report"
+            echo
+            echo "- Input SHA-256: `$(sha256sum work/input.zip | cut -d' ' -f1)`"
+            echo "- JADX: 1.5.6"
+            echo "- Apktool: 3.0.3"
+            echo "- Decompiled on: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo "## Output"
+            echo "- `jadx/`: reconstructed Java source and JADX resources"
+            echo "- `apktool/`: decoded manifest, resources, smali, assets and package structure"
+            echo
+            echo "Decompilation is best-effort. Decompiled Java is reconstructed output, not the original authoring source. Native libraries and other binary assets remain binary."
+          } > decompiled/README.md
+          du -sh decompiled
+          find decompiled -type f | wc -l
+
+      - name: Commit readable output
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add decompiled
+          if git diff --cached --quiet; then
+            echo "No decompiled output changes to commit."
+            exit 0
+          fi
+          git commit -m "Add readable decompiled Android package sources"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
