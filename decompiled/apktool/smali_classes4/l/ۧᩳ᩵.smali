@@ -1,0 +1,92 @@
+.class public final Ll/ۧᩳ᩵;
+.super Ll/ۖᩳ᩵;
+.source "N673"
+
+# interfaces
+.implements Ll/ۚܽ᩵;
+
+
+# instance fields
+.field public final synthetic c:Ll/᩶ᩳ᩵;
+
+.field public final synthetic d:Ljava/util/function/DoublePredicate;
+
+
+# direct methods
+.method public constructor <init>(Ll/᩶ᩳ᩵;Ljava/util/function/DoublePredicate;)V
+    .locals 0
+
+    .line 173
+    iput-object p1, p0, Ll/ۧᩳ᩵;->c:Ll/᩶ᩳ᩵;
+
+    iput-object p2, p0, Ll/ۧᩳ᩵;->d:Ljava/util/function/DoublePredicate;
+
+    .line 174
+    invoke-direct {p0, p1}, Ll/ۖᩳ᩵;-><init>(Ll/᩶ᩳ᩵;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final accept(D)V
+    .locals 1
+
+    .line 179
+    iget-boolean v0, p0, Ll/ۖᩳ᩵;->a:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Ll/ۧᩳ᩵;->d:Ljava/util/function/DoublePredicate;
+
+    invoke-interface {v0, p1, p2}, Ljava/util/function/DoublePredicate;->test(D)Z
+
+    move-result p1
+
+    .line 0
+    iget-object p2, p0, Ll/ۧᩳ᩵;->c:Ll/᩶ᩳ᩵;
+
+    iget-boolean v0, p2, Ll/᩶ᩳ᩵;->a:Z
+
+    if-ne p1, v0, :cond_0
+
+    const/4 p1, 0x1
+
+    .line 180
+    iput-boolean p1, p0, Ll/ۖᩳ᩵;->a:Z
+
+    .line 0
+    iget-boolean p1, p2, Ll/᩶ᩳ᩵;->b:Z
+
+    .line 181
+    iput-boolean p1, p0, Ll/ۖᩳ᩵;->b:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method public final bridge synthetic accept(Ljava/lang/Object;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Ll/ۡ᩺ᩴ;->o(Ll/ۚܽ᩵;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public final synthetic andThen(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;
+    .locals 0
+
+    invoke-static {p0, p1}, Ll/ܺ᩶ᩴ;->a(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)Ll/۠ۛᩴ;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final synthetic n(Ljava/lang/Double;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Ll/ۡ᩺ᩴ;->n(Ll/ۚܽ᩵;Ljava/lang/Double;)V
+
+    return-void
+.end method

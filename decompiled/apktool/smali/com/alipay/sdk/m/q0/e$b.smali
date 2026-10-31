@@ -1,0 +1,38 @@
+.class public Lcom/alipay/sdk/m/q0/e$b;
+.super Ljava/lang/Object;
+.source "N673"
+
+
+# instance fields
+.field public a:[I
+
+.field public b:I
+
+.field public c:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v0, 0x100
+
+    new-array v0, v0, [I
+
+    .line 2
+    iput-object v0, p0, Lcom/alipay/sdk/m/q0/e$b;->a:[I
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/alipay/sdk/m/q0/e$a;)V
+    .locals 0
+
+    .line 3
+    invoke-direct {p0}, Lcom/alipay/sdk/m/q0/e$b;-><init>()V
+
+    return-void
+.end method

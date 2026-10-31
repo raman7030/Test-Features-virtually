@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="APKTOOL_RENAMED_0x7f030002">
+        <item>代码</item>
+        <item>字符串</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030003">
+        <item>代码</item>
+        <item>资源ID</item>
+        <item>字符串</item>
+        <item>整数</item>
+        <item>颜色</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030004">
+        <item>文本（Str）</item>
+        <item>引用（Ref）</item>
+        <item>属性（Attr）</item>
+        <item>颜色（Color）</item>
+        <item>整数（Dec）</item>
+        <item>整数（Hex）</item>
+        <item>布尔（Bool）</item>
+        <item>小数（Float）</item>
+        <item>尺寸（Dimen）</item>
+        <item>分数（Frac）</item>
+        <item>动态引用</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030005">
+        <item>代码</item>
+        <item>字符串</item>
+        <item>资源ID</item>
+        <item>颜色</item>
+        <item>整数</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030008">
+        <item>自动</item>
+        <item>启用</item>
+        <item>禁用</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030009">
+        <item>复制为 十六进制</item>
+        <item>复制为 十进制</item>
+        <item>复制为 二进制</item>
+        <item>复制为 Ascii</item>
+        <item>复制为 Base64</item>
+        <item>复制为 SHA1</item>
+        <item>复制为 MD5</item>
+        <item>复制为 CRC32</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000c">
+        <item>代码</item>
+        <item>字符串</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000d">
+        <item>代码</item>
+        <item>类名</item>
+        <item>字段名</item>
+        <item>方法名</item>
+        <item>字符串</item>
+        <item>整数</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000e">
+        <item>方法申明</item>
+        <item>字段申明</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000f">
+        <item>0.25 倍</item>
+        <item>0.5 倍</item>
+        <item>0.75 倍</item>
+        <item>正常</item>
+        <item>1.25 倍</item>
+        <item>1.5 倍</item>
+        <item>2 倍</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030010">
+        <item>应用名称</item>
+        <item>应用包名</item>
+        <item>安装包大小</item>
+        <item>首次安装时间</item>
+        <item>最后更新时间</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030012">
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030016">
+        <item>查找所有调用</item>
+        <item>仅查找 put 调用</item>
+        <item>仅查找 get 调用</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03001f">
+        <item>首页</item>
+        <item>上次路径</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030020">
+        <item>粘贴从 十六进制</item>
+        <item>粘贴从 十进制</item>
+        <item>粘贴从 二进制</item>
+        <item>粘贴从 Ascii</item>
+        <item>粘贴从 Base64</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030025">
+        <item>正常字体</item>
+        <item>等宽字体</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030027">
+        <item>全部替换</item>
+        <item>更新替换</item>
+        <item>全部跳过</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030028">
+        <item>仅存储</item>
+        <item>极速压缩</item>
+        <item>快速压缩</item>
+        <item>标准压缩</item>
+        <item>最大压缩</item>
+        <item>极限压缩</item>
+        <item>APK模式</item>
+    </string-array>
+</resources>

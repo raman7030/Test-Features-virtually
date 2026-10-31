@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f130025" parent="@style/MT_Protector_res_0x7f130049">
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

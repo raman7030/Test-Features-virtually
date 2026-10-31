@@ -1,0 +1,46 @@
+package l;
+
+import com.google.android.material.color.ColorResourcesTableCreator;
+import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.cb;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
+import org.bouncycastle.crypto.signers.PSSSigner;
+import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
+import org.bouncycastle.util.encoders.Base32Encoder;
+import org.bouncycastle.util.encoders.UTF8;
+
+/* JADX INFO: renamed from: l.ۘ۠֡, reason: contains not printable characters */
+/* JADX INFO: compiled from: S7SF */
+/* JADX INFO: loaded from: classes2.dex */
+public final class C3808 {
+
+    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
+    public final byte[] f12006 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, cb.k, cb.f77931l, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 29, 30, bo.j, UTF8.S_CS3, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, UTF8.S_P3A, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, Base32Encoder.DEFAULT_PADDING, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, UTF8.S_P4A, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, UTF8.S_P4B, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, KeyFactorySpi.x25519_type, KeyFactorySpi.x448_type, KeyFactorySpi.Ed25519_type, KeyFactorySpi.Ed448_type, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, GCMSIVBlockCipher.MASK, -127, bo.h, -125, -124, -123, -122, -121, -120, -119, -118, -117, -116, -115, -114, -113, -112, -111, -110, -109, -108, -107, -106, -105, -104, -103, -102, -101, -100, -99, -98, -97, -96, -95, -94, -93, -92, -91, -90, -89, -88, -87, -86, -85, -84, -83, -82, -81, -80, -79, -78, -77, -76, -75, -74, -73, -72, -71, -70, -69, PSSSigner.TRAILER_IMPLICIT, -67, -66, -65, -64, -63, -62, -61, -60, -59, -58, -57, -56, -55, -54, -53, -52, -51, -50, -49, -48, -47, -46, -45, -44, -43, -42, -41, -40, -39, -38, -37, -36, -35, -34, -33, bo.k, GCMSIVBlockCipher.ADD, -30, -29, -28, -27, -26, -25, -24, -23, -22, -21, -20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1};
+
+    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
+    public final int m11491(byte b) {
+        byte[] bArr = this.f12006;
+        int i = 0;
+        byte b2 = bArr[0];
+        if (b != b2) {
+            bArr[0] = b;
+            while (b != b2) {
+                i++;
+                byte b3 = bArr[i];
+                bArr[i] = b2;
+                b2 = b3;
+            }
+        }
+        return i;
+    }
+
+    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
+    public final byte m11490(int i) {
+        byte[] bArr = this.f12006;
+        byte b = bArr[i];
+        System.arraycopy(bArr, 0, bArr, 1, i);
+        bArr[0] = b;
+        return b;
+    }
+}

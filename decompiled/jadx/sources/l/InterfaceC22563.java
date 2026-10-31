@@ -1,0 +1,9 @@
+package l;
+
+import java.util.List;
+
+/* JADX INFO: renamed from: l.᩹᩸᩵, reason: contains not printable characters */
+/* JADX INFO: compiled from: B99Q */
+/* JADX INFO: loaded from: classes.dex */
+public interface InterfaceC22563 extends List {
+}

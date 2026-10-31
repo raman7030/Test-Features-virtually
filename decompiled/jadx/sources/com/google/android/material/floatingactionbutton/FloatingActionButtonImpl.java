@@ -1,0 +1,785 @@
+package com.google.android.material.floatingactionbutton;
+
+import android.R;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.FloatEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.TimeInterpolator;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
+import android.content.res.ColorStateList;
+import android.graphics.Matrix;
+import android.graphics.PorterDuff;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.InsetDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
+import android.util.Property;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import com.google.android.material.animation.AnimationUtils;
+import com.google.android.material.animation.AnimatorSetCompat;
+import com.google.android.material.animation.ImageMatrixProperty;
+import com.google.android.material.animation.MatrixEvaluator;
+import com.google.android.material.animation.MotionSpec;
+import com.google.android.material.internal.StateListAnimator;
+import com.google.android.material.motion.MotionUtils;
+import com.google.android.material.ripple.RippleDrawableCompat;
+import com.google.android.material.ripple.RippleUtils;
+import com.google.android.material.shadow.ShadowViewDelegate;
+import com.google.android.material.shape.MaterialShapeDrawable;
+import com.google.android.material.shape.MaterialShapeUtils;
+import com.google.android.material.shape.ShapeAppearanceModel;
+import com.google.android.material.shape.Shapeable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import l.C13746;
+import l.C17648;
+import l.C17931;
+import l.C8184;
+import l.C9465;
+
+/* JADX INFO: loaded from: classes.dex */
+public class FloatingActionButtonImpl {
+    public static final int ANIM_STATE_HIDING = 1;
+    public static final int ANIM_STATE_NONE = 0;
+    public static final int ANIM_STATE_SHOWING = 2;
+    public static final long ELEVATION_ANIM_DELAY = 100;
+    public static final long ELEVATION_ANIM_DURATION = 100;
+    public static final float HIDE_ICON_SCALE = 0.4f;
+    public static final float HIDE_OPACITY = 0.0f;
+    public static final float HIDE_SCALE = 0.4f;
+    public static final float SHADOW_MULTIPLIER = 1.5f;
+    public static final float SHOW_ICON_SCALE = 1.0f;
+    public static final float SHOW_OPACITY = 1.0f;
+    public static final float SHOW_SCALE = 1.0f;
+    public static final float SPEC_HIDE_ICON_SCALE = 0.0f;
+    public static final float SPEC_HIDE_SCALE = 0.0f;
+    public BorderDrawable borderDrawable;
+    public Drawable contentBackground;
+    public Animator currentAnimator;
+    public float elevation;
+    public boolean ensureMinTouchTargetSize;
+    public ArrayList hideListeners;
+    public MotionSpec hideMotionSpec;
+    public float hoveredFocusedTranslationZ;
+    public int maxImageSize;
+    public int minTouchTargetSize;
+    public ViewTreeObserver.OnPreDrawListener preDrawListener;
+    public float pressedTranslationZ;
+    public Drawable rippleDrawable;
+    public float rotation;
+    public final ShadowViewDelegate shadowViewDelegate;
+    public ShapeAppearanceModel shapeAppearance;
+    public MaterialShapeDrawable shapeDrawable;
+    public ArrayList showListeners;
+    public MotionSpec showMotionSpec;
+    public final StateListAnimator stateListAnimator;
+    public ArrayList transformationCallbacks;
+    public final FloatingActionButton view;
+    public static final TimeInterpolator ELEVATION_ANIM_INTERPOLATOR = AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR;
+    public static final int SHOW_ANIM_DURATION_ATTR = C17931.f54897;
+    public static final int SHOW_ANIM_EASING_ATTR = C17931.f55271;
+    public static final int HIDE_ANIM_DURATION_ATTR = C17931.f55717;
+    public static final int HIDE_ANIM_EASING_ATTR = C17931.f55408;
+    public static final int[] PRESSED_ENABLED_STATE_SET = {R.attr.state_pressed, R.attr.state_enabled};
+    public static final int[] HOVERED_FOCUSED_ENABLED_STATE_SET = {R.attr.state_hovered, R.attr.state_focused, R.attr.state_enabled};
+    public static final int[] FOCUSED_ENABLED_STATE_SET = {R.attr.state_focused, R.attr.state_enabled};
+    public static final int[] HOVERED_ENABLED_STATE_SET = {R.attr.state_hovered, R.attr.state_enabled};
+    public static final int[] ENABLED_STATE_SET = {R.attr.state_enabled};
+    public static final int[] EMPTY_STATE_SET = new int[0];
+    public boolean shadowPaddingEnabled = true;
+    public float imageMatrixScale = 1.0f;
+    public int animState = 0;
+    public final Rect tmpRect = new Rect();
+    public final RectF tmpRectF1 = new RectF();
+    public final RectF tmpRectF2 = new RectF();
+    public final Matrix tmpMatrix = new Matrix();
+
+    public interface InternalTransformationCallback {
+        void onScaleChanged();
+
+        void onTranslationChanged();
+    }
+
+    public interface InternalVisibilityChangedListener {
+        void onHidden();
+
+        void onShown();
+    }
+
+    public void onCompatShadowChanged() {
+    }
+
+    public boolean requirePreDrawListener() {
+        return true;
+    }
+
+    public boolean shouldAddPadding() {
+        return true;
+    }
+
+    public FloatingActionButtonImpl(FloatingActionButton floatingActionButton, ShadowViewDelegate shadowViewDelegate) {
+        this.view = floatingActionButton;
+        this.shadowViewDelegate = shadowViewDelegate;
+        StateListAnimator stateListAnimator = new StateListAnimator();
+        this.stateListAnimator = stateListAnimator;
+        stateListAnimator.addState(PRESSED_ENABLED_STATE_SET, createElevationAnimator(new ElevateToPressedTranslationZAnimation()));
+        stateListAnimator.addState(HOVERED_FOCUSED_ENABLED_STATE_SET, createElevationAnimator(new ElevateToHoveredFocusedTranslationZAnimation()));
+        stateListAnimator.addState(FOCUSED_ENABLED_STATE_SET, createElevationAnimator(new ElevateToHoveredFocusedTranslationZAnimation()));
+        stateListAnimator.addState(HOVERED_ENABLED_STATE_SET, createElevationAnimator(new ElevateToHoveredFocusedTranslationZAnimation()));
+        stateListAnimator.addState(ENABLED_STATE_SET, createElevationAnimator(new ResetElevationAnimation()));
+        stateListAnimator.addState(EMPTY_STATE_SET, createElevationAnimator(new DisabledElevationAnimation()));
+        this.rotation = floatingActionButton.getRotation();
+    }
+
+    public void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+        MaterialShapeDrawable materialShapeDrawableCreateShapeDrawable = createShapeDrawable();
+        this.shapeDrawable = materialShapeDrawableCreateShapeDrawable;
+        materialShapeDrawableCreateShapeDrawable.setTintList(colorStateList);
+        if (mode != null) {
+            this.shapeDrawable.setTintMode(mode);
+        }
+        this.shapeDrawable.setShadowColor(-12303292);
+        this.shapeDrawable.initializeElevationOverlay(this.view.getContext());
+        RippleDrawableCompat rippleDrawableCompat = new RippleDrawableCompat(this.shapeDrawable.getShapeAppearanceModel());
+        rippleDrawableCompat.setTintList(RippleUtils.sanitizeRippleDrawableColor(colorStateList2));
+        this.rippleDrawable = rippleDrawableCompat;
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        materialShapeDrawable.getClass();
+        this.contentBackground = new LayerDrawable(new Drawable[]{materialShapeDrawable, rippleDrawableCompat});
+    }
+
+    public void setBackgroundTintList(ColorStateList colorStateList) {
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setTintList(colorStateList);
+        }
+        BorderDrawable borderDrawable = this.borderDrawable;
+        if (borderDrawable != null) {
+            borderDrawable.setBorderTint(colorStateList);
+        }
+    }
+
+    public void setBackgroundTintMode(PorterDuff.Mode mode) {
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setTintMode(mode);
+        }
+    }
+
+    public void setMinTouchTargetSize(int i) {
+        this.minTouchTargetSize = i;
+    }
+
+    public void setRippleColor(ColorStateList colorStateList) {
+        Drawable drawable = this.rippleDrawable;
+        if (drawable != null) {
+            C8184.m21676(drawable, RippleUtils.sanitizeRippleDrawableColor(colorStateList));
+        }
+    }
+
+    public final void setElevation(float f) {
+        if (this.elevation != f) {
+            this.elevation = f;
+            onElevationsChanged(f, this.hoveredFocusedTranslationZ, this.pressedTranslationZ);
+        }
+    }
+
+    public float getElevation() {
+        return this.elevation;
+    }
+
+    public float getHoveredFocusedTranslationZ() {
+        return this.hoveredFocusedTranslationZ;
+    }
+
+    public float getPressedTranslationZ() {
+        return this.pressedTranslationZ;
+    }
+
+    public final void setHoveredFocusedTranslationZ(float f) {
+        if (this.hoveredFocusedTranslationZ != f) {
+            this.hoveredFocusedTranslationZ = f;
+            onElevationsChanged(this.elevation, f, this.pressedTranslationZ);
+        }
+    }
+
+    public final void setPressedTranslationZ(float f) {
+        if (this.pressedTranslationZ != f) {
+            this.pressedTranslationZ = f;
+            onElevationsChanged(this.elevation, this.hoveredFocusedTranslationZ, f);
+        }
+    }
+
+    public final void setMaxImageSize(int i) {
+        if (this.maxImageSize != i) {
+            this.maxImageSize = i;
+            updateImageMatrixScale();
+        }
+    }
+
+    public final void updateImageMatrixScale() {
+        setImageMatrixScale(this.imageMatrixScale);
+    }
+
+    public final void setImageMatrixScale(float f) {
+        this.imageMatrixScale = f;
+        Matrix matrix = this.tmpMatrix;
+        calculateImageMatrixFromScale(f, matrix);
+        this.view.setImageMatrix(matrix);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void calculateImageMatrixFromScale(float f, Matrix matrix) {
+        matrix.reset();
+        Drawable drawable = this.view.getDrawable();
+        if (drawable == null || this.maxImageSize == 0) {
+            return;
+        }
+        RectF rectF = this.tmpRectF1;
+        RectF rectF2 = this.tmpRectF2;
+        rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        int i = this.maxImageSize;
+        rectF2.set(0.0f, 0.0f, i, i);
+        matrix.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
+        int i2 = this.maxImageSize;
+        matrix.postScale(f, f, i2 / 2.0f, i2 / 2.0f);
+    }
+
+    public final void setShapeAppearance(ShapeAppearanceModel shapeAppearanceModel) {
+        this.shapeAppearance = shapeAppearanceModel;
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setShapeAppearanceModel(shapeAppearanceModel);
+        }
+        Object obj = this.rippleDrawable;
+        if (obj instanceof Shapeable) {
+            ((Shapeable) obj).setShapeAppearanceModel(shapeAppearanceModel);
+        }
+        BorderDrawable borderDrawable = this.borderDrawable;
+        if (borderDrawable != null) {
+            borderDrawable.setShapeAppearanceModel(shapeAppearanceModel);
+        }
+    }
+
+    public final ShapeAppearanceModel getShapeAppearance() {
+        return this.shapeAppearance;
+    }
+
+    public final MotionSpec getShowMotionSpec() {
+        return this.showMotionSpec;
+    }
+
+    public final void setShowMotionSpec(MotionSpec motionSpec) {
+        this.showMotionSpec = motionSpec;
+    }
+
+    public final MotionSpec getHideMotionSpec() {
+        return this.hideMotionSpec;
+    }
+
+    public final void setHideMotionSpec(MotionSpec motionSpec) {
+        this.hideMotionSpec = motionSpec;
+    }
+
+    public final boolean shouldExpandBoundsForA11y() {
+        return !this.ensureMinTouchTargetSize || this.view.getSizeDimension() >= this.minTouchTargetSize;
+    }
+
+    public boolean getEnsureMinTouchTargetSize() {
+        return this.ensureMinTouchTargetSize;
+    }
+
+    public void setEnsureMinTouchTargetSize(boolean z) {
+        this.ensureMinTouchTargetSize = z;
+    }
+
+    public void setShadowPaddingEnabled(boolean z) {
+        this.shadowPaddingEnabled = z;
+        updatePadding();
+    }
+
+    public void onElevationsChanged(float f, float f2, float f3) {
+        jumpDrawableToCurrentState();
+        updatePadding();
+        updateShapeElevation(f);
+    }
+
+    public void updateShapeElevation(float f) {
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setElevation(f);
+        }
+    }
+
+    public void onDrawableStateChanged(int[] iArr) {
+        this.stateListAnimator.setState(iArr);
+    }
+
+    public void jumpDrawableToCurrentState() {
+        this.stateListAnimator.jumpToCurrentState();
+    }
+
+    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+        if (this.showListeners == null) {
+            this.showListeners = new ArrayList();
+        }
+        this.showListeners.add(animatorListener);
+    }
+
+    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+        ArrayList arrayList = this.showListeners;
+        if (arrayList == null) {
+            return;
+        }
+        arrayList.remove(animatorListener);
+    }
+
+    public void addOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+        if (this.hideListeners == null) {
+            this.hideListeners = new ArrayList();
+        }
+        this.hideListeners.add(animatorListener);
+    }
+
+    public void removeOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+        ArrayList arrayList = this.hideListeners;
+        if (arrayList == null) {
+            return;
+        }
+        arrayList.remove(animatorListener);
+    }
+
+    public void hide(final InternalVisibilityChangedListener internalVisibilityChangedListener, final boolean z) {
+        AnimatorSet animatorSetCreateDefaultAnimator;
+        if (isOrWillBeHidden()) {
+            return;
+        }
+        Animator animator = this.currentAnimator;
+        if (animator != null) {
+            animator.cancel();
+        }
+        if (shouldAnimateVisibilityChange()) {
+            MotionSpec motionSpec = this.hideMotionSpec;
+            if (motionSpec != null) {
+                animatorSetCreateDefaultAnimator = createAnimator(motionSpec, 0.0f, 0.0f, 0.0f);
+            } else {
+                animatorSetCreateDefaultAnimator = createDefaultAnimator(0.0f, 0.4f, 0.4f, HIDE_ANIM_DURATION_ATTR, HIDE_ANIM_EASING_ATTR);
+            }
+            animatorSetCreateDefaultAnimator.addListener(new AnimatorListenerAdapter() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.1
+                public boolean cancelled;
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator2) {
+                    FloatingActionButtonImpl.this.view.internalSetVisibility(0, z);
+                    FloatingActionButtonImpl.this.animState = 1;
+                    FloatingActionButtonImpl.this.currentAnimator = animator2;
+                    this.cancelled = false;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator2) {
+                    this.cancelled = true;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator2) {
+                    FloatingActionButtonImpl.this.animState = 0;
+                    FloatingActionButtonImpl.this.currentAnimator = null;
+                    if (this.cancelled) {
+                        return;
+                    }
+                    FloatingActionButton floatingActionButton = FloatingActionButtonImpl.this.view;
+                    boolean z2 = z;
+                    floatingActionButton.internalSetVisibility(z2 ? 8 : 4, z2);
+                    InternalVisibilityChangedListener internalVisibilityChangedListener2 = internalVisibilityChangedListener;
+                    if (internalVisibilityChangedListener2 != null) {
+                        internalVisibilityChangedListener2.onHidden();
+                    }
+                }
+            });
+            ArrayList arrayList = this.hideListeners;
+            if (arrayList != null) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    animatorSetCreateDefaultAnimator.addListener((Animator.AnimatorListener) it.next());
+                }
+            }
+            animatorSetCreateDefaultAnimator.start();
+            return;
+        }
+        this.view.internalSetVisibility(z ? 8 : 4, z);
+        if (internalVisibilityChangedListener != null) {
+            internalVisibilityChangedListener.onHidden();
+        }
+    }
+
+    public void show(final InternalVisibilityChangedListener internalVisibilityChangedListener, final boolean z) {
+        AnimatorSet animatorSetCreateDefaultAnimator;
+        if (isOrWillBeShown()) {
+            return;
+        }
+        Animator animator = this.currentAnimator;
+        if (animator != null) {
+            animator.cancel();
+        }
+        boolean z2 = this.showMotionSpec == null;
+        if (shouldAnimateVisibilityChange()) {
+            if (this.view.getVisibility() != 0) {
+                this.view.setAlpha(0.0f);
+                this.view.setScaleY(z2 ? 0.4f : 0.0f);
+                this.view.setScaleX(z2 ? 0.4f : 0.0f);
+                setImageMatrixScale(z2 ? 0.4f : 0.0f);
+            }
+            MotionSpec motionSpec = this.showMotionSpec;
+            if (motionSpec != null) {
+                animatorSetCreateDefaultAnimator = createAnimator(motionSpec, 1.0f, 1.0f, 1.0f);
+            } else {
+                animatorSetCreateDefaultAnimator = createDefaultAnimator(1.0f, 1.0f, 1.0f, SHOW_ANIM_DURATION_ATTR, SHOW_ANIM_EASING_ATTR);
+            }
+            animatorSetCreateDefaultAnimator.addListener(new AnimatorListenerAdapter() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.2
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator2) {
+                    FloatingActionButtonImpl.this.view.internalSetVisibility(0, z);
+                    FloatingActionButtonImpl.this.animState = 2;
+                    FloatingActionButtonImpl.this.currentAnimator = animator2;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator2) {
+                    FloatingActionButtonImpl.this.animState = 0;
+                    FloatingActionButtonImpl.this.currentAnimator = null;
+                    InternalVisibilityChangedListener internalVisibilityChangedListener2 = internalVisibilityChangedListener;
+                    if (internalVisibilityChangedListener2 != null) {
+                        internalVisibilityChangedListener2.onShown();
+                    }
+                }
+            });
+            ArrayList arrayList = this.showListeners;
+            if (arrayList != null) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    animatorSetCreateDefaultAnimator.addListener((Animator.AnimatorListener) it.next());
+                }
+            }
+            animatorSetCreateDefaultAnimator.start();
+            return;
+        }
+        this.view.internalSetVisibility(0, z);
+        this.view.setAlpha(1.0f);
+        this.view.setScaleY(1.0f);
+        this.view.setScaleX(1.0f);
+        setImageMatrixScale(1.0f);
+        if (internalVisibilityChangedListener != null) {
+            internalVisibilityChangedListener.onShown();
+        }
+    }
+
+    private AnimatorSet createAnimator(MotionSpec motionSpec, float f, float f2, float f3) {
+        ArrayList arrayList = new ArrayList();
+        ObjectAnimator objectAnimatorOfFloat = ObjectAnimator.ofFloat(this.view, (Property<FloatingActionButton, Float>) View.ALPHA, f);
+        motionSpec.getTiming("opacity").apply(objectAnimatorOfFloat);
+        arrayList.add(objectAnimatorOfFloat);
+        ObjectAnimator objectAnimatorOfFloat2 = ObjectAnimator.ofFloat(this.view, (Property<FloatingActionButton, Float>) View.SCALE_X, f2);
+        motionSpec.getTiming("scale").apply(objectAnimatorOfFloat2);
+        workAroundOreoBug(objectAnimatorOfFloat2);
+        arrayList.add(objectAnimatorOfFloat2);
+        ObjectAnimator objectAnimatorOfFloat3 = ObjectAnimator.ofFloat(this.view, (Property<FloatingActionButton, Float>) View.SCALE_Y, f2);
+        motionSpec.getTiming("scale").apply(objectAnimatorOfFloat3);
+        workAroundOreoBug(objectAnimatorOfFloat3);
+        arrayList.add(objectAnimatorOfFloat3);
+        calculateImageMatrixFromScale(f3, this.tmpMatrix);
+        ObjectAnimator objectAnimatorOfObject = ObjectAnimator.ofObject(this.view, new ImageMatrixProperty(), new MatrixEvaluator() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.3
+            @Override // com.google.android.material.animation.MatrixEvaluator, android.animation.TypeEvaluator
+            public Matrix evaluate(float f4, Matrix matrix, Matrix matrix2) {
+                FloatingActionButtonImpl.this.imageMatrixScale = f4;
+                return super.evaluate(f4, matrix, matrix2);
+            }
+        }, new Matrix(this.tmpMatrix));
+        motionSpec.getTiming("iconScale").apply(objectAnimatorOfObject);
+        arrayList.add(objectAnimatorOfObject);
+        AnimatorSet animatorSet = new AnimatorSet();
+        AnimatorSetCompat.playTogether(animatorSet, arrayList);
+        return animatorSet;
+    }
+
+    private AnimatorSet createDefaultAnimator(final float f, final float f2, final float f3, int i, int i2) {
+        AnimatorSet animatorSet = new AnimatorSet();
+        ArrayList arrayList = new ArrayList();
+        ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        final float alpha = this.view.getAlpha();
+        final float scaleX = this.view.getScaleX();
+        final float scaleY = this.view.getScaleY();
+        final float f4 = this.imageMatrixScale;
+        final Matrix matrix = new Matrix(this.tmpMatrix);
+        valueAnimatorOfFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.4
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float fFloatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                FloatingActionButtonImpl.this.view.setAlpha(AnimationUtils.lerp(alpha, f, 0.0f, 0.2f, fFloatValue));
+                FloatingActionButtonImpl.this.view.setScaleX(AnimationUtils.lerp(scaleX, f2, fFloatValue));
+                FloatingActionButtonImpl.this.view.setScaleY(AnimationUtils.lerp(scaleY, f2, fFloatValue));
+                FloatingActionButtonImpl.this.imageMatrixScale = AnimationUtils.lerp(f4, f3, fFloatValue);
+                FloatingActionButtonImpl.this.calculateImageMatrixFromScale(AnimationUtils.lerp(f4, f3, fFloatValue), matrix);
+                FloatingActionButtonImpl.this.view.setImageMatrix(matrix);
+            }
+        });
+        arrayList.add(valueAnimatorOfFloat);
+        AnimatorSetCompat.playTogether(animatorSet, arrayList);
+        animatorSet.setDuration(MotionUtils.resolveThemeDuration(this.view.getContext(), i, this.view.getContext().getResources().getInteger(C9465.f28751)));
+        animatorSet.setInterpolator(MotionUtils.resolveThemeInterpolator(this.view.getContext(), i2, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        return animatorSet;
+    }
+
+    private void workAroundOreoBug(ObjectAnimator objectAnimator) {
+        if (Build.VERSION.SDK_INT != 26) {
+            return;
+        }
+        objectAnimator.setEvaluator(new TypeEvaluator() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.5
+            public FloatEvaluator floatEvaluator = new FloatEvaluator();
+
+            @Override // android.animation.TypeEvaluator
+            public Float evaluate(float f, Float f2, Float f3) {
+                float fFloatValue = this.floatEvaluator.evaluate(f, (Number) f2, (Number) f3).floatValue();
+                if (fFloatValue < 0.1f) {
+                    fFloatValue = 0.0f;
+                }
+                return Float.valueOf(fFloatValue);
+            }
+        });
+    }
+
+    public void addTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+        if (this.transformationCallbacks == null) {
+            this.transformationCallbacks = new ArrayList();
+        }
+        this.transformationCallbacks.add(internalTransformationCallback);
+    }
+
+    public void removeTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+        ArrayList arrayList = this.transformationCallbacks;
+        if (arrayList == null) {
+            return;
+        }
+        arrayList.remove(internalTransformationCallback);
+    }
+
+    public void onTranslationChanged() {
+        ArrayList arrayList = this.transformationCallbacks;
+        if (arrayList != null) {
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ((InternalTransformationCallback) it.next()).onTranslationChanged();
+            }
+        }
+    }
+
+    public void onScaleChanged() {
+        ArrayList arrayList = this.transformationCallbacks;
+        if (arrayList != null) {
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ((InternalTransformationCallback) it.next()).onScaleChanged();
+            }
+        }
+    }
+
+    public final Drawable getContentBackground() {
+        return this.contentBackground;
+    }
+
+    public final void updatePadding() {
+        Rect rect = this.tmpRect;
+        getPadding(rect);
+        onPaddingUpdated(rect);
+        this.shadowViewDelegate.setShadowPadding(rect.left, rect.top, rect.right, rect.bottom);
+    }
+
+    public void getPadding(Rect rect) {
+        int touchTargetPadding = getTouchTargetPadding();
+        float elevation = this.shadowPaddingEnabled ? getElevation() + this.pressedTranslationZ : 0.0f;
+        int iMax = Math.max(touchTargetPadding, (int) Math.ceil(elevation));
+        int iMax2 = Math.max(touchTargetPadding, (int) Math.ceil(elevation * 1.5f));
+        rect.set(iMax, iMax2, iMax, iMax2);
+    }
+
+    public int getTouchTargetPadding() {
+        if (this.ensureMinTouchTargetSize) {
+            return Math.max((this.minTouchTargetSize - this.view.getSizeDimension()) / 2, 0);
+        }
+        return 0;
+    }
+
+    public void onPaddingUpdated(Rect rect) {
+        C13746.m33055(this.contentBackground, "Didn't initialize content background");
+        if (shouldAddPadding()) {
+            this.shadowViewDelegate.setBackgroundDrawable(new InsetDrawable(this.contentBackground, rect.left, rect.top, rect.right, rect.bottom));
+        } else {
+            this.shadowViewDelegate.setBackgroundDrawable(this.contentBackground);
+        }
+    }
+
+    public void onAttachedToWindow() {
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        if (materialShapeDrawable != null) {
+            MaterialShapeUtils.setParentAbsoluteElevation(this.view, materialShapeDrawable);
+        }
+        if (requirePreDrawListener()) {
+            this.view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
+        }
+    }
+
+    public void onDetachedFromWindow() {
+        ViewTreeObserver viewTreeObserver = this.view.getViewTreeObserver();
+        ViewTreeObserver.OnPreDrawListener onPreDrawListener = this.preDrawListener;
+        if (onPreDrawListener != null) {
+            viewTreeObserver.removeOnPreDrawListener(onPreDrawListener);
+            this.preDrawListener = null;
+        }
+    }
+
+    public void onPreDraw() {
+        float rotation = this.view.getRotation();
+        if (this.rotation != rotation) {
+            this.rotation = rotation;
+            updateFromViewRotation();
+        }
+    }
+
+    private ViewTreeObserver.OnPreDrawListener getOrCreatePreDrawListener() {
+        if (this.preDrawListener == null) {
+            this.preDrawListener = new ViewTreeObserver.OnPreDrawListener() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.6
+                @Override // android.view.ViewTreeObserver.OnPreDrawListener
+                public boolean onPreDraw() {
+                    FloatingActionButtonImpl.this.onPreDraw();
+                    return true;
+                }
+            };
+        }
+        return this.preDrawListener;
+    }
+
+    public MaterialShapeDrawable createShapeDrawable() {
+        ShapeAppearanceModel shapeAppearanceModel = this.shapeAppearance;
+        shapeAppearanceModel.getClass();
+        return new MaterialShapeDrawable(shapeAppearanceModel);
+    }
+
+    public boolean isOrWillBeShown() {
+        if (this.view.getVisibility() != 0) {
+            return this.animState == 2;
+        }
+        return this.animState != 1;
+    }
+
+    public boolean isOrWillBeHidden() {
+        if (this.view.getVisibility() == 0) {
+            return this.animState == 1;
+        }
+        return this.animState != 2;
+    }
+
+    private ValueAnimator createElevationAnimator(ShadowAnimatorImpl shadowAnimatorImpl) {
+        ValueAnimator valueAnimator = new ValueAnimator();
+        valueAnimator.setInterpolator(ELEVATION_ANIM_INTERPOLATOR);
+        valueAnimator.setDuration(100L);
+        valueAnimator.addListener(shadowAnimatorImpl);
+        valueAnimator.addUpdateListener(shadowAnimatorImpl);
+        valueAnimator.setFloatValues(0.0f, 1.0f);
+        return valueAnimator;
+    }
+
+    public abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
+        public float shadowSizeEnd;
+        public float shadowSizeStart;
+        public boolean validValues;
+
+        public abstract float getTargetShadowSize();
+
+        public ShadowAnimatorImpl() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            if (!this.validValues) {
+                MaterialShapeDrawable materialShapeDrawable = FloatingActionButtonImpl.this.shapeDrawable;
+                this.shadowSizeStart = materialShapeDrawable == null ? 0.0f : materialShapeDrawable.getElevation();
+                this.shadowSizeEnd = getTargetShadowSize();
+                this.validValues = true;
+            }
+            FloatingActionButtonImpl floatingActionButtonImpl = FloatingActionButtonImpl.this;
+            float f = this.shadowSizeStart;
+            floatingActionButtonImpl.updateShapeElevation((int) ((valueAnimator.getAnimatedFraction() * (this.shadowSizeEnd - f)) + f));
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            FloatingActionButtonImpl.this.updateShapeElevation((int) this.shadowSizeEnd);
+            this.validValues = false;
+        }
+    }
+
+    public class ResetElevationAnimation extends ShadowAnimatorImpl {
+        public ResetElevationAnimation() {
+            super();
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
+        public float getTargetShadowSize() {
+            return FloatingActionButtonImpl.this.elevation;
+        }
+    }
+
+    public class ElevateToHoveredFocusedTranslationZAnimation extends ShadowAnimatorImpl {
+        public ElevateToHoveredFocusedTranslationZAnimation() {
+            super();
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
+        public float getTargetShadowSize() {
+            FloatingActionButtonImpl floatingActionButtonImpl = FloatingActionButtonImpl.this;
+            return floatingActionButtonImpl.elevation + floatingActionButtonImpl.hoveredFocusedTranslationZ;
+        }
+    }
+
+    public class ElevateToPressedTranslationZAnimation extends ShadowAnimatorImpl {
+        public ElevateToPressedTranslationZAnimation() {
+            super();
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
+        public float getTargetShadowSize() {
+            FloatingActionButtonImpl floatingActionButtonImpl = FloatingActionButtonImpl.this;
+            return floatingActionButtonImpl.elevation + floatingActionButtonImpl.pressedTranslationZ;
+        }
+    }
+
+    public class DisabledElevationAnimation extends ShadowAnimatorImpl {
+        @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
+        public float getTargetShadowSize() {
+            return 0.0f;
+        }
+
+        public DisabledElevationAnimation() {
+            super();
+        }
+    }
+
+    private boolean shouldAnimateVisibilityChange() {
+        FloatingActionButton floatingActionButton = this.view;
+        int i = C17648.f53953;
+        return floatingActionButton.isLaidOut() && !this.view.isInEditMode();
+    }
+
+    public void updateFromViewRotation() {
+        MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setShadowCompatRotation((int) this.rotation);
+        }
+    }
+}

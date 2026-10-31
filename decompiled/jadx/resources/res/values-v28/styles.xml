@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f130067" parent="@style/MT_Protector_res_0x7f1300d7">
+    </style>
+    <style name="MT_Protector_res_0x7f13006e" parent="@style/MT_Protector_res_0x7f1300d8">
+    </style>
+    <style name="MT_Protector_res_0x7f1300be" parent="@style/MT_Protector_res_0x7f1302f7">
+        <item name="android:backgroundDimAmount">@dimen/MT_Protector_res_0x7f0701a4</item>
+        <item name="android:checkedTextViewStyle">@style/MT_Protector_res_0x7f130486</item>
+        <item name="android:dialogCornerRadius">@null</item>
+        <item name="MT_Protector_res_0x7f04002e">@style/MT_Protector_res_0x7f130179</item>
+        <item name="MT_Protector_res_0x7f040097">@style/MT_Protector_res_0x7f13047e</item>
+        <item name="MT_Protector_res_0x7f040098">@style/MT_Protector_res_0x7f13047e</item>
+        <item name="MT_Protector_res_0x7f040099">@style/MT_Protector_res_0x7f13047f</item>
+        <item name="MT_Protector_res_0x7f04009a">@style/MT_Protector_res_0x7f13047e</item>
+        <item name="MT_Protector_res_0x7f04030f">@style/MT_Protector_res_0x7f13017a</item>
+        <item name="MT_Protector_res_0x7f040310">@integer/MT_Protector_res_0x7f0b0043</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1300d7" parent="@style/MT_Protector_res_0x7f1300d4">
+        <item name="MT_Protector_res_0x7f040185">?android:attr/dialogCornerRadius</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1300d8" parent="@style/MT_Protector_res_0x7f1300d5">
+        <item name="MT_Protector_res_0x7f040185">?android:attr/dialogCornerRadius</item>
+    </style>
+    <style name="MT_Protector_res_0x7f13024c" parent="@style/MT_Protector_res_0x7f130209">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053e</item>
+        <item name="android:letterSpacing">0.0312</item>
+        <item name="android:lineHeight">24sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053e</item>
+        <item name="MT_Protector_res_0x7f0402f4">24sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f13024d" parent="@style/MT_Protector_res_0x7f130208">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053e</item>
+        <item name="android:letterSpacing">0.0179</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053e</item>
+        <item name="MT_Protector_res_0x7f0402f4">20sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f13024e" parent="@style/MT_Protector_res_0x7f13020b">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053e</item>
+        <item name="android:letterSpacing">0.0333</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053e</item>
+        <item name="MT_Protector_res_0x7f0402f4">16sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f13024f" parent="@style/MT_Protector_res_0x7f13020e">
+        <item name="android:textSize">57sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">-0.0044</item>
+        <item name="android:lineHeight">64sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">64sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130250" parent="@style/MT_Protector_res_0x7f13020d">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">52sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">52sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130251" parent="@style/MT_Protector_res_0x7f13020c">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">44sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">44sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130252" parent="@style/MT_Protector_res_0x7f13020c">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">40sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">40sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130253" parent="@style/MT_Protector_res_0x7f130210">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">36sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">36sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130254" parent="@style/MT_Protector_res_0x7f130221">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">32sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">32sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130255" parent="@style/MT_Protector_res_0x7f130208">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="android:letterSpacing">0.0071</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="MT_Protector_res_0x7f0402f4">20sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130256" parent="@style/MT_Protector_res_0x7f13020b">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="android:letterSpacing">0.0417</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="MT_Protector_res_0x7f0402f4">16sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130257" parent="@style/MT_Protector_res_0x7f13020b">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="android:letterSpacing">0.0455</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="MT_Protector_res_0x7f0402f4">16sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130258" parent="@style/MT_Protector_res_0x7f130221">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">28sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053c</item>
+        <item name="MT_Protector_res_0x7f0402f4">28sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130259" parent="@style/MT_Protector_res_0x7f13021f">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="android:letterSpacing">0.0094</item>
+        <item name="android:lineHeight">24sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="MT_Protector_res_0x7f0402f4">24sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f13025a" parent="@style/MT_Protector_res_0x7f13021f">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="android:letterSpacing">0.0071</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="MT_Protector_res_0x7f040222">@string/MT_Protector_res_0x7f12053d</item>
+        <item name="MT_Protector_res_0x7f0402f4">20sp</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1303bb" parent="@style/MT_Protector_res_0x7f13046b">
+        <item name="android:background">?attr/MT_Protector_res_0x7f040128</item>
+        <item name="android:stateListAnimator">@animator/MT_Protector_res_0x7f02001e</item>
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
+        <item name="MT_Protector_res_0x7f0402f0">true</item>
+        <item name="MT_Protector_res_0x7f0402f1">?attr/MT_Protector_res_0x7f04012a</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1303c6" parent="@style/MT_Protector_res_0x7f13011e">
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130441" parent="@android:style/Widget">
+        <item name="android:textAppearance">@style/MT_Protector_res_0x7f13026a</item>
+        <item name="android:minHeight">@dimen/MT_Protector_res_0x7f070212</item>
+        <item name="android:paddingStart">@dimen/MT_Protector_res_0x7f070216</item>
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
+        <item name="MT_Protector_res_0x7f040058">?attr/MT_Protector_res_0x7f04012b</item>
+        <item name="MT_Protector_res_0x7f04017a">true</item>
+        <item name="MT_Protector_res_0x7f04017c">true</item>
+        <item name="MT_Protector_res_0x7f0401ba">@dimen/MT_Protector_res_0x7f070211</item>
+        <item name="MT_Protector_res_0x7f0401ca">true</item>
+        <item name="MT_Protector_res_0x7f040245">false</item>
+        <item name="MT_Protector_res_0x7f04033a">@style/MT_Protector_res_0x7f13032f</item>
+        <item name="MT_Protector_res_0x7f040340">@dimen/MT_Protector_res_0x7f070212</item>
+        <item name="MT_Protector_res_0x7f040416">?attr/MT_Protector_res_0x7f04041d</item>
+        <item name="MT_Protector_res_0x7f04041e">@style/MT_Protector_res_0x7f1301fb</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130460" parent="@style/MT_Protector_res_0x7f1303aa">
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
+        <item name="MT_Protector_res_0x7f040147">0dp</item>
+        <item name="MT_Protector_res_0x7f040477">?attr/MT_Protector_res_0x7f0404d3</item>
+        <item name="MT_Protector_res_0x7f040510">?attr/MT_Protector_res_0x7f0404d2</item>
+    </style>
+</resources>

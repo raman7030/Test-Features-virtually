@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f130024" parent="@style/MT_Protector_res_0x7f130143">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130094" parent="@style/MT_Protector_res_0x7f130140">
+    </style>
+    <style name="MT_Protector_res_0x7f130096" parent="@style/MT_Protector_res_0x7f130141">
+    </style>
+    <style name="MT_Protector_res_0x7f130140" parent="@style/MT_Protector_res_0x7f13013e">
+        <item name="android:windowLayoutInDisplayCutoutMode">1</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130141" parent="@style/MT_Protector_res_0x7f13013f">
+        <item name="android:windowLayoutInDisplayCutoutMode">1</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130142" parent="@style/MT_Protector_res_0x7f13028c">
+        <item name="android:navigationBarColor">@color/MT_Protector_res_0x7f060350</item>
+        <item name="android:windowLightNavigationBar">@bool/MT_Protector_res_0x7f050004</item>
+    </style>
+</resources>

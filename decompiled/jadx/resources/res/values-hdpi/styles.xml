@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f1300f7" parent="@style/MT_Protector_res_0x7f1300f8">
+        <item name="MT_Protector_res_0x7f04006b">18.66dp</item>
+        <item name="MT_Protector_res_0x7f0401a8">24dp</item>
+        <item name="MT_Protector_res_0x7f040235">3.33dp</item>
+    </style>
+</resources>

@@ -1,0 +1,27 @@
+.class public Lorg/bouncycastle/jcajce/provider/symmetric/DSTU7624$GMAC256;
+.super Lorg/bouncycastle/jcajce/provider/symmetric/util/BaseMac;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 4
+
+    .line 0
+    new-instance v0, Lorg/bouncycastle/crypto/macs/KGMac;
+
+    new-instance v1, Lorg/bouncycastle/crypto/modes/KGCMBlockCipher;
+
+    new-instance v2, Lorg/bouncycastle/crypto/engines/DSTU7624Engine;
+
+    const/16 v3, 0x100
+
+    invoke-direct {v2, v3}, Lorg/bouncycastle/crypto/engines/DSTU7624Engine;-><init>(I)V
+
+    invoke-direct {v1, v2}, Lorg/bouncycastle/crypto/modes/KGCMBlockCipher;-><init>(Lorg/bouncycastle/crypto/BlockCipher;)V
+
+    invoke-direct {v0, v1, v3}, Lorg/bouncycastle/crypto/macs/KGMac;-><init>(Lorg/bouncycastle/crypto/modes/KGCMBlockCipher;I)V
+
+    invoke-direct {p0, v0}, Lorg/bouncycastle/jcajce/provider/symmetric/util/BaseMac;-><init>(Lorg/bouncycastle/crypto/Mac;)V
+
+    return-void
+.end method

@@ -1,0 +1,31 @@
+.class public Lorg/bouncycastle/crypto/util/DigestFactory$3;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lorg/bouncycastle/crypto/util/DigestFactory$Cloner;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public createClone(Lorg/bouncycastle/crypto/Digest;)Lorg/bouncycastle/crypto/Digest;
+    .locals 1
+
+    .line 0
+    new-instance v0, Lorg/bouncycastle/crypto/digests/SHA224Digest;
+
+    check-cast p1, Lorg/bouncycastle/crypto/digests/SHA224Digest;
+
+    invoke-direct {v0, p1}, Lorg/bouncycastle/crypto/digests/SHA224Digest;-><init>(Lorg/bouncycastle/crypto/digests/SHA224Digest;)V
+
+    return-object v0
+.end method

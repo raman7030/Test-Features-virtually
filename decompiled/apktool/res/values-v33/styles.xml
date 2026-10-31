@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="APKTOOL_RENAMED_0x7f130024" parent="@style/APKTOOL_RENAMED_0x7f130143">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowSplashScreenBehavior">icon_preferred</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130095" parent="@style/APKTOOL_RENAMED_0x7f130094">
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:enforceNavigationBarContrast">true</item>
+    </style>
+</resources>

@@ -1,0 +1,101 @@
+package org.bouncycastle.jcajce.provider.symmetric;
+
+import java.security.AlgorithmParameters;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
+import javax.crypto.spec.IvParameterSpec;
+import l.C12662;
+import l.C5368;
+import org.bouncycastle.crypto.BlockCipher;
+import org.bouncycastle.crypto.CipherKeyGenerator;
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
+import org.bouncycastle.crypto.engines.Shacal2Engine;
+import org.bouncycastle.crypto.macs.CMac;
+import org.bouncycastle.crypto.modes.CBCBlockCipher;
+import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
+import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
+import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class Shacal2 {
+
+    public class AlgParamGen extends BaseAlgorithmParameterGenerator {
+        @Override // java.security.AlgorithmParameterGeneratorSpi
+        public AlgorithmParameters engineGenerateParameters() {
+            byte[] bArr = new byte[32];
+            if (this.random == null) {
+                this.random = CryptoServicesRegistrar.getSecureRandom();
+            }
+            this.random.nextBytes(bArr);
+            try {
+                AlgorithmParameters algorithmParametersCreateParametersInstance = createParametersInstance("Shacal2");
+                algorithmParametersCreateParametersInstance.init(new IvParameterSpec(bArr));
+                return algorithmParametersCreateParametersInstance;
+            } catch (Exception e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        }
+
+        @Override // java.security.AlgorithmParameterGeneratorSpi
+        public void engineInit(AlgorithmParameterSpec algorithmParameterSpec, SecureRandom secureRandom) throws InvalidAlgorithmParameterException {
+            throw new InvalidAlgorithmParameterException("No supported AlgorithmParameterSpec for Shacal2 parameter generation.");
+        }
+    }
+
+    /* JADX INFO: loaded from: classes2.dex */
+    public class AlgParams extends IvAlgorithmParameters {
+        @Override // org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters, java.security.AlgorithmParametersSpi
+        public String engineToString() {
+            return "Shacal2 IV";
+        }
+    }
+
+    /* JADX INFO: loaded from: classes2.dex */
+    public class CBC extends BaseBlockCipher {
+        public CBC() {
+            super(new CBCBlockCipher(new Shacal2Engine()), 256);
+        }
+    }
+
+    /* JADX INFO: loaded from: classes2.dex */
+    public class CMAC extends BaseMac {
+        public CMAC() {
+            super(new CMac(new Shacal2Engine()));
+        }
+    }
+
+    /* JADX INFO: loaded from: classes2.dex */
+    public class ECB extends BaseBlockCipher {
+        public ECB() {
+            super(new BlockCipherProvider() { // from class: org.bouncycastle.jcajce.provider.symmetric.Shacal2.ECB.1
+                @Override // org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider
+                public BlockCipher get() {
+                    return new Shacal2Engine();
+                }
+            });
+        }
+    }
+
+    public class KeyGen extends BaseKeyGenerator {
+        public KeyGen() {
+            super("SHACAL-2", 128, new CipherKeyGenerator());
+        }
+    }
+
+    /* JADX INFO: loaded from: classes2.dex */
+    public class Mappings extends SymmetricAlgorithmProvider {
+        public static final String PREFIX = Shacal2.class.getName();
+
+        @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
+        public void configure(ConfigurableProvider configurableProvider) {
+            StringBuilder sb = new StringBuilder();
+            String str = PREFIX;
+            C12662.m30943(str, "$AlgParams", "AlgorithmParameters.SHACAL-2", C5368.m15340(str, "$AlgParamGen", "AlgorithmParameterGenerator.SHACAL-2", C5368.m15340(str, "$KeyGen", "KeyGenerator.SHACAL-2", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.Shacal2", C5368.m15340(str, "$AlgParamGen", "AlgorithmParameterGenerator.Shacal2", C5368.m15340(str, "$KeyGen", "KeyGenerator.Shacal2", C5368.m15340(str, "$ECB", "Cipher.SHACAL-2", C5368.m15340(str, "$ECB", "Cipher.Shacal2", C5368.m15340(str, "$CMAC", "Mac.Shacal-2CMAC", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+        }
+    }
+}

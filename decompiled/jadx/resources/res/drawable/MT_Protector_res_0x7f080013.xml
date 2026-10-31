@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:interpolator="?attr/MT_Protector_res_0x7f04036c"
+    android:duration="@integer/MT_Protector_res_0x7f0b001c"
+    android:valueFrom="@string/MT_Protector_res_0x7f120651"
+    android:valueTo="@string/MT_Protector_res_0x7f12064f"
+    android:valueType="pathType"
+    android:propertyName="pathData"/>

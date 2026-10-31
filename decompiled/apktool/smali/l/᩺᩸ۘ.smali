@@ -1,0 +1,651 @@
+.class public final Ll/᩺᩸ۘ;
+.super Ljava/lang/Object;
+.source "51RR"
+
+
+# static fields
+.field public static ܳ:Ljava/util/Map;
+
+.field public static ᩻:Ljava/lang/String;
+
+
+# instance fields
+.field public ֫:Landroid/content/Context;
+
+.field public ۧ:Ljava/lang/String;
+
+.field public ܽ:Lorg/json/JSONObject;
+
+.field public ܿ:I
+
+.field public ᩳ:J
+
+
+# direct methods
+.method public static constructor <clinit>()V
+    .locals 1
+
+    .line 39
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    invoke-static {v0}, Ll/᩶۬ᩴ;->synchronizedMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object v0
+
+    sput-object v0, Ll/᩺᩸ۘ;->ܳ:Ljava/util/Map;
+
+    const/4 v0, 0x0
+
+    .line 41
+    sput-object v0, Ll/᩺᩸ۘ;->᩻:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
+
+    .line 81
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    .line 43
+    iput-object v0, p0, Ll/᩺᩸ۘ;->֫:Landroid/content/Context;
+
+    .line 45
+    iput-object v0, p0, Ll/᩺᩸ۘ;->ۧ:Ljava/lang/String;
+
+    .line 47
+    iput-object v0, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+
+    const-wide/16 v0, 0x0
+
+    .line 49
+    iput-wide v0, p0, Ll/᩺᩸ۘ;->ᩳ:J
+
+    const/4 v0, 0x0
+
+    .line 51
+    iput v0, p0, Ll/᩺᩸ۘ;->ܿ:I
+
+    .line 82
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    iput-object p1, p0, Ll/᩺᩸ۘ;->֫:Landroid/content/Context;
+
+    .line 83
+    iput-object p2, p0, Ll/᩺᩸ۘ;->ۧ:Ljava/lang/String;
+
+    const-string v0, "com.tencent.open.config.json."
+
+    const-string v1, "com.tencent.open.config.json"
+
+    const-string v2, ""
+
+    if-eqz p2, :cond_0
+
+    .line 115
+    :try_start_0
+    invoke-virtual {v0, p2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    goto :goto_0
+
+    :cond_0
+    move-object p2, v1
+
+    .line 120
+    :goto_0
+    invoke-virtual {p1, p2}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
+
+    move-result-object p1
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    .line 123
+    :catch_0
+    :try_start_1
+    invoke-virtual {p1}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+
+    move-result-object p1
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+
+    .line 129
+    :goto_1
+    new-instance p2, Ljava/io/BufferedReader;
+
+    new-instance v0, Ljava/io/InputStreamReader;
+
+    const-string v1, "UTF-8"
+
+    invoke-static {v1}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v1
+
+    invoke-direct {v0, p1, v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+
+    invoke-direct {p2, v0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    .line 130
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+
+    .line 133
+    :goto_2
+    :try_start_2
+    invoke-virtual {p2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    .line 134
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_2
+
+    .line 136
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v2
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception v0
+
+    .line 141
+    :try_start_3
+    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+
+    .line 142
+    invoke-virtual {p2}, Ljava/io/BufferedReader;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+
+    .line 146
+    :catch_1
+    throw v0
+
+    .line 141
+    :catch_2
+    :goto_3
+    :try_start_4
+    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+
+    .line 142
+    invoke-virtual {p2}, Ljava/io/BufferedReader;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+
+    .line 95
+    :catch_3
+    :try_start_5
+    new-instance p1, Lorg/json/JSONObject;
+
+    invoke-direct {p1, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    iput-object p1, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+    :try_end_5
+    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_5} :catch_4
+
+    goto :goto_4
+
+    .line 97
+    :catch_4
+    new-instance p1, Lorg/json/JSONObject;
+
+    invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
+
+    iput-object p1, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+
+    .line 85
+    :goto_4
+    invoke-direct {p0}, Ll/᩺᩸ۘ;->֫()V
+
+    return-void
+.end method
+
+.method public static ֫(Landroid/content/Context;Ljava/lang/String;)Ll/᩺᩸ۘ;
+    .locals 4
+
+    .line 59
+    sget-object v1, Ll/᩺᩸ۘ;->ܳ:Ljava/util/Map;
+
+    move-object v0, v1
+
+    monitor-enter v0
+
+    :try_start_0
+    const-string v2, "openSDK_LOG.OpenConfig"
+
+    const-string v3, "getInstance begin"
+
+    .line 60
+    invoke-static {v2, v3}, Ll/ۡ᩸ۘ;->ᩳ(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    .line 62
+    sput-object p1, Ll/᩺᩸ۘ;->᩻:Ljava/lang/String;
+
+    :cond_0
+    if-nez p1, :cond_2
+
+    .line 65
+    sget-object p1, Ll/᩺᩸ۘ;->᩻:Ljava/lang/String;
+
+    if-eqz p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const-string p1, "0"
+
+    .line 71
+    :cond_2
+    :goto_0
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ll/᩺᩸ۘ;
+
+    if-nez v2, :cond_3
+
+    .line 73
+    new-instance v2, Ll/᩺᩸ۘ;
+
+    invoke-direct {v2, p0, p1}, Ll/᩺᩸ۘ;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 74
+    invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_3
+    const-string p0, "openSDK_LOG.OpenConfig"
+
+    const-string p1, "getInstance end"
+
+    .line 76
+    invoke-static {p0, p1}, Ll/ۡ᩸ۘ;->ᩳ(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 77
+    monitor-exit v0
+
+    return-object v2
+
+    :catchall_0
+    move-exception p0
+
+    .line 78
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method private ֫()V
+    .locals 3
+
+    .line 180
+    iget v0, p0, Ll/᩺᩸ۘ;->ܿ:I
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "update thread is running, return"
+
+    .line 182
+    invoke-direct {p0, v0}, Ll/᩺᩸ۘ;->ܽ(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 185
+    iput v0, p0, Ll/᩺᩸ۘ;->ܿ:I
+
+    .line 186
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    const-string v1, "appid"
+
+    .line 187
+    iget-object v2, p0, Ll/᩺᩸ۘ;->ۧ:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v1, "status_os"
+
+    .line 188
+    sget-object v2, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 33
+    invoke-static {}, Ll/۫᩸ۘ;->֫()Ll/ۤ᩸ۘ;
+
+    move-result-object v1
+
+    .line 189
+    invoke-virtual {v1}, Ll/ۤ᩸ۘ;->ܽ()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "status_machine"
+
+    invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v1, "status_version"
+
+    .line 190
+    sget-object v2, Landroid/os/Build$VERSION;->SDK:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v1, "sdkv"
+
+    const-string v2, "3.5.18.lite"
+
+    .line 191
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v1, "sdkp"
+
+    const-string v2, "a"
+
+    .line 192
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 194
+    new-instance v1, Ll/ۨ᩸ۘ;
+
+    invoke-direct {v1, p0, v0}, Ll/ۨ᩸ۘ;-><init>(Ll/᩺᩸ۘ;Ljava/util/HashMap;)V
+
+    .line 65
+    :try_start_0
+    sget-object v0, Ll/ܽ᩹ۘ;->֫:Ljava/util/concurrent/ThreadPoolExecutor;
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ThreadPoolExecutor;->execute(Ljava/lang/Runnable;)V
+    :try_end_0
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    return-void
+.end method
+
+.method public static synthetic ֫(Ll/᩺᩸ۘ;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    .line 27
+    iput v0, p0, Ll/᩺᩸ۘ;->ܿ:I
+
+    return-void
+.end method
+
+.method public static ֫(Ll/᩺᩸ۘ;Lorg/json/JSONObject;)V
+    .locals 3
+
+    const-string v0, "com.tencent.open.config.json."
+
+    const-string v1, "cgi back, do update"
+
+    .line 217
+    invoke-direct {p0, v1}, Ll/᩺᩸ۘ;->ܽ(Ljava/lang/String;)V
+
+    .line 218
+    iput-object p1, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+
+    .line 219
+    invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 159
+    iget-object v1, p0, Ll/᩺᩸ۘ;->ۧ:Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    .line 160
+    :try_start_0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "com.tencent.open.config.json"
+
+    .line 164
+    :goto_0
+    :try_start_1
+    iget-object v1, p0, Ll/᩺᩸ۘ;->֫:Landroid/content/Context;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
+
+    move-result-object v0
+
+    .line 167
+    new-instance v1, Ljava/io/OutputStreamWriter;
+
+    const-string v2, "UTF-8"
+
+    invoke-static {v2}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v2
+
+    invoke-direct {v1, v0, v2}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
+
+    .line 168
+    invoke-virtual {v1, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+
+    .line 169
+    invoke-virtual {v1}, Ljava/io/OutputStreamWriter;->flush()V
+
+    .line 170
+    invoke-virtual {v1}, Ljava/io/OutputStreamWriter;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    .line 220
+    :catch_0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Ll/᩺᩸ۘ;->ᩳ:J
+
+    return-void
+.end method
+
+.method private ۧ()V
+    .locals 6
+
+    .line 227
+    iget-object v0, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+
+    const-string v1, "Common_frequency"
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    const v1, 0x36ee80
+
+    mul-int v0, v0, v1
+
+    int-to-long v0, v0
+
+    .line 232
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    .line 234
+    iget-wide v4, p0, Ll/᩺᩸ۘ;->ᩳ:J
+
+    sub-long/2addr v2, v4
+
+    cmp-long v4, v2, v0
+
+    if-ltz v4, :cond_1
+
+    .line 236
+    invoke-direct {p0}, Ll/᩺᩸ۘ;->֫()V
+
+    :cond_1
+    return-void
+.end method
+
+.method private ܽ(Ljava/lang/String;)V
+    .locals 1
+
+    const-string v0, "; appid: "
+
+    .line 0
+    invoke-static {p1, v0}, Ll/۟֫ᩴ;->֫(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    .line 288
+    iget-object v0, p0, Ll/᩺᩸ۘ;->ۧ:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "openSDK_LOG.OpenConfig"
+
+    invoke-static {v0, p1}, Ll/ۡ᩸ۘ;->ᩳ(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final ֫(Ljava/lang/String;)I
+    .locals 1
+
+    const-string v0, "get "
+
+    .line 247
+    invoke-virtual {v0, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Ll/᩺᩸ۘ;->ܽ(Ljava/lang/String;)V
+
+    .line 248
+    invoke-direct {p0}, Ll/᩺᩸ۘ;->ۧ()V
+
+    .line 249
+    iget-object v0, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public final ۧ(Ljava/lang/String;)Z
+    .locals 2
+
+    const-string v0, "get "
+
+    .line 272
+    invoke-virtual {v0, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Ll/᩺᩸ۘ;->ܽ(Ljava/lang/String;)V
+
+    .line 273
+    invoke-direct {p0}, Ll/᩺᩸ۘ;->ۧ()V
+
+    .line 274
+    iget-object v0, p0, Ll/᩺᩸ۘ;->ܽ:Lorg/json/JSONObject;
+
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    .line 277
+    :cond_0
+    instance-of v1, p1, Ljava/lang/Integer;
+
+    if-eqz v1, :cond_1
+
+    .line 278
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    xor-int/lit8 p1, p1, 0x1
+
+    return p1
+
+    .line 279
+    :cond_1
+    instance-of v1, p1, Ljava/lang/Boolean;
+
+    if-eqz v1, :cond_2
+
+    .line 280
+    check-cast p1, Ljava/lang/Boolean;
+
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result p1
+
+    return p1
+
+    :cond_2
+    :goto_0
+    return v0
+.end method

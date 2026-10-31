@@ -1,0 +1,14 @@
+.class public final Ll/ۘۖۘ;
+.super Ljava/lang/Object;
+.source "L7YJ"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 39
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

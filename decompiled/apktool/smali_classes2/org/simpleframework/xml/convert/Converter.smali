@@ -1,0 +1,11 @@
+.class public interface abstract Lorg/simpleframework/xml/convert/Converter;
+.super Ljava/lang/Object;
+.source "Converter.java"
+
+
+# virtual methods
+.method public abstract read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
+.end method
+
+.method public abstract write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
+.end method

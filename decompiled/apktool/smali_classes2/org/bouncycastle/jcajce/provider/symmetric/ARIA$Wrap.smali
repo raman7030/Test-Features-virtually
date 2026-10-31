@@ -1,0 +1,17 @@
+.class public Lorg/bouncycastle/jcajce/provider/symmetric/ARIA$Wrap;
+.super Lorg/bouncycastle/jcajce/provider/symmetric/util/BaseWrapCipher;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 0
+    new-instance v0, Lorg/bouncycastle/crypto/engines/ARIAWrapEngine;
+
+    invoke-direct {v0}, Lorg/bouncycastle/crypto/engines/ARIAWrapEngine;-><init>()V
+
+    invoke-direct {p0, v0}, Lorg/bouncycastle/jcajce/provider/symmetric/util/BaseWrapCipher;-><init>(Lorg/bouncycastle/crypto/Wrapper;)V
+
+    return-void
+.end method

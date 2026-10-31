@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tint="@color/MT_Protector_res_0x7f060064"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M 19.23 11.2 L 19.23 4.77 L 12.8 4.77 L 15.44 7.42 L 7.41 15.45 L 4.77 12.8 L 4.77 19.23 L 11.2 19.23 L 8.55 16.59 L 16.58 8.56 L 19.23 11.2 Z"/>
+</vector>

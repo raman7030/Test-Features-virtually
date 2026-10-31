@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:state_pressed="true" android:color="?APKTOOL_RENAMED_0x7f040111" android:alpha="@dimen/APKTOOL_RENAMED_0x7f0701b0" />
+    <item android:state_focused="true" android:state_selected="true" android:color="?APKTOOL_RENAMED_0x7f040111" android:alpha="@dimen/APKTOOL_RENAMED_0x7f0701ae" />
+    <item android:state_selected="true" android:color="?APKTOOL_RENAMED_0x7f040111" android:alpha="@dimen/APKTOOL_RENAMED_0x7f0701af" android:state_hovered="true" />
+    <item android:state_selected="true" android:color="?APKTOOL_RENAMED_0x7f04011a" android:alpha="@dimen/APKTOOL_RENAMED_0x7f07020c" />
+    <item android:state_pressed="true" android:color="?APKTOOL_RENAMED_0x7f040111" android:alpha="@dimen/APKTOOL_RENAMED_0x7f0701b0" />
+    <item android:state_focused="true" android:color="?APKTOOL_RENAMED_0x7f040111" android:alpha="@dimen/APKTOOL_RENAMED_0x7f0701ae" />
+    <item android:color="?APKTOOL_RENAMED_0x7f040111" android:alpha="@dimen/APKTOOL_RENAMED_0x7f0701af" android:state_hovered="true" />
+    <item android:color="?APKTOOL_RENAMED_0x7f040113" android:alpha="@dimen/APKTOOL_RENAMED_0x7f07020c" />
+</selector>

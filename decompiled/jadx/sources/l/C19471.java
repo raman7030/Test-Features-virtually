@@ -1,0 +1,43 @@
+package l;
+
+/* JADX INFO: renamed from: l.᩵۫᩵, reason: contains not printable characters */
+/* JADX INFO: compiled from: ZB07 */
+/* JADX INFO: loaded from: classes5.dex */
+public final class C19471 implements InterfaceC18330, InterfaceC17624 {
+
+    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
+    public static final C19471 f62962 = new C19471();
+
+    @Override // l.InterfaceC18330
+    public final InterfaceC17624 getKey() {
+        return this;
+    }
+
+    @Override // l.InterfaceC14801
+    /* JADX INFO: renamed from: ֫ */
+    public final InterfaceC18330 mo9082(InterfaceC17624 interfaceC17624) {
+        C11233.m27805(interfaceC17624, "key");
+        if (C11233.m27802(this, interfaceC17624)) {
+            return this;
+        }
+        return null;
+    }
+
+    @Override // l.InterfaceC14801
+    /* JADX INFO: renamed from: ֫ */
+    public final Object mo13850(Object obj, InterfaceC19763 interfaceC19763) {
+        return interfaceC19763.mo6973(obj, this);
+    }
+
+    @Override // l.InterfaceC14801
+    /* JADX INFO: renamed from: ֫ */
+    public final InterfaceC14801 mo13851(InterfaceC14801 interfaceC14801) {
+        return C16918.m39767(this, interfaceC14801);
+    }
+
+    @Override // l.InterfaceC14801
+    /* JADX INFO: renamed from: ۧ */
+    public final InterfaceC14801 mo9085(InterfaceC17624 interfaceC17624) {
+        return C16918.m39768(this, interfaceC17624);
+    }
+}

@@ -1,0 +1,19 @@
+ok: OK
+cancel: Скасувати
+close: Закрити
+
+tip: Порада
+notice: Повідомлення
+information: Інформація
+warning: Попередження
+error: Помилка
+
+loading: Завантаження…
+preparing: Підготовка…
+reloading: Перезавантаження…
+processing: Обробка…
+canceling: Скасування…
+
+press_again_to_cancel: Натисніть один раз, щоб скасувати операцію
+out_of_memory_error: Помилка нестачі пам'яті
+dual_progress_dialog_total: Прогрес

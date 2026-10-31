@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="MT_Protector">
+        <item quantity="one">Выдаліць зыходны файл</item>
+        <item quantity="few">Выдаліць звходныя файлы</item>
+        <item quantity="many">Выдаліць звходныя файлы</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110001">
+        <item quantity="one">Выдаліць зыходны файл пасля сціскання</item>
+        <item quantity="few">Выдаліць зыходныя файлы пасля сціскання</item>
+        <item quantity="many">Выдаліць зыходныя файлы пасля сціскання</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110002">
+        <item quantity="one">Выдаліць зыходны файл пасля вымання</item>
+        <item quantity="few">Выдаліць зыходныя файлы пасля вымання</item>
+        <item quantity="many">Выдаліць зыходныя файлы пасля вымання</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110003">
+        <item quantity="one">Пераматаць уперад на %d секунду</item>
+        <item quantity="few">Пераматаць уперад на %d секунды</item>
+        <item quantity="many">Пераматаць уперад на %d секунд</item>
+        <item quantity="other">Пераматаць уперад на %d секунды</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110004">
+        <item quantity="one">Пераматаць назад на %d секунду</item>
+        <item quantity="few">Пераматаць назад на %d секунды</item>
+        <item quantity="many">Пераматаць назад на %d секунд</item>
+        <item quantity="other">Пераматаць назад на %d секунды</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110005">
+        <item quantity="one">Файл: %d</item>
+        <item quantity="few">Файлы: %d</item>
+        <item quantity="many">Файлы: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110006">
+        <item quantity="one">Каталог: %d</item>
+        <item quantity="few">Каталогі: %d</item>
+        <item quantity="many">Каталогі: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110007">
+        <item quantity="one">%d новае апавяшчэнне</item>
+        <item quantity="few">%d новыя апавяшчэнні</item>
+        <item quantity="many">%d новых апавяшчэнняў</item>
+        <item quantity="other">%d новага апавяшчэння</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110008">
+        <item quantity="one">%d дзень таму</item>
+        <item quantity="few">%d дні таму</item>
+        <item quantity="many">%d дзён таму</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110009">
+        <item quantity="one">%d гадзіну таму</item>
+        <item quantity="few">%d гадзіны таму</item>
+        <item quantity="many">%d гадзін таму</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000a">
+        <item quantity="one">%d хвіліну таму</item>
+        <item quantity="few">%d хвіліны таму</item>
+        <item quantity="many">%d хвілін таму</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000b">
+        <item quantity="one">%d секунду таму</item>
+        <item quantity="few">%d секунды таму</item>
+        <item quantity="many">%d секунд таму</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000c">
+        <item quantity="one">%d інтэрфейс</item>
+        <item quantity="few">%d інтэрфейсы</item>
+        <item quantity="many">%d інтэрфейсаў</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000d">
+        <item quantity="one">%d плаваючае меню тэкставага рэдактара</item>
+        <item quantity="few">%d плаваючых меню тэкставага рэдактара</item>
+        <item quantity="many">%d плаваючых меню тэкставага рэдактара</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000e">
+        <item quantity="one">%d функцыя тэкставага рэдактара</item>
+        <item quantity="few">%d функцыі тэкставага рэдактара</item>
+        <item quantity="many">%d функцый тэкставага рэдактара</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000f">
+        <item quantity="one">%d меню інструментаў тэкставага рэдактара</item>
+        <item quantity="few">%d меню інструментаў тэкставага рэдактара</item>
+        <item quantity="many">%d меню інструментаў тэкставага рэдактара</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110010">
+        <item quantity="one">%d рухавік перакладу</item>
+        <item quantity="few">%d рухавікі перакладу</item>
+        <item quantity="many">%d рухавікоў перакладу</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110011">
+        <item quantity="one">Падзяліць на %d файл</item>
+        <item quantity="few">Падзяліць на %d файлаў</item>
+        <item quantity="many">Падзяліць на %d файлаў</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110012">
+        <item quantity="one">выконваецца %d задача</item>
+        <item quantity="few">выконваюцца %d задачы</item>
+        <item quantity="many">выконваецца %d задач</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110013">
+        <item quantity="one">%d сеанс</item>
+        <item quantity="few">%d сеанса</item>
+        <item quantity="many">%d сеансаў</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110014">
+        <item quantity="one">VIP мінае праз %d дзень</item>
+        <item quantity="few">VIP мінае праз %d дзён</item>
+        <item quantity="many">VIP мінае праз %d дзён</item>
+    </plurals>
+</resources>

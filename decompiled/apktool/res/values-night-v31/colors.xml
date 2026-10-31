@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="APKTOOL_RENAMED_0x7f060021">@android:color/system_accent1_400</color>
+    <color name="APKTOOL_RENAMED_0x7f060023">@android:color/system_accent2_400</color>
+    <color name="APKTOOL_RENAMED_0x7f060025">@android:color/system_accent3_400</color>
+    <color name="APKTOOL_RENAMED_0x7f060373">@android:color/system_accent1_600</color>
+    <color name="APKTOOL_RENAMED_0x7f060375">@android:color/system_accent2_600</color>
+    <color name="APKTOOL_RENAMED_0x7f060377">@android:color/system_accent3_600</color>
+</resources>

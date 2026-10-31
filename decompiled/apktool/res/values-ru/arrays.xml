@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="APKTOOL_RENAMED_0x7f030002">
+        <item>Xml</item>
+        <item>Строка</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030003">
+        <item>Xml</item>
+        <item>Id ресурса</item>
+        <item>Строка</item>
+        <item>Целое число</item>
+        <item>Цвет</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030005">
+        <item>Xml</item>
+        <item>Строка</item>
+        <item>Id ресурса</item>
+        <item>Цвет</item>
+        <item>Целое число</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030008">
+        <item>Авто</item>
+        <item>Включить</item>
+        <item>Отключить</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030009">
+        <item>Копировать как Hex</item>
+        <item>Копировать как Decimal</item>
+        <item>Копировать как Binary</item>
+        <item>Копировать как Ascii</item>
+        <item>Копировать как Base64</item>
+        <item>Копировать как SHA1</item>
+        <item>Копировать как MD5</item>
+        <item>Копировать как CRC32</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000c">
+        <item>Smali</item>
+        <item>Строка</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000d">
+        <item>Smali</item>
+        <item>Имя класса</item>
+        <item>Имя поля</item>
+        <item>Имя метода</item>
+        <item>Строка</item>
+        <item>Целое число</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000e">
+        <item>Объявления метода</item>
+        <item>Объявления поля</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000f">
+        <item>0,25</item>
+        <item>0,5</item>
+        <item>0,75</item>
+        <item>Обычная</item>
+        <item>1,25</item>
+        <item>1,5</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030010">
+        <item>Название приложения</item>
+        <item>Название пакета</item>
+        <item>Размер файла apk</item>
+        <item>Время первой установки</item>
+        <item>Время последнего обновления</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030012">
+        <item>Маленький</item>
+        <item>Средний</item>
+        <item>Большой</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030016">
+        <item>Все вызовы</item>
+        <item>Вызовы put</item>
+        <item>Вызовы get</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03001f">
+        <item>Домашняя страница</item>
+        <item>Последняя страница</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030020">
+        <item>Вставить как Hex</item>
+        <item>Вставить как Decimal</item>
+        <item>Вставить как Binary</item>
+        <item>Вставить как Ascii</item>
+        <item>Вставить как Base64</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030025">
+        <item>Нормальный</item>
+        <item>Моноширинный</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030027">
+        <item>Заменить все</item>
+        <item>Обновить и заменить</item>
+        <item>Пропустить все</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030028">
+        <item>Без сжатия</item>
+        <item>Скоростной</item>
+        <item>Быстрый</item>
+        <item>Нормальный</item>
+        <item>Максимальный</item>
+        <item>Ультра</item>
+        <item>Режим APK</item>
+    </string-array>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<l.ۜ᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120949"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e2" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.ۛۙ᩷ android:title="@string/APKTOOL_RENAMED_0x7f1203fe" android:key="edit_text_font2" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.᩵ܶۧ android:entries="@array/APKTOOL_RENAMED_0x7f030026" android:title="@string/APKTOOL_RENAMED_0x7f1203ff" android:key="edit_text_font_size" android:defaultValue="15" android:entryValues="@array/APKTOOL_RENAMED_0x7f030026" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.᩵ܶۧ android:entries="@array/APKTOOL_RENAMED_0x7f030026" android:title="@string/APKTOOL_RENAMED_0x7f1203ff" android:key="diff_text_font_size" android:defaultValue="12" android:entryValues="@array/APKTOOL_RENAMED_0x7f030026" app:APKTOOL_RENAMED_0x7f04026c="false" app:APKTOOL_RENAMED_0x7f040283="false" />
+        <l.᩻ۗ᩷ android:title="@string/APKTOOL_RENAMED_0x7f120515" android:key="edit_line_spacing" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1204d8" android:key="edit_word_wrap_keep" android:summary="@string/APKTOOL_RENAMED_0x7f1204d9" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e0" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120970" android:key="edit_show_line_numbers" android:summary="@string/APKTOOL_RENAMED_0x7f120971" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1203ec" android:key="edit_fixed_line_numbers" android:summary="@string/APKTOOL_RENAMED_0x7f1203ed" android:defaultValue="false" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120973" android:key="show_soft_wrap_arrows" android:summary="@string/APKTOOL_RENAMED_0x7f120974" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120967" android:key="edit_show_blank_symbol" android:summary="@string/APKTOOL_RENAMED_0x7f120968" android:defaultValue="false" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120451" android:key="hide_single_space" android:summary="@string/APKTOOL_RENAMED_0x7f120452" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120965" android:key="edit_show_ascii_control" android:summary="@string/APKTOOL_RENAMED_0x7f120966" android:defaultValue="false" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120976" android:key="edit_show_unicode_special" android:summary="@string/APKTOOL_RENAMED_0x7f120977" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e3" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120100" android:key="edit_auto_indent" android:summary="@string/APKTOOL_RENAMED_0x7f120101" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120ac7" android:key="edit_indent_with_tabs" android:summary="@string/APKTOOL_RENAMED_0x7f120ac8" android:defaultValue="false" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.᩺ۗ᩷ android:title="@string/APKTOOL_RENAMED_0x7f120a1a" android:key="edit_tab_size" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f12096e" android:key="edit_show_indent_guides" android:summary="@string/APKTOOL_RENAMED_0x7f12096f" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e5" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120a16" android:key="edit_high_light" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۛۗ᩷ android:title="@string/APKTOOL_RENAMED_0x7f120a14" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1201dc" android:key="comp_enter_accept" android:summary="@string/APKTOOL_RENAMED_0x7f1201dd" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۜۙ᩷ android:title="@string/APKTOOL_RENAMED_0x7f1201de" android:key="comp_max_lines" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e6" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f120a58" android:key="symbol_input" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ܰۗ᩷ android:title="@string/APKTOOL_RENAMED_0x7f120a59" android:key="custom_symbols" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.᩹ۙ᩷ android:title="@string/APKTOOL_RENAMED_0x7f1203f0" android:key="floating_menu_edit" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۢ۬᩷ android:title="@string/APKTOOL_RENAMED_0x7f120a87" android:key="tool_menu_edit" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202f8" android:key="edit_magnifier" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f12074e" android:key="edit_pinch_to_zoom" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e4" android:key="categoryLargeFiles" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.֫۬᩷ android:title="@string/APKTOOL_RENAMED_0x7f120a64" android:key="text_page_size" android:summary="@string/APKTOOL_RENAMED_0x7f120a66" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۗۗ᩷ android:title="@string/APKTOOL_RENAMED_0x7f120106" android:key="smooth_mode_threshold" android:summary="@string/APKTOOL_RENAMED_0x7f120107" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+    <l.ۧ᩸ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202e1" android:key="categoryOther" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.᩵ܶۧ android:entries="@array/APKTOOL_RENAMED_0x7f03001a" android:title="@string/APKTOOL_RENAMED_0x7f1204d5" android:key="keep_in_editor_options" android:summary="@string/APKTOOL_RENAMED_0x7f1204d4" android:defaultValue="1" android:entryValues="@array/APKTOOL_RENAMED_0x7f030001" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202ef" android:key="check_file_time" android:summary="@string/APKTOOL_RENAMED_0x7f1202f0" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202ed" android:key="check_file_exists" android:summary="@string/APKTOOL_RENAMED_0x7f1202ee" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨᩹ۧ android:title="@string/APKTOOL_RENAMED_0x7f1202f3" android:key="double_confirm_before_exit" android:summary="@string/APKTOOL_RENAMED_0x7f1202f4" android:defaultValue="false" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.ۧ᩸ۧ>
+</l.ۜ᩹ۧ>

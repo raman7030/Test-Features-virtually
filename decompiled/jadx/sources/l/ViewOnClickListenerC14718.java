@@ -1,0 +1,1166 @@
+package l;
+
+import android.view.View;
+import android.widget.EditText;
+import com.alipay.sdk.m.y.q;
+import moe.shizuku.server.IShizukuService;
+
+/* JADX INFO: renamed from: l.ܳᩴ᩷, reason: contains not printable characters */
+/* JADX INFO: compiled from: C2R7 */
+/* JADX INFO: loaded from: classes4.dex */
+public final class ViewOnClickListenerC14718 implements View.OnClickListener {
+
+    /* JADX INFO: renamed from: ܺ᩵᩹, reason: not valid java name and contains not printable characters */
+    private static final short[] f44942 = {7996, 8397, 8439, 8395, 8403, 8398, 8386, 8388, 8407, 8405, 8386, 8425, 8407, 8390, 8413, 8425, 8390, 8407, 8386, 8414, 8403, 8398, 8386, 8388, 8407, 8405, 8386, 8425, 8407, 8390, 8413, 8425, 8390, 8407, 8386, 8386, 8403, 8388, 8408, 8403, 8407, 8403, 8389, 8384, 8397, 8422, 8395, 8397, 8416, 8395, 8397, 8437, 8395, -18277, 23712, 18657};
+
+    /* JADX INFO: renamed from: ۙ, reason: not valid java name and contains not printable characters */
+    public final /* synthetic */ C2978 f44943;
+
+    /* JADX INFO: renamed from: ᩶, reason: not valid java name and contains not printable characters */
+    public final /* synthetic */ EditText f44944;
+
+    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
+    public final /* synthetic */ DialogInterfaceC0206 f44945;
+
+    /* JADX INFO: renamed from: ᩹, reason: not valid java name and contains not printable characters */
+    public final /* synthetic */ EditText f44946;
+
+    public ViewOnClickListenerC14718(EditText editText, EditText editText2, C2978 c2978, DialogInterfaceC0206 dialogInterfaceC0206) {
+        int i = -564536861;
+        int i2 = C3911.f12484;
+        int i3 = C7811.f24123;
+        int iM6981 = (C2105.m6981("᩶᩸") + i3) * 99;
+        int i4 = ((iM6981 ^ i2) * (-28753)) ^ 1037207739;
+        int i5 = -1512580692;
+        while (true) {
+            i = ((((i ^ i2) * 2521) >> 31) & i4) ^ (iM6981 ^ i5);
+            switch (i) {
+                case -2066481077:
+                case 269929143:
+                    if (C2958.f9394 >= 0) {
+                        iM6981 = (C2105.m6981("᩹֡") ^ i2) * (-13);
+                        i4 = ((iM6981 ^ i3) * (-1371)) ^ 345751411;
+                        i5 = 1054270783;
+                    } else {
+                        iM6981 = C0630.m2566("֨ۘ") ^ i2;
+                        i4 = ((iM6981 ^ i3) * 6595) ^ 1183492822;
+                        i5 = -1169362895;
+                    }
+                    break;
+                case -1673660968:
+                case 1492907940:
+                    C3019.m9255();
+                    C0050.m940();
+                    iM6981 = C0630.m2566("ܳ᩻") ^ i3;
+                    i4 = ((iM6981 ^ i2) * 17901) ^ 1022586396;
+                    i5 = 370957505;
+                    break;
+                case -1600367241:
+                case 1274725775:
+                    this.f44943 = c2978;
+                    this.f44945 = dialogInterfaceC0206;
+                    return;
+                case -1560525218:
+                case -1546532322:
+                    if (C1294.f4556 >= 0) {
+                        iM6981 = (i2 - C0630.m2566("ۡۘ")) * 25;
+                        i4 = ((iM6981 ^ i3) * (-27819)) ^ (-1371114405);
+                        i5 = -799858571;
+                    } else {
+                        iM6981 = (C0630.m2566("ۗ۬") + i3) * q.h;
+                        i4 = ((iM6981 ^ i2) * (-14877)) ^ (-2111872025);
+                        i5 = -1221929190;
+                    }
+                    break;
+                case -1477681106:
+                case 1508529472:
+                    C0237.m1481();
+                    throw new RuntimeException();
+                case -1314064635:
+                case -935755801:
+                    if (C0798.m2998() != 0) {
+                        iM6981 = C0630.m2566("֨֡") ^ i3;
+                        i4 = ((iM6981 ^ i2) * (-21379)) ^ (-1083854739);
+                        i5 = -647017642;
+                    } else {
+                        iM6981 = C0630.m2566("ۡۖ") ^ i3;
+                        i4 = ((iM6981 ^ i2) * (-307)) ^ (-2002322086);
+                        i5 = -902609797;
+                    }
+                    break;
+                case -992201382:
+                case 1439820374:
+                    if (C1916.f6442) {
+                        iM6981 = C0630.m2566("ۧ۠") ^ i2;
+                        i4 = ((iM6981 ^ i3) * 1665) ^ (-1183152358);
+                        i5 = -635214031;
+                    } else {
+                        iM6981 = C0630.m2566("֨֡") ^ i3;
+                        i4 = ((iM6981 ^ i2) * (-21379)) ^ (-1083854739);
+                        i5 = -647017642;
+                    }
+                    break;
+                case -779461140:
+                case 1019256317:
+                    if (C3432.f10845 >= 0) {
+                        iM6981 = (C2105.m6981("᩹֡") ^ i2) * (-13);
+                        i4 = ((iM6981 ^ i3) * (-1371)) ^ 345751411;
+                        i5 = 1054270783;
+                    } else {
+                        iM6981 = (C0630.m2566("ۚ᩵") ^ i3) * (-11);
+                        i4 = ((iM6981 ^ i2) * (-3073)) ^ 866387803;
+                        i5 = -562421753;
+                    }
+                    break;
+                case -459279403:
+                case 362401704:
+                    if (ServiceConnectionC3453.f10921 >= 0) {
+                        iM6981 = C0630.m2566("֨֡") ^ i3;
+                        i4 = ((iM6981 ^ i2) * (-21379)) ^ (-1083854739);
+                        i5 = -647017642;
+                    } else {
+                        iM6981 = (C2105.m6981("᩸᩵") + i2) * (-57);
+                        i4 = ((iM6981 ^ i3) * 12243) ^ (-313160645);
+                        i5 = 877897888;
+                    }
+                    break;
+                case -411817234:
+                case 1983242030:
+                    if (C1504.f5354) {
+                        iM6981 = (i2 - C0630.m2566("ۡۘ")) * 25;
+                        i4 = ((iM6981 ^ i3) * (-27819)) ^ (-1371114405);
+                        i5 = -799858571;
+                    } else {
+                        iM6981 = C2105.m6981("ۗܳ") ^ i3;
+                        i4 = ((iM6981 ^ i2) * 11631) ^ (-920232630);
+                        i5 = -99951628;
+                    }
+                    break;
+                case -61392646:
+                case 1755265768:
+                    C1420.m4913();
+                    if (C11340.f33930 < 0) {
+                        iM6981 = C0630.m2566("֨֨") ^ i2;
+                        i4 = ((iM6981 ^ i3) * (-587)) ^ (-1838214266);
+                        i5 = 2061395661;
+                    } else {
+                        iM6981 = C0630.m2566("ܳ᩻") ^ i3;
+                        i4 = ((iM6981 ^ i2) * 17901) ^ 1022586396;
+                        i5 = 370957505;
+                    }
+                    break;
+                case 472312221:
+                case 1548360123:
+                    if (C7106.f21815 != 0) {
+                        iM6981 = (C2105.m6981("᩹֡") ^ i2) * (-13);
+                        i4 = ((iM6981 ^ i3) * (-1371)) ^ 345751411;
+                        i5 = 1054270783;
+                    } else {
+                        iM6981 = C0630.m2566("֨֡") ^ i3;
+                        i4 = ((iM6981 ^ i2) * (-21379)) ^ (-1083854739);
+                        i5 = -647017642;
+                    }
+                    break;
+                case 758468964:
+                case 1554997268:
+                    if (RunnableC1108.f4040) {
+                        iM6981 = C0630.m2566("ܺۨ") ^ i2;
+                        i4 = ((iM6981 ^ i3) * 6877) ^ 1670677422;
+                        i5 = 1464809470;
+                    } else {
+                        iM6981 = (C2105.m6981("᩹֡") ^ i2) * (-13);
+                        i4 = ((iM6981 ^ i3) * (-1371)) ^ 345751411;
+                        i5 = 1054270783;
+                    }
+                    break;
+                case 1619967400:
+                case 2076400937:
+                    if (C2958.m9034() <= 0) {
+                        iM6981 = (i2 - C0630.m2566("ۡۘ")) * 25;
+                        i4 = ((iM6981 ^ i3) * (-27819)) ^ (-1371114405);
+                        i5 = -799858571;
+                    } else {
+                        iM6981 = C2105.m6981("ܽۡ") ^ i2;
+                        i4 = ((iM6981 ^ i3) * 12095) ^ 2049965738;
+                        i5 = -1865015681;
+                    }
+                    break;
+                case 1682553438:
+                case 1957979863:
+                    this.f44946 = editText;
+                    this.f44944 = editText2;
+                    if (C7811.f24123 >= 0) {
+                        iM6981 = C0630.m2566("֨֨") ^ i2;
+                        i4 = ((iM6981 ^ i3) * (-587)) ^ (-1838214266);
+                        i5 = 2061395661;
+                    } else {
+                        iM6981 = C0630.m2566("ۙܰ") ^ i3;
+                        i4 = ((iM6981 ^ i2) * 10727) ^ 1465100830;
+                        i5 = -1536568936;
+                    }
+                    break;
+                default:
+                    C2272.m7503();
+                    if (C0237.m1481() >= 0) {
+                        iM6981 = C0630.m2566("֨֡") ^ i3;
+                        i4 = ((iM6981 ^ i2) * (-21379)) ^ (-1083854739);
+                        i5 = -647017642;
+                    } else {
+                        iM6981 = C0630.m2566("֨֨") ^ i2;
+                        i4 = ((iM6981 ^ i3) * (-587)) ^ (-1838214266);
+                        i5 = 2061395661;
+                    }
+                    break;
+            }
+        }
+    }
+
+    /* JADX WARN: Code duplicated, block: B:50:0x01e1 A[PHI: r10 r11 r13 r14
+      0x01e1: PHI (r10v6 l.۬ۤۡ) = (r10v2 l.۬ۤۡ), (r10v2 l.۬ۤۡ), (r10v7 l.۬ۤۡ) binds: [B:29:0x0108, B:9:0x0092, B:7:0x008c] A[DONT_GENERATE, DONT_INLINE]
+      0x01e1: PHI (r11v6 boolean) = (r11v2 boolean), (r11v2 boolean), (r11v7 boolean) binds: [B:29:0x0108, B:9:0x0092, B:7:0x008c] A[DONT_GENERATE, DONT_INLINE]
+      0x01e1: PHI (r13v32 java.lang.String) = (r13v24 java.lang.String), (r13v2 java.lang.String), (r13v35 java.lang.String) binds: [B:29:0x0108, B:9:0x0092, B:7:0x008c] A[DONT_GENERATE, DONT_INLINE]
+      0x01e1: PHI (r14v6 short[]) = (r14v2 short[]), (r14v2 short[]), (r14v7 short[]) binds: [B:29:0x0108, B:9:0x0092, B:7:0x008c] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x00be, code lost:
+    
+        if (l.C0050.f910 < 0) goto L13;
+     */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void onClick(View view) {
+        int iM6981;
+        int i;
+        int i2;
+        short[] sArr;
+        short s;
+        String str;
+        int i3;
+        String str2;
+        InterfaceC13049 interfaceC13049;
+        int i4;
+        short[] sArr2;
+        int i5;
+        int i6;
+        String str3;
+        String str4;
+        short[] sArr3;
+        int iM2566;
+        int i7;
+        int iM6982;
+        int i8;
+        int i9;
+        int iM6983;
+        int i10;
+        int iM2567;
+        int i11;
+        int i12;
+        int i13;
+        int i14;
+        int iM6984;
+        int i15;
+        int i16;
+        String str5;
+        InterfaceC13049 interfaceC130410;
+        String str6;
+        ViewOnClickListenerC14718 viewOnClickListenerC14718 = this;
+        int i17 = 0;
+        int i18 = 13623183;
+        int i19 = C4616.f14690;
+        int i20 = C7811.f24123;
+        int iM2568 = (C0630.m2566("ܶ᩶") + i20) * (-5);
+        int i21 = ((iM2568 ^ i19) * (-23403)) ^ (-1220930780);
+        int i22 = iM2568 ^ (-853173277);
+        InterfaceC13049 interfaceC13049M6438 = null;
+        String str7 = null;
+        InterfaceC13049 interfaceC13049M2434 = null;
+        String strM1959 = null;
+        short[] sArr4 = null;
+        short[] sArr5 = null;
+        short[] sArr6 = null;
+        short[] sArr7 = null;
+        int i23 = 0;
+        boolean zM7157 = false;
+        int i24 = 0;
+        char c = 0;
+        short s2 = 0;
+        EditText editText = null;
+        int i25 = 0;
+        int i26 = 0;
+        String strM947 = null;
+        String strM19510 = null;
+        String strM948 = null;
+        short[] sArr8 = null;
+        EditText editText2 = null;
+        String strM8030 = null;
+        int i27 = 0;
+        InterfaceC13049 interfaceC13049M11223 = null;
+        int i28 = 0;
+        while (true) {
+            i18 = i22 ^ (i21 & (((i18 ^ i19) * 2063) >> 31));
+            switch (i18) {
+                case -2141093526:
+                case 1100951691:
+                    strM948 = strM948;
+                    if (!C0422.m1945(strM947, C0630.m2575(f44942, 50, 3, i24))) {
+                        iM6981 = (C2105.m6981("ܽۡ") + i20) * 87;
+                        i = ((iM6981 ^ i19) * 14967) ^ (-1717952182);
+                        i2 = 879039954;
+                        int i29 = iM6981 ^ i2;
+                        strM948 = strM948;
+                        i22 = i29;
+                        i21 = i;
+                    } else {
+                        str7 = str7;
+                        str2 = strM1959;
+                        interfaceC13049 = interfaceC13049M6438;
+                        i4 = i26;
+                        sArr2 = sArr6;
+                        i5 = i27;
+                        int i30 = i25;
+                        sArr8 = sArr8;
+                        i3 = i30;
+                        strM19510 = strM947;
+                        iM6984 = C2105.m6981("ܺܺ") ^ i20;
+                        i15 = ((iM6984 ^ i19) * (-22765)) ^ (-1474242981);
+                        i16 = 1508448448;
+                        int i31 = iM6984 ^ i16;
+                        strM1959 = str2;
+                        strM948 = strM948;
+                        i22 = i31;
+                        i21 = i15;
+                        i27 = i5;
+                        sArr6 = sArr2;
+                        i26 = i4;
+                        interfaceC13049M6438 = interfaceC13049;
+                        str7 = str7;
+                        short[] sArr9 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr9;
+                    }
+                    break;
+                case -2140486956:
+                case -101285092:
+                    strM948 = strM948;
+                    str7 = str7;
+                    strM1959 = strM1959;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    i26 = i26;
+                    sArr6 = sArr6;
+                    i27 = i27;
+                    int i32 = i25;
+                    sArr8 = sArr8;
+                    i3 = i32;
+                    s2 = sArr4[c];
+                    i17 = s2 * s2;
+                    if (C7106.m19120() <= 0) {
+                        iM6983 = (i20 - C2105.m6981("ۨۧ")) * 9;
+                        i21 = ((iM6983 ^ i19) * 4813) ^ (-1621846579);
+                        i10 = -793486811;
+                    } else {
+                        iM6983 = C2105.m6981("ܶۛ") ^ i20;
+                        i21 = ((iM6983 ^ i19) * (-19545)) ^ (-1449026030);
+                        i10 = -381980182;
+                    }
+                    i13 = iM6983 ^ i10;
+                    strM1959 = strM1959;
+                    i27 = i27;
+                    sArr6 = sArr6;
+                    i26 = i26;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    strM948 = strM948;
+                    i22 = i13;
+                    str7 = str7;
+                    viewOnClickListenerC14718 = this;
+                    short[] sArr10 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr10;
+                    break;
+                case -2127909407:
+                case -1795233393:
+                    C3537.m10746();
+                    if (C4616.f14690 > 0) {
+                        strM948 = strM948;
+                        str7 = str7;
+                        strM1959 = strM1959;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        i26 = i26;
+                        sArr6 = sArr6;
+                        i27 = i27;
+                        int i33 = i25;
+                        sArr8 = sArr8;
+                        i3 = i33;
+                        iM6983 = (i20 - C2105.m6981("ۨۧ")) * 9;
+                        i21 = ((iM6983 ^ i19) * 4813) ^ (-1621846579);
+                        i10 = -793486811;
+                        i13 = iM6983 ^ i10;
+                        strM1959 = strM1959;
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        strM948 = strM948;
+                        i22 = i13;
+                        str7 = str7;
+                        viewOnClickListenerC14718 = this;
+                        short[] sArr11 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr11;
+                    } else {
+                        str3 = strM948;
+                        sArr3 = sArr6;
+                        str4 = strM1959;
+                        i6 = i27;
+                        int iM6985 = C2105.m6981("ۗۡ") ^ i19;
+                        i = ((iM6985 ^ i20) * 18947) ^ 576553914;
+                        strM1959 = str4;
+                        strM948 = str3;
+                        i22 = iM6985 ^ 1082770171;
+                        i27 = i6;
+                        sArr6 = sArr3;
+                        i21 = i;
+                    }
+                    break;
+                case -2120543358:
+                case 1501657831:
+                    str3 = strM948;
+                    InterfaceC13049 interfaceC130411 = interfaceC13049M6438;
+                    str4 = strM1959;
+                    short[] sArr12 = sArr6;
+                    i6 = i27;
+                    int i34 = i26;
+                    String strM5726 = C1711.m5726(sArr12, i34, 16, i24);
+                    if (C7811.f24123 >= 0) {
+                        i26 = i34;
+                        interfaceC13049M6438 = interfaceC130411;
+                        str7 = strM5726;
+                        sArr3 = sArr12;
+                        int iM6986 = C2105.m6981("ۗۡ") ^ i19;
+                        i = ((iM6986 ^ i20) * 18947) ^ 576553914;
+                        strM1959 = str4;
+                        strM948 = str3;
+                        i22 = iM6986 ^ 1082770171;
+                        i27 = i6;
+                        sArr6 = sArr3;
+                        i21 = i;
+                    } else {
+                        int iM6987 = (i20 - C2105.m6981("ۤᩳ")) * (-55);
+                        i21 = ((iM6987 ^ i19) * (-26961)) ^ 737988810;
+                        strM1959 = str4;
+                        strM948 = str3;
+                        i22 = iM6987 ^ 506084860;
+                        i26 = i34;
+                        i27 = i6;
+                        sArr6 = sArr12;
+                        str7 = strM5726;
+                        interfaceC13049M6438 = interfaceC130411;
+                    }
+                    break;
+                case -1879343271:
+                case -400999737:
+                    i6 = i27;
+                    str3 = strM948;
+                    str7 = str7;
+                    str4 = strM1959;
+                    interfaceC13049M6438 = ViewOnClickListenerC1958.m6438(ApplicationC20075.f65008);
+                    sArr3 = f44942;
+                    i26 = 4;
+                    if (!C1504.f5354) {
+                        int iM6988 = C2105.m6981("ۤ᩸") ^ i19;
+                        i21 = ((iM6988 ^ i20) * (-27281)) ^ 107928280;
+                        strM1959 = str4;
+                        strM948 = str3;
+                        i22 = iM6988 ^ (-1491059370);
+                        i27 = i6;
+                        sArr6 = sArr3;
+                        str7 = str7;
+                    } else {
+                        str7 = str7;
+                        int iM6989 = C2105.m6981("ۗۡ") ^ i19;
+                        i = ((iM6989 ^ i20) * 18947) ^ 576553914;
+                        strM1959 = str4;
+                        strM948 = str3;
+                        i22 = iM6989 ^ 1082770171;
+                        i27 = i6;
+                        sArr6 = sArr3;
+                        i21 = i;
+                    }
+                    break;
+                case -1847889747:
+                case 272320712:
+                    break;
+                case -1745478549:
+                case -269434952:
+                    C0798.m3004(C2105.m6981(strM948) ^ 2102963335);
+                    break;
+                case -1715202586:
+                case 2041610560:
+                    sArr8 = sArr8;
+                    strM948 = strM948;
+                    str7 = str7;
+                    str = strM1959;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    i26 = i26;
+                    sArr6 = sArr6;
+                    i27 = i27;
+                    int i35 = ViewOnClickListenerC2040.f6808;
+                    sArr5 = f44942;
+                    if (!C2272.f7362) {
+                        int iM2569 = C0630.m2566("ܶ۟") ^ i19;
+                        i21 = ((iM2569 ^ i20) * (-9729)) ^ 1478455790;
+                        strM1959 = str;
+                        sArr8 = sArr8;
+                        strM948 = strM948;
+                        i25 = 1;
+                        i22 = iM2569 ^ (-508225173);
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        str7 = str7;
+                    } else {
+                        sArr = sArr4;
+                        s = s2;
+                        i3 = 1;
+                        iM6982 = C2105.m6981("ۚᩳ") ^ i20;
+                        sArr4 = sArr;
+                        i8 = ((iM6982 ^ i19) * 4143) ^ 1978610509;
+                        i9 = -2065244223;
+                        i14 = iM6982 ^ i9;
+                        s2 = s;
+                        strM1959 = str;
+                        strM948 = strM948;
+                        i21 = i8;
+                        i22 = i14;
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        viewOnClickListenerC14718 = this;
+                        str7 = str7;
+                        short[] sArr13 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr13;
+                    }
+                    break;
+                case -1693352162:
+                case 1846087234:
+                    C7106.m19107(C7811.m20835(interfaceC13049M2434, C1504.m5177(sArr7, i23, i28, i24), zM7157));
+                    C3663.m11167(viewOnClickListenerC14718.f44945);
+                    break;
+                case -1517980354:
+                case 1296348911:
+                    strM948 = C0050.m948(f44942, 53, 3, i24);
+                    if (C1047.m3599() >= 0) {
+                        iM2566 = (C0630.m2566("ᩳ᩻") ^ i19) * IShizukuService.Stub.TRANSACTION_dispatchPermissionConfirmationResult;
+                        i = ((iM2566 ^ i20) * (-15459)) ^ 174973245;
+                        i7 = 1620703497;
+                    } else {
+                        iM2566 = C0630.m2566("֫᩷") ^ i19;
+                        i = ((iM2566 ^ i20) * 2845) ^ 497007244;
+                        i7 = -917787820;
+                    }
+                    i22 = iM2566 ^ i7;
+                    i21 = i;
+                    break;
+                case -1319902494:
+                case -458074684:
+                    ServiceConnectionC3453.m10564();
+                    break;
+                case -1131265663:
+                case -685092858:
+                    strM948 = strM948;
+                    str7 = str7;
+                    str = strM1959;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    i26 = i26;
+                    sArr6 = sArr6;
+                    i27 = i27;
+                    int i36 = i25;
+                    sArr8 = sArr8;
+                    i3 = i36;
+                    EditText editText3 = viewOnClickListenerC14718.f44946;
+                    String strM7038 = C2126.m7038(C0050.m947(C4117.m12350(editText3)));
+                    if (!C1916.m6313(strM7038)) {
+                        editText = editText3;
+                        strM1959 = strM7038;
+                        int iM69810 = C2105.m6981("ۚۙ") ^ i19;
+                        i21 = ((iM69810 ^ i20) * 10839) ^ 390889290;
+                        i13 = iM69810 ^ 561578570;
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        strM948 = strM948;
+                        i22 = i13;
+                        str7 = str7;
+                        viewOnClickListenerC14718 = this;
+                        short[] sArr14 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr14;
+                    } else {
+                        int iM69811 = C2105.m6981("ۗ֡") ^ i19;
+                        i8 = ((iM69811 ^ i20) * 23673) ^ (-1398807020);
+                        i14 = iM69811 ^ 1793577441;
+                        editText = editText3;
+                        strM1959 = str;
+                        strM948 = strM948;
+                        i21 = i8;
+                        i22 = i14;
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        viewOnClickListenerC14718 = this;
+                        str7 = str7;
+                        short[] sArr15 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr15;
+                    }
+                    break;
+                case -1105985986:
+                case -955375166:
+                    strM948 = strM948;
+                    str7 = str7;
+                    str2 = strM1959;
+                    interfaceC13049 = interfaceC13049M6438;
+                    short[] sArr16 = sArr6;
+                    i5 = i27;
+                    int i37 = i26;
+                    sArr2 = sArr16;
+                    i4 = i37;
+                    short[] sArr17 = sArr5;
+                    int i38 = i25;
+                    sArr8 = sArr8;
+                    i3 = i38;
+                    if (C0422.m1945(strM947, C2126.m7036(sArr17, i3, 3, i24))) {
+                        sArr5 = sArr17;
+                        strM19510 = strM947;
+                        iM6984 = C2105.m6981("ܺܺ") ^ i20;
+                        i15 = ((iM6984 ^ i19) * (-22765)) ^ (-1474242981);
+                        i16 = 1508448448;
+                    } else {
+                        iM6984 = C2105.m6981("ۤ۬") ^ i19;
+                        sArr5 = sArr17;
+                        i15 = ((iM6984 ^ i20) * 11197) ^ (-924398271);
+                        i16 = -60644759;
+                    }
+                    int i39 = iM6984 ^ i16;
+                    strM1959 = str2;
+                    strM948 = strM948;
+                    i22 = i39;
+                    i21 = i15;
+                    i27 = i5;
+                    sArr6 = sArr2;
+                    i26 = i4;
+                    interfaceC13049M6438 = interfaceC13049;
+                    str7 = str7;
+                    short[] sArr18 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr18;
+                    break;
+                case -1083102946:
+                case -946909633:
+                    i3 = i25;
+                    i24 = 8374;
+                    iM6983 = (i20 - C2105.m6981("ۚ֨")) * 39;
+                    i21 = ((iM6983 ^ i19) * (-9117)) ^ (-2062164374);
+                    i10 = -861502039;
+                    i13 = iM6983 ^ i10;
+                    strM1959 = strM1959;
+                    i27 = i27;
+                    sArr6 = sArr6;
+                    i26 = i26;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    strM948 = strM948;
+                    i22 = i13;
+                    str7 = str7;
+                    viewOnClickListenerC14718 = this;
+                    short[] sArr19 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr19;
+                    break;
+                case -966877873:
+                case 2113694928:
+                    strM948 = strM948;
+                    short[] sArr20 = sArr6;
+                    str7 = str7;
+                    str2 = strM1959;
+                    i5 = i27;
+                    int i40 = i26;
+                    interfaceC13049 = interfaceC13049M6438;
+                    strM19510 = C0422.m1959(editText2.getHint());
+                    sArr2 = sArr20;
+                    i4 = i40;
+                    int i41 = i25;
+                    sArr8 = sArr8;
+                    i3 = i41;
+                    iM6984 = C2105.m6981("ܺܺ") ^ i20;
+                    i15 = ((iM6984 ^ i19) * (-22765)) ^ (-1474242981);
+                    i16 = 1508448448;
+                    int i310 = iM6984 ^ i16;
+                    strM1959 = str2;
+                    strM948 = strM948;
+                    i22 = i310;
+                    i21 = i15;
+                    i27 = i5;
+                    sArr6 = sArr2;
+                    i26 = i4;
+                    interfaceC13049M6438 = interfaceC13049;
+                    str7 = str7;
+                    short[] sArr110 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr110;
+                    break;
+                case -960615600:
+                case 890696799:
+                    if (C0964.f3626 != 0) {
+                        iM2566 = C0630.m2566("۟᩹") ^ i19;
+                        i = ((iM2566 ^ i20) * 17229) ^ 242733398;
+                        i7 = 953672022;
+                    } else {
+                        iM2566 = (C0630.m2566("ᩳ᩻") ^ i19) * IShizukuService.Stub.TRANSACTION_dispatchPermissionConfirmationResult;
+                        i = ((iM2566 ^ i20) * (-15459)) ^ 174973245;
+                        i7 = 1620703497;
+                    }
+                    i22 = iM2566 ^ i7;
+                    i21 = i;
+                    break;
+                case -925706633:
+                case 130156469:
+                    strM948 = strM948;
+                    str7 = str7;
+                    str2 = strM1959;
+                    interfaceC13049 = interfaceC13049M6438;
+                    i4 = i26;
+                    sArr2 = sArr6;
+                    i5 = i27;
+                    int i42 = i25;
+                    sArr8 = sArr8;
+                    i3 = i42;
+                    EditText editText4 = viewOnClickListenerC14718.f44944;
+                    strM947 = C0050.m947(C2958.m9028(editText4));
+                    if (C7106.m19121(strM947)) {
+                        int iM69812 = (C2105.m6981("ۛۘ") ^ i20) * (-121);
+                        editText2 = editText4;
+                        i21 = ((iM69812 ^ i19) * (-18925)) ^ 184360029;
+                        strM1959 = str2;
+                        strM948 = strM948;
+                        i22 = iM69812 ^ 601839865;
+                    } else {
+                        editText2 = editText4;
+                        iM6984 = C2105.m6981("ۜ᩸") ^ i20;
+                        i15 = ((iM6984 ^ i19) * (-8601)) ^ 694567163;
+                        i16 = 674512829;
+                        int i311 = iM6984 ^ i16;
+                        strM1959 = str2;
+                        strM948 = strM948;
+                        i22 = i311;
+                        i21 = i15;
+                    }
+                    i27 = i5;
+                    sArr6 = sArr2;
+                    i26 = i4;
+                    interfaceC13049M6438 = interfaceC13049;
+                    str7 = str7;
+                    short[] sArr111 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr111;
+                    break;
+                case -820475608:
+                case -381287086:
+                    i3 = i25;
+                    i24 = 5807;
+                    iM6983 = (i20 - C2105.m6981("ۚ֨")) * 39;
+                    i21 = ((iM6983 ^ i19) * (-9117)) ^ (-2062164374);
+                    i10 = -861502039;
+                    i13 = iM6983 ^ i10;
+                    strM1959 = strM1959;
+                    i27 = i27;
+                    sArr6 = sArr6;
+                    i26 = i26;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    strM948 = strM948;
+                    i22 = i13;
+                    str7 = str7;
+                    viewOnClickListenerC14718 = this;
+                    short[] sArr112 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr112;
+                    break;
+                case -801762324:
+                case 1718180067:
+                    strM948 = strM948;
+                    if (!C0050.m938(strM947, C1916.m6311(f44942, 47, 3, i24))) {
+                        iM6981 = (C2105.m6981("۫᩹") + i20) * (-113);
+                        i = ((iM6981 ^ i19) * 28835) ^ (-496378864);
+                        i2 = 902930960;
+                        int i210 = iM6981 ^ i2;
+                        strM948 = strM948;
+                        i22 = i210;
+                        i21 = i;
+                    } else {
+                        str7 = str7;
+                        str2 = strM1959;
+                        interfaceC13049 = interfaceC13049M6438;
+                        i4 = i26;
+                        sArr2 = sArr6;
+                        i5 = i27;
+                        int i312 = i25;
+                        sArr8 = sArr8;
+                        i3 = i312;
+                        strM19510 = strM947;
+                        iM6984 = C2105.m6981("ܺܺ") ^ i20;
+                        i15 = ((iM6984 ^ i19) * (-22765)) ^ (-1474242981);
+                        i16 = 1508448448;
+                        int i313 = iM6984 ^ i16;
+                        strM1959 = str2;
+                        strM948 = strM948;
+                        i22 = i313;
+                        i21 = i15;
+                        i27 = i5;
+                        sArr6 = sArr2;
+                        i26 = i4;
+                        interfaceC13049M6438 = interfaceC13049;
+                        str7 = str7;
+                        short[] sArr113 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr113;
+                    }
+                    break;
+                case -623271903:
+                case 2136872563:
+                    strM948 = strM948;
+                    if (!C0422.m1945(strM947, C0237.m1483(f44942, 44, 3, i24))) {
+                        iM6981 = C0630.m2566("ۧۤ") ^ i19;
+                        i = ((iM6981 ^ i20) * 8783) ^ 1988309961;
+                        i2 = -158526991;
+                        int i211 = iM6981 ^ i2;
+                        strM948 = strM948;
+                        i22 = i211;
+                        i21 = i;
+                    } else {
+                        str7 = str7;
+                        str2 = strM1959;
+                        interfaceC13049 = interfaceC13049M6438;
+                        i4 = i26;
+                        sArr2 = sArr6;
+                        i5 = i27;
+                        int i314 = i25;
+                        sArr8 = sArr8;
+                        i3 = i314;
+                        strM19510 = strM947;
+                        iM6984 = C2105.m6981("ܺܺ") ^ i20;
+                        i15 = ((iM6984 ^ i19) * (-22765)) ^ (-1474242981);
+                        i16 = 1508448448;
+                        int i315 = iM6984 ^ i16;
+                        strM1959 = str2;
+                        strM948 = strM948;
+                        i22 = i315;
+                        i21 = i15;
+                        i27 = i5;
+                        sArr6 = sArr2;
+                        i26 = i4;
+                        interfaceC13049M6438 = interfaceC13049;
+                        str7 = str7;
+                        short[] sArr114 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr114;
+                    }
+                    break;
+                case -615314172:
+                case 187856262:
+                    str5 = strM948;
+                    interfaceC130410 = interfaceC13049M6438;
+                    str7 = str7;
+                    str6 = strM1959;
+                    interfaceC13049M11223 = C3683.m11223(interfaceC130410, str7, str6);
+                    sArr8 = f44942;
+                    if (C22628.m50615() != 0) {
+                        i27 = 20;
+                        int iM69813 = (i20 - C2105.m6981("֨᩸")) * (-127);
+                        interfaceC13049M6438 = interfaceC130410;
+                        i21 = ((iM69813 ^ i19) * 26645) ^ 1097623205;
+                        strM1959 = str6;
+                        strM948 = str5;
+                        i22 = iM69813 ^ 1564502579;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        str7 = str7;
+                    } else {
+                        int iM69814 = (C2105.m6981("ܿۖ") + i19) * 67;
+                        strM1959 = str6;
+                        interfaceC13049M6438 = interfaceC130410;
+                        strM948 = str5;
+                        i22 = iM69814 ^ 1116968828;
+                        i21 = ((iM69814 ^ i20) * (-2199)) ^ (-1969817807);
+                        str7 = str7;
+                        i27 = 20;
+                    }
+                    break;
+                case -274496724:
+                case 1714603729:
+                    C21923.m49329();
+                    C0714.m2805();
+                    str5 = strM948;
+                    interfaceC130410 = interfaceC13049M6438;
+                    str7 = str7;
+                    str6 = strM1959;
+                    int iM69815 = (i20 - C2105.m6981("֨᩸")) * (-127);
+                    interfaceC13049M6438 = interfaceC130410;
+                    i21 = ((iM69815 ^ i19) * 26645) ^ 1097623205;
+                    strM1959 = str6;
+                    strM948 = str5;
+                    i22 = iM69815 ^ 1564502579;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    str7 = str7;
+                    break;
+                case 371384443:
+                case 1264769150:
+                    strM948 = strM948;
+                    s = s2;
+                    str7 = str7;
+                    str = strM1959;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    i26 = i26;
+                    sArr6 = sArr6;
+                    i27 = i27;
+                    int i43 = i25;
+                    sArr8 = sArr8;
+                    i3 = i43;
+                    sArr = f44942;
+                    c = 0;
+                    if (RunnableC0588.m2441() >= 0) {
+                        iM6982 = C2105.m6981("ۚᩳ") ^ i20;
+                        sArr4 = sArr;
+                        i8 = ((iM6982 ^ i19) * 4143) ^ 1978610509;
+                        i9 = -2065244223;
+                    } else {
+                        iM6982 = C2105.m6981("۟ۜ") ^ i19;
+                        sArr4 = sArr;
+                        i8 = ((iM6982 ^ i20) * 18733) ^ 1270233114;
+                        i9 = -548567551;
+                    }
+                    i14 = iM6982 ^ i9;
+                    s2 = s;
+                    strM1959 = str;
+                    strM948 = strM948;
+                    i21 = i8;
+                    i22 = i14;
+                    i27 = i27;
+                    sArr6 = sArr6;
+                    i26 = i26;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    viewOnClickListenerC14718 = this;
+                    str7 = str7;
+                    short[] sArr115 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr115;
+                    break;
+                case 510447852:
+                case 1928193699:
+                    if (C0422.f1886 > 0) {
+                        str3 = strM948;
+                        sArr3 = sArr6;
+                        str4 = strM1959;
+                        i6 = i27;
+                        int iM69816 = C2105.m6981("ۗۡ") ^ i19;
+                        i = ((iM69816 ^ i20) * 18947) ^ 576553914;
+                        strM1959 = str4;
+                        strM948 = str3;
+                        i22 = iM69816 ^ 1082770171;
+                        i27 = i6;
+                        sArr6 = sArr3;
+                        i21 = i;
+                    } else {
+                        str5 = strM948;
+                        interfaceC130410 = interfaceC13049M6438;
+                        str7 = str7;
+                        str6 = strM1959;
+                        int iM69817 = (i20 - C2105.m6981("֨᩸")) * (-127);
+                        interfaceC13049M6438 = interfaceC130410;
+                        i21 = ((iM69817 ^ i19) * 26645) ^ 1097623205;
+                        strM1959 = str6;
+                        strM948 = str5;
+                        i22 = iM69817 ^ 1564502579;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        str7 = str7;
+                    }
+                    break;
+                case 617777370:
+                case 1643411225:
+                    strM948 = strM948;
+                    strM8030 = C2520.m8030(sArr8, i27, 19, i24);
+                    if (C7811.m20844() == 0) {
+                        iM6981 = (C2105.m6981("ۢۖ") ^ i19) * (-17);
+                        i = ((iM6981 ^ i20) * 24841) ^ (-2017153481);
+                        i2 = -1775750040;
+                        int i212 = iM6981 ^ i2;
+                        strM948 = strM948;
+                        i22 = i212;
+                        i21 = i;
+                    } else {
+                        sArr = sArr4;
+                        s = s2;
+                        str7 = str7;
+                        str = strM1959;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        i26 = i26;
+                        sArr6 = sArr6;
+                        i27 = i27;
+                        int i44 = i25;
+                        sArr8 = sArr8;
+                        i3 = i44;
+                        iM6982 = C2105.m6981("ۚᩳ") ^ i20;
+                        sArr4 = sArr;
+                        i8 = ((iM6982 ^ i19) * 4143) ^ 1978610509;
+                        i9 = -2065244223;
+                        i14 = iM6982 ^ i9;
+                        s2 = s;
+                        strM1959 = str;
+                        strM948 = strM948;
+                        i21 = i8;
+                        i22 = i14;
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        viewOnClickListenerC14718 = this;
+                        str7 = str7;
+                        short[] sArr116 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr116;
+                    }
+                    break;
+                case 643786932:
+                case 1489720008:
+                    strM948 = strM948;
+                    str7 = str7;
+                    strM1959 = strM1959;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    i26 = i26;
+                    sArr6 = sArr6;
+                    i27 = i27;
+                    int i45 = i25;
+                    sArr8 = sArr8;
+                    i3 = i45;
+                    short s3 = s2;
+                    if ((s3 * 8274) - (i17 + 17114769) > 0) {
+                        iM2567 = (C0630.m2566("ܳۖ") + i20) * 71;
+                        i11 = ((iM2567 ^ i19) * 7481) ^ 531343596;
+                        i12 = -1793193810;
+                    } else {
+                        iM2567 = C0630.m2566("۠ܰ") ^ i19;
+                        i11 = ((iM2567 ^ i20) * 12821) ^ 1321272706;
+                        i12 = -516666193;
+                    }
+                    i13 = iM2567 ^ i12;
+                    s2 = s3;
+                    i21 = i11;
+                    strM1959 = strM1959;
+                    i27 = i27;
+                    sArr6 = sArr6;
+                    i26 = i26;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    strM948 = strM948;
+                    i22 = i13;
+                    str7 = str7;
+                    viewOnClickListenerC14718 = this;
+                    short[] sArr117 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr117;
+                    break;
+                case 1141068544:
+                case 1719498442:
+                    strM948 = strM948;
+                    i23 = 39;
+                    i28 = 5;
+                    if (!C11340.m28031()) {
+                        str7 = str7;
+                        strM1959 = strM1959;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        i26 = i26;
+                        sArr6 = sArr6;
+                        i27 = i27;
+                        int i316 = i25;
+                        sArr8 = sArr8;
+                        i3 = i316;
+                        iM6983 = (i20 - C2105.m6981("ۨۧ")) * 9;
+                        i21 = ((iM6983 ^ i19) * 4813) ^ (-1621846579);
+                        i10 = -793486811;
+                        i13 = iM6983 ^ i10;
+                        strM1959 = strM1959;
+                        i27 = i27;
+                        sArr6 = sArr6;
+                        i26 = i26;
+                        interfaceC13049M6438 = interfaceC13049M6438;
+                        strM948 = strM948;
+                        i22 = i13;
+                        str7 = str7;
+                        viewOnClickListenerC14718 = this;
+                        short[] sArr118 = sArr8;
+                        i25 = i3;
+                        sArr8 = sArr118;
+                    } else {
+                        iM6981 = C2105.m6981("ۜ᩶") ^ i20;
+                        i = ((iM6981 ^ i19) * (-9685)) ^ (-697648893);
+                        i2 = -537320417;
+                        int i213 = iM6981 ^ i2;
+                        strM948 = strM948;
+                        i22 = i213;
+                        i21 = i;
+                    }
+                    break;
+                case 1281152651:
+                case 1549124570:
+                    strM948 = strM948;
+                    str7 = str7;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    i26 = i26;
+                    sArr6 = sArr6;
+                    i27 = i27;
+                    int i46 = i25;
+                    sArr8 = sArr8;
+                    i3 = i46;
+                    strM1959 = C0422.m1959(editText.getHint());
+                    int iM69818 = C2105.m6981("ۚۙ") ^ i19;
+                    i21 = ((iM69818 ^ i20) * 10839) ^ 390889290;
+                    i13 = iM69818 ^ 561578570;
+                    i27 = i27;
+                    sArr6 = sArr6;
+                    i26 = i26;
+                    interfaceC13049M6438 = interfaceC13049M6438;
+                    strM948 = strM948;
+                    i22 = i13;
+                    str7 = str7;
+                    viewOnClickListenerC14718 = this;
+                    short[] sArr119 = sArr8;
+                    i25 = i3;
+                    sArr8 = sArr119;
+                    break;
+                default:
+                    strM948 = strM948;
+                    interfaceC13049M2434 = RunnableC0588.m2434(interfaceC13049M11223, strM8030, strM19510);
+                    zM7157 = C2167.m7157(viewOnClickListenerC14718.f44943);
+                    sArr7 = f44942;
+                    if (!C0422.m1963()) {
+                        strM948 = strM948;
+                        iM2566 = (C0630.m2566("ᩳ᩻") ^ i19) * IShizukuService.Stub.TRANSACTION_dispatchPermissionConfirmationResult;
+                        i = ((iM2566 ^ i20) * (-15459)) ^ 174973245;
+                        i7 = 1620703497;
+                        i22 = iM2566 ^ i7;
+                        i21 = i;
+                    } else {
+                        iM6981 = (C0630.m2566("ᩳۖ") + i20) * (-25);
+                        i = ((iM6981 ^ i19) * 26535) ^ 685938656;
+                        i2 = -111769140;
+                        int i214 = iM6981 ^ i2;
+                        strM948 = strM948;
+                        i22 = i214;
+                        i21 = i;
+                    }
+                    break;
+            }
+            return;
+        }
+    }
+}

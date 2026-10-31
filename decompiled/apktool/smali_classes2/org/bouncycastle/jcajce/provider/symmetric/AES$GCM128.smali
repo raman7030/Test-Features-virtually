@@ -1,0 +1,23 @@
+.class public Lorg/bouncycastle/jcajce/provider/symmetric/AES$GCM128;
+.super Lorg/bouncycastle/jcajce/provider/symmetric/util/BaseBlockCipher;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 2
+
+    .line 0
+    invoke-static {}, Lorg/bouncycastle/crypto/engines/AESEngine;->newInstance()Lorg/bouncycastle/crypto/MultiBlockCipher;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lorg/bouncycastle/crypto/modes/GCMBlockCipher;->newInstance(Lorg/bouncycastle/crypto/BlockCipher;)Lorg/bouncycastle/crypto/modes/GCMModeCipher;
+
+    move-result-object v0
+
+    const/16 v1, 0x80
+
+    invoke-direct {p0, v1, v0}, Lorg/bouncycastle/jcajce/provider/symmetric/util/BaseBlockCipher;-><init>(ILorg/bouncycastle/crypto/modes/AEADBlockCipher;)V
+
+    return-void
+.end method

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="MT_Protector_res_0x7f030000">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030001">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030002">
+        <item>Xml</item>
+        <item>String</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030003">
+        <item>Xml</item>
+        <item>Resource Id</item>
+        <item>String</item>
+        <item>Integer</item>
+        <item>Color</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030004">
+        <item>String</item>
+        <item>Reference</item>
+        <item>Attribute</item>
+        <item>Color</item>
+        <item>Int-dec</item>
+        <item>Int-hex</item>
+        <item>Boolean</item>
+        <item>Float</item>
+        <item>Dimension</item>
+        <item>Fraction</item>
+        <item>DynamicReference</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030005">
+        <item>Xml</item>
+        <item>String</item>
+        <item>Resource Id</item>
+        <item>Color</item>
+        <item>Integer</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030006">
+        <item>@string/MT_Protector_res_0x7f120194</item>
+        <item>@string/MT_Protector_res_0x7f120195</item>
+        <item>@string/MT_Protector_res_0x7f120196</item>
+        <item>@string/MT_Protector_res_0x7f120197</item>
+        <item>@string/MT_Protector_res_0x7f120198</item>
+        <item>@string/MT_Protector_res_0x7f120199</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030007">
+        <item>@string/MT_Protector_res_0x7f120194</item>
+        <item>@string/MT_Protector_res_0x7f120195</item>
+        <item>@string/MT_Protector_res_0x7f120196</item>
+        <item>@string/MT_Protector_res_0x7f120197</item>
+        <item>@string/MT_Protector_res_0x7f120198</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030008">
+        <item>Auto</item>
+        <item>Enable</item>
+        <item>Disable</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030009">
+        <item>Copy as Hex Text</item>
+        <item>Copy as Decimal Text</item>
+        <item>Copy as Binary Text</item>
+        <item>Copy as Ascii</item>
+        <item>Copy as Base64</item>
+        <item>Copy as SHA1</item>
+        <item>Copy as MD5</item>
+        <item>Copy as CRC32</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03000a">
+        <item>yyyy-MM-dd HH:mm:ss</item>
+        <item>dd-MM-yyyy HH:mm:ss</item>
+        <item>HH:mm:ss dd-MM-yyyy</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03000b">
+        <item>@string/MT_Protector_res_0x7f120292</item>
+        <item>@string/MT_Protector_res_0x7f12028d</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03000c">
+        <item>Smali</item>
+        <item>String</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03000d">
+        <item>Smali</item>
+        <item>Class name</item>
+        <item>Field name</item>
+        <item>Method name</item>
+        <item>String</item>
+        <item>Integer</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03000e">
+        <item>Method Declaration</item>
+        <item>Field Declaration</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03000f">
+        <item>0.25x</item>
+        <item>0.5x</item>
+        <item>0.75x</item>
+        <item>Normal</item>
+        <item>1.25x</item>
+        <item>1.5x</item>
+        <item>2x</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030010">
+        <item>Application name</item>
+        <item>Package name</item>
+        <item>Apk file size</item>
+        <item>First install time</item>
+        <item>Last update time</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030011">
+        <item>@string/MT_Protector_res_0x7f120384</item>
+        <item>@string/MT_Protector_res_0x7f1205ab</item>
+        <item>@string/MT_Protector_res_0x7f1209ac</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030012">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Big</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030013">
+        <item>@string/MT_Protector_res_0x7f1209c1</item>
+        <item>@string/MT_Protector_res_0x7f1209be</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030014">
+        <item>@string/MT_Protector_res_0x7f1209cc</item>
+        <item>@string/MT_Protector_res_0x7f1209c9</item>
+        <item>@string/MT_Protector_res_0x7f1209cb</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030015">
+        <item>@string/MT_Protector_res_0x7f1209c1</item>
+        <item>@string/MT_Protector_res_0x7f1209be</item>
+        <item>@string/MT_Protector_res_0x7f1209c3</item>
+        <item>@string/MT_Protector_res_0x7f1209c5</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030016">
+        <item>Find all usages</item>
+        <item>Find the usages of put</item>
+        <item>Find the usages of get</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030017">
+        <item>@string/MT_Protector_res_0x7f12042b</item>
+        <item>@string/MT_Protector_res_0x7f12042a</item>
+        <item>@string/MT_Protector_res_0x7f120429</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030018">
+        <item>@string/MT_Protector_res_0x7f120437</item>
+        <item>@string/MT_Protector_res_0x7f120430</item>
+        <item>@string/MT_Protector_res_0x7f120443</item>
+        <item>@string/MT_Protector_res_0x7f120448</item>
+        <item>@string/MT_Protector_res_0x7f120436</item>
+        <item>@string/MT_Protector_res_0x7f12043f</item>
+        <item>@string/MT_Protector_res_0x7f120444</item>
+        <item>@string/MT_Protector_res_0x7f120442</item>
+        <item>@string/MT_Protector_res_0x7f120447</item>
+        <item>@string/MT_Protector_res_0x7f120440</item>
+        <item>@string/MT_Protector_res_0x7f120445</item>
+        <item>@string/MT_Protector_res_0x7f120441</item>
+        <item>@string/MT_Protector_res_0x7f120446</item>
+        <item>@string/MT_Protector_res_0x7f120435</item>
+        <item>@string/MT_Protector_res_0x7f120432</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030019">
+        <item>@string/MT_Protector_res_0x7f120478</item>
+        <item>@string/MT_Protector_res_0x7f120479</item>
+        <item>@string/MT_Protector_res_0x7f12047a</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03001a">
+        <item>@string/MT_Protector_res_0x7f1204d0</item>
+        <item>@string/MT_Protector_res_0x7f1204d1</item>
+        <item>@string/MT_Protector_res_0x7f1204d2</item>
+        <item>@string/MT_Protector_res_0x7f1204d3</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03001b">
+        <item>@string/MT_Protector_res_0x7f1204f2</item>
+        <item>Azərbaycan</item>
+        <item>English</item>
+        <item>Spanish</item>
+        <item>Türk</item>
+        <item>Indonesia</item>
+        <item>Italiano</item>
+        <item>Беларуская</item>
+        <item>Русский</item>
+        <item>Українська</item>
+        <item>中文（简体）</item>
+        <item>中文（繁體）</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03001c">
+        <item>auto</item>
+        <item>az</item>
+        <item>en</item>
+        <item>es</item>
+        <item>tr</item>
+        <item>in</item>
+        <item>it</item>
+        <item>be</item>
+        <item>ru</item>
+        <item>uk</item>
+        <item>zh-rCN</item>
+        <item>zh-rTW</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03001d">
+        <item>@string/MT_Protector_res_0x7f12050d</item>
+        <item>@string/MT_Protector_res_0x7f1205ab</item>
+        <item>@string/MT_Protector_res_0x7f1209b0</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03001e">
+        <item>@string/MT_Protector_res_0x7f12045f</item>
+        <item>@string/MT_Protector_res_0x7f12045e</item>
+        <item>@string/MT_Protector_res_0x7f120460</item>
+    </array>
+    <array name="MT_Protector_res_0x7f03001f">
+        <item>Home</item>
+        <item>Last path</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030020">
+        <item>Paste from Hex Text</item>
+        <item>Paste from Decimal Text</item>
+        <item>Paste from Binary Text</item>
+        <item>Paste from Ascii</item>
+        <item>Paste from Base64</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030021">
+        <item>@string/MT_Protector_res_0x7f1208d5</item>
+        <item>@string/MT_Protector_res_0x7f1208d6</item>
+        <item>@string/MT_Protector_res_0x7f1208d7</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030022">
+        <item>@string/MT_Protector_res_0x7f120921</item>
+        <item>@string/MT_Protector_res_0x7f120923</item>
+        <item>@string/MT_Protector_res_0x7f120922</item>
+        <item>@string/MT_Protector_res_0x7f120924</item>
+        <item>@string/MT_Protector_res_0x7f120920</item>
+        <item>@string/MT_Protector_res_0x7f12091f</item>
+        <item>@string/MT_Protector_res_0x7f12091a</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030023">
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030024">
+        <item>@string/MT_Protector_res_0x7f120aa3</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030025">
+        <item>Normal</item>
+        <item>Monospace</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030026">
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030027">
+        <item>Replace All</item>
+        <item>Update and replace</item>
+        <item>Skip All</item>
+    </array>
+    <array name="MT_Protector_res_0x7f030028">
+        <item>Store</item>
+        <item>Fastest</item>
+        <item>Fast</item>
+        <item>Normal</item>
+        <item>Maximum</item>
+        <item>Ultra</item>
+        <item>APK mode</item>
+    </array>
+</resources>

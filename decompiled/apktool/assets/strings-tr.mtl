@@ -1,0 +1,19 @@
+ok: Tamam
+cancel: İptal
+close: Kapat
+
+tip: İpucu
+notice: Bildirim
+information: Bilgi
+warning: Uyarı
+error: Hata
+
+loading: Yükleniyor…
+preparing: Hazırlanıyor…
+reloading: Yeniden yükleniyor…
+processing: İşleniyor…
+canceling: İptal ediliyor…
+
+press_again_to_cancel: İptal etmek için tekrar basın
+out_of_memory_error: Yetersiz Bellek Hatası
+dual_progress_dialog_total: Toplam

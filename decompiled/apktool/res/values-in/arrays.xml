@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="APKTOOL_RENAMED_0x7f030002">
+        <item>Xml</item>
+        <item>String</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030003">
+        <item>Xml</item>
+        <item>Resource Id</item>
+        <item>String</item>
+        <item>Integer</item>
+        <item>Color</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030004">
+        <item>String</item>
+        <item>Reference</item>
+        <item>Attribute</item>
+        <item>Color</item>
+        <item>Int-dec</item>
+        <item>Int-hex</item>
+        <item>Boolean</item>
+        <item>Float</item>
+        <item>Dimension</item>
+        <item>Fraction</item>
+        <item>DynamicReference</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030005">
+        <item>Xml</item>
+        <item>String</item>
+        <item>Resource Id</item>
+        <item>Color</item>
+        <item>Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030008">
+        <item>Otimatis</item>
+        <item>Memungkinkan</item>
+        <item>Nonaktifkan</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030009">
+        <item>Salin Hex Text</item>
+        <item>Salin Decimal Text</item>
+        <item>Salin Binary Text</item>
+        <item>Salin Ascii</item>
+        <item>Salin Base64</item>
+        <item>Salin SHA1</item>
+        <item>Salin MD5</item>
+        <item>Salin CRC32</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000c">
+        <item>Smali</item>
+        <item>String</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000d">
+        <item>Smali</item>
+        <item>Nama Class</item>
+        <item>Nama Field</item>
+        <item>Nama Method</item>
+        <item>Nama String</item>
+        <item>Nama Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000e">
+        <item>Deklarasi Metode</item>
+        <item>Deklarasi Lapangan</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000f">
+        <item>0,25x</item>
+        <item>0,5x</item>
+        <item>0,75x</item>
+        <item>Normal</item>
+        <item>1,25x</item>
+        <item>1,5x</item>
+        <item>2x</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030010">
+        <item>Application name</item>
+        <item>Package name</item>
+        <item>Apk file size</item>
+        <item>Waktu pemasangan pertama</item>
+        <item>Waktu pembaruan terakhir</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030012">
+        <item>Kecil</item>
+        <item>Sedang</item>
+        <item>Besar</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030016">
+        <item>Temukan semua penggunaan</item>
+        <item>Temukan kegunaan dari put</item>
+        <item>Temukan kegunaan get</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03001f">
+        <item>Beranda</item>
+        <item>Jalan terakhir</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030020">
+        <item>Tempel dari Hex Text</item>
+        <item>Tempel dari Decimal Text</item>
+        <item>Tempel dari Binary Text</item>
+        <item>Tempel dari Ascii</item>
+        <item>Tempel dari Base64</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030025">
+        <item>Normal</item>
+        <item>Monospace</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030027">
+        <item>Ganti Semuanya</item>
+        <item>Perbarui dan ganti</item>
+        <item>Lewati Semuanya</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030028">
+        <item>Toko</item>
+        <item>Tercepat</item>
+        <item>Cepat</item>
+        <item>Normal</item>
+        <item>Maksimum</item>
+        <item>Ultra</item>
+        <item>Mode APK</item>
+    </string-array>
+</resources>

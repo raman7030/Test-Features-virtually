@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/MT_Protector_res_0x7f0802a4"
+        android:left="6dp"
+        android:top="7dp"
+        android:right="6dp"
+        android:bottom="7dp"/>
+    <item
+        android:left="4dp"
+        android:top="6dp"
+        android:right="4dp"
+        android:bottom="6dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="2dp"/>
+            <stroke
+                android:width="2dp"
+                android:color="@color/MT_Protector_res_0x7f060059"/>
+        </shape>
+    </item>
+</layer-list>

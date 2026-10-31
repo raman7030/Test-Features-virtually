@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:state_checked="true"
+        android:id="@+id/MT_Protector_res_0x7f0a00fa"
+        android:drawable="@drawable/MT_Protector_res_0x7f080266"/>
+    <item
+        android:id="@+id/MT_Protector_res_0x7f0a028a"
+        android:drawable="@drawable/MT_Protector_res_0x7f080266"
+        app:state_indeterminate="true"/>
+    <item
+        android:state_checked="false"
+        android:id="@+id/MT_Protector_res_0x7f0a0659"
+        android:drawable="@drawable/MT_Protector_res_0x7f080267"/>
+    <transition
+        android:drawable="@drawable/MT_Protector_res_0x7f080257"
+        android:toId="@+id/MT_Protector_res_0x7f0a0659"
+        android:fromId="@+id/MT_Protector_res_0x7f0a00fa"/>
+    <transition
+        android:drawable="@drawable/MT_Protector_res_0x7f08025f"
+        android:toId="@+id/MT_Protector_res_0x7f0a00fa"
+        android:fromId="@+id/MT_Protector_res_0x7f0a0659"/>
+    <transition
+        android:drawable="@drawable/MT_Protector_res_0x7f080257"
+        android:toId="@+id/MT_Protector_res_0x7f0a0659"
+        android:fromId="@+id/MT_Protector_res_0x7f0a028a"/>
+    <transition
+        android:drawable="@drawable/MT_Protector_res_0x7f08025f"
+        android:toId="@+id/MT_Protector_res_0x7f0a028a"
+        android:fromId="@+id/MT_Protector_res_0x7f0a0659"/>
+</animated-selector>

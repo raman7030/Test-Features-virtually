@@ -1,0 +1,19 @@
+ok: OK
+cancel: Отмена
+close: Закрыть
+
+tip: Совет
+notice: Уведомление
+information: Информация
+warning: Предупреждение
+error: Ошибка
+
+loading: Загрузка…
+preparing: Подготовка…
+reloading: Перезагрузка…
+processing: Обработка…
+canceling: Отмена…
+
+press_again_to_cancel: Нажмите один раз, чтобы отменить операцию
+out_of_memory_error: Недостаточно памяти
+dual_progress_dialog_total: Прогресс

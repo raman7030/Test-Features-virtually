@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <size
+        android:height="@dimen/MT_Protector_res_0x7f0701b1"
+        android:width="@dimen/MT_Protector_res_0x7f0701b2"/>
+    <corners android:radius="2dp"/>
+    <solid android:color="@color/MT_Protector_res_0x7f0600c5"/>
+</shape>

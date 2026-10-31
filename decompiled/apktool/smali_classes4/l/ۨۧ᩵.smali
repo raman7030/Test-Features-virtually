@@ -1,0 +1,107 @@
+.class public final Ll/ۨۧ᩵;
+.super Ll/۫۟ᩴ;
+.source "N673"
+
+
+# virtual methods
+.method public final n0(Ll/ۡ᩺ᩴ;Ll/ܶ۫ᩴ;Ljava/util/function/IntFunction;)Ll/ۚ۟ᩴ;
+    .locals 2
+
+    .line 232
+    sget-object v0, Ll/۟۟ᩴ;->SORTED:Ll/۟۟ᩴ;
+
+    move-object v1, p1
+
+    check-cast v1, Ll/۫᩺ᩴ;
+
+    .line 509
+    iget v1, v1, Ll/۫᩺ᩴ;->m:I
+
+    .line 232
+    invoke-virtual {v0, v1}, Ll/۟۟ᩴ;->s(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    .line 233
+    invoke-virtual {p1, p2, v0, p3}, Ll/ۡ᩺ᩴ;->Q(Ll/ܶ۫ᩴ;ZLjava/util/function/IntFunction;)Ll/ۚ۟ᩴ;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 236
+    invoke-virtual {p1, p2, v0, p3}, Ll/ۡ᩺ᩴ;->Q(Ll/ܶ۫ᩴ;ZLjava/util/function/IntFunction;)Ll/ۚ۟ᩴ;
+
+    move-result-object p1
+
+    check-cast p1, Ll/ۛܰᩴ;
+
+    .line 238
+    invoke-interface {p1}, Ll/᩻۟ᩴ;->b()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, [J
+
+    .line 241
+    invoke-static {p1}, Ljava/util/Arrays;->sort([J)V
+
+    .line 238
+    new-instance p2, Ll/ۤ֫᩵;
+
+    invoke-direct {p2, p1}, Ll/ۤ֫᩵;-><init>([J)V
+
+    return-object p2
+.end method
+
+.method public final q0(ILl/֡ᩳ᩵;)Ll/֡ᩳ᩵;
+    .locals 1
+
+    .line 218
+    invoke-static {p2}, Ll/ۧ۫ᩴ;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 220
+    sget-object v0, Ll/۟۟ᩴ;->SORTED:Ll/۟۟ᩴ;
+
+    invoke-virtual {v0, p1}, Ll/۟۟ᩴ;->s(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-object p2
+
+    .line 222
+    :cond_0
+    sget-object v0, Ll/۟۟ᩴ;->SIZED:Ll/۟۟ᩴ;
+
+    invoke-virtual {v0, p1}, Ll/۟۟ᩴ;->s(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    .line 223
+    new-instance p1, Ll/ۚᩳ᩵;
+
+    .line 528
+    invoke-direct {p1, p2}, Ll/ۛۧ᩵;-><init>(Ll/֡ᩳ᩵;)V
+
+    return-object p1
+
+    .line 225
+    :cond_1
+    new-instance p1, Ll/᩺֫᩵;
+
+    .line 528
+    invoke-direct {p1, p2}, Ll/ۛۧ᩵;-><init>(Ll/֡ᩳ᩵;)V
+
+    return-object p1
+.end method

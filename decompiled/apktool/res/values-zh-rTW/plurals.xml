@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="MT_Protector">
+        <item quantity="other">刪除來源檔案</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110001">
+        <item quantity="other">壓縮後刪除來源檔案</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110002">
+        <item quantity="other">解壓縮後刪除來源檔案</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110003">
+        <item quantity="one">快轉 %d 秒</item>
+        <item quantity="other">快轉 %d 秒</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110004">
+        <item quantity="one">倒轉 %d 秒</item>
+        <item quantity="other">倒轉 %d 秒</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110005">
+        <item quantity="other">檔案: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110006">
+        <item quantity="other">資料夾: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110007">
+        <item quantity="one">%d 則新通知</item>
+        <item quantity="other">%d 則新通知</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110008">
+        <item quantity="other">%d 天前</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110009">
+        <item quantity="other">%d 小時前</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000a">
+        <item quantity="other">%d 分鐘前</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000b">
+        <item quantity="other">%d 秒前</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000c">
+        <item quantity="other">%d 個其它介面</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000d">
+        <item quantity="other">%d 個文字編輯器浮動選單</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000e">
+        <item quantity="other">%d 個文字編輯器快捷功能</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000f">
+        <item quantity="other">%d 個文字編輯器工具選單</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110010">
+        <item quantity="other">%d 個翻譯引擎</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110011">
+        <item quantity="other">共分割為 %d 個檔案</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110012">
+        <item quantity="other">%d 個工作正在運作</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110013">
+        <item quantity="other">%d 個對話</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110014">
+        <item quantity="other">VIP特權將於%d天後逾期</item>
+    </plurals>
+</resources>

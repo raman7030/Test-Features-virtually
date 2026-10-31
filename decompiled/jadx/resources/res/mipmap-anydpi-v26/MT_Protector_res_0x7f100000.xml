@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/MT_Protector_res_0x7f06009e"/>
+    <foreground android:drawable="@drawable/MT_Protector_res_0x7f080131"/>
+    <monochrome android:drawable="@drawable/MT_Protector_res_0x7f080132"/>
+</adaptive-icon>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="APKTOOL_RENAMED_0x7f130067" parent="@style/APKTOOL_RENAMED_0x7f1300cc" />
+    <style name="APKTOOL_RENAMED_0x7f13006e" parent="@style/APKTOOL_RENAMED_0x7f1300cd" />
+    <style name="APKTOOL_RENAMED_0x7f1300cc" parent="@style/APKTOOL_RENAMED_0x7f1300c0">
+        <item name="APKTOOL_RENAMED_0x7f04001a">?android:actionModeShareDrawable</item>
+        <item name="APKTOOL_RENAMED_0x7f0401b6">?android:editTextBackground</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1300cd" parent="@style/APKTOOL_RENAMED_0x7f1300c2">
+        <item name="APKTOOL_RENAMED_0x7f04001a">?android:actionModeShareDrawable</item>
+        <item name="APKTOOL_RENAMED_0x7f0401b6">?android:editTextBackground</item>
+    </style>
+</resources>

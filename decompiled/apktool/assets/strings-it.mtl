@@ -1,0 +1,19 @@
+ok: OK
+cancel: Annulla
+close: Chiudi
+
+tip: Suggerimento
+notice: Avviso
+information: Informazione
+warning: Avvertimento
+error: Errore
+
+loading: Caricamento…
+preparing: Preparazione…
+reloading: Ricaricamento…
+processing: Elaborazione…
+canceling: Annullamento…
+
+press_again_to_cancel: Premin di nuovo per annullare
+out_of_memory_error: Errore di Memoria Esaurita
+dual_progress_dialog_total: Totale

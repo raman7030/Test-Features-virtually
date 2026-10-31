@@ -1,0 +1,25 @@
+# 對話方塊按鈕
+ok: 確定
+cancel: 取消
+close: 關閉
+
+# 對話方塊標題
+## 三個中文翻譯都是提示，但其它語言翻譯不一樣，使用場景也不同
+## tip：小貼士，notice：一般通知，information：訊息提示
+tip: 提示
+notice: 提示
+information: 提示
+warning: 警告
+error: 錯誤
+
+# 任務進度標題
+preparing: 正在準備…
+loading: 正在載入…
+reloading: 正在重新載入…
+processing: 正在處理…
+canceling: 正在取消…
+
+# 其它
+press_again_to_cancel: 再按一次取消操作
+out_of_memory_error: 記憶體不足
+dual_progress_dialog_total: 總進度

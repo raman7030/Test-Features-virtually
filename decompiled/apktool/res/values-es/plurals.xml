@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="MT_Protector">
+        <item quantity="one">Eliminar archivo de origen</item>
+        <item quantity="other">Eliminar archivos de origen</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110001">
+        <item quantity="one">Eliminar archivo de origen después de la compresión</item>
+        <item quantity="other">Eliminar archivos de origen después de la compresión</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110002">
+        <item quantity="one">Eliminar archivo de origen después de la extracción</item>
+        <item quantity="other">Eliminar archivos de origen después de la extracción</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110003">
+        <item quantity="one">Avanzar %d segundo</item>
+        <item quantity="other">Avanzar %d segundos</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110004">
+        <item quantity="one">Retroceder %d segundo</item>
+        <item quantity="other">Retroceder %d segundos</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110005">
+        <item quantity="one">Archivo: %d</item>
+        <item quantity="other">Archivos: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110006">
+        <item quantity="one">Carpeta: %d</item>
+        <item quantity="other">Carpetas: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110007">
+        <item quantity="one">%d notificación nueva</item>
+        <item quantity="other">%d notificaciones nuevas</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110008">
+        <item quantity="one">Hace %d día</item>
+        <item quantity="other">Hace %d días</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110009">
+        <item quantity="one">Hace %d hora</item>
+        <item quantity="other">Hace %d horas</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000a">
+        <item quantity="one">Hace %d minuto</item>
+        <item quantity="other">Hace %d minutos</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000b">
+        <item quantity="one">Hace %d segundo</item>
+        <item quantity="other">Hace %d segundos</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000c">
+        <item quantity="one">%d otra interfaz</item>
+        <item quantity="other">%d otras interfaces</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000d">
+        <item quantity="one">%d menú flotante del editor de texto</item>
+        <item quantity="other">%d menús flotantes del editor de texto</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000e">
+        <item quantity="one">%d función del editor de texto</item>
+        <item quantity="other">%d funciones del editor de texto</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000f">
+        <item quantity="one">%d menú de herramientas del editor de texto</item>
+        <item quantity="other">%d menús de herramientas del editor de texto</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110010">
+        <item quantity="one">%d motor de traducción</item>
+        <item quantity="other">%d motores de traducción</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110011">
+        <item quantity="one">Dividir en %d archivo</item>
+        <item quantity="other">Dividir en %d archivos</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110012">
+        <item quantity="one">%d tarea en ejecución</item>
+        <item quantity="other">%d tareas en ejecución</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110013">
+        <item quantity="one">%d sesión</item>
+        <item quantity="other">%d sesiones</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110014">
+        <item quantity="one">Tu cuenta VIP termina en %d día</item>
+        <item quantity="other">Tu cuenta VIP termina en %d días</item>
+    </plurals>
+</resources>

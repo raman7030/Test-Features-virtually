@@ -1,0 +1,42 @@
+.class public Lcom/umeng/commonsdk/service/UMGlobalContext$a;
+.super Ljava/lang/Object;
+.source "UMGlobalContext.java"
+
+
+# static fields
+.field public static final a:Lcom/umeng/commonsdk/service/UMGlobalContext;
+
+
+# direct methods
+.method public static constructor <clinit>()V
+    .locals 2
+
+    .line 33
+    new-instance v0, Lcom/umeng/commonsdk/service/UMGlobalContext;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/umeng/commonsdk/service/UMGlobalContext;-><init>(Lcom/umeng/commonsdk/service/UMGlobalContext$1;)V
+
+    sput-object v0, Lcom/umeng/commonsdk/service/UMGlobalContext$a;->a:Lcom/umeng/commonsdk/service/UMGlobalContext;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static synthetic a()Lcom/umeng/commonsdk/service/UMGlobalContext;
+    .locals 1
+
+    .line 32
+    sget-object v0, Lcom/umeng/commonsdk/service/UMGlobalContext$a;->a:Lcom/umeng/commonsdk/service/UMGlobalContext;
+
+    return-object v0
+.end method

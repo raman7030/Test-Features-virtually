@@ -1,0 +1,734 @@
+.class public abstract Ll/ۙܿܺ;
+.super Ljava/lang/Object;
+.source "7BB0"
+
+
+# instance fields
+.field public ֫:I
+
+.field public final ۧ:Ll/۬ܿܺ;
+
+.field public final ܽ:Ll/ۤۡܺ;
+
+.field public final ᩳ:Ll/᩶ۡܺ;
+
+
+# direct methods
+.method public constructor <init>(Ll/۬ܿܺ;Ll/ۤۡܺ;Ll/᩶ۡܺ;)V
+    .locals 1
+
+    .line 102
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    if-eqz p1, :cond_2
+
+    if-eqz p2, :cond_1
+
+    if-eqz p3, :cond_0
+
+    const/4 v0, -0x1
+
+    .line 115
+    iput v0, p0, Ll/ۙܿܺ;->֫:I
+
+    .line 116
+    iput-object p1, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    .line 117
+    iput-object p2, p0, Ll/ۙܿܺ;->ܽ:Ll/ۤۡܺ;
+
+    .line 118
+    iput-object p3, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    return-void
+
+    .line 112
+    :cond_0
+    new-instance p1, Ljava/lang/NullPointerException;
+
+    const-string p2, "registers == null"
+
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 108
+    :cond_1
+    new-instance p1, Ljava/lang/NullPointerException;
+
+    const-string p2, "position == null"
+
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 104
+    :cond_2
+    new-instance p1, Ljava/lang/NullPointerException;
+
+    const-string p2, "opcode == null"
+
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public static ֫(Ll/ۤۡܺ;Ll/᩸ۡܺ;Ll/᩸ۡܺ;)Ll/ᩴܳܺ;
+    .locals 5
+
+    .line 64
+    invoke-virtual {p1}, Ll/᩸ۡܺ;->ۧ()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    .line 65
+    :goto_0
+    invoke-virtual {p1}, Ll/᩸ۡܺ;->getType()Ll/۟ܺܺ;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ll/۟ܺܺ;->᩶()Z
+
+    move-result v0
+
+    .line 66
+    invoke-virtual {p1}, Ll/᩸ۡܺ;->ᩴ()I
+
+    move-result v2
+
+    .line 67
+    invoke-virtual {p2}, Ll/᩸ۡܺ;->ᩴ()I
+
+    move-result v3
+
+    or-int/2addr v3, v2
+
+    const/16 v4, 0x10
+
+    if-ge v3, v4, :cond_3
+
+    if-eqz v0, :cond_1
+
+    .line 71
+    sget-object v0, Ll/۫ܿܺ;->᩺ۧ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_1
+    if-eqz v1, :cond_2
+
+    .line 72
+    sget-object v0, Ll/۫ܿܺ;->۫ۧ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_2
+    sget-object v0, Ll/۫ܿܺ;->ᩳܽ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_3
+    const/16 v3, 0x100
+
+    if-ge v2, v3, :cond_6
+
+    if-eqz v0, :cond_4
+
+    .line 74
+    sget-object v0, Ll/۫ܿܺ;->۟ۧ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_4
+    if-eqz v1, :cond_5
+
+    .line 75
+    sget-object v0, Ll/۫ܿܺ;->ۨۧ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_5
+    sget-object v0, Ll/۫ܿܺ;->ܳܽ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_6
+    if-eqz v0, :cond_7
+
+    .line 77
+    sget-object v0, Ll/۫ܿܺ;->ܰۧ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_7
+    if-eqz v1, :cond_8
+
+    .line 78
+    sget-object v0, Ll/۫ܿܺ;->ۤۧ:Ll/۬ܿܺ;
+
+    goto :goto_1
+
+    :cond_8
+    sget-object v0, Ll/۫ܿܺ;->ܿܽ:Ll/۬ܿܺ;
+
+    .line 81
+    :goto_1
+    new-instance v1, Ll/ᩴܳܺ;
+
+    .line 82
+    invoke-static {p1, p2}, Ll/᩶ۡܺ;->֫(Ll/᩸ۡܺ;Ll/᩸ۡܺ;)Ll/᩶ۡܺ;
+
+    move-result-object p1
+
+    .line 47
+    invoke-direct {v1, v0, p0, p1}, Ll/ۙܿܺ;-><init>(Ll/۬ܿܺ;Ll/ۤۡܺ;Ll/᩶ۡܺ;)V
+
+    return-object v1
+.end method
+
+
+# virtual methods
+.method public final toString()Ljava/lang/String;
+    .locals 5
+
+    .line 126
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x64
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    .line 128
+    invoke-virtual {p0}, Ll/ۙܿܺ;->ۡ()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x20
+
+    .line 129
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 130
+    iget-object v2, p0, Ll/ۙܿܺ;->ܽ:Ll/ۤۡܺ;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, ": "
+
+    .line 132
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 133
+    iget-object v2, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    invoke-virtual {v2}, Ll/۬ܿܺ;->ܽ()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 136
+    iget-object v2, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    invoke-virtual {v2}, Ll/ܿᩴܺ;->size()I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string v3, " "
+
+    const/4 v4, 0x0
+
+    .line 137
+    invoke-virtual {v2, v3, v4}, Ll/ܿᩴܺ;->֫(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v2, 0x0
+
+    .line 141
+    :goto_0
+    invoke-virtual {p0}, Ll/ۙܿܺ;->֫()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    if-eqz v2, :cond_1
+
+    const/16 v2, 0x2c
+
+    .line 144
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 146
+    :cond_1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 147
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 150
+    :cond_2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public abstract ֫()Ljava/lang/String;
+.end method
+
+.method public abstract ֫(Ll/۬ܿܺ;)Ll/ۙܿܺ;
+.end method
+
+.method public ֫(Ll/ܽۖܺ;)Ll/ۙܿܺ;
+    .locals 1
+
+    .line 202
+    iget-object v0, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    .line 398
+    invoke-virtual {p1, v0}, Ll/ۗۘۢ;->֫(Ll/᩶ۡܺ;)Ll/᩶ۡܺ;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ll/ۙܿܺ;->֫(Ll/᩶ۡܺ;)Ll/ۙܿܺ;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public abstract ֫(Ll/᩶ۡܺ;)Ll/ۙܿܺ;
+.end method
+
+.method public final ֫(Ljava/util/BitSet;)Ll/ۛܿܺ;
+    .locals 4
+
+    const/4 v0, 0x0
+
+    .line 271
+    invoke-virtual {p1, v0}, Ljava/util/BitSet;->get(I)Z
+
+    move-result v1
+
+    .line 213
+    iget-object v2, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    invoke-virtual {v2}, Ll/۬ܿܺ;->᩻()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 273
+    invoke-virtual {p1, v0}, Ljava/util/BitSet;->set(I)V
+
+    .line 275
+    :cond_0
+    iget-object v3, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    invoke-virtual {v3, p1}, Ll/᩶ۡܺ;->֫(Ljava/util/BitSet;)Ll/᩶ۡܺ;
+
+    move-result-object v3
+
+    .line 213
+    invoke-virtual {v2}, Ll/۬ܿܺ;->᩻()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 277
+    invoke-virtual {p1, v0, v1}, Ljava/util/BitSet;->set(IZ)V
+
+    .line 279
+    :cond_1
+    invoke-virtual {v3}, Ll/ܿᩴܺ;->size()I
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    const/4 p1, 0x0
+
+    return-object p1
+
+    .line 281
+    :cond_2
+    new-instance p1, Ll/ۛܿܺ;
+
+    iget-object v0, p0, Ll/ۙܿܺ;->ܽ:Ll/ۤۡܺ;
+
+    invoke-direct {p1, v0, v3}, Ll/ۛܿܺ;-><init>(Ll/ۤۡܺ;Ll/᩶ۡܺ;)V
+
+    return-object p1
+.end method
+
+.method public final ֫(I)V
+    .locals 1
+
+    if-ltz p1, :cond_0
+
+    .line 375
+    iput p1, p0, Ll/ۙܿܺ;->֫:I
+
+    return-void
+
+    .line 372
+    :cond_0
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "address < 0"
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public abstract ֫(Ll/ᩳᩴܺ;)V
+.end method
+
+.method public final ۜ()Ll/ۤۡܺ;
+    .locals 1
+
+    .line 193
+    iget-object v0, p0, Ll/ۙܿܺ;->ܽ:Ll/ۤۡܺ;
+
+    return-object v0
+.end method
+
+.method public final ۡ()Ljava/lang/String;
+    .locals 3
+
+    .line 329
+    iget v0, p0, Ll/ۙܿܺ;->֫:I
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    .line 330
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
+
+    const-string v0, "%04x"
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 333
+    :cond_0
+    invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+
+    move-result v0
+
+    invoke-static {v0}, Ll/ܳᩴܺ;->ᩳ(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final ۢ()Z
+    .locals 1
+
+    .line 160
+    iget v0, p0, Ll/ۙܿܺ;->֫:I
+
+    if-ltz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public abstract ۧ()I
+.end method
+
+.method public abstract ۧ(I)Ll/ۙܿܺ;
+.end method
+
+.method public final ۧ(Ljava/util/BitSet;)Ll/ᩴܳܺ;
+    .locals 2
+
+    .line 213
+    iget-object v0, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    invoke-virtual {v0}, Ll/۬ܿܺ;->᩻()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    .line 294
+    invoke-virtual {p1, v0}, Ljava/util/BitSet;->get(I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    .line 295
+    iget-object p1, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    invoke-virtual {p1, v0}, Ll/ܿᩴܺ;->get(I)Ll/᩸ۡܺ;
+
+    move-result-object p1
+
+    .line 296
+    iget-object v1, p0, Ll/ۙܿܺ;->ܽ:Ll/ۤۡܺ;
+
+    invoke-virtual {p1, v0}, Ll/᩸ۡܺ;->ۧ(I)Ll/᩸ۡܺ;
+
+    move-result-object v0
+
+    invoke-static {v1, p1, v0}, Ll/ۙܿܺ;->֫(Ll/ۤۡܺ;Ll/᩸ۡܺ;Ll/᩸ۡܺ;)Ll/ᩴܳܺ;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return-object p1
+.end method
+
+.method public final ܳ()Ll/ۙܿܺ;
+    .locals 3
+
+    .line 213
+    iget-object v0, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    invoke-virtual {v0}, Ll/۬ܿܺ;->᩻()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    .line 256
+    iget-object v2, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    invoke-virtual {v2, v0, v1}, Ll/᩶ۡܺ;->֫(ZLjava/util/BitSet;)Ll/᩶ۡܺ;
+
+    move-result-object v0
+
+    .line 257
+    invoke-virtual {p0, v0}, Ll/ۙܿܺ;->֫(Ll/᩶ۡܺ;)Ll/ۙܿܺ;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public abstract ܺ()Ljava/lang/String;
+.end method
+
+.method public ܽ()Ljava/lang/String;
+    .locals 2
+
+    .line 491
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string v1, "Not supported."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final ܽ(Ljava/util/BitSet;)Ll/ۙܿܺ;
+    .locals 2
+
+    .line 213
+    iget-object v0, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    invoke-virtual {v0}, Ll/۬ܿܺ;->᩻()Z
+
+    move-result v0
+
+    .line 318
+    iget-object v1, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    invoke-virtual {v1, v0, p1}, Ll/᩶ۡܺ;->֫(ZLjava/util/BitSet;)Ll/᩶ۡܺ;
+
+    move-result-object p1
+
+    .line 319
+    invoke-virtual {p0, p1}, Ll/ۙܿܺ;->֫(Ll/᩶ۡܺ;)Ll/ۙܿܺ;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final ܿ()I
+    .locals 2
+
+    .line 171
+    iget v0, p0, Ll/ۙܿܺ;->֫:I
+
+    if-ltz v0, :cond_0
+
+    return v0
+
+    .line 172
+    :cond_0
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "address not yet known"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final ᩳ(Ljava/util/BitSet;)I
+    .locals 6
+
+    .line 213
+    iget-object v0, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    invoke-virtual {v0}, Ll/۬ܿܺ;->᩻()Z
+
+    move-result v0
+
+    .line 230
+    iget-object v1, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    invoke-virtual {v1}, Ll/ܿᩴܺ;->size()I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-eqz v0, :cond_0
+
+    .line 234
+    invoke-virtual {p1, v3}, Ljava/util/BitSet;->get(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    .line 235
+    invoke-virtual {v1, v3}, Ll/ܿᩴܺ;->get(I)Ll/᩸ۡܺ;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ll/᩸ۡܺ;->ۧ()I
+
+    move-result v4
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v0, v2, :cond_2
+
+    .line 239
+    invoke-virtual {p1, v0}, Ljava/util/BitSet;->get(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    .line 240
+    invoke-virtual {v1, v0}, Ll/ܿᩴܺ;->get(I)Ll/᩸ۡܺ;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ll/᩸ۡܺ;->ۧ()I
+
+    move-result v5
+
+    add-int/2addr v5, v3
+
+    move v3, v5
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 244
+    :cond_2
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public ᩳ()Ljava/lang/String;
+    .locals 2
+
+    .line 478
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string v1, "Not supported."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final ᩷()Ll/᩶ۡܺ;
+    .locals 1
+
+    .line 202
+    iget-object v0, p0, Ll/ۙܿܺ;->ᩳ:Ll/᩶ۡܺ;
+
+    return-object v0
+.end method
+
+.method public final ᩻()Ll/۬ܿܺ;
+    .locals 1
+
+    .line 184
+    iget-object v0, p0, Ll/ۙܿܺ;->ۧ:Ll/۬ܿܺ;
+
+    return-object v0
+.end method

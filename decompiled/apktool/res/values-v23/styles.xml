@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="APKTOOL_RENAMED_0x7f130010" parent="@style/APKTOOL_RENAMED_0x7f13000c">
+        <item name="android:windowLightStatusBar">@bool/APKTOOL_RENAMED_0x7f050004</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130024" parent="@style/APKTOOL_RENAMED_0x7f130143">
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f13004e" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Menu" />
+    <style name="APKTOOL_RENAMED_0x7f130058" parent="@android:style/TextAppearance.Material.Widget.Button.Inverse" />
+    <style name="APKTOOL_RENAMED_0x7f130067" parent="@style/APKTOOL_RENAMED_0x7f1300ce" />
+    <style name="APKTOOL_RENAMED_0x7f13006e" parent="@style/APKTOOL_RENAMED_0x7f1300cf" />
+    <style name="APKTOOL_RENAMED_0x7f1300ce" parent="@style/APKTOOL_RENAMED_0x7f1300cc">
+        <item name="APKTOOL_RENAMED_0x7f040001">?android:actionBarItemBackground</item>
+        <item name="APKTOOL_RENAMED_0x7f04000e">?android:actionMenuTextAppearance</item>
+        <item name="APKTOOL_RENAMED_0x7f04000f">?android:actionMenuTextColor</item>
+        <item name="APKTOOL_RENAMED_0x7f04001f">?android:actionOverflowButtonStyle</item>
+        <item name="APKTOOL_RENAMED_0x7f040151">@drawable/APKTOOL_RENAMED_0x7f08003a</item>
+        <item name="APKTOOL_RENAMED_0x7f0403eb">?android:ratingBarStyleIndicator</item>
+        <item name="APKTOOL_RENAMED_0x7f0403ec">?android:ratingBarStyleSmall</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1300cf" parent="@style/APKTOOL_RENAMED_0x7f1300cd">
+        <item name="APKTOOL_RENAMED_0x7f040001">?android:actionBarItemBackground</item>
+        <item name="APKTOOL_RENAMED_0x7f04000e">?android:actionMenuTextAppearance</item>
+        <item name="APKTOOL_RENAMED_0x7f04000f">?android:actionMenuTextColor</item>
+        <item name="APKTOOL_RENAMED_0x7f04001f">?android:actionOverflowButtonStyle</item>
+        <item name="APKTOOL_RENAMED_0x7f040151">@drawable/APKTOOL_RENAMED_0x7f08003a</item>
+        <item name="APKTOOL_RENAMED_0x7f0403eb">?android:ratingBarStyleIndicator</item>
+        <item name="APKTOOL_RENAMED_0x7f0403ec">?android:ratingBarStyleSmall</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1300e8" parent="@android:style/Widget.Material.ActionButton.Overflow" />
+    <style name="APKTOOL_RENAMED_0x7f1300ee" parent="@android:style/Widget.Material.Button.Borderless.Colored" />
+    <style name="APKTOOL_RENAMED_0x7f1300f0" parent="@android:style/Widget.Material.Button.Colored">
+        <item name="android:textAppearance">@style/APKTOOL_RENAMED_0x7f13022f</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1300fa" parent="@android:style/Widget.Material.EditText">
+        <item name="android:breakStrategy">simple</item>
+        <item name="android:hyphenationFrequency">none</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f13010f" parent="@android:style/Widget.Material.RatingBar.Indicator" />
+    <style name="APKTOOL_RENAMED_0x7f130110" parent="@android:style/Widget.Material.RatingBar.Small" />
+    <style name="APKTOOL_RENAMED_0x7f130116" parent="@android:style/Widget.Material.Spinner.Underlined" />
+    <style name="APKTOOL_RENAMED_0x7f130117" parent="@android:style/Widget.Material.TextView">
+        <item name="android:breakStrategy">high_quality</item>
+        <item name="android:hyphenationFrequency">none</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130146" parent="@style/APKTOOL_RENAMED_0x7f13002c">
+        <item name="APKTOOL_RENAMED_0x7f0400a7">?android:colorBackgroundFloating</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1302fc" parent="@style/APKTOOL_RENAMED_0x7f13009e">
+        <item name="APKTOOL_RENAMED_0x7f0400fe">@color/APKTOOL_RENAMED_0x7f060266</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f13030d">
+        <item name="APKTOOL_RENAMED_0x7f0400fe">@color/APKTOOL_RENAMED_0x7f0600d6</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f13030e">
+        <item name="APKTOOL_RENAMED_0x7f0400fe">@color/APKTOOL_RENAMED_0x7f0600c3</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130333" parent="@style/APKTOOL_RENAMED_0x7f1300a2">
+        <item name="APKTOOL_RENAMED_0x7f0400fe">@color/APKTOOL_RENAMED_0x7f060266</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1303f8" parent="@style/APKTOOL_RENAMED_0x7f130122">
+        <item name="android:background">@drawable/APKTOOL_RENAMED_0x7f080191</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1303fa" parent="@style/APKTOOL_RENAMED_0x7f130123">
+        <item name="android:background">@drawable/APKTOOL_RENAMED_0x7f080190</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1303fb" parent="@style/APKTOOL_RENAMED_0x7f130124">
+        <item name="android:background">@drawable/APKTOOL_RENAMED_0x7f080191</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130452" parent="@style/APKTOOL_RENAMED_0x7f13012e">
+        <item name="android:background">@drawable/APKTOOL_RENAMED_0x7f080195</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1304ba" parent="@style/APKTOOL_RENAMED_0x7f130136">
+        <item name="android:popupBackground">?APKTOOL_RENAMED_0x7f0403bc</item>
+        <item name="android:popupElevation">8.0dp</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f1304bb" parent="@style/APKTOOL_RENAMED_0x7f130137">
+        <item name="android:popupBackground">?APKTOOL_RENAMED_0x7f0403bc</item>
+        <item name="android:popupElevation">8.0dp</item>
+    </style>
+</resources>

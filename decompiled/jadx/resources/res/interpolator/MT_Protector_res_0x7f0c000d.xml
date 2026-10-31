@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pathInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:controlX1="@dimen/MT_Protector_res_0x7f07024d"
+    android:controlY1="@dimen/MT_Protector_res_0x7f07024f"
+    android:controlX2="@dimen/MT_Protector_res_0x7f07024e"
+    android:controlY2="@dimen/MT_Protector_res_0x7f070250"/>

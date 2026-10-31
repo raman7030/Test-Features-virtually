@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="APKTOOL_RENAMED_0x7f130094" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="APKTOOL_RENAMED_0x7f04027e">?android:isLightTheme</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130096" parent="@style/APKTOOL_RENAMED_0x7f130094" />
+    <style name="APKTOOL_RENAMED_0x7f130142" parent="@style/APKTOOL_RENAMED_0x7f13028c">
+        <item name="android:navigationBarColor">@color/APKTOOL_RENAMED_0x7f060350</item>
+        <item name="android:windowLightNavigationBar">@bool/APKTOOL_RENAMED_0x7f050004</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

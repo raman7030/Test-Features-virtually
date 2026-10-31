@@ -1,0 +1,8 @@
+.class public interface abstract Ll/ۧ᩹۠;
+.super Ljava/lang/Object;
+.source "S7L6"
+
+
+# virtual methods
+.method public abstract ֫(Ll/ᩳ᩹۠;)V
+.end method

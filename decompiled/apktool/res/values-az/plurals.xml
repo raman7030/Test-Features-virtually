@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="MT_Protector">
+        <item quantity="one">Mənbə faylını silin</item>
+        <item quantity="other">Mənbə fayllarını silin</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110001">
+        <item quantity="one">Sıxıldıqdan sonra mənbə faylını silin</item>
+        <item quantity="other">Mənbə fayllarını sıxıldıqdan sonra silin</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110002">
+        <item quantity="one">Mənbə faylını çıxardıqdan sonra silin</item>
+        <item quantity="other">Mənbə fayllarını çıxardıqdan sonra silin</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110003">
+        <item quantity="one">%d saniyə irəli çəkin</item>
+        <item quantity="other">%d saniyə irəli çəkin</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110004">
+        <item quantity="one">%d saniyə geri çəkin</item>
+        <item quantity="other">%d saniyə geri çəkin</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110005">
+        <item quantity="one">Fayl: %d</item>
+        <item quantity="other">Fayllar: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110006">
+        <item quantity="one">Qovluq: %d</item>
+        <item quantity="other">Qovluqlar: %d</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110007">
+        <item quantity="one">%d yeni bildiriş</item>
+        <item quantity="other">%d yeni bildiriş</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110008">
+        <item quantity="one">%d gün əvvəl</item>
+        <item quantity="other">%d gün əvvəl</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110009">
+        <item quantity="one">%d saat əvvəl</item>
+        <item quantity="other">%d saat əvvəl</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000a">
+        <item quantity="one">%d dəqiqə əvvəl</item>
+        <item quantity="other">%d dəqiqə əvvəl</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000b">
+        <item quantity="one">%d saniyə əvvəl</item>
+        <item quantity="other">%d saniyə əvvəl</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000c">
+        <item quantity="one">%d Digər interfeys</item>
+        <item quantity="other">%d Digər interfeyslər</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000d">
+        <item quantity="one">%d mətn redaktoru üzən menyusu</item>
+        <item quantity="other">%d mətn redaktoru üzən menyusu</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000e">
+        <item quantity="one">%d mətn redaktoru funksiyası</item>
+        <item quantity="other">%d mətn redaktoru funksiyası</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f11000f">
+        <item quantity="one">%d mətn redaktoru alət menyusu</item>
+        <item quantity="other">%d mətn redaktoru alət menyusu</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110010">
+        <item quantity="one">%d Tərcümə mühərriki</item>
+        <item quantity="other">%d Tərcümə mühərrikləri</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110011">
+        <item quantity="one">%d faylına bölün</item>
+        <item quantity="other">%d fayllarına bölün</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110012">
+        <item quantity="one">%d tapşırıq icra olunur</item>
+        <item quantity="other">%d tapşırıqlar icra olunur</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110013">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiyalar</item>
+    </plurals>
+    <plurals name="APKTOOL_RENAMED_0x7f110014">
+        <item quantity="one">VIP expires in %d day</item>
+        <item quantity="other">VIP expires in %d days</item>
+    </plurals>
+</resources>

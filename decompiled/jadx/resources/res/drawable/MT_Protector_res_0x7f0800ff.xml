@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" android:drawable="@drawable/MT_Protector_res_0x7f0800fe">
+    <target
+        android:name="rectangle_3"
+        android:animation="@animator/MT_Protector_res_0x7f020019"/>
+    <target
+        android:name="rectangle_3_pivot"
+        android:animation="@animator/MT_Protector_res_0x7f02001a"/>
+    <target
+        android:name="rectangle_path_2"
+        android:animation="@animator/MT_Protector_res_0x7f02001c"/>
+    <target
+        android:name="rectangle_2"
+        android:animation="@animator/MT_Protector_res_0x7f020017"/>
+    <target
+        android:name="rectangle_2_pivot"
+        android:animation="@animator/MT_Protector_res_0x7f020018"/>
+    <target
+        android:name="rectangle_path_3"
+        android:animation="@animator/MT_Protector_res_0x7f02001d"/>
+    <target
+        android:name="rectangle_1"
+        android:animation="@animator/MT_Protector_res_0x7f020015"/>
+    <target
+        android:name="rectangle_1_pivot"
+        android:animation="@animator/MT_Protector_res_0x7f020016"/>
+    <target
+        android:name="rectangle_path_1"
+        android:animation="@animator/MT_Protector_res_0x7f02001b"/>
+</animated-vector>

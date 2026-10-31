@@ -1,0 +1,118 @@
+.class public Lorg/bouncycastle/jcajce/provider/symmetric/GOST3412_2015$Mappings;
+.super Lorg/bouncycastle/jcajce/provider/util/AlgorithmProvider;
+
+
+# static fields
+.field public static final PREFIX:Ljava/lang/String;
+
+
+# direct methods
+.method public static constructor <clinit>()V
+    .locals 1
+
+    .line 0
+    const-class v0, Lorg/bouncycastle/jcajce/provider/symmetric/GOST3412_2015;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lorg/bouncycastle/jcajce/provider/symmetric/GOST3412_2015$Mappings;->PREFIX:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Lorg/bouncycastle/jcajce/provider/util/AlgorithmProvider;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public configure(Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)V
+    .locals 4
+
+    .line 2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 5
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 7
+    sget-object v1, Lorg/bouncycastle/jcajce/provider/symmetric/GOST3412_2015$Mappings;->PREFIX:Ljava/lang/String;
+
+    const-string v2, "$ECB"
+
+    const-string v3, "Cipher.GOST3412-2015"
+
+    .line 0
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$GCFB"
+
+    const-string v3, "Cipher.GOST3412-2015/CFB"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$GCFB8"
+
+    const-string v3, "Cipher.GOST3412-2015/CFB8"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$OFB"
+
+    const-string v3, "Cipher.GOST3412-2015/OFB"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$CBC"
+
+    const-string v3, "Cipher.GOST3412-2015/CBC"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$CTR"
+
+    const-string v3, "Cipher.GOST3412-2015/CTR"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$KeyGen"
+
+    const-string v3, "KeyGenerator.GOST3412-2015"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/ۚ۬ۚ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "$Mac"
+
+    const-string v3, "Mac.GOST3412MAC"
+
+    invoke-static {v1, v2, v3, v0, p1}, Ll/۫᩷ᩳ;->֫(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;)V
+
+    const-string v0, "Alg.Alias.Mac.GOST3412-2015"
+
+    const-string v1, "GOST3412MAC"
+
+    invoke-interface {p1, v0, v1}, Lorg/bouncycastle/jcajce/provider/config/ConfigurableProvider;->addAlgorithm(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method

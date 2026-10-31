@@ -1,0 +1,77 @@
+package com.google.android.material.datepicker;
+
+import android.os.Bundle;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.Iterator;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class MaterialTextInputPicker extends PickerFragment {
+    public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
+    public static final String DATE_SELECTOR_KEY = "DATE_SELECTOR_KEY";
+    public static final String THEME_RES_ID_KEY = "THEME_RES_ID_KEY";
+    public CalendarConstraints calendarConstraints;
+    public DateSelector dateSelector;
+    public int themeResId;
+
+    public static MaterialTextInputPicker newInstance(DateSelector dateSelector, int i, CalendarConstraints calendarConstraints) {
+        MaterialTextInputPicker materialTextInputPicker = new MaterialTextInputPicker();
+        Bundle bundle = new Bundle();
+        bundle.putInt("THEME_RES_ID_KEY", i);
+        bundle.putParcelable("DATE_SELECTOR_KEY", dateSelector);
+        bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", calendarConstraints);
+        materialTextInputPicker.setArguments(bundle);
+        return materialTextInputPicker;
+    }
+
+    @Override // l.ComponentCallbacksC9205
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putInt("THEME_RES_ID_KEY", this.themeResId);
+        bundle.putParcelable("DATE_SELECTOR_KEY", this.dateSelector);
+        bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", this.calendarConstraints);
+    }
+
+    @Override // l.ComponentCallbacksC9205
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        if (bundle == null) {
+            bundle = getArguments();
+        }
+        this.themeResId = bundle.getInt("THEME_RES_ID_KEY");
+        this.dateSelector = (DateSelector) bundle.getParcelable("DATE_SELECTOR_KEY");
+        this.calendarConstraints = (CalendarConstraints) bundle.getParcelable("CALENDAR_CONSTRAINTS_KEY");
+    }
+
+    @Override // l.ComponentCallbacksC9205
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return this.dateSelector.onCreateTextInputView(layoutInflater.cloneInContext(new ContextThemeWrapper(getContext(), this.themeResId)), viewGroup, bundle, this.calendarConstraints, new OnSelectionChangedListener() { // from class: com.google.android.material.datepicker.MaterialTextInputPicker.1
+            @Override // com.google.android.material.datepicker.OnSelectionChangedListener
+            public void onSelectionChanged(Object obj) {
+                Iterator it = MaterialTextInputPicker.this.onSelectionChangedListeners.iterator();
+                while (it.hasNext()) {
+                    ((OnSelectionChangedListener) it.next()).onSelectionChanged(obj);
+                }
+            }
+
+            @Override // com.google.android.material.datepicker.OnSelectionChangedListener
+            public void onIncompleteSelectionChanged() {
+                Iterator it = MaterialTextInputPicker.this.onSelectionChangedListeners.iterator();
+                while (it.hasNext()) {
+                    ((OnSelectionChangedListener) it.next()).onIncompleteSelectionChanged();
+                }
+            }
+        });
+    }
+
+    @Override // com.google.android.material.datepicker.PickerFragment
+    public DateSelector getDateSelector() {
+        DateSelector dateSelector = this.dateSelector;
+        if (dateSelector != null) {
+            return dateSelector;
+        }
+        throw new IllegalStateException("dateSelector should not be null. Use MaterialTextInputPicker#newInstance() to create this fragment with a DateSelector, and call this method after the fragment has been created.");
+    }
+}

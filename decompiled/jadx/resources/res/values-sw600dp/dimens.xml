@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="MT_Protector_res_0x7f070000">24dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070001">80dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070002">64dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070003">8dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070004">8dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070017">580dp</dimen>
+    <dimen name="MT_Protector_res_0x7f07004e">16dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070050">20dp</dimen>
+    <dimen name="MT_Protector_res_0x7f07007f">320dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070082">0dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070084">2dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070086">24dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070087">576dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070088">320dp</dimen>
+    <dimen name="MT_Protector_res_0x7f07008b">@dimen/MT_Protector_res_0x7f07008a</dimen>
+    <dimen name="MT_Protector_res_0x7f07008e">160dp</dimen>
+    <dimen name="MT_Protector_res_0x7f0700c6">544dp</dimen>
+    <dimen name="MT_Protector_res_0x7f070290">64dp</dimen>
+    <dimen name="MT_Protector_res_0x7f07033d">64dp</dimen>
+</resources>

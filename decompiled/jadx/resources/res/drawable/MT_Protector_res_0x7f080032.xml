@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_checked="true"
+        android:id="@+id/MT_Protector_res_0x7f0a03ed"
+        android:drawable="@drawable/MT_Protector_res_0x7f080097"/>
+    <item
+        android:id="@+id/MT_Protector_res_0x7f0a03ec"
+        android:drawable="@drawable/MT_Protector_res_0x7f080095"/>
+    <transition
+        android:drawable="@drawable/MT_Protector_res_0x7f080098"
+        android:toId="@+id/MT_Protector_res_0x7f0a03ec"
+        android:fromId="@+id/MT_Protector_res_0x7f0a03ed"/>
+    <transition
+        android:drawable="@drawable/MT_Protector_res_0x7f080096"
+        android:toId="@+id/MT_Protector_res_0x7f0a03ed"
+        android:fromId="@+id/MT_Protector_res_0x7f0a03ec"/>
+</animated-selector>

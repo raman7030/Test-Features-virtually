@@ -1,0 +1,7 @@
+package l;
+
+/* JADX INFO: renamed from: l.ۡ۫֨, reason: contains not printable characters */
+/* JADX INFO: compiled from: W7SR */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C8872 extends C5431 {
+}

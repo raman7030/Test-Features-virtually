@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f130067" parent="@style/MT_Protector_res_0x7f1300cc">
+    </style>
+    <style name="MT_Protector_res_0x7f13006e" parent="@style/MT_Protector_res_0x7f1300cd">
+    </style>
+    <style name="MT_Protector_res_0x7f1300cc" parent="@style/MT_Protector_res_0x7f1300c0">
+        <item name="MT_Protector_res_0x7f04001a">?android:attr/actionModeShareDrawable</item>
+        <item name="MT_Protector_res_0x7f0401b6">?android:attr/editTextBackground</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1300cd" parent="@style/MT_Protector_res_0x7f1300c2">
+        <item name="MT_Protector_res_0x7f04001a">?android:attr/actionModeShareDrawable</item>
+        <item name="MT_Protector_res_0x7f0401b6">?android:attr/editTextBackground</item>
+    </style>
+</resources>

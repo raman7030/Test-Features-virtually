@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/APKTOOL_RENAMED_0x7f08007d" android:left="6.0dp" android:top="7.0dp" android:right="6.0dp" android:bottom="7.0dp" />
+    <item android:left="4.0dp" android:top="6.0dp" android:right="4.0dp" android:bottom="6.0dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="2.0dp" />
+            <stroke android:width="1.5dp" android:color="@color/APKTOOL_RENAMED_0x7f060048" />
+        </shape>
+    </item>
+</layer-list>

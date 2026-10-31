@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/MT_Protector_res_0x7f08026e">
+    <set
+        android:interpolator="@interpolator/MT_Protector_res_0x7f0c0007"
+        android:shareInterpolator="true">
+        <target
+            android:name="@string/MT_Protector_res_0x7f120685"
+            android:animation="@drawable/MT_Protector_res_0x7f080021"/>
+        <target
+            android:name="@string/MT_Protector_res_0x7f120685"
+            android:animation="@drawable/MT_Protector_res_0x7f080022"/>
+    </set>
+</animated-vector>

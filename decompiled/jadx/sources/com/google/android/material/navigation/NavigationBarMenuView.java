@@ -1,0 +1,694 @@
+package com.google.android.material.navigation;
+
+import android.R;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.util.SparseArray;
+import android.util.TypedValue;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityNodeInfo;
+import com.google.android.material.animation.AnimationUtils;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.internal.TextScale;
+import com.google.android.material.motion.MotionUtils;
+import com.google.android.material.shape.MaterialShapeDrawable;
+import com.google.android.material.shape.ShapeAppearanceModel;
+import java.util.HashSet;
+import l.C0881;
+import l.C11641;
+import l.C14369;
+import l.C16486;
+import l.C17648;
+import l.C17931;
+import l.C22919;
+import l.C23676;
+import l.C2510;
+import l.C3060;
+import l.C5882;
+import l.C9465;
+import l.InterfaceC5986;
+import l.InterfaceC7002;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class NavigationBarMenuView extends ViewGroup implements InterfaceC7002 {
+    public static final int[] CHECKED_STATE_SET = {R.attr.state_checked};
+    public static final int[] DISABLED_STATE_SET = {-16842910};
+    public static final int ITEM_POOL_SIZE = 5;
+    public static final int NO_PADDING = -1;
+    public final SparseArray badgeDrawables;
+    public NavigationBarItemView[] buttons;
+    public ColorStateList itemActiveIndicatorColor;
+    public boolean itemActiveIndicatorEnabled;
+    public int itemActiveIndicatorHeight;
+    public int itemActiveIndicatorLabelPadding;
+    public int itemActiveIndicatorMarginHorizontal;
+    public boolean itemActiveIndicatorResizeable;
+    public ShapeAppearanceModel itemActiveIndicatorShapeAppearance;
+    public int itemActiveIndicatorWidth;
+    public Drawable itemBackground;
+    public int itemBackgroundRes;
+    public int itemIconSize;
+    public ColorStateList itemIconTint;
+    public int itemPaddingBottom;
+    public int itemPaddingTop;
+    public final InterfaceC5986 itemPool;
+    public ColorStateList itemRippleColor;
+    public int itemTextAppearanceActive;
+    public boolean itemTextAppearanceActiveBoldEnabled;
+    public int itemTextAppearanceInactive;
+    public final ColorStateList itemTextColorDefault;
+    public ColorStateList itemTextColorFromUser;
+    public int labelVisibilityMode;
+    public C3060 menu;
+    public final View.OnClickListener onClickListener;
+    public final SparseArray onTouchListeners;
+    public NavigationBarPresenter presenter;
+    public int selectedItemId;
+    public int selectedItemPosition;
+    public final C2510 set;
+
+    private boolean isValidId(int i) {
+        return i != -1;
+    }
+
+    public abstract NavigationBarItemView createNavigationBarItemView(Context context);
+
+    public int getWindowAnimations() {
+        return 0;
+    }
+
+    public boolean isShifting(int i, int i2) {
+        if (i == -1) {
+            return i2 > 3;
+        }
+        return i == 0;
+    }
+
+    public NavigationBarMenuView(Context context) {
+        super(context);
+        this.itemPool = new C22919(5);
+        this.onTouchListeners = new SparseArray(5);
+        this.selectedItemId = 0;
+        this.selectedItemPosition = 0;
+        this.badgeDrawables = new SparseArray(5);
+        this.itemPaddingTop = -1;
+        this.itemPaddingBottom = -1;
+        this.itemActiveIndicatorLabelPadding = -1;
+        this.itemActiveIndicatorResizeable = false;
+        this.itemTextColorDefault = createDefaultColorStateList(R.attr.textColorSecondary);
+        if (isInEditMode()) {
+            this.set = null;
+        } else {
+            C11641 c11641 = new C11641();
+            this.set = c11641;
+            c11641.m8007(0);
+            c11641.m8010setDuration(MotionUtils.resolveThemeDuration(getContext(), C17931.f54828, getResources().getInteger(C9465.f28751)));
+            c11641.setInterpolator(MotionUtils.resolveThemeInterpolator(getContext(), C17931.f55887, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+            c11641.m8006(new TextScale());
+        }
+        this.onClickListener = new View.OnClickListener() { // from class: com.google.android.material.navigation.NavigationBarMenuView.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                C5882 itemData = ((NavigationBarItemView) view).getItemData();
+                if (NavigationBarMenuView.this.menu.performItemAction(itemData, NavigationBarMenuView.this.presenter, 0)) {
+                    return;
+                }
+                itemData.setChecked(true);
+            }
+        };
+        int i = C17648.f53953;
+        setImportantForAccessibility(1);
+    }
+
+    @Override // l.InterfaceC7002
+    public void initialize(C3060 c3060) {
+        this.menu = c3060;
+    }
+
+    @Override // android.view.View
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+        C14369.m34264(accessibilityNodeInfo).m34284(C16486.m38850(1, this.menu.getVisibleItems().size(), 1, false));
+    }
+
+    public void setIconTintList(ColorStateList colorStateList) {
+        this.itemIconTint = colorStateList;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setIconTintList(colorStateList);
+            }
+        }
+    }
+
+    public ColorStateList getIconTintList() {
+        return this.itemIconTint;
+    }
+
+    public void setItemIconSize(int i) {
+        this.itemIconSize = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setIconSize(i);
+            }
+        }
+    }
+
+    public int getItemIconSize() {
+        return this.itemIconSize;
+    }
+
+    public void setItemTextColor(ColorStateList colorStateList) {
+        this.itemTextColorFromUser = colorStateList;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setTextColor(colorStateList);
+            }
+        }
+    }
+
+    public ColorStateList getItemTextColor() {
+        return this.itemTextColorFromUser;
+    }
+
+    public void setItemTextAppearanceInactive(int i) {
+        this.itemTextAppearanceInactive = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setTextAppearanceInactive(i);
+                ColorStateList colorStateList = this.itemTextColorFromUser;
+                if (colorStateList != null) {
+                    navigationBarItemView.setTextColor(colorStateList);
+                }
+            }
+        }
+    }
+
+    public int getItemTextAppearanceInactive() {
+        return this.itemTextAppearanceInactive;
+    }
+
+    public void setItemTextAppearanceActive(int i) {
+        this.itemTextAppearanceActive = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setTextAppearanceActive(i);
+                ColorStateList colorStateList = this.itemTextColorFromUser;
+                if (colorStateList != null) {
+                    navigationBarItemView.setTextColor(colorStateList);
+                }
+            }
+        }
+    }
+
+    public void setItemTextAppearanceActiveBoldEnabled(boolean z) {
+        this.itemTextAppearanceActiveBoldEnabled = z;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setTextAppearanceActiveBoldEnabled(z);
+            }
+        }
+    }
+
+    public int getItemTextAppearanceActive() {
+        return this.itemTextAppearanceActive;
+    }
+
+    public void setItemBackgroundRes(int i) {
+        this.itemBackgroundRes = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setItemBackground(i);
+            }
+        }
+    }
+
+    public int getItemPaddingTop() {
+        return this.itemPaddingTop;
+    }
+
+    public void setItemPaddingTop(int i) {
+        this.itemPaddingTop = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setItemPaddingTop(i);
+            }
+        }
+    }
+
+    public int getItemPaddingBottom() {
+        return this.itemPaddingBottom;
+    }
+
+    public void setItemPaddingBottom(int i) {
+        this.itemPaddingBottom = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setItemPaddingBottom(i);
+            }
+        }
+    }
+
+    public int getActiveIndicatorLabelPadding() {
+        return this.itemActiveIndicatorLabelPadding;
+    }
+
+    public void setActiveIndicatorLabelPadding(int i) {
+        this.itemActiveIndicatorLabelPadding = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorLabelPadding(i);
+            }
+        }
+    }
+
+    public boolean getItemActiveIndicatorEnabled() {
+        return this.itemActiveIndicatorEnabled;
+    }
+
+    public void setItemActiveIndicatorEnabled(boolean z) {
+        this.itemActiveIndicatorEnabled = z;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorEnabled(z);
+            }
+        }
+    }
+
+    public int getItemActiveIndicatorWidth() {
+        return this.itemActiveIndicatorWidth;
+    }
+
+    public void setItemActiveIndicatorWidth(int i) {
+        this.itemActiveIndicatorWidth = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorWidth(i);
+            }
+        }
+    }
+
+    public int getItemActiveIndicatorHeight() {
+        return this.itemActiveIndicatorHeight;
+    }
+
+    public void setItemActiveIndicatorHeight(int i) {
+        this.itemActiveIndicatorHeight = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorHeight(i);
+            }
+        }
+    }
+
+    public int getItemActiveIndicatorMarginHorizontal() {
+        return this.itemActiveIndicatorMarginHorizontal;
+    }
+
+    public void setItemActiveIndicatorMarginHorizontal(int i) {
+        this.itemActiveIndicatorMarginHorizontal = i;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorMarginHorizontal(i);
+            }
+        }
+    }
+
+    public ShapeAppearanceModel getItemActiveIndicatorShapeAppearance() {
+        return this.itemActiveIndicatorShapeAppearance;
+    }
+
+    public void setItemActiveIndicatorShapeAppearance(ShapeAppearanceModel shapeAppearanceModel) {
+        this.itemActiveIndicatorShapeAppearance = shapeAppearanceModel;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorDrawable(createItemActiveIndicatorDrawable());
+            }
+        }
+    }
+
+    public boolean isItemActiveIndicatorResizeable() {
+        return this.itemActiveIndicatorResizeable;
+    }
+
+    public void setItemActiveIndicatorResizeable(boolean z) {
+        this.itemActiveIndicatorResizeable = z;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorResizeable(z);
+            }
+        }
+    }
+
+    public ColorStateList getItemActiveIndicatorColor() {
+        return this.itemActiveIndicatorColor;
+    }
+
+    public void setItemActiveIndicatorColor(ColorStateList colorStateList) {
+        this.itemActiveIndicatorColor = colorStateList;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setActiveIndicatorDrawable(createItemActiveIndicatorDrawable());
+            }
+        }
+    }
+
+    private Drawable createItemActiveIndicatorDrawable() {
+        if (this.itemActiveIndicatorShapeAppearance == null || this.itemActiveIndicatorColor == null) {
+            return null;
+        }
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(this.itemActiveIndicatorShapeAppearance);
+        materialShapeDrawable.setFillColor(this.itemActiveIndicatorColor);
+        return materialShapeDrawable;
+    }
+
+    @Deprecated
+    public int getItemBackgroundRes() {
+        return this.itemBackgroundRes;
+    }
+
+    public void setItemBackground(Drawable drawable) {
+        this.itemBackground = drawable;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setItemBackground(drawable);
+            }
+        }
+    }
+
+    public void setItemRippleColor(ColorStateList colorStateList) {
+        this.itemRippleColor = colorStateList;
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                navigationBarItemView.setItemRippleColor(colorStateList);
+            }
+        }
+    }
+
+    public ColorStateList getItemRippleColor() {
+        return this.itemRippleColor;
+    }
+
+    public Drawable getItemBackground() {
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null && navigationBarItemViewArr.length > 0) {
+            return navigationBarItemViewArr[0].getBackground();
+        }
+        return this.itemBackground;
+    }
+
+    public void setLabelVisibilityMode(int i) {
+        this.labelVisibilityMode = i;
+    }
+
+    public int getLabelVisibilityMode() {
+        return this.labelVisibilityMode;
+    }
+
+    public void setItemOnTouchListener(int i, View.OnTouchListener onTouchListener) {
+        if (onTouchListener == null) {
+            this.onTouchListeners.remove(i);
+        } else {
+            this.onTouchListeners.put(i, onTouchListener);
+        }
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                if (navigationBarItemView.getItemData().getItemId() == i) {
+                    navigationBarItemView.setOnTouchListener(onTouchListener);
+                }
+            }
+        }
+    }
+
+    public ColorStateList createDefaultColorStateList(int i) {
+        TypedValue typedValue = new TypedValue();
+        if (!getContext().getTheme().resolveAttribute(i, typedValue, true)) {
+            return null;
+        }
+        ColorStateList colorStateListM3233 = C0881.m3233(getContext(), typedValue.resourceId);
+        if (!getContext().getTheme().resolveAttribute(bin.mt.plus.R.attr.MT_Protector, typedValue, true)) {
+            return null;
+        }
+        int i2 = typedValue.data;
+        int defaultColor = colorStateListM3233.getDefaultColor();
+        int[] iArr = DISABLED_STATE_SET;
+        return new ColorStateList(new int[][]{iArr, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateListM3233.getColorForState(iArr, defaultColor), i2, defaultColor});
+    }
+
+    public void setPresenter(NavigationBarPresenter navigationBarPresenter) {
+        this.presenter = navigationBarPresenter;
+    }
+
+    public void buildMenuView() {
+        removeAllViews();
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                if (navigationBarItemView != null) {
+                    this.itemPool.mo16807(navigationBarItemView);
+                    navigationBarItemView.clear();
+                }
+            }
+        }
+        if (this.menu.size() == 0) {
+            this.selectedItemId = 0;
+            this.selectedItemPosition = 0;
+            this.buttons = null;
+            return;
+        }
+        removeUnusedBadges();
+        this.buttons = new NavigationBarItemView[this.menu.size()];
+        boolean zIsShifting = isShifting(this.labelVisibilityMode, this.menu.getVisibleItems().size());
+        for (int i = 0; i < this.menu.size(); i++) {
+            this.presenter.setUpdateSuspended(true);
+            this.menu.getItem(i).setCheckable(true);
+            this.presenter.setUpdateSuspended(false);
+            NavigationBarItemView newItem = getNewItem();
+            this.buttons[i] = newItem;
+            newItem.setIconTintList(this.itemIconTint);
+            newItem.setIconSize(this.itemIconSize);
+            newItem.setTextColor(this.itemTextColorDefault);
+            newItem.setTextAppearanceInactive(this.itemTextAppearanceInactive);
+            newItem.setTextAppearanceActive(this.itemTextAppearanceActive);
+            newItem.setTextAppearanceActiveBoldEnabled(this.itemTextAppearanceActiveBoldEnabled);
+            newItem.setTextColor(this.itemTextColorFromUser);
+            int i2 = this.itemPaddingTop;
+            if (i2 != -1) {
+                newItem.setItemPaddingTop(i2);
+            }
+            int i3 = this.itemPaddingBottom;
+            if (i3 != -1) {
+                newItem.setItemPaddingBottom(i3);
+            }
+            int i4 = this.itemActiveIndicatorLabelPadding;
+            if (i4 != -1) {
+                newItem.setActiveIndicatorLabelPadding(i4);
+            }
+            newItem.setActiveIndicatorWidth(this.itemActiveIndicatorWidth);
+            newItem.setActiveIndicatorHeight(this.itemActiveIndicatorHeight);
+            newItem.setActiveIndicatorMarginHorizontal(this.itemActiveIndicatorMarginHorizontal);
+            newItem.setActiveIndicatorDrawable(createItemActiveIndicatorDrawable());
+            newItem.setActiveIndicatorResizeable(this.itemActiveIndicatorResizeable);
+            newItem.setActiveIndicatorEnabled(this.itemActiveIndicatorEnabled);
+            Drawable drawable = this.itemBackground;
+            if (drawable != null) {
+                newItem.setItemBackground(drawable);
+            } else {
+                newItem.setItemBackground(this.itemBackgroundRes);
+            }
+            newItem.setItemRippleColor(this.itemRippleColor);
+            newItem.setShifting(zIsShifting);
+            newItem.setLabelVisibilityMode(this.labelVisibilityMode);
+            C5882 c5882 = (C5882) this.menu.getItem(i);
+            newItem.initialize(c5882, 0);
+            newItem.setItemPosition(i);
+            int itemId = c5882.getItemId();
+            newItem.setOnTouchListener((View.OnTouchListener) this.onTouchListeners.get(itemId));
+            newItem.setOnClickListener(this.onClickListener);
+            int i5 = this.selectedItemId;
+            if (i5 != 0 && itemId == i5) {
+                this.selectedItemPosition = i;
+            }
+            setBadgeIfNeeded(newItem);
+            addView(newItem);
+        }
+        int iMin = Math.min(this.menu.size() - 1, this.selectedItemPosition);
+        this.selectedItemPosition = iMin;
+        this.menu.getItem(iMin).setChecked(true);
+    }
+
+    public void updateMenuView() {
+        C2510 c2510;
+        C3060 c3060 = this.menu;
+        if (c3060 == null || this.buttons == null) {
+            return;
+        }
+        int size = c3060.size();
+        if (size != this.buttons.length) {
+            buildMenuView();
+            return;
+        }
+        int i = this.selectedItemId;
+        for (int i2 = 0; i2 < size; i2++) {
+            MenuItem item = this.menu.getItem(i2);
+            if (item.isChecked()) {
+                this.selectedItemId = item.getItemId();
+                this.selectedItemPosition = i2;
+            }
+        }
+        if (i != this.selectedItemId && (c2510 = this.set) != null) {
+            C23676.m52224(this, c2510);
+        }
+        boolean zIsShifting = isShifting(this.labelVisibilityMode, this.menu.getVisibleItems().size());
+        for (int i3 = 0; i3 < size; i3++) {
+            this.presenter.setUpdateSuspended(true);
+            this.buttons[i3].setLabelVisibilityMode(this.labelVisibilityMode);
+            this.buttons[i3].setShifting(zIsShifting);
+            this.buttons[i3].initialize((C5882) this.menu.getItem(i3), 0);
+            this.presenter.setUpdateSuspended(false);
+        }
+    }
+
+    private NavigationBarItemView getNewItem() {
+        NavigationBarItemView navigationBarItemView = (NavigationBarItemView) this.itemPool.mo16806();
+        return navigationBarItemView == null ? createNavigationBarItemView(getContext()) : navigationBarItemView;
+    }
+
+    public int getSelectedItemId() {
+        return this.selectedItemId;
+    }
+
+    public void tryRestoreSelectedItemId(int i) {
+        int size = this.menu.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            MenuItem item = this.menu.getItem(i2);
+            if (i == item.getItemId()) {
+                this.selectedItemId = i;
+                this.selectedItemPosition = i2;
+                item.setChecked(true);
+                return;
+            }
+        }
+    }
+
+    public SparseArray getBadgeDrawables() {
+        return this.badgeDrawables;
+    }
+
+    public void restoreBadgeDrawables(SparseArray sparseArray) {
+        for (int i = 0; i < sparseArray.size(); i++) {
+            int iKeyAt = sparseArray.keyAt(i);
+            if (this.badgeDrawables.indexOfKey(iKeyAt) < 0) {
+                this.badgeDrawables.append(iKeyAt, (BadgeDrawable) sparseArray.get(iKeyAt));
+            }
+        }
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr != null) {
+            for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+                BadgeDrawable badgeDrawable = (BadgeDrawable) this.badgeDrawables.get(navigationBarItemView.getId());
+                if (badgeDrawable != null) {
+                    navigationBarItemView.setBadge(badgeDrawable);
+                }
+            }
+        }
+    }
+
+    public BadgeDrawable getBadge(int i) {
+        return (BadgeDrawable) this.badgeDrawables.get(i);
+    }
+
+    public BadgeDrawable getOrCreateBadge(int i) {
+        validateMenuItemId(i);
+        BadgeDrawable badgeDrawableCreate = (BadgeDrawable) this.badgeDrawables.get(i);
+        if (badgeDrawableCreate == null) {
+            badgeDrawableCreate = BadgeDrawable.create(getContext());
+            this.badgeDrawables.put(i, badgeDrawableCreate);
+        }
+        NavigationBarItemView navigationBarItemViewFindItemView = findItemView(i);
+        if (navigationBarItemViewFindItemView != null) {
+            navigationBarItemViewFindItemView.setBadge(badgeDrawableCreate);
+        }
+        return badgeDrawableCreate;
+    }
+
+    public void removeBadge(int i) {
+        validateMenuItemId(i);
+        NavigationBarItemView navigationBarItemViewFindItemView = findItemView(i);
+        if (navigationBarItemViewFindItemView != null) {
+            navigationBarItemViewFindItemView.removeBadge();
+        }
+        this.badgeDrawables.put(i, null);
+    }
+
+    private void setBadgeIfNeeded(NavigationBarItemView navigationBarItemView) {
+        BadgeDrawable badgeDrawable;
+        int id = navigationBarItemView.getId();
+        if (isValidId(id) && (badgeDrawable = (BadgeDrawable) this.badgeDrawables.get(id)) != null) {
+            navigationBarItemView.setBadge(badgeDrawable);
+        }
+    }
+
+    private void removeUnusedBadges() {
+        HashSet hashSet = new HashSet();
+        for (int i = 0; i < this.menu.size(); i++) {
+            hashSet.add(Integer.valueOf(this.menu.getItem(i).getItemId()));
+        }
+        for (int i2 = 0; i2 < this.badgeDrawables.size(); i2++) {
+            int iKeyAt = this.badgeDrawables.keyAt(i2);
+            if (!hashSet.contains(Integer.valueOf(iKeyAt))) {
+                this.badgeDrawables.delete(iKeyAt);
+            }
+        }
+    }
+
+    public NavigationBarItemView findItemView(int i) {
+        validateMenuItemId(i);
+        NavigationBarItemView[] navigationBarItemViewArr = this.buttons;
+        if (navigationBarItemViewArr == null) {
+            return null;
+        }
+        for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
+            if (navigationBarItemView.getId() == i) {
+                return navigationBarItemView;
+            }
+        }
+        return null;
+    }
+
+    public int getSelectedItemPosition() {
+        return this.selectedItemPosition;
+    }
+
+    public C3060 getMenu() {
+        return this.menu;
+    }
+
+    private void validateMenuItemId(int i) {
+        if (isValidId(i)) {
+            return;
+        }
+        throw new IllegalArgumentException(i + " is not a valid view id");
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:interpolator="?attr/MT_Protector_res_0x7f04036e"
+        android:duration="?attr/MT_Protector_res_0x7f040364"
+        android:startOffset="0"
+        android:propertyName="width"/>
+    <objectAnimator
+        android:interpolator="?attr/MT_Protector_res_0x7f04036e"
+        android:duration="?attr/MT_Protector_res_0x7f040364"
+        android:startOffset="0"
+        android:propertyName="height"/>
+    <objectAnimator
+        android:interpolator="?attr/MT_Protector_res_0x7f04036e"
+        android:duration="?attr/MT_Protector_res_0x7f040364"
+        android:startOffset="0"
+        android:propertyName="paddingStart"/>
+    <objectAnimator
+        android:interpolator="?attr/MT_Protector_res_0x7f04036e"
+        android:duration="?attr/MT_Protector_res_0x7f040364"
+        android:startOffset="0"
+        android:propertyName="paddingEnd"/>
+    <objectAnimator
+        android:interpolator="?attr/MT_Protector_res_0x7f04036e"
+        android:duration="?attr/MT_Protector_res_0x7f040368"
+        android:startOffset="?attr/MT_Protector_res_0x7f040366"
+        android:propertyName="labelOpacity"/>
+</set>

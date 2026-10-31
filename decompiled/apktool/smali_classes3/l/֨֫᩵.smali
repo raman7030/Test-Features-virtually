@@ -1,0 +1,138 @@
+.class public final Ll/֨֫᩵;
+.super Ll/ᩴܿ᩵;
+.source "N673"
+
+# interfaces
+.implements Ll/ᩳܿ᩵;
+
+
+# instance fields
+.field public final synthetic b:Ljava/lang/Object;
+
+.field public final synthetic c:Ljava/util/function/BiFunction;
+
+.field public final synthetic d:Ljava/util/function/BinaryOperator;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)V
+    .locals 0
+
+    .line 872
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 72
+    iput-object p1, p0, Ll/֨֫᩵;->b:Ljava/lang/Object;
+
+    iput-object p2, p0, Ll/֨֫᩵;->c:Ljava/util/function/BiFunction;
+
+    iput-object p3, p0, Ll/֨֫᩵;->d:Ljava/util/function/BinaryOperator;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final synthetic accept(D)V
+    .locals 0
+
+    invoke-static {}, Ll/ۡ᩺ᩴ;->m()V
+
+    const/4 p1, 0x0
+
+    throw p1
+.end method
+
+.method public final synthetic accept(I)V
+    .locals 0
+
+    invoke-static {}, Ll/ۡ᩺ᩴ;->t()V
+
+    const/4 p1, 0x0
+
+    throw p1
+.end method
+
+.method public final synthetic accept(J)V
+    .locals 0
+
+    invoke-static {}, Ll/ۡ᩺ᩴ;->u()V
+
+    const/4 p1, 0x0
+
+    throw p1
+.end method
+
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
+
+    .line 80
+    iget-object v0, p0, Ll/֨֫᩵;->c:Ljava/util/function/BiFunction;
+
+    iget-object v1, p0, Ll/ᩴܿ᩵;->a:Ljava/lang/Object;
+
+    invoke-interface {v0, v1, p1}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    iput-object p1, p0, Ll/ᩴܿ᩵;->a:Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method public final synthetic andThen(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+    .locals 0
+
+    invoke-static {p0, p1}, Ll/᩻ۛᩴ;->$default$andThen(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final c(J)V
+    .locals 0
+
+    .line 75
+    iget-object p1, p0, Ll/֨֫᩵;->b:Ljava/lang/Object;
+
+    iput-object p1, p0, Ll/ᩴܿ᩵;->a:Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method public final synthetic end()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final synthetic f()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public final i(Ll/ᩳܿ᩵;)V
+    .locals 2
+
+    .line 72
+    check-cast p1, Ll/֨֫᩵;
+
+    .line 85
+    iget-object v0, p0, Ll/ᩴܿ᩵;->a:Ljava/lang/Object;
+
+    iget-object p1, p1, Ll/ᩴܿ᩵;->a:Ljava/lang/Object;
+
+    iget-object v1, p0, Ll/֨֫᩵;->d:Ljava/util/function/BinaryOperator;
+
+    invoke-interface {v1, v0, p1}, Ljava/util/function/BinaryOperator;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    iput-object p1, p0, Ll/ᩴܿ᩵;->a:Ljava/lang/Object;
+
+    return-void
+.end method

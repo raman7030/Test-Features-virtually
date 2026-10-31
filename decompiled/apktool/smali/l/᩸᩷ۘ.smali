@@ -1,0 +1,6 @@
+.class public final Ll/᩸᩷ۘ;
+.super Ljava/lang/Object;
+.source "27Y0"
+
+# interfaces
+.implements Ll/ۚۢۘ;

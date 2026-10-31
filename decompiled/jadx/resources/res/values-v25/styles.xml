@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f130189" parent="@style/MT_Protector_res_0x7f130194">
+    </style>
+    <style name="MT_Protector_res_0x7f13018a" parent="@style/MT_Protector_res_0x7f130195">
+    </style>
+    <style name="MT_Protector_res_0x7f130194" parent="@android:style/Theme.Material.NoActionBar">
+    </style>
+    <style name="MT_Protector_res_0x7f130195" parent="@android:style/Theme.Material.Light.NoActionBar">
+    </style>
+</resources>

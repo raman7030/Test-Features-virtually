@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="true"
+        android:color="?attr/MT_Protector_res_0x7f040104"
+        android:alpha="@dimen/MT_Protector_res_0x7f07020f"/>
+    <item
+        android:state_focused="true"
+        android:color="?attr/MT_Protector_res_0x7f040104"
+        android:alpha="@dimen/MT_Protector_res_0x7f07020d"/>
+    <item
+        android:color="?attr/MT_Protector_res_0x7f040104"
+        android:alpha="@dimen/MT_Protector_res_0x7f07020e"
+        android:state_hovered="true"/>
+    <item
+        android:color="?attr/MT_Protector_res_0x7f040104"
+        android:alpha="@dimen/MT_Protector_res_0x7f07020c"/>
+</selector>

@@ -1,0 +1,82 @@
+.class public Lcom/tencent/mm/opensdk/modelbiz/WXGetA8Key$Resp;
+.super Lcom/tencent/mm/opensdk/modelbase/BaseResp;
+
+
+# static fields
+.field public static final TAG:Ljava/lang/String; = "MicroMsg.SDK.WXGetA8Key.Resp"
+
+
+# instance fields
+.field public redirectUrl:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Lcom/tencent/mm/opensdk/modelbase/BaseResp;-><init>()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Bundle;)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Lcom/tencent/mm/opensdk/modelbase/BaseResp;-><init>()V
+
+    invoke-virtual {p0, p1}, Lcom/tencent/mm/opensdk/modelbiz/WXGetA8Key$Resp;->fromBundle(Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public checkArgs()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public fromBundle(Landroid/os/Bundle;)V
+    .locals 1
+
+    .line 0
+    invoke-super {p0, p1}, Lcom/tencent/mm/opensdk/modelbase/BaseResp;->fromBundle(Landroid/os/Bundle;)V
+
+    const-string v0, "_geta8key_redirect_url"
+
+    invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/tencent/mm/opensdk/modelbiz/WXGetA8Key$Resp;->redirectUrl:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public getType()I
+    .locals 1
+
+    const/16 v0, 0x2b
+
+    return v0
+.end method
+
+.method public toBundle(Landroid/os/Bundle;)V
+    .locals 2
+
+    .line 0
+    invoke-super {p0, p1}, Lcom/tencent/mm/opensdk/modelbase/BaseResp;->toBundle(Landroid/os/Bundle;)V
+
+    const-string v0, "_geta8key_redirect_url"
+
+    iget-object v1, p0, Lcom/tencent/mm/opensdk/modelbiz/WXGetA8Key$Resp;->redirectUrl:Ljava/lang/String;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method

@@ -1,0 +1,85 @@
+package com.google.android.material.progressindicator;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import l.C17931;
+import l.C18637;
+
+/* JADX INFO: loaded from: classes.dex */
+public class CircularProgressIndicator extends BaseProgressIndicator {
+    public static final int DEF_STYLE_RES = C18637.f58196;
+    public static final int INDICATOR_DIRECTION_CLOCKWISE = 0;
+    public static final int INDICATOR_DIRECTION_COUNTERCLOCKWISE = 1;
+
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface IndicatorDirection {
+    }
+
+    public CircularProgressIndicator(Context context) {
+        this(context, null);
+    }
+
+    public CircularProgressIndicator(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, C17931.f54993);
+    }
+
+    public CircularProgressIndicator(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i, DEF_STYLE_RES);
+        initializeDrawables();
+    }
+
+    @Override // com.google.android.material.progressindicator.BaseProgressIndicator
+    public CircularProgressIndicatorSpec createSpec(Context context, AttributeSet attributeSet) {
+        return new CircularProgressIndicatorSpec(context, attributeSet);
+    }
+
+    private void initializeDrawables() {
+        CircularDrawingDelegate circularDrawingDelegate = new CircularDrawingDelegate((CircularProgressIndicatorSpec) this.spec);
+        setIndeterminateDrawable(IndeterminateDrawable.createCircularDrawable(getContext(), (CircularProgressIndicatorSpec) this.spec, circularDrawingDelegate));
+        setProgressDrawable(DeterminateDrawable.createCircularDrawable(getContext(), (CircularProgressIndicatorSpec) this.spec, circularDrawingDelegate));
+    }
+
+    @Override // com.google.android.material.progressindicator.BaseProgressIndicator
+    public void setTrackThickness(int i) {
+        super.setTrackThickness(i);
+        ((CircularProgressIndicatorSpec) this.spec).validateSpec();
+    }
+
+    public int getIndicatorInset() {
+        return ((CircularProgressIndicatorSpec) this.spec).indicatorInset;
+    }
+
+    public void setIndicatorInset(int i) {
+        BaseProgressIndicatorSpec baseProgressIndicatorSpec = this.spec;
+        if (((CircularProgressIndicatorSpec) baseProgressIndicatorSpec).indicatorInset != i) {
+            ((CircularProgressIndicatorSpec) baseProgressIndicatorSpec).indicatorInset = i;
+            invalidate();
+        }
+    }
+
+    public int getIndicatorSize() {
+        return ((CircularProgressIndicatorSpec) this.spec).indicatorSize;
+    }
+
+    public void setIndicatorSize(int i) {
+        int iMax = Math.max(i, getTrackThickness() * 2);
+        BaseProgressIndicatorSpec baseProgressIndicatorSpec = this.spec;
+        if (((CircularProgressIndicatorSpec) baseProgressIndicatorSpec).indicatorSize != iMax) {
+            ((CircularProgressIndicatorSpec) baseProgressIndicatorSpec).indicatorSize = iMax;
+            ((CircularProgressIndicatorSpec) baseProgressIndicatorSpec).validateSpec();
+            requestLayout();
+            invalidate();
+        }
+    }
+
+    public int getIndicatorDirection() {
+        return ((CircularProgressIndicatorSpec) this.spec).indicatorDirection;
+    }
+
+    public void setIndicatorDirection(int i) {
+        ((CircularProgressIndicatorSpec) this.spec).indicatorDirection = i;
+        invalidate();
+    }
+}

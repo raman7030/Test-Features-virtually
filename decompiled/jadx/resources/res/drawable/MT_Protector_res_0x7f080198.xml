@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <padding
+        android:top="@dimen/MT_Protector_res_0x7f070267"
+        android:bottom="@dimen/MT_Protector_res_0x7f070267"/>
+    <size android:width="@dimen/MT_Protector_res_0x7f070268"/>
+    <solid android:color="?attr/MT_Protector_res_0x7f04011a"/>
+</shape>

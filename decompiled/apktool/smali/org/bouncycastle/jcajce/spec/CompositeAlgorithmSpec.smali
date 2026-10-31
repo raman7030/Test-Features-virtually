@@ -1,0 +1,70 @@
+.class public Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/security/spec/AlgorithmParameterSpec;
+
+
+# instance fields
+.field public final algorithmNames:Ljava/util/List;
+
+.field public final parameterSpecs:Ljava/util/List;
+
+
+# direct methods
+.method public constructor <init>(Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec$Builder;)V
+    .locals 2
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-static {p1}, Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec$Builder;->access$000(Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec$Builder;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-static {v0}, Ll/᩶۬ᩴ;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec;->algorithmNames:Ljava/util/List;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-static {p1}, Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec$Builder;->access$100(Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec$Builder;)Ljava/util/List;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-static {v0}, Ll/᩶۬ᩴ;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec;->parameterSpecs:Ljava/util/List;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getAlgorithmNames()Ljava/util/List;
+    .locals 1
+
+    .line 0
+    iget-object v0, p0, Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec;->algorithmNames:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public getParameterSpecs()Ljava/util/List;
+    .locals 1
+
+    .line 0
+    iget-object v0, p0, Lorg/bouncycastle/jcajce/spec/CompositeAlgorithmSpec;->parameterSpecs:Ljava/util/List;
+
+    return-object v0
+.end method

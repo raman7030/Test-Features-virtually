@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="APKTOOL_RENAMED_0x7f030002">
+        <item>Xml</item>
+        <item>String</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030003">
+        <item>Xml</item>
+        <item>Resource Id</item>
+        <item>String</item>
+        <item>Integer</item>
+        <item>Color</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030004">
+        <item>String</item>
+        <item>Reference</item>
+        <item>Attribute</item>
+        <item>Color</item>
+        <item>Int-dec</item>
+        <item>Int-hex</item>
+        <item>Boolean</item>
+        <item>Float</item>
+        <item>Dimension</item>
+        <item>Fraction</item>
+        <item>DynamicReference</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030005">
+        <item>Xml</item>
+        <item>String</item>
+        <item>Resource Id</item>
+        <item>Color</item>
+        <item>Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030008">
+        <item>Avto</item>
+        <item>Aktiv</item>
+        <item>Deaktiv</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030009">
+        <item>Hex mətn kimi kopyala</item>
+        <item>Decimal mətn kimi kopyala</item>
+        <item>Binary mətn kimi kopyala</item>
+        <item>Ascii mətn kimi kopyala</item>
+        <item>Base64 mətn kimi kopyala</item>
+        <item>SHA1 mətn kimi kopyala</item>
+        <item>MD5 mətn kimi kopyala</item>
+        <item>CRC32 mətn kimi kopyala</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000c">
+        <item>Smali</item>
+        <item>Sətir</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000d">
+        <item>Smali</item>
+        <item>Class adı</item>
+        <item>Sahə adı</item>
+        <item>Metod adı</item>
+        <item>Sətir</item>
+        <item>Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000e">
+        <item>Metod Bəyannaməsi</item>
+        <item>Sahə bəyannaməsi</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000f">
+        <item>0.25x</item>
+        <item>0.5x</item>
+        <item>0.75x</item>
+        <item>Normal</item>
+        <item>1.25x</item>
+        <item>1.5x</item>
+        <item>2x</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030010">
+        <item>Tətbiq adı</item>
+        <item>Paket adı</item>
+        <item>Apk fayl ölçüsü</item>
+        <item>İlk quraşdırma vaxtı</item>
+        <item>Son yeniləmə vaxtı</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030012">
+        <item>Kiçik</item>
+        <item>Medium</item>
+        <item>Böyük</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030016">
+        <item>Bütün istifadələri tapın</item>
+        <item>Put-un istifadəsini tapın</item>
+        <item>Get-in istifadəsini tapın</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03001f">
+        <item>Ev</item>
+        <item>Son yol</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030020">
+        <item>Hex mətn kimi yapşdır</item>
+        <item>Text mətn kimi yapşdır</item>
+        <item>Binary mətn kimi yapşdır</item>
+        <item>Ascii mətn kimi yapşdır</item>
+        <item>Base64 mətn kimi yapşdır</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030025">
+        <item>Normal</item>
+        <item>Monospace</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030027">
+        <item>Hamısını dəyişdir</item>
+        <item>Yenilə və dəyişdir</item>
+        <item>Hamsını keç</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030028">
+        <item>Mağaza</item>
+        <item>Ən sürətli</item>
+        <item>Sürətli</item>
+        <item>Normal</item>
+        <item>Maksimum</item>
+        <item>Ultra</item>
+        <item>APK modu</item>
+    </string-array>
+</resources>

@@ -1,0 +1,16 @@
+package org.simpleframework.xml.transform;
+
+import java.io.File;
+
+/* JADX INFO: loaded from: classes2.dex */
+public class FileTransform implements Transform {
+    @Override // org.simpleframework.xml.transform.Transform
+    public File read(String str) {
+        return new File(str);
+    }
+
+    @Override // org.simpleframework.xml.transform.Transform
+    public String write(File file) {
+        return file.getPath();
+    }
+}

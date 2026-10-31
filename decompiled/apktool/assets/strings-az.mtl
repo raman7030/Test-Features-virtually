@@ -1,0 +1,19 @@
+ok: tamam
+cancel: Ləğv et
+close: Bağla
+
+tip: Məsləhət
+notice: Bildiriş
+information: Məlumat
+warning: Xəbərdarlıq
+error: Xəta
+
+loading: Yüklənir…
+preparing: Hazırlanır…
+reloading: Yenidən yüklənir…
+processing: Emal edilir…
+canceling: Ləğv edilir…
+
+press_again_to_cancel: Ləğv etmək üçün yenidən basın
+out_of_memory_error: Yaddaş Kənar Xətası
+dual_progress_dialog_total: Ümumi

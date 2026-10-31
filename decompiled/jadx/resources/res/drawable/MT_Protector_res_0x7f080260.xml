@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/MT_Protector_res_0x7f070051"
+    android:insetRight="@dimen/MT_Protector_res_0x7f070051"
+    android:insetTop="@dimen/MT_Protector_res_0x7f070051"
+    android:insetBottom="@dimen/MT_Protector_res_0x7f070051">
+    <shape android:shape="rectangle">
+        <corners android:radius="@dimen/MT_Protector_res_0x7f07031b"/>
+        <solid android:color="?attr/MT_Protector_res_0x7f040128"/>
+    </shape>
+</inset>

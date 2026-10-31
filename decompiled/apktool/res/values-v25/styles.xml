@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="APKTOOL_RENAMED_0x7f130189" parent="@style/APKTOOL_RENAMED_0x7f130194" />
+    <style name="APKTOOL_RENAMED_0x7f13018a" parent="@style/APKTOOL_RENAMED_0x7f130195" />
+    <style name="APKTOOL_RENAMED_0x7f130194" parent="@android:style/Theme.Material.NoActionBar" />
+    <style name="APKTOOL_RENAMED_0x7f130195" parent="@android:style/Theme.Material.Light.NoActionBar" />
+</resources>

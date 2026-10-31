@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="APKTOOL_RENAMED_0x7f030002">
+        <item>Xml</item>
+        <item>Stringa</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030003">
+        <item>Xml</item>
+        <item>Id Risorsa</item>
+        <item>Stringa</item>
+        <item>Intero</item>
+        <item>Colore</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030004">
+        <item>String</item>
+        <item>Reference</item>
+        <item>Attribute</item>
+        <item>Color</item>
+        <item>Int-dec</item>
+        <item>Int-hex</item>
+        <item>Boolean</item>
+        <item>Float</item>
+        <item>Dimension</item>
+        <item>Fraction</item>
+        <item>DynamicReference</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030005">
+        <item>Xml</item>
+        <item>Stringa</item>
+        <item>Id Risorsa</item>
+        <item>Colore</item>
+        <item>Intero</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030008">
+        <item>Auto</item>
+        <item>Abilita</item>
+        <item>Disabilita</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030009">
+        <item>Copia come Testo Hex</item>
+        <item>Copia come Testo Decimale</item>
+        <item>Copia come Testo Binario</item>
+        <item>Copia come Ascii</item>
+        <item>Copia come Base64</item>
+        <item>Copia come SHA1</item>
+        <item>Copia come MD5</item>
+        <item>Copia come CRC32</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000c">
+        <item>Smali</item>
+        <item>Stringa</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000d">
+        <item>Smali</item>
+        <item>Nome classe</item>
+        <item>Nome campo</item>
+        <item>Nome metodo</item>
+        <item>Stringa</item>
+        <item>Intero</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000e">
+        <item>Dichiarazione Metodo</item>
+        <item>Dichiarazione Campo</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03000f">
+        <item>0,25x</item>
+        <item>0,5x</item>
+        <item>0,75x</item>
+        <item>Normale</item>
+        <item>1,25x</item>
+        <item>1,5x</item>
+        <item>2x</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030010">
+        <item>Nome applicazione</item>
+        <item>Nome pacchetto</item>
+        <item>Dimensione file apk</item>
+        <item>Prima installazione</item>
+        <item>Ultimo aggiornamento</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030012">
+        <item>Piccolo</item>
+        <item>Medio</item>
+        <item>Grande</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030016">
+        <item>Trova tutti gli usi</item>
+        <item>Trova tutti gli usi di put</item>
+        <item>Trova tutti gli usi di get</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f03001f">
+        <item>Casa</item>
+        <item>Ultimo percorso</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030020">
+        <item>Incolla da Testo Hex</item>
+        <item>Incolla da Testo Decimale</item>
+        <item>Incolla da Testo Binario</item>
+        <item>Incolla da Ascii</item>
+        <item>Incolla da Base64</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030025">
+        <item>Normale</item>
+        <item>Monospace</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030027">
+        <item>Rimpiazza Tutti</item>
+        <item>Aggiorna e rimpiazza</item>
+        <item>Salta Tutti</item>
+    </string-array>
+    <string-array name="APKTOOL_RENAMED_0x7f030028">
+        <item>Archiviazione</item>
+        <item>Più veloce</item>
+        <item>Veloce</item>
+        <item>Normale</item>
+        <item>Massima</item>
+        <item>Ultra</item>
+        <item>Modalità APK</item>
+    </string-array>
+</resources>

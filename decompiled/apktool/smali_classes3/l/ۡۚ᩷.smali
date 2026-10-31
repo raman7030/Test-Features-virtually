@@ -1,0 +1,36 @@
+.class public final synthetic Ll/ۡۚ᩷;
+.super Ljava/lang/Object;
+.source "E72G"
+
+# interfaces
+.implements Landroid/view/View$OnLayoutChangeListener;
+
+
+# instance fields
+.field public final synthetic ᩸:Ll/֨ۚ᩷;
+
+
+# direct methods
+.method public synthetic constructor <init>(Ll/֨ۚ᩷;)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Ll/ۡۚ᩷;->᩸:Ll/֨ۚ᩷;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
+    .locals 0
+
+    .line 0
+    iget-object p1, p0, Ll/ۡۚ᩷;->᩸:Ll/֨ۚ᩷;
+
+    invoke-static {p1, p2, p4, p6, p8}, Ll/֨ۚ᩷;->֫(Ll/֨ۚ᩷;IIII)V
+
+    return-void
+.end method

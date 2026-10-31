@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="APKTOOL_RENAMED_0x7f130024" parent="@style/APKTOOL_RENAMED_0x7f130143">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130094" parent="@style/APKTOOL_RENAMED_0x7f130140" />
+    <style name="APKTOOL_RENAMED_0x7f130096" parent="@style/APKTOOL_RENAMED_0x7f130141" />
+    <style name="APKTOOL_RENAMED_0x7f130140" parent="@style/APKTOOL_RENAMED_0x7f13013e">
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130141" parent="@style/APKTOOL_RENAMED_0x7f13013f">
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+    <style name="APKTOOL_RENAMED_0x7f130142" parent="@style/APKTOOL_RENAMED_0x7f13028c">
+        <item name="android:navigationBarColor">@color/APKTOOL_RENAMED_0x7f060350</item>
+        <item name="android:windowLightNavigationBar">@bool/APKTOOL_RENAMED_0x7f050004</item>
+    </style>
+</resources>

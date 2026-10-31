@@ -1,0 +1,860 @@
+package org.bouncycastle.crypto.engines;
+
+import com.umeng.commonsdk.internal.a;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.util.Arrays;
+import org.bouncycastle.util.Bytes;
+import org.bouncycastle.util.Pack;
+
+/* JADX INFO: loaded from: classes.dex */
+public class ISAPEngine extends AEADBaseEngine {
+    public static final int ISAP_STATE_SZ = 40;
+    public final ISAP_AEAD ISAPAEAD;
+    public int ISAP_rH;
+    public byte[] k;
+    public byte[] npub;
+
+    public abstract class ISAPAEAD_A implements ISAP_AEAD {
+        public long ISAP_IV1_64;
+        public long ISAP_IV2_64;
+        public long ISAP_IV3_64;
+        public long[] k64;
+        public AsconPermutationFriend.AsconPermutation mac;
+        public long[] npub64;
+        public AsconPermutationFriend.AsconPermutation p;
+
+        public ISAPAEAD_A() {
+            ISAPEngine.this.ISAP_rH = 64;
+            ISAPEngine.this.BlockSize = (ISAPEngine.this.ISAP_rH + 7) >> 3;
+            this.p = new AsconPermutationFriend.AsconPermutation();
+            this.mac = new AsconPermutationFriend.AsconPermutation();
+        }
+
+        private int getLongSize(int i) {
+            return (i + 7) >>> 3;
+        }
+
+        private void isap_rk(AsconPermutationFriend.AsconPermutation asconPermutation, long j, byte[] bArr, int i) {
+            long[] jArr = this.k64;
+            asconPermutation.set(jArr[0], jArr[1], j, 0L, 0L);
+            asconPermutation.p(12);
+            for (int i2 = 0; i2 < (i << 3) - 1; i2++) {
+                asconPermutation.x0 ^= (((long) (((bArr[i2 >>> 3] >>> (7 - (i2 & 7))) & 1) << 7)) & 255) << 56;
+                PX2(asconPermutation);
+            }
+            asconPermutation.x0 ^= (((long) bArr[i - 1]) & 1) << 63;
+            asconPermutation.p(12);
+        }
+
+        public abstract void PX1(AsconPermutationFriend.AsconPermutation asconPermutation);
+
+        public abstract void PX2(AsconPermutationFriend.AsconPermutation asconPermutation);
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void absorbFinalAADBlock() {
+            int i = 0;
+            while (true) {
+                ISAPEngine iSAPEngine = ISAPEngine.this;
+                int i2 = iSAPEngine.m_aadPos;
+                if (i >= i2) {
+                    AsconPermutationFriend.AsconPermutation asconPermutation = this.mac;
+                    asconPermutation.x0 = (128 << ((7 - i2) << 3)) ^ asconPermutation.x0;
+                    asconPermutation.p(12);
+                    this.mac.x4 ^= 1;
+                    return;
+                }
+                this.mac.x0 ^= (((long) iSAPEngine.m_aad[i]) & 255) << ((7 - i) << 3);
+                i++;
+            }
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void absorbMacBlock(byte[] bArr, int i) {
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.mac;
+            asconPermutation.x0 = Pack.bigEndianToLong(bArr, i) ^ asconPermutation.x0;
+            this.mac.p(12);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void init() {
+            this.npub64 = new long[getLongSize(ISAPEngine.this.npub.length)];
+            this.k64 = new long[getLongSize(ISAPEngine.this.k.length)];
+            Pack.bigEndianToLong(ISAPEngine.this.npub, 0, this.npub64);
+            Pack.bigEndianToLong(ISAPEngine.this.k, 0, this.k64);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void processEncBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
+            Pack.longToBigEndian(Pack.bigEndianToLong(bArr, i) ^ this.p.x0, bArr2, i2);
+            PX1(this.p);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void processEncFinalBlock(byte[] bArr, int i) {
+            byte[] bArrLongToLittleEndian = Pack.longToLittleEndian(this.p.x0);
+            ISAPEngine iSAPEngine = ISAPEngine.this;
+            int i2 = iSAPEngine.m_bufPos;
+            Bytes.xor(i2, bArrLongToLittleEndian, iSAPEngine.BlockSize - i2, iSAPEngine.m_buf, 0, bArr, i);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void processMACFinal(byte[] bArr, int i, int i2, byte[] bArr2) {
+            int i3 = i;
+            int i4 = 0;
+            while (i4 < i2) {
+                this.mac.x0 ^= (((long) bArr[i3]) & 255) << ((7 - i4) << 3);
+                i4++;
+                i3++;
+            }
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.mac;
+            asconPermutation.x0 ^= 128 << ((7 - i2) << 3);
+            asconPermutation.p(12);
+            Pack.longToBigEndian(this.mac.x0, bArr2, 0);
+            Pack.longToBigEndian(this.mac.x1, bArr2, 8);
+            AsconPermutationFriend.AsconPermutation asconPermutation2 = this.mac;
+            long j = asconPermutation2.x2;
+            long j2 = asconPermutation2.x3;
+            long j3 = asconPermutation2.x4;
+            isap_rk(asconPermutation2, this.ISAP_IV2_64, bArr2, ISAPEngine.this.KEY_SIZE);
+            AsconPermutationFriend.AsconPermutation asconPermutation3 = this.mac;
+            asconPermutation3.x2 = j;
+            asconPermutation3.x3 = j2;
+            asconPermutation3.x4 = j3;
+            asconPermutation3.p(12);
+            Pack.longToBigEndian(this.mac.x0, bArr2, 0);
+            Pack.longToBigEndian(this.mac.x1, bArr2, 8);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void reset() {
+            isap_rk(this.p, this.ISAP_IV3_64, ISAPEngine.this.npub, ISAPEngine.this.IV_SIZE);
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
+            long[] jArr = this.npub64;
+            asconPermutation.x3 = jArr[0];
+            asconPermutation.x4 = jArr[1];
+            PX1(asconPermutation);
+            AsconPermutationFriend.AsconPermutation asconPermutation2 = this.mac;
+            long[] jArr2 = this.npub64;
+            asconPermutation2.set(jArr2[0], jArr2[1], this.ISAP_IV1_64, 0L, 0L);
+            this.mac.p(12);
+        }
+    }
+
+    public class ISAPAEAD_A_128 extends ISAPAEAD_A {
+        public ISAPAEAD_A_128() {
+            super();
+            this.ISAP_IV1_64 = 108156764298152972L;
+            this.ISAP_IV2_64 = 180214358336080908L;
+            this.ISAP_IV3_64 = 252271952374008844L;
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
+        public void PX1(AsconPermutationFriend.AsconPermutation asconPermutation) {
+            asconPermutation.p(12);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
+        public void PX2(AsconPermutationFriend.AsconPermutation asconPermutation) {
+            asconPermutation.p(12);
+        }
+    }
+
+    public class ISAPAEAD_A_128A extends ISAPAEAD_A {
+        public ISAPAEAD_A_128A() {
+            super();
+            this.ISAP_IV1_64 = 108156764297430540L;
+            this.ISAP_IV2_64 = 180214358335358476L;
+            this.ISAP_IV3_64 = 252271952373286412L;
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
+        public void PX1(AsconPermutationFriend.AsconPermutation asconPermutation) {
+            asconPermutation.p(6);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
+        public void PX2(AsconPermutationFriend.AsconPermutation asconPermutation) {
+            asconPermutation.round(75L);
+        }
+    }
+
+    public abstract class ISAPAEAD_K implements ISAP_AEAD {
+        public short[] ISAP_IV1_16;
+        public short[] ISAP_IV2_16;
+        public short[] ISAP_IV3_16;
+        public final int ISAP_STATE_SZ_CRYPTO_NPUBBYTES;
+        public short[] iv16;
+        public short[] k16;
+        public final int[] KeccakF400RoundConstants = {1, 32898, 32906, 32768, 32907, 1, 32897, a.n, 138, 136, a.n, 10, 32907, 139, 32905, a.h, a.g, 128, 32778, 10};
+        public short[] SX = new short[25];
+        public short[] macSX = new short[25];
+        public short[] E = new short[25];
+        public short[] C = new short[5];
+        public short[] macE = new short[25];
+        public short[] macC = new short[5];
+
+        public ISAPAEAD_K() {
+            this.ISAP_STATE_SZ_CRYPTO_NPUBBYTES = 40 - ISAPEngine.this.IV_SIZE;
+            ISAPEngine.this.ISAP_rH = 144;
+            ISAPEngine.this.BlockSize = (ISAPEngine.this.ISAP_rH + 7) >> 3;
+        }
+
+        private short ROL16(short s, int i) {
+            int i2 = s & 65535;
+            return (short) ((i2 >>> (16 - i)) ^ (i2 << i));
+        }
+
+        private void byteToShortXor(byte[] bArr, int i, short[] sArr, int i2) {
+            for (int i3 = 0; i3 < i2; i3++) {
+                sArr[i3] = (short) (sArr[i3] ^ Pack.littleEndianToShort(bArr, (i3 << 1) + i));
+            }
+        }
+
+        public abstract void PermuteRoundsBX(short[] sArr, short[] sArr2, short[] sArr3);
+
+        public abstract void PermuteRoundsHX(short[] sArr, short[] sArr2, short[] sArr3);
+
+        public abstract void PermuteRoundsKX(short[] sArr, short[] sArr2, short[] sArr3);
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void absorbFinalAADBlock() {
+            int i = 0;
+            while (true) {
+                ISAPEngine iSAPEngine = ISAPEngine.this;
+                int i2 = iSAPEngine.m_aadPos;
+                if (i >= i2) {
+                    short[] sArr = this.macSX;
+                    int i3 = i2 >> 1;
+                    sArr[i3] = (short) ((128 << ((i2 & 1) << 3)) ^ sArr[i3]);
+                    PermuteRoundsHX(sArr, this.macE, this.macC);
+                    short[] sArr2 = this.macSX;
+                    sArr2[24] = (short) (sArr2[24] ^ 256);
+                    return;
+                }
+                short[] sArr3 = this.macSX;
+                int i4 = i >> 1;
+                sArr3[i4] = (short) (((iSAPEngine.m_aad[i] & 255) << ((i & 1) << 3)) ^ sArr3[i4]);
+                i++;
+            }
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void absorbMacBlock(byte[] bArr, int i) {
+            byteToShortXor(bArr, i, this.macSX, ISAPEngine.this.BlockSize >> 1);
+            PermuteRoundsHX(this.macSX, this.macE, this.macC);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void init() {
+            this.k16 = new short[ISAPEngine.this.k.length >> 1];
+            byte[] bArr = ISAPEngine.this.k;
+            short[] sArr = this.k16;
+            Pack.littleEndianToShort(bArr, 0, sArr, 0, sArr.length);
+            this.iv16 = new short[ISAPEngine.this.npub.length >> 1];
+            byte[] bArr2 = ISAPEngine.this.npub;
+            short[] sArr2 = this.iv16;
+            Pack.littleEndianToShort(bArr2, 0, sArr2, 0, sArr2.length);
+        }
+
+        public void isap_rk(short[] sArr, byte[] bArr, int i, short[] sArr2, int i2, short[] sArr3) {
+            short[] sArr4 = new short[25];
+            short[] sArr5 = new short[25];
+            System.arraycopy(this.k16, 0, sArr4, 0, 8);
+            System.arraycopy(sArr, 0, sArr4, 8, 4);
+            PermuteRoundsKX(sArr4, sArr5, sArr3);
+            for (int i3 = 0; i3 < (i << 3) - 1; i3++) {
+                sArr4[0] = (short) (sArr4[0] ^ (((bArr[i3 >> 3] >>> (7 - (i3 & 7))) & 1) << 7));
+                PermuteRoundsBX(sArr4, sArr5, sArr3);
+            }
+            sArr4[0] = (short) (sArr4[0] ^ ((bArr[i - 1] & 1) << 7));
+            PermuteRoundsKX(sArr4, sArr5, sArr3);
+            System.arraycopy(sArr4, 0, sArr2, 0, i2 == this.ISAP_STATE_SZ_CRYPTO_NPUBBYTES ? 17 : 8);
+        }
+
+        public void prepareThetaX(short[] sArr, short[] sArr2) {
+            sArr2[0] = (short) ((((sArr[0] ^ sArr[5]) ^ sArr[10]) ^ sArr[15]) ^ sArr[20]);
+            sArr2[1] = (short) ((((sArr[1] ^ sArr[6]) ^ sArr[11]) ^ sArr[16]) ^ sArr[21]);
+            sArr2[2] = (short) ((((sArr[2] ^ sArr[7]) ^ sArr[12]) ^ sArr[17]) ^ sArr[22]);
+            sArr2[3] = (short) ((((sArr[3] ^ sArr[8]) ^ sArr[13]) ^ sArr[18]) ^ sArr[23]);
+            sArr2[4] = (short) (sArr[24] ^ (((sArr[4] ^ sArr[9]) ^ sArr[14]) ^ sArr[19]));
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void processEncBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
+            int i3 = 0;
+            while (i3 < ISAPEngine.this.BlockSize) {
+                bArr2[i2] = (byte) (bArr[i] ^ (this.SX[i3 >> 1] >>> ((i3 & 1) << 3)));
+                i3++;
+                i2++;
+                i++;
+            }
+            PermuteRoundsKX(this.SX, this.E, this.C);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void processEncFinalBlock(byte[] bArr, int i) {
+            int i2 = 0;
+            while (true) {
+                ISAPEngine iSAPEngine = ISAPEngine.this;
+                if (i2 >= iSAPEngine.m_bufPos) {
+                    return;
+                }
+                bArr[i] = (byte) (iSAPEngine.m_buf[i2] ^ (this.SX[i2 >> 1] >>> ((i2 & 1) << 3)));
+                i2++;
+                i++;
+            }
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void processMACFinal(byte[] bArr, int i, int i2, byte[] bArr2) {
+            int i3 = 0;
+            while (i3 < i2) {
+                short[] sArr = this.macSX;
+                int i4 = i3 >> 1;
+                sArr[i4] = (short) (((bArr[i] & 255) << ((i3 & 1) << 3)) ^ sArr[i4]);
+                i3++;
+                i++;
+            }
+            short[] sArr2 = this.macSX;
+            int i5 = i2 >> 1;
+            sArr2[i5] = (short) ((128 << ((i2 & 1) << 3)) ^ sArr2[i5]);
+            PermuteRoundsHX(sArr2, this.macE, this.macC);
+            Pack.shortToLittleEndian(this.macSX, 0, 8, bArr2, 0);
+            short[] sArr3 = this.ISAP_IV2_16;
+            int i6 = ISAPEngine.this.KEY_SIZE;
+            isap_rk(sArr3, bArr2, i6, this.macSX, i6, this.macC);
+            PermuteRoundsHX(this.macSX, this.macE, this.macC);
+            Pack.shortToLittleEndian(this.macSX, 0, 8, bArr2, 0);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
+        public void reset() {
+            Arrays.fill(this.SX, (short) 0);
+            isap_rk(this.ISAP_IV3_16, ISAPEngine.this.npub, ISAPEngine.this.IV_SIZE, this.SX, this.ISAP_STATE_SZ_CRYPTO_NPUBBYTES, this.C);
+            System.arraycopy(this.iv16, 0, this.SX, 17, 8);
+            PermuteRoundsKX(this.SX, this.E, this.C);
+            Arrays.fill(this.macSX, 12, 25, (short) 0);
+            System.arraycopy(this.iv16, 0, this.macSX, 0, 8);
+            System.arraycopy(this.ISAP_IV1_16, 0, this.macSX, 8, 4);
+            PermuteRoundsHX(this.macSX, this.macE, this.macC);
+        }
+
+        public void rounds12X(short[] sArr, short[] sArr2, short[] sArr3) {
+            prepareThetaX(sArr, sArr3);
+            rounds_8_18(sArr, sArr2, sArr3);
+        }
+
+        public void rounds_12_18(short[] sArr, short[] sArr2, short[] sArr3) {
+            thetaRhoPiChiIotaPrepareTheta(12, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(13, sArr2, sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(14, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(15, sArr2, sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(16, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(17, sArr2, sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(18, sArr, sArr2, sArr3);
+            thetaRhoPiChiIota(sArr2, sArr, sArr3);
+        }
+
+        public void rounds_4_18(short[] sArr, short[] sArr2, short[] sArr3) {
+            thetaRhoPiChiIotaPrepareTheta(4, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(5, sArr2, sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(6, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(7, sArr2, sArr, sArr3);
+            rounds_8_18(sArr, sArr2, sArr3);
+        }
+
+        public void rounds_8_18(short[] sArr, short[] sArr2, short[] sArr3) {
+            thetaRhoPiChiIotaPrepareTheta(8, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(9, sArr2, sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(10, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(11, sArr2, sArr, sArr3);
+            rounds_12_18(sArr, sArr2, sArr3);
+        }
+
+        public void thetaRhoPiChiIota(short[] sArr, short[] sArr2, short[] sArr3) {
+            short sROL16 = (short) (sArr3[4] ^ ROL16(sArr3[1], 1));
+            short sROL17 = (short) (sArr3[0] ^ ROL16(sArr3[2], 1));
+            short sROL18 = (short) (sArr3[1] ^ ROL16(sArr3[3], 1));
+            short sROL19 = (short) (sArr3[2] ^ ROL16(sArr3[4], 1));
+            short sROL110 = (short) (ROL16(sArr3[0], 1) ^ sArr3[3]);
+            short s = (short) (sArr[0] ^ sROL16);
+            sArr[0] = s;
+            short s2 = (short) (sArr[6] ^ sROL17);
+            sArr[6] = s2;
+            short sROL111 = ROL16(s2, 12);
+            short s3 = (short) (sArr[12] ^ sROL18);
+            sArr[12] = s3;
+            short sROL112 = ROL16(s3, 11);
+            short s4 = (short) (sArr[18] ^ sROL19);
+            sArr[18] = s4;
+            short sROL113 = ROL16(s4, 5);
+            short s5 = (short) (sArr[24] ^ sROL110);
+            sArr[24] = s5;
+            short sROL114 = ROL16(s5, 14);
+            sArr2[0] = (short) (this.KeccakF400RoundConstants[19] ^ (((~sROL111) & sROL112) ^ s));
+            sArr2[1] = (short) (((~sROL112) & sROL113) ^ sROL111);
+            sArr2[2] = (short) (((~sROL113) & sROL114) ^ sROL112);
+            sArr2[3] = (short) (((~sROL114) & s) ^ sROL113);
+            sArr2[4] = (short) (((~s) & sROL111) ^ sROL114);
+            short s6 = (short) (sArr[3] ^ sROL19);
+            sArr[3] = s6;
+            short sROL115 = ROL16(s6, 12);
+            short s7 = (short) (sArr[9] ^ sROL110);
+            sArr[9] = s7;
+            short sROL116 = ROL16(s7, 4);
+            short s8 = (short) (sArr[10] ^ sROL16);
+            sArr[10] = s8;
+            short sROL117 = ROL16(s8, 3);
+            short s9 = (short) (sArr[16] ^ sROL17);
+            sArr[16] = s9;
+            short sROL118 = ROL16(s9, 13);
+            short s10 = (short) (sArr[22] ^ sROL18);
+            sArr[22] = s10;
+            short sROL119 = ROL16(s10, 13);
+            sArr2[5] = (short) (((~sROL116) & sROL117) ^ sROL115);
+            sArr2[6] = (short) (((~sROL117) & sROL118) ^ sROL116);
+            sArr2[7] = (short) (sROL117 ^ ((~sROL118) & sROL119));
+            sArr2[8] = (short) (((~sROL119) & sROL115) ^ sROL118);
+            sArr2[9] = (short) (((~sROL115) & sROL116) ^ sROL119);
+            short s11 = (short) (sArr[1] ^ sROL17);
+            sArr[1] = s11;
+            short sROL120 = ROL16(s11, 1);
+            short s12 = (short) (sArr[7] ^ sROL18);
+            sArr[7] = s12;
+            short sROL121 = ROL16(s12, 6);
+            short s13 = (short) (sArr[13] ^ sROL19);
+            sArr[13] = s13;
+            short sROL122 = ROL16(s13, 9);
+            short s14 = (short) (sArr[19] ^ sROL110);
+            sArr[19] = s14;
+            short sROL123 = ROL16(s14, 8);
+            short s15 = (short) (sArr[20] ^ sROL16);
+            sArr[20] = s15;
+            short sROL124 = ROL16(s15, 2);
+            sArr2[10] = (short) (((~sROL121) & sROL122) ^ sROL120);
+            sArr2[11] = (short) (((~sROL122) & sROL123) ^ sROL121);
+            sArr2[12] = (short) (sROL122 ^ ((~sROL123) & sROL124));
+            sArr2[13] = (short) (((~sROL124) & sROL120) ^ sROL123);
+            sArr2[14] = (short) (((~sROL120) & sROL121) ^ sROL124);
+            short s16 = (short) (sArr[4] ^ sROL110);
+            sArr[4] = s16;
+            short sROL125 = ROL16(s16, 11);
+            short s17 = (short) (sArr[5] ^ sROL16);
+            sArr[5] = s17;
+            short sROL126 = ROL16(s17, 4);
+            short s18 = (short) (sArr[11] ^ sROL17);
+            sArr[11] = s18;
+            short sROL127 = ROL16(s18, 10);
+            short s19 = (short) (sArr[17] ^ sROL18);
+            sArr[17] = s19;
+            short sROL128 = ROL16(s19, 15);
+            short s20 = (short) (sArr[23] ^ sROL19);
+            sArr[23] = s20;
+            short sROL129 = ROL16(s20, 8);
+            sArr2[15] = (short) (((~sROL126) & sROL127) ^ sROL125);
+            sArr2[16] = (short) (((~sROL127) & sROL128) ^ sROL126);
+            sArr2[17] = (short) (sROL127 ^ ((~sROL128) & sROL129));
+            sArr2[18] = (short) (((~sROL129) & sROL125) ^ sROL128);
+            sArr2[19] = (short) ((sROL126 & (~sROL125)) ^ sROL129);
+            short s21 = (short) (sArr[2] ^ sROL18);
+            sArr[2] = s21;
+            short sROL130 = ROL16(s21, 14);
+            short s22 = (short) (sROL19 ^ sArr[8]);
+            sArr[8] = s22;
+            short sROL131 = ROL16(s22, 7);
+            short s23 = (short) (sROL110 ^ sArr[14]);
+            sArr[14] = s23;
+            short sROL132 = ROL16(s23, 7);
+            short s24 = (short) (sROL16 ^ sArr[15]);
+            sArr[15] = s24;
+            short sROL133 = ROL16(s24, 9);
+            short s25 = (short) (sROL17 ^ sArr[21]);
+            sArr[21] = s25;
+            short sROL134 = ROL16(s25, 2);
+            sArr2[20] = (short) (((~sROL131) & sROL132) ^ sROL130);
+            sArr2[21] = (short) (((~sROL132) & sROL133) ^ sROL131);
+            sArr2[22] = (short) (sROL132 ^ ((~sROL133) & sROL134));
+            sArr2[23] = (short) (((~sROL134) & sROL130) ^ sROL133);
+            sArr2[24] = (short) (((~sROL130) & sROL131) ^ sROL134);
+        }
+
+        public void thetaRhoPiChiIotaPrepareTheta(int i, short[] sArr, short[] sArr2, short[] sArr3) {
+            short sROL16 = (short) (sArr3[4] ^ ROL16(sArr3[1], 1));
+            short sROL17 = (short) (sArr3[0] ^ ROL16(sArr3[2], 1));
+            short sROL18 = (short) (sArr3[1] ^ ROL16(sArr3[3], 1));
+            short sROL19 = (short) (sArr3[2] ^ ROL16(sArr3[4], 1));
+            short sROL110 = (short) (ROL16(sArr3[0], 1) ^ sArr3[3]);
+            short s = (short) (sArr[0] ^ sROL16);
+            sArr[0] = s;
+            short s2 = (short) (sArr[6] ^ sROL17);
+            sArr[6] = s2;
+            short sROL111 = ROL16(s2, 12);
+            short s3 = (short) (sArr[12] ^ sROL18);
+            sArr[12] = s3;
+            short sROL112 = ROL16(s3, 11);
+            short s4 = (short) (sArr[18] ^ sROL19);
+            sArr[18] = s4;
+            short sROL113 = ROL16(s4, 5);
+            short s5 = (short) (sArr[24] ^ sROL110);
+            sArr[24] = s5;
+            short sROL114 = ROL16(s5, 14);
+            short s6 = (short) (this.KeccakF400RoundConstants[i] ^ (((~sROL111) & sROL112) ^ s));
+            sArr2[0] = s6;
+            sArr3[0] = s6;
+            short s7 = (short) (((~sROL112) & sROL113) ^ sROL111);
+            sArr2[1] = s7;
+            sArr3[1] = s7;
+            short s8 = (short) (((~sROL113) & sROL114) ^ sROL112);
+            sArr2[2] = s8;
+            sArr3[2] = s8;
+            short s9 = (short) (((~sROL114) & s) ^ sROL113);
+            sArr2[3] = s9;
+            sArr3[3] = s9;
+            short s10 = (short) (((~s) & sROL111) ^ sROL114);
+            sArr2[4] = s10;
+            sArr3[4] = s10;
+            short s11 = (short) (sArr[3] ^ sROL19);
+            sArr[3] = s11;
+            short sROL115 = ROL16(s11, 12);
+            short s12 = (short) (sArr[9] ^ sROL110);
+            sArr[9] = s12;
+            short sROL116 = ROL16(s12, 4);
+            short s13 = (short) (sArr[10] ^ sROL16);
+            sArr[10] = s13;
+            short sROL117 = ROL16(s13, 3);
+            short s14 = (short) (sArr[16] ^ sROL17);
+            sArr[16] = s14;
+            short sROL118 = ROL16(s14, 13);
+            short s15 = (short) (sArr[22] ^ sROL18);
+            sArr[22] = s15;
+            short sROL119 = ROL16(s15, 13);
+            short s16 = (short) (((~sROL116) & sROL117) ^ sROL115);
+            sArr2[5] = s16;
+            sArr3[0] = (short) (sArr3[0] ^ s16);
+            short s17 = (short) (((~sROL117) & sROL118) ^ sROL116);
+            sArr2[6] = s17;
+            sArr3[1] = (short) (sArr3[1] ^ s17);
+            short s18 = (short) (sROL117 ^ ((~sROL118) & sROL119));
+            sArr2[7] = s18;
+            sArr3[2] = (short) (sArr3[2] ^ s18);
+            short s19 = (short) (((~sROL119) & sROL115) ^ sROL118);
+            sArr2[8] = s19;
+            sArr3[3] = (short) (sArr3[3] ^ s19);
+            short s20 = (short) (((~sROL115) & sROL116) ^ sROL119);
+            sArr2[9] = s20;
+            sArr3[4] = (short) (s20 ^ sArr3[4]);
+            short s21 = (short) (sArr[1] ^ sROL17);
+            sArr[1] = s21;
+            short sROL120 = ROL16(s21, 1);
+            short s22 = (short) (sArr[7] ^ sROL18);
+            sArr[7] = s22;
+            short sROL121 = ROL16(s22, 6);
+            short s23 = (short) (sArr[13] ^ sROL19);
+            sArr[13] = s23;
+            short sROL122 = ROL16(s23, 9);
+            short s24 = (short) (sArr[19] ^ sROL110);
+            sArr[19] = s24;
+            short sROL123 = ROL16(s24, 8);
+            short s25 = (short) (sArr[20] ^ sROL16);
+            sArr[20] = s25;
+            short sROL124 = ROL16(s25, 2);
+            short s26 = (short) (((~sROL121) & sROL122) ^ sROL120);
+            sArr2[10] = s26;
+            sArr3[0] = (short) (sArr3[0] ^ s26);
+            short s27 = (short) (((~sROL122) & sROL123) ^ sROL121);
+            sArr2[11] = s27;
+            sArr3[1] = (short) (sArr3[1] ^ s27);
+            short s28 = (short) (sROL122 ^ ((~sROL123) & sROL124));
+            sArr2[12] = s28;
+            sArr3[2] = (short) (s28 ^ sArr3[2]);
+            short s29 = (short) (((~sROL124) & sROL120) ^ sROL123);
+            sArr2[13] = s29;
+            sArr3[3] = (short) (s29 ^ sArr3[3]);
+            short s30 = (short) (((~sROL120) & sROL121) ^ sROL124);
+            sArr2[14] = s30;
+            sArr3[4] = (short) (s30 ^ sArr3[4]);
+            short s31 = (short) (sArr[4] ^ sROL110);
+            sArr[4] = s31;
+            short sROL125 = ROL16(s31, 11);
+            short s32 = (short) (sArr[5] ^ sROL16);
+            sArr[5] = s32;
+            short sROL126 = ROL16(s32, 4);
+            short s33 = (short) (sArr[11] ^ sROL17);
+            sArr[11] = s33;
+            short sROL127 = ROL16(s33, 10);
+            short s34 = (short) (sArr[17] ^ sROL18);
+            sArr[17] = s34;
+            short sROL128 = ROL16(s34, 15);
+            short s35 = (short) (sArr[23] ^ sROL19);
+            sArr[23] = s35;
+            short sROL129 = ROL16(s35, 8);
+            short s36 = (short) (((~sROL126) & sROL127) ^ sROL125);
+            sArr2[15] = s36;
+            sArr3[0] = (short) (sArr3[0] ^ s36);
+            short s37 = (short) (((~sROL127) & sROL128) ^ sROL126);
+            sArr2[16] = s37;
+            sArr3[1] = (short) (sArr3[1] ^ s37);
+            short s38 = (short) (sROL127 ^ ((~sROL128) & sROL129));
+            sArr2[17] = s38;
+            sArr3[2] = (short) (s38 ^ sArr3[2]);
+            short s39 = (short) (((~sROL129) & sROL125) ^ sROL128);
+            sArr2[18] = s39;
+            sArr3[3] = (short) (s39 ^ sArr3[3]);
+            short s40 = (short) (sROL129 ^ ((~sROL125) & sROL126));
+            sArr2[19] = s40;
+            sArr3[4] = (short) (s40 ^ sArr3[4]);
+            short s41 = (short) (sArr[2] ^ sROL18);
+            sArr[2] = s41;
+            short sROL130 = ROL16(s41, 14);
+            short s42 = (short) (sROL19 ^ sArr[8]);
+            sArr[8] = s42;
+            short sROL131 = ROL16(s42, 7);
+            short s43 = (short) (sROL110 ^ sArr[14]);
+            sArr[14] = s43;
+            short sROL132 = ROL16(s43, 7);
+            short s44 = (short) (sROL16 ^ sArr[15]);
+            sArr[15] = s44;
+            short sROL133 = ROL16(s44, 9);
+            short s45 = (short) (sROL17 ^ sArr[21]);
+            sArr[21] = s45;
+            short sROL134 = ROL16(s45, 2);
+            short s46 = (short) (((~sROL131) & sROL132) ^ sROL130);
+            sArr2[20] = s46;
+            sArr3[0] = (short) (s46 ^ sArr3[0]);
+            short s47 = (short) (((~sROL132) & sROL133) ^ sROL131);
+            sArr2[21] = s47;
+            sArr3[1] = (short) (s47 ^ sArr3[1]);
+            short s48 = (short) (sROL132 ^ ((~sROL133) & sROL134));
+            sArr2[22] = s48;
+            sArr3[2] = (short) (s48 ^ sArr3[2]);
+            short s49 = (short) (((~sROL134) & sROL130) ^ sROL133);
+            sArr2[23] = s49;
+            sArr3[3] = (short) (s49 ^ sArr3[3]);
+            short s50 = (short) (((~sROL130) & sROL131) ^ sROL134);
+            sArr2[24] = s50;
+            sArr3[4] = (short) (s50 ^ sArr3[4]);
+        }
+    }
+
+    public class ISAPAEAD_K_128 extends ISAPAEAD_K {
+        public ISAPAEAD_K_128() {
+            super();
+            this.ISAP_IV1_16 = new short[]{-32767, 400, 3092, 3084};
+            this.ISAP_IV2_16 = new short[]{-32766, 400, 3092, 3084};
+            this.ISAP_IV3_16 = new short[]{-32765, 400, 3092, 3084};
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_K
+        public void PermuteRoundsBX(short[] sArr, short[] sArr2, short[] sArr3) {
+            rounds12X(sArr, sArr2, sArr3);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_K
+        public void PermuteRoundsHX(short[] sArr, short[] sArr2, short[] sArr3) {
+            prepareThetaX(sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(0, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(1, sArr2, sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(2, sArr, sArr2, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(3, sArr2, sArr, sArr3);
+            rounds_4_18(sArr, sArr2, sArr3);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_K
+        public void PermuteRoundsKX(short[] sArr, short[] sArr2, short[] sArr3) {
+            rounds12X(sArr, sArr2, sArr3);
+        }
+    }
+
+    public class ISAPAEAD_K_128A extends ISAPAEAD_K {
+        public ISAPAEAD_K_128A() {
+            super();
+            this.ISAP_IV1_16 = new short[]{-32767, 400, 272, 2056};
+            this.ISAP_IV2_16 = new short[]{-32766, 400, 272, 2056};
+            this.ISAP_IV3_16 = new short[]{-32765, 400, 272, 2056};
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_K
+        public void PermuteRoundsBX(short[] sArr, short[] sArr2, short[] sArr3) {
+            prepareThetaX(sArr, sArr3);
+            thetaRhoPiChiIotaPrepareTheta(19, sArr, sArr2, sArr3);
+            System.arraycopy(sArr2, 0, sArr, 0, sArr2.length);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_K
+        public void PermuteRoundsHX(short[] sArr, short[] sArr2, short[] sArr3) {
+            prepareThetaX(sArr, sArr3);
+            rounds_4_18(sArr, sArr2, sArr3);
+        }
+
+        @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_K
+        public void PermuteRoundsKX(short[] sArr, short[] sArr2, short[] sArr3) {
+            prepareThetaX(sArr, sArr3);
+            rounds_12_18(sArr, sArr2, sArr3);
+        }
+    }
+
+    public interface ISAP_AEAD {
+        void absorbFinalAADBlock();
+
+        void absorbMacBlock(byte[] bArr, int i);
+
+        void init();
+
+        void processEncBlock(byte[] bArr, int i, byte[] bArr2, int i2);
+
+        void processEncFinalBlock(byte[] bArr, int i);
+
+        void processMACFinal(byte[] bArr, int i, int i2, byte[] bArr2);
+
+        void reset();
+    }
+
+    public enum IsapType {
+        ISAP_A_128A,
+        ISAP_K_128A,
+        ISAP_A_128,
+        ISAP_K_128
+    }
+
+    public ISAPEngine(IsapType isapType) {
+        String str;
+        this.MAC_SIZE = 16;
+        this.IV_SIZE = 16;
+        this.KEY_SIZE = 16;
+        int iOrdinal = isapType.ordinal();
+        if (iOrdinal == 0) {
+            this.ISAPAEAD = new ISAPAEAD_A_128A();
+            str = "ISAP-A-128A AEAD";
+        } else if (iOrdinal == 1) {
+            this.ISAPAEAD = new ISAPAEAD_K_128A();
+            str = "ISAP-K-128A AEAD";
+        } else if (iOrdinal == 2) {
+            this.ISAPAEAD = new ISAPAEAD_A_128();
+            str = "ISAP-A-128 AEAD";
+        } else {
+            if (iOrdinal != 3) {
+                throw new IllegalArgumentException("Incorrect ISAP parameter");
+            }
+            this.ISAPAEAD = new ISAPAEAD_K_128();
+            str = "ISAP-K-128 AEAD";
+        }
+        this.algorithmName = str;
+        this.AADBufferSize = this.BlockSize;
+        setInnerMembers(AEADBaseEngine.ProcessingBufferType.Immediate, AEADBaseEngine.AADOperatorType.Default, AEADBaseEngine.DataOperatorType.Counter);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ int doFinal(byte[] bArr, int i) {
+        return super.doFinal(bArr, i);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void finishAAD(AEADBaseEngine.State state, boolean z) {
+        finishAAD3(state, z);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ String getAlgorithmName() {
+        return super.getAlgorithmName();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public /* bridge */ /* synthetic */ int getIVBytesSize() {
+        return super.getIVBytesSize();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public /* bridge */ /* synthetic */ int getKeyBytesSize() {
+        return super.getKeyBytesSize();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ byte[] getMac() {
+        return super.getMac();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ int getOutputSize(int i) {
+        return super.getOutputSize(i);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ int getUpdateOutputSize(int i) {
+        return super.getUpdateOutputSize(i);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ void init(boolean z, CipherParameters cipherParameters) {
+        super.init(z, cipherParameters);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void init(byte[] bArr, byte[] bArr2) {
+        this.npub = bArr2;
+        this.k = bArr;
+        this.ISAPAEAD.init();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ void processAADByte(byte b) {
+        super.processAADByte(b);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ void processAADBytes(byte[] bArr, int i, int i2) {
+        super.processAADBytes(bArr, i, i2);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void processBufferAAD(byte[] bArr, int i) {
+        this.ISAPAEAD.absorbMacBlock(bArr, i);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void processBufferDecrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
+        this.ISAPAEAD.processEncBlock(bArr, i, bArr2, i2);
+        this.ISAPAEAD.absorbMacBlock(bArr, i);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void processBufferEncrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
+        this.ISAPAEAD.processEncBlock(bArr, i, bArr2, i2);
+        this.ISAPAEAD.absorbMacBlock(bArr2, i2);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ int processByte(byte b, byte[] bArr, int i) {
+        return super.processByte(b, bArr, i);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ int processBytes(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        return super.processBytes(bArr, i, i2, bArr2, i3);
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void processFinalAAD() {
+        this.ISAPAEAD.absorbFinalAADBlock();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void processFinalBlock(byte[] bArr, int i) {
+        this.ISAPAEAD.processEncFinalBlock(bArr, i);
+        if (this.forEncryption) {
+            this.ISAPAEAD.processMACFinal(bArr, i, this.m_bufPos, this.mac);
+        } else {
+            this.ISAPAEAD.processMACFinal(this.m_buf, 0, this.m_bufPos, this.mac);
+        }
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
+    public /* bridge */ /* synthetic */ void reset() {
+        super.reset();
+    }
+
+    @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
+    public void reset(boolean z) {
+        super.reset(z);
+        this.ISAPAEAD.reset();
+    }
+}

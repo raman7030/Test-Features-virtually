@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MT_Protector_res_0x7f130067" parent="@style/MT_Protector_res_0x7f1300d4">
+    </style>
+    <style name="MT_Protector_res_0x7f13006e" parent="@style/MT_Protector_res_0x7f1300d5">
+    </style>
+    <style name="MT_Protector_res_0x7f1300d4" parent="@style/MT_Protector_res_0x7f1300ce">
+        <item name="MT_Protector_res_0x7f0400ff">?android:attr/colorError</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1300d5" parent="@style/MT_Protector_res_0x7f1300cf">
+        <item name="MT_Protector_res_0x7f0400ff">?android:attr/colorError</item>
+    </style>
+    <style name="MT_Protector_res_0x7f1300d6" parent="@style/MT_Protector_res_0x7f1300e0">
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+    <style name="MT_Protector_res_0x7f130119" parent="@style/MT_Protector_res_0x7f1300d6">
+    </style>
+    <style name="MT_Protector_res_0x7f1303ae" parent="@android:style/Widget">
+        <item name="android:background">?attr/MT_Protector_res_0x7f04011a</item>
+        <item name="android:stateListAnimator">@animator/MT_Protector_res_0x7f020003</item>
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+</resources>

@@ -1,0 +1,44 @@
+package org.bouncycastle.jcajce;
+
+import java.util.HashMap;
+import java.util.Map;
+import l.C4860;
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.internal.asn1.iana.IANAObjectIdentifiers;
+import org.bouncycastle.util.Strings;
+
+/* JADX INFO: loaded from: classes.dex */
+public class CompositeUtil {
+    public static final Map algorithmOids;
+
+    static {
+        HashMap map = new HashMap();
+        algorithmOids = map;
+        map.put("MLDSA44-RSA2048-PSS-SHA256", IANAObjectIdentifiers.id_MLDSA44_RSA2048_PSS_SHA256);
+        map.put("MLDSA44-RSA2048-PKCS15-SHA256", IANAObjectIdentifiers.id_MLDSA44_RSA2048_PKCS15_SHA256);
+        map.put("MLDSA44-Ed25519-SHA512", IANAObjectIdentifiers.id_MLDSA44_Ed25519_SHA512);
+        map.put("MLDSA44-ECDSA-P256-SHA256", IANAObjectIdentifiers.id_MLDSA44_ECDSA_P256_SHA256);
+        map.put("MLDSA65-RSA3072-PSS-SHA512", IANAObjectIdentifiers.id_MLDSA65_RSA3072_PSS_SHA512);
+        map.put("MLDSA65-RSA3072-PKCS15-SHA512", IANAObjectIdentifiers.id_MLDSA65_RSA3072_PKCS15_SHA512);
+        map.put("MLDSA65-RSA4096-PSS-SHA512", IANAObjectIdentifiers.id_MLDSA65_RSA4096_PSS_SHA512);
+        map.put("MLDSA65-RSA4096-PKCS15-SHA512", IANAObjectIdentifiers.id_MLDSA65_RSA4096_PKCS15_SHA512);
+        map.put("MLDSA65-ECDSA-P256-SHA512", IANAObjectIdentifiers.id_MLDSA65_ECDSA_P256_SHA512);
+        map.put("MLDSA65-ECDSA-P384-SHA512", IANAObjectIdentifiers.id_MLDSA65_ECDSA_P384_SHA512);
+        map.put("MLDSA65-ECDSA-brainpoolP256r1-SHA512", IANAObjectIdentifiers.id_MLDSA65_ECDSA_brainpoolP256r1_SHA512);
+        map.put("MLDSA65-Ed25519-SHA512", IANAObjectIdentifiers.id_MLDSA65_Ed25519_SHA512);
+        map.put("MLDSA87-ECDSA-P384-SHA512", IANAObjectIdentifiers.id_MLDSA87_ECDSA_P384_SHA512);
+        map.put("MLDSA87-ECDSA-brainpoolP384r1-SHA512", IANAObjectIdentifiers.id_MLDSA87_ECDSA_brainpoolP384r1_SHA512);
+        map.put("MLDSA87-Ed448-SHAKE256", IANAObjectIdentifiers.id_MLDSA87_Ed448_SHAKE256);
+        map.put("MLDSA87-RSA4096-PSS-SHA512", IANAObjectIdentifiers.id_MLDSA87_RSA4096_PSS_SHA512);
+        map.put("MLDSA87-ECDSA-P521-SHA512", IANAObjectIdentifiers.id_MLDSA87_ECDSA_P521_SHA512);
+        map.put("MLDSA87-RSA3072-PSS-SHA512", IANAObjectIdentifiers.id_MLDSA87_RSA3072_PSS_SHA512);
+    }
+
+    public static ASN1ObjectIdentifier getOid(String str) {
+        ASN1ObjectIdentifier aSN1ObjectIdentifier = (ASN1ObjectIdentifier) algorithmOids.get(Strings.toUpperCase(str));
+        if (aSN1ObjectIdentifier != null) {
+            return aSN1ObjectIdentifier;
+        }
+        throw new IllegalArgumentException(C4860.m14172("name ", str, " not recognized"));
+    }
+}
