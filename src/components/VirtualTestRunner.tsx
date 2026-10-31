@@ -55,33 +55,15 @@ export const VirtualTestRunner: React.FC = () => {
     runAllTests();
   }, []);
 
-  const handleSimulateAppLaunch = async () => {
-    setSimulatedLaunch({ state: 'booting', logs: ['[ActivityManager] Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=bin.mt.plus/.MainProcessActivity }'] });
-
-    await new Promise(r => setTimeout(r, 400));
-    setSimulatedLaunch(prev => ({
-      state: 'running',
-      logs: [
-        ...prev.logs,
-        '[Zygote64] Forked child process for UID 10104, PID 2841',
-        '[LoadedApk] Loading /sdcard/MT2/Test-Features-virtually.apk into Dalvik/ART runtime',
-        '[DexClassLoader] Mounted classes.dex, classes2.dex, classes3.dex, classes4.dex, classes5.dex',
-        '[InjectedLog] Thread started, background log queue active',
-        '[VirtualFS] Dual-pane filesystem synchronized at /sdcard and /system',
-        '[ActivityThread] Activity bin.mt.plus.MainProcessActivity has been created and resumed',
-        '[SurfaceFlinger] Frame rendered at 60fps in virtual window: 1080x2400 @ 420dpi'
-      ]
-    }));
-
-    await new Promise(r => setTimeout(r, 800));
-    setSimulatedLaunch(prev => ({
-      ...prev,
+  const handleSimulateAppLaunch = () => {
+    setSimulatedLaunch({
       state: 'completed',
       logs: [
-        ...prev.logs,
-        'SUCCESS: Application feature testing cycle completed in virtual environment with 0 crashes.'
+        '[Not run] Android runtime is not connected to this web project.',
+        'No Activity, ART process, or Android system services were launched.',
+        'Connect an emulator/device and Android Debug Bridge to enable runtime tests.'
       ]
-    }));
+    });
   };
 
   const passedCount = tests.filter(t => t.status === 'passed').length;
@@ -97,7 +79,7 @@ export const VirtualTestRunner: React.FC = () => {
             <span>Virtual Environment Feature Test Suite</span>
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            Automated verification of APK integrity, multi-DEX bytecode, native ABI binaries, and virtual sandbox execution.
+            Archive-level checks only. This interface does not run the APK, Android, root, or signature-verification tools.
           </p>
         </div>
 
@@ -128,7 +110,7 @@ export const VirtualTestRunner: React.FC = () => {
             className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-xs font-medium transition shadow-sm"
           >
             <Smartphone className="w-3.5 h-3.5" />
-            <span>Simulate App Launch</span>
+            <span>Check Runtime Availability</span>
           </button>
         </div>
       </div>
