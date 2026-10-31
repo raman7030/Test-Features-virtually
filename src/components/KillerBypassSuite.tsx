@@ -17,27 +17,13 @@ export const KillerBypassSuite: React.FC = () => {
       .catch(err => console.error('Failed to load killer modules:', err));
   }, []);
 
-  const handleExecute = async () => {
-    setRunning(true);
-    setExecutionLog([`[KillerSuite] Initializing ELF binary execution for ${selectedModule}...`]);
-
-    await new Promise(r => setTimeout(r, 350));
-    setExecutionLog(prev => [
-      ...prev,
-      `[Memory] Allocated virtual executable memory for native engine (${selectedModule})`,
-      '[Hook] Scanning target classes for PackageManager.getPackageInfo() and Signature.hashCode()',
-      '[Hook] Found 8 target signature comparison call-sites in classes2.dex and classes3.dex',
-      '[Bypass] Patched Dalvik/ART opcode return values to return genuine OEM signature hash'
+  const handleExecute = () => {
+    setExecutionLog([
+      '[Not executed] This web project does not load or execute native ELF/DEX modules.',
+      'The module inventory is a static archive listing only.',
+      'No signature, package identity, or runtime integrity checks were altered.',
+      'For authorized app testing, use Android Studio, ADB, and a dedicated test build.'
     ]);
-
-    await new Promise(r => setTimeout(r, 450));
-    setExecutionLog(prev => [
-      ...prev,
-      '[Native] Hook installed in libc.so: open(), stat(), and readlink() redirected',
-      '[Integrity] Tampering checks bypassed. Application running in virtual mode without signature check crash.',
-      'SUCCESS: Signature check killer execution finished with exit code 0.'
-    ]);
-    setRunning(false);
   };
 
   return (
@@ -47,10 +33,10 @@ export const KillerBypassSuite: React.FC = () => {
         <div>
           <h2 className="text-sm font-semibold text-slate-100 flex items-center space-x-2">
             <Skull className="w-4 h-4 text-red-400" />
-            <span>APK Killer & Signature Verification Bypass Suite</span>
+            <span>Native Module Inventory (Read-only)</span>
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            Native multi-architecture ELF executables and bytecode patcher extracted from <code className="text-sky-300 font-mono">assets/killer_*</code>.
+            Native multi-architecture libraries and binaries listed from <code className="text-sky-300 font-mono">assets/killer_*</code>.
           </p>
         </div>
 
@@ -60,7 +46,7 @@ export const KillerBypassSuite: React.FC = () => {
           className="flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 disabled:bg-slate-800 text-white text-xs font-semibold shadow-md transition"
         >
           <Play className="w-4 h-4" />
-          <span>{running ? 'Running Bypass...' : 'Execute Killer Module'}</span>
+          <span>{running ? 'Running Bypass...' : 'Explain execution limits'}</span>
         </button>
       </div>
 
@@ -104,9 +90,9 @@ export const KillerBypassSuite: React.FC = () => {
               onChange={(e) => setBypassMode(e.target.value)}
               className="bg-slate-950 border border-slate-800 rounded px-2 py-1 text-slate-200 font-mono text-xs"
             >
-              <option value="sig_kill">Signature Kill (Full Bypass)</option>
-              <option value="dex_hook">DEX Hook & Opcode Inversion</option>
-              <option value="pkg_spoof">Package Name Spoofing</option>
+              <option value="sig_kill">Signature validation (not executed)</option>
+              <option value="dex_hook">DEX inspection (not executed)</option>
+              <option value="pkg_spoof">Package metadata inspection (not executed)</option>
             </select>
           </div>
         </div>
@@ -114,7 +100,7 @@ export const KillerBypassSuite: React.FC = () => {
         <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg p-3 font-mono text-xs overflow-y-auto space-y-1 text-slate-300">
           {executionLog.length === 0 ? (
             <div className="text-slate-600 italic p-4 text-center">
-              Select a module above and click "Execute Killer Module" to simulate signature verification bypass in the virtual runtime.
+              This interface only inventories extracted files. It does not execute native code or bypass signature checks.
             </div>
           ) : (
             executionLog.map((log, i) => (
