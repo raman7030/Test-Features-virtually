@@ -215,56 +215,25 @@ export const ApkInspector: React.FC<ApkInspectorProps> = ({ onViewContent }) => 
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
               <h3 className="text-sm font-semibold text-slate-100 flex items-center space-x-2 mb-2">
                 <Layers className="w-4 h-4 text-indigo-400" />
-                <span>Multi-DEX Bytecode Architecture (DEX Format 039)</span>
+                <span>DEX Container Inventory</span>
               </h3>
               <p className="text-xs text-slate-400">
-                Android enforces a 65,536 method reference limit per DEX file. This application partitions its bytecode across 5 DEX containers to support its large reverse-engineering, file manager, and editor codebases.
+                This view reports DEX files and their archive sizes. Class counts, method-ID counts and DEX version require parsing each DEX header and tables; they are not inferred from file size.
               </p>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {summary.dexFiles.map((dex, index) => {
-                const percent = Math.min(100, Math.round((dex.classesEstimate / 8800) * 100));
-                return (
-                  <div key={dex.name} className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold font-mono text-sky-400">{dex.name}</span>
-                        <span className="text-[11px] px-2 py-0.5 rounded bg-indigo-950/80 border border-indigo-800 text-indigo-300 font-mono">
-                          DEX 039
-                        </span>
-                      </div>
-                      <div className="text-xl font-bold text-slate-100 mt-2">
-                        {(dex.size / (1024 * 1024)).toFixed(2)} MB
-                      </div>
-                      <div className="text-xs text-slate-400 mt-1">
-                        ~{dex.classesEstimate.toLocaleString()} classes defined
-                      </div>
-                      <div className="text-xs text-slate-500 italic mt-2">
-                        {dex.description}
-                      </div>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-slate-800">
-                      <div className="flex justify-between text-[11px] text-slate-400 mb-1">
-                        <span>Method IDs Utilization</span>
-                        <span className="font-mono text-sky-400">{percent}%</span>
-                      </div>
-                      <div className="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden">
-                        <div 
-                          className={`h-full rounded-full ${percent > 95 ? 'bg-amber-400' : 'bg-sky-500'}`}
-                          style={{ width: `${percent}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {summary.dexFiles.map((dex) => (
+                <div key={dex.name} className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+                  <div className="text-xs font-bold font-mono text-sky-400">{dex.name}</div>
+                  <div className="text-xl font-bold text-slate-100 mt-2">{(dex.size / (1024 * 1024)).toFixed(2)} MB</div>
+                  <div className="text-xs text-slate-400 mt-1">{dex.classesEstimate == null ? 'Class/method tables not parsed' : `~${dex.classesEstimate.toLocaleString()} classes`}</div>
+                  <div className="text-xs text-slate-500 italic mt-2">{dex.description}</div>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
-        {/* SubTab 3: Files Browser inside APK */}
         {activeSubTab === 'files' && (
           <div className="flex-1 flex gap-3 min-h-0 overflow-hidden">
             {/* Left: Search & File List */}
