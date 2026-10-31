@@ -1,0 +1,19 @@
+{
+  "original_file": "test.zip",
+  "original_size_bytes": 37521106,
+  "original_sha256": "8f83cef8ac63f76a81e1fee3ededb213f6ba43cc19761e38bc4e567c87edd47d",
+  "part_count": 2,
+  "parts": [
+    {
+      "file": "test.zip.part01",
+      "size_bytes": 20971520,
+      "sha256": "9252c2400a9cfca8f7fefb754be4ba9e126917116074561407dd753865fef690"
+    },
+    {
+      "file": "test.zip.part02",
+      "size_bytes": 16549586,
+      "sha256": "3d1445e324500a93bf42c77668b656ab0779cf626a551759e5bed56677ac0796"
+    }
+  ],
+  "reassembly": "Place all parts in the same folder in numeric order, then concatenate their bytes to recreate test.zip. Do not unzip individual parts."
+}
