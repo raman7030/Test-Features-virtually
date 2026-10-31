@@ -1,0 +1,19 @@
+ok: Aceptar
+cancel: Cancelar
+close: Cerrar
+
+tip: Consejo
+notice: Aviso
+information: Información
+warning: Advertencia
+error: Error
+
+loading: Cargando…
+preparing: Preparando…
+reloading: Recargando…
+processing: Procesando…
+canceling: Cancelando…
+
+press_again_to_cancel: Pulsa de nuevo para cancelar
+out_of_memory_error: Error de memoria insuficiente
+dual_progress_dialog_total: Total

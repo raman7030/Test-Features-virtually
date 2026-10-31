@@ -1,0 +1,19 @@
+ok: oke
+cancel: Membatalkan
+close: Tutup
+
+tip: Tips
+notice: Pemberitahuan
+information: Informasi
+warning: Peringatan
+error: Kesalahan
+
+loading: Memuat…
+preparing: Menyiapkan…
+reloading: Memuat ulang…
+processing: Memproses…
+canceling: Membatalkan…
+
+press_again_to_cancel: Tekan lagi untuk membatalkan
+out_of_memory_error: Kehabisan Memori Kesalahan
+dual_progress_dialog_total: Total

@@ -1,0 +1,20 @@
+html, body { margin: 0; padding: 0; }
+html[data-theme="light"] { background: #fff; color-scheme: light; }
+html[data-theme="dark"] { background: #0d1117; color-scheme: dark; }
+.markdown-body { box-sizing: border-box; max-width: 980px; margin: 0 auto !important; padding: 24px 16px; overflow-wrap: break-word; }
+.markdown-body img { max-width: 100%; height: auto; }
+.markdown-body pre, .markdown-body table { max-width: 100%; overflow-x: auto; }
+.markdown-body pre code > span { min-height: 1em; }
+.markdown-body [id] { scroll-margin-top: 24px; }
+@media (min-width: 768px) { .markdown-body { padding: 40px; } }
+
+/* 外层保留源码范围；宽公式和图表只在自身横向滚动。 */
+.markdown-body .mt-math, .markdown-body .mt-mermaid { overflow-x: auto; margin: 16px 0; white-space: pre-wrap; }
+.markdown-body .mt-math[data-render-state="ready"], .markdown-body .mt-mermaid[data-render-state="ready"] { white-space: normal; }
+.markdown-body .mt-mermaid > svg { display: block; margin: 0 auto; }
+.markdown-body .mt-math .katex-display { margin: 0; }
+.markdown-body .mt-inline-math { white-space: pre-wrap; }
+.markdown-body .mt-render-error { font-family: monospace; }
+.markdown-body .mt-render-error::after { content: " (" attr(data-render-error) ")"; font: 12px sans-serif; opacity: .7; }
+/* 保留真实布局供 Mermaid 测量，但不让其临时节点参与页面滚动。 */
+.mt-diagram-work { position: fixed; top: 0; left: -100000px; visibility: hidden; pointer-events: none; }

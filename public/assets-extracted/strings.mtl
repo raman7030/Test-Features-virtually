@@ -1,0 +1,23 @@
+# Dialog Button Text
+ok: OK
+cancel: Cancel
+close: Close
+
+# Dialog Title
+tip: Tip
+notice: Notice
+information: Information
+warning: Warning
+error: Error
+
+# Task Progress Title
+loading: Loading…
+preparing: Preparing…
+reloading: Reloading…
+processing: Processing…
+canceling: Canceling…
+
+# Others
+press_again_to_cancel: Press again to cancel
+out_of_memory_error: Out of Memory Error
+dual_progress_dialog_total: Total

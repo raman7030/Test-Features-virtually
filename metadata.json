@@ -1,0 +1,6 @@
+{
+  "name": "Test Features Virtually",
+  "description": "Virtual environment and APK feature inspection tool with dual-pane file management, DEX/Smali viewer, Android manifest analyzer, and simulated sandbox test runner.",
+  "permissions": [],
+  "capabilities": []
+}

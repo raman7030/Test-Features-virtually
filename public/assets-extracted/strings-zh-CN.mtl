@@ -1,0 +1,25 @@
+# 对话框按钮
+ok: 确定
+cancel: 取消
+close: 关闭
+
+# 对话框标题
+## 三个中文翻译都是提示，但其它语言翻译不一样，使用场景也不同
+## tip：小贴士，notice：一般通知，information：信息提示
+tip: 提示
+notice: 提示
+information: 提示
+warning: 警告
+error: 错误
+
+# 任务进度标题
+loading: 正在加载…
+preparing: 正在准备…
+reloading: 正在重新加载…
+processing: 正在处理…
+canceling: 正在取消…
+
+# 其它
+press_again_to_cancel: 再按一次取消操作
+out_of_memory_error: 运行内存不足
+dual_progress_dialog_total: 总进度
