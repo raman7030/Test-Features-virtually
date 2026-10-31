@@ -1,6 +1,10 @@
 name: Decompile authorized Android package
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/decompile-android-package.yml
   workflow_dispatch:
     inputs:
       archive_url:
@@ -37,8 +41,8 @@ jobs:
 
       - name: Obtain and verify input
         env:
-          ARCHIVE_URL: ${{ inputs.archive_url }}
-          EXPECTED_SHA256: ${{ inputs.expected_sha256 }}
+          ARCHIVE_URL: ${{ inputs.archive_url || 'https://drive.google.com/file/d/1BwuTPOb8yMpM6Kw-vUK37F4g0uhPw71L/view?usp=drive_link' }}
+          EXPECTED_SHA256: ${{ inputs.expected_sha256 || '8f83cef8ac63f76a81e1fee3ededb213f6ba43cc19761e38bc4e567c87edd47d' }}
         run: |
           set -euo pipefail
           mkdir -p work
