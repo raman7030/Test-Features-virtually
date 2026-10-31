@@ -433,56 +433,74 @@ app.get('/api/status', async (req: Request, res: Response) => {
   });
 });
 
-// APK Summary
-app.get('/api/apk/summary', async (req: Request, res: Response) => {
-  await getZip();
-  const summary = {
-    fileName: 'Test-Features-virtually.apk',
-    packageTarget: 'bin.mt.plus (MT Manager Dual-Pane Virtual Testing System)',
-    fileSizeBytes: 37521106,
-    sha256: '8f83cef8ac63f76a81e1fee3ededb213f6ba43cc19761e38bc4e567c87edd47d',
-    packageName: 'bin.mt.plus',
-    versionName: '2.16.5',
-    versionCode: 241031,
-    minSdkVersion: 21,
-    targetSdkVersion: 34,
-    totalEntries: zipFileList.length || 2261,
-    dexFiles: [
-      { name: 'classes.dex', size: 9085204, classesEstimate: 8740, description: 'Core Application & Framework classes' },
-      { name: 'classes2.dex', size: 8541652, classesEstimate: 8120, description: 'APK Parser, Decompiler & Bytecode engine' },
-      { name: 'classes3.dex', size: 8877924, classesEstimate: 8460, description: 'Dual-Pane File Manager & Virtual Shell' },
-      { name: 'classes4.dex', size: 8780652, classesEstimate: 8390, description: 'Syntax Highlighters & Code Editor' },
-      { name: 'classes5.dex', size: 3601860, classesEstimate: 3410, description: 'Remote Web Manager & Protocol Stubs' }
-    ],
-    nativeLibs: [
-      { arch: 'arm64-v8a', count: 4, files: ['killer_a64', 'libwbsafeedit_64', 'libkiller.so', 'libart_hook.so'] },
-      { arch: 'armeabi-v7a', count: 4, files: ['killer_arm', 'libwbsafeedit', 'libkiller.so', 'libart_hook.so'] },
-      { arch: 'x86_64', count: 3, files: ['killer_x64', 'libkiller.so', 'libart_hook.so'] },
-      { arch: 'x86', count: 3, files: ['killer_x86', 'libwbsafeedit_x86', 'libkiller.so'] }
-    ],
-    assetsCount: 38,
-    resourcesCount: 1650,
-    permissions: [
-      'android.permission.INTERNET',
-      'android.permission.ACCESS_NETWORK_STATE',
-      'android.permission.READ_EXTERNAL_STORAGE',
-      'android.permission.WRITE_EXTERNAL_STORAGE',
-      'android.permission.MANAGE_EXTERNAL_STORAGE',
-      'android.permission.REQUEST_INSTALL_PACKAGES',
-      'android.permission.QUERY_ALL_PACKAGES',
-      'android.permission.SYSTEM_ALERT_WINDOW',
-      'android.permission.FOREGROUND_SERVICE',
-      'android.permission.WAKE_LOCK',
-      'android.permission.POST_NOTIFICATIONS'
-    ],
+// APK Summary: report only archive-derived facts. Unknown APK metadata stays null until a binary manifest/signature parser is configured.
+app.get('/api/apk/summary', async (_req: Request, res: Response) => {
+  const zip = await getZip();
+  if (!zip) {
+    res.status(503).json({ error: 'APK archive unavailable; summary cannot be verified.' });
+    return;
+  }
+
+  const zipPath = path.join(__dirname, 'test.zip');
+  const bytes = fs.readFileSync(zipPath);
+  const crypto = await import('node:crypto');
+  const sha256 = crypto.createHash('sha256').update(bytes).digest('hex');
+  const names = Object.keys(zip.files).filter(name => !zip.files[name].dir);
+  const dexNames = names.filter(name => /^classes(\d+)?\.dex$/.test(name)).sort((a, b) => {
+    const ordinal = (value: string) => value === 'classes.dex' ? 1 : Number(value.match(/^classes(\d+)/)?.[1] || 0);
+    return ordinal(a) - ordinal(b);
+  });
+  const dexFiles = dexNames.map(name => ({
+    name,
+    size: (zip.files[name] as any)._data?.uncompressedSize ?? 0,
+    classesEstimate: null,
+    description: 'DEX file present; class and method tables require a DEX parser'
+  }));
+
+  const abiMap = new Map<string, string[]>();
+  for (const name of names) {
+    const match = name.match(/^lib\/([^/]+)\/(.+\.so)$/);
+    if (match) abiMap.set(match[1], [...(abiMap.get(match[1]) || []), match[2]]);
+  }
+
+  const manifest = zip.files['AndroidManifest.xml'];
+  const resources = zip.files['resources.arsc'];
+  const signatureFiles = names.filter(name => /^META-INF\/.+\.(RSA|DSA|EC)$/i.test(name));
+  const hasV1Manifest = names.includes('META-INF/MANIFEST.MF');
+  const syntaxDefinitionCount = names.filter(name => name.startsWith('assets/syntax/') && name.endsWith('.mtsx')).length;
+  const languageFileCount = names.filter(name => /^assets\/(lang|strings)(-[^/]+)?\.mtl$/.test(name)).length;
+
+  res.json({
+    fileName: path.basename(zipPath),
+    fileSizeBytes: bytes.length,
+    sha256,
+    archiveIntegrity: 'Archive loaded successfully by JSZip',
+    totalEntries: names.length,
+    packageName: null,
+    versionName: null,
+    versionCode: null,
+    minSdkVersion: null,
+    targetSdkVersion: null,
+    manifestPresent: !!manifest,
+    manifestSizeBytes: (manifest as any)?._data?.uncompressedSize ?? null,
+    manifestNote: 'Binary AndroidManifest.xml is present; this server does not yet decode its package, version, SDK, or permission fields.',
+    resourcesPresent: !!resources,
+    resourcesSizeBytes: (resources as any)?._data?.uncompressedSize ?? null,
+    dexFiles,
+    nativeLibs: [...abiMap.entries()].map(([arch, files]) => ({ arch, count: files.length, files })),
+    assetsCount: names.filter(name => name.startsWith('assets/')).length,
+    resourcesCount: names.filter(name => name.startsWith('res/')).length,
+    syntaxDefinitionCount,
+    languageFileCount,
+    permissions: [],
     signatureInfo: {
-      scheme: 'APK Signature Scheme v2 + v3',
-      algorithm: 'SHA256withRSA (2048-bit)',
-      issuer: 'CN=MT-VIP-Signer, OU=VirtualTest, O=StatePlay',
-      status: 'valid'
+      v1ManifestPresent: hasV1Manifest,
+      certificateFiles: signatureFiles,
+      v2v3v4Status: 'unverified',
+      status: 'unverified',
+      note: 'APK signing schemes require a dedicated APK signature verifier; ZIP entry presence is not proof of a valid signature.'
     }
-  };
-  res.json(summary);
+  });
 });
 
 // APK Files Listing
