@@ -91,7 +91,7 @@ jobs:
           JADX_BIN="$(find work/jadx -type f -path '*/bin/jadx' -print -quit)"
           if [ -z "$JADX_BIN" ]; then echo "JADX executable not found"; exit 1; fi
           chmod +x "$JADX_BIN"
-          "$JADX_BIN" --show-bad-code -d decompiled/jadx work/input.apk
+          "$JADX_BIN" --show-bad-code -d decompiled/jadx work/input.apk || echo "JADX reported partial decompilation errors; retaining generated output and continuing."
           java -jar work/apktool.jar d -f -o decompiled/apktool work/input.apk
           {
             echo "# Decompilation report"
