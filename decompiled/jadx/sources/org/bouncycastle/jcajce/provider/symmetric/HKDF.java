@@ -3,8 +3,6 @@ package org.bouncycastle.jcajce.provider.symmetric;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.Digest;
@@ -19,6 +17,8 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.spec.HKDFParameterSpec;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HKDF {
@@ -76,7 +76,7 @@ public class HKDF {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$HKDFwithSHA512", "SecretKeyFactory.HKDF-SHA512", C5368.m15340(str, "$HKDFwithSHA384", "SecretKeyFactory.HKDF-SHA384", C5368.m15340(str, "$HKDFwithSHA256", "SecretKeyFactory.HKDF-SHA256", sb, configurableProvider), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$HKDFwithSHA512", "SecretKeyFactory.HKDF-SHA512", C7470.m17249(str, "$HKDFwithSHA384", "SecretKeyFactory.HKDF-SHA384", C7470.m17249(str, "$HKDFwithSHA256", "SecretKeyFactory.HKDF-SHA256", sb, configurableProvider), configurableProvider), configurableProvider);
         }
     }
 }

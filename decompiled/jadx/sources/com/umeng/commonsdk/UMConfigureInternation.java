@@ -7,7 +7,8 @@ import com.umeng.commonsdk.framework.UMFrUtils;
 import com.umeng.commonsdk.framework.UMLogDataProtocol;
 import com.umeng.commonsdk.framework.UMModuleRegister;
 import com.umeng.commonsdk.framework.UMWorkDispatch;
-import com.umeng.commonsdk.internal.b;
+import com.umeng.commonsdk.internal.C0771a;
+import com.umeng.commonsdk.internal.C0772b;
 import com.umeng.commonsdk.statistics.common.ULog;
 
 /* JADX INFO: loaded from: classes.dex */
@@ -28,7 +29,7 @@ public class UMConfigureInternation {
                                     return;
                                 }
                                 Context context2 = context;
-                                UMWorkDispatch.sendEvent(context2, com.umeng.commonsdk.internal.a.n, b.a(context2).a(), null, 5000L);
+                                UMWorkDispatch.sendEvent(context2, C0771a.f3229n, C0772b.m2790a(context2).m2791a(), null, 5000L);
                             } catch (Throwable unused) {
                             }
                         }
@@ -36,7 +37,7 @@ public class UMConfigureInternation {
                     isInternal = true;
                 }
             } catch (Throwable th) {
-                ULog.e(UMModuleRegister.INNER, "e is " + th.getMessage());
+                ULog.m2980e(UMModuleRegister.INNER, "e is " + th.getMessage());
             }
         }
     }
@@ -48,7 +49,7 @@ public class UMConfigureInternation {
             if (TextUtils.isEmpty(currentProcessName) || TextUtils.isEmpty(packageName) || !currentProcessName.equals(packageName)) {
                 return;
             }
-            UMWorkDispatch.sendEvent(context, com.umeng.commonsdk.internal.a.C, b.a(context).a(), null);
+            UMWorkDispatch.sendEvent(context, C0771a.f3206C, C0772b.m2790a(context).m2791a(), null);
         } catch (Throwable unused) {
         }
     }

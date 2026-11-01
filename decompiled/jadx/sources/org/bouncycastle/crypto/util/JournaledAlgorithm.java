@@ -11,7 +11,6 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.security.SecureRandom;
-import l.C18736;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
@@ -19,7 +18,8 @@ import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C20175;
 
 /* JADX INFO: loaded from: classes.dex */
 public class JournaledAlgorithm implements Encodable, Serializable {
@@ -123,6 +123,6 @@ public class JournaledAlgorithm implements Encodable, Serializable {
     private void initFromEncoding(byte[] bArr, SecureRandom secureRandom) {
         ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(bArr);
         this.algID = AlgorithmIdentifier.getInstance(aSN1Sequence.getObjectAt(0));
-        this.journaling = new JournalingSecureRandom(C18736.m43391(aSN1Sequence, 1), secureRandom);
+        this.journaling = new JournalingSecureRandom(C20175.m45658(aSN1Sequence, 1), secureRandom);
     }
 }

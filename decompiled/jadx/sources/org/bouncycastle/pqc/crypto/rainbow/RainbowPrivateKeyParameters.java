@@ -14,11 +14,19 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
     public final short[][][] l2_F6;
     public byte[] pk_encoded;
     public final byte[] pk_seed;
-    public final short[][] s1;
+
+    /* JADX INFO: renamed from: s1 */
+    public final short[][] f81712s1;
     public final byte[] sk_seed;
-    public final short[][] t1;
-    public final short[][] t3;
-    public final short[][] t4;
+
+    /* JADX INFO: renamed from: t1 */
+    public final short[][] f81713t1;
+
+    /* JADX INFO: renamed from: t3 */
+    public final short[][] f81714t3;
+
+    /* JADX INFO: renamed from: t4 */
+    public final short[][] f81715t4;
 
     public RainbowPrivateKeyParameters(RainbowParameters rainbowParameters, byte[] bArr) {
         super(true, rainbowParameters);
@@ -29,10 +37,10 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
             this.sk_seed = bArrCopyOfRange2;
             RainbowPrivateKeyParameters rainbowPrivateKeyParametersGeneratePrivateKey = new RainbowKeyComputation(rainbowParameters, bArrCopyOfRange, bArrCopyOfRange2).generatePrivateKey();
             this.pk_encoded = rainbowPrivateKeyParametersGeneratePrivateKey.pk_encoded;
-            this.s1 = rainbowPrivateKeyParametersGeneratePrivateKey.s1;
-            this.t1 = rainbowPrivateKeyParametersGeneratePrivateKey.t1;
-            this.t3 = rainbowPrivateKeyParametersGeneratePrivateKey.t3;
-            this.t4 = rainbowPrivateKeyParametersGeneratePrivateKey.t4;
+            this.f81712s1 = rainbowPrivateKeyParametersGeneratePrivateKey.f81712s1;
+            this.f81713t1 = rainbowPrivateKeyParametersGeneratePrivateKey.f81713t1;
+            this.f81714t3 = rainbowPrivateKeyParametersGeneratePrivateKey.f81714t3;
+            this.f81715t4 = rainbowPrivateKeyParametersGeneratePrivateKey.f81715t4;
             this.l1_F1 = rainbowPrivateKeyParametersGeneratePrivateKey.l1_F1;
             this.l1_F2 = rainbowPrivateKeyParametersGeneratePrivateKey.l1_F2;
             this.l2_F1 = rainbowPrivateKeyParametersGeneratePrivateKey.l2_F1;
@@ -47,13 +55,13 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
         int o2 = rainbowParameters.getO2();
         Class cls = Short.TYPE;
         short[][] sArr = (short[][]) Array.newInstance((Class<?>) cls, o1, o2);
-        this.s1 = sArr;
+        this.f81712s1 = sArr;
         short[][] sArr2 = (short[][]) Array.newInstance((Class<?>) cls, v1, o1);
-        this.t1 = sArr2;
+        this.f81713t1 = sArr2;
         short[][] sArr3 = (short[][]) Array.newInstance((Class<?>) cls, v1, o2);
-        this.t4 = sArr3;
+        this.f81715t4 = sArr3;
         short[][] sArr4 = (short[][]) Array.newInstance((Class<?>) cls, o1, o2);
-        this.t3 = sArr4;
+        this.f81714t3 = sArr4;
         short[][][] sArr5 = (short[][][]) Array.newInstance((Class<?>) cls, o1, v1, v1);
         this.l1_F1 = sArr5;
         short[][][] sArr6 = (short[][][]) Array.newInstance((Class<?>) cls, o1, v1, o1);
@@ -91,10 +99,10 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
         this.pk_seed = bArr;
         this.pk_encoded = bArr3;
         this.sk_seed = bArr2;
-        this.s1 = rainbowPrivateKeyParametersGeneratePrivateKey.s1;
-        this.t1 = rainbowPrivateKeyParametersGeneratePrivateKey.t1;
-        this.t3 = rainbowPrivateKeyParametersGeneratePrivateKey.t3;
-        this.t4 = rainbowPrivateKeyParametersGeneratePrivateKey.t4;
+        this.f81712s1 = rainbowPrivateKeyParametersGeneratePrivateKey.f81712s1;
+        this.f81713t1 = rainbowPrivateKeyParametersGeneratePrivateKey.f81713t1;
+        this.f81714t3 = rainbowPrivateKeyParametersGeneratePrivateKey.f81714t3;
+        this.f81715t4 = rainbowPrivateKeyParametersGeneratePrivateKey.f81715t4;
         this.l1_F1 = rainbowPrivateKeyParametersGeneratePrivateKey.l1_F1;
         this.l1_F2 = rainbowPrivateKeyParametersGeneratePrivateKey.l1_F2;
         this.l2_F1 = rainbowPrivateKeyParametersGeneratePrivateKey.l2_F1;
@@ -109,10 +117,10 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
         this.pk_seed = null;
         this.pk_encoded = bArr2;
         this.sk_seed = (byte[]) bArr.clone();
-        this.s1 = RainbowUtil.cloneArray(sArr);
-        this.t1 = RainbowUtil.cloneArray(sArr2);
-        this.t3 = RainbowUtil.cloneArray(sArr3);
-        this.t4 = RainbowUtil.cloneArray(sArr4);
+        this.f81712s1 = RainbowUtil.cloneArray(sArr);
+        this.f81713t1 = RainbowUtil.cloneArray(sArr2);
+        this.f81714t3 = RainbowUtil.cloneArray(sArr3);
+        this.f81715t4 = RainbowUtil.cloneArray(sArr4);
         this.l1_F1 = RainbowUtil.cloneArray(sArr5);
         this.l1_F2 = RainbowUtil.cloneArray(sArr6);
         this.l2_F1 = RainbowUtil.cloneArray(sArr7);
@@ -155,7 +163,7 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
     }
 
     public byte[] getPrivateKey() {
-        return getParameters().getVersion() == Version.COMPRESSED ? Arrays.concatenate(this.pk_seed, this.sk_seed) : Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(this.sk_seed, RainbowUtil.getEncoded(this.s1)), RainbowUtil.getEncoded(this.t1)), RainbowUtil.getEncoded(this.t4)), RainbowUtil.getEncoded(this.t3)), RainbowUtil.getEncoded(this.l1_F1, true)), RainbowUtil.getEncoded(this.l1_F2, false)), RainbowUtil.getEncoded(this.l2_F1, true)), RainbowUtil.getEncoded(this.l2_F2, false)), RainbowUtil.getEncoded(this.l2_F3, false)), RainbowUtil.getEncoded(this.l2_F5, true)), RainbowUtil.getEncoded(this.l2_F6, false));
+        return getParameters().getVersion() == Version.COMPRESSED ? Arrays.concatenate(this.pk_seed, this.sk_seed) : Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(this.sk_seed, RainbowUtil.getEncoded(this.f81712s1)), RainbowUtil.getEncoded(this.f81713t1)), RainbowUtil.getEncoded(this.f81715t4)), RainbowUtil.getEncoded(this.f81714t3)), RainbowUtil.getEncoded(this.l1_F1, true)), RainbowUtil.getEncoded(this.l1_F2, false)), RainbowUtil.getEncoded(this.l2_F1, true)), RainbowUtil.getEncoded(this.l2_F2, false)), RainbowUtil.getEncoded(this.l2_F3, false)), RainbowUtil.getEncoded(this.l2_F5, true)), RainbowUtil.getEncoded(this.l2_F6, false));
     }
 
     public byte[] getPublicKey() {
@@ -163,7 +171,7 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
     }
 
     public short[][] getS1() {
-        return RainbowUtil.cloneArray(this.s1);
+        return RainbowUtil.cloneArray(this.f81712s1);
     }
 
     public byte[] getSk_seed() {
@@ -171,14 +179,14 @@ public class RainbowPrivateKeyParameters extends RainbowKeyParameters {
     }
 
     public short[][] getT1() {
-        return RainbowUtil.cloneArray(this.t1);
+        return RainbowUtil.cloneArray(this.f81713t1);
     }
 
     public short[][] getT3() {
-        return RainbowUtil.cloneArray(this.t3);
+        return RainbowUtil.cloneArray(this.f81714t3);
     }
 
     public short[][] getT4() {
-        return RainbowUtil.cloneArray(this.t4);
+        return RainbowUtil.cloneArray(this.f81715t4);
     }
 }

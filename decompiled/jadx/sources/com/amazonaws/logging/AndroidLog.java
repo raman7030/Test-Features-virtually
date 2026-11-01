@@ -3,85 +3,85 @@ package com.amazonaws.logging;
 /* JADX INFO: loaded from: classes.dex */
 public class AndroidLog implements Log {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final String f224;
+    /* JADX INFO: renamed from: ֫ */
+    public final String f1384;
 
     public AndroidLog(String str) {
-        this.f224 = str;
+        this.f1384 = str;
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final boolean mo293() {
-        if (!android.util.Log.isLoggable(this.f224, 3)) {
+    /* JADX INFO: renamed from: ֫ */
+    public final boolean mo1459() {
+        if (!android.util.Log.isLoggable(this.f1384, 3)) {
             return false;
         }
-        int i = LogFactory.f226;
+        int i = LogFactory.f1386;
         return true;
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final boolean mo296() {
-        if (!android.util.Log.isLoggable(this.f224, 6)) {
+    /* JADX INFO: renamed from: ۧ */
+    public final boolean mo1462() {
+        if (!android.util.Log.isLoggable(this.f1384, 6)) {
             return false;
         }
-        int i = LogFactory.f226;
+        int i = LogFactory.f1386;
         return true;
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void mo291(String str) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ֫ */
+    public final void mo1457(String str) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void mo292(String str, Exception exc) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ֫ */
+    public final void mo1458(String str, Exception exc) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final void mo294(String str) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ۧ */
+    public final void mo1460(String str) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final void mo295(String str, Exception exc) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ۧ */
+    public final void mo1461(String str, Exception exc) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final void mo297(String str) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ܽ */
+    public final void mo1463(String str) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final void mo298(String str, Exception exc) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ܽ */
+    public final void mo1464(String str, Exception exc) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final void mo299(String str) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ܿ */
+    public final void mo1465(String str) {
+        int i = LogFactory.f1386;
     }
 
     @Override // com.amazonaws.logging.Log
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final void mo300(String str) {
-        int i = LogFactory.f226;
+    /* JADX INFO: renamed from: ᩳ */
+    public final void mo1466(String str) {
+        int i = LogFactory.f1386;
         str.getClass();
     }
 }

@@ -1,8 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C12662;
-import l.C16014;
-import l.C9045;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.WhirlpoolDigest;
 import org.bouncycastle.crypto.macs.HMac;
@@ -10,6 +7,9 @@ import org.bouncycastle.internal.asn1.iso.ISOIECObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Whirlpool {
@@ -48,9 +48,9 @@ public class Whirlpool {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest", "MessageDigest.WHIRLPOOL", sb, configurableProvider);
+            C14403.m33021(str, "$Digest", "MessageDigest.WHIRLPOOL", sb, configurableProvider);
             configurableProvider.addAlgorithm("MessageDigest", ISOIECObjectIdentifiers.whirlpool, str + "$Digest");
-            addHMACAlgorithm(configurableProvider, "WHIRLPOOL", C9045.m23341(new StringBuilder(), str, "$HashMac"), C16014.m37867(str, "$KeyGenerator"));
+            addHMACAlgorithm(configurableProvider, "WHIRLPOOL", C10965.m25286(new StringBuilder(), str, "$HashMac"), C17588.m40053(str, "$KeyGenerator"));
         }
     }
 }

@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import l.C20195;
 import net.engio.mbassy.bus.error.IPublicationErrorHandler;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BusConfiguration implements IBusConfiguration {
@@ -48,6 +48,6 @@ public class BusConfiguration implements IBusConfiguration {
 
     @Override // net.engio.mbassy.bus.config.IBusConfiguration
     public Collection getRegisteredPublicationErrorHandlers() {
-        return C20195.unmodifiableCollection(this.publicationErrorHandlers);
+        return C21562.unmodifiableCollection(this.publicationErrorHandlers);
     }
 }

@@ -1,12 +1,12 @@
 package org.bouncycastle.jcajce.provider.asymmetric;
 
-import l.C19462;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DSA {
@@ -64,7 +64,7 @@ public class DSA {
                 if (i == aSN1ObjectIdentifierArr.length) {
                     return;
                 }
-                C19462.m44861(new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr[i], configurableProvider, "DSA");
+                C20865.m47157(new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr[i], configurableProvider, "DSA");
                 registerOid(configurableProvider, aSN1ObjectIdentifierArr[i], "DSA", keyFactorySpi);
                 registerOidAlgorithmParameterGenerator(configurableProvider, aSN1ObjectIdentifierArr[i], "DSA");
                 i++;

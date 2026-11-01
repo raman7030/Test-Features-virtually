@@ -4,49 +4,61 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class DilithiumPrivateKeyParameters extends DilithiumKeyParameters {
-    public final byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public final byte[] f81586k;
     public final byte[] rho;
-    public final byte[] s1;
-    public final byte[] s2;
-    public final byte[] t0;
-    public final byte[] t1;
-    public final byte[] tr;
+
+    /* JADX INFO: renamed from: s1 */
+    public final byte[] f81587s1;
+
+    /* JADX INFO: renamed from: s2 */
+    public final byte[] f81588s2;
+
+    /* JADX INFO: renamed from: t0 */
+    public final byte[] f81589t0;
+
+    /* JADX INFO: renamed from: t1 */
+    public final byte[] f81590t1;
+
+    /* JADX INFO: renamed from: tr */
+    public final byte[] f81591tr;
 
     public DilithiumPrivateKeyParameters(DilithiumParameters dilithiumParameters, byte[] bArr, DilithiumPublicKeyParameters dilithiumPublicKeyParameters) {
         super(true, dilithiumParameters);
         DilithiumEngine engine = dilithiumParameters.getEngine(null);
         this.rho = Arrays.copyOfRange(bArr, 0, 32);
-        this.k = Arrays.copyOfRange(bArr, 32, 64);
-        this.tr = Arrays.copyOfRange(bArr, 64, 128);
+        this.f81586k = Arrays.copyOfRange(bArr, 32, 64);
+        this.f81591tr = Arrays.copyOfRange(bArr, 64, 128);
         int dilithiumL = (engine.getDilithiumL() * engine.getDilithiumPolyEtaPackedBytes()) + 128;
-        this.s1 = Arrays.copyOfRange(bArr, 128, dilithiumL);
+        this.f81587s1 = Arrays.copyOfRange(bArr, 128, dilithiumL);
         int dilithiumK = (engine.getDilithiumK() * engine.getDilithiumPolyEtaPackedBytes()) + dilithiumL;
-        this.s2 = Arrays.copyOfRange(bArr, dilithiumL, dilithiumK);
-        this.t0 = Arrays.copyOfRange(bArr, dilithiumK, (engine.getDilithiumK() * 416) + dilithiumK);
+        this.f81588s2 = Arrays.copyOfRange(bArr, dilithiumL, dilithiumK);
+        this.f81589t0 = Arrays.copyOfRange(bArr, dilithiumK, (engine.getDilithiumK() * 416) + dilithiumK);
         if (dilithiumPublicKeyParameters != null) {
-            this.t1 = dilithiumPublicKeyParameters.getT1();
+            this.f81590t1 = dilithiumPublicKeyParameters.getT1();
         } else {
-            this.t1 = null;
+            this.f81590t1 = null;
         }
     }
 
     public DilithiumPrivateKeyParameters(DilithiumParameters dilithiumParameters, byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5, byte[] bArr6, byte[] bArr7) {
         super(true, dilithiumParameters);
         this.rho = Arrays.clone(bArr);
-        this.k = Arrays.clone(bArr2);
-        this.tr = Arrays.clone(bArr3);
-        this.s1 = Arrays.clone(bArr4);
-        this.s2 = Arrays.clone(bArr5);
-        this.t0 = Arrays.clone(bArr6);
-        this.t1 = Arrays.clone(bArr7);
+        this.f81586k = Arrays.clone(bArr2);
+        this.f81591tr = Arrays.clone(bArr3);
+        this.f81587s1 = Arrays.clone(bArr4);
+        this.f81588s2 = Arrays.clone(bArr5);
+        this.f81589t0 = Arrays.clone(bArr6);
+        this.f81590t1 = Arrays.clone(bArr7);
     }
 
     public byte[] getEncoded() {
-        return Arrays.concatenate(new byte[][]{this.rho, this.k, this.tr, this.s1, this.s2, this.t0});
+        return Arrays.concatenate(new byte[][]{this.rho, this.f81586k, this.f81591tr, this.f81587s1, this.f81588s2, this.f81589t0});
     }
 
     public byte[] getK() {
-        return Arrays.clone(this.k);
+        return Arrays.clone(this.f81586k);
     }
 
     @Deprecated
@@ -55,11 +67,11 @@ public class DilithiumPrivateKeyParameters extends DilithiumKeyParameters {
     }
 
     public byte[] getPublicKey() {
-        return DilithiumPublicKeyParameters.getEncoded(this.rho, this.t1);
+        return DilithiumPublicKeyParameters.getEncoded(this.rho, this.f81590t1);
     }
 
     public DilithiumPublicKeyParameters getPublicKeyParameters() {
-        return new DilithiumPublicKeyParameters(getParameters(), this.rho, this.t1);
+        return new DilithiumPublicKeyParameters(getParameters(), this.rho, this.f81590t1);
     }
 
     public byte[] getRho() {
@@ -67,22 +79,22 @@ public class DilithiumPrivateKeyParameters extends DilithiumKeyParameters {
     }
 
     public byte[] getS1() {
-        return Arrays.clone(this.s1);
+        return Arrays.clone(this.f81587s1);
     }
 
     public byte[] getS2() {
-        return Arrays.clone(this.s2);
+        return Arrays.clone(this.f81588s2);
     }
 
     public byte[] getT0() {
-        return Arrays.clone(this.t0);
+        return Arrays.clone(this.f81589t0);
     }
 
     public byte[] getT1() {
-        return Arrays.clone(this.t1);
+        return Arrays.clone(this.f81590t1);
     }
 
     public byte[] getTr() {
-        return Arrays.clone(this.tr);
+        return Arrays.clone(this.f81591tr);
     }
 }

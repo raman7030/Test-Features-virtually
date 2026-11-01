@@ -25,12 +25,12 @@ import com.google.android.material.shape.CutCornerTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
-import l.C17648;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C20754;
-import l.C8184;
+import p067l.C1248;
+import p067l.C1717;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaterialCardViewHelper {
@@ -77,39 +77,39 @@ public class MaterialCardViewHelper {
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         materialShapeDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = materialShapeDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray typedArrayObtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, C19343.f62023, i, C18637.f58728);
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f62291)) {
-            builder.setAllCornerSizes(typedArrayObtainStyledAttributes.getDimension(C19343.f62291, 0.0f));
+        TypedArray typedArrayObtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, C20752.f64849, i, C20081.f61951);
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f65024)) {
+            builder.setAllCornerSizes(typedArrayObtainStyledAttributes.getDimension(C20752.f65024, 0.0f));
         }
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
-        this.iconFadeAnimInterpolator = MotionUtils.resolveThemeInterpolator(materialCardView.getContext(), C17931.f55340, AnimationUtils.LINEAR_INTERPOLATOR);
-        this.iconFadeInAnimDuration = MotionUtils.resolveThemeDuration(materialCardView.getContext(), C17931.f55510, 300);
-        this.iconFadeOutAnimDuration = MotionUtils.resolveThemeDuration(materialCardView.getContext(), C17931.f55169, 300);
+        this.iconFadeAnimInterpolator = MotionUtils.resolveThemeInterpolator(materialCardView.getContext(), C19410.f58537, AnimationUtils.LINEAR_INTERPOLATOR);
+        this.iconFadeInAnimDuration = MotionUtils.resolveThemeDuration(materialCardView.getContext(), C19410.f58707, 300);
+        this.iconFadeOutAnimDuration = MotionUtils.resolveThemeDuration(materialCardView.getContext(), C19410.f58366, 300);
         typedArrayObtainStyledAttributes.recycle();
     }
 
     public void loadFromAttributes(TypedArray typedArray) {
-        ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C19343.f61753);
+        ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C20752.f64671);
         this.strokeColor = colorStateList;
         if (colorStateList == null) {
             this.strokeColor = ColorStateList.valueOf(-1);
         }
-        this.strokeWidth = typedArray.getDimensionPixelSize(C19343.f61593, 0);
-        boolean z = typedArray.getBoolean(C19343.f60850, false);
+        this.strokeWidth = typedArray.getDimensionPixelSize(C20752.f64566, 0);
+        boolean z = typedArray.getBoolean(C20752.f64076, false);
         this.checkable = z;
         this.materialCardView.setLongClickable(z);
-        this.checkedIconTint = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C19343.f62499);
-        setCheckedIcon(MaterialResources.getDrawable(this.materialCardView.getContext(), typedArray, C19343.f60903));
-        setCheckedIconSize(typedArray.getDimensionPixelSize(C19343.f62446, 0));
-        setCheckedIconMargin(typedArray.getDimensionPixelSize(C19343.f61966, 0));
-        this.checkedIconGravity = typedArray.getInteger(C19343.f61434, 8388661);
-        ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C19343.f62340);
+        this.checkedIconTint = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C20752.f65161);
+        setCheckedIcon(MaterialResources.getDrawable(this.materialCardView.getContext(), typedArray, C20752.f64111));
+        setCheckedIconSize(typedArray.getDimensionPixelSize(C20752.f65126, 0));
+        setCheckedIconMargin(typedArray.getDimensionPixelSize(C20752.f64811, 0));
+        this.checkedIconGravity = typedArray.getInteger(C20752.f64461, 8388661);
+        ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C20752.f65056);
         this.rippleColor = colorStateList2;
         if (colorStateList2 == null) {
-            this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, C17931.f55809));
+            this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, C19410.f59006));
         }
-        setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C19343.f61222));
+        setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, C20752.f64321));
         updateRippleColor();
         updateElevation();
         updateStroke();
@@ -306,7 +306,7 @@ public class MaterialCardViewHelper {
         this.checkedIconTint = colorStateList;
         Drawable drawable = this.checkedIcon;
         if (drawable != null) {
-            C8184.m21676(drawable, colorStateList);
+            C1248.m23645(drawable, colorStateList);
         }
     }
 
@@ -324,16 +324,16 @@ public class MaterialCardViewHelper {
 
     public void setCheckedIcon(Drawable drawable) {
         if (drawable != null) {
-            Drawable drawableMutate = C8184.m21684(drawable).mutate();
+            Drawable drawableMutate = C1248.m23653(drawable).mutate();
             this.checkedIcon = drawableMutate;
-            C8184.m21676(drawableMutate, this.checkedIconTint);
+            C1248.m23645(drawableMutate, this.checkedIconTint);
             setChecked(this.materialCardView.isChecked());
         } else {
             this.checkedIcon = CHECKED_ICON_NONE;
         }
         LayerDrawable layerDrawable = this.clickableForegroundDrawable;
         if (layerDrawable != null) {
-            layerDrawable.setDrawableByLayerId(C20754.f66971, this.checkedIcon);
+            layerDrawable.setDrawableByLayerId(C22093.f69655, this.checkedIcon);
         }
     }
 
@@ -393,7 +393,7 @@ public class MaterialCardViewHelper {
             }
             int i10 = i6;
             MaterialCardView materialCardView = this.materialCardView;
-            int i11 = C17648.f53953;
+            int i11 = C1717.f57146;
             if (materialCardView.getLayoutDirection() == 1) {
                 i8 = i5;
                 i7 = i3;
@@ -533,7 +533,7 @@ public class MaterialCardViewHelper {
         if (this.clickableForegroundDrawable == null) {
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, this.checkedIcon});
             this.clickableForegroundDrawable = layerDrawable;
-            layerDrawable.setId(2, C20754.f66971);
+            layerDrawable.setId(2, C22093.f69655);
         }
         return this.clickableForegroundDrawable;
     }

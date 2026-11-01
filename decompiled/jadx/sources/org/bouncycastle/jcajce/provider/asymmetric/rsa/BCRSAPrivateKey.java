@@ -1,6 +1,6 @@
 package org.bouncycastle.jcajce.provider.asymmetric.rsa;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -125,7 +125,7 @@ public class BCRSAPrivateKey implements RSAPrivateKey, PKCS12BagAttributeCarrier
 
     @Override // java.security.Key
     public String getAlgorithm() {
-        return this.algorithmIdentifier.getAlgorithm().equals((ASN1Primitive) PKCSObjectIdentifiers.id_RSASSA_PSS) ? "RSASSA-PSS" : d.a;
+        return this.algorithmIdentifier.getAlgorithm().equals((ASN1Primitive) PKCSObjectIdentifiers.id_RSASSA_PSS) ? "RSASSA-PSS" : C0187d.f883a;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier
@@ -185,7 +185,7 @@ public class BCRSAPrivateKey implements RSAPrivateKey, PKCS12BagAttributeCarrier
     public String toString() {
         StringBuilder sb = new StringBuilder("RSA Private Key [");
         String strLineSeparator = Strings.lineSeparator();
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, RSAUtil.generateKeyFingerprint(getModulus()), "],[]", strLineSeparator, "            modulus: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, RSAUtil.generateKeyFingerprint(getModulus()), "],[]", strLineSeparator, "            modulus: ");
         sb.append(getModulus().toString(16));
         sb.append(strLineSeparator);
         return sb.toString();

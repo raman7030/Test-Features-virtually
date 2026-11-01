@@ -3,7 +3,7 @@ package org.bouncycastle.pqc.crypto.cmce;
 import org.bouncycastle.math.raw.Interleave;
 
 /* JADX INFO: loaded from: classes2.dex */
-public final class GF12 extends GF {
+public final class GF12 extends AbstractC2364GF {
     private int gf_mul_ext_par(short s, short s2, short s3, short s4) {
         int i = (s2 & 1) * s;
         int i2 = (s4 & 1) * s3;
@@ -15,19 +15,19 @@ public final class GF12 extends GF {
         return i ^ i2;
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public short gf_frac(short s, short s2) {
         return gf_mul(gf_inv(s), s2);
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public short gf_inv(short s) {
         short sGf_mul = gf_mul(gf_sq(s), s);
         short sGf_mul2 = gf_mul(gf_sq(gf_sq(sGf_mul)), sGf_mul);
         return gf_sq(gf_mul(gf_sq(gf_mul(gf_sq(gf_sq(gf_mul(gf_sq(gf_sq(gf_sq(gf_sq(sGf_mul2)))), sGf_mul2))), sGf_mul)), s));
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public short gf_mul(short s, short s2) {
         int i = (s2 & 1) * s;
         for (int i2 = 1; i2 < 12; i2++) {
@@ -36,7 +36,7 @@ public final class GF12 extends GF {
         return gf_reduce(i);
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public int gf_mul_ext(short s, short s2) {
         int i = (s2 & 1) * s;
         for (int i2 = 1; i2 < 12; i2++) {
@@ -45,7 +45,7 @@ public final class GF12 extends GF {
         return i;
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public void gf_mul_poly(int i, int[] iArr, short[] sArr, short[] sArr2, short[] sArr3, int[] iArr2) {
         iArr2[0] = gf_mul_ext(sArr2[0], sArr3[0]);
         for (int i2 = 1; i2 < i; i2++) {
@@ -73,22 +73,22 @@ public final class GF12 extends GF {
         }
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public short gf_reduce(int i) {
         return (short) ((i >>> 21) ^ ((((i & 4095) ^ (i >>> 12)) ^ ((2093056 & i) >>> 9)) ^ ((14680064 & i) >>> 18)));
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public short gf_sq(short s) {
         return gf_reduce(Interleave.expand16to32(s));
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public int gf_sq_ext(short s) {
         return Interleave.expand16to32(s);
     }
 
-    @Override // org.bouncycastle.pqc.crypto.cmce.GF
+    @Override // org.bouncycastle.pqc.crypto.cmce.AbstractC2364GF
     public void gf_sqr_poly(int i, int[] iArr, short[] sArr, short[] sArr2, int[] iArr2) {
         iArr2[0] = gf_sq_ext(sArr2[0]);
         for (int i2 = 1; i2 < i; i2++) {

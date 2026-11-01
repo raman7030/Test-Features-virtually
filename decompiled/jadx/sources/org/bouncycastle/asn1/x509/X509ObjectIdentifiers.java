@@ -1,9 +1,9 @@
 package org.bouncycastle.asn1.x509;
 
-import l.C22870;
-import l.C6207;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
+import p067l.C24104;
+import p067l.C8268;
 
 /* JADX INFO: loaded from: classes.dex */
 public interface X509ObjectIdentifiers {
@@ -40,21 +40,21 @@ public interface X509ObjectIdentifiers {
     public static final ASN1ObjectIdentifier stateOrProvinceName;
 
     static {
-        ASN1ObjectIdentifier aSN1ObjectIdentifierM50969 = C22870.m50969("2.5.4");
-        attributeType = aSN1ObjectIdentifierM50969;
-        commonName = aSN1ObjectIdentifierM50969.branch("3").intern();
-        countryName = aSN1ObjectIdentifierM50969.branch("6").intern();
-        localityName = aSN1ObjectIdentifierM50969.branch("7").intern();
-        stateOrProvinceName = aSN1ObjectIdentifierM50969.branch("8").intern();
-        organization = aSN1ObjectIdentifierM50969.branch("10").intern();
-        organizationalUnitName = aSN1ObjectIdentifierM50969.branch("11").intern();
-        id_at_telephoneNumber = aSN1ObjectIdentifierM50969.branch("20").intern();
-        id_at_name = aSN1ObjectIdentifierM50969.branch("41").intern();
-        id_at_organizationIdentifier = aSN1ObjectIdentifierM50969.branch("97").intern();
-        id_SHA1 = C22870.m50969(C6207.f19043);
-        ripemd160 = C22870.m50969("1.3.36.3.2.1");
-        ripemd160WithRSAEncryption = C22870.m50969("1.3.36.3.3.1.2");
-        id_ea_rsa = C22870.m50969("2.5.8.1.1");
+        ASN1ObjectIdentifier aSN1ObjectIdentifierM53359 = C24104.m53359("2.5.4");
+        attributeType = aSN1ObjectIdentifierM53359;
+        commonName = aSN1ObjectIdentifierM53359.branch("3").intern();
+        countryName = aSN1ObjectIdentifierM53359.branch("6").intern();
+        localityName = aSN1ObjectIdentifierM53359.branch("7").intern();
+        stateOrProvinceName = aSN1ObjectIdentifierM53359.branch("8").intern();
+        organization = aSN1ObjectIdentifierM53359.branch("10").intern();
+        organizationalUnitName = aSN1ObjectIdentifierM53359.branch("11").intern();
+        id_at_telephoneNumber = aSN1ObjectIdentifierM53359.branch("20").intern();
+        id_at_name = aSN1ObjectIdentifierM53359.branch("41").intern();
+        id_at_organizationIdentifier = aSN1ObjectIdentifierM53359.branch("97").intern();
+        id_SHA1 = C24104.m53359(C8268.f21904);
+        ripemd160 = C24104.m53359("1.3.36.3.2.1");
+        ripemd160WithRSAEncryption = C24104.m53359("1.3.36.3.3.1.2");
+        id_ea_rsa = C24104.m53359("2.5.8.1.1");
         ASN1ObjectIdentifier aSN1ObjectIdentifier = new ASN1ObjectIdentifier("1.3.6.1.5.5.7");
         id_pkix = aSN1ObjectIdentifier;
         id_pe = aSN1ObjectIdentifier.branch("1");

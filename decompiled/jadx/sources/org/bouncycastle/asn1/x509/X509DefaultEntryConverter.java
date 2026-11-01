@@ -23,12 +23,12 @@ public class X509DefaultEntryConverter extends X509NameEntryConverter {
         if (str.length() != 0 && str.charAt(0) == '\\') {
             str = str.substring(1);
         }
-        if (aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.EmailAddress) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.DC)) {
+        if (aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.EmailAddress) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.f80690DC)) {
             return new DERIA5String(str);
         }
         if (aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.DATE_OF_BIRTH)) {
             return new DERGeneralizedTime(str);
         }
-        return (aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.C) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.SERIALNUMBER) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.DN_QUALIFIER) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.TELEPHONE_NUMBER)) ? new DERPrintableString(str) : new DERUTF8String(str);
+        return (aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.f80688C) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.SERIALNUMBER) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.DN_QUALIFIER) || aSN1ObjectIdentifier.equals((ASN1Primitive) BCStyle.TELEPHONE_NUMBER)) ? new DERPrintableString(str) : new DERUTF8String(str);
     }
 }

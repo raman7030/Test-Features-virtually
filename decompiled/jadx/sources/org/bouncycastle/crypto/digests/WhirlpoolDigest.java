@@ -1,11 +1,10 @@
 package org.bouncycastle.crypto.digests;
 
-import com.alipay.sdk.m.y.q;
+import com.alipay.sdk.p010m.p058y.C0254q;
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.google.android.material.slider.BaseSlider;
 import com.google.android.material.textfield.IndicatorViewController;
 import com.umeng.commonsdk.statistics.UMErrorCode;
-import l.EnumC17734;
 import moe.shizuku.server.IShizukuService;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -14,11 +13,12 @@ import org.bouncycastle.crypto.ExtendedDigest;
 import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.math.Primes;
-import org.bouncycastle.math.ec.rfc8032.Scalar25519;
+import org.bouncycastle.math.p080ec.rfc8032.Scalar25519;
 import org.bouncycastle.pqc.crypto.picnic.PicnicEngine;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
+import p067l.EnumC19222;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
@@ -28,8 +28,12 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
     public static final short[] EIGHT;
     public static final int REDUCTION_POLYNOMIAL = 285;
     public static final int ROUNDS = 10;
-    public long[] _K;
-    public long[] _L;
+
+    /* JADX INFO: renamed from: _K */
+    public long[] f80943_K;
+
+    /* JADX INFO: renamed from: _L */
+    public long[] f80944_L;
     public short[] _bitCount;
     public long[] _block;
     public byte[] _buffer;
@@ -38,15 +42,31 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
     public final long[] _rc;
     public long[] _state;
     public final CryptoServicePurpose purpose;
-    public static final int[] SBOX = {24, 35, 198, 232, 135, 184, 1, 79, 54, 166, 210, 245, UMErrorCode.E_UM_BE_EMPTY_URL_PATH, UMErrorCode.E_UM_BE_CREATE_FAILED, 145, 82, 96, 188, 155, 142, 163, 12, 123, 53, 29, BERTags.FLAGS, 215, 194, 46, 75, Scalar25519.TARGET_LENGTH, 87, 21, 119, 55, 229, 159, 240, 74, 218, 88, 201, 41, 10, 177, DHParameters.DEFAULT_MINIMUM_LENGTH, IShizukuService.Stub.TRANSACTION_updateFlagsForUid, 133, 189, 93, 16, 244, 203, 62, 5, IShizukuService.Stub.TRANSACTION_dispatchPackageChanged, 228, 39, 65, 139, 167, q.h, 149, 216, 251, 238, 124, IShizukuService.Stub.TRANSACTION_attachUserService, 221, 23, 71, 158, 202, 45, 191, 7, 173, 90, 131, 51, 99, 2, 170, UMErrorCode.E_UM_BE_RAW_OVERSIZE, 200, 25, 73, IndicatorViewController.DEFAULT_CAPTION_TRANSLATION_Y_ANIMATION_DURATION, 242, 227, 91, 136, EnumC17734.f54268, 38, 50, PicnicEngine.MAX_AUX_BYTES, 233, 15, 213, 128, 190, 205, 52, 72, 255, 122, 144, 95, 32, IShizukuService.Stub.TRANSACTION_isHidden, 26, 174, 180, 84, 147, 34, 100, 241, 115, 18, 64, 8, 195, 236, 219, 161, 141, 61, 151, 0, 207, 43, 118, 130, 214, 27, 181, HideBottomViewOnScrollBehavior.DEFAULT_EXIT_ANIMATION_DURATION_MS, IShizukuService.Stub.TRANSACTION_getFlagsForUid, 80, 69, 243, 48, 239, 63, 85, 162, 234, 101, 186, 47, 192, 222, 28, 253, 77, 146, BaseSlider.DEFAULT_LABEL_ANIMATION_EXIT_DURATION, 6, 138, 178, 230, 14, 31, 98, 212, 168, 150, 249, 197, 37, 89, 132, 114, 57, 76, 94, UMErrorCode.E_UM_BE_NOT_MAINPROCESS, 56, 140, 209, 165, 226, 97, 179, 33, 156, 30, 67, 199, 252, 4, 81, 153, 109, 13, 250, 223, 126, 36, 59, 171, 206, 17, 143, 78, 183, 235, 60, 129, 148, 247, 185, 19, 44, Primes.SMALL_FACTOR_LIMIT, 231, UMErrorCode.E_UM_BE_JSON_FAILED, 196, 3, 86, 68, 127, 169, 42, 187, 193, 83, 220, 11, 157, 108, 49, 116, 246, 70, 172, 137, 20, HideBottomViewOnScrollBehavior.DEFAULT_ENTER_ANIMATION_DURATION_MS, 22, 58, IShizukuService.Stub.TRANSACTION_dispatchPermissionConfirmationResult, 9, UMErrorCode.E_UM_BE_DEFLATE_FAILED, 182, 208, 237, 204, 66, 152, 164, 40, 92, 248, 134};
-    public static final long[] C0 = new long[256];
-    public static final long[] C1 = new long[256];
-    public static final long[] C2 = new long[256];
-    public static final long[] C3 = new long[256];
-    public static final long[] C4 = new long[256];
-    public static final long[] C5 = new long[256];
-    public static final long[] C6 = new long[256];
-    public static final long[] C7 = new long[256];
+    public static final int[] SBOX = {24, 35, 198, 232, 135, 184, 1, 79, 54, 166, 210, 245, UMErrorCode.E_UM_BE_EMPTY_URL_PATH, UMErrorCode.E_UM_BE_CREATE_FAILED, 145, 82, 96, 188, 155, 142, 163, 12, 123, 53, 29, BERTags.FLAGS, 215, 194, 46, 75, Scalar25519.TARGET_LENGTH, 87, 21, 119, 55, 229, 159, 240, 74, 218, 88, 201, 41, 10, 177, DHParameters.DEFAULT_MINIMUM_LENGTH, IShizukuService.Stub.TRANSACTION_updateFlagsForUid, 133, 189, 93, 16, 244, 203, 62, 5, IShizukuService.Stub.TRANSACTION_dispatchPackageChanged, 228, 39, 65, 139, 167, C0254q.f1218h, 149, 216, 251, 238, 124, IShizukuService.Stub.TRANSACTION_attachUserService, 221, 23, 71, 158, 202, 45, 191, 7, 173, 90, 131, 51, 99, 2, 170, UMErrorCode.E_UM_BE_RAW_OVERSIZE, 200, 25, 73, IndicatorViewController.DEFAULT_CAPTION_TRANSLATION_Y_ANIMATION_DURATION, 242, 227, 91, 136, EnumC19222.f57460, 38, 50, PicnicEngine.MAX_AUX_BYTES, 233, 15, 213, 128, 190, 205, 52, 72, 255, 122, 144, 95, 32, IShizukuService.Stub.TRANSACTION_isHidden, 26, 174, 180, 84, 147, 34, 100, 241, 115, 18, 64, 8, 195, 236, 219, 161, 141, 61, 151, 0, 207, 43, 118, 130, 214, 27, 181, HideBottomViewOnScrollBehavior.DEFAULT_EXIT_ANIMATION_DURATION_MS, IShizukuService.Stub.TRANSACTION_getFlagsForUid, 80, 69, 243, 48, 239, 63, 85, 162, 234, 101, 186, 47, 192, 222, 28, 253, 77, 146, BaseSlider.DEFAULT_LABEL_ANIMATION_EXIT_DURATION, 6, 138, 178, 230, 14, 31, 98, 212, 168, 150, 249, 197, 37, 89, 132, 114, 57, 76, 94, UMErrorCode.E_UM_BE_NOT_MAINPROCESS, 56, 140, 209, 165, 226, 97, 179, 33, 156, 30, 67, 199, 252, 4, 81, 153, 109, 13, 250, 223, 126, 36, 59, 171, 206, 17, 143, 78, 183, 235, 60, 129, 148, 247, 185, 19, 44, Primes.SMALL_FACTOR_LIMIT, 231, UMErrorCode.E_UM_BE_JSON_FAILED, 196, 3, 86, 68, 127, 169, 42, 187, 193, 83, 220, 11, 157, 108, 49, 116, 246, 70, 172, 137, 20, HideBottomViewOnScrollBehavior.DEFAULT_ENTER_ANIMATION_DURATION_MS, 22, 58, IShizukuService.Stub.TRANSACTION_dispatchPermissionConfirmationResult, 9, UMErrorCode.E_UM_BE_DEFLATE_FAILED, 182, 208, 237, 204, 66, 152, 164, 40, 92, 248, 134};
+
+    /* JADX INFO: renamed from: C0 */
+    public static final long[] f80935C0 = new long[256];
+
+    /* JADX INFO: renamed from: C1 */
+    public static final long[] f80936C1 = new long[256];
+
+    /* JADX INFO: renamed from: C2 */
+    public static final long[] f80937C2 = new long[256];
+
+    /* JADX INFO: renamed from: C3 */
+    public static final long[] f80938C3 = new long[256];
+
+    /* JADX INFO: renamed from: C4 */
+    public static final long[] f80939C4 = new long[256];
+
+    /* JADX INFO: renamed from: C5 */
+    public static final long[] f80940C5 = new long[256];
+
+    /* JADX INFO: renamed from: C6 */
+    public static final long[] f80941C6 = new long[256];
+
+    /* JADX INFO: renamed from: C7 */
+    public static final long[] f80942C7 = new long[256];
 
     static {
         short[] sArr = new short[32];
@@ -59,14 +79,14 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
             int i3 = iMulX2 ^ i2;
             int iMulX3 = mulX(iMulX2);
             int i4 = iMulX3 ^ i2;
-            C0[i] = packIntoLong(i2, i2, iMulX2, i2, iMulX3, i3, iMulX, i4);
-            C1[i] = packIntoLong(i4, i2, i2, iMulX2, i2, iMulX3, i3, iMulX);
-            C2[i] = packIntoLong(iMulX, i4, i2, i2, iMulX2, i2, iMulX3, i3);
-            C3[i] = packIntoLong(i3, iMulX, i4, i2, i2, iMulX2, i2, iMulX3);
-            C4[i] = packIntoLong(iMulX3, i3, iMulX, i4, i2, i2, iMulX2, i2);
-            C5[i] = packIntoLong(i2, iMulX3, i3, iMulX, i4, i2, i2, iMulX2);
-            C6[i] = packIntoLong(iMulX2, i2, iMulX3, i3, iMulX, i4, i2, i2);
-            C7[i] = packIntoLong(i2, iMulX2, i2, iMulX3, i3, iMulX, i4, i2);
+            f80935C0[i] = packIntoLong(i2, i2, iMulX2, i2, iMulX3, i3, iMulX, i4);
+            f80936C1[i] = packIntoLong(i4, i2, i2, iMulX2, i2, iMulX3, i3, iMulX);
+            f80937C2[i] = packIntoLong(iMulX, i4, i2, i2, iMulX2, i2, iMulX3, i3);
+            f80938C3[i] = packIntoLong(i3, iMulX, i4, i2, i2, iMulX2, i2, iMulX3);
+            f80939C4[i] = packIntoLong(iMulX3, i3, iMulX, i4, i2, i2, iMulX2, i2);
+            f80940C5[i] = packIntoLong(i2, iMulX3, i3, iMulX, i4, i2, i2, iMulX2);
+            f80941C6[i] = packIntoLong(iMulX2, i2, iMulX3, i3, iMulX, i4, i2, i2);
+            f80942C7[i] = packIntoLong(i2, iMulX2, i2, iMulX3, i3, iMulX, i4, i2);
         }
     }
 
@@ -81,14 +101,14 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
         this._bufferPos = 0;
         this._bitCount = new short[32];
         this._hash = new long[8];
-        this._K = new long[8];
-        this._L = new long[8];
+        this.f80943_K = new long[8];
+        this.f80944_L = new long[8];
         this._block = new long[8];
         this._state = new long[8];
         jArr[0] = 0;
         for (int i = 1; i <= 10; i++) {
             int i2 = (i - 1) * 8;
-            this._rc[i] = (((((((C0[i2] & (-72057594037927936L)) ^ (C1[i2 + 1] & 71776119061217280L)) ^ (C2[i2 + 2] & 280375465082880L)) ^ (C3[i2 + 3] & 1095216660480L)) ^ (C4[i2 + 4] & 4278190080L)) ^ (C5[i2 + 5] & 16711680)) ^ (C6[i2 + 6] & 65280)) ^ (C7[i2 + 7] & 255);
+            this._rc[i] = (((((((f80935C0[i2] & (-72057594037927936L)) ^ (f80936C1[i2 + 1] & 71776119061217280L)) ^ (f80937C2[i2 + 2] & 280375465082880L)) ^ (f80938C3[i2 + 3] & 1095216660480L)) ^ (f80939C4[i2 + 4] & 4278190080L)) ^ (f80940C5[i2 + 5] & 16711680)) ^ (f80941C6[i2 + 6] & 65280)) ^ (f80942C7[i2 + 7] & 255);
         }
         this.purpose = cryptoServicePurpose;
         CryptoServicesRegistrar.checkConstraints(Utils.getDefaultProperties(this, getDigestSize(), cryptoServicePurpose));
@@ -100,8 +120,8 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
         this._bufferPos = 0;
         this._bitCount = new short[32];
         this._hash = new long[8];
-        this._K = new long[8];
-        this._L = new long[8];
+        this.f80943_K = new long[8];
+        this.f80944_L = new long[8];
         this._block = new long[8];
         this._state = new long[8];
         CryptoServicePurpose cryptoServicePurpose = whirlpoolDigest.purpose;
@@ -197,61 +217,61 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
         for (int i = 0; i < 8; i++) {
             long[] jArr = this._state;
             long j = this._block[i];
-            long[] jArr2 = this._K;
+            long[] jArr2 = this.f80943_K;
             long j2 = this._hash[i];
             jArr2[i] = j2;
             jArr[i] = j ^ j2;
         }
         for (int i2 = 1; i2 <= 10; i2++) {
             for (int i3 = 0; i3 < 8; i3++) {
-                long[] jArr3 = this._L;
+                long[] jArr3 = this.f80944_L;
                 jArr3[i3] = 0;
-                long[] jArr4 = C0;
-                long[] jArr5 = this._K;
+                long[] jArr4 = f80935C0;
+                long[] jArr5 = this.f80943_K;
                 long j3 = jArr4[((int) (jArr5[i3 & 7] >>> 56)) & 255];
                 jArr3[i3] = j3;
-                long j4 = C1[((int) (jArr5[(i3 - 1) & 7] >>> 48)) & 255] ^ j3;
+                long j4 = f80936C1[((int) (jArr5[(i3 - 1) & 7] >>> 48)) & 255] ^ j3;
                 jArr3[i3] = j4;
-                long j5 = j4 ^ C2[((int) (jArr5[(i3 - 2) & 7] >>> 40)) & 255];
+                long j5 = j4 ^ f80937C2[((int) (jArr5[(i3 - 2) & 7] >>> 40)) & 255];
                 jArr3[i3] = j5;
-                long j6 = j5 ^ C3[((int) (jArr5[(i3 - 3) & 7] >>> 32)) & 255];
+                long j6 = j5 ^ f80938C3[((int) (jArr5[(i3 - 3) & 7] >>> 32)) & 255];
                 jArr3[i3] = j6;
-                long j7 = j6 ^ C4[((int) (jArr5[(i3 - 4) & 7] >>> 24)) & 255];
+                long j7 = j6 ^ f80939C4[((int) (jArr5[(i3 - 4) & 7] >>> 24)) & 255];
                 jArr3[i3] = j7;
-                long j8 = j7 ^ C5[((int) (jArr5[(i3 - 5) & 7] >>> 16)) & 255];
+                long j8 = j7 ^ f80940C5[((int) (jArr5[(i3 - 5) & 7] >>> 16)) & 255];
                 jArr3[i3] = j8;
-                long j9 = j8 ^ C6[((int) (jArr5[(i3 - 6) & 7] >>> 8)) & 255];
+                long j9 = j8 ^ f80941C6[((int) (jArr5[(i3 - 6) & 7] >>> 8)) & 255];
                 jArr3[i3] = j9;
-                jArr3[i3] = j9 ^ C7[((int) jArr5[(i3 - 7) & 7]) & 255];
+                jArr3[i3] = j9 ^ f80942C7[((int) jArr5[(i3 - 7) & 7]) & 255];
             }
-            long[] jArr6 = this._L;
-            long[] jArr7 = this._K;
+            long[] jArr6 = this.f80944_L;
+            long[] jArr7 = this.f80943_K;
             System.arraycopy(jArr6, 0, jArr7, 0, jArr7.length);
-            long[] jArr8 = this._K;
+            long[] jArr8 = this.f80943_K;
             jArr8[0] = jArr8[0] ^ this._rc[i2];
             for (int i4 = 0; i4 < 8; i4++) {
-                long[] jArr9 = this._L;
-                long j10 = this._K[i4];
+                long[] jArr9 = this.f80944_L;
+                long j10 = this.f80943_K[i4];
                 jArr9[i4] = j10;
-                long[] jArr10 = C0;
+                long[] jArr10 = f80935C0;
                 long[] jArr11 = this._state;
                 long j11 = jArr10[((int) (jArr11[i4 & 7] >>> 56)) & 255] ^ j10;
                 jArr9[i4] = j11;
-                long j12 = j11 ^ C1[((int) (jArr11[(i4 - 1) & 7] >>> 48)) & 255];
+                long j12 = j11 ^ f80936C1[((int) (jArr11[(i4 - 1) & 7] >>> 48)) & 255];
                 jArr9[i4] = j12;
-                long j13 = j12 ^ C2[((int) (jArr11[(i4 - 2) & 7] >>> 40)) & 255];
+                long j13 = j12 ^ f80937C2[((int) (jArr11[(i4 - 2) & 7] >>> 40)) & 255];
                 jArr9[i4] = j13;
-                long j14 = j13 ^ C3[((int) (jArr11[(i4 - 3) & 7] >>> 32)) & 255];
+                long j14 = j13 ^ f80938C3[((int) (jArr11[(i4 - 3) & 7] >>> 32)) & 255];
                 jArr9[i4] = j14;
-                long j15 = j14 ^ C4[((int) (jArr11[(i4 - 4) & 7] >>> 24)) & 255];
+                long j15 = j14 ^ f80939C4[((int) (jArr11[(i4 - 4) & 7] >>> 24)) & 255];
                 jArr9[i4] = j15;
-                long j16 = j15 ^ C5[((int) (jArr11[(i4 - 5) & 7] >>> 16)) & 255];
+                long j16 = j15 ^ f80940C5[((int) (jArr11[(i4 - 5) & 7] >>> 16)) & 255];
                 jArr9[i4] = j16;
-                long j17 = j16 ^ C6[((int) (jArr11[(i4 - 6) & 7] >>> 8)) & 255];
+                long j17 = j16 ^ f80941C6[((int) (jArr11[(i4 - 6) & 7] >>> 8)) & 255];
                 jArr9[i4] = j17;
-                jArr9[i4] = j17 ^ C7[((int) jArr11[(i4 - 7) & 7]) & 255];
+                jArr9[i4] = j17 ^ f80942C7[((int) jArr11[(i4 - 7) & 7]) & 255];
             }
-            long[] jArr12 = this._L;
+            long[] jArr12 = this.f80944_L;
             long[] jArr13 = this._state;
             System.arraycopy(jArr12, 0, jArr13, 0, jArr13.length);
         }
@@ -267,8 +287,8 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
         Arrays.fill(this._bitCount, (short) 0);
         Arrays.fill(this._buffer, (byte) 0);
         Arrays.fill(this._hash, 0L);
-        Arrays.fill(this._K, 0L);
-        Arrays.fill(this._L, 0L);
+        Arrays.fill(this.f80943_K, 0L);
+        Arrays.fill(this.f80944_L, 0L);
         Arrays.fill(this._block, 0L);
         Arrays.fill(this._state, 0L);
     }
@@ -289,11 +309,11 @@ public final class WhirlpoolDigest implements ExtendedDigest, Memoable {
         long[] jArr3 = whirlpoolDigest._hash;
         long[] jArr4 = this._hash;
         System.arraycopy(jArr3, 0, jArr4, 0, jArr4.length);
-        long[] jArr5 = whirlpoolDigest._K;
-        long[] jArr6 = this._K;
+        long[] jArr5 = whirlpoolDigest.f80943_K;
+        long[] jArr6 = this.f80943_K;
         System.arraycopy(jArr5, 0, jArr6, 0, jArr6.length);
-        long[] jArr7 = whirlpoolDigest._L;
-        long[] jArr8 = this._L;
+        long[] jArr7 = whirlpoolDigest.f80944_L;
+        long[] jArr8 = this.f80944_L;
         System.arraycopy(jArr7, 0, jArr8, 0, jArr8.length);
         long[] jArr9 = whirlpoolDigest._block;
         long[] jArr10 = this._block;

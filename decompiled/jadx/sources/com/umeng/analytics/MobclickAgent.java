@@ -2,7 +2,7 @@ package com.umeng.analytics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.umeng.analytics.pro.j;
+import com.umeng.analytics.pro.C0714j;
 import com.umeng.common.ISysListener;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.commonsdk.debug.UMLog;
@@ -39,34 +39,34 @@ public class MobclickAgent {
     }
 
     public static void init(Context context) {
-        b.a().a(context);
+        C0636b.m2050a().m2058a(context);
     }
 
     public static void setLocation(double d, double d2) {
-        b.a().a(d, d2);
+        C0636b.m2050a().m2056a(d, d2);
     }
 
     public static void setCatchUncaughtExceptions(boolean z) {
-        b.a().a(z);
+        C0636b.m2050a().m2076a(z);
     }
 
     public static void setSecret(Context context, String str) {
-        b.a().c(context, str);
+        C0636b.m2050a().m2084c(context, str);
     }
 
     public static void setSessionContinueMillis(long j) {
         if (j <= 30000) {
             j = 30000;
         }
-        b.a().a(j);
+        C0636b.m2050a().m2057a(j);
     }
 
-    public static b getAgent() {
-        return b.a();
+    public static C0636b getAgent() {
+        return C0636b.m2050a();
     }
 
     public static void setOpenGLContext(GL10 gl10) {
-        b.a().a(gl10);
+        C0636b.m2050a().m2075a(gl10);
     }
 
     public static void setPageCollectionMode(PageMode pageMode) {
@@ -75,29 +75,29 @@ public class MobclickAgent {
 
     public static void onPageStart(String str) {
         if (!TextUtils.isEmpty(str)) {
-            b.a().a(str);
+            C0636b.m2050a().m2072a(str);
         } else {
-            UMLog.aq(j.C, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2768C, 0, "\\|");
         }
     }
 
     public static void onPageEnd(String str) {
         if (!TextUtils.isEmpty(str)) {
-            b.a().b(str);
+            C0636b.m2050a().m2081b(str);
         } else {
-            UMLog.aq(j.D, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2769D, 0, "\\|");
         }
     }
 
     public static void onPause(Context context) {
-        b.a().c(context);
+        C0636b.m2050a().m2083c(context);
     }
 
     public static void onResume(Context context) {
         if (context == null) {
-            UMLog.aq(j.n, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2823n, 0, "\\|");
         } else {
-            b.a().b(context);
+            C0636b.m2050a().m2078b(context);
         }
     }
 
@@ -126,30 +126,30 @@ public class MobclickAgent {
     }
 
     public static void onEvent(Context context, String str) {
-        b.a().a(context, str, (String) null, -1L, 1);
+        C0636b.m2050a().m2063a(context, str, (String) null, -1L, 1);
     }
 
     public static void onEvent(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            UMLog.aq(j.k, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2820k, 0, "\\|");
         } else {
-            b.a().a(context, str, str2, -1L, 1);
+            C0636b.m2050a().m2063a(context, str, str2, -1L, 1);
         }
     }
 
     public static void onEvent(Context context, String str, Map map) {
         if (map == null) {
-            UMLog.aq(j.a, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2792a, 0, "\\|");
         } else {
-            b.a().a(context, str, new HashMap(map), -1L);
+            C0636b.m2050a().m2066a(context, str, new HashMap(map), -1L);
         }
     }
 
     public static void onEventObject(Context context, String str, Map map) {
         if (map == null) {
-            UMLog.aq(j.a, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2792a, 0, "\\|");
         } else {
-            b.a().a(context, str, map, -1L);
+            C0636b.m2050a().m2066a(context, str, map, -1L);
         }
     }
 
@@ -161,11 +161,11 @@ public class MobclickAgent {
             map2 = new HashMap(map);
         }
         map2.put("__ct__", Integer.valueOf(i));
-        b.a().a(context, str, map2, -1L);
+        C0636b.m2050a().m2066a(context, str, map2, -1L);
     }
 
     public static void onKillProcess(Context context) {
-        b.a().d(context);
+        C0636b.m2050a().m2086d(context);
     }
 
     public static void onProfileSignIn(String str) {
@@ -174,68 +174,70 @@ public class MobclickAgent {
 
     public static void onProfileSignIn(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            UMLog.aq(j.t, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2829t, 0, "\\|");
             return;
         }
         if (str2.length() > 64) {
-            UMLog.aq(j.u, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2830u, 0, "\\|");
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            b.a().a("_adhoc", str2);
+            C0636b.m2050a().m2073a("_adhoc", str2);
         } else if (str.length() > 32) {
-            UMLog.aq(j.v, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2831v, 0, "\\|");
         } else {
-            b.a().a(str, str2);
+            C0636b.m2050a().m2073a(str, str2);
         }
     }
 
     public static void onProfileSignOff() {
-        b.a().j();
+        C0636b.m2050a().m2099j();
     }
 
     public enum EScenarioType {
         E_UM_NORMAL(0),
         E_UM_GAME(1);
 
-        public int a;
+
+        /* JADX INFO: renamed from: a */
+        public int f2157a;
 
         EScenarioType(int i) {
-            this.a = i;
+            this.f2157a = i;
         }
 
         public int toValue() {
-            return this.a;
+            return this.f2157a;
         }
     }
 
     public static void setFirstLaunchEvent(Context context, List list) {
-        getAgent().a(context, list);
+        getAgent().m2068a(context, list);
     }
 
     public static void registerPreProperties(Context context, JSONObject jSONObject) {
-        getAgent().a(context, jSONObject);
+        getAgent().m2069a(context, jSONObject);
     }
 
     public static void unregisterPreProperty(Context context, String str) {
-        getAgent().f(context, str);
+        getAgent().m2093f(context, str);
     }
 
     public static void clearPreProperties(Context context) {
-        getAgent().g(context);
+        getAgent().m2095g(context);
     }
 
     public static JSONObject getPreProperties(Context context) {
-        return getAgent().h(context);
+        return getAgent().m2096h(context);
     }
 
     public static void disableExceptionCatch() {
-        b.a().a(false);
+        C0636b.m2050a().m2076a(false);
         AnalyticsConfig.CHANGE_CATCH_EXCEPTION_NOTALLOW = true;
     }
 
     public static void setGameScenarioType(Context context) {
-        b.a().a(context, EScenarioType.E_UM_GAME);
+        C0636b.m2050a().m2060a(context, EScenarioType.E_UM_GAME);
     }
 
     public static void disable() {
@@ -243,10 +245,10 @@ public class MobclickAgent {
     }
 
     public static void setSysListener(ISysListener iSysListener) {
-        b.a().a(iSysListener);
+        C0636b.m2050a().m2070a(iSysListener);
     }
 
     public static void onGKVEvent(Context context, String str, HashMap map) {
-        b.a().a(context, str, map);
+        C0636b.m2050a().m2064a(context, str, map);
     }
 }

@@ -6,8 +6,8 @@ import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.math.ec.rfc7748.X25519Field;
-import org.bouncycastle.math.ec.rfc8032.Scalar448;
+import org.bouncycastle.math.p080ec.rfc7748.X25519Field;
+import org.bouncycastle.math.p080ec.rfc8032.Scalar448;
 import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes.dex */
@@ -16,24 +16,60 @@ public class Poly1305 implements Mac {
     public final BlockCipher cipher;
     public final byte[] currentBlock;
     public int currentBlockOffset;
-    public int h0;
-    public int h1;
-    public int h2;
-    public int h3;
-    public int h4;
-    public int k0;
-    public int k1;
-    public int k2;
-    public int k3;
-    public int r0;
-    public int r1;
-    public int r2;
-    public int r3;
-    public int r4;
-    public int s1;
-    public int s2;
-    public int s3;
-    public int s4;
+
+    /* JADX INFO: renamed from: h0 */
+    public int f81132h0;
+
+    /* JADX INFO: renamed from: h1 */
+    public int f81133h1;
+
+    /* JADX INFO: renamed from: h2 */
+    public int f81134h2;
+
+    /* JADX INFO: renamed from: h3 */
+    public int f81135h3;
+
+    /* JADX INFO: renamed from: h4 */
+    public int f81136h4;
+
+    /* JADX INFO: renamed from: k0 */
+    public int f81137k0;
+
+    /* JADX INFO: renamed from: k1 */
+    public int f81138k1;
+
+    /* JADX INFO: renamed from: k2 */
+    public int f81139k2;
+
+    /* JADX INFO: renamed from: k3 */
+    public int f81140k3;
+
+    /* JADX INFO: renamed from: r0 */
+    public int f81141r0;
+
+    /* JADX INFO: renamed from: r1 */
+    public int f81142r1;
+
+    /* JADX INFO: renamed from: r2 */
+    public int f81143r2;
+
+    /* JADX INFO: renamed from: r3 */
+    public int f81144r3;
+
+    /* JADX INFO: renamed from: r4 */
+    public int f81145r4;
+
+    /* JADX INFO: renamed from: s1 */
+    public int f81146s1;
+
+    /* JADX INFO: renamed from: s2 */
+    public int f81147s2;
+
+    /* JADX INFO: renamed from: s3 */
+    public int f81148s3;
+
+    /* JADX INFO: renamed from: s4 */
+    public int f81149s4;
     public final byte[] singleByte;
 
     public Poly1305() {
@@ -70,33 +106,33 @@ public class Poly1305 implements Mac {
         long jLittleEndianToInt2 = ((long) Pack.littleEndianToInt(this.currentBlock, 4)) & 4294967295L;
         long jLittleEndianToInt3 = ((long) Pack.littleEndianToInt(this.currentBlock, 8)) & 4294967295L;
         long jLittleEndianToInt4 = 4294967295L & ((long) Pack.littleEndianToInt(this.currentBlock, 12));
-        int i3 = (int) (((long) this.h0) + (jLittleEndianToInt & Scalar448.M26L));
-        this.h0 = i3;
-        this.h1 = (int) (((long) this.h1) + ((((jLittleEndianToInt2 << 32) | j) >>> 26) & Scalar448.M26L));
-        this.h2 = (int) (((long) this.h2) + (((jLittleEndianToInt2 | (jLittleEndianToInt3 << 32)) >>> 20) & Scalar448.M26L));
-        this.h3 = (int) (((long) this.h3) + ((((jLittleEndianToInt4 << 32) | jLittleEndianToInt3) >>> 14) & Scalar448.M26L));
-        int i4 = (int) (((long) this.h4) + (jLittleEndianToInt4 >>> 8));
-        this.h4 = i4;
+        int i3 = (int) (((long) this.f81132h0) + (jLittleEndianToInt & Scalar448.M26L));
+        this.f81132h0 = i3;
+        this.f81133h1 = (int) (((long) this.f81133h1) + ((((jLittleEndianToInt2 << 32) | j) >>> 26) & Scalar448.M26L));
+        this.f81134h2 = (int) (((long) this.f81134h2) + (((jLittleEndianToInt2 | (jLittleEndianToInt3 << 32)) >>> 20) & Scalar448.M26L));
+        this.f81135h3 = (int) (((long) this.f81135h3) + ((((jLittleEndianToInt4 << 32) | jLittleEndianToInt3) >>> 14) & Scalar448.M26L));
+        int i4 = (int) (((long) this.f81136h4) + (jLittleEndianToInt4 >>> 8));
+        this.f81136h4 = i4;
         if (this.currentBlockOffset == 16) {
-            this.h4 = i4 + 16777216;
+            this.f81136h4 = i4 + 16777216;
         }
-        long jMul32x32_64 = mul32x32_64(i3, this.r0) + mul32x32_64(this.h1, this.s4) + mul32x32_64(this.h2, this.s3) + mul32x32_64(this.h3, this.s2) + mul32x32_64(this.h4, this.s1);
-        long jMul32x32_65 = mul32x32_64(this.h0, this.r1) + mul32x32_64(this.h1, this.r0) + mul32x32_64(this.h2, this.s4) + mul32x32_64(this.h3, this.s3) + mul32x32_64(this.h4, this.s2);
-        long jMul32x32_66 = mul32x32_64(this.h0, this.r2) + mul32x32_64(this.h1, this.r1) + mul32x32_64(this.h2, this.r0) + mul32x32_64(this.h3, this.s4) + mul32x32_64(this.h4, this.s3);
-        long jMul32x32_67 = mul32x32_64(this.h0, this.r3) + mul32x32_64(this.h1, this.r2) + mul32x32_64(this.h2, this.r1) + mul32x32_64(this.h3, this.r0) + mul32x32_64(this.h4, this.s4);
-        long jMul32x32_68 = mul32x32_64(this.h0, this.r4) + mul32x32_64(this.h1, this.r3) + mul32x32_64(this.h2, this.r2) + mul32x32_64(this.h3, this.r1) + mul32x32_64(this.h4, this.r0);
+        long jMul32x32_64 = mul32x32_64(i3, this.f81141r0) + mul32x32_64(this.f81133h1, this.f81149s4) + mul32x32_64(this.f81134h2, this.f81148s3) + mul32x32_64(this.f81135h3, this.f81147s2) + mul32x32_64(this.f81136h4, this.f81146s1);
+        long jMul32x32_65 = mul32x32_64(this.f81132h0, this.f81142r1) + mul32x32_64(this.f81133h1, this.f81141r0) + mul32x32_64(this.f81134h2, this.f81149s4) + mul32x32_64(this.f81135h3, this.f81148s3) + mul32x32_64(this.f81136h4, this.f81147s2);
+        long jMul32x32_66 = mul32x32_64(this.f81132h0, this.f81143r2) + mul32x32_64(this.f81133h1, this.f81142r1) + mul32x32_64(this.f81134h2, this.f81141r0) + mul32x32_64(this.f81135h3, this.f81149s4) + mul32x32_64(this.f81136h4, this.f81148s3);
+        long jMul32x32_67 = mul32x32_64(this.f81132h0, this.f81144r3) + mul32x32_64(this.f81133h1, this.f81143r2) + mul32x32_64(this.f81134h2, this.f81142r1) + mul32x32_64(this.f81135h3, this.f81141r0) + mul32x32_64(this.f81136h4, this.f81149s4);
+        long jMul32x32_68 = mul32x32_64(this.f81132h0, this.f81145r4) + mul32x32_64(this.f81133h1, this.f81144r3) + mul32x32_64(this.f81134h2, this.f81143r2) + mul32x32_64(this.f81135h3, this.f81142r1) + mul32x32_64(this.f81136h4, this.f81141r0);
         int i5 = ((int) jMul32x32_64) & X25519Field.M26;
         long j2 = jMul32x32_65 + (jMul32x32_64 >>> 26);
         int i6 = ((int) j2) & X25519Field.M26;
         long j3 = jMul32x32_66 + (j2 >>> 26);
-        this.h2 = ((int) j3) & X25519Field.M26;
+        this.f81134h2 = ((int) j3) & X25519Field.M26;
         long j4 = jMul32x32_67 + (j3 >>> 26);
-        this.h3 = ((int) j4) & X25519Field.M26;
+        this.f81135h3 = ((int) j4) & X25519Field.M26;
         long j5 = jMul32x32_68 + (j4 >>> 26);
-        this.h4 = ((int) j5) & X25519Field.M26;
+        this.f81136h4 = ((int) j5) & X25519Field.M26;
         int i7 = (((int) (j5 >>> 26)) * 5) + i5;
-        this.h1 = i6 + (i7 >>> 26);
-        this.h0 = i7 & X25519Field.M26;
+        this.f81133h1 = i6 + (i7 >>> 26);
+        this.f81132h0 = i7 & X25519Field.M26;
     }
 
     private void setKey(byte[] bArr, byte[] bArr2) {
@@ -111,19 +147,19 @@ public class Poly1305 implements Mac {
         int iLittleEndianToInt2 = Pack.littleEndianToInt(bArr, 4);
         int iLittleEndianToInt3 = Pack.littleEndianToInt(bArr, 8);
         int iLittleEndianToInt4 = Pack.littleEndianToInt(bArr, 12);
-        this.r0 = 67108863 & iLittleEndianToInt;
+        this.f81141r0 = 67108863 & iLittleEndianToInt;
         int i2 = ((iLittleEndianToInt >>> 26) | (iLittleEndianToInt2 << 6)) & 67108611;
-        this.r1 = i2;
+        this.f81142r1 = i2;
         int i3 = ((iLittleEndianToInt2 >>> 20) | (iLittleEndianToInt3 << 12)) & 67092735;
-        this.r2 = i3;
+        this.f81143r2 = i3;
         int i4 = ((iLittleEndianToInt3 >>> 14) | (iLittleEndianToInt4 << 18)) & 66076671;
-        this.r3 = i4;
+        this.f81144r3 = i4;
         int i5 = (iLittleEndianToInt4 >>> 8) & 1048575;
-        this.r4 = i5;
-        this.s1 = i2 * 5;
-        this.s2 = i3 * 5;
-        this.s3 = i4 * 5;
-        this.s4 = i5 * 5;
+        this.f81145r4 = i5;
+        this.f81146s1 = i2 * 5;
+        this.f81147s2 = i3 * 5;
+        this.f81148s3 = i4 * 5;
+        this.f81149s4 = i5 * 5;
         BlockCipher blockCipher = this.cipher;
         if (blockCipher != null) {
             byte[] bArr3 = new byte[16];
@@ -132,10 +168,10 @@ public class Poly1305 implements Mac {
             i = 0;
             bArr = bArr3;
         }
-        this.k0 = Pack.littleEndianToInt(bArr, i);
-        this.k1 = Pack.littleEndianToInt(bArr, i + 4);
-        this.k2 = Pack.littleEndianToInt(bArr, i + 8);
-        this.k3 = Pack.littleEndianToInt(bArr, i + 12);
+        this.f81137k0 = Pack.littleEndianToInt(bArr, i);
+        this.f81138k1 = Pack.littleEndianToInt(bArr, i + 4);
+        this.f81139k2 = Pack.littleEndianToInt(bArr, i + 8);
+        this.f81140k3 = Pack.littleEndianToInt(bArr, i + 12);
     }
 
     @Override // org.bouncycastle.crypto.Mac
@@ -146,15 +182,15 @@ public class Poly1305 implements Mac {
         if (this.currentBlockOffset > 0) {
             processBlock();
         }
-        int i2 = this.h1;
-        int i3 = this.h0;
+        int i2 = this.f81133h1;
+        int i3 = this.f81132h0;
         int i4 = i2 + (i3 >>> 26);
         int i5 = i3 & X25519Field.M26;
-        int i6 = this.h2 + (i4 >>> 26);
+        int i6 = this.f81134h2 + (i4 >>> 26);
         int i7 = i4 & X25519Field.M26;
-        int i8 = this.h3 + (i6 >>> 26);
+        int i8 = this.f81135h3 + (i6 >>> 26);
         int i9 = i6 & X25519Field.M26;
-        int i10 = this.h4 + (i8 >>> 26);
+        int i10 = this.f81136h4 + (i8 >>> 26);
         int i11 = i8 & X25519Field.M26;
         int i12 = ((i10 >>> 26) * 5) + i5;
         int i13 = i10 & X25519Field.M26;
@@ -175,19 +211,19 @@ public class Poly1305 implements Mac {
         int i28 = (i27 >>> 31) - 1;
         int i29 = ~i28;
         int i30 = (i15 & i29) | (i18 & i28);
-        this.h0 = i30;
+        this.f81132h0 = i30;
         int i31 = (i14 & i29) | (i21 & i28);
-        this.h1 = i31;
+        this.f81133h1 = i31;
         int i32 = (i9 & i29) | (i24 & i28);
-        this.h2 = i32;
+        this.f81134h2 = i32;
         int i33 = (i26 & i28) | (i11 & i29);
-        this.h3 = i33;
+        this.f81135h3 = i33;
         int i34 = (i13 & i29) | (i27 & i28);
-        this.h4 = i34;
-        long j = (((long) ((i31 << 26) | i30)) & 4294967295L) + (((long) this.k0) & 4294967295L);
-        long j2 = (((long) ((i31 >>> 6) | (i32 << 20))) & 4294967295L) + (((long) this.k1) & 4294967295L);
-        long j3 = (((long) ((i32 >>> 12) | (i33 << 14))) & 4294967295L) + (((long) this.k2) & 4294967295L);
-        long j4 = (((long) ((i33 >>> 18) | (i34 << 8))) & 4294967295L) + (((long) this.k3) & 4294967295L);
+        this.f81136h4 = i34;
+        long j = (((long) ((i31 << 26) | i30)) & 4294967295L) + (((long) this.f81137k0) & 4294967295L);
+        long j2 = (((long) ((i31 >>> 6) | (i32 << 20))) & 4294967295L) + (((long) this.f81138k1) & 4294967295L);
+        long j3 = (((long) ((i32 >>> 12) | (i33 << 14))) & 4294967295L) + (((long) this.f81139k2) & 4294967295L);
+        long j4 = (((long) ((i33 >>> 18) | (i34 << 8))) & 4294967295L) + (((long) this.f81140k3) & 4294967295L);
         Pack.intToLittleEndian((int) j, bArr, i);
         long j5 = j2 + (j >>> 32);
         Pack.intToLittleEndian((int) j5, bArr, i + 4);
@@ -234,11 +270,11 @@ public class Poly1305 implements Mac {
     @Override // org.bouncycastle.crypto.Mac
     public void reset() {
         this.currentBlockOffset = 0;
-        this.h4 = 0;
-        this.h3 = 0;
-        this.h2 = 0;
-        this.h1 = 0;
-        this.h0 = 0;
+        this.f81136h4 = 0;
+        this.f81135h3 = 0;
+        this.f81134h2 = 0;
+        this.f81133h1 = 0;
+        this.f81132h0 = 0;
     }
 
     @Override // org.bouncycastle.crypto.Mac

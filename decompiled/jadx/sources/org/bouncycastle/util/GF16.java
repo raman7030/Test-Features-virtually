@@ -1,10 +1,10 @@
 package org.bouncycastle.util;
 
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0698cb;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GF16 {
-    public static final byte[] F_STAR = {1, 2, 4, 8, 3, 6, 12, 11, 5, 10, 7, cb.f77931l, 15, cb.k, 9};
+    public static final byte[] F_STAR = {1, 2, 4, 8, 3, 6, 12, 11, 5, 10, 7, C0698cb.f2570l, 15, C0698cb.f2569k, 9};
     public static final byte[] MT4B = new byte[256];
     public static final byte[] INV4B = new byte[16];
 
@@ -17,15 +17,15 @@ public class GF16 {
             }
         }
         byte[] bArr3 = F_STAR;
-        byte bMt = 1;
+        byte bM55438mt = 1;
         byte b = bArr3[1];
         byte b2 = bArr3[14];
         INV4B[1] = 1;
-        byte bMt2 = 1;
+        byte bM55438mt2 = 1;
         for (int i3 = 0; i3 < 14; i3++) {
-            bMt = mt(bMt, b);
-            bMt2 = mt(bMt2, b2);
-            INV4B[bMt] = bMt2;
+            bM55438mt = m55438mt(bM55438mt, b);
+            bM55438mt2 = m55438mt(bM55438mt2, b2);
+            INV4B[bM55438mt] = bM55438mt2;
         }
     }
 
@@ -110,7 +110,8 @@ public class GF16 {
         return INV4B[b & 15];
     }
 
-    public static byte mt(int i, int i2) {
+    /* JADX INFO: renamed from: mt */
+    public static byte m55438mt(int i, int i2) {
         return MT4B[(i << 4) ^ i2];
     }
 

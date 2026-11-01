@@ -9,10 +9,10 @@ import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.MQVPrivateParameters;
 import org.bouncycastle.crypto.params.MQVPublicParameters;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECConstants;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Properties;
 
 /* JADX INFO: loaded from: classes.dex */

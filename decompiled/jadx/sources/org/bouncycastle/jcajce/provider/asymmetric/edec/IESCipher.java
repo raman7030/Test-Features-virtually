@@ -10,8 +10,6 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.NoSuchPaddingException;
-import l.C20094;
-import l.C3200;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.BlockCipher;
@@ -50,6 +48,8 @@ import org.bouncycastle.jcajce.util.BCJcaJceHelper;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.spec.IESParameterSpec;
 import org.bouncycastle.util.Strings;
+import p067l.C21466;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class IESCipher extends BaseCipherSpi {
@@ -328,7 +328,7 @@ public class IESCipher extends BaseCipherSpi {
             try {
                 parameterSpec = algorithmParameters.getParameterSpec(IESParameterSpec.class);
             } catch (Exception e) {
-                throw new InvalidAlgorithmParameterException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("cannot recognise parameters: ")));
+                throw new InvalidAlgorithmParameterException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("cannot recognise parameters: ")));
             }
         } else {
             parameterSpec = null;
@@ -363,7 +363,7 @@ public class IESCipher extends BaseCipherSpi {
         byte[] nonce = this.engineSpec.getNonce();
         int i2 = this.ivLength;
         if (i2 != 0 && (nonce == null || nonce.length != i2)) {
-            throw new InvalidAlgorithmParameterException(C3200.m9831(this.ivLength, " bytes long", new StringBuilder("NONCE in IES Parameters needs to be ")));
+            throw new InvalidAlgorithmParameterException(C5410.m11876(this.ivLength, " bytes long", new StringBuilder("NONCE in IES Parameters needs to be ")));
         }
         if (i == 1 || i == 3) {
             if (!(key instanceof PublicKey)) {
@@ -417,7 +417,7 @@ public class IESCipher extends BaseCipherSpi {
         if (XDHParameterSpec.X448.equalsIgnoreCase(algorithm)) {
             return 448;
         }
-        throw new IllegalArgumentException(C20094.m46315("unknown XDH key algorithm ", algorithm));
+        throw new IllegalArgumentException(C21466.m48631("unknown XDH key algorithm ", algorithm));
     }
 
     @Override // org.bouncycastle.jcajce.provider.asymmetric.util.BaseCipherSpi, javax.crypto.CipherSpi
@@ -428,7 +428,7 @@ public class IESCipher extends BaseCipherSpi {
             z = false;
         } else {
             if (!upperCase.equals("DHAES")) {
-                throw new IllegalArgumentException(C20094.m46315("can't support mode ", str));
+                throw new IllegalArgumentException(C21466.m48631("can't support mode ", str));
             }
             z = true;
         }

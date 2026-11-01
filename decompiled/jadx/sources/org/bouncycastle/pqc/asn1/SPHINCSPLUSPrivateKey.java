@@ -1,6 +1,5 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -9,6 +8,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SPHINCSPLUSPrivateKey extends ASN1Object {
@@ -35,8 +35,8 @@ public class SPHINCSPLUSPrivateKey extends ASN1Object {
         if (iIntValueExact != 0) {
             throw new IllegalArgumentException("unrecognized version");
         }
-        this.skseed = C16014.m37869(aSN1Sequence, 1);
-        this.skprf = C16014.m37869(aSN1Sequence, 2);
+        this.skseed = C17588.m40055(aSN1Sequence, 1);
+        this.skprf = C17588.m40055(aSN1Sequence, 2);
         if (aSN1Sequence.size() == 4) {
             this.PublicKey = SPHINCSPLUSPublicKey.getInstance(aSN1Sequence.getObjectAt(3));
         }

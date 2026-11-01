@@ -1,8 +1,8 @@
 package org.bouncycastle.asn1;
 
 import java.io.IOException;
-import l.C3200;
-import l.C5127;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class ASN1ObjectDescriptor extends ASN1Primitive {
@@ -43,10 +43,10 @@ public final class ASN1ObjectDescriptor extends ASN1Primitive {
             try {
                 return (ASN1ObjectDescriptor) TYPE.fromByteArray((byte[]) obj);
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("failed to construct object descriptor from byte[]: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("failed to construct object descriptor from byte[]: ")));
             }
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 
     public static ASN1ObjectDescriptor getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {

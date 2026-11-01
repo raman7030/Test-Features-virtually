@@ -20,21 +20,21 @@ public class HPS4096Polynomial extends HPSPolynomial {
             sArr[i2] = (short) (i4 | ((((short) (b & 255)) & 15) << 8));
             sArr[i2 + 1] = (short) (((((short) (bArr[i3 + 2] & 255)) & 255) << 4) | ((b & 255) >>> 4));
         }
-        this.coeffs[this.params.n() - 1] = 0;
+        this.coeffs[this.params.m55436n() - 1] = 0;
     }
 
     @Override // org.bouncycastle.pqc.math.ntru.HPSPolynomial, org.bouncycastle.pqc.math.ntru.Polynomial
     public byte[] sqToBytes(int i) {
         byte[] bArr = new byte[i];
-        int iQ = this.params.q();
+        int iM55437q = this.params.m55437q();
         for (int i2 = 0; i2 < this.params.packDegree() / 2; i2++) {
             int i3 = i2 * 3;
             int i4 = i2 * 2;
-            bArr[i3] = (byte) (Polynomial.modQ(this.coeffs[i4] & HPKE.aead_EXPORT_ONLY, iQ) & 255);
-            int iModQ = Polynomial.modQ(this.coeffs[i4] & HPKE.aead_EXPORT_ONLY, iQ) >>> 8;
+            bArr[i3] = (byte) (Polynomial.modQ(this.coeffs[i4] & HPKE.aead_EXPORT_ONLY, iM55437q) & 255);
+            int iModQ = Polynomial.modQ(this.coeffs[i4] & HPKE.aead_EXPORT_ONLY, iM55437q) >>> 8;
             int i5 = i4 + 1;
-            bArr[i3 + 1] = (byte) (iModQ | ((Polynomial.modQ(this.coeffs[i5] & HPKE.aead_EXPORT_ONLY, iQ) & 15) << 4));
-            bArr[i3 + 2] = (byte) (Polynomial.modQ(this.coeffs[i5] & HPKE.aead_EXPORT_ONLY, iQ) >>> 4);
+            bArr[i3 + 1] = (byte) (iModQ | ((Polynomial.modQ(this.coeffs[i5] & HPKE.aead_EXPORT_ONLY, iM55437q) & 15) << 4));
+            bArr[i3 + 2] = (byte) (Polynomial.modQ(this.coeffs[i5] & HPKE.aead_EXPORT_ONLY, iM55437q) >>> 4);
         }
         return bArr;
     }

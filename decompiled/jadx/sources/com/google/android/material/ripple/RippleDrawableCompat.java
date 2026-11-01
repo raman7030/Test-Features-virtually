@@ -9,10 +9,10 @@ import android.graphics.drawable.Drawable;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
-import l.InterfaceC13122;
+import p067l.InterfaceC1493;
 
 /* JADX INFO: loaded from: classes.dex */
-public class RippleDrawableCompat extends Drawable implements Shapeable, InterfaceC13122 {
+public class RippleDrawableCompat extends Drawable implements Shapeable, InterfaceC1493 {
     public RippleDrawableCompatState drawableState;
 
     @Override // android.graphics.drawable.Drawable

@@ -9,10 +9,16 @@ public class CMCEParameters implements KEMParameters {
     public static int[] poly3488;
     public final int defaultKeySize;
     public final CMCEEngine engine;
-    public final int m;
-    public final int n;
+
+    /* JADX INFO: renamed from: m */
+    public final int f81582m;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81583n;
     public final String name;
-    public final int t;
+
+    /* JADX INFO: renamed from: t */
+    public final int f81584t;
     public final boolean usePivots;
     public static int[] poly4608 = {10, 9, 6, 0};
     public static int[] poly6688 = {7, 2, 1, 0};
@@ -36,9 +42,9 @@ public class CMCEParameters implements KEMParameters {
 
     public CMCEParameters(String str, int i, int i2, int i3, int[] iArr, boolean z, int i4) {
         this.name = str;
-        this.m = i;
-        this.n = i2;
-        this.t = i3;
+        this.f81582m = i;
+        this.f81583n = i2;
+        this.f81584t = i3;
         this.usePivots = z;
         this.defaultKeySize = i4;
         this.engine = new CMCEEngine(i, i2, i3, iArr, z, i4);
@@ -49,7 +55,7 @@ public class CMCEParameters implements KEMParameters {
     }
 
     public int getM() {
-        return this.m;
+        return this.f81582m;
     }
 
     public int getMu() {
@@ -57,7 +63,7 @@ public class CMCEParameters implements KEMParameters {
     }
 
     public int getN() {
-        return this.n;
+        return this.f81583n;
     }
 
     public String getName() {
@@ -73,6 +79,6 @@ public class CMCEParameters implements KEMParameters {
     }
 
     public int getT() {
-        return this.t;
+        return this.f81584t;
     }
 }

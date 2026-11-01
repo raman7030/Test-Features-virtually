@@ -4,14 +4,16 @@ import java.math.BigInteger;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GOST3410PublicKeyParameters extends GOST3410KeyParameters {
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81262y;
 
     public GOST3410PublicKeyParameters(BigInteger bigInteger, GOST3410Parameters gOST3410Parameters) {
         super(false, gOST3410Parameters);
-        this.y = bigInteger;
+        this.f81262y = bigInteger;
     }
 
     public BigInteger getY() {
-        return this.y;
+        return this.f81262y;
     }
 }

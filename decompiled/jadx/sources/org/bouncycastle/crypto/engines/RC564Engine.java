@@ -1,11 +1,11 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.RC5Parameters;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RC564Engine implements BlockCipher {
@@ -15,7 +15,9 @@ public class RC564Engine implements BlockCipher {
     public static final int wordSize = 64;
     public boolean forEncryption;
     public int _noRounds = 12;
-    public long[] _S = null;
+
+    /* JADX INFO: renamed from: _S */
+    public long[] f81054_S = null;
 
     private long bytesToWord(byte[] bArr, int i) {
         long j = 0;
@@ -30,21 +32,21 @@ public class RC564Engine implements BlockCipher {
         long jBytesToWord2 = bytesToWord(bArr, i + 8);
         for (int i3 = this._noRounds; i3 >= 1; i3--) {
             int i4 = i3 * 2;
-            jBytesToWord2 = rotateRight(jBytesToWord2 - this._S[i4 + 1], jBytesToWord) ^ jBytesToWord;
-            jBytesToWord = rotateRight(jBytesToWord - this._S[i4], jBytesToWord2) ^ jBytesToWord2;
+            jBytesToWord2 = rotateRight(jBytesToWord2 - this.f81054_S[i4 + 1], jBytesToWord) ^ jBytesToWord;
+            jBytesToWord = rotateRight(jBytesToWord - this.f81054_S[i4], jBytesToWord2) ^ jBytesToWord2;
         }
-        wordToBytes(jBytesToWord - this._S[0], bArr2, i2);
-        wordToBytes(jBytesToWord2 - this._S[1], bArr2, i2 + 8);
+        wordToBytes(jBytesToWord - this.f81054_S[0], bArr2, i2);
+        wordToBytes(jBytesToWord2 - this.f81054_S[1], bArr2, i2 + 8);
         return 16;
     }
 
     private int encryptBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
-        long jBytesToWord = bytesToWord(bArr, i) + this._S[0];
-        long jBytesToWord2 = bytesToWord(bArr, i + 8) + this._S[1];
+        long jBytesToWord = bytesToWord(bArr, i) + this.f81054_S[0];
+        long jBytesToWord2 = bytesToWord(bArr, i + 8) + this.f81054_S[1];
         for (int i3 = 1; i3 <= this._noRounds; i3++) {
             int i4 = i3 * 2;
-            jBytesToWord = rotateLeft(jBytesToWord ^ jBytesToWord2, jBytesToWord2) + this._S[i4];
-            jBytesToWord2 = rotateLeft(jBytesToWord2 ^ jBytesToWord, jBytesToWord) + this._S[i4 + 1];
+            jBytesToWord = rotateLeft(jBytesToWord ^ jBytesToWord2, jBytesToWord2) + this.f81054_S[i4];
+            jBytesToWord2 = rotateLeft(jBytesToWord2 ^ jBytesToWord, jBytesToWord) + this.f81054_S[i4 + 1];
         }
         wordToBytes(jBytesToWord, bArr2, i2);
         wordToBytes(jBytesToWord2, bArr2, i2 + 8);
@@ -70,11 +72,11 @@ public class RC564Engine implements BlockCipher {
             jArr2[i2] = jArr2[i2] + (((long) (bArr[i] & 255)) << ((i % 8) * 8));
         }
         long[] jArr3 = new long[(this._noRounds + 1) * 2];
-        this._S = jArr3;
+        this.f81054_S = jArr3;
         jArr3[0] = -5196783011329398165L;
         int i3 = 1;
         while (true) {
-            jArr = this._S;
+            jArr = this.f81054_S;
             if (i3 >= jArr.length) {
                 break;
             }
@@ -87,12 +89,12 @@ public class RC564Engine implements BlockCipher {
         int length3 = 0;
         int i4 = 0;
         for (int i5 = 0; i5 < length2; i5++) {
-            long[] jArr4 = this._S;
+            long[] jArr4 = this.f81054_S;
             jRotateLeft = rotateLeft(jArr4[length3] + jRotateLeft + jRotateLeft2, 3L);
             jArr4[length3] = jRotateLeft;
             jRotateLeft2 = rotateLeft(jArr2[i4] + jRotateLeft + jRotateLeft2, jRotateLeft2 + jRotateLeft);
             jArr2[i4] = jRotateLeft2;
-            length3 = (length3 + 1) % this._S.length;
+            length3 = (length3 + 1) % this.f81054_S.length;
             i4 = (i4 + 1) % length;
         }
     }
@@ -126,7 +128,7 @@ public class RC564Engine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof RC5Parameters)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to RC564 init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to RC564 init - ", cipherParameters));
         }
         RC5Parameters rC5Parameters = (RC5Parameters) cipherParameters;
         this.forEncryption = z;

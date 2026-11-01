@@ -23,7 +23,9 @@ public class SparkleEngine extends AEADBaseEngine {
     public final int _M2;
     public final int _M3;
     public boolean encrypted;
-    public final int[] k;
+
+    /* JADX INFO: renamed from: k */
+    public final int[] f81081k;
     public final int[] npub;
     public final int[] state;
 
@@ -99,7 +101,7 @@ public class SparkleEngine extends AEADBaseEngine {
         this._M2 = (i12 ^ 2) << 24;
         this._M3 = (i12 ^ 3) << 24;
         this.state = new int[i7];
-        this.k = new int[i6];
+        this.f81081k = new int[i6];
         this.npub = new int[i8];
         this.BlockSize = i9;
         this.AADBufferSize = i9;
@@ -531,7 +533,7 @@ public class SparkleEngine extends AEADBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
-        Pack.littleEndianToInt(bArr, 0, this.k);
+        Pack.littleEndianToInt(bArr, 0, this.f81081k);
         Pack.littleEndianToInt(bArr2, 0, this.npub);
     }
 
@@ -737,7 +739,7 @@ public class SparkleEngine extends AEADBaseEngine {
         for (int i18 = 0; i18 < this.KEY_WORDS; i18++) {
             int[] iArr5 = this.state;
             int i19 = this.RATE_WORDS + i18;
-            iArr5[i19] = iArr5[i19] ^ this.k[i18];
+            iArr5[i19] = iArr5[i19] ^ this.f81081k[i18];
         }
         Pack.intToLittleEndian(this.state, this.RATE_WORDS, this.TAG_WORDS, this.mac, 0);
     }
@@ -751,7 +753,7 @@ public class SparkleEngine extends AEADBaseEngine {
     public void reset(boolean z) {
         this.encrypted = false;
         System.arraycopy(this.npub, 0, this.state, 0, this.RATE_WORDS);
-        System.arraycopy(this.k, 0, this.state, this.RATE_WORDS, this.KEY_WORDS);
+        System.arraycopy(this.f81081k, 0, this.state, this.RATE_WORDS, this.KEY_WORDS);
         sparkle_opt(this.state, this.SPARKLE_STEPS_BIG);
         super.reset(z);
     }

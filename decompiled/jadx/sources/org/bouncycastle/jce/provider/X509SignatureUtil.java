@@ -6,8 +6,6 @@ import java.security.GeneralSecurityException;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.PSSParameterSpec;
-import l.C5127;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -16,13 +14,15 @@ import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.DERNull;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
 import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
+import p067l.C10965;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509SignatureUtil {
@@ -79,7 +79,7 @@ public class X509SignatureUtil {
                 digestAlgName = getDigestAlgName(algorithmIdentifier2.getAlgorithm());
                 str = "withECDSA";
             }
-            return C9045.m23341(sb, digestAlgName, str);
+            return C10965.m25286(sb, digestAlgName, str);
         }
         return algorithm.getId();
     }
@@ -100,7 +100,7 @@ public class X509SignatureUtil {
                 }
             }
         } catch (IOException e2) {
-            throw new SignatureException(C5127.m14678(e2, new StringBuilder("IOException decoding parameters: ")));
+            throw new SignatureException(C7241.m16586(e2, new StringBuilder("IOException decoding parameters: ")));
         }
     }
 
@@ -113,7 +113,7 @@ public class X509SignatureUtil {
         try {
             return extensionValue.getEncoded();
         } catch (Exception e) {
-            throw new IllegalStateException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("error parsing ")));
+            throw new IllegalStateException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("error parsing ")));
         }
     }
 }

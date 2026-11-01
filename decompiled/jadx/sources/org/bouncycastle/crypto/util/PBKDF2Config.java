@@ -2,16 +2,16 @@ package org.bouncycastle.crypto.util;
 
 import java.util.HashMap;
 import java.util.Map;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.DERNull;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p071gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.internal.asn1.rosstandart.RosstandartObjectIdentifiers;
 import org.bouncycastle.util.Integers;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PBKDF2Config extends PBKDFConfig {
@@ -104,6 +104,6 @@ public class PBKDF2Config extends PBKDFConfig {
         if (map.containsKey(aSN1ObjectIdentifier)) {
             return ((Integer) map.get(aSN1ObjectIdentifier)).intValue();
         }
-        throw new IllegalStateException(C9005.m23242("no salt size for algorithm: ", aSN1ObjectIdentifier));
+        throw new IllegalStateException(C10927.m25186("no salt size for algorithm: ", aSN1ObjectIdentifier));
     }
 }

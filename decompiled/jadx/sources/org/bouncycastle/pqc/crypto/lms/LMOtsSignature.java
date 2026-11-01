@@ -4,20 +4,24 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
-import l.C5368;
 import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMOtsSignature implements Encodable {
-    public final byte[] C;
+
+    /* JADX INFO: renamed from: C */
+    public final byte[] f81645C;
     public final LMOtsParameters type;
-    public final byte[] y;
+
+    /* JADX INFO: renamed from: y */
+    public final byte[] f81646y;
 
     public LMOtsSignature(LMOtsParameters lMOtsParameters, byte[] bArr, byte[] bArr2) {
         this.type = lMOtsParameters;
-        this.C = bArr;
-        this.y = bArr2;
+        this.f81645C = bArr;
+        this.f81646y = bArr2;
     }
 
     public boolean equals(Object obj) {
@@ -32,19 +36,19 @@ public class LMOtsSignature implements Encodable {
         if (lMOtsParameters == null ? lMOtsSignature.type != null : !lMOtsParameters.equals(lMOtsSignature.type)) {
             return false;
         }
-        if (Arrays.equals(this.C, lMOtsSignature.C)) {
-            return Arrays.equals(this.y, lMOtsSignature.y);
+        if (Arrays.equals(this.f81645C, lMOtsSignature.f81645C)) {
+            return Arrays.equals(this.f81646y, lMOtsSignature.f81646y);
         }
         return false;
     }
 
     public byte[] getC() {
-        return this.C;
+        return this.f81645C;
     }
 
     @Override // org.bouncycastle.util.Encodable
     public byte[] getEncoded() {
-        return Composer.compose().u32str(this.type.getType()).bytes(this.C).bytes(this.y).build();
+        return Composer.compose().u32str(this.type.getType()).bytes(this.f81645C).bytes(this.f81646y).build();
     }
 
     public LMOtsParameters getType() {
@@ -52,12 +56,12 @@ public class LMOtsSignature implements Encodable {
     }
 
     public byte[] getY() {
-        return this.y;
+        return this.f81646y;
     }
 
     public int hashCode() {
         LMOtsParameters lMOtsParameters = this.type;
-        return Arrays.hashCode(this.y) + ((Arrays.hashCode(this.C) + ((lMOtsParameters != null ? lMOtsParameters.hashCode() : 0) * 31)) * 31);
+        return Arrays.hashCode(this.f81646y) + ((Arrays.hashCode(this.f81645C) + ((lMOtsParameters != null ? lMOtsParameters.hashCode() : 0) * 31)) * 31);
     }
 
     public static LMOtsSignature getInstance(Object obj) throws Throwable {
@@ -77,7 +81,7 @@ public class LMOtsSignature implements Encodable {
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj));
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream2 = null;
         try {

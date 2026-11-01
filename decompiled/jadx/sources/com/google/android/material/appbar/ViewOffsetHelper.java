@@ -1,7 +1,7 @@
 package com.google.android.material.appbar;
 
 import android.view.View;
-import l.C17648;
+import p067l.C1717;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ViewOffsetHelper {
@@ -24,9 +24,9 @@ public class ViewOffsetHelper {
 
     public void applyOffsets() {
         View view = this.view;
-        C17648.m41332(this.offsetTop - (view.getTop() - this.layoutTop), view);
+        C1717.m43578(this.offsetTop - (view.getTop() - this.layoutTop), view);
         View view2 = this.view;
-        C17648.m41325(this.offsetLeft - (view2.getLeft() - this.layoutLeft), view2);
+        C1717.m43571(this.offsetLeft - (view2.getLeft() - this.layoutLeft), view2);
     }
 
     public boolean setTopAndBottomOffset(int i) {

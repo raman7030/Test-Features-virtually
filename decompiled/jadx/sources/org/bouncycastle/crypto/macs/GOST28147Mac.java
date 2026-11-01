@@ -1,9 +1,8 @@
 package org.bouncycastle.crypto.macs;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0698cb;
 import com.umeng.commonsdk.statistics.UMErrorCode;
-import l.C20177;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicePurpose;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -13,12 +12,15 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.ParametersWithSBox;
 import org.bouncycastle.util.Pack;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST28147Mac implements Mac {
     public static final int BLOCK_SIZE = 8;
     public static final int MAC_SIZE = 4;
-    public byte[] S;
+
+    /* JADX INFO: renamed from: S */
+    public byte[] f81130S;
     public byte[] buf;
     public int bufOff;
     public boolean firstStep;
@@ -35,7 +37,7 @@ public class GOST28147Mac implements Mac {
         this.firstStep = true;
         this.workingKey = null;
         this.macIV = null;
-        this.S = new byte[]{9, 6, 3, 2, 8, 11, 1, 7, 10, 4, cb.f77931l, 15, 12, 0, cb.k, 5, 3, 7, cb.f77931l, 9, 8, 10, 15, 0, 5, 2, 6, 12, 11, 4, cb.k, 1, cb.f77931l, 4, 6, 2, 11, 3, cb.k, 8, 12, 15, 5, 10, 0, 7, 1, 9, cb.f77931l, 7, 10, 12, cb.k, 1, 3, 9, 0, 2, 11, 4, 15, 8, 5, 6, 11, 5, 1, 9, 8, cb.k, 15, 0, cb.f77931l, 4, 2, 3, 12, 7, 10, 6, 3, 10, cb.k, 12, 1, 2, 0, 11, 7, 5, 9, 4, 8, 15, cb.f77931l, 6, 1, cb.k, 2, 9, 7, 10, 6, 0, 8, 12, 4, 5, 15, 3, 11, cb.f77931l, 11, 10, 15, 5, 0, 12, cb.f77931l, 8, 6, 2, 3, 9, 1, 7, cb.k, 4};
+        this.f81130S = new byte[]{9, 6, 3, 2, 8, 11, 1, 7, 10, 4, C0698cb.f2570l, 15, 12, 0, C0698cb.f2569k, 5, 3, 7, C0698cb.f2570l, 9, 8, 10, 15, 0, 5, 2, 6, 12, 11, 4, C0698cb.f2569k, 1, C0698cb.f2570l, 4, 6, 2, 11, 3, C0698cb.f2569k, 8, 12, 15, 5, 10, 0, 7, 1, 9, C0698cb.f2570l, 7, 10, 12, C0698cb.f2569k, 1, 3, 9, 0, 2, 11, 4, 15, 8, 5, 6, 11, 5, 1, 9, 8, C0698cb.f2569k, 15, 0, C0698cb.f2570l, 4, 2, 3, 12, 7, 10, 6, 3, 10, C0698cb.f2569k, 12, 1, 2, 0, 11, 7, 5, 9, 4, 8, 15, C0698cb.f2570l, 6, 1, C0698cb.f2569k, 2, 9, 7, 10, 6, 0, 8, 12, 4, 5, 15, 3, 11, C0698cb.f2570l, 11, 10, 15, 5, 0, 12, C0698cb.f2570l, 8, 6, 2, 3, 9, 1, 7, C0698cb.f2569k, 4};
         this.purpose = cryptoServicePurpose;
         this.mac = new byte[8];
         this.buf = new byte[8];
@@ -78,7 +80,7 @@ public class GOST28147Mac implements Mac {
 
     private int gost28147_mainStep(int i, int i2) {
         int i3 = i2 + i;
-        byte[] bArr = this.S;
+        byte[] bArr = this.f81130S;
         int i4 = bArr[i3 & 15] + (bArr[((i3 >> 4) & 15) + 16] << 4) + (bArr[((i3 >> 8) & 15) + 32] << 8) + (bArr[((i3 >> 12) & 15) + 48] << 12) + (bArr[((i3 >> 16) & 15) + 64] << 16) + (bArr[((i3 >> 20) & 15) + 80] << 20) + (bArr[((i3 >> 24) & 15) + 96] << 24) + (bArr[((i3 >> 28) & 15) + UMErrorCode.E_UM_BE_DEFLATE_FAILED] << ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB);
         return (i4 << 11) | (i4 >>> 21);
     }
@@ -213,14 +215,14 @@ public class GOST28147Mac implements Mac {
         }
         if (cipherParameters instanceof ParametersWithSBox) {
             ParametersWithSBox parametersWithSBox = (ParametersWithSBox) cipherParameters;
-            System.arraycopy(parametersWithSBox.getSBox(), 0, this.S, 0, parametersWithSBox.getSBox().length);
+            System.arraycopy(parametersWithSBox.getSBox(), 0, this.f81130S, 0, parametersWithSBox.getSBox().length);
             parameters = parametersWithSBox.getParameters();
         } else if (cipherParameters instanceof KeyParameter) {
             this.workingKey = generateWorkingKey(((KeyParameter) cipherParameters).getKey());
             parameters = null;
         } else {
             if (!(cipherParameters instanceof ParametersWithIV)) {
-                throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to GOST28147 init - ", cipherParameters));
+                throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to GOST28147 init - ", cipherParameters));
             }
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();

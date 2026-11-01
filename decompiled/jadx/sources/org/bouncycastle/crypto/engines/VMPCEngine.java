@@ -13,9 +13,15 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 public class VMPCEngine implements StreamCipher {
     public byte[] workingIV;
     public byte[] workingKey;
-    public byte n = 0;
-    public byte[] P = null;
-    public byte s = 0;
+
+    /* JADX INFO: renamed from: n */
+    public byte f81092n = 0;
+
+    /* JADX INFO: renamed from: P */
+    public byte[] f81091P = null;
+
+    /* JADX INFO: renamed from: s */
+    public byte f81093s = 0;
 
     @Override // org.bouncycastle.crypto.StreamCipher
     public String getAlgorithmName() {
@@ -46,32 +52,32 @@ public class VMPCEngine implements StreamCipher {
     }
 
     public void initKey(byte[] bArr, byte[] bArr2) {
-        this.s = (byte) 0;
-        this.P = new byte[256];
+        this.f81093s = (byte) 0;
+        this.f81091P = new byte[256];
         for (int i = 0; i < 256; i++) {
-            this.P[i] = (byte) i;
+            this.f81091P[i] = (byte) i;
         }
         for (int i2 = 0; i2 < 768; i2++) {
-            byte[] bArr3 = this.P;
-            byte b = this.s;
+            byte[] bArr3 = this.f81091P;
+            byte b = this.f81093s;
             int i3 = i2 & 255;
             byte b2 = bArr3[i3];
             byte b3 = bArr3[(b + b2 + bArr[i2 % bArr.length]) & 255];
-            this.s = b3;
+            this.f81093s = b3;
             bArr3[i3] = bArr3[b3 & 255];
             bArr3[b3 & 255] = b2;
         }
         for (int i4 = 0; i4 < 768; i4++) {
-            byte[] bArr4 = this.P;
-            byte b4 = this.s;
+            byte[] bArr4 = this.f81091P;
+            byte b4 = this.f81093s;
             int i5 = i4 & 255;
             byte b5 = bArr4[i5];
             byte b6 = bArr4[(b4 + b5 + bArr2[i4 % bArr2.length]) & 255];
-            this.s = b6;
+            this.f81093s = b6;
             bArr4[i5] = bArr4[b6 & 255];
             bArr4[b6 & 255] = b5;
         }
-        this.n = (byte) 0;
+        this.f81092n = (byte) 0;
     }
 
     @Override // org.bouncycastle.crypto.StreamCipher
@@ -83,16 +89,16 @@ public class VMPCEngine implements StreamCipher {
             throw new OutputLengthException("output buffer too short");
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            byte[] bArr3 = this.P;
-            byte b = this.s;
-            byte b2 = this.n;
+            byte[] bArr3 = this.f81091P;
+            byte b = this.f81093s;
+            byte b2 = this.f81092n;
             byte b3 = bArr3[(b + bArr3[b2 & 255]) & 255];
-            this.s = b3;
+            this.f81093s = b3;
             byte b4 = bArr3[(bArr3[bArr3[b3 & 255] & 255] + 1) & 255];
             byte b5 = bArr3[b2 & 255];
             bArr3[b2 & 255] = bArr3[b3 & 255];
             bArr3[b3 & 255] = b5;
-            this.n = (byte) ((b2 + 1) & 255);
+            this.f81092n = (byte) ((b2 + 1) & 255);
             bArr2[i4 + i3] = (byte) (bArr[i4 + i] ^ b4);
         }
         return i2;
@@ -105,16 +111,16 @@ public class VMPCEngine implements StreamCipher {
 
     @Override // org.bouncycastle.crypto.StreamCipher
     public byte returnByte(byte b) {
-        byte[] bArr = this.P;
-        byte b2 = this.s;
-        byte b3 = this.n;
+        byte[] bArr = this.f81091P;
+        byte b2 = this.f81093s;
+        byte b3 = this.f81092n;
         byte b4 = bArr[(b2 + bArr[b3 & 255]) & 255];
-        this.s = b4;
+        this.f81093s = b4;
         byte b5 = bArr[(bArr[bArr[b4 & 255] & 255] + 1) & 255];
         byte b6 = bArr[b3 & 255];
         bArr[b3 & 255] = bArr[b4 & 255];
         bArr[b4 & 255] = b6;
-        this.n = (byte) ((b3 + 1) & 255);
+        this.f81092n = (byte) ((b3 + 1) & 255);
         return (byte) (b ^ b5);
     }
 }

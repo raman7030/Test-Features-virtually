@@ -1,7 +1,7 @@
 package org.bouncycastle.pqc.crypto.picnic;
 
-import l.C7416;
 import org.bouncycastle.util.Integers;
+import p067l.C9417;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Utils {
@@ -70,7 +70,7 @@ public class Utils {
         if (i == 0) {
             return 0;
         }
-        return C7416.m19938(i, 1, 8, 1);
+        return C9417.m21912(i, 1, 8, 1);
     }
 
     public static int parity(byte[] bArr, int i) {

@@ -1,13 +1,13 @@
 package com.thegrizzlylabs.sardineandroid.model;
 
 import javax.xml.namespace.QName;
-import l.C14746;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.convert.Converter;
 import org.simpleframework.xml.stream.InputNode;
 import org.simpleframework.xml.stream.OutputNode;
 import org.w3c.dom.Element;
+import p067l.C16383;
 
 /* JADX INFO: loaded from: classes.dex */
 @Namespace(prefix = "D", reference = "DAV:")
@@ -29,9 +29,9 @@ public class Property {
             Property property = new Property();
             InputNode next = inputNode.getNext();
             if (next != null) {
-                Element elementM35050 = C14746.m35050(new QName(next.getReference(), next.getName(), next.getPrefix()));
-                elementM35050.setTextContent(next.getValue());
-                property.setProperty(elementM35050);
+                Element elementM37197 = C16383.m37197(new QName(next.getReference(), next.getName(), next.getPrefix()));
+                elementM37197.setTextContent(next.getValue());
+                property.setProperty(elementM37197);
             }
             return property;
         }

@@ -2,14 +2,15 @@ package com.umeng.commonsdk.statistics.noise;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.umeng.analytics.pro.C0708d;
 import com.umeng.commonsdk.framework.UMEnvelopeBuild;
 import com.umeng.commonsdk.statistics.common.MLog;
 import com.umeng.commonsdk.statistics.idtracking.Envelope;
 import com.umeng.commonsdk.statistics.idtracking.ImprintHandler;
-import com.umeng.commonsdk.statistics.internal.d;
+import com.umeng.commonsdk.statistics.internal.InterfaceC0817d;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ABTest implements d {
+public class ABTest implements InterfaceC0817d {
     public static ABTest instance;
     public Context context;
     public boolean isInTest = false;
@@ -57,7 +58,7 @@ public class ABTest implements d {
             }
         } catch (Exception e) {
             this.isInTest = false;
-            MLog.e("v:" + str, e);
+            MLog.m2949e("v:" + str, e);
         }
     }
 
@@ -212,16 +213,16 @@ public class ABTest implements d {
     }
 
     public String getGroupInfo() {
-        return !this.isInTest ? com.umeng.analytics.pro.d.O : String.valueOf(this.mGroup);
+        return !this.isInTest ? C0708d.f2599O : String.valueOf(this.mGroup);
     }
 
     public String getTestName() {
         return this.mPoli;
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.d
-    public void onImprintChanged(ImprintHandler.a aVar) {
-        onExperimentChanged(aVar.a("client_test", null), Integer.valueOf(aVar.a("test_report_interval", "0")).intValue());
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0817d
+    public void onImprintChanged(ImprintHandler.C0801a c0801a) {
+        onExperimentChanged(c0801a.m3053a("client_test", null), Integer.valueOf(c0801a.m3053a("test_report_interval", "0")).intValue());
     }
 
     public String toString() {

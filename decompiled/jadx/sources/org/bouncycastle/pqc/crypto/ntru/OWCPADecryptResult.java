@@ -3,10 +3,12 @@ package org.bouncycastle.pqc.crypto.ntru;
 /* JADX INFO: loaded from: classes2.dex */
 public class OWCPADecryptResult {
     public final int fail;
-    public final byte[] rm;
+
+    /* JADX INFO: renamed from: rm */
+    public final byte[] f81683rm;
 
     public OWCPADecryptResult(byte[] bArr, int i) {
-        this.rm = bArr;
+        this.f81683rm = bArr;
         this.fail = i;
     }
 }

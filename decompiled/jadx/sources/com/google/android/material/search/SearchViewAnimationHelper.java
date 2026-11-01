@@ -25,13 +25,13 @@ import com.google.android.material.internal.ToolbarUtils;
 import com.google.android.material.internal.TouchObserverFrameLayout;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.motion.MaterialMainContainerBackHelper;
-import l.C11003;
-import l.C17648;
-import l.C20118;
-import l.C5674;
-import l.C8184;
-import l.C8788;
-import l.C9762;
+import p067l.C1123;
+import p067l.C1248;
+import p067l.C1278;
+import p067l.C12826;
+import p067l.C1326;
+import p067l.C1717;
+import p067l.C1840;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SearchViewAnimationHelper {
@@ -56,7 +56,7 @@ public class SearchViewAnimationHelper {
     public final ImageButton clearButton;
     public final TouchObserverFrameLayout contentContainer;
     public final View divider;
-    public final C9762 dummyToolbar;
+    public final C1326 dummyToolbar;
     public final EditText editText;
     public final FrameLayout headerContainer;
     public final ClippableRoundedCornerLayout rootView;
@@ -64,7 +64,7 @@ public class SearchViewAnimationHelper {
     public SearchBar searchBar;
     public final TextView searchPrefix;
     public final SearchView searchView;
-    public final C9762 toolbar;
+    public final C1326 toolbar;
     public final FrameLayout toolbarContainer;
 
     public SearchViewAnimationHelper(SearchView searchView) {
@@ -169,7 +169,7 @@ public class SearchViewAnimationHelper {
     private void startShowAnimationTranslate() {
         if (this.searchView.isAdjustNothingSoftInputMode()) {
             final SearchView searchView = this.searchView;
-            C11003.requireNonNull(searchView);
+            C12826.requireNonNull(searchView);
             searchView.postDelayed(new Runnable() { // from class: com.google.android.material.search.SearchViewAnimationHelper$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -237,7 +237,7 @@ public class SearchViewAnimationHelper {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(getTranslationYAnimator());
         addBackButtonProgressAnimatorIfNeeded(animatorSet);
-        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         animatorSet.setDuration(z ? 350L : 300L);
         return animatorSet;
     }
@@ -278,7 +278,7 @@ public class SearchViewAnimationHelper {
     }
 
     private void setActionMenuViewAlphaIfNeeded(float f) {
-        C8788 actionMenuView;
+        C1278 actionMenuView;
         if (!this.searchView.isMenuItemsAnimated() || (actionMenuView = ToolbarUtils.getActionMenuView(this.toolbar)) == null) {
             return;
         }
@@ -289,7 +289,7 @@ public class SearchViewAnimationHelper {
         TimeInterpolator timeInterpolator = z ? AnimationUtils.LINEAR_INTERPOLATOR : AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR;
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         valueAnimatorOfFloat.setDuration(z ? 300L : 250L);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, timeInterpolator));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, timeInterpolator));
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.alphaListener(this.scrim));
         return valueAnimatorOfFloat;
     }
@@ -314,7 +314,7 @@ public class SearchViewAnimationHelper {
             }
         });
         valueAnimatorOfObject.setDuration(z ? 300L : 250L);
-        valueAnimatorOfObject.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        valueAnimatorOfObject.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return valueAnimatorOfObject;
     }
 
@@ -327,7 +327,7 @@ public class SearchViewAnimationHelper {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         valueAnimatorOfFloat.setDuration(z ? 50L : 42L);
         valueAnimatorOfFloat.setStartDelay(z ? 250L : 0L);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.LINEAR_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.LINEAR_INTERPOLATOR));
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.alphaListener(this.clearButton));
         return valueAnimatorOfFloat;
     }
@@ -336,7 +336,7 @@ public class SearchViewAnimationHelper {
         AnimatorSet animatorSet = new AnimatorSet();
         addBackButtonProgressAnimatorIfNeeded(animatorSet);
         animatorSet.setDuration(z ? 300L : 250L);
-        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return animatorSet;
     }
 
@@ -345,7 +345,7 @@ public class SearchViewAnimationHelper {
         addBackButtonTranslationAnimatorIfNeeded(animatorSet);
         addActionMenuViewAnimatorIfNeeded(animatorSet);
         animatorSet.setDuration(z ? 300L : 250L);
-        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return animatorSet;
     }
 
@@ -366,31 +366,31 @@ public class SearchViewAnimationHelper {
         if (navigationIconButton == null) {
             return;
         }
-        Drawable drawableM21686 = C8184.m21686(navigationIconButton.getDrawable());
+        Drawable drawableM23655 = C1248.m23655(navigationIconButton.getDrawable());
         if (this.searchView.isAnimatedNavigationIcon()) {
-            addDrawerArrowDrawableAnimatorIfNeeded(animatorSet, drawableM21686);
-            addFadeThroughDrawableAnimatorIfNeeded(animatorSet, drawableM21686);
+            addDrawerArrowDrawableAnimatorIfNeeded(animatorSet, drawableM23655);
+            addFadeThroughDrawableAnimatorIfNeeded(animatorSet, drawableM23655);
         } else {
-            setFullDrawableProgressIfNeeded(drawableM21686);
+            setFullDrawableProgressIfNeeded(drawableM23655);
         }
     }
 
     private void addDrawerArrowDrawableAnimatorIfNeeded(AnimatorSet animatorSet, Drawable drawable) {
-        if (drawable instanceof C5674) {
-            final C5674 c5674 = (C5674) drawable;
+        if (drawable instanceof C1123) {
+            final C1123 c1123 = (C1123) drawable;
             ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             valueAnimatorOfFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.google.android.material.search.SearchViewAnimationHelper$$ExternalSyntheticLambda1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    SearchViewAnimationHelper.lambda$addDrawerArrowDrawableAnimatorIfNeeded$3(c5674, valueAnimator);
+                    SearchViewAnimationHelper.lambda$addDrawerArrowDrawableAnimatorIfNeeded$3(c1123, valueAnimator);
                 }
             });
             animatorSet.playTogether(valueAnimatorOfFloat);
         }
     }
 
-    public static /* synthetic */ void lambda$addDrawerArrowDrawableAnimatorIfNeeded$3(C5674 c5674, ValueAnimator valueAnimator) {
-        c5674.m15981(((Float) valueAnimator.getAnimatedValue()).floatValue());
+    public static /* synthetic */ void lambda$addDrawerArrowDrawableAnimatorIfNeeded$3(C1123 c1123, ValueAnimator valueAnimator) {
+        c1123.m17916(((Float) valueAnimator.getAnimatedValue()).floatValue());
     }
 
     private void addFadeThroughDrawableAnimatorIfNeeded(AnimatorSet animatorSet, Drawable drawable) {
@@ -412,8 +412,8 @@ public class SearchViewAnimationHelper {
     }
 
     private void setFullDrawableProgressIfNeeded(Drawable drawable) {
-        if (drawable instanceof C5674) {
-            ((C5674) drawable).m15981(1.0f);
+        if (drawable instanceof C1123) {
+            ((C1123) drawable).m17916(1.0f);
         }
         if (drawable instanceof FadeThroughDrawable) {
             ((FadeThroughDrawable) drawable).setProgress(1.0f);
@@ -421,7 +421,7 @@ public class SearchViewAnimationHelper {
     }
 
     private void addActionMenuViewAnimatorIfNeeded(AnimatorSet animatorSet) {
-        C8788 actionMenuView = ToolbarUtils.getActionMenuView(this.toolbar);
+        C1278 actionMenuView = ToolbarUtils.getActionMenuView(this.toolbar);
         if (actionMenuView == null) {
             return;
         }
@@ -443,7 +443,7 @@ public class SearchViewAnimationHelper {
     private Animator getActionMenuViewsAlphaAnimator(boolean z) {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         valueAnimatorOfFloat.setDuration(z ? 300L : 250L);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         if (this.searchView.isMenuItemsAnimated()) {
             valueAnimatorOfFloat.addUpdateListener(new FadeThroughUpdateListener(ToolbarUtils.getActionMenuView(this.dummyToolbar), ToolbarUtils.getActionMenuView(this.toolbar)));
         }
@@ -468,7 +468,7 @@ public class SearchViewAnimationHelper {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         valueAnimatorOfFloat.setDuration(z ? 150L : 83L);
         valueAnimatorOfFloat.setStartDelay(z ? 75L : 0L);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.LINEAR_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.LINEAR_INTERPOLATOR));
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.alphaListener(this.divider, this.contentContainer));
         return valueAnimatorOfFloat;
     }
@@ -476,7 +476,7 @@ public class SearchViewAnimationHelper {
     private Animator getDividerAnimator(boolean z) {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat((this.contentContainer.getHeight() * 0.050000012f) / 2.0f, 0.0f);
         valueAnimatorOfFloat.setDuration(z ? 300L : 250L);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.translationYListener(this.divider));
         return valueAnimatorOfFloat;
     }
@@ -484,7 +484,7 @@ public class SearchViewAnimationHelper {
     private Animator getContentScaleAnimator(boolean z) {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.95f, 1.0f);
         valueAnimatorOfFloat.setDuration(z ? 300L : 250L);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.scaleListener(this.contentContainer));
         return valueAnimatorOfFloat;
     }
@@ -497,14 +497,14 @@ public class SearchViewAnimationHelper {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(valueAnimatorOfFloat, valueAnimatorOfFloat2);
         animatorSet.setDuration(z ? 300L : 250L);
-        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        animatorSet.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return animatorSet;
     }
 
     private int getFromTranslationXStart(View view) {
         int marginStart = ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).getMarginStart();
         SearchBar searchBar = this.searchBar;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         int paddingStart = searchBar.getPaddingStart();
         if (ViewUtils.isLayoutRtl(this.searchBar)) {
             return ((this.searchBar.getWidth() - this.searchBar.getRight()) + marginStart) - paddingStart;
@@ -538,8 +538,8 @@ public class SearchViewAnimationHelper {
         this.dummyToolbar.setVisibility(8);
     }
 
-    private void setMenuItemsNotClickable(C9762 c9762) {
-        C8788 actionMenuView = ToolbarUtils.getActionMenuView(c9762);
+    private void setMenuItemsNotClickable(C1326 c1326) {
+        C1278 actionMenuView = ToolbarUtils.getActionMenuView(c1326);
         if (actionMenuView != null) {
             for (int i = 0; i < actionMenuView.getChildCount(); i++) {
                 View childAt = actionMenuView.getChildAt(i);
@@ -550,8 +550,8 @@ public class SearchViewAnimationHelper {
         }
     }
 
-    public void startBackProgress(C20118 c20118) {
-        this.backHelper.startBackProgress(c20118, this.searchBar);
+    public void startBackProgress(C1840 c1840) {
+        this.backHelper.startBackProgress(c1840, this.searchBar);
     }
 
     /* JADX WARN: Type inference fix 'apply assigned field type' failed
@@ -564,13 +564,13 @@ public class SearchViewAnimationHelper {
     	at jadx.core.dex.visitors.typeinference.FixTypesVisitor.applyFieldType(FixTypesVisitor.java:309)
     	at jadx.core.dex.visitors.typeinference.FixTypesVisitor.visit(FixTypesVisitor.java:94)
      */
-    public void updateBackProgress(C20118 c20118) {
-        if (c20118.m46371() <= 0.0f) {
+    public void updateBackProgress(C1840 c1840) {
+        if (c1840.m48687() <= 0.0f) {
             return;
         }
         MaterialMainContainerBackHelper materialMainContainerBackHelper = this.backHelper;
         SearchBar searchBar = this.searchBar;
-        materialMainContainerBackHelper.updateBackProgress(c20118, searchBar, searchBar.getCornerSize());
+        materialMainContainerBackHelper.updateBackProgress(c1840, searchBar, searchBar.getCornerSize());
         AnimatorSet animatorSet = this.backProgressAnimatorSet;
         if (animatorSet == null) {
             if (this.searchView.isAdjustNothingSoftInputMode()) {
@@ -585,10 +585,10 @@ public class SearchViewAnimationHelper {
             }
             return;
         }
-        animatorSet.setCurrentPlayTime((long) (c20118.m46371() * this.backProgressAnimatorSet.getDuration()));
+        animatorSet.setCurrentPlayTime((long) (c1840.m48687() * this.backProgressAnimatorSet.getDuration()));
     }
 
-    public C20118 onHandleBackInvoked() {
+    public C1840 onHandleBackInvoked() {
         return this.backHelper.onHandleBackInvoked();
     }
 

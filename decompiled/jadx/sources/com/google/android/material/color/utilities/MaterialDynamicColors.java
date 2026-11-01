@@ -1,61 +1,61 @@
 package com.google.android.material.color.utilities;
 
-import com.umeng.analytics.pro.d;
+import com.umeng.analytics.pro.C0708d;
 import java.util.function.Function;
-import l.C0519;
-import l.C10420;
-import l.C10985;
-import l.C11213;
-import l.C11539;
-import l.C11653;
-import l.C12247;
-import l.C13216;
-import l.C14205;
-import l.C14436;
-import l.C15420;
-import l.C16599;
-import l.C17576;
-import l.C1775;
-import l.C18554;
-import l.C18865;
-import l.C19415;
-import l.C19694;
-import l.C1981;
-import l.C20528;
-import l.C20696;
-import l.C21670;
-import l.C21673;
-import l.C2225;
-import l.C22536;
-import l.C22827;
-import l.C2286;
-import l.C23147;
-import l.C23519;
-import l.C23853;
-import l.C3053;
-import l.C3433;
-import l.C4331;
-import l.C4563;
-import l.C5748;
-import l.C5812;
-import l.C5851;
-import l.C5894;
-import l.C5901;
-import l.C6161;
-import l.C6416;
-import l.C6639;
-import l.C6779;
-import l.C7033;
-import l.C7680;
-import l.C7915;
-import l.C8011;
-import l.C8069;
-import l.C8155;
-import l.C8264;
-import l.C8554;
-import l.C8888;
-import l.C8916;
-import l.C9022;
+import p067l.C10037;
+import p067l.C10119;
+import p067l.C10223;
+import p067l.C10498;
+import p067l.C10816;
+import p067l.C10842;
+import p067l.C10943;
+import p067l.C12272;
+import p067l.C12809;
+import p067l.C13026;
+import p067l.C13335;
+import p067l.C13443;
+import p067l.C14008;
+import p067l.C14929;
+import p067l.C15868;
+import p067l.C16088;
+import p067l.C17024;
+import p067l.C18144;
+import p067l.C19073;
+import p067l.C20002;
+import p067l.C20298;
+import p067l.C20820;
+import p067l.C21086;
+import p067l.C21878;
+import p067l.C22038;
+import p067l.C22964;
+import p067l.C22966;
+import p067l.C23787;
+import p067l.C24063;
+import p067l.C24367;
+import p067l.C24721;
+import p067l.C25038;
+import p067l.C2862;
+import p067l.C4055;
+import p067l.C4251;
+import p067l.C4483;
+import p067l.C4541;
+import p067l.C5270;
+import p067l.C5631;
+import p067l.C6484;
+import p067l.C6705;
+import p067l.C7831;
+import p067l.C7892;
+import p067l.C7929;
+import p067l.C7970;
+import p067l.C7977;
+import p067l.C8224;
+import p067l.C8466;
+import p067l.C8678;
+import p067l.C8811;
+import p067l.C9053;
+import p067l.C9668;
+import p067l.C9891;
+import p067l.C9982;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class MaterialDynamicColors {
@@ -64,7 +64,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor primaryPaletteKeyColor() {
-        return DynamicColor.fromPalette("primary_palette_key_color", new C23147(4), new C18865(2));
+        return DynamicColor.fromPalette("primary_palette_key_color", new C24367(4), new C20298(2));
     }
 
     public static /* synthetic */ Double lambda$primaryPaletteKeyColor$1(DynamicScheme dynamicScheme) {
@@ -72,7 +72,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor secondaryPaletteKeyColor() {
-        return DynamicColor.fromPalette("secondary_palette_key_color", new C8264(2), new C14205(4));
+        return DynamicColor.fromPalette("secondary_palette_key_color", new C10223(2), new C15868(4));
     }
 
     public static /* synthetic */ Double lambda$secondaryPaletteKeyColor$3(DynamicScheme dynamicScheme) {
@@ -80,7 +80,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor tertiaryPaletteKeyColor() {
-        return DynamicColor.fromPalette("tertiary_palette_key_color", new C7033(2), new C12247(4));
+        return DynamicColor.fromPalette("tertiary_palette_key_color", new C9053(2), new C14008(4));
     }
 
     public static /* synthetic */ Double lambda$tertiaryPaletteKeyColor$5(DynamicScheme dynamicScheme) {
@@ -88,7 +88,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor neutralPaletteKeyColor() {
-        return DynamicColor.fromPalette("neutral_palette_key_color", new C14436(2), new C7915(4));
+        return DynamicColor.fromPalette("neutral_palette_key_color", new C16088(2), new C9891(4));
     }
 
     public static /* synthetic */ Double lambda$neutralPaletteKeyColor$7(DynamicScheme dynamicScheme) {
@@ -96,7 +96,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor neutralVariantPaletteKeyColor() {
-        return DynamicColor.fromPalette("neutral_variant_palette_key_color", new C3053(4), new C1981(6));
+        return DynamicColor.fromPalette("neutral_variant_palette_key_color", new C5270(4), new C4251(6));
     }
 
     public static /* synthetic */ Double lambda$neutralVariantPaletteKeyColor$9(DynamicScheme dynamicScheme) {
@@ -104,7 +104,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor background() {
-        return new DynamicColor("background", new C1775(4), new C8011(5), true, null, null, null, null);
+        return new DynamicColor("background", new C4055(4), new C9982(5), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$background$11(DynamicScheme dynamicScheme) {
@@ -112,7 +112,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onBackground() {
-        return new DynamicColor("on_background", new C5894(3), new C14436(4), false, new C5812(2, this), null, new ContrastCurve(3.0d, 3.0d, 4.5d, 7.0d), null);
+        return new DynamicColor("on_background", new C7970(3), new C16088(4), false, new C7892(2, this), null, new ContrastCurve(3.0d, 3.0d, 4.5d, 7.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onBackground$13(DynamicScheme dynamicScheme) {
@@ -125,7 +125,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surface() {
-        return new DynamicColor("surface", new C19694(4), new C11653(2), true, null, null, null, null);
+        return new DynamicColor("surface", new C21086(4), new C13443(2), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surface$16(DynamicScheme dynamicScheme) {
@@ -133,7 +133,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceDim() {
-        return new DynamicColor("surface_dim", new C14205(3), new C7033(1), true, null, null, null, null);
+        return new DynamicColor("surface_dim", new C15868(3), new C9053(1), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceDim$18(DynamicScheme dynamicScheme) {
@@ -141,7 +141,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceBright() {
-        return new DynamicColor("surface_bright", new C10420(5), new C13216(3), true, null, null, null, null);
+        return new DynamicColor("surface_bright", new C12272(5), new C14929(3), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceBright$20(DynamicScheme dynamicScheme) {
@@ -149,7 +149,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceContainerLowest() {
-        return new DynamicColor("surface_container_lowest", new C8011(3), new C4563(5), true, null, null, null, null);
+        return new DynamicColor("surface_container_lowest", new C9982(3), new C6705(5), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceContainerLowest$22(DynamicScheme dynamicScheme) {
@@ -157,7 +157,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceContainerLow() {
-        return new DynamicColor("surface_container_low", new C21670(2), new C22536(4), true, null, null, null, null);
+        return new DynamicColor("surface_container_low", new C22964(2), new C23787(4), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceContainerLow$24(DynamicScheme dynamicScheme) {
@@ -165,7 +165,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceContainer() {
-        return new DynamicColor("surface_container", new C21673(2), new C6639(3), true, null, null, null, null);
+        return new DynamicColor("surface_container", new C22966(2), new C8678(3), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceContainer$26(DynamicScheme dynamicScheme) {
@@ -173,7 +173,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceContainerHigh() {
-        return new DynamicColor("surface_container_high", new C4563(7), new C7680(5), true, null, null, null, null);
+        return new DynamicColor("surface_container_high", new C6705(7), new C9668(5), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceContainerHigh$28(DynamicScheme dynamicScheme) {
@@ -181,7 +181,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceContainerHighest() {
-        return new DynamicColor("surface_container_highest", new C7680(6), new C14436(5), true, null, null, null, null);
+        return new DynamicColor("surface_container_highest", new C9668(6), new C16088(5), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceContainerHighest$30(DynamicScheme dynamicScheme) {
@@ -189,7 +189,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onSurface() {
-        return new DynamicColor("on_surface", new C8916(3), new C5894(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_surface", new C10842(3), new C7970(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onSurface$32(DynamicScheme dynamicScheme) {
@@ -197,7 +197,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceVariant() {
-        return new DynamicColor("surface_variant", new C8069(5), new C2286(6), true, null, null, null, null);
+        return new DynamicColor("surface_variant", new C10037(5), new C4541(6), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceVariant$34(DynamicScheme dynamicScheme) {
@@ -205,7 +205,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onSurfaceVariant() {
-        return new DynamicColor("on_surface_variant", new C6779(1), new C10985(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
+        return new DynamicColor("on_surface_variant", new C8811(1), new C12809(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onSurfaceVariant$36(DynamicScheme dynamicScheme) {
@@ -213,7 +213,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor inverseSurface() {
-        return new DynamicColor("inverse_surface", new C8155(1), new C18554(5), false, null, null, null, null);
+        return new DynamicColor("inverse_surface", new C10119(1), new C20002(5), false, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$inverseSurface$38(DynamicScheme dynamicScheme) {
@@ -221,7 +221,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor inverseOnSurface() {
-        return new DynamicColor("inverse_on_surface", new C19415(2), new C5851(5), false, new MaterialDynamicColors$$ExternalSyntheticLambda56(this, 1), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("inverse_on_surface", new C20820(2), new C7929(5), false, new MaterialDynamicColors$$ExternalSyntheticLambda56(this, 1), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$inverseOnSurface$40(DynamicScheme dynamicScheme) {
@@ -234,7 +234,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor outline() {
-        return new DynamicColor("outline", new C7680(4), new C5894(1), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.5d, 3.0d, 4.5d, 7.0d), null);
+        return new DynamicColor("outline", new C9668(4), new C7970(1), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.5d, 3.0d, 4.5d, 7.0d), null);
     }
 
     public static /* synthetic */ Double lambda$outline$43(DynamicScheme dynamicScheme) {
@@ -242,7 +242,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor outlineVariant() {
-        return new DynamicColor("outline_variant", new C20528(6), new C22827(3), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), null);
+        return new DynamicColor("outline_variant", new C21878(6), new C24063(3), false, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), null);
     }
 
     public static /* synthetic */ Double lambda$outlineVariant$45(DynamicScheme dynamicScheme) {
@@ -250,7 +250,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor shadow() {
-        return new DynamicColor("shadow", new C8011(6), new C4563(8), false, null, null, null, null);
+        return new DynamicColor("shadow", new C9982(6), new C6705(8), false, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$shadow$47(DynamicScheme dynamicScheme) {
@@ -258,7 +258,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor scrim() {
-        return new DynamicColor("scrim", new C6416(4), new C20528(5), false, null, null, null, null);
+        return new DynamicColor("scrim", new C8466(4), new C21878(5), false, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$scrim$49(DynamicScheme dynamicScheme) {
@@ -266,7 +266,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor surfaceTint() {
-        return new DynamicColor("surface_tint", new C11539(5), new C6416(3), true, null, null, null, null);
+        return new DynamicColor("surface_tint", new C13335(5), new C8466(3), true, null, null, null, null);
     }
 
     public static /* synthetic */ Double lambda$surfaceTint$51(DynamicScheme dynamicScheme) {
@@ -274,7 +274,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor primary() {
-        return new DynamicColor("primary", new C5894(2), new C14436(3), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new C5812(1, this));
+        return new DynamicColor("primary", new C7970(2), new C16088(3), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new C7892(1, this));
     }
 
     public static /* synthetic */ Double lambda$primary$53(DynamicScheme dynamicScheme) {
@@ -290,7 +290,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onPrimary() {
-        return new DynamicColor("on_primary", new C19415(3), new C5851(7), false, new MaterialDynamicColors$$ExternalSyntheticLambda56(this, 0), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_primary", new C20820(3), new C7929(7), false, new MaterialDynamicColors$$ExternalSyntheticLambda56(this, 0), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onPrimary$56(DynamicScheme dynamicScheme) {
@@ -306,7 +306,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor primaryContainer() {
-        return new DynamicColor("primary_container", new C3053(3), new C1981(5), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda42(this, 0));
+        return new DynamicColor("primary_container", new C5270(3), new C4251(5), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda42(this, 0));
     }
 
     public static /* synthetic */ Double lambda$primaryContainer$59(DynamicScheme dynamicScheme) {
@@ -325,7 +325,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onPrimaryContainer() {
-        return new DynamicColor("on_primary_container", new C10985(6), new C9022(2, this), false, new MaterialDynamicColors$$ExternalSyntheticLambda34(this, 1), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_primary_container", new C12809(6), new C10943(2, this), false, new MaterialDynamicColors$$ExternalSyntheticLambda34(this, 1), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -346,7 +346,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor inversePrimary() {
         int i = 5;
-        return new DynamicColor("inverse_primary", new C15420(i), new C7915(i), false, new MaterialDynamicColors$$ExternalSyntheticLambda59(this, 0), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
+        return new DynamicColor("inverse_primary", new C17024(i), new C9891(i), false, new MaterialDynamicColors$$ExternalSyntheticLambda59(this, 0), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
     }
 
     public static /* synthetic */ Double lambda$inversePrimary$65(DynamicScheme dynamicScheme) {
@@ -360,7 +360,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor secondary() {
         int i = 1;
-        return new DynamicColor("secondary", new C1981(3), new C8554(i), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new C23853(i, this));
+        return new DynamicColor("secondary", new C4251(3), new C10498(i), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new C25038(i, this));
     }
 
     public static /* synthetic */ Double lambda$secondary$68(DynamicScheme dynamicScheme) {
@@ -373,11 +373,11 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onSecondary() {
-        return new DynamicColor("on_secondary", new C8069(2), new C2286(3), false, new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda102
+        return new DynamicColor("on_secondary", new C10037(2), new C4541(3), false, new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda102
             @Override // java.util.function.Function
             /* JADX INFO: renamed from: andThen */
-            public /* synthetic */ Function mo22274andThen(Function function) {
-                return C20696.$default$andThen(this, function);
+            public /* synthetic */ Function mo56417andThen(Function function) {
+                return C22038.$default$andThen(this, function);
             }
 
             @Override // java.util.function.Function
@@ -387,7 +387,7 @@ public final class MaterialDynamicColors {
 
             @Override // java.util.function.Function
             public /* synthetic */ Function compose(Function function) {
-                return C20696.$default$compose(this, function);
+                return C22038.$default$compose(this, function);
             }
         }, null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
@@ -405,7 +405,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor secondaryContainer() {
-        return new DynamicColor("secondary_container", new C17576(5), new C16599(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new C2225(1, this));
+        return new DynamicColor("secondary_container", new C19073(5), new C18144(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new C4483(1, this));
     }
 
     public static /* synthetic */ Double lambda$secondaryContainer$74(DynamicScheme dynamicScheme) {
@@ -425,11 +425,11 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onSecondaryContainer() {
-        return new DynamicColor("on_secondary_container", new C23147(3), new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda123
+        return new DynamicColor("on_secondary_container", new C24367(3), new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda123
             @Override // java.util.function.Function
             /* JADX INFO: renamed from: andThen */
-            public /* synthetic */ Function mo22274andThen(Function function) {
-                return C20696.$default$andThen(this, function);
+            public /* synthetic */ Function mo56417andThen(Function function) {
+                return C22038.$default$andThen(this, function);
             }
 
             @Override // java.util.function.Function
@@ -439,7 +439,7 @@ public final class MaterialDynamicColors {
 
             @Override // java.util.function.Function
             public /* synthetic */ Function compose(Function function) {
-                return C20696.$default$compose(this, function);
+                return C22038.$default$compose(this, function);
             }
         }, false, new MaterialDynamicColors$$ExternalSyntheticLambda62(this, 1), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
@@ -458,7 +458,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor tertiary() {
-        return new DynamicColor("tertiary", new C11213(3), new C15420(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new C4331(1, this));
+        return new DynamicColor("tertiary", new C13026(3), new C17024(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new C6484(1, this));
     }
 
     public static /* synthetic */ Double lambda$tertiary$80(DynamicScheme dynamicScheme) {
@@ -474,7 +474,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onTertiary() {
-        return new DynamicColor("on_tertiary", new C6416(5), new C23519(7), false, new MaterialDynamicColors$$ExternalSyntheticLambda6(this, 0), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_tertiary", new C8466(5), new C24721(7), false, new MaterialDynamicColors$$ExternalSyntheticLambda6(this, 0), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onTertiary$83(DynamicScheme dynamicScheme) {
@@ -490,7 +490,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor tertiaryContainer() {
-        return new DynamicColor("tertiary_container", new C19415(4), new C5851(8), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda56(this, 2));
+        return new DynamicColor("tertiary_container", new C20820(4), new C7929(8), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda56(this, 2));
     }
 
     public static /* synthetic */ Double lambda$tertiaryContainer$86(DynamicScheme dynamicScheme) {
@@ -509,11 +509,11 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onTertiaryContainer() {
-        return new DynamicColor("on_tertiary_container", new C15420(3), new MaterialDynamicColors$$ExternalSyntheticLambda59(this, 1), false, new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda121
+        return new DynamicColor("on_tertiary_container", new C17024(3), new MaterialDynamicColors$$ExternalSyntheticLambda59(this, 1), false, new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda121
             @Override // java.util.function.Function
             /* JADX INFO: renamed from: andThen */
-            public /* synthetic */ Function mo22274andThen(Function function) {
-                return C20696.$default$andThen(this, function);
+            public /* synthetic */ Function mo56417andThen(Function function) {
+                return C22038.$default$andThen(this, function);
             }
 
             @Override // java.util.function.Function
@@ -523,7 +523,7 @@ public final class MaterialDynamicColors {
 
             @Override // java.util.function.Function
             public /* synthetic */ Function compose(Function function) {
-                return C20696.$default$compose(this, function);
+                return C22038.$default$compose(this, function);
             }
         }, null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
@@ -546,7 +546,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor error() {
         int i = 1;
-        return new DynamicColor(d.O, new C8264(i), new C21670(i), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new MaterialDynamicColors$$ExternalSyntheticLambda6(this, i));
+        return new DynamicColor(C0708d.f2599O, new C10223(i), new C22964(i), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), new MaterialDynamicColors$$ExternalSyntheticLambda6(this, i));
     }
 
     public static /* synthetic */ Double lambda$error$92(DynamicScheme dynamicScheme) {
@@ -559,11 +559,11 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onError() {
-        return new DynamicColor("on_error", new C17576(6), new C16599(5), false, new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda72
+        return new DynamicColor("on_error", new C19073(6), new C18144(5), false, new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda72
             @Override // java.util.function.Function
             /* JADX INFO: renamed from: andThen */
-            public /* synthetic */ Function mo22274andThen(Function function) {
-                return C20696.$default$andThen(this, function);
+            public /* synthetic */ Function mo56417andThen(Function function) {
+                return C22038.$default$andThen(this, function);
             }
 
             @Override // java.util.function.Function
@@ -573,7 +573,7 @@ public final class MaterialDynamicColors {
 
             @Override // java.util.function.Function
             public /* synthetic */ Function compose(Function function) {
-                return C20696.$default$compose(this, function);
+                return C22038.$default$compose(this, function);
             }
         }, null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
@@ -588,7 +588,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor errorContainer() {
-        return new DynamicColor("error_container", new C3053(2), new C1981(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda42(this, 1));
+        return new DynamicColor("error_container", new C5270(2), new C4251(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda42(this, 1));
     }
 
     public static /* synthetic */ Double lambda$errorContainer$98(DynamicScheme dynamicScheme) {
@@ -602,7 +602,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor onErrorContainer() {
         int i = 1;
-        return new DynamicColor("on_error_container", new C12247(3), new C8916(i), false, new MaterialDynamicColors$$ExternalSyntheticLambda80(this, i), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_error_container", new C14008(3), new C10842(i), false, new MaterialDynamicColors$$ExternalSyntheticLambda80(this, i), null, new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onErrorContainer$101(DynamicScheme dynamicScheme) {
@@ -616,11 +616,11 @@ public final class MaterialDynamicColors {
 
     public DynamicColor primaryFixed() {
         int i = 6;
-        return new DynamicColor("primary_fixed", new C11539(i), new C6416(i), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda93
+        return new DynamicColor("primary_fixed", new C13335(i), new C8466(i), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda93
             @Override // java.util.function.Function
             /* JADX INFO: renamed from: andThen */
-            public /* synthetic */ Function mo22274andThen(Function function) {
-                return C20696.$default$andThen(this, function);
+            public /* synthetic */ Function mo56417andThen(Function function) {
+                return C22038.$default$andThen(this, function);
             }
 
             @Override // java.util.function.Function
@@ -630,7 +630,7 @@ public final class MaterialDynamicColors {
 
             @Override // java.util.function.Function
             public /* synthetic */ Function compose(Function function) {
-                return C20696.$default$compose(this, function);
+                return C22038.$default$compose(this, function);
             }
         });
     }
@@ -645,7 +645,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor primaryFixedDim() {
-        return new DynamicColor("primary_fixed_dim", new C22827(4), new C10420(6), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda96(this, 0));
+        return new DynamicColor("primary_fixed_dim", new C24063(4), new C12272(6), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda96(this, 0));
     }
 
     public static /* synthetic */ Double lambda$primaryFixedDim$107(DynamicScheme dynamicScheme) {
@@ -659,7 +659,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor onPrimaryFixed() {
         int i = 1;
-        return new DynamicColor("on_primary_fixed", new C0519(1), new C3433(2), false, new MaterialDynamicColors$$ExternalSyntheticLambda22(this, i), new MaterialDynamicColors$$ExternalSyntheticLambda23(this, i), new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_primary_fixed", new C2862(1), new C5631(2), false, new MaterialDynamicColors$$ExternalSyntheticLambda22(this, i), new MaterialDynamicColors$$ExternalSyntheticLambda23(this, i), new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onPrimaryFixed$110(DynamicScheme dynamicScheme) {
@@ -678,7 +678,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor onPrimaryFixedVariant() {
         int i = 2;
-        return new DynamicColor("on_primary_fixed_variant", new C0519(3), new C3433(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda22(this, i), new MaterialDynamicColors$$ExternalSyntheticLambda23(this, i), new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
+        return new DynamicColor("on_primary_fixed_variant", new C2862(3), new C5631(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda22(this, i), new MaterialDynamicColors$$ExternalSyntheticLambda23(this, i), new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onPrimaryFixedVariant$114(DynamicScheme dynamicScheme) {
@@ -696,7 +696,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor secondaryFixed() {
-        return new DynamicColor("secondary_fixed", new C23147(5), new C18865(3), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda62(this, 0));
+        return new DynamicColor("secondary_fixed", new C24367(5), new C20298(3), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda62(this, 0));
     }
 
     public static /* synthetic */ Double lambda$secondaryFixed$118(DynamicScheme dynamicScheme) {
@@ -709,7 +709,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor secondaryFixedDim() {
-        return new DynamicColor("secondary_fixed_dim", new C7033(3), new C12247(5), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda80(this, 0));
+        return new DynamicColor("secondary_fixed_dim", new C9053(3), new C14008(5), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new MaterialDynamicColors$$ExternalSyntheticLambda80(this, 0));
     }
 
     public static /* synthetic */ Double lambda$secondaryFixedDim$121(DynamicScheme dynamicScheme) {
@@ -722,7 +722,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onSecondaryFixed() {
-        return new DynamicColor("on_secondary_fixed", new C20528(4), new C22827(1), false, new C5901(3, this), new MaterialDynamicColors$$ExternalSyntheticLambda96(this, 1), new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_secondary_fixed", new C21878(4), new C24063(1), false, new C7977(3, this), new MaterialDynamicColors$$ExternalSyntheticLambda96(this, 1), new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onSecondaryFixed$124(DynamicScheme dynamicScheme) {
@@ -741,7 +741,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor onSecondaryFixedVariant() {
         int i = 2;
-        return new DynamicColor("on_secondary_fixed_variant", new C22827(2), new C10420(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda96(this, i), new C8888(i, this), new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
+        return new DynamicColor("on_secondary_fixed_variant", new C24063(2), new C12272(4), false, new MaterialDynamicColors$$ExternalSyntheticLambda96(this, i), new C10816(i, this), new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onSecondaryFixedVariant$128(DynamicScheme dynamicScheme) {
@@ -759,11 +759,11 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor tertiaryFixed() {
-        return new DynamicColor("tertiary_fixed", new C1775(3), new C8011(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda150
+        return new DynamicColor("tertiary_fixed", new C4055(3), new C9982(4), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new Function() { // from class: com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda150
             @Override // java.util.function.Function
             /* JADX INFO: renamed from: andThen */
-            public /* synthetic */ Function mo22274andThen(Function function) {
-                return C20696.$default$andThen(this, function);
+            public /* synthetic */ Function mo56417andThen(Function function) {
+                return C22038.$default$andThen(this, function);
             }
 
             @Override // java.util.function.Function
@@ -773,7 +773,7 @@ public final class MaterialDynamicColors {
 
             @Override // java.util.function.Function
             public /* synthetic */ Function compose(Function function) {
-                return C20696.$default$compose(this, function);
+                return C22038.$default$compose(this, function);
             }
         });
     }
@@ -788,7 +788,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor tertiaryFixedDim() {
-        return new DynamicColor("tertiary_fixed_dim", new C8264(3), new C14205(5), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new C5748(1, this));
+        return new DynamicColor("tertiary_fixed_dim", new C10223(3), new C15868(5), true, new MaterialDynamicColors$$ExternalSyntheticLambda9(this), null, new ContrastCurve(1.0d, 1.0d, 3.0d, 7.0d), new C7831(1, this));
     }
 
     public static /* synthetic */ Double lambda$tertiaryFixedDim$135(DynamicScheme dynamicScheme) {
@@ -801,7 +801,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor onTertiaryFixed() {
-        return new DynamicColor("on_tertiary_fixed", new C6779(2), new C10985(5), false, new C9022(1, this), new MaterialDynamicColors$$ExternalSyntheticLambda34(this, 0), new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
+        return new DynamicColor("on_tertiary_fixed", new C8811(2), new C12809(5), false, new C10943(1, this), new MaterialDynamicColors$$ExternalSyntheticLambda34(this, 0), new ContrastCurve(4.5d, 7.0d, 11.0d, 21.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onTertiaryFixed$138(DynamicScheme dynamicScheme) {
@@ -820,7 +820,7 @@ public final class MaterialDynamicColors {
 
     public DynamicColor onTertiaryFixedVariant() {
         int i = 0;
-        return new DynamicColor("on_tertiary_fixed_variant", new C0519(2), new C3433(3), false, new MaterialDynamicColors$$ExternalSyntheticLambda22(this, i), new MaterialDynamicColors$$ExternalSyntheticLambda23(this, i), new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
+        return new DynamicColor("on_tertiary_fixed_variant", new C2862(2), new C5631(3), false, new MaterialDynamicColors$$ExternalSyntheticLambda22(this, i), new MaterialDynamicColors$$ExternalSyntheticLambda23(this, i), new ContrastCurve(3.0d, 4.5d, 7.0d, 11.0d), null);
     }
 
     public static /* synthetic */ Double lambda$onTertiaryFixedVariant$142(DynamicScheme dynamicScheme) {
@@ -838,7 +838,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor controlActivated() {
-        return DynamicColor.fromPalette("control_activated", new C6161(1), new C23519(6));
+        return DynamicColor.fromPalette("control_activated", new C8224(1), new C24721(6));
     }
 
     public static /* synthetic */ Double lambda$controlActivated$146(DynamicScheme dynamicScheme) {
@@ -846,7 +846,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor controlNormal() {
-        return DynamicColor.fromPalette("control_normal", new C4563(6), new C5851(6));
+        return DynamicColor.fromPalette("control_normal", new C6705(6), new C7929(6));
     }
 
     public static /* synthetic */ Double lambda$controlNormal$148(DynamicScheme dynamicScheme) {
@@ -854,7 +854,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor controlHighlight() {
-        return new DynamicColor("control_highlight", new C8916(2), new C19694(5), false, null, null, null, null, new C8069(4));
+        return new DynamicColor("control_highlight", new C10842(2), new C21086(5), false, null, null, null, null, new C10037(4));
     }
 
     public static /* synthetic */ Double lambda$controlHighlight$150(DynamicScheme dynamicScheme) {
@@ -866,7 +866,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor textPrimaryInverse() {
-        return DynamicColor.fromPalette("text_primary_inverse", new C17576(4), new C16599(3));
+        return DynamicColor.fromPalette("text_primary_inverse", new C19073(4), new C18144(3));
     }
 
     public static /* synthetic */ Double lambda$textPrimaryInverse$153(DynamicScheme dynamicScheme) {
@@ -874,7 +874,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor textSecondaryAndTertiaryInverse() {
-        return DynamicColor.fromPalette("text_secondary_and_tertiary_inverse", new C8069(3), new C2286(4));
+        return DynamicColor.fromPalette("text_secondary_and_tertiary_inverse", new C10037(3), new C4541(4));
     }
 
     public static /* synthetic */ Double lambda$textSecondaryAndTertiaryInverse$155(DynamicScheme dynamicScheme) {
@@ -882,7 +882,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor textPrimaryInverseDisableOnly() {
-        return DynamicColor.fromPalette("text_primary_inverse_disable_only", new C6639(4), new C6779(3));
+        return DynamicColor.fromPalette("text_primary_inverse_disable_only", new C8678(4), new C8811(3));
     }
 
     public static /* synthetic */ Double lambda$textPrimaryInverseDisableOnly$157(DynamicScheme dynamicScheme) {
@@ -890,7 +890,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor textSecondaryAndTertiaryInverseDisabled() {
-        return DynamicColor.fromPalette("text_secondary_and_tertiary_inverse_disabled", new C21673(3), new C2286(5));
+        return DynamicColor.fromPalette("text_secondary_and_tertiary_inverse_disabled", new C22966(3), new C4541(5));
     }
 
     public static /* synthetic */ Double lambda$textSecondaryAndTertiaryInverseDisabled$159(DynamicScheme dynamicScheme) {
@@ -898,7 +898,7 @@ public final class MaterialDynamicColors {
     }
 
     public DynamicColor textHintInverse() {
-        return DynamicColor.fromPalette("text_hint_inverse", new C8554(2), new C1775(5));
+        return DynamicColor.fromPalette("text_hint_inverse", new C10498(2), new C4055(5));
     }
 
     public static /* synthetic */ Double lambda$textHintInverse$161(DynamicScheme dynamicScheme) {

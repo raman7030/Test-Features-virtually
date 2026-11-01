@@ -5,21 +5,27 @@ import org.bouncycastle.crypto.CipherParameters;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DSAParameters implements CipherParameters {
-    public BigInteger g;
-    public BigInteger p;
-    public BigInteger q;
+
+    /* JADX INFO: renamed from: g */
+    public BigInteger f81239g;
+
+    /* JADX INFO: renamed from: p */
+    public BigInteger f81240p;
+
+    /* JADX INFO: renamed from: q */
+    public BigInteger f81241q;
     public DSAValidationParameters validation;
 
     public DSAParameters(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3) {
-        this.g = bigInteger3;
-        this.p = bigInteger;
-        this.q = bigInteger2;
+        this.f81239g = bigInteger3;
+        this.f81240p = bigInteger;
+        this.f81241q = bigInteger2;
     }
 
     public DSAParameters(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, DSAValidationParameters dSAValidationParameters) {
-        this.g = bigInteger3;
-        this.p = bigInteger;
-        this.q = bigInteger2;
+        this.f81239g = bigInteger3;
+        this.f81240p = bigInteger;
+        this.f81241q = bigInteger2;
         this.validation = dSAValidationParameters;
     }
 
@@ -28,19 +34,19 @@ public class DSAParameters implements CipherParameters {
             return false;
         }
         DSAParameters dSAParameters = (DSAParameters) obj;
-        return dSAParameters.getP().equals(this.p) && dSAParameters.getQ().equals(this.q) && dSAParameters.getG().equals(this.g);
+        return dSAParameters.getP().equals(this.f81240p) && dSAParameters.getQ().equals(this.f81241q) && dSAParameters.getG().equals(this.f81239g);
     }
 
     public BigInteger getG() {
-        return this.g;
+        return this.f81239g;
     }
 
     public BigInteger getP() {
-        return this.p;
+        return this.f81240p;
     }
 
     public BigInteger getQ() {
-        return this.q;
+        return this.f81241q;
     }
 
     public DSAValidationParameters getValidationParameters() {

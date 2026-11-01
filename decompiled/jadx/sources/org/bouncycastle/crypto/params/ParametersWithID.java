@@ -4,16 +4,18 @@ import org.bouncycastle.crypto.CipherParameters;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ParametersWithID implements CipherParameters {
-    public byte[] id;
+
+    /* JADX INFO: renamed from: id */
+    public byte[] f81276id;
     public CipherParameters parameters;
 
     public ParametersWithID(CipherParameters cipherParameters, byte[] bArr) {
         this.parameters = cipherParameters;
-        this.id = bArr;
+        this.f81276id = bArr;
     }
 
     public byte[] getID() {
-        return this.id;
+        return this.f81276id;
     }
 
     public CipherParameters getParameters() {

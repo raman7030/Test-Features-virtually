@@ -7,77 +7,77 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import l.C20195;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HttpRequest {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final InputStream f193;
+    /* JADX INFO: renamed from: ֫ */
+    public final InputStream f1353;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final Map f194;
+    /* JADX INFO: renamed from: ۧ */
+    public final Map f1354;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public boolean f195;
+    /* JADX INFO: renamed from: ܽ */
+    public boolean f1355;
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public URI f196;
+    /* JADX INFO: renamed from: ܿ */
+    public URI f1356;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final String f197;
+    /* JADX INFO: renamed from: ᩳ */
+    public final String f1357;
 
     public HttpRequest(String str, URI uri, HashMap map, InputStream inputStream) {
         String upperCase;
-        Charset charset = StringUtils.f844;
+        Charset charset = StringUtils.f2004;
         if (str == null) {
             upperCase = null;
         } else {
             upperCase = str.isEmpty() ? "" : str.toUpperCase(Locale.ENGLISH);
         }
-        this.f197 = upperCase;
-        this.f196 = uri;
-        this.f194 = C20195.unmodifiableMap(map);
-        this.f193 = inputStream;
+        this.f1357 = upperCase;
+        this.f1356 = uri;
+        this.f1354 = C21562.unmodifiableMap(map);
+        this.f1353 = inputStream;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final String m264() {
-        return this.f197;
+    /* JADX INFO: renamed from: ᩳ */
+    public final String m1430() {
+        return this.f1357;
     }
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final URI m263() {
-        return this.f196;
+    /* JADX INFO: renamed from: ܿ */
+    public final URI m1429() {
+        return this.f1356;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final Map m262() {
-        return this.f194;
+    /* JADX INFO: renamed from: ܽ */
+    public final Map m1428() {
+        return this.f1354;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final InputStream m258() {
-        return this.f193;
+    /* JADX INFO: renamed from: ֫ */
+    public final InputStream m1424() {
+        return this.f1353;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final long m260() {
+    /* JADX INFO: renamed from: ۧ */
+    public final long m1426() {
         String str;
-        Map map = this.f194;
+        Map map = this.f1354;
         if (map == null || (str = (String) map.get("Content-Length")) == null || str.isEmpty()) {
             return 0L;
         }
         return Long.valueOf(str).longValue();
     }
 
-    /* JADX INFO: renamed from: ܳ, reason: not valid java name and contains not printable characters */
-    public final boolean m261() {
-        return this.f195;
+    /* JADX INFO: renamed from: ܳ */
+    public final boolean m1427() {
+        return this.f1355;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m259(boolean z) {
-        this.f195 = z;
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1425(boolean z) {
+        this.f1355 = z;
     }
 }

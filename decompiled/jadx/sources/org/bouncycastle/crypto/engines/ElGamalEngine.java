@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
@@ -57,7 +57,7 @@ public class ElGamalEngine implements AsymmetricBlockCipher {
         } else if (!(elGamalKeyParameters instanceof ElGamalPrivateKeyParameters)) {
             throw new IllegalArgumentException("ElGamalPrivateKeyParameters are required for decryption.");
         }
-        CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(d.a, ConstraintUtils.bitsOfSecurityFor(this.key.getParameters().getP()), this.key, Utils.getPurpose(z)));
+        CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(C0187d.f883a, ConstraintUtils.bitsOfSecurityFor(this.key.getParameters().getP()), this.key, Utils.getPurpose(z)));
     }
 
     @Override // org.bouncycastle.crypto.AsymmetricBlockCipher

@@ -3,15 +3,14 @@ package org.bouncycastle.pqc.crypto.util;
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.digests.SHA256Digest;
@@ -39,6 +38,7 @@ import org.bouncycastle.pqc.crypto.snova.SnovaParameters;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSKeyParameters;
 import org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Utils {
@@ -1245,7 +1245,7 @@ public class Utils {
         if (aSN1ObjectIdentifier.equals((ASN1Primitive) NISTObjectIdentifiers.id_shake256)) {
             return new SHAKEDigest(256);
         }
-        throw new IllegalArgumentException(C9005.m23242("unrecognized digest OID: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unrecognized digest OID: ", aSN1ObjectIdentifier));
     }
 
     public static String getDigestName(ASN1ObjectIdentifier aSN1ObjectIdentifier) {
@@ -1264,6 +1264,6 @@ public class Utils {
         if (aSN1ObjectIdentifier.equals((ASN1Primitive) NISTObjectIdentifiers.id_sha512)) {
             return XMSSKeyParameters.SHA_512;
         }
-        throw new IllegalArgumentException(C9005.m23242("unrecognised digest algorithm: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unrecognised digest algorithm: ", aSN1ObjectIdentifier));
     }
 }

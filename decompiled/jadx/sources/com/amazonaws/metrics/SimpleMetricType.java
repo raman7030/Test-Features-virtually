@@ -1,6 +1,6 @@
 package com.amazonaws.metrics;
 
-import com.amazonaws.services.s3.metrics.S3ServiceMetric;
+import com.amazonaws.services.p061s3.metrics.S3ServiceMetric;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class SimpleMetricType implements MetricType {

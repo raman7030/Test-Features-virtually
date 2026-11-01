@@ -2,7 +2,7 @@ package org.bouncycastle.util.encoders;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
-import l.C19370;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class UrlBase64 {
@@ -22,7 +22,7 @@ public class UrlBase64 {
             encoder.decode(str, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } catch (Exception e) {
-            throw new DecoderException(C19370.m44629(e, new StringBuilder("exception decoding URL safe base64 string: ")), e);
+            throw new DecoderException(C20778.m46923(e, new StringBuilder("exception decoding URL safe base64 string: ")), e);
         }
     }
 
@@ -32,7 +32,7 @@ public class UrlBase64 {
             encoder.decode(bArr, 0, bArr.length, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } catch (Exception e) {
-            throw new DecoderException(C19370.m44629(e, new StringBuilder("exception decoding URL safe base64 string: ")), e);
+            throw new DecoderException(C20778.m46923(e, new StringBuilder("exception decoding URL safe base64 string: ")), e);
         }
     }
 
@@ -46,7 +46,7 @@ public class UrlBase64 {
             encoder.encode(bArr, 0, bArr.length, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } catch (Exception e) {
-            throw new EncoderException(C19370.m44629(e, new StringBuilder("exception encoding URL safe base64 data: ")), e);
+            throw new EncoderException(C20778.m46923(e, new StringBuilder("exception encoding URL safe base64 data: ")), e);
         }
     }
 }

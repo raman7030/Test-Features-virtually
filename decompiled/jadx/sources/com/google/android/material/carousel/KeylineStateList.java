@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import l.C1814;
-import l.C18566;
-import l.C20195;
-import l.C7166;
+import p067l.C0932;
+import p067l.C20013;
+import p067l.C21562;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KeylineStateList {
@@ -23,11 +23,11 @@ public class KeylineStateList {
 
     public KeylineStateList(KeylineState keylineState, List list, List list2) {
         this.defaultState = keylineState;
-        this.startStateSteps = C20195.unmodifiableList(list);
-        this.endStateSteps = C20195.unmodifiableList(list2);
-        float f = ((KeylineState) C7166.m19188(1, list)).getFirstKeyline().loc - keylineState.getFirstKeyline().loc;
+        this.startStateSteps = C21562.unmodifiableList(list);
+        this.endStateSteps = C21562.unmodifiableList(list2);
+        float f = ((KeylineState) C9179.m21131(1, list)).getFirstKeyline().loc - keylineState.getFirstKeyline().loc;
         this.startShiftRange = f;
-        float f2 = keylineState.getLastKeyline().loc - ((KeylineState) C7166.m19188(1, list2)).getLastKeyline().loc;
+        float f2 = keylineState.getLastKeyline().loc - ((KeylineState) C9179.m21131(1, list2)).getLastKeyline().loc;
         this.endShiftRange = f2;
         this.startStateStepsInterpolationPoints = getStateStepInterpolationPoints(f, list, true);
         this.endStateStepsInterpolationPoints = getStateStepInterpolationPoints(f2, list2, false);
@@ -42,11 +42,11 @@ public class KeylineStateList {
     }
 
     public KeylineState getStartState() {
-        return (KeylineState) C7166.m19188(1, this.startStateSteps);
+        return (KeylineState) C9179.m21131(1, this.startStateSteps);
     }
 
     public KeylineState getEndState() {
-        return (KeylineState) C7166.m19188(1, this.endStateSteps);
+        return (KeylineState) C9179.m21131(1, this.endStateSteps);
     }
 
     public KeylineState getShiftedState(float f, float f2, float f3) {
@@ -184,7 +184,7 @@ public class KeylineStateList {
             float f4 = 0.0f;
             int i2 = 0;
             while (i2 < firstFocalKeylineIndex) {
-                KeylineState keylineState2 = (KeylineState) C18566.m43105(arrayList, i);
+                KeylineState keylineState2 = (KeylineState) C20013.m45383(arrayList, i);
                 int i3 = iFindFirstNonAnchorKeylineIndex + i2;
                 int size = keylineState.getKeylines().size() - i;
                 float f5 = f4 + ((KeylineState.Keyline) keylineState.getKeylines().get(i3)).cutoff;
@@ -220,7 +220,7 @@ public class KeylineStateList {
             float f4 = 0.0f;
             int i = 0;
             while (i < lastFocalKeylineIndex) {
-                KeylineState keylineState2 = (KeylineState) C18566.m43105(arrayList, 1);
+                KeylineState keylineState2 = (KeylineState) C20013.m45383(arrayList, 1);
                 int i2 = iFindLastNonAnchorKeylineIndex - i;
                 float f5 = f4 + ((KeylineState.Keyline) keylineState.getKeylines().get(i2)).cutoff;
                 int i3 = i2 + 1;
@@ -311,7 +311,7 @@ public class KeylineStateList {
             if (i6 * itemSize * (z ? -1 : 1) > i3 - this.endShiftRange || i4 >= i - this.endStateSteps.size()) {
                 Integer numValueOf = Integer.valueOf(i6);
                 List list = this.endStateSteps;
-                map.put(numValueOf, (KeylineState) list.get(C1814.m6036(i5, 0, list.size() - 1)));
+                map.put(numValueOf, (KeylineState) list.get(C0932.m8234(i5, 0, list.size() - 1)));
                 i5++;
             }
             i4++;
@@ -322,7 +322,7 @@ public class KeylineStateList {
             if (i9 * itemSize * (z ? -1 : 1) < i2 + this.startShiftRange || i8 < this.startStateSteps.size()) {
                 Integer numValueOf2 = Integer.valueOf(i9);
                 List list2 = this.startStateSteps;
-                map.put(numValueOf2, (KeylineState) list2.get(C1814.m6036(i7, 0, list2.size() - 1)));
+                map.put(numValueOf2, (KeylineState) list2.get(C0932.m8234(i7, 0, list2.size() - 1)));
                 i7++;
             }
         }

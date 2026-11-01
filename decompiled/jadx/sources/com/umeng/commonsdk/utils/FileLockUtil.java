@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-import l.C12084;
+import p067l.C13853;
 
 /* JADX INFO: loaded from: classes.dex */
 public class FileLockUtil {
@@ -120,7 +120,7 @@ public class FileLockUtil {
     public static FileLock getFileLock(String str) {
         FileChannel fileChannelConvertMaybeLegacyFileChannelFromLibrary;
         try {
-            fileChannelConvertMaybeLegacyFileChannelFromLibrary = C12084.convertMaybeLegacyFileChannelFromLibrary(new RandomAccessFile(str, "rw").getChannel());
+            fileChannelConvertMaybeLegacyFileChannelFromLibrary = C13853.convertMaybeLegacyFileChannelFromLibrary(new RandomAccessFile(str, "rw").getChannel());
             try {
                 return fileChannelConvertMaybeLegacyFileChannelFromLibrary.lock();
             } catch (FileNotFoundException | IOException unused) {

@@ -5,8 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.util.Property;
 import com.google.android.material.animation.ArgbEvaluatorCompat;
-import l.AbstractC18364;
-import l.C8791;
+import p067l.AbstractC19822;
+import p067l.C10723;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class CircularIndeterminateAnimatorDelegate extends IndeterminateAnimatorDelegate {
@@ -23,12 +23,12 @@ public final class CircularIndeterminateAnimatorDelegate extends IndeterminateAn
     public static final int TOTAL_DURATION_IN_MS = 5400;
     public float animationFraction;
     public ObjectAnimator animator;
-    public AbstractC18364 animatorCompleteCallback;
+    public AbstractC19822 animatorCompleteCallback;
     public final BaseProgressIndicatorSpec baseSpec;
     public ObjectAnimator completeEndAnimator;
     public float completeEndFraction;
     public int indicatorColorIndexOffset;
-    public final C8791 interpolator;
+    public final C10723 interpolator;
     public static final int[] DELAY_TO_EXPAND_IN_MS = {0, 1350, 2700, 4050};
     public static final int[] DELAY_TO_COLLAPSE_IN_MS = {667, 2017, 3367, 4717};
     public static final int[] DELAY_TO_FADE_IN_MS = {1000, 2350, 3700, 5050};
@@ -64,7 +64,7 @@ public final class CircularIndeterminateAnimatorDelegate extends IndeterminateAn
         this.indicatorColorIndexOffset = 0;
         this.animatorCompleteCallback = null;
         this.baseSpec = circularProgressIndicatorSpec;
-        this.interpolator = new C8791();
+        this.interpolator = new C10723();
     }
 
     @Override // com.google.android.material.progressindicator.IndeterminateAnimatorDelegate
@@ -101,9 +101,9 @@ public final class CircularIndeterminateAnimatorDelegate extends IndeterminateAn
                     super.onAnimationEnd(animator);
                     CircularIndeterminateAnimatorDelegate.this.cancelAnimatorImmediately();
                     CircularIndeterminateAnimatorDelegate circularIndeterminateAnimatorDelegate = CircularIndeterminateAnimatorDelegate.this;
-                    AbstractC18364 abstractC18364 = circularIndeterminateAnimatorDelegate.animatorCompleteCallback;
-                    if (abstractC18364 != null) {
-                        abstractC18364.onAnimationEnd(circularIndeterminateAnimatorDelegate.drawable);
+                    AbstractC19822 abstractC19822 = circularIndeterminateAnimatorDelegate.animatorCompleteCallback;
+                    if (abstractC19822 != null) {
+                        abstractC19822.onAnimationEnd(circularIndeterminateAnimatorDelegate.drawable);
                     }
                 }
             });
@@ -137,8 +137,8 @@ public final class CircularIndeterminateAnimatorDelegate extends IndeterminateAn
     }
 
     @Override // com.google.android.material.progressindicator.IndeterminateAnimatorDelegate
-    public void registerAnimatorsCompleteCallback(AbstractC18364 abstractC18364) {
-        this.animatorCompleteCallback = abstractC18364;
+    public void registerAnimatorsCompleteCallback(AbstractC19822 abstractC19822) {
+        this.animatorCompleteCallback = abstractC19822;
     }
 
     @Override // com.google.android.material.progressindicator.IndeterminateAnimatorDelegate

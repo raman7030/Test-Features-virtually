@@ -1,6 +1,6 @@
 package org.simpleframework.xml.stream;
 
-import l.C20087;
+import p067l.C21459;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class OutputAttribute implements OutputNode {
@@ -123,6 +123,6 @@ public class OutputAttribute implements OutputNode {
     }
 
     public String toString() {
-        return C20087.m46306("attribute ", this.name, "='", this.value, "'");
+        return C21459.m48622("attribute ", this.name, "='", this.value, "'");
     }
 }

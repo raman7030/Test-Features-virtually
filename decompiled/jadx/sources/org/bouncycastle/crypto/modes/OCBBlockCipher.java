@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.modes;
 
 import java.util.Vector;
-import l.C19370;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DataLengthException;
@@ -13,12 +12,15 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Bytes;
 import org.bouncycastle.util.Longs;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class OCBBlockCipher implements AEADBlockCipher {
     public static final int BLOCK_SIZE = 16;
     public byte[] Checksum;
-    public Vector L;
+
+    /* JADX INFO: renamed from: L */
+    public Vector f81194L;
     public byte[] L_Asterisk;
     public byte[] L_Dollar;
     public byte[] OffsetHASH;
@@ -181,11 +183,11 @@ public class OCBBlockCipher implements AEADBlockCipher {
     }
 
     public byte[] getLSub(int i) {
-        while (i >= this.L.size()) {
-            Vector vector = this.L;
+        while (i >= this.f81194L.size()) {
+            Vector vector = this.f81194L;
             vector.addElement(OCB_double((byte[]) vector.lastElement()));
         }
-        return (byte[]) this.L.elementAt(i);
+        return (byte[]) this.f81194L.elementAt(i);
     }
 
     @Override // org.bouncycastle.crypto.modes.AEADCipher
@@ -400,7 +402,7 @@ public class OCBBlockCipher implements AEADBlockCipher {
             this.initialAssociatedText = aEADParameters.getAssociatedText();
             int macSize = aEADParameters.getMacSize();
             if (macSize < 64 || macSize > 128 || macSize % 8 != 0) {
-                throw new IllegalArgumentException(C19370.m44628(macSize, "Invalid value for MAC size: "));
+                throw new IllegalArgumentException(C20778.m46922(macSize, "Invalid value for MAC size: "));
             }
             this.macSize = macSize / 8;
             key = aEADParameters.getKey();
@@ -434,7 +436,7 @@ public class OCBBlockCipher implements AEADBlockCipher {
         this.hashCipher.processBlock(bArr, 0, bArr, 0);
         this.L_Dollar = OCB_double(this.L_Asterisk);
         Vector vector = new Vector();
-        this.L = vector;
+        this.f81194L = vector;
         vector.addElement(OCB_double(this.L_Dollar));
         int iProcessNonce = processNonce(iv);
         int i = iProcessNonce % 8;

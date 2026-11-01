@@ -1,34 +1,34 @@
 package com.amazonaws;
 
 import java.util.EnumMap;
-import l.C22870;
+import p067l.C24104;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class RequestClientOptions {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final EnumMap f113 = new EnumMap(Marker.class);
+    /* JADX INFO: renamed from: ֫ */
+    public final EnumMap f1273 = new EnumMap(Marker.class);
 
     public enum Marker {
         USER_AGENT
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final String m196(Marker marker) {
-        return (String) this.f113.get(marker);
+    /* JADX INFO: renamed from: ֫ */
+    public final String m1362(Marker marker) {
+        return (String) this.f1273.get(marker);
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m197(String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1363(String str) {
         Marker marker = Marker.USER_AGENT;
-        EnumMap enumMap = this.f113;
-        String strM50967 = (String) enumMap.get(marker);
-        if (strM50967 == null) {
-            strM50967 = "";
+        EnumMap enumMap = this.f1273;
+        String strM53357 = (String) enumMap.get(marker);
+        if (strM53357 == null) {
+            strM53357 = "";
         }
-        if (!strM50967.contains(str)) {
-            strM50967 = C22870.m50967(strM50967, " ", str);
+        if (!strM53357.contains(str)) {
+            strM53357 = C24104.m53357(strM53357, " ", str);
         }
-        enumMap.put(marker, strM50967);
+        enumMap.put(marker, strM53357);
     }
 }

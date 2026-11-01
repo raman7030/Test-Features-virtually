@@ -5,16 +5,18 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SM2ParameterSpec implements AlgorithmParameterSpec {
-    public byte[] id;
+
+    /* JADX INFO: renamed from: id */
+    public byte[] f81370id;
 
     public SM2ParameterSpec(byte[] bArr) {
         if (bArr == null) {
             throw new NullPointerException("id string cannot be null");
         }
-        this.id = Arrays.clone(bArr);
+        this.f81370id = Arrays.clone(bArr);
     }
 
     public byte[] getID() {
-        return Arrays.clone(this.id);
+        return Arrays.clone(this.f81370id);
     }
 }

@@ -1,16 +1,18 @@
 package org.bouncycastle.math.raw;
 
-import l.C21639;
+import p067l.C22934;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class Mont256 {
-    public static final long M = 4294967295L;
+
+    /* JADX INFO: renamed from: M */
+    public static final long f81545M = 4294967295L;
 
     public static int inverse32(int i) {
-        int iM48904 = C21639.m48904(i, i, 2, i);
-        int iM48905 = C21639.m48904(i, iM48904, 2, iM48904);
-        int iM48906 = C21639.m48904(i, iM48905, 2, iM48905);
-        return C21639.m48904(i, iM48906, 2, iM48906);
+        int iM51252 = C22934.m51252(i, i, 2, i);
+        int iM51253 = C22934.m51252(i, iM51252, 2, iM51252);
+        int iM51254 = C22934.m51252(i, iM51253, 2, iM51253);
+        return C22934.m51252(i, iM51254, 2, iM51254);
     }
 
     public static void multAdd(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, int i) {

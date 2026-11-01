@@ -5,7 +5,9 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes2.dex */
 public class MLKEMPublicKeyParameters extends MLKEMKeyParameters {
     public final byte[] rho;
-    public final byte[] t;
+
+    /* JADX INFO: renamed from: t */
+    public final byte[] f81679t;
 
     public MLKEMPublicKeyParameters(MLKEMParameters mLKEMParameters, byte[] bArr) {
         super(false, mLKEMParameters);
@@ -14,7 +16,7 @@ public class MLKEMPublicKeyParameters extends MLKEMKeyParameters {
             throw new IllegalArgumentException("'encoding' has invalid length");
         }
         byte[] bArrCopyOfRange = Arrays.copyOfRange(bArr, 0, bArr.length - 32);
-        this.t = bArrCopyOfRange;
+        this.f81679t = bArrCopyOfRange;
         this.rho = Arrays.copyOfRange(bArr, bArr.length - 32, bArr.length);
         if (!engine.checkModulus(bArrCopyOfRange)) {
             throw new IllegalArgumentException("Modulus check failed for ML-KEM public key");
@@ -31,7 +33,7 @@ public class MLKEMPublicKeyParameters extends MLKEMKeyParameters {
             throw new IllegalArgumentException("'rho' has invalid length");
         }
         byte[] bArrClone = Arrays.clone(bArr);
-        this.t = bArrClone;
+        this.f81679t = bArrClone;
         this.rho = Arrays.clone(bArr2);
         if (!engine.checkModulus(bArrClone)) {
             throw new IllegalArgumentException("Modulus check failed for ML-KEM public key");
@@ -43,7 +45,7 @@ public class MLKEMPublicKeyParameters extends MLKEMKeyParameters {
     }
 
     public byte[] getEncoded() {
-        return getEncoded(this.t, this.rho);
+        return getEncoded(this.f81679t, this.rho);
     }
 
     public byte[] getRho() {
@@ -51,6 +53,6 @@ public class MLKEMPublicKeyParameters extends MLKEMKeyParameters {
     }
 
     public byte[] getT() {
-        return Arrays.clone(this.t);
+        return Arrays.clone(this.f81679t);
     }
 }

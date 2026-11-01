@@ -16,14 +16,14 @@ import android.view.inputmethod.InputConnection;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C20094;
-import l.C22898;
+import p067l.C19410;
+import p067l.C1978;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
-public class TextInputEditText extends C22898 {
+public class TextInputEditText extends C1978 {
     public final Rect parentRect;
     public boolean textInputLayoutFocusedRectEnabled;
 
@@ -32,14 +32,14 @@ public class TextInputEditText extends C22898 {
     }
 
     public TextInputEditText(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55526);
+        this(context, attributeSet, C19410.f58723);
     }
 
     public TextInputEditText(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         this.parentRect = new Rect();
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, C19343.f62386, i, C18637.f58247, new int[0]);
-        setTextInputLayoutFocusedRectEnabled(typedArrayObtainStyledAttributes.getBoolean(C19343.f61533, false));
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, C20752.f82860, i, C20081.f61470, new int[0]);
+        setTextInputLayoutFocusedRectEnabled(typedArrayObtainStyledAttributes.getBoolean(C20752.f82567, false));
         typedArrayObtainStyledAttributes.recycle();
     }
 
@@ -61,7 +61,7 @@ public class TextInputEditText extends C22898 {
         return super.getHint();
     }
 
-    @Override // l.C22898, android.widget.TextView, android.view.View
+    @Override // p067l.C1978, android.widget.TextView, android.view.View
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         InputConnection inputConnectionOnCreateInputConnection = super.onCreateInputConnection(editorInfo);
         if (inputConnectionOnCreateInputConnection != null && editorInfo.hintText == null) {
@@ -153,7 +153,7 @@ public class TextInputEditText extends C22898 {
         }
         StringBuilder sb = new StringBuilder();
         sb.append((Object) text);
-        sb.append(TextUtils.isEmpty(string) ? "" : C20094.m46315(", ", string));
+        sb.append(TextUtils.isEmpty(string) ? "" : C21466.m48631(", ", string));
         return sb.toString();
     }
 }

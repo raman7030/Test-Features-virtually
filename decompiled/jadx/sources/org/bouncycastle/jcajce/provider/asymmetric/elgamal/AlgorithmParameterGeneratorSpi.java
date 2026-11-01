@@ -16,8 +16,8 @@ public class AlgorithmParameterGeneratorSpi extends BaseAlgorithmParameterGenera
     public SecureRandom random;
     public int strength = 1024;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public int f77975l = 0;
+    /* JADX INFO: renamed from: l */
+    public int f81346l = 0;
 
     @Override // java.security.AlgorithmParameterGeneratorSpi
     public AlgorithmParameters engineGenerateParameters() {
@@ -31,7 +31,7 @@ public class AlgorithmParameterGeneratorSpi extends BaseAlgorithmParameterGenera
         ElGamalParameters elGamalParametersGenerateParameters = elGamalParametersGenerator.generateParameters();
         try {
             AlgorithmParameters algorithmParametersCreateParametersInstance = createParametersInstance("ElGamal");
-            algorithmParametersCreateParametersInstance.init(new DHParameterSpec(elGamalParametersGenerateParameters.getP(), elGamalParametersGenerateParameters.getG(), this.f77975l));
+            algorithmParametersCreateParametersInstance.init(new DHParameterSpec(elGamalParametersGenerateParameters.getP(), elGamalParametersGenerateParameters.getG(), this.f81346l));
             return algorithmParametersCreateParametersInstance;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
@@ -51,7 +51,7 @@ public class AlgorithmParameterGeneratorSpi extends BaseAlgorithmParameterGenera
         }
         DHGenParameterSpec dHGenParameterSpec = (DHGenParameterSpec) algorithmParameterSpec;
         this.strength = dHGenParameterSpec.getPrimeSize();
-        this.f77975l = dHGenParameterSpec.getExponentSize();
+        this.f81346l = dHGenParameterSpec.getExponentSize();
         this.random = secureRandom;
     }
 }

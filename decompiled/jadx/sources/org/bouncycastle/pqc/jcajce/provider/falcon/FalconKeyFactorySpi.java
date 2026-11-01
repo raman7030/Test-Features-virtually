@@ -10,13 +10,13 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashSet;
 import java.util.Set;
-import l.C21639;
-import l.C7166;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.pqc.jcajce.provider.util.BaseKeyFactorySpi;
+import p067l.C22934;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FalconKeyFactorySpi extends BaseKeyFactorySpi {
@@ -75,12 +75,12 @@ public class FalconKeyFactorySpi extends BaseKeyFactorySpi {
             }
         } else {
             if (!(key instanceof BCFalconPublicKey)) {
-                throw new InvalidKeySpecException(C7166.m19189(key, new StringBuilder("Unsupported key type: "), "."));
+                throw new InvalidKeySpecException(C9179.m21132(key, new StringBuilder("Unsupported key type: "), "."));
             }
             if (X509EncodedKeySpec.class.isAssignableFrom(cls)) {
                 return new X509EncodedKeySpec(key.getEncoded());
             }
         }
-        throw new InvalidKeySpecException(C21639.m48905(cls, "Unknown key specification: ", "."));
+        throw new InvalidKeySpecException(C22934.m51253(cls, "Unknown key specification: ", "."));
     }
 }

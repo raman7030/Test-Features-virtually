@@ -8,9 +8,9 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.ShortBufferException;
-import l.C13325;
-import l.C3200;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
+import p067l.C15033;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class AsymmetricBlockCipher extends CipherSpiExt {
@@ -145,7 +145,7 @@ public abstract class AsymmetricBlockCipher extends CipherSpiExt {
             if (size <= this.maxPlainTextSize) {
                 return;
             }
-            throw new IllegalBlockSizeException(C3200.m9831(this.maxPlainTextSize, " bytes).", C13325.m32308(size, "The length of the plaintext (", " bytes) is not supported by the cipher (max. ")));
+            throw new IllegalBlockSizeException(C5410.m11876(this.maxPlainTextSize, " bytes).", C15033.m34408(size, "The length of the plaintext (", " bytes) is not supported by the cipher (max. ")));
         }
         if (i2 != 2 || size == this.cipherTextSize) {
             return;

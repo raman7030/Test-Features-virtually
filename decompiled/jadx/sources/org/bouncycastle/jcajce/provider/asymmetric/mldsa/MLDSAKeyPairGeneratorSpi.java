@@ -6,7 +6,6 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import l.C16701;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.jcajce.spec.MLDSAParameterSpec;
@@ -18,6 +17,7 @@ import org.bouncycastle.pqc.crypto.mldsa.MLDSAParameters;
 import org.bouncycastle.pqc.crypto.mldsa.MLDSAPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mldsa.MLDSAPublicKeyParameters;
 import org.bouncycastle.util.Strings;
+import p067l.C18241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MLDSAKeyPairGeneratorSpi extends KeyPairGenerator {
@@ -130,7 +130,7 @@ public class MLDSAKeyPairGeneratorSpi extends KeyPairGenerator {
     public void initialize(AlgorithmParameterSpec algorithmParameterSpec, SecureRandom secureRandom) throws InvalidAlgorithmParameterException {
         String nameFromParams = getNameFromParams(algorithmParameterSpec);
         if (nameFromParams == null) {
-            throw new InvalidAlgorithmParameterException(C16701.m39266("invalid ParameterSpec: ", algorithmParameterSpec));
+            throw new InvalidAlgorithmParameterException(C18241.m41502("invalid ParameterSpec: ", algorithmParameterSpec));
         }
         MLDSAParameters parameters = Utils.getParameters(nameFromParams);
         if (parameters == null) {

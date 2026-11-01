@@ -7,26 +7,32 @@ import org.bouncycastle.util.Arrays;
 public final class KDFFeedbackParameters implements DerivationParameters {
     public static final int UNUSED_R = -1;
     public final byte[] fixedInputData;
-    public final byte[] iv;
-    public final byte[] ki;
-    public final int r;
+
+    /* JADX INFO: renamed from: iv */
+    public final byte[] f81270iv;
+
+    /* JADX INFO: renamed from: ki */
+    public final byte[] f81271ki;
+
+    /* JADX INFO: renamed from: r */
+    public final int f81272r;
     public final boolean useCounter;
 
     public KDFFeedbackParameters(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, boolean z) {
         if (bArr == null) {
             throw new IllegalArgumentException("A KDF requires Ki (a seed) as input");
         }
-        this.ki = Arrays.clone(bArr);
+        this.f81271ki = Arrays.clone(bArr);
         if (bArr3 == null) {
             this.fixedInputData = new byte[0];
         } else {
             this.fixedInputData = Arrays.clone(bArr3);
         }
-        this.r = i;
+        this.f81272r = i;
         if (bArr2 == null) {
-            this.iv = new byte[0];
+            this.f81270iv = new byte[0];
         } else {
-            this.iv = Arrays.clone(bArr2);
+            this.f81270iv = Arrays.clone(bArr2);
         }
         this.useCounter = z;
     }
@@ -47,15 +53,15 @@ public final class KDFFeedbackParameters implements DerivationParameters {
     }
 
     public byte[] getIV() {
-        return this.iv;
+        return this.f81270iv;
     }
 
     public byte[] getKI() {
-        return this.ki;
+        return this.f81271ki;
     }
 
     public int getR() {
-        return this.r;
+        return this.f81272r;
     }
 
     public boolean useCounter() {

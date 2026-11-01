@@ -6,8 +6,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import com.google.android.material.internal.ThemeEnforcement;
-import l.C19343;
-import l.C23575;
+import p067l.C20752;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaterialDialogs {
@@ -16,11 +16,11 @@ public class MaterialDialogs {
     }
 
     public static Rect getDialogBackgroundInsets(Context context, int i, int i2) {
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, null, C19343.f62052, i, i2, new int[0]);
-        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f62479, context.getResources().getDimensionPixelSize(C23575.f76441));
-        int dimensionPixelSize2 = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f62532, context.getResources().getDimensionPixelSize(C23575.f75875));
-        int dimensionPixelSize3 = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61999, context.getResources().getDimensionPixelSize(C23575.f76133));
-        int dimensionPixelSize4 = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61467, context.getResources().getDimensionPixelSize(C23575.f76229));
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, null, C20752.f64868, i, i2, new int[0]);
+        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f65148, context.getResources().getDimensionPixelSize(C24774.f79187));
+        int dimensionPixelSize2 = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f65183, context.getResources().getDimensionPixelSize(C24774.f78621));
+        int dimensionPixelSize3 = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64833, context.getResources().getDimensionPixelSize(C24774.f78879));
+        int dimensionPixelSize4 = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64483, context.getResources().getDimensionPixelSize(C24774.f78975));
         typedArrayObtainStyledAttributes.recycle();
         if (context.getResources().getConfiguration().getLayoutDirection() == 1) {
             dimensionPixelSize3 = dimensionPixelSize;

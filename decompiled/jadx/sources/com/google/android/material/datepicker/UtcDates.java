@@ -9,8 +9,8 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-import l.C3261;
-import l.C3820;
+import p067l.C5468;
+import p067l.C5999;
 
 /* JADX INFO: loaded from: classes.dex */
 public class UtcDates {
@@ -27,7 +27,7 @@ public class UtcDates {
     }
 
     public static TimeZone getTimeZone() {
-        return C3261.getTimeZone(UTC);
+        return C5468.getTimeZone(UTC);
     }
 
     @TargetApi(24)
@@ -101,9 +101,9 @@ public class UtcDates {
 
     public static String getDefaultTextInputHint(Resources resources, SimpleDateFormat simpleDateFormat) {
         String pattern = simpleDateFormat.toPattern();
-        String string = resources.getString(C3820.f12134);
-        String string2 = resources.getString(C3820.f12071);
-        String string3 = resources.getString(C3820.f12109);
+        String string = resources.getString(C5999.f14941);
+        String string2 = resources.getString(C5999.f14878);
+        String string3 = resources.getString(C5999.f14916);
         if (Locale.getDefault().getLanguage().equals(Locale.KOREAN.getLanguage())) {
             pattern = pattern.replaceAll("d+", "d").replaceAll("M+", "M").replaceAll("y+", "y");
         }

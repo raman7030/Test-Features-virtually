@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.modes;
 
-import l.C3200;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DataLengthException;
@@ -9,10 +8,13 @@ import org.bouncycastle.crypto.StreamBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81200IV;
     public final int blockSize;
     public int byteCount;
     public final BlockCipher cipher;
@@ -25,7 +27,7 @@ public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
         this.cipher = blockCipher;
         int blockSize = blockCipher.getBlockSize();
         this.blockSize = blockSize;
-        this.IV = new byte[blockSize];
+        this.f81200IV = new byte[blockSize];
         this.counter = new byte[blockSize];
         this.counterOut = new byte[blockSize];
         this.byteCount = 0;
@@ -75,7 +77,7 @@ public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
     }
 
     private void checkCounter() {
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81200IV;
         if (bArr.length < this.blockSize) {
             int length = bArr.length;
             do {
@@ -83,13 +85,13 @@ public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
                 if (length < 0) {
                     return;
                 }
-            } while (this.counter[length] == this.IV[length]);
+            } while (this.counter[length] == this.f81200IV[length]);
             throw new IllegalStateException("Counter in CTR/SIC mode out of range.");
         }
     }
 
     private void checkLastIncrement() {
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81200IV;
         if (bArr.length < this.blockSize && this.counter[bArr.length - 1] != bArr[bArr.length - 1]) {
             throw new IllegalStateException("Counter in CTR/SIC mode out of range.");
         }
@@ -191,7 +193,7 @@ public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
         System.arraycopy(bArr, 0, bArr2, 0, length);
         int i = length - 1;
         while (i >= 1) {
-            byte[] bArr3 = this.IV;
+            byte[] bArr3 = this.f81200IV;
             int i2 = i < bArr3.length ? (bArr2[i] & 255) - (bArr3[i] & 255) : bArr2[i] & 255;
             if (i2 < 0) {
                 int i3 = i - 1;
@@ -263,7 +265,7 @@ public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
         Arrays.fill(this.counter, (byte) 0);
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81200IV;
         System.arraycopy(bArr, 0, this.counter, 0, bArr.length);
         this.cipher.reset();
         this.byteCount = 0;
@@ -290,10 +292,10 @@ public class SICBlockCipher extends StreamBlockCipher implements CTRModeCipher {
         }
         ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
         byte[] bArrClone = Arrays.clone(parametersWithIV.getIV());
-        this.IV = bArrClone;
+        this.f81200IV = bArrClone;
         int i = this.blockSize;
         if (i < bArrClone.length) {
-            throw new IllegalArgumentException(C3200.m9831(this.blockSize, " bytes.", new StringBuilder("CTR/SIC mode requires IV no greater than: ")));
+            throw new IllegalArgumentException(C5410.m11876(this.blockSize, " bytes.", new StringBuilder("CTR/SIC mode requires IV no greater than: ")));
         }
         int i2 = 8 > i / 2 ? i / 2 : 8;
         if (i - bArrClone.length <= i2) {

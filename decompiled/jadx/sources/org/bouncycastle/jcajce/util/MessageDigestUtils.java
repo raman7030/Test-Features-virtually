@@ -2,12 +2,11 @@ package org.bouncycastle.jcajce.util;
 
 import java.util.HashMap;
 import java.util.Map;
-import l.C20094;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.DERNull;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p071gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
@@ -16,6 +15,7 @@ import org.bouncycastle.internal.asn1.iso.ISOIECObjectIdentifiers;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MessageDigestUtils {
@@ -94,6 +94,6 @@ public class MessageDigestUtils {
         if (digestAlgIdMap.containsKey(str)) {
             return (AlgorithmIdentifier) digestAlgIdMap.get(str);
         }
-        throw new IllegalArgumentException(C20094.m46315("unknown digest: ", str));
+        throw new IllegalArgumentException(C21466.m48631("unknown digest: ", str));
     }
 }

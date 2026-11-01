@@ -13,7 +13,9 @@ public class Signature2 {
     public byte[] salt = new byte[32];
 
     public class Proof2 {
-        public byte[] C;
+
+        /* JADX INFO: renamed from: C */
+        public byte[] f81695C;
         public byte[] aux;
         public byte[] input;
         public byte[] msgs;
@@ -21,7 +23,7 @@ public class Signature2 {
         public int seedInfoLen = 0;
 
         public Proof2(PicnicEngine picnicEngine) {
-            this.C = new byte[picnicEngine.digestSizeBytes];
+            this.f81695C = new byte[picnicEngine.digestSizeBytes];
             this.input = new byte[picnicEngine.stateSizeBytes];
             int i = picnicEngine.andSizeBytes;
             this.aux = new byte[i];

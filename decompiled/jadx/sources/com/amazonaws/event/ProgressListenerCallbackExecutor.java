@@ -7,11 +7,11 @@ import java.util.concurrent.ThreadFactory;
 /* JADX INFO: loaded from: classes.dex */
 public class ProgressListenerCallbackExecutor {
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static final /* synthetic */ int f168 = 0;
+    /* JADX INFO: renamed from: ۧ */
+    public static final /* synthetic */ int f1328 = 0;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public static ExecutorService f169 = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.amazonaws.event.ProgressListenerCallbackExecutor.3
+    /* JADX INFO: renamed from: ܽ */
+    public static ExecutorService f1329 = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.amazonaws.event.ProgressListenerCallbackExecutor.3
         @Override // java.util.concurrent.ThreadFactory
         public final Thread newThread(Runnable runnable) {
             Thread thread = new Thread(runnable);
@@ -21,22 +21,22 @@ public class ProgressListenerCallbackExecutor {
         }
     });
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final ProgressListener f170;
+    /* JADX INFO: renamed from: ֫ */
+    public final ProgressListener f1330;
 
     public ProgressListenerCallbackExecutor(ProgressListener progressListener) {
-        this.f170 = progressListener;
+        this.f1330 = progressListener;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m231(final ProgressEvent progressEvent) {
-        if (this.f170 == null) {
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1397(final ProgressEvent progressEvent) {
+        if (this.f1330 == null) {
             return;
         }
-        f169.submit(new Runnable() { // from class: com.amazonaws.event.ProgressListenerCallbackExecutor.2
+        f1329.submit(new Runnable() { // from class: com.amazonaws.event.ProgressListenerCallbackExecutor.2
             @Override // java.lang.Runnable
             public final void run() {
-                ProgressListenerCallbackExecutor.this.f170.mo229(progressEvent);
+                ProgressListenerCallbackExecutor.this.f1330.mo1395(progressEvent);
             }
         });
     }

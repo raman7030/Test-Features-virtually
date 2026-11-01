@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import l.C19343;
-import l.C22733;
+import p067l.C1970;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TabItem extends View {
@@ -19,10 +19,10 @@ public class TabItem extends View {
 
     public TabItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        C22733 c22733M50795 = C22733.m50795(context, attributeSet, C19343.f61770);
-        this.text = c22733M50795.m50817(C19343.f61717);
-        this.icon = c22733M50795.m50815(C19343.f61610);
-        this.customLayout = c22733M50795.m50806(C19343.f61292, 0);
-        c22733M50795.m50813();
+        C1970 c1970M53128 = C1970.m53128(context, attributeSet, C20752.f82647);
+        this.text = c1970M53128.m53150(C20752.f82629);
+        this.icon = c1970M53128.m53148(C20752.f82592);
+        this.customLayout = c1970M53128.m53139(C20752.f82484, 0);
+        c1970M53128.m53146();
     }
 }

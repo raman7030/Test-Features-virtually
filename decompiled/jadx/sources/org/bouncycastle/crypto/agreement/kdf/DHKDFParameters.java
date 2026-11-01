@@ -8,7 +8,9 @@ public class DHKDFParameters implements DerivationParameters {
     public ASN1ObjectIdentifier algorithm;
     public byte[] extraInfo;
     public int keySize;
-    public byte[] z;
+
+    /* JADX INFO: renamed from: z */
+    public byte[] f80761z;
 
     public DHKDFParameters(ASN1ObjectIdentifier aSN1ObjectIdentifier, int i, byte[] bArr) {
         this(aSN1ObjectIdentifier, i, bArr, null);
@@ -17,7 +19,7 @@ public class DHKDFParameters implements DerivationParameters {
     public DHKDFParameters(ASN1ObjectIdentifier aSN1ObjectIdentifier, int i, byte[] bArr, byte[] bArr2) {
         this.algorithm = aSN1ObjectIdentifier;
         this.keySize = i;
-        this.z = bArr;
+        this.f80761z = bArr;
         this.extraInfo = bArr2;
     }
 
@@ -34,6 +36,6 @@ public class DHKDFParameters implements DerivationParameters {
     }
 
     public byte[] getZ() {
-        return this.z;
+        return this.f80761z;
     }
 }

@@ -2,19 +2,19 @@ package org.bouncycastle.crypto.agreement.ecjpake;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import l.C16014;
-import l.C20087;
-import l.C4860;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.Strings;
+import p067l.C17588;
+import p067l.C21459;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECJPAKEUtil {
@@ -182,19 +182,19 @@ public class ECJPAKEUtil {
 
     public static void validateParticipantIdsDiffer(String str, String str2) throws CryptoException {
         if (str.equals(str2)) {
-            throw new CryptoException(C4860.m14172("Both participants are using the same participantId (", str, "). This is not allowed. Each participant must use a unique participantId."));
+            throw new CryptoException(C6988.m16053("Both participants are using the same participantId (", str, "). This is not allowed. Each participant must use a unique participantId."));
         }
     }
 
     public static void validateParticipantIdsEqual(String str, String str2) throws CryptoException {
         if (!str.equals(str2)) {
-            throw new CryptoException(C20087.m46306("Received payload from incorrect partner (", str2, "). Expected to receive payload from ", str, "."));
+            throw new CryptoException(C21459.m48622("Received payload from incorrect partner (", str2, "). Expected to receive payload from ", str, "."));
         }
     }
 
     public static void validateNotNull(Object obj, String str) {
         if (obj == null) {
-            throw new NullPointerException(C16014.m37867(str, " must not be null"));
+            throw new NullPointerException(C17588.m40053(str, " must not be null"));
         }
     }
 }

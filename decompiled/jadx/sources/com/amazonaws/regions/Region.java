@@ -5,58 +5,58 @@ import java.util.HashMap;
 /* JADX INFO: loaded from: classes.dex */
 public final class Region {
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final String f407;
+    /* JADX INFO: renamed from: ܽ */
+    public final String f1567;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final HashMap f408 = new HashMap();
+    /* JADX INFO: renamed from: ᩳ */
+    public final HashMap f1568 = new HashMap();
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final HashMap f405 = new HashMap();
+    /* JADX INFO: renamed from: ֫ */
+    public final HashMap f1565 = new HashMap();
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final HashMap f406 = new HashMap();
+    /* JADX INFO: renamed from: ۧ */
+    public final HashMap f1566 = new HashMap();
 
     public Region(String str) {
-        this.f407 = str;
+        this.f1567 = str;
     }
 
     public final int hashCode() {
-        return this.f407.hashCode();
+        return this.f1567.hashCode();
     }
 
     public final String toString() {
-        return this.f407;
+        return this.f1567;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final String m416() {
-        return this.f407;
+    /* JADX INFO: renamed from: ܽ */
+    public final String m1582() {
+        return this.f1567;
     }
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final HashMap m417() {
-        return this.f408;
+    /* JADX INFO: renamed from: ܿ */
+    public final HashMap m1583() {
+        return this.f1568;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final HashMap m414() {
-        return this.f405;
+    /* JADX INFO: renamed from: ֫ */
+    public final HashMap m1580() {
+        return this.f1565;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final HashMap m415() {
-        return this.f406;
+    /* JADX INFO: renamed from: ۧ */
+    public final HashMap m1581() {
+        return this.f1566;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final String m418() {
-        return (String) this.f408.get("s3");
+    /* JADX INFO: renamed from: ᩳ */
+    public final String m1584() {
+        return (String) this.f1568.get("s3");
     }
 
     public final boolean equals(Object obj) {
         if (obj instanceof Region) {
-            return this.f407.equals(((Region) obj).f407);
+            return this.f1567.equals(((Region) obj).f1567);
         }
         return false;
     }

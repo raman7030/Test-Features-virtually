@@ -6,10 +6,12 @@ import org.bouncycastle.asn1.ASN1Primitive;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CertPolicyId extends ASN1Object {
-    public ASN1ObjectIdentifier id;
+
+    /* JADX INFO: renamed from: id */
+    public ASN1ObjectIdentifier f80707id;
 
     public CertPolicyId(ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-        this.id = aSN1ObjectIdentifier;
+        this.f80707id = aSN1ObjectIdentifier;
     }
 
     public static CertPolicyId getInstance(Object obj) {
@@ -23,11 +25,11 @@ public class CertPolicyId extends ASN1Object {
     }
 
     public String getId() {
-        return this.id.getId();
+        return this.f80707id.getId();
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
-        return this.id;
+        return this.f80707id;
     }
 }

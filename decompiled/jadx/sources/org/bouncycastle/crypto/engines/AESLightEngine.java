@@ -1,12 +1,10 @@
 package org.bouncycastle.crypto.engines;
 
-import com.alipay.sdk.m.y.q;
+import com.alipay.sdk.p010m.p058y.C0254q;
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import java.lang.reflect.Array;
-import l.C20177;
-import l.EnumC17734;
 import moe.shizuku.server.IShizukuService;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.BlockCipher;
@@ -22,21 +20,37 @@ import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
 import org.bouncycastle.util.Pack;
 import org.bouncycastle.util.encoders.Base32Encoder;
 import org.bouncycastle.util.encoders.UTF8;
+import p067l.C21545;
+import p067l.EnumC19222;
 
 /* JADX INFO: loaded from: classes.dex */
 public class AESLightEngine implements BlockCipher {
     public static final int BLOCK_SIZE = 16;
-    public static final int m1 = -2139062144;
-    public static final int m2 = 2139062143;
-    public static final int m3 = 27;
-    public static final int m4 = -1061109568;
-    public static final int m5 = 1061109567;
+
+    /* JADX INFO: renamed from: m1 */
+    public static final int f80970m1 = -2139062144;
+
+    /* JADX INFO: renamed from: m2 */
+    public static final int f80971m2 = 2139062143;
+
+    /* JADX INFO: renamed from: m3 */
+    public static final int f80972m3 = 27;
+
+    /* JADX INFO: renamed from: m4 */
+    public static final int f80973m4 = -1061109568;
+
+    /* JADX INFO: renamed from: m5 */
+    public static final int f80974m5 = 1061109567;
     public int ROUNDS;
     public int[][] WorkingKey = null;
     public boolean forEncryption;
-    public static final byte[] S = {99, 124, 119, 123, -14, 107, KeyFactorySpi.x448_type, -59, UTF8.S_P3A, 1, 103, 43, -2, -41, -85, 118, -54, bo.h, -55, 125, -6, 89, 71, -16, -83, -44, -94, -81, -100, -92, 114, -64, -73, -3, -109, 38, 54, 63, -9, -52, 52, -91, -27, -15, KeyFactorySpi.Ed448_type, -40, 49, 21, 4, -57, 35, -61, 24, -106, 5, -102, 7, 18, GCMSIVBlockCipher.MASK, -30, -21, 39, -78, 117, 9, -125, 44, 26, 27, KeyFactorySpi.x25519_type, 90, -96, 82, 59, -42, -77, 41, -29, 47, -124, 83, -47, 0, -19, UTF8.S_CS3, -4, -79, 91, 106, -53, -66, 57, 74, 76, 88, -49, -48, -17, -86, -5, 67, 77, 51, -123, 69, -7, 2, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, UTF8.S_P4A, 60, -97, -88, 81, -93, 64, -113, -110, -99, 56, -11, PSSSigner.TRAILER_IMPLICIT, -74, -38, PublicSuffixDatabase.EXCEPTION_MARKER, 16, -1, -13, -46, -51, 12, 19, -20, 95, -105, 68, 23, -60, -89, 126, Base32Encoder.DEFAULT_PADDING, 100, 93, 25, 115, UTF8.S_P4B, -127, 79, -36, 34, 42, -112, -120, 70, -18, -72, 20, -34, 94, 11, -37, bo.k, 50, 58, 10, 73, 6, 36, 92, -62, -45, -84, 98, -111, -107, -28, 121, -25, -56, 55, 109, -115, -43, 78, -87, 108, 86, -12, -22, 101, 122, -82, 8, -70, 120, 37, 46, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, -90, -76, -58, -24, -35, 116, bo.j, 75, -67, -117, -118, KeyFactorySpi.Ed25519_type, 62, -75, 102, 72, 3, -10, cb.f77931l, 97, 53, 87, -71, -122, -63, 29, -98, GCMSIVBlockCipher.ADD, -8, -104, 17, 105, -39, -114, -108, -101, 30, -121, -23, -50, 85, 40, -33, -116, -95, -119, cb.k, -65, -26, 66, 104, 65, -103, 45, 15, -80, 84, -69, 22};
-    public static final byte[] Si = {82, 9, 106, -43, UTF8.S_P3A, 54, -91, 56, -65, 64, -93, -98, -127, -13, -41, -5, 124, -29, 57, bo.h, -101, 47, -1, -121, 52, -114, 67, 68, -60, -34, -23, -53, 84, 123, -108, 50, -90, -62, 35, Base32Encoder.DEFAULT_PADDING, -18, 76, -107, 11, 66, -6, -61, 78, 8, 46, -95, 102, 40, -39, 36, -78, 118, 91, -94, 73, 109, -117, -47, 37, 114, -8, -10, 100, -122, 104, -104, 22, -44, -92, 92, -52, 93, 101, -74, -110, 108, KeyFactorySpi.Ed25519_type, 72, UTF8.S_P4A, -3, -19, -71, -38, 94, 21, 70, 87, -89, -115, -99, -124, -112, -40, -85, 0, -116, PSSSigner.TRAILER_IMPLICIT, -45, 10, -9, -28, 88, 5, -72, -77, 69, 6, -48, 44, 30, -113, -54, 63, 15, 2, -63, -81, -67, 3, 1, 19, -118, 107, 58, -111, 17, 65, 79, 103, -36, -22, -105, -14, -49, -50, -16, -76, -26, 115, -106, -84, 116, 34, -25, -83, 53, -123, -30, -7, 55, -24, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 117, -33, KeyFactorySpi.x25519_type, 71, -15, 26, KeyFactorySpi.Ed448_type, 29, 41, -59, -119, KeyFactorySpi.x448_type, -73, 98, cb.f77931l, -86, 24, -66, 27, -4, 86, 62, 75, -58, -46, 121, UTF8.S_CS3, -102, -37, -64, -2, 120, -51, 90, -12, bo.j, -35, -88, 51, -120, 7, -57, 49, -79, 18, 16, 89, 39, GCMSIVBlockCipher.MASK, -20, 95, UTF8.S_P4B, 81, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -87, 25, -75, 74, cb.k, 45, -27, 122, -97, -109, -55, -100, -17, -96, bo.k, 59, 77, -82, 42, -11, -80, -56, -21, -69, 60, -125, 83, -103, 97, 23, 43, 4, 126, -70, 119, -42, 38, GCMSIVBlockCipher.ADD, 105, 20, 99, 85, PublicSuffixDatabase.EXCEPTION_MARKER, 12, 125};
-    public static final int[] rcon = {1, 2, 4, 8, 16, 32, 64, 128, 27, 54, 108, 216, 171, 77, EnumC17734.f54268, 47, 94, 188, 99, 198, 151, 53, IShizukuService.Stub.TRANSACTION_getFlagsForUid, 212, 179, q.h, 250, 239, 197, 145};
+
+    /* JADX INFO: renamed from: S */
+    public static final byte[] f80968S = {99, 124, 119, 123, -14, 107, KeyFactorySpi.x448_type, -59, UTF8.S_P3A, 1, 103, 43, -2, -41, -85, 118, -54, C0684bo.f2503h, -55, 125, -6, 89, 71, -16, -83, -44, -94, -81, -100, -92, 114, -64, -73, -3, -109, 38, 54, 63, -9, -52, 52, -91, -27, -15, KeyFactorySpi.Ed448_type, -40, 49, 21, 4, -57, 35, -61, 24, -106, 5, -102, 7, 18, GCMSIVBlockCipher.MASK, -30, -21, 39, -78, 117, 9, -125, 44, 26, 27, KeyFactorySpi.x25519_type, 90, -96, 82, 59, -42, -77, 41, -29, 47, -124, 83, -47, 0, -19, UTF8.S_CS3, -4, -79, 91, 106, -53, -66, 57, 74, 76, 88, -49, -48, -17, -86, -5, 67, 77, 51, -123, 69, -7, 2, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, UTF8.S_P4A, 60, -97, -88, 81, -93, 64, -113, -110, -99, 56, -11, PSSSigner.TRAILER_IMPLICIT, -74, -38, PublicSuffixDatabase.EXCEPTION_MARKER, 16, -1, -13, -46, -51, 12, 19, -20, 95, -105, 68, 23, -60, -89, 126, Base32Encoder.DEFAULT_PADDING, 100, 93, 25, 115, UTF8.S_P4B, -127, 79, -36, 34, 42, -112, -120, 70, -18, -72, 20, -34, 94, 11, -37, C0684bo.f2506k, 50, 58, 10, 73, 6, 36, 92, -62, -45, -84, 98, -111, -107, -28, 121, -25, -56, 55, 109, -115, -43, 78, -87, 108, 86, -12, -22, 101, 122, -82, 8, -70, 120, 37, 46, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, -90, -76, -58, -24, -35, 116, C0684bo.f2505j, 75, -67, -117, -118, KeyFactorySpi.Ed25519_type, 62, -75, 102, 72, 3, -10, C0698cb.f2570l, 97, 53, 87, -71, -122, -63, 29, -98, GCMSIVBlockCipher.ADD, -8, -104, 17, 105, -39, -114, -108, -101, 30, -121, -23, -50, 85, 40, -33, -116, -95, -119, C0698cb.f2569k, -65, -26, 66, 104, 65, -103, 45, 15, -80, 84, -69, 22};
+
+    /* JADX INFO: renamed from: Si */
+    public static final byte[] f80969Si = {82, 9, 106, -43, UTF8.S_P3A, 54, -91, 56, -65, 64, -93, -98, -127, -13, -41, -5, 124, -29, 57, C0684bo.f2503h, -101, 47, -1, -121, 52, -114, 67, 68, -60, -34, -23, -53, 84, 123, -108, 50, -90, -62, 35, Base32Encoder.DEFAULT_PADDING, -18, 76, -107, 11, 66, -6, -61, 78, 8, 46, -95, 102, 40, -39, 36, -78, 118, 91, -94, 73, 109, -117, -47, 37, 114, -8, -10, 100, -122, 104, -104, 22, -44, -92, 92, -52, 93, 101, -74, -110, 108, KeyFactorySpi.Ed25519_type, 72, UTF8.S_P4A, -3, -19, -71, -38, 94, 21, 70, 87, -89, -115, -99, -124, -112, -40, -85, 0, -116, PSSSigner.TRAILER_IMPLICIT, -45, 10, -9, -28, 88, 5, -72, -77, 69, 6, -48, 44, 30, -113, -54, 63, 15, 2, -63, -81, -67, 3, 1, 19, -118, 107, 58, -111, 17, 65, 79, 103, -36, -22, -105, -14, -49, -50, -16, -76, -26, 115, -106, -84, 116, 34, -25, -83, 53, -123, -30, -7, 55, -24, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 117, -33, KeyFactorySpi.x25519_type, 71, -15, 26, KeyFactorySpi.Ed448_type, 29, 41, -59, -119, KeyFactorySpi.x448_type, -73, 98, C0698cb.f2570l, -86, 24, -66, 27, -4, 86, 62, 75, -58, -46, 121, UTF8.S_CS3, -102, -37, -64, -2, 120, -51, 90, -12, C0684bo.f2505j, -35, -88, 51, -120, 7, -57, 49, -79, 18, 16, 89, 39, GCMSIVBlockCipher.MASK, -20, 95, UTF8.S_P4B, 81, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -87, 25, -75, 74, C0698cb.f2569k, 45, -27, 122, -97, -109, -55, -100, -17, -96, C0684bo.f2506k, 59, 77, -82, 42, -11, -80, -56, -21, -69, 60, -125, 83, -103, 97, 23, 43, 4, 126, -70, 119, -42, 38, GCMSIVBlockCipher.ADD, 105, 20, 99, 85, PublicSuffixDatabase.EXCEPTION_MARKER, 12, 125};
+    public static final int[] rcon = {1, 2, 4, 8, 16, 32, 64, 128, 27, 54, 108, 216, 171, 77, EnumC19222.f57460, 47, 94, 188, 99, 198, 151, 53, IShizukuService.Stub.TRANSACTION_getFlagsForUid, 212, 179, C0254q.f1218h, 250, 239, 197, 145};
 
     public AESLightEngine() {
         CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(getAlgorithmName(), bitsOfSecurity()));
@@ -75,7 +89,7 @@ public class AESLightEngine implements BlockCipher {
         int i7 = i3 - 1;
         int iInv_mcol = iLittleEndianToInt4 ^ iArr2[3];
         for (int i8 = 1; i7 > i8; i8 = 1) {
-            byte[] bArr3 = Si;
+            byte[] bArr3 = f80969Si;
             int iInv_mcol2 = iArr[i7][c] ^ inv_mcol((((bArr3[i4 & 255] & 255) ^ ((bArr3[(iInv_mcol >> 8) & 255] & 255) << 8)) ^ ((bArr3[(i6 >> 16) & 255] & 255) << 16)) ^ (bArr3[(i5 >> 24) & 255] << 24));
             int iInv_mcol3 = inv_mcol((((bArr3[i5 & 255] & 255) ^ ((bArr3[(i4 >> 8) & 255] & 255) << 8)) ^ ((bArr3[(iInv_mcol >> 16) & 255] & 255) << 16)) ^ (bArr3[(i6 >> 24) & 255] << 24)) ^ iArr[i7][i8];
             int iInv_mcol4 = inv_mcol((((bArr3[i6 & 255] & 255) ^ ((bArr3[(i5 >> 8) & 255] & 255) << 8)) ^ ((bArr3[(i4 >> 16) & 255] & 255) << 16)) ^ (bArr3[(iInv_mcol >> 24) & 255] << 24)) ^ iArr[i7][2];
@@ -92,7 +106,7 @@ public class AESLightEngine implements BlockCipher {
             i5 = iInv_mcol7;
             i6 = iInv_mcol8;
         }
-        byte[] bArr4 = Si;
+        byte[] bArr4 = f80969Si;
         int iInv_mcol9 = inv_mcol((((bArr4[i4 & 255] & 255) ^ ((bArr4[(iInv_mcol >> 8) & 255] & 255) << 8)) ^ ((bArr4[(i6 >> 16) & 255] & 255) << 16)) ^ (bArr4[(i5 >> 24) & 255] << 24)) ^ iArr[i7][0];
         int iInv_mcol10 = inv_mcol((((bArr4[i5 & 255] & 255) ^ ((bArr4[(i4 >> 8) & 255] & 255) << 8)) ^ ((bArr4[(iInv_mcol >> 16) & 255] & 255) << 16)) ^ (bArr4[(i6 >> 24) & 255] << 24)) ^ iArr[i7][1];
         int iInv_mcol11 = inv_mcol(((((bArr4[(i5 >> 8) & 255] & 255) << 8) ^ (bArr4[i6 & 255] & 255)) ^ ((bArr4[(i4 >> 16) & 255] & 255) << 16)) ^ (bArr4[(iInv_mcol >> 24) & 255] << 24)) ^ iArr[i7][2];
@@ -122,7 +136,7 @@ public class AESLightEngine implements BlockCipher {
         int iMcol = iLittleEndianToInt4 ^ iArr2[3];
         int i6 = 1;
         for (int i7 = 1; i6 < this.ROUNDS - i7; i7 = 1) {
-            byte[] bArr3 = S;
+            byte[] bArr3 = f80968S;
             int iMcol2 = iArr[i6][c] ^ mcol((((bArr3[i3 & 255] & 255) ^ ((bArr3[(i4 >> 8) & 255] & 255) << 8)) ^ ((bArr3[(i5 >> 16) & 255] & 255) << 16)) ^ (bArr3[(iMcol >> 24) & 255] << 24));
             int iMcol3 = mcol((((bArr3[i4 & 255] & 255) ^ ((bArr3[(i5 >> 8) & 255] & 255) << 8)) ^ ((bArr3[(iMcol >> 16) & 255] & 255) << 16)) ^ (bArr3[(i3 >> 24) & 255] << 24)) ^ iArr[i6][i7];
             int iMcol4 = mcol((((bArr3[i5 & 255] & 255) ^ ((bArr3[(iMcol >> 8) & 255] & 255) << 8)) ^ ((bArr3[(i3 >> 16) & 255] & 255) << 16)) ^ (bArr3[(i4 >> 24) & 255] << 24)) ^ iArr[i6][2];
@@ -139,7 +153,7 @@ public class AESLightEngine implements BlockCipher {
             i4 = iMcol7;
             i5 = iMcol8;
         }
-        byte[] bArr4 = S;
+        byte[] bArr4 = f80968S;
         int iMcol9 = mcol((((bArr4[i3 & 255] & 255) ^ ((bArr4[(i4 >> 8) & 255] & 255) << 8)) ^ ((bArr4[(i5 >> 16) & 255] & 255) << 16)) ^ (bArr4[(iMcol >> 24) & 255] << 24)) ^ iArr[i6][0];
         int iMcol10 = mcol((((bArr4[i4 & 255] & 255) ^ ((bArr4[(i5 >> 8) & 255] & 255) << 8)) ^ ((bArr4[(iMcol >> 16) & 255] & 255) << 16)) ^ (bArr4[(i3 >> 24) & 255] << 24)) ^ iArr[i6][1];
         int iMcol11 = mcol(((((bArr4[(iMcol >> 8) & 255] & 255) << 8) ^ (bArr4[i5 & 255] & 255)) ^ ((bArr4[(i3 >> 16) & 255] & 255) << 16)) ^ (bArr4[(i4 >> 24) & 255] << 24)) ^ iArr[i6][2];
@@ -318,7 +332,7 @@ public class AESLightEngine implements BlockCipher {
     }
 
     public static int subWord(int i) {
-        byte[] bArr = S;
+        byte[] bArr = f80968S;
         return (bArr[(i >> 24) & 255] << 24) | (bArr[i & 255] & 255) | ((bArr[(i >> 8) & 255] & 255) << 8) | ((bArr[(i >> 16) & 255] & 255) << 16);
     }
 
@@ -359,7 +373,7 @@ public class AESLightEngine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to AES init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to AES init - ", cipherParameters));
         }
         this.WorkingKey = generateWorkingKey(((KeyParameter) cipherParameters).getKey(), z);
         this.forEncryption = z;

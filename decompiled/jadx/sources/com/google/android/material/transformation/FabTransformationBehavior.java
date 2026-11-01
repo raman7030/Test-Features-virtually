@@ -35,10 +35,10 @@ import com.google.android.material.math.MathUtils;
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-import l.C14077;
-import l.C17648;
-import l.C18333;
-import l.C20754;
+import p067l.C1540;
+import p067l.C1717;
+import p067l.C1751;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes2.dex */
 @Deprecated
@@ -73,8 +73,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         this.tmpArray = new int[2];
     }
 
-    @Override // com.google.android.material.transformation.ExpandableBehavior, l.AbstractC6317
-    public boolean layoutDependsOn(C18333 c18333, View view, View view2) {
+    @Override // com.google.android.material.transformation.ExpandableBehavior, p067l.AbstractC1155
+    public boolean layoutDependsOn(C1751 c1751, View view, View view2) {
         if (view.getVisibility() == 8) {
             throw new IllegalStateException("This behavior cannot be attached to a GONE view. Set the view to INVISIBLE instead.");
         }
@@ -85,10 +85,10 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return expandedComponentIdHint == 0 || expandedComponentIdHint == view.getId();
     }
 
-    @Override // l.AbstractC6317
-    public void onAttachedToLayoutParams(C14077 c14077) {
-        if (c14077.f42515 == 0) {
-            c14077.f42515 = 80;
+    @Override // p067l.AbstractC1155
+    public void onAttachedToLayoutParams(C1540 c1540) {
+        if (c1540.f45601 == 0) {
+            c1540.f45601 = 80;
         }
     }
 
@@ -143,14 +143,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     @TargetApi(21)
     private void createElevationAnimation(View view, View view2, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, List list, List list2) {
         ObjectAnimator objectAnimatorOfFloat;
-        float fM41320 = C17648.m41320(view2) - C17648.m41320(view);
+        float fM43566 = C1717.m43566(view2) - C1717.m43566(view);
         if (z) {
             if (!z2) {
-                view2.setTranslationZ(-fM41320);
+                view2.setTranslationZ(-fM43566);
             }
             objectAnimatorOfFloat = ObjectAnimator.ofFloat(view2, (Property<View, Float>) View.TRANSLATION_Z, 0.0f);
         } else {
-            objectAnimatorOfFloat = ObjectAnimator.ofFloat(view2, (Property<View, Float>) View.TRANSLATION_Z, -fM41320);
+            objectAnimatorOfFloat = ObjectAnimator.ofFloat(view2, (Property<View, Float>) View.TRANSLATION_Z, -fM43566);
         }
         fabTransformationSpec.timings.getTiming("elevation").apply(objectAnimatorOfFloat);
         list.add(objectAnimatorOfFloat);
@@ -452,7 +452,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     private ViewGroup calculateChildContentContainer(View view) {
-        View viewFindViewById = view.findViewById(C20754.f67086);
+        View viewFindViewById = view.findViewById(C22093.f69770);
         if (viewFindViewById != null) {
             return toViewGroupOrNull(viewFindViewById);
         }
@@ -470,9 +470,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     private int getBackgroundTint(View view) {
-        ColorStateList colorStateListM41329 = C17648.m41329(view);
-        if (colorStateListM41329 != null) {
-            return colorStateListM41329.getColorForState(view.getDrawableState(), colorStateListM41329.getDefaultColor());
+        ColorStateList colorStateListM43575 = C1717.m43575(view);
+        if (colorStateListM43575 != null) {
+            return colorStateListM43575.getColorForState(view.getDrawableState(), colorStateListM43575.getDefaultColor());
         }
         return 0;
     }

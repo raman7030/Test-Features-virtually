@@ -20,9 +20,6 @@ import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import l.C19370;
-import l.C20094;
-import l.C4860;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -43,6 +40,9 @@ import org.bouncycastle.crypto.params.RC2Parameters;
 import org.bouncycastle.crypto.params.RC5Parameters;
 import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
 import org.bouncycastle.util.Strings;
+import p067l.C20778;
+import p067l.C21466;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BrokenJCEBlockCipher implements BrokenPBE {
@@ -308,7 +308,7 @@ public class BrokenJCEBlockCipher implements BrokenPBE {
             if (i != 2) {
                 if (i != 3) {
                     if (i != 4) {
-                        throw new IllegalArgumentException(C19370.m44628(i, "unknown opmode: "));
+                        throw new IllegalArgumentException(C20778.m46922(i, "unknown opmode: "));
                     }
                 }
             }
@@ -368,7 +368,7 @@ public class BrokenJCEBlockCipher implements BrokenPBE {
             }
         }
         if (!upperCase.startsWith("CFB")) {
-            throw new IllegalArgumentException(C20094.m46315("can't support mode ", str));
+            throw new IllegalArgumentException(C21466.m48631("can't support mode ", str));
         }
         this.ivLength = this.cipher.getUnderlyingCipher().getBlockSize();
         if (upperCase.length() == 3) {
@@ -388,7 +388,7 @@ public class BrokenJCEBlockCipher implements BrokenPBE {
             this.cipher = new PaddedBufferedBlockCipher(this.cipher.getUnderlyingCipher());
         } else {
             if (!upperCase.equals("WITHCTS")) {
-                throw new NoSuchPaddingException(C4860.m14172("Padding ", str, " unknown."));
+                throw new NoSuchPaddingException(C6988.m16053("Padding ", str, " unknown."));
             }
             this.cipher = new CTSBlockCipher(this.cipher.getUnderlyingCipher());
         }
@@ -408,7 +408,7 @@ public class BrokenJCEBlockCipher implements BrokenPBE {
                 if (i == 2) {
                     return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(bArrEngineDoFinal));
                 }
-                throw new InvalidKeyException(C19370.m44628(i, "Unknown key type "));
+                throw new InvalidKeyException(C20778.m46922(i, "Unknown key type "));
             } catch (NoSuchAlgorithmException e) {
                 throw new InvalidKeyException("Unknown key type " + e.getMessage());
             } catch (NoSuchProviderException e2) {

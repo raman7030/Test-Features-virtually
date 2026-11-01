@@ -5,9 +5,13 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FalconRNG {
-    public byte[] bd = new byte[512];
+
+    /* JADX INFO: renamed from: bd */
+    public byte[] f81599bd = new byte[512];
     public int ptr = 0;
-    public byte[] sd = new byte[256];
+
+    /* JADX INFO: renamed from: sd */
+    public byte[] f81600sd = new byte[256];
 
     private void QROUND(int i, int i2, int i3, int i4, int[] iArr) {
         int i5 = iArr[i] + iArr[i2];
@@ -37,16 +41,16 @@ public class FalconRNG {
 
     public long prng_get_u64() {
         int i = this.ptr;
-        if (i >= this.bd.length - 9) {
+        if (i >= this.f81599bd.length - 9) {
             prng_refill();
             i = 0;
         }
         this.ptr = i + 8;
-        return Pack.littleEndianToLong(this.bd, i);
+        return Pack.littleEndianToLong(this.f81599bd, i);
     }
 
     public byte prng_get_u8() {
-        byte[] bArr = this.bd;
+        byte[] bArr = this.f81599bd;
         int i = this.ptr;
         int i2 = i + 1;
         this.ptr = i2;
@@ -58,7 +62,7 @@ public class FalconRNG {
     }
 
     public void prng_init(SHAKEDigest sHAKEDigest) {
-        sHAKEDigest.doOutput(this.sd, 0, 56);
+        sHAKEDigest.doOutput(this.f81600sd, 0, 56);
         prng_refill();
     }
 
@@ -66,12 +70,12 @@ public class FalconRNG {
         int[] iArr = {1634760805, 857760878, 2036477234, 1797285236};
         int[] iArr2 = new int[16];
         int i = 0;
-        long jLittleEndianToLong = Pack.littleEndianToLong(this.sd, 48);
+        long jLittleEndianToLong = Pack.littleEndianToLong(this.f81600sd, 48);
         FalconRNG falconRNG = this;
         int i2 = 0;
         while (i2 < 8) {
             System.arraycopy(iArr, i, iArr2, i, 4);
-            Pack.littleEndianToInt(falconRNG.sd, i, iArr2, 4, 12);
+            Pack.littleEndianToInt(falconRNG.f81600sd, i, iArr2, 4, 12);
             int i3 = 14;
             int i4 = (int) jLittleEndianToLong;
             iArr2[14] = iArr2[14] ^ i4;
@@ -104,19 +108,19 @@ public class FalconRNG {
                 iArr3[i10] = iArr3[i10] + iArr[i10];
             }
             for (int i11 = 4; i11 < i3; i11++) {
-                iArr3[i11] = Pack.littleEndianToInt(falconRNG.sd, (i11 * 4) - 16) + iArr3[i11];
+                iArr3[i11] = Pack.littleEndianToInt(falconRNG.f81600sd, (i11 * 4) - 16) + iArr3[i11];
             }
-            iArr3[i3] = iArr3[i3] + (Pack.littleEndianToInt(falconRNG.sd, 40) ^ i9);
-            iArr3[15] = iArr3[15] + (Pack.littleEndianToInt(falconRNG.sd, 44) ^ i8);
+            iArr3[i3] = iArr3[i3] + (Pack.littleEndianToInt(falconRNG.f81600sd, 40) ^ i9);
+            iArr3[15] = iArr3[15] + (Pack.littleEndianToInt(falconRNG.f81600sd, 44) ^ i8);
             jLittleEndianToLong = j + 1;
             for (int i12 = 0; i12 < 16; i12++) {
-                Pack.intToLittleEndian(iArr3[i12], falconRNG.bd, (i7 << 2) + (i12 << 5));
+                Pack.intToLittleEndian(iArr3[i12], falconRNG.f81599bd, (i7 << 2) + (i12 << 5));
             }
             i2 = i7 + 1;
             iArr2 = iArr3;
             i = 0;
         }
-        Pack.longToLittleEndian(jLittleEndianToLong, falconRNG.sd, 48);
+        Pack.longToLittleEndian(jLittleEndianToLong, falconRNG.f81600sd, 48);
         falconRNG.ptr = 0;
     }
 }

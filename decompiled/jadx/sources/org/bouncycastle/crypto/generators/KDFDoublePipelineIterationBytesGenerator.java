@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.generators;
 
-import l.C3200;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.DerivationParameters;
 import org.bouncycastle.crypto.Mac;
@@ -8,15 +7,22 @@ import org.bouncycastle.crypto.MacDerivationFunction;
 import org.bouncycastle.crypto.params.KDFDoublePipelineIterationParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Integers;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFunction {
-    public byte[] a;
+
+    /* JADX INFO: renamed from: a */
+    public byte[] f81115a;
     public byte[] fixedInputData;
     public int generatedBytes;
-    public final int h;
+
+    /* JADX INFO: renamed from: h */
+    public final int f81116h;
     public byte[] ios;
-    public byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public byte[] f81117k;
     public int maxSizeExcl;
     public final Mac prf;
     public boolean useCounter;
@@ -24,9 +30,9 @@ public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFu
     public KDFDoublePipelineIterationBytesGenerator(Mac mac) {
         this.prf = mac;
         int macSize = mac.getMacSize();
-        this.h = macSize;
-        this.a = new byte[macSize];
-        this.k = new byte[macSize];
+        this.f81116h = macSize;
+        this.f81115a = new byte[macSize];
+        this.f81117k = new byte[macSize];
     }
 
     private void generateNext() {
@@ -34,18 +40,18 @@ public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFu
             Mac mac = this.prf;
             byte[] bArr = this.fixedInputData;
             mac.update(bArr, 0, bArr.length);
-            this.prf.doFinal(this.a, 0);
+            this.prf.doFinal(this.f81115a, 0);
         } else {
             Mac mac2 = this.prf;
-            byte[] bArr2 = this.a;
+            byte[] bArr2 = this.f81115a;
             mac2.update(bArr2, 0, bArr2.length);
-            this.prf.doFinal(this.a, 0);
+            this.prf.doFinal(this.f81115a, 0);
         }
         Mac mac3 = this.prf;
-        byte[] bArr3 = this.a;
+        byte[] bArr3 = this.f81115a;
         mac3.update(bArr3, 0, bArr3.length);
         if (this.useCounter) {
-            int i = (this.generatedBytes / this.h) + 1;
+            int i = (this.generatedBytes / this.f81116h) + 1;
             byte[] bArr4 = this.ios;
             int length = bArr4.length;
             if (length != 1) {
@@ -66,7 +72,7 @@ public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFu
         Mac mac4 = this.prf;
         byte[] bArr5 = this.fixedInputData;
         mac4.update(bArr5, 0, bArr5.length);
-        this.prf.doFinal(this.k, 0);
+        this.prf.doFinal(this.f81117k, 0);
     }
 
     @Override // org.bouncycastle.crypto.MacDerivationFunction
@@ -85,8 +91,8 @@ public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFu
         int r = kDFDoublePipelineIterationParameters.getR();
         this.ios = new byte[r / 8];
         int i = Integer.MAX_VALUE;
-        if (kDFDoublePipelineIterationParameters.useCounter() && r < Integers.numberOfLeadingZeros(this.h)) {
-            i = this.h << r;
+        if (kDFDoublePipelineIterationParameters.useCounter() && r < Integers.numberOfLeadingZeros(this.f81116h)) {
+            i = this.f81116h << r;
         }
         this.maxSizeExcl = i;
         this.useCounter = kDFDoublePipelineIterationParameters.useCounter();
@@ -98,16 +104,16 @@ public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFu
         int i3 = this.generatedBytes;
         int i4 = i3 + i2;
         if (i4 < 0 || i4 >= this.maxSizeExcl) {
-            throw new DataLengthException(C3200.m9831(this.maxSizeExcl, " bytes", new StringBuilder("Current KDFCTR may only be used for ")));
+            throw new DataLengthException(C5410.m11876(this.maxSizeExcl, " bytes", new StringBuilder("Current KDFCTR may only be used for ")));
         }
-        if (i3 % this.h == 0) {
+        if (i3 % this.f81116h == 0) {
             generateNext();
         }
         int i5 = this.generatedBytes;
-        int i6 = this.h;
+        int i6 = this.f81116h;
         int i7 = i5 % i6;
         int iMin = Math.min(i6 - (i5 % i6), i2);
-        System.arraycopy(this.k, i7, bArr, i, iMin);
+        System.arraycopy(this.f81117k, i7, bArr, i, iMin);
         this.generatedBytes += iMin;
         int i8 = i2 - iMin;
         while (true) {
@@ -116,8 +122,8 @@ public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFu
                 return i2;
             }
             generateNext();
-            iMin = Math.min(this.h, i8);
-            System.arraycopy(this.k, 0, bArr, i, iMin);
+            iMin = Math.min(this.f81116h, i8);
+            System.arraycopy(this.f81117k, 0, bArr, i, iMin);
             this.generatedBytes += iMin;
             i8 -= iMin;
         }

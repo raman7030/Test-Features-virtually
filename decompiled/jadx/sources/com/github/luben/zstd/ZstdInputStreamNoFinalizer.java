@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import l.C0794;
-import l.C20361;
-import l.InterfaceC14905;
+import p067l.C21720;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ZstdInputStreamNoFinalizer extends FilterInputStream implements InterfaceC14905 {
+public class ZstdInputStreamNoFinalizer extends FilterInputStream implements InterfaceC16534 {
     public static final int srcBuffSize;
     public final BufferPool bufferPool;
     public long dstPos;
@@ -117,9 +117,9 @@ public class ZstdInputStreamNoFinalizer extends FilterInputStream implements Int
         }
     }
 
-    @Override // java.io.InputStream, l.InterfaceC14905
+    @Override // java.io.InputStream, p067l.InterfaceC16534
     public /* synthetic */ long transferTo(OutputStream outputStream) {
-        return C0794.transferTo(this, outputStream);
+        return C3123.transferTo(this, outputStream);
     }
 
     static {
@@ -197,9 +197,9 @@ public class ZstdInputStreamNoFinalizer extends FilterInputStream implements Int
             throw new IOException("Stream closed");
         }
         if (i < 0 || i2 > bArr.length - i) {
-            StringBuilder sbM46682 = C20361.m46682("Requested length ", i2, " from offset ", " in buffer of size ", i);
-            sbM46682.append(bArr.length);
-            throw new IndexOutOfBoundsException(sbM46682.toString());
+            StringBuilder sbM49005 = C21720.m49005("Requested length ", i2, " from offset ", " in buffer of size ", i);
+            sbM49005.append(bArr.length);
+            throw new IndexOutOfBoundsException(sbM49005.toString());
         }
         int i3 = i + i2;
         long j2 = i;

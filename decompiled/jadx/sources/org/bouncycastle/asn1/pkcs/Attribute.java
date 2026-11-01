@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.pkcs;
 
-import l.C3200;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -8,6 +7,7 @@ import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1Set;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Attribute extends ASN1Object {
@@ -48,6 +48,6 @@ public class Attribute extends ASN1Object {
         if (obj instanceof ASN1Sequence) {
             return new Attribute((ASN1Sequence) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "unknown object in factory: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "unknown object in factory: "));
     }
 }

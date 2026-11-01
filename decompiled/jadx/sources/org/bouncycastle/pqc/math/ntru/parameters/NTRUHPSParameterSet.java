@@ -25,6 +25,6 @@ public abstract class NTRUHPSParameterSet extends NTRUParameterSet {
     }
 
     public int weight() {
-        return (q() / 8) - 2;
+        return (m55437q() / 8) - 2;
     }
 }

@@ -7,7 +7,9 @@ import org.bouncycastle.util.BigIntegers;
 /* JADX INFO: loaded from: classes.dex */
 public class RandomDSAKCalculator implements DSAKCalculator {
     public static final BigInteger ZERO = BigInteger.valueOf(0);
-    public BigInteger q;
+
+    /* JADX INFO: renamed from: q */
+    public BigInteger f81321q;
     public SecureRandom random;
 
     @Override // org.bouncycastle.crypto.signers.DSAKCalculator
@@ -17,7 +19,7 @@ public class RandomDSAKCalculator implements DSAKCalculator {
 
     @Override // org.bouncycastle.crypto.signers.DSAKCalculator
     public void init(BigInteger bigInteger, SecureRandom secureRandom) {
-        this.q = bigInteger;
+        this.f81321q = bigInteger;
         this.random = secureRandom;
     }
 
@@ -28,10 +30,10 @@ public class RandomDSAKCalculator implements DSAKCalculator {
 
     @Override // org.bouncycastle.crypto.signers.DSAKCalculator
     public BigInteger nextK() {
-        int iBitLength = this.q.bitLength();
+        int iBitLength = this.f81321q.bitLength();
         while (true) {
             BigInteger bigIntegerCreateRandomBigInteger = BigIntegers.createRandomBigInteger(iBitLength, this.random);
-            if (!bigIntegerCreateRandomBigInteger.equals(ZERO) && bigIntegerCreateRandomBigInteger.compareTo(this.q) < 0) {
+            if (!bigIntegerCreateRandomBigInteger.equals(ZERO) && bigIntegerCreateRandomBigInteger.compareTo(this.f81321q) < 0) {
                 return bigIntegerCreateRandomBigInteger;
             }
         }

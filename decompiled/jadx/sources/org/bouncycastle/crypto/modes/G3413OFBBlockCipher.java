@@ -8,14 +8,20 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class G3413OFBBlockCipher extends StreamBlockCipher {
-    public byte[] R;
+
+    /* JADX INFO: renamed from: R */
+    public byte[] f81177R;
     public byte[] R_init;
-    public byte[] Y;
+
+    /* JADX INFO: renamed from: Y */
+    public byte[] f81178Y;
     public int blockSize;
     public int byteCount;
     public BlockCipher cipher;
     public boolean initialized;
-    public int m;
+
+    /* JADX INFO: renamed from: m */
+    public int f81179m;
 
     public G3413OFBBlockCipher(BlockCipher blockCipher) {
         super(blockCipher);
@@ -23,27 +29,27 @@ public class G3413OFBBlockCipher extends StreamBlockCipher {
         int blockSize = blockCipher.getBlockSize();
         this.blockSize = blockSize;
         this.cipher = blockCipher;
-        this.Y = new byte[blockSize];
+        this.f81178Y = new byte[blockSize];
     }
 
     private void generateR() {
-        byte[] bArrLSB = GOST3413CipherUtil.LSB(this.R, this.m - this.blockSize);
-        System.arraycopy(bArrLSB, 0, this.R, 0, bArrLSB.length);
-        System.arraycopy(this.Y, 0, this.R, bArrLSB.length, this.m - bArrLSB.length);
+        byte[] bArrLSB = GOST3413CipherUtil.LSB(this.f81177R, this.f81179m - this.blockSize);
+        System.arraycopy(bArrLSB, 0, this.f81177R, 0, bArrLSB.length);
+        System.arraycopy(this.f81178Y, 0, this.f81177R, bArrLSB.length, this.f81179m - bArrLSB.length);
     }
 
     private void generateY() {
-        this.cipher.processBlock(GOST3413CipherUtil.MSB(this.R, this.blockSize), 0, this.Y, 0);
+        this.cipher.processBlock(GOST3413CipherUtil.MSB(this.f81177R, this.blockSize), 0, this.f81178Y, 0);
     }
 
     private void initArrays() {
-        int i = this.m;
-        this.R = new byte[i];
+        int i = this.f81179m;
+        this.f81177R = new byte[i];
         this.R_init = new byte[i];
     }
 
     private void setupDefaultParams() {
-        this.m = this.blockSize * 2;
+        this.f81179m = this.blockSize * 2;
     }
 
     @Override // org.bouncycastle.crypto.StreamBlockCipher
@@ -51,7 +57,7 @@ public class G3413OFBBlockCipher extends StreamBlockCipher {
         if (this.byteCount == 0) {
             generateY();
         }
-        byte[] bArr = this.Y;
+        byte[] bArr = this.f81178Y;
         int i = this.byteCount;
         byte b2 = (byte) (b ^ bArr[i]);
         int i2 = i + 1;
@@ -82,11 +88,11 @@ public class G3413OFBBlockCipher extends StreamBlockCipher {
             if (iv.length < this.blockSize) {
                 throw new IllegalArgumentException("Parameter m must blockSize <= m");
             }
-            this.m = iv.length;
+            this.f81179m = iv.length;
             initArrays();
             byte[] bArrClone = Arrays.clone(iv);
             this.R_init = bArrClone;
-            System.arraycopy(bArrClone, 0, this.R, 0, bArrClone.length);
+            System.arraycopy(bArrClone, 0, this.f81177R, 0, bArrClone.length);
             if (parametersWithIV.getParameters() != null) {
                 blockCipher = this.cipher;
                 cipherParameters = parametersWithIV.getParameters();
@@ -96,7 +102,7 @@ public class G3413OFBBlockCipher extends StreamBlockCipher {
             setupDefaultParams();
             initArrays();
             byte[] bArr = this.R_init;
-            System.arraycopy(bArr, 0, this.R, 0, bArr.length);
+            System.arraycopy(bArr, 0, this.f81177R, 0, bArr.length);
             if (cipherParameters != null) {
                 blockCipher = this.cipher;
                 blockCipher.init(true, cipherParameters);
@@ -115,8 +121,8 @@ public class G3413OFBBlockCipher extends StreamBlockCipher {
     public void reset() {
         if (this.initialized) {
             byte[] bArr = this.R_init;
-            System.arraycopy(bArr, 0, this.R, 0, bArr.length);
-            Arrays.clear(this.Y);
+            System.arraycopy(bArr, 0, this.f81177R, 0, bArr.length);
+            Arrays.clear(this.f81178Y);
             this.byteCount = 0;
             this.cipher.reset();
         }

@@ -19,8 +19,8 @@ import com.google.android.material.shadow.ShadowViewDelegate;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
-import l.C0881;
-import l.C14402;
+import p067l.C0886;
+import p067l.C16056;
 
 /* JADX INFO: loaded from: classes.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
@@ -163,7 +163,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         ShapeAppearanceModel shapeAppearanceModel = this.shapeAppearance;
         shapeAppearanceModel.getClass();
         BorderDrawable borderDrawable = new BorderDrawable(shapeAppearanceModel);
-        borderDrawable.setGradientColors(C0881.m3228(context, C14402.f43991), C0881.m3228(context, C14402.f43515), C0881.m3228(context, C14402.f43899), C0881.m3228(context, C14402.f43470));
+        borderDrawable.setGradientColors(C0886.m5542(context, C16056.f47084), C0886.m5542(context, C16056.f46608), C0886.m5542(context, C16056.f46992), C0886.m5542(context, C16056.f46563));
         borderDrawable.setBorderWidth(i);
         borderDrawable.setBorderTint(colorStateList);
         return borderDrawable;

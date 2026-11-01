@@ -5,10 +5,12 @@ import java.io.OutputStream;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ASN1OutputStream {
-    public OutputStream os;
+
+    /* JADX INFO: renamed from: os */
+    public OutputStream f80660os;
 
     public ASN1OutputStream(OutputStream outputStream) {
-        this.os = outputStream;
+        this.f80660os = outputStream;
     }
 
     public static ASN1OutputStream create(OutputStream outputStream) {
@@ -19,7 +21,7 @@ public class ASN1OutputStream {
         if (str.equals(ASN1Encoding.DER)) {
             return new DEROutputStream(outputStream);
         }
-        return str.equals(ASN1Encoding.DL) ? new DLOutputStream(outputStream) : new ASN1OutputStream(outputStream);
+        return str.equals(ASN1Encoding.f80659DL) ? new DLOutputStream(outputStream) : new ASN1OutputStream(outputStream);
     }
 
     public static int getLengthOfDL(int i) {
@@ -55,30 +57,30 @@ public class ASN1OutputStream {
     }
 
     public void close() throws IOException {
-        this.os.close();
+        this.f80660os.close();
     }
 
     public void flush() throws IOException {
-        this.os.flush();
+        this.f80660os.flush();
     }
 
     public void flushInternal() {
     }
 
     public DEROutputStream getDERSubStream() {
-        return new DEROutputStream(this.os);
+        return new DEROutputStream(this.f80660os);
     }
 
     public DLOutputStream getDLSubStream() {
-        return new DLOutputStream(this.os);
+        return new DLOutputStream(this.f80660os);
     }
 
     public final void write(int i) throws IOException {
-        this.os.write(i);
+        this.f80660os.write(i);
     }
 
     public final void write(byte[] bArr, int i, int i2) throws IOException {
-        this.os.write(bArr, i, i2);
+        this.f80660os.write(bArr, i, i2);
     }
 
     public final void writeDL(int i) throws IOException {

@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.google.android.material.timepicker.TimeModel;
 import java.util.Collection;
 import java.util.Iterator;
-import l.C10220;
-import l.C15813;
+import p067l.C1349;
+import p067l.C17397;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MonthAdapter extends BaseAdapter {
@@ -64,7 +64,7 @@ public class MonthAdapter extends BaseAdapter {
         initializeStyles(viewGroup.getContext());
         TextView textView = (TextView) view;
         if (view == null) {
-            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(C15813.f48863, viewGroup, false);
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(C17397.f52001, viewGroup, false);
         }
         int iFirstPositionInMonth = i - firstPositionInMonth();
         if (iFirstPositionInMonth >= 0) {
@@ -174,7 +174,7 @@ public class MonthAdapter extends BaseAdapter {
     public boolean isStartOfRange(long j) {
         Iterator it = this.dateSelector.getSelectedRanges().iterator();
         while (it.hasNext()) {
-            Object obj = ((C10220) it.next()).f30697;
+            Object obj = ((C1349) it.next()).f33658;
             if (obj != null && ((Long) obj).longValue() == j) {
                 return true;
             }
@@ -185,7 +185,7 @@ public class MonthAdapter extends BaseAdapter {
     public boolean isEndOfRange(long j) {
         Iterator it = this.dateSelector.getSelectedRanges().iterator();
         while (it.hasNext()) {
-            Object obj = ((C10220) it.next()).f30698;
+            Object obj = ((C1349) it.next()).f33659;
             if (obj != null && ((Long) obj).longValue() == j) {
                 return true;
             }

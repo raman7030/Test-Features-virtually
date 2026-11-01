@@ -3,10 +3,10 @@ package org.bouncycastle.asn1;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import l.C19370;
-import l.C3200;
-import l.C5127;
 import org.bouncycastle.util.Arrays;
+import p067l.C20778;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class ASN1BitString extends ASN1Primitive implements ASN1String, ASN1BitStringParser {
@@ -111,10 +111,10 @@ public abstract class ASN1BitString extends ASN1Primitive implements ASN1String,
             try {
                 return (ASN1BitString) TYPE.fromByteArray((byte[]) obj);
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("failed to construct BIT STRING from byte[]: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("failed to construct BIT STRING from byte[]: ")));
             }
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 
     public static ASN1BitString getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {
@@ -277,7 +277,7 @@ public abstract class ASN1BitString extends ASN1Primitive implements ASN1String,
         if (i == 0) {
             return getBitStream();
         }
-        throw new IOException(C19370.m44628(i, "expected octet-aligned bitstring, but found padBits: "));
+        throw new IOException(C20778.m46922(i, "expected octet-aligned bitstring, but found padBits: "));
     }
 
     @Override // org.bouncycastle.asn1.ASN1String
@@ -294,7 +294,7 @@ public abstract class ASN1BitString extends ASN1Primitive implements ASN1String,
             }
             return sb.toString();
         } catch (IOException e) {
-            throw new ASN1ParsingException(C5127.m14678(e, new StringBuilder("Internal error encoding BitString: ")), e);
+            throw new ASN1ParsingException(C7241.m16586(e, new StringBuilder("Internal error encoding BitString: ")), e);
         }
     }
 }

@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.PBEParameterSpec;
-import l.C12662;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.pkcs.PKCS12PBEParams;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C14403;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PBEPKCS12 {
@@ -76,7 +76,7 @@ public class PBEPKCS12 {
 
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
         public void configure(ConfigurableProvider configurableProvider) {
-            C12662.m30943(PREFIX, "$AlgParams", "AlgorithmParameters.PKCS12PBE", new StringBuilder(), configurableProvider);
+            C14403.m33021(PREFIX, "$AlgParams", "AlgorithmParameters.PKCS12PBE", new StringBuilder(), configurableProvider);
         }
     }
 }

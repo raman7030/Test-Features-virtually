@@ -3,9 +3,9 @@ package org.simpleframework.xml.core;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import l.C19462;
 import org.simpleframework.xml.util.Cache;
 import org.simpleframework.xml.util.ConcurrentCache;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FieldContact implements Contact {
@@ -99,6 +99,6 @@ public class FieldContact implements Contact {
 
     @Override // org.simpleframework.xml.core.Contact, org.simpleframework.xml.strategy.Type
     public String toString() {
-        return C19462.m44858("field '", getName(), "' ", this.field.toString());
+        return C20865.m47154("field '", getName(), "' ", this.field.toString());
     }
 }

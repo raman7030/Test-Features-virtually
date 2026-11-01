@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.macs;
 
-import l.C19370;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -11,10 +10,13 @@ import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
 import org.bouncycastle.util.Pack;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CMac implements Mac {
-    public byte[] Lu;
+
+    /* JADX INFO: renamed from: Lu */
+    public byte[] f81128Lu;
     public byte[] Lu2;
     public byte[] ZEROES;
     public byte[] buf;
@@ -76,7 +78,7 @@ public class CMac implements Mac {
     public int doFinal(byte[] bArr, int i) {
         byte[] bArr2;
         if (this.bufOff == this.cipher.getBlockSize()) {
-            bArr2 = this.Lu;
+            bArr2 = this.f81128Lu;
         } else {
             new ISO7816d4Padding().addPadding(this.buf, this.bufOff);
             bArr2 = this.Lu2;
@@ -114,7 +116,7 @@ public class CMac implements Mac {
         byte[] bArr2 = new byte[bArr.length];
         this.cipher.processBlock(bArr, 0, bArr2, 0);
         byte[] bArrDoubleLu = doubleLu(bArr2);
-        this.Lu = bArrDoubleLu;
+        this.f81128Lu = bArrDoubleLu;
         this.Lu2 = doubleLu(bArrDoubleLu);
         reset();
     }
@@ -218,7 +220,7 @@ public class CMac implements Mac {
                 i3 = 548865;
                 break;
             default:
-                throw new IllegalArgumentException(C19370.m44628(i2, "Unknown block size for CMAC: "));
+                throw new IllegalArgumentException(C20778.m46922(i2, "Unknown block size for CMAC: "));
         }
         return Pack.intToBigEndian(i3);
     }

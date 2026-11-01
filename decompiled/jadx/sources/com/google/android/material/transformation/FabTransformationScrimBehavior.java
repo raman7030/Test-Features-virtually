@@ -14,7 +14,7 @@ import com.google.android.material.animation.MotionTiming;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
-import l.C18333;
+import p067l.C1751;
 
 /* JADX INFO: loaded from: classes2.dex */
 @Deprecated
@@ -37,14 +37,14 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
         this.collapseTiming = new MotionTiming(0L, 150L);
     }
 
-    @Override // com.google.android.material.transformation.ExpandableBehavior, l.AbstractC6317
-    public boolean layoutDependsOn(C18333 c18333, View view, View view2) {
+    @Override // com.google.android.material.transformation.ExpandableBehavior, p067l.AbstractC1155
+    public boolean layoutDependsOn(C1751 c1751, View view, View view2) {
         return view2 instanceof FloatingActionButton;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
-        return super.onTouchEvent(c18333, view, motionEvent);
+    @Override // p067l.AbstractC1155
+    public boolean onTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
+        return super.onTouchEvent(c1751, view, motionEvent);
     }
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior

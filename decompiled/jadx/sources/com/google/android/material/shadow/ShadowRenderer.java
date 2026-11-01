@@ -9,7 +9,7 @@ import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.graphics.Shader;
-import l.C7191;
+import p067l.C1199;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ShadowRenderer {
@@ -47,9 +47,9 @@ public class ShadowRenderer {
     }
 
     public void setShadowColor(int i) {
-        this.shadowStartColor = C7191.m19276(i, 68);
-        this.shadowMiddleColor = C7191.m19276(i, 20);
-        this.shadowEndColor = C7191.m19276(i, 0);
+        this.shadowStartColor = C1199.m21223(i, 68);
+        this.shadowMiddleColor = C1199.m21223(i, 20);
+        this.shadowEndColor = C1199.m21223(i, 0);
         this.shadowPaint.setColor(this.shadowStartColor);
     }
 

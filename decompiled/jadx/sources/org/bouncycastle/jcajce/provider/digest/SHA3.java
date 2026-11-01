@@ -1,15 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C11010;
-import l.C12662;
-import l.C16014;
-import l.C19370;
-import l.C20094;
-import l.C20382;
-import l.C3200;
-import l.C3435;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
@@ -25,6 +15,16 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
+import p067l.C10965;
+import p067l.C12832;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C20778;
+import p067l.C21466;
+import p067l.C21740;
+import p067l.C5410;
+import p067l.C5633;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SHA3 {
@@ -231,7 +231,7 @@ public class SHA3 {
     /* JADX INFO: loaded from: classes2.dex */
     public class KeyFactoryKMAC extends BaseSecretKeyFactory {
         public KeyFactoryKMAC(int i, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-            super(C19370.m44628(i, "KMAC"), aSN1ObjectIdentifier);
+            super(C20778.m46922(i, "KMAC"), aSN1ObjectIdentifier);
         }
     }
 
@@ -252,7 +252,7 @@ public class SHA3 {
     /* JADX INFO: loaded from: classes2.dex */
     public class KeyFactorySHA3 extends BaseSecretKeyFactory {
         public KeyFactorySHA3(int i, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-            super(C19370.m44628(i, "HmacSHA3-"), aSN1ObjectIdentifier);
+            super(C20778.m46922(i, "HmacSHA3-"), aSN1ObjectIdentifier);
         }
     }
 
@@ -286,7 +286,7 @@ public class SHA3 {
 
     public class KeyGeneratorSHA3 extends BaseKeyGenerator {
         public KeyGeneratorSHA3(int i) {
-            super(C19370.m44628(i, "HMACSHA3-"), i, new CipherKeyGenerator());
+            super(C20778.m46922(i, "HMACSHA3-"), i, new CipherKeyGenerator());
         }
     }
 
@@ -298,40 +298,40 @@ public class SHA3 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest512", "MessageDigest.SHA3-512", C5368.m15340(str, "$Digest384", "MessageDigest.SHA3-384", C5368.m15340(str, "$Digest256", "MessageDigest.SHA3-256", C5368.m15340(str, "$Digest224", "MessageDigest.SHA3-224", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider);
-            C11010.m27351(configurableProvider, str, "$Digest224", "MessageDigest", NISTObjectIdentifiers.id_sha3_224);
-            C11010.m27351(configurableProvider, str, "$Digest256", "MessageDigest", NISTObjectIdentifiers.id_sha3_256);
-            C11010.m27351(configurableProvider, str, "$Digest384", "MessageDigest", NISTObjectIdentifiers.id_sha3_384);
+            C14403.m33021(str, "$Digest512", "MessageDigest.SHA3-512", C7470.m17249(str, "$Digest384", "MessageDigest.SHA3-384", C7470.m17249(str, "$Digest256", "MessageDigest.SHA3-256", C7470.m17249(str, "$Digest224", "MessageDigest.SHA3-224", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            C12832.m29413(configurableProvider, str, "$Digest224", "MessageDigest", NISTObjectIdentifiers.id_sha3_224);
+            C12832.m29413(configurableProvider, str, "$Digest256", "MessageDigest", NISTObjectIdentifiers.id_sha3_256);
+            C12832.m29413(configurableProvider, str, "$Digest384", "MessageDigest", NISTObjectIdentifiers.id_sha3_384);
             configurableProvider.addAlgorithm("MessageDigest", NISTObjectIdentifiers.id_sha3_512, str + "$Digest512");
-            C12662.m30943(str, "$DigestShake128_256", "MessageDigest.SHAKE128-256", C5368.m15340(str, "$DigestShake256_512", "MessageDigest.SHAKE256-512", new StringBuilder(), configurableProvider), configurableProvider);
-            C11010.m27351(configurableProvider, str, "$DigestShake256_512", "MessageDigest", NISTObjectIdentifiers.id_shake256);
-            C11010.m27351(configurableProvider, str, "$DigestShake128_256", "MessageDigest", NISTObjectIdentifiers.id_shake128);
-            addHMACAlgorithm(configurableProvider, "SHA3-224", C9045.m23341(C20382.m46696("Alg.Alias.MessageDigest.SHAKE256", "SHAKE256-512", "Alg.Alias.MessageDigest.SHAKE128", "SHAKE128-256", configurableProvider), str, "$HashMac224"), C16014.m37867(str, "$KeyGenerator224"));
+            C14403.m33021(str, "$DigestShake128_256", "MessageDigest.SHAKE128-256", C7470.m17249(str, "$DigestShake256_512", "MessageDigest.SHAKE256-512", new StringBuilder(), configurableProvider), configurableProvider);
+            C12832.m29413(configurableProvider, str, "$DigestShake256_512", "MessageDigest", NISTObjectIdentifiers.id_shake256);
+            C12832.m29413(configurableProvider, str, "$DigestShake128_256", "MessageDigest", NISTObjectIdentifiers.id_shake128);
+            addHMACAlgorithm(configurableProvider, "SHA3-224", C10965.m25286(C21740.m49019("Alg.Alias.MessageDigest.SHAKE256", "SHAKE256-512", "Alg.Alias.MessageDigest.SHAKE128", "SHAKE128-256", configurableProvider), str, "$HashMac224"), C17588.m40053(str, "$KeyGenerator224"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier = NISTObjectIdentifiers.id_hmacWithSHA3_224;
             addHMACAlias(configurableProvider, "SHA3-224", aSN1ObjectIdentifier);
-            StringBuilder sbM23342 = C9045.m23342("HMACSHA3-224", str, C20094.m46316(str, "$KeyFactory224", "SecretKeyFactory.HMACSHA3-224", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier, configurableProvider);
-            sbM23342.append("$HashMac256");
-            addHMACAlgorithm(configurableProvider, "SHA3-256", sbM23342.toString(), C16014.m37867(str, "$KeyGenerator256"));
+            StringBuilder sbM25287 = C10965.m25287("HMACSHA3-224", str, C21466.m48632(str, "$KeyFactory224", "SecretKeyFactory.HMACSHA3-224", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier, configurableProvider);
+            sbM25287.append("$HashMac256");
+            addHMACAlgorithm(configurableProvider, "SHA3-256", sbM25287.toString(), C17588.m40053(str, "$KeyGenerator256"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier2 = NISTObjectIdentifiers.id_hmacWithSHA3_256;
             addHMACAlias(configurableProvider, "SHA3-256", aSN1ObjectIdentifier2);
-            StringBuilder sbM23343 = C9045.m23342("HMACSHA3-256", str, C20094.m46316(str, "$KeyFactory256", "SecretKeyFactory.HMACSHA3-256", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier2, configurableProvider);
-            sbM23343.append("$HashMac384");
-            addHMACAlgorithm(configurableProvider, "SHA3-384", sbM23343.toString(), C16014.m37867(str, "$KeyGenerator384"));
+            StringBuilder sbM25288 = C10965.m25287("HMACSHA3-256", str, C21466.m48632(str, "$KeyFactory256", "SecretKeyFactory.HMACSHA3-256", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier2, configurableProvider);
+            sbM25288.append("$HashMac384");
+            addHMACAlgorithm(configurableProvider, "SHA3-384", sbM25288.toString(), C17588.m40053(str, "$KeyGenerator384"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier3 = NISTObjectIdentifiers.id_hmacWithSHA3_384;
             addHMACAlias(configurableProvider, "SHA3-384", aSN1ObjectIdentifier3);
-            StringBuilder sbM23344 = C9045.m23342("HMACSHA3-384", str, C20094.m46316(str, "$KeyFactory384", "SecretKeyFactory.HMACSHA3-384", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier3, configurableProvider);
-            sbM23344.append("$HashMac512");
-            addHMACAlgorithm(configurableProvider, "SHA3-512", sbM23344.toString(), C16014.m37867(str, "$KeyGenerator512"));
+            StringBuilder sbM25289 = C10965.m25287("HMACSHA3-384", str, C21466.m48632(str, "$KeyFactory384", "SecretKeyFactory.HMACSHA3-384", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier3, configurableProvider);
+            sbM25289.append("$HashMac512");
+            addHMACAlgorithm(configurableProvider, "SHA3-512", sbM25289.toString(), C17588.m40053(str, "$KeyGenerator512"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier4 = NISTObjectIdentifiers.id_hmacWithSHA3_512;
             addHMACAlias(configurableProvider, "SHA3-512", aSN1ObjectIdentifier4);
-            StringBuilder sbM23345 = C9045.m23342("HMACSHA3-512", str, C20094.m46316(str, "$KeyFactory512", "SecretKeyFactory.HMACSHA3-512", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier4, configurableProvider);
-            sbM23345.append("$KMac128");
-            addKMACAlgorithm(configurableProvider, "128", sbM23345.toString(), C16014.m37867(str, "$KeyGenerator256"));
-            StringBuilder sbM23346 = C9045.m23342("KMAC128", str, C20094.m46316(str, "$KeyFactoryKMAC128", "SecretKeyFactory.KMAC128", "Alg.Alias.SecretKeyFactory.", configurableProvider), NISTObjectIdentifiers.id_Kmac128, configurableProvider);
-            sbM23346.append("$KMac256");
-            addKMACAlgorithm(configurableProvider, "256", sbM23346.toString(), C16014.m37867(str, "$KeyGenerator512"));
-            C3200.m9836(C3435.m10502("$DigestTupleHash256_512", "MessageDigest.TUPLEHASH256-512", str, C9045.m23342("KMAC256", str, C20094.m46316(str, "$KeyFactoryKMAC256", "SecretKeyFactory.KMAC256", "Alg.Alias.SecretKeyFactory.", configurableProvider), NISTObjectIdentifiers.id_Kmac256, configurableProvider), configurableProvider), "$DigestTupleHash128_256", configurableProvider, "MessageDigest.TUPLEHASH128-256");
-            C12662.m30943(str, "$DigestParallelHash128_256", "MessageDigest.PARALLELHASH128-256", C5368.m15340(str, "$DigestParallelHash256_512", "MessageDigest.PARALLELHASH256-512", C20382.m46696("Alg.Alias.MessageDigest.TUPLEHASH256", "TUPLEHASH256-512", "Alg.Alias.MessageDigest.TUPLEHASH128", "TUPLEHASH128-256", configurableProvider), configurableProvider), configurableProvider);
+            StringBuilder sbM252810 = C10965.m25287("HMACSHA3-512", str, C21466.m48632(str, "$KeyFactory512", "SecretKeyFactory.HMACSHA3-512", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier4, configurableProvider);
+            sbM252810.append("$KMac128");
+            addKMACAlgorithm(configurableProvider, "128", sbM252810.toString(), C17588.m40053(str, "$KeyGenerator256"));
+            StringBuilder sbM252811 = C10965.m25287("KMAC128", str, C21466.m48632(str, "$KeyFactoryKMAC128", "SecretKeyFactory.KMAC128", "Alg.Alias.SecretKeyFactory.", configurableProvider), NISTObjectIdentifiers.id_Kmac128, configurableProvider);
+            sbM252811.append("$KMac256");
+            addKMACAlgorithm(configurableProvider, "256", sbM252811.toString(), C17588.m40053(str, "$KeyGenerator512"));
+            C5410.m11881(C5633.m12526("$DigestTupleHash256_512", "MessageDigest.TUPLEHASH256-512", str, C10965.m25287("KMAC256", str, C21466.m48632(str, "$KeyFactoryKMAC256", "SecretKeyFactory.KMAC256", "Alg.Alias.SecretKeyFactory.", configurableProvider), NISTObjectIdentifiers.id_Kmac256, configurableProvider), configurableProvider), "$DigestTupleHash128_256", configurableProvider, "MessageDigest.TUPLEHASH128-256");
+            C14403.m33021(str, "$DigestParallelHash128_256", "MessageDigest.PARALLELHASH128-256", C7470.m17249(str, "$DigestParallelHash256_512", "MessageDigest.PARALLELHASH256-512", C21740.m49019("Alg.Alias.MessageDigest.TUPLEHASH256", "TUPLEHASH256-512", "Alg.Alias.MessageDigest.TUPLEHASH128", "TUPLEHASH128-256", configurableProvider), configurableProvider), configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.PARALLELHASH256", "PARALLELHASH256-512");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.PARALLELHASH128", "PARALLELHASH128-256");
         }

@@ -4,11 +4,13 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SPHINCSPlusPublicKeyParameters extends SPHINCSPlusKeyParameters {
-    public final PK pk;
 
-    public SPHINCSPlusPublicKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, PK pk) {
+    /* JADX INFO: renamed from: pk */
+    public final C2374PK f81788pk;
+
+    public SPHINCSPlusPublicKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, C2374PK c2374pk) {
         super(false, sPHINCSPlusParameters);
-        this.pk = pk;
+        this.f81788pk = c2374pk;
     }
 
     public SPHINCSPlusPublicKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, byte[] bArr) {
@@ -18,19 +20,19 @@ public class SPHINCSPlusPublicKeyParameters extends SPHINCSPlusKeyParameters {
         if (bArr.length != i) {
             throw new IllegalArgumentException("public key encoding does not match parameters");
         }
-        this.pk = new PK(Arrays.copyOfRange(bArr, 0, n), Arrays.copyOfRange(bArr, n, i));
+        this.f81788pk = new C2374PK(Arrays.copyOfRange(bArr, 0, n), Arrays.copyOfRange(bArr, n, i));
     }
 
     public byte[] getEncoded() {
-        PK pk = this.pk;
-        return Arrays.concatenate(pk.seed, pk.root);
+        C2374PK c2374pk = this.f81788pk;
+        return Arrays.concatenate(c2374pk.seed, c2374pk.root);
     }
 
     public byte[] getRoot() {
-        return Arrays.clone(this.pk.root);
+        return Arrays.clone(this.f81788pk.root);
     }
 
     public byte[] getSeed() {
-        return Arrays.clone(this.pk.seed);
+        return Arrays.clone(this.f81788pk.seed);
     }
 }

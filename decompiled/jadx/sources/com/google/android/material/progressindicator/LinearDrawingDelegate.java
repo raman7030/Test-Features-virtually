@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.math.MathUtils;
-import l.C1814;
+import p067l.C0932;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class LinearDrawingDelegate extends DrawingDelegate {
@@ -78,15 +78,15 @@ public final class LinearDrawingDelegate extends DrawingDelegate {
     }
 
     private void drawLine(Canvas canvas, Paint paint, float f, float f2, int i, int i2, int i3) {
-        float fM6035 = C1814.m6035(f, 0.0f, 1.0f);
-        float fM6036 = C1814.m6035(f2, 0.0f, 1.0f);
-        float fLerp = MathUtils.lerp(1.0f - this.totalTrackLengthFraction, 1.0f, fM6035);
-        float fLerp2 = MathUtils.lerp(1.0f - this.totalTrackLengthFraction, 1.0f, fM6036);
-        int iM6035 = (int) ((C1814.m6035(fLerp, 0.0f, 0.01f) * i2) / 0.01f);
-        float fM6037 = 1.0f - C1814.m6035(fLerp2, 0.99f, 1.0f);
+        float fM8233 = C0932.m8233(f, 0.0f, 1.0f);
+        float fM8234 = C0932.m8233(f2, 0.0f, 1.0f);
+        float fLerp = MathUtils.lerp(1.0f - this.totalTrackLengthFraction, 1.0f, fM8233);
+        float fLerp2 = MathUtils.lerp(1.0f - this.totalTrackLengthFraction, 1.0f, fM8234);
+        int iM8233 = (int) ((C0932.m8233(fLerp, 0.0f, 0.01f) * i2) / 0.01f);
+        float fM8235 = 1.0f - C0932.m8233(fLerp2, 0.99f, 1.0f);
         float f3 = this.trackLength;
-        int i4 = (int) ((fLerp * f3) + iM6035);
-        int i5 = (int) ((fLerp2 * f3) - ((int) ((fM6037 * i3) / 0.01f)));
+        int i4 = (int) ((fLerp * f3) + iM8233);
+        int i5 = (int) ((fLerp2 * f3) - ((int) ((fM8235 * i3) / 0.01f)));
         float f4 = (-f3) / 2.0f;
         if (i4 <= i5) {
             float f5 = this.displayedCornerRadius;

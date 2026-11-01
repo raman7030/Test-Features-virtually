@@ -9,7 +9,9 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class GCMUtil {
-    public static final int E1 = -520093696;
+
+    /* JADX INFO: renamed from: E1 */
+    public static final int f81203E1 = -520093696;
     public static final long E1L = -2233785415175766016L;
     public static final int SIZE_BYTES = 16;
     public static final int SIZE_INTS = 4;
@@ -163,7 +165,7 @@ public abstract class GCMUtil {
                 i4 = (i4 >>> 1) | (i3 << 31);
                 i3 = (i3 >>> 1) | (i2 << 31);
                 i2 = (i2 >>> 1) | (i << 31);
-                i = (i >>> 1) ^ (i13 & E1);
+                i = (i >>> 1) ^ (i13 & f81203E1);
             }
         }
         iArr[0] = i5;
@@ -198,7 +200,7 @@ public abstract class GCMUtil {
         int i2 = iArr[1];
         int i3 = iArr[2];
         int i4 = iArr[3];
-        iArr[0] = (((i4 << 31) >> 31) & E1) ^ (i >>> 1);
+        iArr[0] = (((i4 << 31) >> 31) & f81203E1) ^ (i >>> 1);
         iArr[1] = (i2 >>> 1) | (i << 31);
         iArr[2] = (i3 >>> 1) | (i2 << 31);
         iArr[3] = (i4 >>> 1) | (i3 << 31);
@@ -209,7 +211,7 @@ public abstract class GCMUtil {
         int i2 = iArr[1];
         int i3 = iArr[2];
         int i4 = iArr[3];
-        iArr2[0] = (((i4 << 31) >> 31) & E1) ^ (i >>> 1);
+        iArr2[0] = (((i4 << 31) >> 31) & f81203E1) ^ (i >>> 1);
         iArr2[1] = (i2 >>> 1) | (i << 31);
         iArr2[2] = (i3 >>> 1) | (i2 << 31);
         iArr2[3] = (i4 >>> 1) | (i3 << 31);

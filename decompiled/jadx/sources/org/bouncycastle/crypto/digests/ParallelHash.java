@@ -10,7 +10,9 @@ import org.bouncycastle.util.Strings;
 /* JADX INFO: loaded from: classes2.dex */
 public class ParallelHash implements Xof, Digest {
     public static final byte[] N_PARALLEL_HASH = Strings.toByteArray("ParallelHash");
-    public final int B;
+
+    /* JADX INFO: renamed from: B */
+    public final int f80859B;
     public final int bitLength;
     public int bufOff;
     public final byte[] buffer;
@@ -37,7 +39,7 @@ public class ParallelHash implements Xof, Digest {
         this.cshake = new CSHAKEDigest(i, N_PARALLEL_HASH, bArr);
         this.compressor = new CSHAKEDigest(i, new byte[0], new byte[0]);
         this.bitLength = i;
-        this.B = i2;
+        this.f80859B = i2;
         this.outputLength = (i3 + 7) / 8;
         this.buffer = new byte[i2];
         this.compressorBuffer = new byte[(i * 2) / 8];
@@ -51,7 +53,7 @@ public class ParallelHash implements Xof, Digest {
         this.compressor = new CSHAKEDigest(parallelHash.compressor);
         int i = parallelHash.bitLength;
         this.bitLength = i;
-        this.B = parallelHash.B;
+        this.f80859B = parallelHash.f80859B;
         this.outputLength = parallelHash.outputLength;
         this.buffer = Arrays.clone(parallelHash.buffer);
         this.compressorBuffer = Arrays.clone(parallelHash.compressorBuffer);
@@ -137,7 +139,7 @@ public class ParallelHash implements Xof, Digest {
     public void reset() {
         this.cshake.reset();
         Arrays.clear(this.buffer);
-        byte[] bArrLeftEncode = XofUtils.leftEncode(this.B);
+        byte[] bArrLeftEncode = XofUtils.leftEncode(this.f80859B);
         this.cshake.update(bArrLeftEncode, 0, bArrLeftEncode.length);
         this.nCount = 0;
         this.bufOff = 0;
@@ -178,12 +180,12 @@ public class ParallelHash implements Xof, Digest {
         if (i3 < iMax) {
             while (true) {
                 int i5 = iMax - i3;
-                int i6 = this.B;
+                int i6 = this.f80859B;
                 if (i5 < i6) {
                     break;
                 }
                 compress(bArr, i + i3, i6);
-                i3 += this.B;
+                i3 += this.f80859B;
             }
         }
         while (i3 < iMax) {

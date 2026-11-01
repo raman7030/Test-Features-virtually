@@ -4,27 +4,35 @@ import org.bouncycastle.pqc.math.ntru.Polynomial;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PolynomialPair {
-    public final Polynomial a;
-    public final Polynomial b;
+
+    /* JADX INFO: renamed from: a */
+    public final Polynomial f81684a;
+
+    /* JADX INFO: renamed from: b */
+    public final Polynomial f81685b;
 
     public PolynomialPair(Polynomial polynomial, Polynomial polynomial2) {
-        this.a = polynomial;
-        this.b = polynomial2;
+        this.f81684a = polynomial;
+        this.f81685b = polynomial2;
     }
 
-    public Polynomial f() {
-        return this.a;
+    /* JADX INFO: renamed from: f */
+    public Polynomial m55423f() {
+        return this.f81684a;
     }
 
-    public Polynomial g() {
-        return this.b;
+    /* JADX INFO: renamed from: g */
+    public Polynomial m55424g() {
+        return this.f81685b;
     }
 
-    public Polynomial m() {
-        return this.b;
+    /* JADX INFO: renamed from: m */
+    public Polynomial m55425m() {
+        return this.f81685b;
     }
 
-    public Polynomial r() {
-        return this.a;
+    /* JADX INFO: renamed from: r */
+    public Polynomial m55426r() {
+        return this.f81684a;
     }
 }

@@ -12,12 +12,12 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.motion.MotionUtils;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import l.AbstractC6317;
-import l.C17931;
-import l.C18333;
+import p067l.AbstractC1155;
+import p067l.C1751;
+import p067l.C19410;
 
 /* JADX INFO: loaded from: classes.dex */
-public class HideBottomViewOnScrollBehavior extends AbstractC6317 {
+public class HideBottomViewOnScrollBehavior extends AbstractC1155 {
     public static final int DEFAULT_ENTER_ANIMATION_DURATION_MS = 225;
     public static final int DEFAULT_EXIT_ANIMATION_DURATION_MS = 175;
     public static final int STATE_SCROLLED_DOWN = 1;
@@ -33,9 +33,9 @@ public class HideBottomViewOnScrollBehavior extends AbstractC6317 {
     public TimeInterpolator exitAnimInterpolator;
     public int height;
     public final LinkedHashSet onScrollStateChangedListeners;
-    public static final int ENTER_ANIM_DURATION_ATTR = C17931.f54897;
-    public static final int EXIT_ANIM_DURATION_ATTR = C17931.f54828;
-    public static final int ENTER_EXIT_ANIM_EASING_ATTR = C17931.f55271;
+    public static final int ENTER_ANIM_DURATION_ATTR = C19410.f58094;
+    public static final int EXIT_ANIM_DURATION_ATTR = C19410.f58025;
+    public static final int ENTER_EXIT_ANIM_EASING_ATTR = C19410.f58468;
 
     public interface OnScrollStateChangedListener {
         void onStateChanged(View view, @ScrollState int i);
@@ -44,8 +44,8 @@ public class HideBottomViewOnScrollBehavior extends AbstractC6317 {
     public @interface ScrollState {
     }
 
-    @Override // l.AbstractC6317
-    public boolean onStartNestedScroll(C18333 c18333, View view, View view2, View view3, int i, int i2) {
+    @Override // p067l.AbstractC1155
+    public boolean onStartNestedScroll(C1751 c1751, View view, View view2, View view3, int i, int i2) {
         return i == 2;
     }
 
@@ -64,8 +64,8 @@ public class HideBottomViewOnScrollBehavior extends AbstractC6317 {
         this.additionalHiddenOffsetY = 0;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onLayoutChild(C18333 c18333, View view, int i) {
+    @Override // p067l.AbstractC1155
+    public boolean onLayoutChild(C1751 c1751, View view, int i) {
         this.height = view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).bottomMargin;
         this.enterAnimDuration = MotionUtils.resolveThemeDuration(view.getContext(), ENTER_ANIM_DURATION_ATTR, DEFAULT_ENTER_ANIMATION_DURATION_MS);
         this.exitAnimDuration = MotionUtils.resolveThemeDuration(view.getContext(), EXIT_ANIM_DURATION_ATTR, DEFAULT_EXIT_ANIMATION_DURATION_MS);
@@ -73,7 +73,7 @@ public class HideBottomViewOnScrollBehavior extends AbstractC6317 {
         int i2 = ENTER_EXIT_ANIM_EASING_ATTR;
         this.enterAnimInterpolator = MotionUtils.resolveThemeInterpolator(context, i2, AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
         this.exitAnimInterpolator = MotionUtils.resolveThemeInterpolator(view.getContext(), i2, AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR);
-        return super.onLayoutChild(c18333, view, i);
+        return super.onLayoutChild(c1751, view, i);
     }
 
     public void setAdditionalHiddenOffsetY(View view, int i) {
@@ -83,8 +83,8 @@ public class HideBottomViewOnScrollBehavior extends AbstractC6317 {
         }
     }
 
-    @Override // l.AbstractC6317
-    public void onNestedScroll(C18333 c18333, View view, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+    @Override // p067l.AbstractC1155
+    public void onNestedScroll(C1751 c1751, View view, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
         if (i2 > 0) {
             slideDown(view);
         } else if (i2 < 0) {

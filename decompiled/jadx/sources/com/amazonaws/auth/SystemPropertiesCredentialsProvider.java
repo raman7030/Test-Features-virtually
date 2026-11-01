@@ -7,7 +7,7 @@ import com.amazonaws.AmazonClientException;
 public class SystemPropertiesCredentialsProvider implements AWSCredentialsProvider {
     @Override // com.amazonaws.auth.AWSCredentialsProvider
     /* JADX INFO: renamed from: ֫ */
-    public final AWSCredentials mo208() {
+    public final AWSCredentials mo1374() {
         if (System.getProperty("aws.accessKeyId") != null && System.getProperty("aws.secretKey") != null) {
             return new BasicAWSCredentials(System.getProperty("aws.accessKeyId"), System.getProperty("aws.secretKey"));
         }

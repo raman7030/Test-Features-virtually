@@ -13,10 +13,10 @@ import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.DSAParameter;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
@@ -28,29 +28,31 @@ public class BCDSAPrivateKey implements DSAPrivateKey, PKCS12BagAttributeCarrier
     public static final long serialVersionUID = -4677259546958385734L;
     public transient PKCS12BagAttributeCarrierImpl attrCarrier = new PKCS12BagAttributeCarrierImpl();
     public transient DSAParams dsaSpec;
-    public BigInteger x;
+
+    /* JADX INFO: renamed from: x */
+    public BigInteger f81340x;
 
     public BCDSAPrivateKey() {
     }
 
     public BCDSAPrivateKey(DSAPrivateKey dSAPrivateKey) {
-        this.x = dSAPrivateKey.getX();
+        this.f81340x = dSAPrivateKey.getX();
         this.dsaSpec = dSAPrivateKey.getParams();
     }
 
     public BCDSAPrivateKey(DSAPrivateKeySpec dSAPrivateKeySpec) {
-        this.x = dSAPrivateKeySpec.getX();
+        this.f81340x = dSAPrivateKeySpec.getX();
         this.dsaSpec = new DSAParameterSpec(dSAPrivateKeySpec.getP(), dSAPrivateKeySpec.getQ(), dSAPrivateKeySpec.getG());
     }
 
     public BCDSAPrivateKey(PrivateKeyInfo privateKeyInfo) {
         DSAParameter dSAParameter = DSAParameter.getInstance(privateKeyInfo.getPrivateKeyAlgorithm().getParameters());
-        this.x = ((ASN1Integer) privateKeyInfo.parsePrivateKey()).getValue();
+        this.f81340x = ((ASN1Integer) privateKeyInfo.parsePrivateKey()).getValue();
         this.dsaSpec = new DSAParameterSpec(dSAParameter.getP(), dSAParameter.getQ(), dSAParameter.getG());
     }
 
     public BCDSAPrivateKey(DSAPrivateKeyParameters dSAPrivateKeyParameters) {
-        this.x = dSAPrivateKeyParameters.getX();
+        this.f81340x = dSAPrivateKeyParameters.getX();
         this.dsaSpec = new DSAParameterSpec(dSAPrivateKeyParameters.getParameters().getP(), dSAPrivateKeyParameters.getParameters().getQ(), dSAPrivateKeyParameters.getParameters().getG());
     }
 
@@ -107,7 +109,7 @@ public class BCDSAPrivateKey implements DSAPrivateKey, PKCS12BagAttributeCarrier
 
     @Override // java.security.interfaces.DSAPrivateKey
     public BigInteger getX() {
-        return this.x;
+        return this.f81340x;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier
@@ -132,8 +134,8 @@ public class BCDSAPrivateKey implements DSAPrivateKey, PKCS12BagAttributeCarrier
     public String toString() {
         StringBuilder sb = new StringBuilder("DSA Private Key [");
         String strLineSeparator = Strings.lineSeparator();
-        BigInteger bigIntegerModPow = getParams().getG().modPow(this.x, getParams().getP());
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, DSAUtil.generateKeyFingerprint(bigIntegerModPow, getParams()), "]", strLineSeparator, "            Y: ");
+        BigInteger bigIntegerModPow = getParams().getG().modPow(this.f81340x, getParams().getP());
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, DSAUtil.generateKeyFingerprint(bigIntegerModPow, getParams()), "]", strLineSeparator, "            Y: ");
         sb.append(bigIntegerModPow.toString(16));
         sb.append(strLineSeparator);
         return sb.toString();

@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.examples;
 
-import com.alipay.sdk.m.y.l;
+import com.alipay.sdk.p010m.p058y.C0249l;
 import java.io.PrintStream;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -52,14 +52,14 @@ public class JPAKEExample {
         System.out.println("Alice sends to Bob: ");
         System.out.println("g^{x1}=" + jPAKERound1PayloadCreateRound1PayloadToSend.getGx1().toString(16));
         System.out.println("g^{x2}=" + jPAKERound1PayloadCreateRound1PayloadToSend.getGx2().toString(16));
-        System.out.println("KP{x1}={" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1()[1].toString(16) + l.d);
-        System.out.println("KP{x2}={" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2()[1].toString(16) + l.d);
+        System.out.println("KP{x1}={" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1()[1].toString(16) + C0249l.f1198d);
+        System.out.println("KP{x2}={" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2()[1].toString(16) + C0249l.f1198d);
         System.out.println("");
         System.out.println("Bob sends to Alice: ");
         System.out.println("g^{x3}=" + jPAKERound1PayloadCreateRound1PayloadToSend2.getGx1().toString(16));
         System.out.println("g^{x4}=" + jPAKERound1PayloadCreateRound1PayloadToSend2.getGx2().toString(16));
-        System.out.println("KP{x3}={" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1()[1].toString(16) + l.d);
-        System.out.println("KP{x4}={" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2()[1].toString(16) + l.d);
+        System.out.println("KP{x3}={" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1()[1].toString(16) + C0249l.f1198d);
+        System.out.println("KP{x4}={" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2()[0].toString(16) + "};{" + jPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2()[1].toString(16) + C0249l.f1198d);
         System.out.println("");
         jPAKEParticipant.validateRound1PayloadReceived(jPAKERound1PayloadCreateRound1PayloadToSend2);
         System.out.println("Alice checks g^{x4}!=1: OK");
@@ -76,11 +76,11 @@ public class JPAKEExample {
         System.out.println("************ Round 2 **************");
         System.out.println("Alice sends to Bob: ");
         System.out.println("A=" + jPAKERound2PayloadCreateRound2PayloadToSend.getA().toString(16));
-        System.out.println("KP{x2*s}={" + jPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s()[0].toString(16) + "},{" + jPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s()[1].toString(16) + l.d);
+        System.out.println("KP{x2*s}={" + jPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s()[0].toString(16) + "},{" + jPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s()[1].toString(16) + C0249l.f1198d);
         System.out.println("");
         System.out.println("Bob sends to Alice");
         System.out.println("B=" + jPAKERound2PayloadCreateRound2PayloadToSend2.getA().toString(16));
-        System.out.println("KP{x4*s}={" + jPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s()[0].toString(16) + "},{" + jPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s()[1].toString(16) + l.d);
+        System.out.println("KP{x4*s}={" + jPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s()[0].toString(16) + "},{" + jPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s()[1].toString(16) + C0249l.f1198d);
         System.out.println("");
         jPAKEParticipant.validateRound2PayloadReceived(jPAKERound2PayloadCreateRound2PayloadToSend2);
         System.out.println("Alice checks KP{x4*s}: OK\n");

@@ -5,18 +5,20 @@ import org.bouncycastle.util.Memoable;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GOST3411_2012_512Digest extends GOST3411_2012Digest {
-    public static final byte[] IV = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    /* JADX INFO: renamed from: IV */
+    public static final byte[] f80831IV = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     public GOST3411_2012_512Digest() {
-        super(IV, CryptoServicePurpose.ANY);
+        super(f80831IV, CryptoServicePurpose.ANY);
     }
 
     public GOST3411_2012_512Digest(CryptoServicePurpose cryptoServicePurpose) {
-        super(IV, cryptoServicePurpose);
+        super(f80831IV, cryptoServicePurpose);
     }
 
     public GOST3411_2012_512Digest(GOST3411_2012_512Digest gOST3411_2012_512Digest) {
-        super(IV, gOST3411_2012_512Digest.purpose);
+        super(f80831IV, gOST3411_2012_512Digest.purpose);
         reset(gOST3411_2012_512Digest);
     }
 

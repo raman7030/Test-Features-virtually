@@ -25,20 +25,20 @@ public class SelfChecker {
             try {
                 if (!TextUtils.isEmpty(strArr[i]) && !FILELIST[i].contains("$")) {
                     Class.forName(FILELIST[i]);
-                    UMRTLog.i(UMRTLog.RTLOG_TAG, "#" + FILELIST[i]);
+                    UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "#" + FILELIST[i]);
                 }
                 i++;
             } catch (Throwable unused) {
                 UMLog.mutlInfo(2, "*" + FILELIST[i]);
-                UMRTLog.i(UMRTLog.RTLOG_TAG, "*" + FILELIST[i]);
+                UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "*" + FILELIST[i]);
                 z = false;
             }
         }
         if (z) {
-            UMRTLog.i(UMRTLog.RTLOG_TAG, UMLogCommon.SC_10012);
+            UMRTLog.m2757i(UMRTLog.RTLOG_TAG, UMLogCommon.SC_10012);
             UMLog.mutlInfo(UMLogCommon.SC_10012, 2, "");
         } else {
-            UMRTLog.i(UMRTLog.RTLOG_TAG, UMLogCommon.SC_10013);
+            UMRTLog.m2757i(UMRTLog.RTLOG_TAG, UMLogCommon.SC_10013);
             UMLog.mutlInfo(UMLogCommon.SC_10013, 2, "");
         }
         return z;

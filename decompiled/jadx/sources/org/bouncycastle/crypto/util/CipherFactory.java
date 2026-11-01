@@ -1,8 +1,6 @@
 package org.bouncycastle.crypto.util;
 
 import java.io.OutputStream;
-import l.C5368;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Null;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -23,12 +21,12 @@ import org.bouncycastle.crypto.engines.DESedeEngine;
 import org.bouncycastle.crypto.engines.RC2Engine;
 import org.bouncycastle.crypto.engines.RC4Engine;
 import org.bouncycastle.crypto.hpke.HPKE;
-import org.bouncycastle.crypto.io.CipherOutputStream;
 import org.bouncycastle.crypto.modes.AEADBlockCipher;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.modes.CBCModeCipher;
 import org.bouncycastle.crypto.modes.CCMBlockCipher;
 import org.bouncycastle.crypto.modes.GCMBlockCipher;
+import org.bouncycastle.crypto.p075io.CipherOutputStream;
 import org.bouncycastle.crypto.paddings.PKCS7Padding;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.bouncycastle.crypto.params.AEADParameters;
@@ -42,6 +40,8 @@ import org.bouncycastle.internal.asn1.misc.CAST5CBCParameters;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.internal.asn1.ntt.NTTObjectIdentifiers;
 import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
+import p067l.C10927;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CipherFactory {
@@ -117,7 +117,7 @@ public class CipherFactory {
         if (NISTObjectIdentifiers.id_aes128_CCM.equals((ASN1Primitive) aSN1ObjectIdentifier) || NISTObjectIdentifiers.id_aes192_CCM.equals((ASN1Primitive) aSN1ObjectIdentifier) || NISTObjectIdentifiers.id_aes256_CCM.equals((ASN1Primitive) aSN1ObjectIdentifier)) {
             return CCMBlockCipher.newInstance(AESEngine.newInstance());
         }
-        throw new IllegalArgumentException(C9005.m23242("cannot recognise cipher: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("cannot recognise cipher: ", aSN1ObjectIdentifier));
     }
 
     public static BufferedBlockCipher createCipher(ASN1ObjectIdentifier aSN1ObjectIdentifier) {
@@ -134,7 +134,7 @@ public class CipherFactory {
                 cAST5Engine = new RC2Engine();
             } else {
                 if (!MiscObjectIdentifiers.cast5CBC.equals((ASN1Primitive) aSN1ObjectIdentifier)) {
-                    throw new IllegalArgumentException(C9005.m23242("cannot recognise cipher: ", aSN1ObjectIdentifier));
+                    throw new IllegalArgumentException(C10927.m25186("cannot recognise cipher: ", aSN1ObjectIdentifier));
                 }
                 cAST5Engine = new CAST5Engine();
             }
@@ -153,6 +153,6 @@ public class CipherFactory {
         if (obj instanceof AEADBlockCipher) {
             return new CipherOutputStream(outputStream, (AEADBlockCipher) obj);
         }
-        throw new IllegalArgumentException(C5368.m15337(obj, "unknown cipher object: "));
+        throw new IllegalArgumentException(C7470.m17246(obj, "unknown cipher object: "));
     }
 }

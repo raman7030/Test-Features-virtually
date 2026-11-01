@@ -1,6 +1,6 @@
 package org.bouncycastle.jce.provider;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import java.security.AccessController;
 import java.security.PrivateKey;
@@ -11,14 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import l.C22870;
-import l.C23202;
-import l.C4860;
-import l.C7187;
-import l.ConcurrentMapC10942;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
@@ -50,6 +45,11 @@ import org.bouncycastle.pqc.jcajce.provider.sphincsplus.SPHINCSPlusKeyFactorySpi
 import org.bouncycastle.pqc.jcajce.provider.xmss.XMSSKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
 import org.bouncycastle.util.Strings;
+import p067l.C24104;
+import p067l.C24420;
+import p067l.C6988;
+import p067l.C9199;
+import p067l.ConcurrentMapC12768;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class BouncyCastleProvider extends Provider implements ConfigurableProvider {
@@ -69,7 +69,7 @@ public final class BouncyCastleProvider extends Provider implements Configurable
     public static final String[] SYMMETRIC_MACS = {"SipHash", "SipHash128", "Poly1305"};
     public static final CryptoServiceProperties[] SYMMETRIC_CIPHERS = {service("AES", 256), service("ARC4", 20), service("ARIA", 256), service("Blowfish", 128), service("Camellia", 256), service("CAST5", 128), service("CAST6", 256), service("ChaCha", 128), service("DES", 56), service("DESede", UMErrorCode.E_UM_BE_DEFLATE_FAILED), service("GOST28147", 128), service("Grainv1", 128), service("Grain128", 128), service("HC128", 128), service("HC256", 256), service("IDEA", 128), service("Noekeon", 128), service("RC2", 128), service("RC5", 128), service("RC6", 256), service("Rijndael", 256), service("Salsa20", 128), service("SEED", 128), service("Serpent", 256), service("Shacal2", 128), service("Skipjack", 80), service("SM4", 128), service("TEA", 128), service("Twofish", 256), service("Threefish", 128), service("VMPC", 128), service("VMPCKSA3", 128), service("XTEA", 128), service("XSalsa20", 128), service("OpenSSLPBKDF", 128), service("DSTU7624", 256), service("GOST3412_2015", 256), service("Zuc", 128)};
     public static final String[] ASYMMETRIC_GENERIC = {"X509", "IES", "COMPOSITE", "EXTERNAL", "CompositeSignatures", "NoSig"};
-    public static final String[] ASYMMETRIC_CIPHERS = {"DSA", "DH", "EC", d.a, "GOST", "ECGOST", "ElGamal", "DSTU4145", "GM", "EdEC", "LMS", "SPHINCSPlus", "Dilithium", "Falcon", "NTRU", "CONTEXT", "SLHDSA", "MLDSA", "MLKEM"};
+    public static final String[] ASYMMETRIC_CIPHERS = {"DSA", "DH", "EC", C0187d.f883a, "GOST", "ECGOST", "ElGamal", "DSTU4145", "GM", "EdEC", "LMS", "SPHINCSPlus", "Dilithium", "Falcon", "NTRU", "CONTEXT", "SLHDSA", "MLDSA", "MLKEM"};
     public static final String[] DIGESTS = {"GOST3411", "Keccak", "MD2", "MD4", "MD5", "SHA1", "RIPEMD128", "RIPEMD160", "RIPEMD256", "RIPEMD320", "SHA224", "SHA256", "SHA384", "SHA512", "SHA3", "Skein", "SM3", "Tiger", "Whirlpool", "Blake2b", "Blake2s", "DSTU7564", "Haraka", "Blake3"};
     public static final String PROVIDER_NAME = "BC";
     public static final String[] KEYSTORES = {PROVIDER_NAME, "BCFKS", "PKCS12"};
@@ -108,7 +108,7 @@ public final class BouncyCastleProvider extends Provider implements Configurable
 
     public BouncyCastleProvider() {
         super(PROVIDER_NAME, 1.83d, info);
-        this.serviceMap = new ConcurrentMapC10942();
+        this.serviceMap = new ConcurrentMapC12768();
         AccessController.doPrivileged(new PrivilegedAction() { // from class: org.bouncycastle.jce.provider.BouncyCastleProvider.1
             @Override // java.security.PrivilegedAction
             public Object run() {
@@ -136,7 +136,7 @@ public final class BouncyCastleProvider extends Provider implements Configurable
     }
 
     public static PublicKey getPublicKey(SubjectPublicKeyInfo subjectPublicKeyInfo) {
-        if (subjectPublicKeyInfo.getAlgorithm().getAlgorithm().on(BCObjectIdentifiers.picnic_key)) {
+        if (subjectPublicKeyInfo.getAlgorithm().getAlgorithm().m55304on(BCObjectIdentifiers.picnic_key)) {
             return new PicnicKeyFactorySpi().generatePublic(subjectPublicKeyInfo);
         }
         AsymmetricKeyInfoConverter asymmetricKeyInfoConverter = getAsymmetricKeyInfoConverter(subjectPublicKeyInfo.getAlgorithm().getAlgorithm());
@@ -235,7 +235,7 @@ public final class BouncyCastleProvider extends Provider implements Configurable
     @Override // org.bouncycastle.jcajce.provider.config.ConfigurableProvider
     public void addAlgorithm(String str, String str2) {
         if (containsKey(str)) {
-            throw new IllegalStateException(C4860.m14172("duplicate provider key (", str, ") found"));
+            throw new IllegalStateException(C6988.m16053("duplicate provider key (", str, ") found"));
         }
         put(str, str2);
     }
@@ -293,50 +293,50 @@ public final class BouncyCastleProvider extends Provider implements Configurable
     }
 
     private void loadPQCKeys() {
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_128s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_128f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_128s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_128f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_128s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_128f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_192s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_192f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_192s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_192f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_192s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_192f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_256s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_256f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_256s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_256f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_256s_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_256f_r3);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_128s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_128f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_128s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_128f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_128s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_128f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_192s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_192f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_192s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_192f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_192s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_192f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_256s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_256f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_256s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_256f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_256s_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_haraka_256f_r3_simple);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_128s);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_sha2_192s);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_128s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_128f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_128s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_128f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_128s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_128f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_192s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_192f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_192s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_192f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_192s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_192f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_256s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_256f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_256s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_256f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_256s_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_256f_r3);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_128s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_128f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_128s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_128f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_128s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_128f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_192s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_192f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_192s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_192f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_192s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_192f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_256s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_256f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_256s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_256f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_256s_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_haraka_256f_r3_simple);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_128s);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_sha2_192s);
         addKeyInfoConverter(BCObjectIdentifiers.sphincsPlus_sha2_256s, new SPHINCSPlusKeyFactorySpi());
-        C7187.m19254(this, new ASN1ObjectIdentifier("1.3.9999.6.4.10"));
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_128f);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_192f);
-        C7187.m19254(this, BCObjectIdentifiers.sphincsPlus_shake_256f);
+        C9199.m21201(this, new ASN1ObjectIdentifier("1.3.9999.6.4.10"));
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_128f);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_192f);
+        C9199.m21201(this, BCObjectIdentifiers.sphincsPlus_shake_256f);
         addKeyInfoConverter(PQCObjectIdentifiers.sphincs256, new Sphincs256KeyFactorySpi());
         addKeyInfoConverter(PQCObjectIdentifiers.newHope, new NHKeyFactorySpi());
         addKeyInfoConverter(PQCObjectIdentifiers.xmss, new XMSSKeyFactorySpi());
@@ -384,70 +384,70 @@ public final class BouncyCastleProvider extends Provider implements Configurable
         addKeyInfoConverter(BCObjectIdentifiers.mayo2, new MayoKeyFactorySpi());
         addKeyInfoConverter(BCObjectIdentifiers.mayo3, new MayoKeyFactorySpi());
         addKeyInfoConverter(BCObjectIdentifiers.mayo5, new MayoKeyFactorySpi());
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_4_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_4_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_4_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_4_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_5_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_5_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_5_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_24_5_5_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_25_8_3_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_25_8_3_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_25_8_3_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_25_8_3_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_8_4_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_8_4_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_8_4_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_8_4_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_17_2_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_17_2_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_17_2_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_37_17_2_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_49_11_3_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_49_11_3_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_49_11_3_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_49_11_3_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_56_25_2_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_56_25_2_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_56_25_2_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_56_25_2_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_60_10_4_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_60_10_4_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_60_10_4_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_60_10_4_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_66_15_3_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_66_15_3_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_66_15_3_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_66_15_3_shake_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_75_33_2_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_75_33_2_esk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_75_33_2_shake_ssk);
-        C23202.m51499(this, BCObjectIdentifiers.snova_75_33_2_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_4_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_4_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_4_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_4_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_5_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_5_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_5_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_24_5_5_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_25_8_3_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_25_8_3_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_25_8_3_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_25_8_3_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_8_4_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_8_4_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_8_4_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_8_4_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_17_2_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_17_2_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_17_2_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_37_17_2_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_49_11_3_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_49_11_3_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_49_11_3_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_49_11_3_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_56_25_2_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_56_25_2_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_56_25_2_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_56_25_2_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_60_10_4_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_60_10_4_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_60_10_4_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_60_10_4_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_66_15_3_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_66_15_3_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_66_15_3_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_66_15_3_shake_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_75_33_2_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_75_33_2_esk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_75_33_2_shake_ssk);
+        C24420.m53895(this, BCObjectIdentifiers.snova_75_33_2_shake_esk);
     }
 
     @Override // org.bouncycastle.jcajce.provider.config.ConfigurableProvider
     public void addAttributes(String str, Map map) {
         put(str + " ImplementedIn", "Software");
         for (String str2 : map.keySet()) {
-            String strM50967 = C22870.m50967(str, " ", str2);
-            if (containsKey(strM50967)) {
-                throw new IllegalStateException(C4860.m14172("duplicate provider attribute key (", strM50967, ") found"));
+            String strM53357 = C24104.m53357(str, " ", str2);
+            if (containsKey(strM53357)) {
+                throw new IllegalStateException(C6988.m16053("duplicate provider attribute key (", strM53357, ") found"));
             }
-            put(strM50967, map.get(str2));
+            put(strM53357, map.get(str2));
         }
     }
 
     @Override // java.security.Provider
     public final Provider.Service getService(final String str, final String str2) {
         Provider.Service service;
-        final String strM50967 = C22870.m50967(str, ".", Strings.toUpperCase(str2));
-        Provider.Service service2 = (Provider.Service) this.serviceMap.get(strM50967);
+        final String strM53357 = C24104.m53357(str, ".", Strings.toUpperCase(str2));
+        Provider.Service service2 = (Provider.Service) this.serviceMap.get(strM53357);
         if (service2 != null) {
             return service2;
         }
         synchronized (this) {
-            service = (Provider.Service) (!this.serviceMap.containsKey(strM50967) ? AccessController.doPrivileged(new PrivilegedAction(this) { // from class: org.bouncycastle.jce.provider.BouncyCastleProvider.2
+            service = (Provider.Service) (!this.serviceMap.containsKey(strM53357) ? AccessController.doPrivileged(new PrivilegedAction(this) { // from class: org.bouncycastle.jce.provider.BouncyCastleProvider.2
                 public final /* synthetic */ BouncyCastleProvider this$0;
 
                 {
@@ -460,12 +460,12 @@ public final class BouncyCastleProvider extends Provider implements Configurable
                     if (service3 == null || service3.getClassName() == null) {
                         return null;
                     }
-                    this.this$0.serviceMap.put(strM50967, service3);
+                    this.this$0.serviceMap.put(strM53357, service3);
                     this.this$0.remove(service3.getType() + "." + service3.getAlgorithm());
                     this.this$0.putService(service3);
                     return service3;
                 }
-            }) : this.serviceMap.get(strM50967));
+            }) : this.serviceMap.get(strM53357));
         }
         return service;
     }

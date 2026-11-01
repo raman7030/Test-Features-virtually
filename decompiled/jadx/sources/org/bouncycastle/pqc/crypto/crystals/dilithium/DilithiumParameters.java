@@ -7,7 +7,9 @@ public class DilithiumParameters {
     public static final DilithiumParameters dilithium2 = new DilithiumParameters("dilithium2", 2, false);
     public static final DilithiumParameters dilithium3 = new DilithiumParameters("dilithium3", 3, false);
     public static final DilithiumParameters dilithium5 = new DilithiumParameters("dilithium5", 5, false);
-    public final int k;
+
+    /* JADX INFO: renamed from: k */
+    public final int f81585k;
     public final String name;
 
     @Deprecated
@@ -15,12 +17,12 @@ public class DilithiumParameters {
 
     public DilithiumParameters(String str, int i, boolean z) {
         this.name = str;
-        this.k = i;
+        this.f81585k = i;
         this.usingAES = z;
     }
 
     public DilithiumEngine getEngine(SecureRandom secureRandom) {
-        return new DilithiumEngine(this.k, secureRandom, this.usingAES);
+        return new DilithiumEngine(this.f81585k, secureRandom, this.usingAES);
     }
 
     public String getName() {

@@ -7,8 +7,12 @@ import org.bouncycastle.util.Arrays;
 public final class KDFCounterParameters implements DerivationParameters {
     public byte[] fixedInputDataCounterPrefix;
     public byte[] fixedInputDataCounterSuffix;
-    public byte[] ki;
-    public int r;
+
+    /* JADX INFO: renamed from: ki */
+    public byte[] f81266ki;
+
+    /* JADX INFO: renamed from: r */
+    public int f81267r;
 
     public KDFCounterParameters(byte[] bArr, byte[] bArr2, int i) {
         this(bArr, null, bArr2, i);
@@ -18,7 +22,7 @@ public final class KDFCounterParameters implements DerivationParameters {
         if (bArr == null) {
             throw new IllegalArgumentException("A KDF requires Ki (a seed) as input");
         }
-        this.ki = Arrays.clone(bArr);
+        this.f81266ki = Arrays.clone(bArr);
         if (bArr2 == null) {
             this.fixedInputDataCounterPrefix = new byte[0];
         } else {
@@ -32,7 +36,7 @@ public final class KDFCounterParameters implements DerivationParameters {
         if (i != 8 && i != 16 && i != 24 && i != 32) {
             throw new IllegalArgumentException("Length of counter should be 8, 16, 24 or 32");
         }
-        this.r = i;
+        this.f81267r = i;
     }
 
     public byte[] getFixedInputData() {
@@ -48,10 +52,10 @@ public final class KDFCounterParameters implements DerivationParameters {
     }
 
     public byte[] getKI() {
-        return this.ki;
+        return this.f81266ki;
     }
 
     public int getR() {
-        return this.r;
+        return this.f81267r;
     }
 }

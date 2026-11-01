@@ -5,37 +5,37 @@ import java.util.concurrent.TimeUnit;
 /* JADX INFO: loaded from: classes.dex */
 public class TimingInfo {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public Long f845;
+    /* JADX INFO: renamed from: ֫ */
+    public Long f2005;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final long f846;
+    /* JADX INFO: renamed from: ۧ */
+    public final long f2006;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo791(long j, String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1956(long j, String str) {
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo792(String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1957(String str) {
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo793(String str, TimingInfo timingInfo) {
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1958(String str, TimingInfo timingInfo) {
     }
 
     public TimingInfo(long j, Long l2) {
-        this.f846 = j;
-        this.f845 = l2;
+        this.f2006 = j;
+        this.f2005 = l2;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final long m795() {
-        return this.f846;
+    /* JADX INFO: renamed from: ܽ */
+    public final long m1960() {
+        return this.f2006;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final long m794() {
-        Long l2 = this.f845;
+    /* JADX INFO: renamed from: ۧ */
+    public final long m1959() {
+        Long l2 = this.f2005;
         if (l2 == null) {
             return -1L;
         }
@@ -44,21 +44,21 @@ public class TimingInfo {
 
     public final String toString() {
         Double dValueOf;
-        if (m796()) {
-            dValueOf = Double.valueOf(TimeUnit.NANOSECONDS.toMicros(this.f845.longValue() - this.f846) / 1000.0d);
+        if (m1961()) {
+            dValueOf = Double.valueOf(TimeUnit.NANOSECONDS.toMicros(this.f2005.longValue() - this.f2006) / 1000.0d);
         } else {
             dValueOf = null;
         }
         return String.valueOf(dValueOf == null ? -1.0d : dValueOf.doubleValue());
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final boolean m796() {
-        return this.f845 != null;
+    /* JADX INFO: renamed from: ᩳ */
+    public final boolean m1961() {
+        return this.f2005 != null;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo790() {
-        this.f845 = Long.valueOf(System.nanoTime());
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1955() {
+        this.f2005 = Long.valueOf(System.nanoTime());
     }
 }

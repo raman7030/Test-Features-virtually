@@ -14,12 +14,12 @@ import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithID;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECConstants;
+import org.bouncycastle.math.p080ec.ECFieldElement;
+import org.bouncycastle.math.p080ec.ECMultiplier;
+import org.bouncycastle.math.p080ec.ECPoint;
+import org.bouncycastle.math.p080ec.FixedPointCombMultiplier;
 import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.encoders.Hex;
 
@@ -32,7 +32,9 @@ public class SM2Signer implements Signer, ECConstants {
     public final DSAKCalculator kCalculator;
     public ECPoint pubPoint;
     public int state;
-    public byte[] z;
+
+    /* JADX INFO: renamed from: z */
+    public byte[] f81322z;
 
     public final class State {
         public static final int DATA = 2;
@@ -82,7 +84,7 @@ public class SM2Signer implements Signer, ECConstants {
             }
         } else {
             Digest digest = this.digest;
-            byte[] bArr = this.z;
+            byte[] bArr = this.f81322z;
             digest.update(bArr, 0, bArr.length);
             this.state = 2;
         }
@@ -209,7 +211,7 @@ public class SM2Signer implements Signer, ECConstants {
         this.pubPoint = q;
         CryptoServicesRegistrar.checkConstraints(Utils.getDefaultProperties("ECNR", this.ecKey, z));
         this.digest.reset();
-        this.z = getZ(bArrDecodeStrict);
+        this.f81322z = getZ(bArrDecodeStrict);
         this.state = 1;
     }
 

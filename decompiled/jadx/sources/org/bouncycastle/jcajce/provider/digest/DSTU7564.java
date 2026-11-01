@@ -1,11 +1,6 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C11010;
-import l.C12662;
-import l.C16014;
-import l.C5368;
-import l.C9045;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
+import org.bouncycastle.asn1.p072ua.UAObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.DSTU7564Digest;
 import org.bouncycastle.crypto.macs.DSTU7564Mac;
@@ -13,6 +8,11 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
+import p067l.C10965;
+import p067l.C12832;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DSTU7564 {
@@ -98,13 +98,13 @@ public class DSTU7564 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest512", "MessageDigest.DSTU7564-512", C5368.m15340(str, "$Digest384", "MessageDigest.DSTU7564-384", C5368.m15340(str, "$Digest256", "MessageDigest.DSTU7564-256", sb, configurableProvider), configurableProvider), configurableProvider);
-            C11010.m27351(configurableProvider, str, "$Digest256", "MessageDigest", UAObjectIdentifiers.dstu7564digest_256);
-            C11010.m27351(configurableProvider, str, "$Digest384", "MessageDigest", UAObjectIdentifiers.dstu7564digest_384);
+            C14403.m33021(str, "$Digest512", "MessageDigest.DSTU7564-512", C7470.m17249(str, "$Digest384", "MessageDigest.DSTU7564-384", C7470.m17249(str, "$Digest256", "MessageDigest.DSTU7564-256", sb, configurableProvider), configurableProvider), configurableProvider);
+            C12832.m29413(configurableProvider, str, "$Digest256", "MessageDigest", UAObjectIdentifiers.dstu7564digest_256);
+            C12832.m29413(configurableProvider, str, "$Digest384", "MessageDigest", UAObjectIdentifiers.dstu7564digest_384);
             configurableProvider.addAlgorithm("MessageDigest", UAObjectIdentifiers.dstu7564digest_512, str + "$Digest512");
-            addHMACAlgorithm(configurableProvider, "DSTU7564-256", C9045.m23341(new StringBuilder(), str, "$HashMac256"), C16014.m37867(str, "$KeyGenerator256"));
-            addHMACAlgorithm(configurableProvider, "DSTU7564-384", C16014.m37867(str, "$HashMac384"), C16014.m37867(str, "$KeyGenerator384"));
-            addHMACAlgorithm(configurableProvider, "DSTU7564-512", C16014.m37867(str, "$HashMac512"), C16014.m37867(str, "$KeyGenerator512"));
+            addHMACAlgorithm(configurableProvider, "DSTU7564-256", C10965.m25286(new StringBuilder(), str, "$HashMac256"), C17588.m40053(str, "$KeyGenerator256"));
+            addHMACAlgorithm(configurableProvider, "DSTU7564-384", C17588.m40053(str, "$HashMac384"), C17588.m40053(str, "$KeyGenerator384"));
+            addHMACAlgorithm(configurableProvider, "DSTU7564-512", C17588.m40053(str, "$HashMac512"), C17588.m40053(str, "$KeyGenerator512"));
             addHMACAlias(configurableProvider, "DSTU7564-256", UAObjectIdentifiers.dstu7564mac_256);
             addHMACAlias(configurableProvider, "DSTU7564-384", UAObjectIdentifiers.dstu7564mac_384);
             addHMACAlias(configurableProvider, "DSTU7564-512", UAObjectIdentifiers.dstu7564mac_512);

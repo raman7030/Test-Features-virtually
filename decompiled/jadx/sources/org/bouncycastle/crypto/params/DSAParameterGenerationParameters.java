@@ -8,9 +8,11 @@ public class DSAParameterGenerationParameters {
     public static final int KEY_ESTABLISHMENT_USAGE = 2;
     public final int certainty;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public final int f77971l;
-    public final int n;
+    /* JADX INFO: renamed from: l */
+    public final int f81237l;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81238n;
     public final SecureRandom random;
     public final int usageIndex;
 
@@ -19,8 +21,8 @@ public class DSAParameterGenerationParameters {
     }
 
     public DSAParameterGenerationParameters(int i, int i2, int i3, SecureRandom secureRandom, int i4) {
-        this.f77971l = i;
-        this.n = i2;
+        this.f81237l = i;
+        this.f81238n = i2;
         this.certainty = i3;
         this.usageIndex = i4;
         this.random = secureRandom;
@@ -31,11 +33,11 @@ public class DSAParameterGenerationParameters {
     }
 
     public int getL() {
-        return this.f77971l;
+        return this.f81237l;
     }
 
     public int getN() {
-        return this.n;
+        return this.f81238n;
     }
 
     public SecureRandom getRandom() {

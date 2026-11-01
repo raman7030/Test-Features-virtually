@@ -9,9 +9,10 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import com.umeng.commonsdk.internal.crash.UMCrashManager;
 import com.umeng.commonsdk.statistics.common.ULog;
+import com.umeng.commonsdk.statistics.internal.C0814a;
 import com.umeng.commonsdk.statistics.internal.PreferenceWrapper;
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,8 +25,8 @@ import java.nio.channels.FileChannel;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import l.C12084;
-import l.C9045;
+import p067l.C10965;
+import p067l.C13853;
 
 /* JADX INFO: loaded from: classes.dex */
 public class UMFrUtils {
@@ -191,7 +192,7 @@ public class UMFrUtils {
                         for (int i2 = 0; i2 < fileArrListFiles.length - i; i2++) {
                             try {
                                 if (!fileArrListFiles[i2].delete()) {
-                                    ULog.d("--->>> remove [" + i2 + "] file fail.");
+                                    ULog.m2971d("--->>> remove [" + i2 + "] file fail.");
                                 }
                             } catch (Throwable th) {
                                 UMCrashManager.reportCrash(context, th);
@@ -279,7 +280,7 @@ public class UMFrUtils {
             String currentProcessName = getCurrentProcessName(context);
             if (!TextUtils.isEmpty(currentProcessName)) {
                 String strReplace = currentProcessName.replace(':', '_');
-                ULog.d("--->>> getEnvelopeDir: use current process name as envelope directory.");
+                ULog.m2971d("--->>> getEnvelopeDir: use current process name as envelope directory.");
                 return strReplace;
             }
         } catch (Throwable th) {
@@ -297,7 +298,7 @@ public class UMFrUtils {
                 }
                 File file = new File(mDefaultEnvelopeDirPath);
                 if (!file.exists() && !file.mkdir()) {
-                    ULog.d("--->>> Create Envelope Directory failed!!!");
+                    ULog.m2971d("--->>> Create Envelope Directory failed!!!");
                 }
             } catch (Throwable th) {
                 UMCrashManager.reportCrash(context, th);
@@ -344,7 +345,7 @@ public class UMFrUtils {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(getEnvelopeDirPath(context));
-        File file = new File(C9045.m23341(sb, File.separator, str));
+        File file = new File(C10965.m25286(sb, File.separator, str));
         synchronized (mEnvelopeFileLock) {
             FileOutputStream fileOutputStream2 = null;
             try {
@@ -353,12 +354,12 @@ public class UMFrUtils {
                     try {
                         fileOutputStream.write(bArr);
                         fileOutputStream.close();
-                        boolean zA = com.umeng.commonsdk.statistics.internal.a.a(context).a(str);
-                        boolean zB = com.umeng.commonsdk.statistics.internal.a.a(context).b(str);
-                        if (zA) {
+                        boolean zM3092a = C0814a.m3088a(context).m3092a(str);
+                        boolean zM3094b = C0814a.m3088a(context).m3094b(str);
+                        if (zM3092a) {
                             updateLastSuccessfulBuildTime(context);
                         }
-                        if (zB) {
+                        if (zM3094b) {
                             updateLastInstantBuildTime(context);
                         }
                         return 0;
@@ -418,7 +419,7 @@ public class UMFrUtils {
             FileChannel fileChannelConvertMaybeLegacyFileChannelFromLibrary = null;
             try {
                 try {
-                    fileChannelConvertMaybeLegacyFileChannelFromLibrary = C12084.convertMaybeLegacyFileChannelFromLibrary(new RandomAccessFile(str, "r").getChannel());
+                    fileChannelConvertMaybeLegacyFileChannelFromLibrary = C13853.convertMaybeLegacyFileChannelFromLibrary(new RandomAccessFile(str, "r").getChannel());
                     MappedByteBuffer mappedByteBufferLoad = fileChannelConvertMaybeLegacyFileChannelFromLibrary.map(FileChannel.MapMode.READ_ONLY, 0L, fileChannelConvertMaybeLegacyFileChannelFromLibrary.size()).load();
                     bArr = new byte[(int) fileChannelConvertMaybeLegacyFileChannelFromLibrary.size()];
                     if (mappedByteBufferLoad.remaining() > 0) {
@@ -449,15 +450,15 @@ public class UMFrUtils {
     }
 
     public static boolean hasEnvelopeFile(Context context, UMLogDataProtocol.UMBusinessType uMBusinessType) {
-        String str = am.av;
+        String str = C0655am.f2320av;
         if (uMBusinessType == UMLogDataProtocol.UMBusinessType.U_INTERNAL) {
-            str = am.aC;
+            str = C0655am.f2275aC;
         }
         if (uMBusinessType == UMLogDataProtocol.UMBusinessType.U_ZeroEnv) {
-            str = am.aD;
+            str = C0655am.f2276aD;
         }
         if (uMBusinessType == UMLogDataProtocol.UMBusinessType.U_Silent) {
-            str = am.aG;
+            str = C0655am.f2279aG;
         }
         String str2 = str;
         String envelopeDirPath = getEnvelopeDirPath(context);

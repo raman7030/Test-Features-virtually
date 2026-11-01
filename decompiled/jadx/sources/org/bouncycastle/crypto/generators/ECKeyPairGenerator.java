@@ -14,10 +14,10 @@ import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
-import org.bouncycastle.math.ec.WNafUtil;
+import org.bouncycastle.math.p080ec.ECConstants;
+import org.bouncycastle.math.p080ec.ECMultiplier;
+import org.bouncycastle.math.p080ec.FixedPointCombMultiplier;
+import org.bouncycastle.math.p080ec.WNafUtil;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */

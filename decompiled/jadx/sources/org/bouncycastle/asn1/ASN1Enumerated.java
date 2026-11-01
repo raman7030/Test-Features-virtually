@@ -1,9 +1,9 @@
 package org.bouncycastle.asn1;
 
 import java.math.BigInteger;
-import l.C3200;
 import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
 import org.bouncycastle.util.Arrays;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ASN1Enumerated extends ASN1Primitive {
@@ -74,12 +74,12 @@ public class ASN1Enumerated extends ASN1Primitive {
             return (ASN1Enumerated) obj;
         }
         if (!(obj instanceof byte[])) {
-            throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+            throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
         }
         try {
             return (ASN1Enumerated) TYPE.fromByteArray((byte[]) obj);
         } catch (Exception e) {
-            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("encoding error in getInstance: ")));
+            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("encoding error in getInstance: ")));
         }
     }
 

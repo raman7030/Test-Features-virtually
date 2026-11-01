@@ -11,16 +11,18 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CAST5CBCParameters extends ASN1Object {
-    public ASN1OctetString iv;
+
+    /* JADX INFO: renamed from: iv */
+    public ASN1OctetString f81328iv;
     public ASN1Integer keyLength;
 
     public CAST5CBCParameters(ASN1Sequence aSN1Sequence) {
-        this.iv = (ASN1OctetString) aSN1Sequence.getObjectAt(0);
+        this.f81328iv = (ASN1OctetString) aSN1Sequence.getObjectAt(0);
         this.keyLength = (ASN1Integer) aSN1Sequence.getObjectAt(1);
     }
 
     public CAST5CBCParameters(byte[] bArr, int i) {
-        this.iv = new DEROctetString(Arrays.clone(bArr));
+        this.f81328iv = new DEROctetString(Arrays.clone(bArr));
         this.keyLength = new ASN1Integer(i);
     }
 
@@ -35,7 +37,7 @@ public class CAST5CBCParameters extends ASN1Object {
     }
 
     public byte[] getIV() {
-        return Arrays.clone(this.iv.getOctets());
+        return Arrays.clone(this.f81328iv.getOctets());
     }
 
     public int getKeyLength() {
@@ -44,6 +46,6 @@ public class CAST5CBCParameters extends ASN1Object {
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
-        return new DERSequence(this.iv, this.keyLength);
+        return new DERSequence(this.f81328iv, this.keyLength);
     }
 }

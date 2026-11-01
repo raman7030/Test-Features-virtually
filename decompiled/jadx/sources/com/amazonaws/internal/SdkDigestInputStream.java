@@ -1,25 +1,25 @@
 package com.amazonaws.internal;
 
-import com.tencent.mm.opensdk.constants.ConstantsAPI;
+import com.tencent.p062mm.opensdk.constants.ConstantsAPI;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.DigestInputStream;
-import l.C0794;
-import l.InterfaceC14905;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SdkDigestInputStream extends DigestInputStream implements MetricAware, InterfaceC14905 {
-    @Override // java.io.InputStream, l.InterfaceC14905
+public class SdkDigestInputStream extends DigestInputStream implements MetricAware, InterfaceC16534 {
+    @Override // java.io.InputStream, p067l.InterfaceC16534
     public /* synthetic */ long transferTo(OutputStream outputStream) {
-        return C0794.transferTo(this, outputStream);
+        return C3123.transferTo(this, outputStream);
     }
 
     @Override // com.amazonaws.internal.MetricAware
     @Deprecated
     /* JADX INFO: renamed from: ֫ */
-    public final boolean mo279() {
+    public final boolean mo1445() {
         if (((DigestInputStream) this).in instanceof MetricAware) {
-            return ((MetricAware) ((DigestInputStream) this).in).mo279();
+            return ((MetricAware) ((DigestInputStream) this).in).mo1445();
         }
         return false;
     }

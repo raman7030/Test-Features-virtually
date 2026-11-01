@@ -8,23 +8,25 @@ import org.bouncycastle.pqc.crypto.util.SecretWithEncapsulationImpl;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MLKEMGenerator implements EncapsulatedSecretGenerator {
-    public final SecureRandom sr;
+
+    /* JADX INFO: renamed from: sr */
+    public final SecureRandom f81675sr;
 
     public MLKEMGenerator(SecureRandom secureRandom) {
-        this.sr = secureRandom;
+        this.f81675sr = secureRandom;
     }
 
     @Override // org.bouncycastle.crypto.EncapsulatedSecretGenerator
     public SecretWithEncapsulation generateEncapsulated(AsymmetricKeyParameter asymmetricKeyParameter) {
         byte[] bArr = new byte[32];
-        this.sr.nextBytes(bArr);
+        this.f81675sr.nextBytes(bArr);
         return internalGenerateEncapsulated(asymmetricKeyParameter, bArr);
     }
 
     public SecretWithEncapsulation internalGenerateEncapsulated(AsymmetricKeyParameter asymmetricKeyParameter, byte[] bArr) {
         MLKEMPublicKeyParameters mLKEMPublicKeyParameters = (MLKEMPublicKeyParameters) asymmetricKeyParameter;
         MLKEMEngine engine = mLKEMPublicKeyParameters.getParameters().getEngine();
-        engine.init(this.sr);
+        engine.init(this.f81675sr);
         byte[][] bArrKemEncrypt = engine.kemEncrypt(mLKEMPublicKeyParameters, bArr);
         return new SecretWithEncapsulationImpl(bArrKemEncrypt[0], bArrKemEncrypt[1]);
     }

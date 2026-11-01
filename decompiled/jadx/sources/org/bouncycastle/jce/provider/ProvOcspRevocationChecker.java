@@ -14,11 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import l.C19370;
-import l.C20087;
-import l.C5127;
-import l.C7416;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
@@ -41,6 +36,7 @@ import org.bouncycastle.asn1.ocsp.ResponseBytes;
 import org.bouncycastle.asn1.ocsp.ResponseData;
 import org.bouncycastle.asn1.ocsp.RevokedInfo;
 import org.bouncycastle.asn1.ocsp.SingleResponse;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
 import org.bouncycastle.asn1.x500.X500Name;
@@ -54,7 +50,6 @@ import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.asn1.x509.KeyPurposeId;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.internal.asn1.bsi.BSIObjectIdentifiers;
 import org.bouncycastle.internal.asn1.eac.EACObjectIdentifiers;
 import org.bouncycastle.internal.asn1.isara.IsaraObjectIdentifiers;
@@ -67,6 +62,11 @@ import org.bouncycastle.jcajce.util.MessageDigestUtils;
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Properties;
+import p067l.C10965;
+import p067l.C20778;
+import p067l.C21459;
+import p067l.C7241;
+import p067l.C9417;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ProvOcspRevocationChecker implements PKIXCertRevocationChecker {
@@ -241,9 +241,9 @@ public class ProvOcspRevocationChecker implements PKIXCertRevocationChecker {
             List<java.security.cert.Extension> ocspExtensions = this.parent.getOcspExtensions();
             bArr = null;
             for (int i = 0; i != ocspExtensions.size(); i++) {
-                java.security.cert.Extension extensionM19940 = C7416.m19940(ocspExtensions.get(i));
-                byte[] value = extensionM19940.getValue();
-                if (OCSPObjectIdentifiers.id_pkix_ocsp_nonce.getId().equals(extensionM19940.getId())) {
+                java.security.cert.Extension extensionM21914 = C9417.m21914(ocspExtensions.get(i));
+                byte[] value = extensionM21914.getValue();
+                if (OCSPObjectIdentifiers.id_pkix_ocsp_nonce.getId().equals(extensionM21914.getId())) {
                     bArr = value;
                 }
             }
@@ -345,7 +345,7 @@ public class ProvOcspRevocationChecker implements PKIXCertRevocationChecker {
         try {
             return Certificate.getInstance(this.parameters.getSigningCert().getEncoded());
         } catch (Exception e) {
-            throw new CertPathValidatorException(C19370.m44629(e, new StringBuilder("cannot process signing cert: ")), e, this.parameters.getCertPath(), this.parameters.getIndex());
+            throw new CertPathValidatorException(C20778.m46923(e, new StringBuilder("cannot process signing cert: ")), e, this.parameters.getCertPath(), this.parameters.getIndex());
         }
     }
 
@@ -357,13 +357,13 @@ public class ProvOcspRevocationChecker implements PKIXCertRevocationChecker {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(digestName.substring(0, iIndexOf));
-        return C20087.m46305(iIndexOf + 1, digestName, sb);
+        return C21459.m48621(iIndexOf + 1, digestName, sb);
     }
 
     public static String getSignatureName(AlgorithmIdentifier algorithmIdentifier) {
         ASN1Encodable parameters = algorithmIdentifier.getParameters();
         if (parameters != null && !DERNull.INSTANCE.equals(parameters) && algorithmIdentifier.getAlgorithm().equals((ASN1Primitive) PKCSObjectIdentifiers.id_RSASSA_PSS)) {
-            return C9045.m23341(new StringBuilder(), getDigestName(RSASSAPSSparams.getInstance(parameters).getHashAlgorithm().getAlgorithm()), "WITHRSAANDMGF1");
+            return C10965.m25286(new StringBuilder(), getDigestName(RSASSAPSSparams.getInstance(parameters).getHashAlgorithm().getAlgorithm()), "WITHRSAANDMGF1");
         }
         Map map = oids;
         boolean zContainsKey = map.containsKey(algorithmIdentifier.getAlgorithm());
@@ -403,7 +403,7 @@ public class ProvOcspRevocationChecker implements PKIXCertRevocationChecker {
             }
             return true;
         } catch (IOException e) {
-            throw new CertPathValidatorException(C5127.m14678(e, new StringBuilder("OCSP response failure: ")), e, pKIXCertRevocationCheckerParameters.getCertPath(), pKIXCertRevocationCheckerParameters.getIndex());
+            throw new CertPathValidatorException(C7241.m16586(e, new StringBuilder("OCSP response failure: ")), e, pKIXCertRevocationCheckerParameters.getCertPath(), pKIXCertRevocationCheckerParameters.getIndex());
         } catch (CertPathValidatorException e2) {
             throw e2;
         } catch (GeneralSecurityException e3) {

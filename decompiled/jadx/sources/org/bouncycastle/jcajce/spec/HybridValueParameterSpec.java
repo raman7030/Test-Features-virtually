@@ -10,7 +10,9 @@ public class HybridValueParameterSpec implements AlgorithmParameterSpec, Destroy
     public volatile AlgorithmParameterSpec baseSpec;
     public final boolean doPrepend;
     public final AtomicBoolean hasBeenDestroyed;
-    public volatile byte[] t;
+
+    /* JADX INFO: renamed from: t */
+    public volatile byte[] f81369t;
 
     public HybridValueParameterSpec(byte[] bArr, AlgorithmParameterSpec algorithmParameterSpec) {
         this(bArr, false, algorithmParameterSpec);
@@ -18,7 +20,7 @@ public class HybridValueParameterSpec implements AlgorithmParameterSpec, Destroy
 
     public HybridValueParameterSpec(byte[] bArr, boolean z, AlgorithmParameterSpec algorithmParameterSpec) {
         this.hasBeenDestroyed = new AtomicBoolean(false);
-        this.t = bArr;
+        this.f81369t = bArr;
         this.baseSpec = algorithmParameterSpec;
         this.doPrepend = z;
     }
@@ -34,8 +36,8 @@ public class HybridValueParameterSpec implements AlgorithmParameterSpec, Destroy
         if (this.hasBeenDestroyed.getAndSet(true)) {
             return;
         }
-        Arrays.clear(this.t);
-        this.t = null;
+        Arrays.clear(this.f81369t);
+        this.f81369t = null;
         this.baseSpec = null;
     }
 
@@ -46,7 +48,7 @@ public class HybridValueParameterSpec implements AlgorithmParameterSpec, Destroy
     }
 
     public byte[] getT() {
-        byte[] bArr = this.t;
+        byte[] bArr = this.f81369t;
         checkDestroyed();
         return bArr;
     }

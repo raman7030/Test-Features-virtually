@@ -1,7 +1,7 @@
 package org.bouncycastle.pqc.crypto.mldsa;
 
-import l.C16014;
-import l.C7166;
+import p067l.C17588;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PolyVecL {
@@ -81,20 +81,20 @@ public class PolyVecL {
     }
 
     public String toString() {
-        String strM37867 = "\n[";
+        String strM40053 = "\n[";
         for (int i = 0; i < this.vec.length; i++) {
-            strM37867 = strM37867 + "Inner Matrix " + i + " " + getVectorIndex(i).toString();
+            strM40053 = strM40053 + "Inner Matrix " + i + " " + getVectorIndex(i).toString();
             if (i != this.vec.length - 1) {
-                strM37867 = C16014.m37867(strM37867, ",\n");
+                strM40053 = C17588.m40053(strM40053, ",\n");
             }
         }
-        return C16014.m37867(strM37867, "]");
+        return C17588.m40053(strM40053, "]");
     }
 
     public String toString(String str) {
-        StringBuilder sbM19190 = C7166.m19190(str, ": ");
-        sbM19190.append(toString());
-        return sbM19190.toString();
+        StringBuilder sbM21133 = C9179.m21133(str, ": ");
+        sbM21133.append(toString());
+        return sbM21133.toString();
     }
 
     public void uniformBlocks(byte[] bArr, int i) {

@@ -21,9 +21,9 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import l.C17648;
-import l.C23310;
-import l.C8788;
+import p067l.C1278;
+import p067l.C1717;
+import p067l.C24523;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SearchBarAnimationHelper {
@@ -69,7 +69,7 @@ public class SearchBarAnimationHelper {
             secondaryActionMenuItemView.setAlpha(0.0f);
         }
         if (centerView instanceof AnimatableView) {
-            ((AnimatableView) centerView).startAnimation(new C23310(secondaryViewAnimator));
+            ((AnimatableView) centerView).startAnimation(new C24523(secondaryViewAnimator));
             return;
         }
         if (centerView != 0) {
@@ -297,7 +297,7 @@ public class SearchBarAnimationHelper {
     private ValueAnimator.AnimatorUpdateListener getExpandedViewBackgroundUpdateListener(SearchBar searchBar, final View view) {
         final MaterialShapeDrawable materialShapeDrawableCreateWithElevationOverlay = MaterialShapeDrawable.createWithElevationOverlay(view.getContext());
         materialShapeDrawableCreateWithElevationOverlay.setCornerSize(searchBar.getCornerSize());
-        materialShapeDrawableCreateWithElevationOverlay.setElevation(C17648.m41320(searchBar));
+        materialShapeDrawableCreateWithElevationOverlay.setElevation(C1717.m43566(searchBar));
         return new ValueAnimator.AnimatorUpdateListener() { // from class: com.google.android.material.search.SearchBarAnimationHelper$$ExternalSyntheticLambda4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -308,7 +308,7 @@ public class SearchBarAnimationHelper {
 
     public static void lambda$getExpandedViewBackgroundUpdateListener$1(MaterialShapeDrawable materialShapeDrawable, View view, ValueAnimator valueAnimator) {
         materialShapeDrawable.setInterpolation(1.0f - valueAnimator.getAnimatedFraction());
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         view.setBackground(materialShapeDrawable);
         view.setAlpha(1.0f);
     }
@@ -352,7 +352,7 @@ public class SearchBarAnimationHelper {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
-                if ((!zIsLayoutRtl && (childAt instanceof C8788)) || (zIsLayoutRtl && !(childAt instanceof C8788))) {
+                if ((!zIsLayoutRtl && (childAt instanceof C1278)) || (zIsLayoutRtl && !(childAt instanceof C1278))) {
                     arrayList.add(childAt);
                 }
             }

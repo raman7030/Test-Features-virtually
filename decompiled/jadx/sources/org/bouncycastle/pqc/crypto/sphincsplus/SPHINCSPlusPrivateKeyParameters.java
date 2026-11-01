@@ -4,13 +4,17 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SPHINCSPlusPrivateKeyParameters extends SPHINCSPlusKeyParameters {
-    public final PK pk;
-    public final SK sk;
 
-    public SPHINCSPlusPrivateKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, SK sk, PK pk) {
+    /* JADX INFO: renamed from: pk */
+    public final C2374PK f81786pk;
+
+    /* JADX INFO: renamed from: sk */
+    public final C2375SK f81787sk;
+
+    public SPHINCSPlusPrivateKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, C2375SK c2375sk, C2374PK c2374pk) {
         super(true, sPHINCSPlusParameters);
-        this.sk = sk;
-        this.pk = pk;
+        this.f81787sk = c2375sk;
+        this.f81786pk = c2374pk;
     }
 
     public SPHINCSPlusPrivateKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, byte[] bArr) {
@@ -21,48 +25,48 @@ public class SPHINCSPlusPrivateKeyParameters extends SPHINCSPlusKeyParameters {
             throw new IllegalArgumentException("private key encoding does not match parameters");
         }
         int i2 = n * 2;
-        this.sk = new SK(Arrays.copyOfRange(bArr, 0, n), Arrays.copyOfRange(bArr, n, i2));
+        this.f81787sk = new C2375SK(Arrays.copyOfRange(bArr, 0, n), Arrays.copyOfRange(bArr, n, i2));
         int i3 = n * 3;
-        this.pk = new PK(Arrays.copyOfRange(bArr, i2, i3), Arrays.copyOfRange(bArr, i3, i));
+        this.f81786pk = new C2374PK(Arrays.copyOfRange(bArr, i2, i3), Arrays.copyOfRange(bArr, i3, i));
     }
 
     public SPHINCSPlusPrivateKeyParameters(SPHINCSPlusParameters sPHINCSPlusParameters, byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4) {
         super(true, sPHINCSPlusParameters);
-        this.sk = new SK(bArr, bArr2);
-        this.pk = new PK(bArr3, bArr4);
+        this.f81787sk = new C2375SK(bArr, bArr2);
+        this.f81786pk = new C2374PK(bArr3, bArr4);
     }
 
     public byte[] getEncoded() {
-        SK sk = this.sk;
-        byte[] bArr = sk.seed;
-        byte[] bArr2 = sk.prf;
-        PK pk = this.pk;
-        return Arrays.concatenate(new byte[][]{bArr, bArr2, pk.seed, pk.root});
+        C2375SK c2375sk = this.f81787sk;
+        byte[] bArr = c2375sk.seed;
+        byte[] bArr2 = c2375sk.prf;
+        C2374PK c2374pk = this.f81786pk;
+        return Arrays.concatenate(new byte[][]{bArr, bArr2, c2374pk.seed, c2374pk.root});
     }
 
     public byte[] getEncodedPublicKey() {
-        PK pk = this.pk;
-        return Arrays.concatenate(pk.seed, pk.root);
+        C2374PK c2374pk = this.f81786pk;
+        return Arrays.concatenate(c2374pk.seed, c2374pk.root);
     }
 
     public byte[] getPrf() {
-        return Arrays.clone(this.sk.prf);
+        return Arrays.clone(this.f81787sk.prf);
     }
 
     public byte[] getPublicKey() {
-        PK pk = this.pk;
-        return Arrays.concatenate(pk.seed, pk.root);
+        C2374PK c2374pk = this.f81786pk;
+        return Arrays.concatenate(c2374pk.seed, c2374pk.root);
     }
 
     public byte[] getPublicSeed() {
-        return Arrays.clone(this.pk.seed);
+        return Arrays.clone(this.f81786pk.seed);
     }
 
     public byte[] getRoot() {
-        return Arrays.clone(this.pk.root);
+        return Arrays.clone(this.f81786pk.root);
     }
 
     public byte[] getSeed() {
-        return Arrays.clone(this.sk.seed);
+        return Arrays.clone(this.f81787sk.seed);
     }
 }

@@ -8,10 +8,12 @@ import org.bouncycastle.pqc.crypto.util.SecretWithEncapsulationImpl;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SABERKEMGenerator implements EncapsulatedSecretGenerator {
-    public final SecureRandom sr;
+
+    /* JADX INFO: renamed from: sr */
+    public final SecureRandom f81721sr;
 
     public SABERKEMGenerator(SecureRandom secureRandom) {
-        this.sr = secureRandom;
+        this.f81721sr = secureRandom;
     }
 
     @Override // org.bouncycastle.crypto.EncapsulatedSecretGenerator
@@ -20,7 +22,7 @@ public class SABERKEMGenerator implements EncapsulatedSecretGenerator {
         SABEREngine engine = sABERPublicKeyParameters.getParameters().getEngine();
         byte[] bArr = new byte[engine.getCipherTextSize()];
         byte[] bArr2 = new byte[engine.getSessionKeySize()];
-        engine.crypto_kem_enc(bArr, bArr2, sABERPublicKeyParameters.getPublicKey(), this.sr);
+        engine.crypto_kem_enc(bArr, bArr2, sABERPublicKeyParameters.getPublicKey(), this.f81721sr);
         return new SecretWithEncapsulationImpl(bArr2, bArr);
     }
 }

@@ -10,103 +10,103 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
-import l.C18338;
-import l.C18834;
-import l.C21140;
-import l.C21451;
-import l.C23982;
-import l.C2606;
-import l.C3311;
-import l.C4017;
-import l.C7028;
-import l.C9145;
-import l.HandlerC19540;
-import l.InterfaceC4227;
-import l.RunnableC16010;
 import org.json.JSONException;
 import org.json.JSONObject;
+import p067l.C11060;
+import p067l.C19797;
+import p067l.C20268;
+import p067l.C22460;
+import p067l.C22755;
+import p067l.C25161;
+import p067l.C4845;
+import p067l.C5515;
+import p067l.C6186;
+import p067l.C9048;
+import p067l.HandlerC20939;
+import p067l.InterfaceC6386;
+import p067l.RunnableC17584;
 
 /* JADX INFO: compiled from: 51RR */
 /* JADX INFO: loaded from: classes.dex */
-public class TDialog extends c {
+public class TDialog extends AbstractDialogC0627c {
 
-    /* JADX INFO: renamed from: ܰ, reason: not valid java name and contains not printable characters */
-    public static WeakReference f896;
+    /* JADX INFO: renamed from: ܰ */
+    public static WeakReference f2130;
 
-    /* JADX INFO: renamed from: ۗ, reason: not valid java name and contains not printable characters */
-    public C18834 f898;
+    /* JADX INFO: renamed from: ۗ */
+    public C20268 f2132;
 
-    /* JADX INFO: renamed from: ۙ, reason: not valid java name and contains not printable characters */
-    public String f899;
+    /* JADX INFO: renamed from: ۙ */
+    public String f2133;
 
-    /* JADX INFO: renamed from: ۛ, reason: not valid java name and contains not printable characters */
-    public Handler f900;
+    /* JADX INFO: renamed from: ۛ */
+    public Handler f2134;
 
-    /* JADX INFO: renamed from: ۤ, reason: not valid java name and contains not printable characters */
-    public C7028 f901;
+    /* JADX INFO: renamed from: ۤ */
+    public C9048 f2135;
 
-    /* JADX INFO: renamed from: ۫, reason: not valid java name and contains not printable characters */
-    public C21140 f902;
+    /* JADX INFO: renamed from: ۫ */
+    public C22460 f2136;
 
-    /* JADX INFO: renamed from: ۬, reason: not valid java name and contains not printable characters */
-    public InterfaceC4227 f903;
+    /* JADX INFO: renamed from: ۬ */
+    public InterfaceC6386 f2137;
 
-    /* JADX INFO: renamed from: ᩶, reason: not valid java name and contains not printable characters */
-    public WeakReference f904;
+    /* JADX INFO: renamed from: ᩶ */
+    public WeakReference f2138;
 
-    /* JADX INFO: renamed from: ۨ, reason: not valid java name and contains not printable characters */
-    public static final FrameLayout.LayoutParams f895 = new FrameLayout.LayoutParams(-1, -1);
+    /* JADX INFO: renamed from: ۨ */
+    public static final FrameLayout.LayoutParams f2129 = new FrameLayout.LayoutParams(-1, -1);
 
-    /* JADX INFO: renamed from: ᩺, reason: not valid java name and contains not printable characters */
-    public static Toast f897 = null;
+    /* JADX INFO: renamed from: ᩺ */
+    public static Toast f2131 = null;
 
-    public TDialog(Context context, String str, InterfaceC4227 interfaceC4227, C21451 c21451) {
+    public TDialog(Context context, String str, InterfaceC6386 interfaceC6386, C22755 c22755) {
         super(context);
-        this.f904 = new WeakReference(context);
-        this.f899 = str;
-        c21451.getClass();
-        C18834 c18834 = new C18834(context, str, interfaceC4227);
-        this.f898 = c18834;
-        this.f900 = new HandlerC19540(this, c18834, context.getMainLooper());
-        this.f903 = interfaceC4227;
+        this.f2138 = new WeakReference(context);
+        this.f2133 = str;
+        c22755.getClass();
+        C20268 c20268 = new C20268(context, str, interfaceC6386);
+        this.f2132 = c20268;
+        this.f2134 = new HandlerC20939(this, c20268, context.getMainLooper());
+        this.f2137 = interfaceC6386;
     }
 
-    @Override // com.tencent.open.c, android.app.Dialog
+    @Override // com.tencent.open.AbstractDialogC0627c, android.app.Dialog
     public final void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         super.onCreate(bundle);
-        C3311.m10125(getWindow());
-        WeakReference weakReference = this.f904;
+        C5515.m12161(getWindow());
+        WeakReference weakReference = this.f2138;
         try {
             new TextView((Context) weakReference.get()).setText("test");
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            C7028 c7028 = new C7028((Context) weakReference.get());
-            this.f901 = c7028;
-            c7028.setLayoutParams(layoutParams);
+            C9048 c9048 = new C9048((Context) weakReference.get());
+            this.f2135 = c9048;
+            c9048.setLayoutParams(layoutParams);
             layoutParams.gravity = 17;
-            C21140 c21140 = new C21140((Context) weakReference.get());
-            this.f902 = c21140;
-            c21140.setLayoutParams(layoutParams);
-            this.f902.setBackgroundColor(-1);
-            this.f902.addView(this.f901);
-            setContentView(this.f902);
+            C22460 c22460 = new C22460((Context) weakReference.get());
+            this.f2136 = c22460;
+            c22460.setLayoutParams(layoutParams);
+            this.f2136.setBackgroundColor(-1);
+            this.f2136.addView(this.f2135);
+            setContentView(this.f2136);
         } catch (Throwable th) {
-            C9145.m23514("openSDK_LOG.TDialog", "onCreateView exception", th);
-            C3311.m10124(this, this.f900);
+            C11060.m25465("openSDK_LOG.TDialog", "onCreateView exception", th);
+            C5515.m12160(this, this.f2134);
         }
-        new Handler(Looper.getMainLooper()).post(new RunnableC16010(this));
-        C7028 c7029 = this.f901;
-        if (c7029 != null) {
-            c7029.setVerticalScrollBarEnabled(false);
-            this.f901.setHorizontalScrollBarEnabled(false);
-            this.f901.setWebViewClient(new C2606(this));
-            this.f901.setWebChromeClient(this.f906);
-            this.f901.clearFormData();
-            WebSettings settings = this.f901.getSettings();
+        new Handler(Looper.getMainLooper()).post(new RunnableC17584(this));
+        C9048 c9049 = this.f2135;
+        if (c9049 != null) {
+            c9049.setVerticalScrollBarEnabled(false);
+            this.f2135.setHorizontalScrollBarEnabled(false);
+            this.f2135.setWebViewClient(new C4845(this));
+            this.f2135.setWebChromeClient(this.f2140);
+            this.f2135.clearFormData();
+            WebSettings settings = this.f2135.getSettings();
             if (settings == null) {
                 return;
             }
-            C23982.m52800(this.f901);
+            C25161.m55206(this.f2135);
             settings.setSaveFormData(false);
             settings.setCacheMode(-1);
             settings.setNeedInitialFocus(false);
@@ -118,63 +118,63 @@ public class TDialog extends c {
                 settings.setDatabasePath(((Context) weakReference.get()).getApplicationContext().getDir("databases", 0).getPath());
             }
             settings.setDomStorageEnabled(true);
-            this.f905.m41168(new C4017(), "sdk_js_if");
-            this.f901.loadUrl(this.f899);
-            this.f901.setLayoutParams(f895);
-            this.f901.setVisibility(4);
+            this.f2139.m43414(new C6186(), "sdk_js_if");
+            this.f2135.loadUrl(this.f2133);
+            this.f2135.setLayoutParams(f2129);
+            this.f2135.setVisibility(4);
         }
     }
 
     @Override // android.app.Dialog
     public final void onBackPressed() {
-        C18834 c18834 = this.f898;
-        if (c18834 != null) {
-            c18834.mo3453();
+        C20268 c20268 = this.f2132;
+        if (c20268 != null) {
+            c20268.mo5756();
         }
         super.onBackPressed();
     }
 
-    @Override // com.tencent.open.c
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void mo924(String str) {
-        C9145.m23513("openSDK_LOG.TDialog", "--onConsoleMessage--");
+    @Override // com.tencent.open.AbstractDialogC0627c
+    /* JADX INFO: renamed from: ֫ */
+    public final void mo2039(String str) {
+        C11060.m25464("openSDK_LOG.TDialog", "--onConsoleMessage--");
         try {
-            this.f905.mo24963(this.f901, str);
+            this.f2139.mo26978(this.f2135, str);
         } catch (Exception unused) {
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static void m921(Context context, String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public static void m2036(Context context, String str) {
         WeakReference weakReference;
         if (context == null || str == null) {
             return;
         }
         try {
-            JSONObject jSONObjectM42748 = C18338.m42748(str);
-            int i = jSONObjectM42748.getInt("action");
-            String string = jSONObjectM42748.getString("msg");
+            JSONObject jSONObjectM45010 = C19797.m45010(str);
+            int i = jSONObjectM45010.getInt("action");
+            String string = jSONObjectM45010.getString("msg");
             if (i == 1) {
-                WeakReference weakReference2 = f896;
+                WeakReference weakReference2 = f2130;
                 if (weakReference2 != null && weakReference2.get() != null) {
-                    ((ProgressDialog) f896.get()).setMessage(string);
-                    if (((ProgressDialog) f896.get()).isShowing()) {
+                    ((ProgressDialog) f2130.get()).setMessage(string);
+                    if (((ProgressDialog) f2130.get()).isShowing()) {
                         return;
                     }
-                    ((ProgressDialog) f896.get()).show();
+                    ((ProgressDialog) f2130.get()).show();
                     return;
                 }
                 ProgressDialog progressDialog = new ProgressDialog(context);
                 progressDialog.setMessage(string);
-                f896 = new WeakReference(progressDialog);
+                f2130 = new WeakReference(progressDialog);
                 progressDialog.show();
                 return;
             }
-            if (i != 0 || (weakReference = f896) == null || weakReference.get() == null || !((ProgressDialog) f896.get()).isShowing()) {
+            if (i != 0 || (weakReference = f2130) == null || weakReference.get() == null || !((ProgressDialog) f2130.get()).isShowing()) {
                 return;
             }
-            ((ProgressDialog) f896.get()).dismiss();
-            f896 = null;
+            ((ProgressDialog) f2130.get()).dismiss();
+            f2130 = null;
         } catch (JSONException unused) {
         }
     }

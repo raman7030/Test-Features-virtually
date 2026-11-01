@@ -3,12 +3,12 @@ package org.bouncycastle.jcajce.spec;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
 import org.bouncycastle.crypto.engines.GOST28147Engine;
 import org.bouncycastle.internal.asn1.rosstandart.RosstandartObjectIdentifiers;
 import org.bouncycastle.util.Arrays;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST28147WrapParameterSpec implements AlgorithmParameterSpec {
@@ -72,6 +72,6 @@ public class GOST28147WrapParameterSpec implements AlgorithmParameterSpec {
         if (str != null) {
             return str;
         }
-        throw new IllegalArgumentException(C9005.m23242("unknown OID: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unknown OID: ", aSN1ObjectIdentifier));
     }
 }

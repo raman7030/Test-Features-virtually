@@ -20,10 +20,10 @@ import com.google.android.material.internal.TextWatcherAdapter;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.textfield.TextInputLayout;
 import java.util.Arrays;
-import l.C15813;
-import l.C16445;
-import l.C17648;
-import l.C20754;
+import p067l.C1658;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ChipTextInputComboView extends FrameLayout implements Checkable {
@@ -44,10 +44,10 @@ public class ChipTextInputComboView extends FrameLayout implements Checkable {
     public ChipTextInputComboView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater layoutInflaterFrom = LayoutInflater.from(context);
-        Chip chip = (Chip) layoutInflaterFrom.inflate(C15813.f48843, (ViewGroup) this, false);
+        Chip chip = (Chip) layoutInflaterFrom.inflate(C17397.f51981, (ViewGroup) this, false);
         this.chip = chip;
         chip.setAccessibilityClassName("android.view.View");
-        TextInputLayout textInputLayout = (TextInputLayout) layoutInflaterFrom.inflate(C15813.f48840, (ViewGroup) this, false);
+        TextInputLayout textInputLayout = (TextInputLayout) layoutInflaterFrom.inflate(C17397.f51978, (ViewGroup) this, false);
         this.textInputLayout = textInputLayout;
         EditText editText = textInputLayout.getEditText();
         this.editText = editText;
@@ -58,8 +58,8 @@ public class ChipTextInputComboView extends FrameLayout implements Checkable {
         updateHintLocales();
         addView(chip);
         addView(textInputLayout);
-        this.label = (TextView) findViewById(C20754.f67172);
-        int i2 = C17648.f53953;
+        this.label = (TextView) findViewById(C22093.f69856);
+        int i2 = C1717.f57146;
         editText.setId(View.generateViewId());
         this.label.setLabelFor(editText.getId());
         editText.setSaveEnabled(false);
@@ -141,8 +141,8 @@ public class ChipTextInputComboView extends FrameLayout implements Checkable {
         return this.textInputLayout;
     }
 
-    public void setChipDelegate(C16445 c16445) {
-        C17648.m41309(this.chip, c16445);
+    public void setChipDelegate(C1658 c1658) {
+        C1717.m43555(this.chip, c1658);
     }
 
     public class TextFormatter extends TextWatcherAdapter {

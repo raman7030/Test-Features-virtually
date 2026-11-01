@@ -2,7 +2,7 @@ package org.bouncycastle.crypto.constraints;
 
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECCurve;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ConstraintUtils {

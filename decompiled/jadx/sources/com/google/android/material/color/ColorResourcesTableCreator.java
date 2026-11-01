@@ -2,7 +2,7 @@ package com.google.android.material.color;
 
 import android.content.Context;
 import android.util.Pair;
-import com.alipay.sdk.m.w.a;
+import com.alipay.sdk.p010m.p055w.C0233a;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -15,8 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import l.C13540;
-import l.C7166;
+import p067l.C1514;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class ColorResourcesTableCreator {
@@ -63,7 +63,7 @@ public final class ColorResourcesTableCreator {
                 StringBuilder sb = new StringBuilder("Non color resource found: name=");
                 sb.append(colorResource2.name);
                 sb.append(", typeId=");
-                throw new IllegalArgumentException(C13540.m32584(sb, colorResource2.typeId & 255));
+                throw new IllegalArgumentException(C1514.m34687(sb, colorResource2.typeId & 255));
             }
             if (colorResource2.packageId == 1) {
                 packageInfo = ANDROID_PACKAGE_INFO;
@@ -287,7 +287,7 @@ public final class ColorResourcesTableCreator {
 
         public void writeTo(ByteArrayOutputStream byteArrayOutputStream) throws IOException {
             this.header.writeTo(byteArrayOutputStream);
-            byteArrayOutputStream.write(ColorResourcesTableCreator.intToByteArray(this.packageInfo.id));
+            byteArrayOutputStream.write(ColorResourcesTableCreator.intToByteArray(this.packageInfo.f2028id));
             char[] charArray = this.packageInfo.name.toCharArray();
             for (int i = 0; i < 128; i++) {
                 if (i < charArray.length) {
@@ -320,7 +320,7 @@ public final class ColorResourcesTableCreator {
         public final TypeChunk typeChunk;
 
         public TypeSpecChunk(List list) {
-            this.entryCount = ((ColorResource) C7166.m19188(1, list)).entryId + 1;
+            this.entryCount = ((ColorResource) C9179.m21131(1, list)).entryId + 1;
             HashSet hashSet = new HashSet();
             Iterator it = list.iterator();
             while (it.hasNext()) {
@@ -439,11 +439,13 @@ public final class ColorResourcesTableCreator {
     }
 
     public class PackageInfo {
-        public final int id;
+
+        /* JADX INFO: renamed from: id */
+        public final int f2028id;
         public final String name;
 
         public PackageInfo(int i, String str) {
-            this.id = i;
+            this.f2028id = i;
             this.name = str;
         }
     }
@@ -483,7 +485,7 @@ public final class ColorResourcesTableCreator {
     }
 
     public static byte[] stringToByteArrayUtf8(String str) {
-        byte[] bytes = str.getBytes(Charset.forName(a.D));
+        byte[] bytes = str.getBytes(Charset.forName(C0233a.f1077D));
         byte length = (byte) bytes.length;
         int length2 = bytes.length;
         byte[] bArr = new byte[length2 + 3];

@@ -4,20 +4,32 @@ import java.math.BigInteger;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CramerShoupPrivateKeyParameters extends CramerShoupKeyParameters {
-    public CramerShoupPublicKeyParameters pk;
-    public BigInteger x1;
-    public BigInteger x2;
-    public BigInteger y1;
-    public BigInteger y2;
-    public BigInteger z;
+
+    /* JADX INFO: renamed from: pk */
+    public CramerShoupPublicKeyParameters f81220pk;
+
+    /* JADX INFO: renamed from: x1 */
+    public BigInteger f81221x1;
+
+    /* JADX INFO: renamed from: x2 */
+    public BigInteger f81222x2;
+
+    /* JADX INFO: renamed from: y1 */
+    public BigInteger f81223y1;
+
+    /* JADX INFO: renamed from: y2 */
+    public BigInteger f81224y2;
+
+    /* JADX INFO: renamed from: z */
+    public BigInteger f81225z;
 
     public CramerShoupPrivateKeyParameters(CramerShoupParameters cramerShoupParameters, BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, BigInteger bigInteger4, BigInteger bigInteger5) {
         super(true, cramerShoupParameters);
-        this.x1 = bigInteger;
-        this.x2 = bigInteger2;
-        this.y1 = bigInteger3;
-        this.y2 = bigInteger4;
-        this.z = bigInteger5;
+        this.f81221x1 = bigInteger;
+        this.f81222x2 = bigInteger2;
+        this.f81223y1 = bigInteger3;
+        this.f81224y2 = bigInteger4;
+        this.f81225z = bigInteger5;
     }
 
     @Override // org.bouncycastle.crypto.params.CramerShoupKeyParameters
@@ -26,39 +38,39 @@ public class CramerShoupPrivateKeyParameters extends CramerShoupKeyParameters {
             return false;
         }
         CramerShoupPrivateKeyParameters cramerShoupPrivateKeyParameters = (CramerShoupPrivateKeyParameters) obj;
-        return cramerShoupPrivateKeyParameters.getX1().equals(this.x1) && cramerShoupPrivateKeyParameters.getX2().equals(this.x2) && cramerShoupPrivateKeyParameters.getY1().equals(this.y1) && cramerShoupPrivateKeyParameters.getY2().equals(this.y2) && cramerShoupPrivateKeyParameters.getZ().equals(this.z) && super.equals(obj);
+        return cramerShoupPrivateKeyParameters.getX1().equals(this.f81221x1) && cramerShoupPrivateKeyParameters.getX2().equals(this.f81222x2) && cramerShoupPrivateKeyParameters.getY1().equals(this.f81223y1) && cramerShoupPrivateKeyParameters.getY2().equals(this.f81224y2) && cramerShoupPrivateKeyParameters.getZ().equals(this.f81225z) && super.equals(obj);
     }
 
     public CramerShoupPublicKeyParameters getPk() {
-        return this.pk;
+        return this.f81220pk;
     }
 
     public BigInteger getX1() {
-        return this.x1;
+        return this.f81221x1;
     }
 
     public BigInteger getX2() {
-        return this.x2;
+        return this.f81222x2;
     }
 
     public BigInteger getY1() {
-        return this.y1;
+        return this.f81223y1;
     }
 
     public BigInteger getY2() {
-        return this.y2;
+        return this.f81224y2;
     }
 
     public BigInteger getZ() {
-        return this.z;
+        return this.f81225z;
     }
 
     @Override // org.bouncycastle.crypto.params.CramerShoupKeyParameters
     public int hashCode() {
-        return ((((this.x1.hashCode() ^ this.x2.hashCode()) ^ this.y1.hashCode()) ^ this.y2.hashCode()) ^ this.z.hashCode()) ^ super.hashCode();
+        return ((((this.f81221x1.hashCode() ^ this.f81222x2.hashCode()) ^ this.f81223y1.hashCode()) ^ this.f81224y2.hashCode()) ^ this.f81225z.hashCode()) ^ super.hashCode();
     }
 
     public void setPk(CramerShoupPublicKeyParameters cramerShoupPublicKeyParameters) {
-        this.pk = cramerShoupPublicKeyParameters;
+        this.f81220pk = cramerShoupPublicKeyParameters;
     }
 }

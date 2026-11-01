@@ -6,14 +6,16 @@ import org.bouncycastle.crypto.DerivationParameters;
 public class GSKKDFParameters implements DerivationParameters {
     public final byte[] nonce;
     public final int startCounter;
-    public final byte[] z;
+
+    /* JADX INFO: renamed from: z */
+    public final byte[] f80764z;
 
     public GSKKDFParameters(byte[] bArr, int i) {
         this(bArr, i, null);
     }
 
     public GSKKDFParameters(byte[] bArr, int i, byte[] bArr2) {
-        this.z = bArr;
+        this.f80764z = bArr;
         this.startCounter = i;
         this.nonce = bArr2;
     }
@@ -27,6 +29,6 @@ public class GSKKDFParameters implements DerivationParameters {
     }
 
     public byte[] getZ() {
-        return this.z;
+        return this.f80764z;
     }
 }

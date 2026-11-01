@@ -4,22 +4,26 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
-import l.C5368;
 import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMSSignature implements Encodable {
     public final LMOtsSignature otsSignature;
     public final LMSigParameters parameter;
-    public final int q;
-    public final byte[][] y;
+
+    /* JADX INFO: renamed from: q */
+    public final int f81653q;
+
+    /* JADX INFO: renamed from: y */
+    public final byte[][] f81654y;
 
     public LMSSignature(int i, LMOtsSignature lMOtsSignature, LMSigParameters lMSigParameters, byte[][] bArr) {
-        this.q = i;
+        this.f81653q = i;
         this.otsSignature = lMOtsSignature;
         this.parameter = lMSigParameters;
-        this.y = bArr;
+        this.f81654y = bArr;
     }
 
     public boolean equals(Object obj) {
@@ -30,7 +34,7 @@ public class LMSSignature implements Encodable {
             return false;
         }
         LMSSignature lMSSignature = (LMSSignature) obj;
-        if (this.q != lMSSignature.q) {
+        if (this.f81653q != lMSSignature.f81653q) {
             return false;
         }
         LMOtsSignature lMOtsSignature = this.otsSignature;
@@ -39,14 +43,14 @@ public class LMSSignature implements Encodable {
         }
         LMSigParameters lMSigParameters = this.parameter;
         if (lMSigParameters == null ? lMSSignature.parameter == null : lMSigParameters.equals(lMSSignature.parameter)) {
-            return Arrays.deepEquals(this.y, lMSSignature.y);
+            return Arrays.deepEquals(this.f81654y, lMSSignature.f81654y);
         }
         return false;
     }
 
     @Override // org.bouncycastle.util.Encodable
     public byte[] getEncoded() {
-        return Composer.compose().u32str(this.q).bytes(this.otsSignature.getEncoded()).u32str(this.parameter.getType()).bytes(this.y).build();
+        return Composer.compose().u32str(this.f81653q).bytes(this.otsSignature.getEncoded()).u32str(this.parameter.getType()).bytes(this.f81654y).build();
     }
 
     public LMOtsSignature getOtsSignature() {
@@ -58,19 +62,19 @@ public class LMSSignature implements Encodable {
     }
 
     public int getQ() {
-        return this.q;
+        return this.f81653q;
     }
 
     public byte[][] getY() {
-        return this.y;
+        return this.f81654y;
     }
 
     public int hashCode() {
-        int i = this.q * 31;
+        int i = this.f81653q * 31;
         LMOtsSignature lMOtsSignature = this.otsSignature;
         int iHashCode = (i + (lMOtsSignature != null ? lMOtsSignature.hashCode() : 0)) * 31;
         LMSigParameters lMSigParameters = this.parameter;
-        return Arrays.deepHashCode(this.y) + ((iHashCode + (lMSigParameters != null ? lMSigParameters.hashCode() : 0)) * 31);
+        return Arrays.deepHashCode(this.f81654y) + ((iHashCode + (lMSigParameters != null ? lMSigParameters.hashCode() : 0)) * 31);
     }
 
     public static LMSSignature getInstance(Object obj) throws Throwable {
@@ -95,7 +99,7 @@ public class LMSSignature implements Encodable {
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj));
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream2 = null;
         try {

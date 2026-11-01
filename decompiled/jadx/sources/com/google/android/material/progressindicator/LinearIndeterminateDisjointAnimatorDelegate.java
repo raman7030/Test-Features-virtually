@@ -8,16 +8,16 @@ import android.util.Property;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import java.util.Iterator;
-import l.AbstractC18364;
-import l.C10876;
-import l.C1814;
+import p067l.AbstractC19822;
+import p067l.C0932;
+import p067l.C12705;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class LinearIndeterminateDisjointAnimatorDelegate extends IndeterminateAnimatorDelegate {
     public static final int TOTAL_DURATION_IN_MS = 1800;
     public float animationFraction;
     public ObjectAnimator animator;
-    public AbstractC18364 animatorCompleteCallback;
+    public AbstractC19822 animatorCompleteCallback;
     public final BaseProgressIndicatorSpec baseSpec;
     public ObjectAnimator completeEndAnimator;
     public boolean dirtyColors;
@@ -42,7 +42,7 @@ public final class LinearIndeterminateDisjointAnimatorDelegate extends Indetermi
         this.indicatorColorIndex = 0;
         this.animatorCompleteCallback = null;
         this.baseSpec = linearProgressIndicatorSpec;
-        this.interpolatorArray = new Interpolator[]{AnimationUtils.loadInterpolator(context, C10876.f32676), AnimationUtils.loadInterpolator(context, C10876.f32687), AnimationUtils.loadInterpolator(context, C10876.f32708), AnimationUtils.loadInterpolator(context, C10876.f32690)};
+        this.interpolatorArray = new Interpolator[]{AnimationUtils.loadInterpolator(context, C12705.f35653), AnimationUtils.loadInterpolator(context, C12705.f35664), AnimationUtils.loadInterpolator(context, C12705.f35685), AnimationUtils.loadInterpolator(context, C12705.f35667)};
     }
 
     @Override // com.google.android.material.progressindicator.IndeterminateAnimatorDelegate
@@ -80,9 +80,9 @@ public final class LinearIndeterminateDisjointAnimatorDelegate extends Indetermi
                     super.onAnimationEnd(animator);
                     LinearIndeterminateDisjointAnimatorDelegate.this.cancelAnimatorImmediately();
                     LinearIndeterminateDisjointAnimatorDelegate linearIndeterminateDisjointAnimatorDelegate = LinearIndeterminateDisjointAnimatorDelegate.this;
-                    AbstractC18364 abstractC18364 = linearIndeterminateDisjointAnimatorDelegate.animatorCompleteCallback;
-                    if (abstractC18364 != null) {
-                        abstractC18364.onAnimationEnd(linearIndeterminateDisjointAnimatorDelegate.drawable);
+                    AbstractC19822 abstractC19822 = linearIndeterminateDisjointAnimatorDelegate.animatorCompleteCallback;
+                    if (abstractC19822 != null) {
+                        abstractC19822.onAnimationEnd(linearIndeterminateDisjointAnimatorDelegate.drawable);
                     }
                 }
             });
@@ -117,8 +117,8 @@ public final class LinearIndeterminateDisjointAnimatorDelegate extends Indetermi
     }
 
     @Override // com.google.android.material.progressindicator.IndeterminateAnimatorDelegate
-    public void registerAnimatorsCompleteCallback(AbstractC18364 abstractC18364) {
-        this.animatorCompleteCallback = abstractC18364;
+    public void registerAnimatorsCompleteCallback(AbstractC19822 abstractC19822) {
+        this.animatorCompleteCallback = abstractC19822;
     }
 
     @Override // com.google.android.material.progressindicator.IndeterminateAnimatorDelegate
@@ -133,9 +133,9 @@ public final class LinearIndeterminateDisjointAnimatorDelegate extends Indetermi
             int i3 = i2 * 2;
             int i4 = iArr[i3];
             int[] iArr2 = DURATION_TO_MOVE_SEGMENT_ENDS;
-            activeIndicator.startFraction = C1814.m6035(this.interpolatorArray[i3].getInterpolation(getFractionInRange(i, i4, iArr2[i3])), 0.0f, 1.0f);
+            activeIndicator.startFraction = C0932.m8233(this.interpolatorArray[i3].getInterpolation(getFractionInRange(i, i4, iArr2[i3])), 0.0f, 1.0f);
             int i5 = i3 + 1;
-            activeIndicator.endFraction = C1814.m6035(this.interpolatorArray[i5].getInterpolation(getFractionInRange(i, iArr[i5], iArr2[i5])), 0.0f, 1.0f);
+            activeIndicator.endFraction = C0932.m8233(this.interpolatorArray[i5].getInterpolation(getFractionInRange(i, iArr[i5], iArr2[i5])), 0.0f, 1.0f);
         }
     }
 

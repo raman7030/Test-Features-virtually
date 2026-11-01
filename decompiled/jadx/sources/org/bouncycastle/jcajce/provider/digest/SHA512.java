@@ -1,13 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C12662;
-import l.C16014;
-import l.C18515;
-import l.C19462;
-import l.C20094;
-import l.C3200;
-import l.C3435;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
@@ -23,6 +15,14 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C19965;
+import p067l.C20865;
+import p067l.C21466;
+import p067l.C5410;
+import p067l.C5633;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SHA512 {
@@ -135,27 +135,27 @@ public class SHA512 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest", "MessageDigest.SHA-512", sb, configurableProvider);
-            C3200.m9836(C9045.m23342(XMSSKeyParameters.SHA_512, str, C18515.m43029(configurableProvider, "Alg.Alias.MessageDigest.SHA512", XMSSKeyParameters.SHA_512, "Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha512, configurableProvider), "$DigestT224", configurableProvider, "MessageDigest.SHA-512/224");
+            C14403.m33021(str, "$Digest", "MessageDigest.SHA-512", sb, configurableProvider);
+            C5410.m11881(C10965.m25287(XMSSKeyParameters.SHA_512, str, C19965.m45307(configurableProvider, "Alg.Alias.MessageDigest.SHA512", XMSSKeyParameters.SHA_512, "Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha512, configurableProvider), "$DigestT224", configurableProvider, "MessageDigest.SHA-512/224");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA512/224", "SHA-512/224");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA512224", "SHA-512/224");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA-512(224)", "SHA-512/224");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA512(224)", "SHA-512/224");
-            C3200.m9836(C9045.m23342("SHA-512/224", str, new StringBuilder("Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha512_224, configurableProvider), "$DigestT256", configurableProvider, "MessageDigest.SHA-512/256");
+            C5410.m11881(C10965.m25287("SHA-512/224", str, new StringBuilder("Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha512_224, configurableProvider), "$DigestT256", configurableProvider, "MessageDigest.SHA-512/256");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA512/256", SPHINCSKeyParameters.SHA512_256);
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA512256", SPHINCSKeyParameters.SHA512_256);
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA-512(256)", SPHINCSKeyParameters.SHA512_256);
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA512(256)", SPHINCSKeyParameters.SHA512_256);
-            StringBuilder sbM10502 = C3435.m10502("$HashMac", "Mac.PBEWITHHMACSHA512", str, C3435.m10502("$OldSHA512", "Mac.OLDHMACSHA512", str, C9045.m23342(SPHINCSKeyParameters.SHA512_256, str, new StringBuilder("Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha512_256, configurableProvider), configurableProvider), configurableProvider);
-            sbM10502.append("$HashMac");
-            addHMACAlgorithm(configurableProvider, "SHA512", sbM10502.toString(), C16014.m37867(str, "$KeyGenerator"));
+            StringBuilder sbM12526 = C5633.m12526("$HashMac", "Mac.PBEWITHHMACSHA512", str, C5633.m12526("$OldSHA512", "Mac.OLDHMACSHA512", str, C10965.m25287(SPHINCSKeyParameters.SHA512_256, str, new StringBuilder("Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha512_256, configurableProvider), configurableProvider), configurableProvider);
+            sbM12526.append("$HashMac");
+            addHMACAlgorithm(configurableProvider, "SHA512", sbM12526.toString(), C17588.m40053(str, "$KeyGenerator"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier = PKCSObjectIdentifiers.id_hmacWithSHA512;
             addHMACAlias(configurableProvider, "SHA512", aSN1ObjectIdentifier);
-            addHMACAlgorithm(configurableProvider, "SHA512/224", C16014.m37867(str, "$HashMacT224"), C16014.m37867(str, "$KeyGeneratorT224"));
-            addHMACAlgorithm(configurableProvider, "SHA512/256", C16014.m37867(str, "$HashMacT256"), C16014.m37867(str, "$KeyGeneratorT256"));
-            C3200.m9836(C9045.m23342("HMACSHA512", str, C20094.m46316(str, "$KeyFactory", "SecretKeyFactory.HMACSHA512", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier, configurableProvider), "$KeyFactory224", configurableProvider, "SecretKeyFactory.HMACSHA512/224");
-            C3200.m9836(C9045.m23342("HMACSHA512/224", str, C18515.m43029(configurableProvider, "Alg.Alias.SecretKeyFactory.HMACSHA512(224)", "HMACSHA512/224", "Alg.Alias.SecretKeyFactory."), PKCSObjectIdentifiers.id_hmacWithSHA512_224, configurableProvider), "$KeyFactory256", configurableProvider, "SecretKeyFactory.HMACSHA512/256");
-            C19462.m44861(C18515.m43029(configurableProvider, "Alg.Alias.SecretKeyFactory.HMACSHA512(256)", "HMACSHA512/256", "Alg.Alias.SecretKeyFactory."), PKCSObjectIdentifiers.id_hmacWithSHA512_256, configurableProvider, "HMACSHA512/256");
+            addHMACAlgorithm(configurableProvider, "SHA512/224", C17588.m40053(str, "$HashMacT224"), C17588.m40053(str, "$KeyGeneratorT224"));
+            addHMACAlgorithm(configurableProvider, "SHA512/256", C17588.m40053(str, "$HashMacT256"), C17588.m40053(str, "$KeyGeneratorT256"));
+            C5410.m11881(C10965.m25287("HMACSHA512", str, C21466.m48632(str, "$KeyFactory", "SecretKeyFactory.HMACSHA512", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier, configurableProvider), "$KeyFactory224", configurableProvider, "SecretKeyFactory.HMACSHA512/224");
+            C5410.m11881(C10965.m25287("HMACSHA512/224", str, C19965.m45307(configurableProvider, "Alg.Alias.SecretKeyFactory.HMACSHA512(224)", "HMACSHA512/224", "Alg.Alias.SecretKeyFactory."), PKCSObjectIdentifiers.id_hmacWithSHA512_224, configurableProvider), "$KeyFactory256", configurableProvider, "SecretKeyFactory.HMACSHA512/256");
+            C20865.m47157(C19965.m45307(configurableProvider, "Alg.Alias.SecretKeyFactory.HMACSHA512(256)", "HMACSHA512/256", "Alg.Alias.SecretKeyFactory."), PKCSObjectIdentifiers.id_hmacWithSHA512_256, configurableProvider, "HMACSHA512/256");
         }
     }
 

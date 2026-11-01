@@ -1,6 +1,6 @@
 package org.bouncycastle.jce.provider;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.interfaces.RSAPublicKey;
@@ -57,7 +57,7 @@ public class JCERSAPublicKey implements RSAPublicKey {
 
     @Override // java.security.Key
     public String getAlgorithm() {
-        return d.a;
+        return C0187d.f883a;
     }
 
     @Override // java.security.Key

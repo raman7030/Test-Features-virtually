@@ -2,14 +2,16 @@ package org.bouncycastle.crypto.modes.gcm;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BasicGCMExponentiator implements GCMExponentiator {
-    public long[] x;
+
+    /* JADX INFO: renamed from: x */
+    public long[] f81201x;
 
     @Override // org.bouncycastle.crypto.modes.gcm.GCMExponentiator
     public void exponentiateX(long j, byte[] bArr) {
         long[] jArrOneAsLongs = GCMUtil.oneAsLongs();
         if (j > 0) {
             long[] jArr = new long[2];
-            GCMUtil.copy(this.x, jArr);
+            GCMUtil.copy(this.f81201x, jArr);
             do {
                 if ((1 & j) != 0) {
                     GCMUtil.multiply(jArrOneAsLongs, jArr);
@@ -23,6 +25,6 @@ public class BasicGCMExponentiator implements GCMExponentiator {
 
     @Override // org.bouncycastle.crypto.modes.gcm.GCMExponentiator
     public void init(byte[] bArr) {
-        this.x = GCMUtil.asLongs(bArr);
+        this.f81201x = GCMUtil.asLongs(bArr);
     }
 }

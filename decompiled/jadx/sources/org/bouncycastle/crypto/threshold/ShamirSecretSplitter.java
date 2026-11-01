@@ -7,8 +7,8 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes.dex */
 public class ShamirSecretSplitter implements SecretSplitter {
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public int f77973l;
+    /* JADX INFO: renamed from: l */
+    public int f81325l;
     public final Polynomial poly;
     public SecureRandom random;
 
@@ -27,7 +27,7 @@ public class ShamirSecretSplitter implements SecretSplitter {
             throw new IllegalArgumentException("Invalid input: l ranges from 0 to 65534 (2^16-2) bytes.");
         }
         this.poly = Polynomial.newInstance(algorithm, mode);
-        this.f77973l = i;
+        this.f81325l = i;
         this.random = secureRandom;
     }
 
@@ -51,8 +51,8 @@ public class ShamirSecretSplitter implements SecretSplitter {
     public ShamirSplitSecret resplit(byte[] bArr, int i, int i2) {
         byte[][] bArrInitP = initP(i, i2);
         int i3 = 0;
-        byte[][] bArr2 = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, i, this.f77973l);
-        ShamirSplitSecretShare[] shamirSplitSecretShareArr = new ShamirSplitSecretShare[this.f77973l];
+        byte[][] bArr2 = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, i, this.f81325l);
+        ShamirSplitSecretShare[] shamirSplitSecretShareArr = new ShamirSplitSecretShare[this.f81325l];
         bArr2[0] = Arrays.clone(bArr);
         for (int i4 = 1; i4 < i; i4++) {
             this.random.nextBytes(bArr2[i4]);
@@ -69,8 +69,8 @@ public class ShamirSecretSplitter implements SecretSplitter {
     public ShamirSplitSecret split(int i, int i2) {
         byte[][] bArrInitP = initP(i, i2);
         int i3 = 0;
-        byte[][] bArr = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, i, this.f77973l);
-        ShamirSplitSecretShare[] shamirSplitSecretShareArr = new ShamirSplitSecretShare[this.f77973l];
+        byte[][] bArr = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, i, this.f81325l);
+        ShamirSplitSecretShare[] shamirSplitSecretShareArr = new ShamirSplitSecretShare[this.f81325l];
         for (int i4 = 0; i4 < i; i4++) {
             this.random.nextBytes(bArr[i4]);
         }
@@ -86,14 +86,14 @@ public class ShamirSecretSplitter implements SecretSplitter {
     public ShamirSplitSecret splitAround(SecretShare secretShare, int i, int i2) {
         byte[][] bArrInitP = initP(i, i2);
         int i3 = 1;
-        byte[][] bArr = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, i, this.f77973l);
-        ShamirSplitSecretShare[] shamirSplitSecretShareArr = new ShamirSplitSecretShare[this.f77973l];
+        byte[][] bArr = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, i, this.f81325l);
+        ShamirSplitSecretShare[] shamirSplitSecretShareArr = new ShamirSplitSecretShare[this.f81325l];
         byte[] encoded = secretShare.getEncoded();
         shamirSplitSecretShareArr[0] = new ShamirSplitSecretShare(encoded, 1);
         for (int i4 = 0; i4 < i; i4++) {
             this.random.nextBytes(bArr[i4]);
         }
-        for (int i5 = 0; i5 < this.f77973l; i5++) {
+        for (int i5 = 0; i5 < this.f81325l; i5++) {
             byte b = bArr[1][i5];
             for (int i6 = 2; i6 < i; i6++) {
                 b = (byte) (b ^ bArr[i6][i5]);

@@ -13,13 +13,15 @@ public class Subscription {
         @Override // java.util.Comparator
         public int compare(Subscription subscription, Subscription subscription2) {
             int iCompareTo = Integer.valueOf(subscription2.getPriority()).compareTo(Integer.valueOf(subscription.getPriority()));
-            return iCompareTo == 0 ? subscription2.id.compareTo(subscription.id) : iCompareTo;
+            return iCompareTo == 0 ? subscription2.f80624id.compareTo(subscription.f80624id) : iCompareTo;
         }
     };
     public final SubscriptionContext context;
     public final IMessageDispatcher dispatcher;
     public final Collection listeners;
-    public final UUID id = UUID.randomUUID();
+
+    /* JADX INFO: renamed from: id */
+    public final UUID f80624id = UUID.randomUUID();
     public final CopyOnWriteArrayList onSubscription = new CopyOnWriteArrayList();
 
     public Subscription(SubscriptionContext subscriptionContext, IMessageDispatcher iMessageDispatcher, Collection collection) {

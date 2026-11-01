@@ -14,7 +14,7 @@ public class AsconAEAD128 extends AsconBaseEngine {
         this.KEY_SIZE = 16;
         this.ASCON_IV = 17594342703105L;
         this.algorithmName = "Ascon-AEAD128";
-        this.nr = 8;
+        this.f80980nr = 8;
         this.dsep = Long.MIN_VALUE;
         this.macSizeLowerBound = 4;
         setInnerMembers(AEADBaseEngine.ProcessingBufferType.Immediate, AEADBaseEngine.AADOperatorType.DataLimit, AEADBaseEngine.DataOperatorType.DataLimit);
@@ -23,23 +23,23 @@ public class AsconAEAD128 extends AsconBaseEngine {
     }
 
     private void finishData(AEADBaseEngine.State state) {
-        AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-        asconPermutation.x2 ^= this.K0;
-        asconPermutation.x3 ^= this.K1;
-        asconPermutation.p(12);
-        AsconPermutationFriend.AsconPermutation asconPermutation2 = this.p;
-        asconPermutation2.x3 ^= this.K0;
-        asconPermutation2.x4 ^= this.K1;
+        AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+        asconPermutation.f80985x2 ^= this.f80976K0;
+        asconPermutation.f80986x3 ^= this.f80977K1;
+        asconPermutation.m55366p(12);
+        AsconPermutationFriend.AsconPermutation asconPermutation2 = this.f80981p;
+        asconPermutation2.f80986x3 ^= this.f80976K0;
+        asconPermutation2.f80987x4 ^= this.f80977K1;
         this.m_state = state;
     }
 
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
     public void ascon_aeadinit() {
-        this.p.set(this.ASCON_IV, this.K0, this.K1, this.N0, this.N1);
-        this.p.p(12);
-        AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-        asconPermutation.x3 ^= this.K0;
-        asconPermutation.x4 ^= this.K1;
+        this.f80981p.set(this.ASCON_IV, this.f80976K0, this.f80977K1, this.f80978N0, this.f80979N1);
+        this.f80981p.m55366p(12);
+        AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+        asconPermutation.f80986x3 ^= this.f80976K0;
+        asconPermutation.f80987x4 ^= this.f80977K1;
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -93,14 +93,14 @@ public class AsconAEAD128 extends AsconBaseEngine {
         long jLittleEndianToLong = Pack.littleEndianToLong(bArr, 0);
         long jLittleEndianToLong2 = Pack.littleEndianToLong(bArr, 8);
         this.decryptionFailureCounter.init(i);
-        if (this.K0 != jLittleEndianToLong || this.K1 != jLittleEndianToLong2) {
+        if (this.f80976K0 != jLittleEndianToLong || this.f80977K1 != jLittleEndianToLong2) {
             this.dataLimitCounter.reset();
             this.decryptionFailureCounter.reset();
-            this.K0 = jLittleEndianToLong;
-            this.K1 = jLittleEndianToLong2;
+            this.f80976K0 = jLittleEndianToLong;
+            this.f80977K1 = jLittleEndianToLong2;
         }
-        this.N0 = Pack.littleEndianToLong(bArr2, 0);
-        this.N1 = Pack.littleEndianToLong(bArr2, 8);
+        this.f80978N0 = Pack.littleEndianToLong(bArr2, 0);
+        this.f80979N1 = Pack.littleEndianToLong(bArr2, 8);
     }
 
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
@@ -136,19 +136,19 @@ public class AsconAEAD128 extends AsconBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processFinalAAD() {
         if (this.m_aadPos == this.BlockSize) {
-            this.p.x0 ^= loadBytes(this.m_aad, 0);
-            this.p.x1 ^= loadBytes(this.m_aad, 8);
+            this.f80981p.f80983x0 ^= loadBytes(this.m_aad, 0);
+            this.f80981p.f80984x1 ^= loadBytes(this.m_aad, 8);
             this.m_aadPos -= this.BlockSize;
-            this.p.p(this.nr);
+            this.f80981p.m55366p(this.f80980nr);
         }
         Arrays.fill(this.m_aad, this.m_aadPos, this.AADBufferSize, (byte) 0);
         if (this.m_aadPos < 8) {
-            this.p.x0 ^= Pack.littleEndianToLong(this.m_aad, 0) ^ pad(this.m_aadPos);
+            this.f80981p.f80983x0 ^= Pack.littleEndianToLong(this.m_aad, 0) ^ pad(this.m_aadPos);
             return;
         }
-        this.p.x0 ^= Pack.littleEndianToLong(this.m_aad, 0);
-        AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-        asconPermutation.x1 = (Pack.littleEndianToLong(this.m_aad, 8) ^ pad(this.m_aadPos)) ^ asconPermutation.x1;
+        this.f80981p.f80983x0 ^= Pack.littleEndianToLong(this.m_aad, 0);
+        AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+        asconPermutation.f80984x1 = (Pack.littleEndianToLong(this.m_aad, 8) ^ pad(this.m_aadPos)) ^ asconPermutation.f80984x1;
     }
 
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
@@ -157,21 +157,21 @@ public class AsconAEAD128 extends AsconBaseEngine {
             long jLittleEndianToLong = Pack.littleEndianToLong(bArr, 0);
             int i3 = i - 8;
             long jLittleEndianToLong2 = Pack.littleEndianToLong(bArr, 8, i3);
-            Pack.longToLittleEndian(this.p.x0 ^ jLittleEndianToLong, bArr2, i2);
-            Pack.longToLittleEndian(this.p.x1 ^ jLittleEndianToLong2, bArr2, i2 + 8, i3);
-            AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-            asconPermutation.x0 = jLittleEndianToLong;
-            long j = (asconPermutation.x1 & (-(1 << (i3 << 3)))) | jLittleEndianToLong2;
-            asconPermutation.x1 = j;
-            asconPermutation.x1 = j ^ pad(i3);
+            Pack.longToLittleEndian(this.f80981p.f80983x0 ^ jLittleEndianToLong, bArr2, i2);
+            Pack.longToLittleEndian(this.f80981p.f80984x1 ^ jLittleEndianToLong2, bArr2, i2 + 8, i3);
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+            asconPermutation.f80983x0 = jLittleEndianToLong;
+            long j = (asconPermutation.f80984x1 & (-(1 << (i3 << 3)))) | jLittleEndianToLong2;
+            asconPermutation.f80984x1 = j;
+            asconPermutation.f80984x1 = j ^ pad(i3);
         } else {
             if (i != 0) {
                 long jLittleEndianToLong3 = Pack.littleEndianToLong(bArr, 0, i);
-                Pack.longToLittleEndian(this.p.x0 ^ jLittleEndianToLong3, bArr2, i2, i);
-                AsconPermutationFriend.AsconPermutation asconPermutation2 = this.p;
-                asconPermutation2.x0 = (asconPermutation2.x0 & (-(1 << (i << 3)))) | jLittleEndianToLong3;
+                Pack.longToLittleEndian(this.f80981p.f80983x0 ^ jLittleEndianToLong3, bArr2, i2, i);
+                AsconPermutationFriend.AsconPermutation asconPermutation2 = this.f80981p;
+                asconPermutation2.f80983x0 = (asconPermutation2.f80983x0 & (-(1 << (i << 3)))) | jLittleEndianToLong3;
             }
-            this.p.x0 ^= pad(i);
+            this.f80981p.f80983x0 ^= pad(i);
         }
         finishData(AEADBaseEngine.State.DecFinal);
     }
@@ -179,18 +179,18 @@ public class AsconAEAD128 extends AsconBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
     public void processFinalEncrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
         if (i >= 8) {
-            this.p.x0 ^= Pack.littleEndianToLong(bArr, 0);
+            this.f80981p.f80983x0 ^= Pack.littleEndianToLong(bArr, 0);
             int i3 = i - 8;
-            this.p.x1 ^= Pack.littleEndianToLong(bArr, 8, i3);
-            Pack.longToLittleEndian(this.p.x0, bArr2, i2);
-            Pack.longToLittleEndian(this.p.x1, bArr2, i2 + 8);
-            this.p.x1 ^= pad(i3);
+            this.f80981p.f80984x1 ^= Pack.littleEndianToLong(bArr, 8, i3);
+            Pack.longToLittleEndian(this.f80981p.f80983x0, bArr2, i2);
+            Pack.longToLittleEndian(this.f80981p.f80984x1, bArr2, i2 + 8);
+            this.f80981p.f80984x1 ^= pad(i3);
         } else {
             if (i != 0) {
-                this.p.x0 ^= Pack.littleEndianToLong(bArr, 0, i);
-                Pack.longToLittleEndian(this.p.x0, bArr2, i2, i);
+                this.f80981p.f80983x0 ^= Pack.littleEndianToLong(bArr, 0, i);
+                Pack.longToLittleEndian(this.f80981p.f80983x0, bArr2, i2, i);
             }
-            this.p.x0 ^= pad(i);
+            this.f80981p.f80983x0 ^= pad(i);
         }
         finishData(AEADBaseEngine.State.EncFinal);
     }

@@ -1,6 +1,6 @@
 package org.bouncycastle.jcajce.provider.asymmetric.compositesignatures;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.RSAKeyGenParameterSpec;
@@ -179,8 +179,8 @@ public class CompositeIndex {
     }
 
     public static String getBaseName(String str) {
-        if (str.indexOf(d.a) >= 0) {
-            return d.a;
+        if (str.indexOf(C0187d.f883a) >= 0) {
+            return C0187d.f883a;
         }
         return str.indexOf("ECDSA") >= 0 ? "EC" : str;
     }

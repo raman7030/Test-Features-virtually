@@ -2,11 +2,12 @@ package com.umeng.commonsdk.statistics.idtracking;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.umeng.analytics.pro.am;
-import com.umeng.analytics.pro.an;
-import com.umeng.analytics.pro.be;
+import com.umeng.analytics.pro.C0655am;
+import com.umeng.analytics.pro.C0656an;
+import com.umeng.analytics.pro.C0674be;
 import com.umeng.commonsdk.framework.UMEnvelopeBuild;
 import com.umeng.commonsdk.internal.crash.UMCrashManager;
+import com.umeng.commonsdk.statistics.common.C0798b;
 import com.umeng.commonsdk.statistics.common.DataHelper;
 import com.umeng.commonsdk.statistics.common.HelperUtils;
 import com.umeng.commonsdk.statistics.internal.PreferenceWrapper;
@@ -44,7 +45,7 @@ public class Envelope {
         }
         this.mAddress = str;
         this.mLength = bArr.length;
-        this.mEntity = com.umeng.commonsdk.statistics.common.b.a(bArr);
+        this.mEntity = C0798b.m3012a(bArr);
         this.mTimestamp = (int) (System.currentTimeMillis() / 1000);
         this.identity = bArr2;
     }
@@ -77,12 +78,12 @@ public class Envelope {
         try {
             SharedPreferences sharedPreferences = PreferenceWrapper.getDefault(context);
             String string = sharedPreferences.getString("signature", null);
-            int i = sharedPreferences.getInt(i.a, 1);
+            int i = sharedPreferences.getInt(C0810i.f3439a, 1);
             Envelope envelope = new Envelope(bArr, str, "123456789098765432102:00:00:00:00:00".getBytes());
             envelope.setSignature(string);
             envelope.setSerialNumber(i);
             envelope.seal();
-            sharedPreferences.edit().putInt(i.a, i + 1).putString("signature", envelope.getSignature()).commit();
+            sharedPreferences.edit().putInt(C0810i.f3439a, i + 1).putString("signature", envelope.getSignature()).commit();
             envelope.export(context);
             return envelope;
         } catch (Exception e) {
@@ -95,13 +96,13 @@ public class Envelope {
         try {
             SharedPreferences sharedPreferences = PreferenceWrapper.getDefault(context);
             String string = sharedPreferences.getString("signature", null);
-            int i = sharedPreferences.getInt(i.a, 1);
+            int i = sharedPreferences.getInt(C0810i.f3439a, 1);
             Envelope envelope = new Envelope(bArr, str, "123456789098765432102:00:00:00:00:00".getBytes());
             envelope.setEncrypt(true);
             envelope.setSignature(string);
             envelope.setSerialNumber(i);
             envelope.seal();
-            sharedPreferences.edit().putInt(i.a, i + 1).putString("signature", envelope.getSignature()).commit();
+            sharedPreferences.edit().putInt(C0810i.f3439a, i + 1).putString("signature", envelope.getSignature()).commit();
             envelope.export(context);
             return envelope;
         } catch (Exception e) {
@@ -157,19 +158,19 @@ public class Envelope {
     }
 
     public byte[] toBinary() {
-        an anVar = new an();
-        anVar.a(this.mVersion);
-        anVar.b(this.mAddress);
-        anVar.c(DataHelper.toHexString(this.mSignature));
-        anVar.a(this.mSerialNo);
-        anVar.b(this.mTimestamp);
-        anVar.c(this.mLength);
-        anVar.a(this.mEntity);
-        anVar.d(this.encrypt ? 1 : 0);
-        anVar.d(DataHelper.toHexString(this.mGuid));
-        anVar.e(DataHelper.toHexString(this.mChecksum));
+        C0656an c0656an = new C0656an();
+        c0656an.m2169a(this.mVersion);
+        c0656an.m2174b(this.mAddress);
+        c0656an.m2178c(DataHelper.toHexString(this.mSignature));
+        c0656an.m2168a(this.mSerialNo);
+        c0656an.m2173b(this.mTimestamp);
+        c0656an.m2177c(this.mLength);
+        c0656an.m2171a(this.mEntity);
+        c0656an.m2181d(this.encrypt ? 1 : 0);
+        c0656an.m2182d(DataHelper.toHexString(this.mGuid));
+        c0656an.m2186e(DataHelper.toHexString(this.mChecksum));
         try {
-            return new be().a(anVar);
+            return new C0674be().m2321a(c0656an);
         } catch (Exception unused) {
             return null;
         }
@@ -177,7 +178,7 @@ public class Envelope {
 
     public void export(Context context) {
         String str = this.mAddress;
-        String strImprintProperty = UMEnvelopeBuild.imprintProperty(context, am.g, null);
+        String strImprintProperty = UMEnvelopeBuild.imprintProperty(context, C0655am.f2346g, null);
         String hexString = DataHelper.toHexString(this.mSignature);
         byte[] bArr = new byte[16];
         System.arraycopy(this.mSignature, 2, bArr, 0, 16);
@@ -186,7 +187,7 @@ public class Envelope {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("appkey", str);
             if (strImprintProperty != null) {
-                jSONObject.put(am.g, strImprintProperty);
+                jSONObject.put(C0655am.f2346g, strImprintProperty);
             }
             jSONObject.put("signature", hexString);
             jSONObject.put("checksum", hexString2);
@@ -202,7 +203,7 @@ public class Envelope {
             jSONObject2.put("appkey", str);
             jSONObject2.put("channel", UMUtils.getChannel(context));
             if (strImprintProperty != null) {
-                jSONObject2.put(am.g, HelperUtils.getUmengMD5(strImprintProperty));
+                jSONObject2.put(C0655am.f2346g, HelperUtils.getUmengMD5(strImprintProperty));
             }
             HelperUtils.writeFile(new File(context.getFilesDir(), "exid.dat"), jSONObject2.toString());
         } catch (Throwable unused2) {

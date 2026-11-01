@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.x509.qualified;
 
-import l.EnumC3478;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -8,6 +7,7 @@ import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1PrintableString;
 import org.bouncycastle.asn1.DERPrintableString;
+import p067l.EnumC5674;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Iso4217CurrencyCode extends ASN1Object implements ASN1Choice {
@@ -15,7 +15,7 @@ public class Iso4217CurrencyCode extends ASN1Object implements ASN1Choice {
     public ASN1Encodable obj;
     public final int ALPHABETIC_MAXSIZE = 3;
     public final int NUMERIC_MINSIZE = 1;
-    public final int NUMERIC_MAXSIZE = EnumC3478.f11008;
+    public final int NUMERIC_MAXSIZE = EnumC5674.f13813;
 
     public Iso4217CurrencyCode(int i) {
         if (i > 999 || i < 1) {

@@ -1,7 +1,7 @@
 package com.rosan.dhizuku.shared;
 
-import l.C11003;
-import l.C16014;
+import p067l.C12826;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DhizukuVariables {
@@ -17,10 +17,10 @@ public class DhizukuVariables {
     public static final int TRANSACT_CODE_REMOTE_BINDER = 11;
 
     public static String getProviderAuthorityName(String str) {
-        return C11003.equals(str, OFFICIAL_PACKAGE_NAME) ? "com.rosan.dhizuku.server.provider" : C16014.m37867(str, ".dhizuku_server.provider");
+        return C12826.equals(str, OFFICIAL_PACKAGE_NAME) ? "com.rosan.dhizuku.server.provider" : C17588.m40053(str, ".dhizuku_server.provider");
     }
 
     public static String getActionRequestPermission(String str) {
-        return C11003.equals(str, OFFICIAL_PACKAGE_NAME) ? "com.rosan.dhizuku.action.request.permission" : C16014.m37867(str, ".action.REQUEST_DHIZUKU_PERMISSION");
+        return C12826.equals(str, OFFICIAL_PACKAGE_NAME) ? "com.rosan.dhizuku.action.request.permission" : C17588.m40053(str, ".action.REQUEST_DHIZUKU_PERMISSION");
     }
 }

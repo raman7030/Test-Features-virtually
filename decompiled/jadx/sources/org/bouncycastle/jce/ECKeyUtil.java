@@ -10,20 +10,20 @@ import java.security.PublicKey;
 import java.security.Security;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import l.C20094;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECPoint;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECKeyUtil {
@@ -47,7 +47,7 @@ public class ECKeyUtil {
         if (provider != null) {
             return privateToExplicitParameters(privateKey, provider);
         }
-        throw new NoSuchProviderException(C20094.m46315("cannot find provider: ", str));
+        throw new NoSuchProviderException(C21466.m48631("cannot find provider: ", str));
     }
 
     public static PrivateKey privateToExplicitParameters(PrivateKey privateKey, Provider provider) throws NoSuchAlgorithmException {
@@ -85,7 +85,7 @@ public class ECKeyUtil {
         if (provider != null) {
             return publicToExplicitParameters(publicKey, provider);
         }
-        throw new NoSuchProviderException(C20094.m46315("cannot find provider: ", str));
+        throw new NoSuchProviderException(C21466.m48631("cannot find provider: ", str));
     }
 
     public static PublicKey publicToExplicitParameters(PublicKey publicKey, Provider provider) throws NoSuchAlgorithmException {

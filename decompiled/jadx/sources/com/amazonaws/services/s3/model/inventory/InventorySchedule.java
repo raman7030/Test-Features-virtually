@@ -1,7 +1,0 @@
-package com.amazonaws.services.s3.model.inventory;
-
-import java.io.Serializable;
-
-/* JADX INFO: loaded from: classes.dex */
-public class InventorySchedule implements Serializable {
-}

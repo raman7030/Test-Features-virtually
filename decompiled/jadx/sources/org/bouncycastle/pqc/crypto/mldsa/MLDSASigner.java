@@ -36,7 +36,7 @@ public class MLDSASigner implements Signer {
         MLDSAEngine mLDSAEngine = this.engine;
         SHAKEDigest sHAKEDigest = this.msgDigest;
         MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters = this.privKey;
-        byte[] bArrGenerateSignature = mLDSAEngine.generateSignature(bArr, sHAKEDigest, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.k, mLDSAPrivateKeyParameters.t0, mLDSAPrivateKeyParameters.s1, mLDSAPrivateKeyParameters.s2, bArr2);
+        byte[] bArrGenerateSignature = mLDSAEngine.generateSignature(bArr, sHAKEDigest, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.f81668k, mLDSAPrivateKeyParameters.f81671t0, mLDSAPrivateKeyParameters.f81669s1, mLDSAPrivateKeyParameters.f81670s2, bArr2);
         reset();
         return bArrGenerateSignature;
     }
@@ -52,7 +52,7 @@ public class MLDSASigner implements Signer {
         MLDSAEngine mLDSAEngine = this.engine;
         SHAKEDigest sHAKEDigest = this.msgDigest;
         MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters = this.privKey;
-        byte[] bArrGenerateSignature = mLDSAEngine.generateSignature(bArrGenerateMu, sHAKEDigest, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.k, mLDSAPrivateKeyParameters.t0, mLDSAPrivateKeyParameters.s1, mLDSAPrivateKeyParameters.s2, bArr);
+        byte[] bArrGenerateSignature = mLDSAEngine.generateSignature(bArrGenerateMu, sHAKEDigest, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.f81668k, mLDSAPrivateKeyParameters.f81671t0, mLDSAPrivateKeyParameters.f81669s1, mLDSAPrivateKeyParameters.f81670s2, bArr);
         reset();
         return bArrGenerateSignature;
     }
@@ -82,7 +82,7 @@ public class MLDSASigner implements Signer {
             parameters = this.privKey.getParameters();
             MLDSAEngine engine = parameters.getEngine(this.random);
             this.engine = engine;
-            engine.initSign(this.privKey.tr, false, context);
+            engine.initSign(this.privKey.f81673tr, false, context);
         } else {
             MLDSAPublicKeyParameters mLDSAPublicKeyParameters = (MLDSAPublicKeyParameters) cipherParameters;
             this.pubKey = mLDSAPublicKeyParameters;
@@ -92,7 +92,7 @@ public class MLDSASigner implements Signer {
             MLDSAEngine engine2 = parameters.getEngine(null);
             this.engine = engine2;
             MLDSAPublicKeyParameters mLDSAPublicKeyParameters2 = this.pubKey;
-            engine2.initVerify(mLDSAPublicKeyParameters2.rho, mLDSAPublicKeyParameters2.t1, false, context);
+            engine2.initVerify(mLDSAPublicKeyParameters2.rho, mLDSAPublicKeyParameters2.f81674t1, false, context);
         }
         if (parameters.isPreHash()) {
             throw new IllegalArgumentException("\"pure\" ml-dsa must use non pre-hash parameters");
@@ -102,21 +102,21 @@ public class MLDSASigner implements Signer {
 
     public byte[] internalGenerateSignature(byte[] bArr, byte[] bArr2) {
         MLDSAEngine engine = this.privKey.getParameters().getEngine(this.random);
-        engine.initSign(this.privKey.tr, false, null);
+        engine.initSign(this.privKey.f81673tr, false, null);
         int length = bArr.length;
         MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters = this.privKey;
-        return engine.signInternal(bArr, length, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.k, mLDSAPrivateKeyParameters.t0, mLDSAPrivateKeyParameters.s1, mLDSAPrivateKeyParameters.s2, bArr2);
+        return engine.signInternal(bArr, length, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.f81668k, mLDSAPrivateKeyParameters.f81671t0, mLDSAPrivateKeyParameters.f81669s1, mLDSAPrivateKeyParameters.f81670s2, bArr2);
     }
 
     public boolean internalVerifySignature(byte[] bArr, byte[] bArr2) {
         MLDSAEngine engine = this.pubKey.getParameters().getEngine(this.random);
         MLDSAPublicKeyParameters mLDSAPublicKeyParameters = this.pubKey;
-        engine.initVerify(mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.t1, false, null);
+        engine.initVerify(mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.f81674t1, false, null);
         SHAKEDigest shake256Digest = engine.getShake256Digest();
         shake256Digest.update(bArr, 0, bArr.length);
         int length = bArr2.length;
         MLDSAPublicKeyParameters mLDSAPublicKeyParameters2 = this.pubKey;
-        return engine.verifyInternal(bArr2, length, shake256Digest, mLDSAPublicKeyParameters2.rho, mLDSAPublicKeyParameters2.t1);
+        return engine.verifyInternal(bArr2, length, shake256Digest, mLDSAPublicKeyParameters2.rho, mLDSAPublicKeyParameters2.f81674t1);
     }
 
     @Override // org.bouncycastle.crypto.Signer
@@ -152,7 +152,7 @@ public class MLDSASigner implements Signer {
         int length = bArr2.length;
         SHAKEDigest sHAKEDigest = this.msgDigest;
         MLDSAPublicKeyParameters mLDSAPublicKeyParameters = this.pubKey;
-        boolean zVerifyInternalMuSignature = mLDSAEngine.verifyInternalMuSignature(bArr, bArr2, length, sHAKEDigest, mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.t1);
+        boolean zVerifyInternalMuSignature = mLDSAEngine.verifyInternalMuSignature(bArr, bArr2, length, sHAKEDigest, mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.f81674t1);
         reset();
         return zVerifyInternalMuSignature;
     }
@@ -163,7 +163,7 @@ public class MLDSASigner implements Signer {
         int length = bArr.length;
         SHAKEDigest sHAKEDigest = this.msgDigest;
         MLDSAPublicKeyParameters mLDSAPublicKeyParameters = this.pubKey;
-        boolean zVerifyInternal = mLDSAEngine.verifyInternal(bArr, length, sHAKEDigest, mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.t1);
+        boolean zVerifyInternal = mLDSAEngine.verifyInternal(bArr, length, sHAKEDigest, mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.f81674t1);
         reset();
         return zVerifyInternal;
     }

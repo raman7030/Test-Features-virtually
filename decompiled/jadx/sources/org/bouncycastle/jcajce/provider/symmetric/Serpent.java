@@ -1,10 +1,5 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C11010;
-import l.C12662;
-import l.C16014;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
@@ -23,6 +18,11 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C10965;
+import p067l.C12832;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Serpent {
@@ -153,22 +153,22 @@ public final class Serpent {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$TAlgParams", "AlgorithmParameters.Tnepres", C5368.m15340(str, "$TKeyGen", "KeyGenerator.Tnepres", C5368.m15340(str, "$TECB", "Cipher.Tnepres", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.Serpent", C5368.m15340(str, "$KeyGen", "KeyGenerator.Serpent", C5368.m15340(str, "$ECB", "Cipher.Serpent", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
-            C11010.m27351(configurableProvider, str, "$ECB128", "Cipher", GNUObjectIdentifiers.Serpent_128_ECB);
-            C11010.m27351(configurableProvider, str, "$ECB192", "Cipher", GNUObjectIdentifiers.Serpent_192_ECB);
-            C11010.m27351(configurableProvider, str, "$ECB256", "Cipher", GNUObjectIdentifiers.Serpent_256_ECB);
-            C11010.m27351(configurableProvider, str, "$CBC128", "Cipher", GNUObjectIdentifiers.Serpent_128_CBC);
-            C11010.m27351(configurableProvider, str, "$CBC192", "Cipher", GNUObjectIdentifiers.Serpent_192_CBC);
-            C11010.m27351(configurableProvider, str, "$CBC256", "Cipher", GNUObjectIdentifiers.Serpent_256_CBC);
-            C11010.m27351(configurableProvider, str, "$CFB128", "Cipher", GNUObjectIdentifiers.Serpent_128_CFB);
-            C11010.m27351(configurableProvider, str, "$CFB192", "Cipher", GNUObjectIdentifiers.Serpent_192_CFB);
-            C11010.m27351(configurableProvider, str, "$CFB256", "Cipher", GNUObjectIdentifiers.Serpent_256_CFB);
-            C11010.m27351(configurableProvider, str, "$OFB128", "Cipher", GNUObjectIdentifiers.Serpent_128_OFB);
-            C11010.m27351(configurableProvider, str, "$OFB192", "Cipher", GNUObjectIdentifiers.Serpent_192_OFB);
+            C14403.m33021(str, "$TAlgParams", "AlgorithmParameters.Tnepres", C7470.m17249(str, "$TKeyGen", "KeyGenerator.Tnepres", C7470.m17249(str, "$TECB", "Cipher.Tnepres", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.Serpent", C7470.m17249(str, "$KeyGen", "KeyGenerator.Serpent", C7470.m17249(str, "$ECB", "Cipher.Serpent", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            C12832.m29413(configurableProvider, str, "$ECB128", "Cipher", GNUObjectIdentifiers.Serpent_128_ECB);
+            C12832.m29413(configurableProvider, str, "$ECB192", "Cipher", GNUObjectIdentifiers.Serpent_192_ECB);
+            C12832.m29413(configurableProvider, str, "$ECB256", "Cipher", GNUObjectIdentifiers.Serpent_256_ECB);
+            C12832.m29413(configurableProvider, str, "$CBC128", "Cipher", GNUObjectIdentifiers.Serpent_128_CBC);
+            C12832.m29413(configurableProvider, str, "$CBC192", "Cipher", GNUObjectIdentifiers.Serpent_192_CBC);
+            C12832.m29413(configurableProvider, str, "$CBC256", "Cipher", GNUObjectIdentifiers.Serpent_256_CBC);
+            C12832.m29413(configurableProvider, str, "$CFB128", "Cipher", GNUObjectIdentifiers.Serpent_128_CFB);
+            C12832.m29413(configurableProvider, str, "$CFB192", "Cipher", GNUObjectIdentifiers.Serpent_192_CFB);
+            C12832.m29413(configurableProvider, str, "$CFB256", "Cipher", GNUObjectIdentifiers.Serpent_256_CFB);
+            C12832.m29413(configurableProvider, str, "$OFB128", "Cipher", GNUObjectIdentifiers.Serpent_128_OFB);
+            C12832.m29413(configurableProvider, str, "$OFB192", "Cipher", GNUObjectIdentifiers.Serpent_192_OFB);
             configurableProvider.addAlgorithm("Cipher", GNUObjectIdentifiers.Serpent_256_OFB, str + "$OFB256");
-            addGMacAlgorithm(configurableProvider, "SERPENT", C9045.m23341(new StringBuilder(), str, "$SerpentGMAC"), C16014.m37867(str, "$KeyGen"));
-            addGMacAlgorithm(configurableProvider, "TNEPRES", C16014.m37867(str, "$TSerpentGMAC"), C16014.m37867(str, "$TKeyGen"));
-            addPoly1305Algorithm(configurableProvider, "SERPENT", C16014.m37867(str, "$Poly1305"), C16014.m37867(str, "$Poly1305KeyGen"));
+            addGMacAlgorithm(configurableProvider, "SERPENT", C10965.m25286(new StringBuilder(), str, "$SerpentGMAC"), C17588.m40053(str, "$KeyGen"));
+            addGMacAlgorithm(configurableProvider, "TNEPRES", C17588.m40053(str, "$TSerpentGMAC"), C17588.m40053(str, "$TKeyGen"));
+            addPoly1305Algorithm(configurableProvider, "SERPENT", C17588.m40053(str, "$Poly1305"), C17588.m40053(str, "$Poly1305KeyGen"));
         }
     }
 

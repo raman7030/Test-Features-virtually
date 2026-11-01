@@ -21,10 +21,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
-import l.C20094;
-import l.C3200;
-import l.C4860;
-import l.C9045;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.BlockCipher;
@@ -87,6 +83,10 @@ import org.bouncycastle.jcajce.spec.GOST28147ParameterSpec;
 import org.bouncycastle.jcajce.spec.RepeatedSecretKeySpec;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Strings;
+import p067l.C10965;
+import p067l.C21466;
+import p067l.C5410;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class BaseBlockCipher extends BaseWrapCipher implements PBE {
@@ -746,7 +746,7 @@ public class BaseBlockCipher extends BaseWrapCipher implements PBE {
         this.engineParams = null;
         this.aeadParams = null;
         if (!(key instanceof SecretKey)) {
-            throw new InvalidKeyException(C9045.m23341(new StringBuilder("Key for algorithm "), key != null ? key.getAlgorithm() : null, " not suitable for symmetric enryption."));
+            throw new InvalidKeyException(C10965.m25286(new StringBuilder("Key for algorithm "), key != null ? key.getAlgorithm() : null, " not suitable for symmetric enryption."));
         }
         if (algorithmParameterSpec2 == null && (blockCipher = this.baseEngine) != null && blockCipher.getAlgorithmName().startsWith("RC5-64")) {
             throw new InvalidAlgorithmParameterException("RC5 requires an RC5ParametersSpec to be passed in.");
@@ -878,7 +878,7 @@ public class BaseBlockCipher extends BaseWrapCipher implements PBE {
                     if (this.ivLength != 0) {
                         IvParameterSpec ivParameterSpec = (IvParameterSpec) algorithmParameterSpec2;
                         if (ivParameterSpec.getIV().length != this.ivLength && !(this.cipher instanceof AEADGenericBlockCipher) && this.fixedIv) {
-                            throw new InvalidAlgorithmParameterException(C3200.m9831(this.ivLength, " bytes long.", new StringBuilder("IV must be ")));
+                            throw new InvalidAlgorithmParameterException(C5410.m11876(this.ivLength, " bytes long.", new StringBuilder("IV must be ")));
                         }
                         ParametersWithIV parametersWithIV2 = keyParameter instanceof ParametersWithIV ? new ParametersWithIV(((ParametersWithIV) keyParameter).getParameters(), ivParameterSpec.getIV()) : new ParametersWithIV(keyParameter, ivParameterSpec.getIV());
                         this.ivParam = parametersWithIV2;
@@ -1246,7 +1246,7 @@ public class BaseBlockCipher extends BaseWrapCipher implements PBE {
         }
         if (this.modeName.equals("OCB")) {
             if (this.engineProvider == null) {
-                throw new NoSuchAlgorithmException(C20094.m46315("can't support mode ", str));
+                throw new NoSuchAlgorithmException(C21466.m48631("can't support mode ", str));
             }
             this.ivLength = 15;
             this.cipher = new AEADGenericBlockCipher(new OCBBlockCipher(this.baseEngine, this.engineProvider.get()));
@@ -1262,7 +1262,7 @@ public class BaseBlockCipher extends BaseWrapCipher implements PBE {
             this.cipher = new AEADGenericBlockCipher(new GCMSIVBlockCipher(this.baseEngine));
         } else {
             if (!this.modeName.equals("GCM")) {
-                throw new NoSuchAlgorithmException(C20094.m46315("can't support mode ", str));
+                throw new NoSuchAlgorithmException(C21466.m48631("can't support mode ", str));
             }
             BlockCipher blockCipher4 = this.baseEngine;
             if (blockCipher4 instanceof DSTU7624Engine) {
@@ -1316,7 +1316,7 @@ public class BaseBlockCipher extends BaseWrapCipher implements PBE {
             this.cipher = new BufferedGenericBlockCipher(this.cipher.getUnderlyingCipher(), new ISO7816d4Padding());
         } else {
             if (!upperCase.equals("TBCPADDING")) {
-                throw new NoSuchPaddingException(C4860.m14172("Padding ", str, " unknown."));
+                throw new NoSuchPaddingException(C6988.m16053("Padding ", str, " unknown."));
             }
             this.cipher = new BufferedGenericBlockCipher(this.cipher.getUnderlyingCipher(), new TBCPadding());
         }

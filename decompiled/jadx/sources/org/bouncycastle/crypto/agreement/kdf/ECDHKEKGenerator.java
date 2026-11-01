@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.agreement.kdf;
 
 import java.io.IOException;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -18,13 +17,16 @@ import org.bouncycastle.crypto.DigestDerivationFunction;
 import org.bouncycastle.crypto.generators.KDF2BytesGenerator;
 import org.bouncycastle.crypto.params.KDFParameters;
 import org.bouncycastle.util.Pack;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECDHKEKGenerator implements DigestDerivationFunction {
     public ASN1ObjectIdentifier algorithm;
     public DigestDerivationFunction kdf;
     public int keySize;
-    public byte[] z;
+
+    /* JADX INFO: renamed from: z */
+    public byte[] f80763z;
 
     public ECDHKEKGenerator(Digest digest) {
         this.kdf = new KDF2BytesGenerator(digest);
@@ -40,7 +42,7 @@ public class ECDHKEKGenerator implements DigestDerivationFunction {
         DHKDFParameters dHKDFParameters = (DHKDFParameters) derivationParameters;
         this.algorithm = dHKDFParameters.getAlgorithm();
         this.keySize = dHKDFParameters.getKeySize();
-        this.z = dHKDFParameters.getZ();
+        this.f80763z = dHKDFParameters.getZ();
     }
 
     @Override // org.bouncycastle.crypto.DerivationFunction
@@ -52,10 +54,10 @@ public class ECDHKEKGenerator implements DigestDerivationFunction {
         aSN1EncodableVector.add(new AlgorithmIdentifier(this.algorithm, DERNull.INSTANCE));
         aSN1EncodableVector.add(new DERTaggedObject(true, 2, (ASN1Encodable) new DEROctetString(Pack.intToBigEndian(this.keySize))));
         try {
-            this.kdf.init(new KDFParameters(this.z, new DERSequence(aSN1EncodableVector).getEncoded(ASN1Encoding.DER)));
+            this.kdf.init(new KDFParameters(this.f80763z, new DERSequence(aSN1EncodableVector).getEncoded(ASN1Encoding.DER)));
             return this.kdf.generateBytes(bArr, i, i2);
         } catch (IOException e) {
-            throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("unable to initialise kdf: ")));
+            throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("unable to initialise kdf: ")));
         }
     }
 }

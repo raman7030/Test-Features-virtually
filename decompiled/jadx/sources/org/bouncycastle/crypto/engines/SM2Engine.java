@@ -2,8 +2,6 @@ package org.bouncycastle.crypto.engines;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import l.C19373;
-import l.C23202;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.DataLengthException;
@@ -17,15 +15,17 @@ import org.bouncycastle.crypto.params.ECKeyParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
+import org.bouncycastle.math.p080ec.ECFieldElement;
+import org.bouncycastle.math.p080ec.ECMultiplier;
+import org.bouncycastle.math.p080ec.ECPoint;
+import org.bouncycastle.math.p080ec.FixedPointCombMultiplier;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.Bytes;
 import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
+import p067l.C20780;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SM2Engine {
@@ -102,7 +102,7 @@ public class SM2Engine {
         } else {
             i3 = 0;
             for (int i7 = 0; i7 != digestSize2; i7++) {
-                i3 |= bArr4[i7] ^ bArr[C19373.m44633(i, i4, i5, i7)];
+                i3 |= bArr4[i7] ^ bArr[C20780.m46927(i, i4, i5, i7)];
             }
         }
         Arrays.fill(bArr2, (byte) 0);
@@ -191,7 +191,7 @@ public class SM2Engine {
     }
 
     public int getOutputSize(int i) {
-        return this.digest.getDigestSize() + C23202.m51496(this.curveLength, 2, 1, i);
+        return this.digest.getDigestSize() + C24420.m53892(this.curveLength, 2, 1, i);
     }
 
     public void init(boolean z, CipherParameters cipherParameters) {

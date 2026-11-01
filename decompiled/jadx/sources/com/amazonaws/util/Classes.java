@@ -9,8 +9,8 @@ import java.util.jar.JarFile;
 public enum Classes {
     ;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static Class m761(Class cls, Object obj) {
+    /* JADX INFO: renamed from: ֫ */
+    public static Class m1926(Class cls, Object obj) {
         if (obj == null || obj == Object.class) {
             return null;
         }
@@ -30,8 +30,8 @@ public enum Classes {
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static JarFile m762(Class cls) {
+    /* JADX INFO: renamed from: ֫ */
+    public static JarFile m1927(Class cls) {
         URL resource = cls.getResource("/" + cls.getName().replace('.', '/') + ".class");
         if (resource == null) {
             return null;

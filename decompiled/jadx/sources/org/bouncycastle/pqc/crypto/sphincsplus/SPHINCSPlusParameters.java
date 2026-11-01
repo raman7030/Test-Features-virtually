@@ -57,96 +57,134 @@ public class SPHINCSPlusParameters {
     public static final SPHINCSPlusParameters shake_256s;
     public static final SPHINCSPlusParameters shake_256s_robust;
     public final SPHINCSPlusEngineProvider engineProvider;
-    public final Integer id;
+
+    /* JADX INFO: renamed from: id */
+    public final Integer f81767id;
     public final String name;
 
     public class HarakaSEngineProvider implements SPHINCSPlusEngineProvider {
-        public final int a;
-        public final int d;
-        public final int h;
-        public final int k;
-        public final int n;
+
+        /* JADX INFO: renamed from: a */
+        public final int f81768a;
+
+        /* JADX INFO: renamed from: d */
+        public final int f81769d;
+
+        /* JADX INFO: renamed from: h */
+        public final int f81770h;
+
+        /* JADX INFO: renamed from: k */
+        public final int f81771k;
+
+        /* JADX INFO: renamed from: n */
+        public final int f81772n;
         public final boolean robust;
-        public final int w;
+
+        /* JADX INFO: renamed from: w */
+        public final int f81773w;
 
         public HarakaSEngineProvider(boolean z, int i, int i2, int i3, int i4, int i5, int i6) {
             this.robust = z;
-            this.n = i;
-            this.w = i2;
-            this.d = i3;
-            this.a = i4;
-            this.k = i5;
-            this.h = i6;
+            this.f81772n = i;
+            this.f81773w = i2;
+            this.f81769d = i3;
+            this.f81768a = i4;
+            this.f81771k = i5;
+            this.f81770h = i6;
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngineProvider
         public SPHINCSPlusEngine get() {
-            return new SPHINCSPlusEngine.HarakaSEngine(this.robust, this.n, this.w, this.d, this.a, this.k, this.h);
+            return new SPHINCSPlusEngine.HarakaSEngine(this.robust, this.f81772n, this.f81773w, this.f81769d, this.f81768a, this.f81771k, this.f81770h);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngineProvider
         public int getN() {
-            return this.n;
+            return this.f81772n;
         }
     }
 
     public class Sha2EngineProvider implements SPHINCSPlusEngineProvider {
-        public final int a;
-        public final int d;
-        public final int h;
-        public final int k;
-        public final int n;
+
+        /* JADX INFO: renamed from: a */
+        public final int f81774a;
+
+        /* JADX INFO: renamed from: d */
+        public final int f81775d;
+
+        /* JADX INFO: renamed from: h */
+        public final int f81776h;
+
+        /* JADX INFO: renamed from: k */
+        public final int f81777k;
+
+        /* JADX INFO: renamed from: n */
+        public final int f81778n;
         public final boolean robust;
-        public final int w;
+
+        /* JADX INFO: renamed from: w */
+        public final int f81779w;
 
         public Sha2EngineProvider(boolean z, int i, int i2, int i3, int i4, int i5, int i6) {
             this.robust = z;
-            this.n = i;
-            this.w = i2;
-            this.d = i3;
-            this.a = i4;
-            this.k = i5;
-            this.h = i6;
+            this.f81778n = i;
+            this.f81779w = i2;
+            this.f81775d = i3;
+            this.f81774a = i4;
+            this.f81777k = i5;
+            this.f81776h = i6;
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngineProvider
         public SPHINCSPlusEngine get() {
-            return new SPHINCSPlusEngine.Sha2Engine(this.robust, this.n, this.w, this.d, this.a, this.k, this.h);
+            return new SPHINCSPlusEngine.Sha2Engine(this.robust, this.f81778n, this.f81779w, this.f81775d, this.f81774a, this.f81777k, this.f81776h);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngineProvider
         public int getN() {
-            return this.n;
+            return this.f81778n;
         }
     }
 
     public class Shake256EngineProvider implements SPHINCSPlusEngineProvider {
-        public final int a;
-        public final int d;
-        public final int h;
-        public final int k;
-        public final int n;
+
+        /* JADX INFO: renamed from: a */
+        public final int f81780a;
+
+        /* JADX INFO: renamed from: d */
+        public final int f81781d;
+
+        /* JADX INFO: renamed from: h */
+        public final int f81782h;
+
+        /* JADX INFO: renamed from: k */
+        public final int f81783k;
+
+        /* JADX INFO: renamed from: n */
+        public final int f81784n;
         public final boolean robust;
-        public final int w;
+
+        /* JADX INFO: renamed from: w */
+        public final int f81785w;
 
         public Shake256EngineProvider(boolean z, int i, int i2, int i3, int i4, int i5, int i6) {
             this.robust = z;
-            this.n = i;
-            this.w = i2;
-            this.d = i3;
-            this.a = i4;
-            this.k = i5;
-            this.h = i6;
+            this.f81784n = i;
+            this.f81785w = i2;
+            this.f81781d = i3;
+            this.f81780a = i4;
+            this.f81783k = i5;
+            this.f81782h = i6;
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngineProvider
         public SPHINCSPlusEngine get() {
-            return new SPHINCSPlusEngine.Shake256Engine(this.robust, this.n, this.w, this.d, this.a, this.k, this.h);
+            return new SPHINCSPlusEngine.Shake256Engine(this.robust, this.f81784n, this.f81785w, this.f81781d, this.f81780a, this.f81783k, this.f81782h);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngineProvider
         public int getN() {
-            return this.n;
+            return this.f81784n;
         }
     }
 
@@ -232,7 +270,7 @@ public class SPHINCSPlusParameters {
     }
 
     public SPHINCSPlusParameters(Integer num, String str, SPHINCSPlusEngineProvider sPHINCSPlusEngineProvider) {
-        this.id = num;
+        this.f81767id = num;
         this.name = str;
         this.engineProvider = sPHINCSPlusEngineProvider;
     }
@@ -255,7 +293,7 @@ public class SPHINCSPlusParameters {
     }
 
     public Integer getID() {
-        return this.id;
+        return this.f81767id;
     }
 
     public int getN() {

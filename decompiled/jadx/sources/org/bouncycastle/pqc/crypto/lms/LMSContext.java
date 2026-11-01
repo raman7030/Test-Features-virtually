@@ -4,7 +4,9 @@ import org.bouncycastle.crypto.Digest;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMSContext implements Digest {
-    public final byte[] C;
+
+    /* JADX INFO: renamed from: C */
+    public final byte[] f81647C;
     public volatile Digest digest;
     public final LMOtsPrivateKey key;
     public final byte[][] path;
@@ -17,7 +19,7 @@ public class LMSContext implements Digest {
         this.key = lMOtsPrivateKey;
         this.sigParams = lMSigParameters;
         this.digest = digest;
-        this.C = bArr;
+        this.f81647C = bArr;
         this.path = bArr2;
         this.publicKey = null;
         this.signature = null;
@@ -27,7 +29,7 @@ public class LMSContext implements Digest {
         this.publicKey = lMOtsPublicKey;
         this.signature = obj;
         this.digest = digest;
-        this.C = null;
+        this.f81647C = null;
         this.key = null;
         this.sigParams = null;
         this.path = null;
@@ -44,7 +46,7 @@ public class LMSContext implements Digest {
     }
 
     public byte[] getC() {
-        return this.C;
+        return this.f81647C;
     }
 
     @Override // org.bouncycastle.crypto.Digest

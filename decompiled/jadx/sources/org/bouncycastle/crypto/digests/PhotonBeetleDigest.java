@@ -7,7 +7,9 @@ import org.bouncycastle.util.encoders.UTF8;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PhotonBeetleDigest extends BufferBaseDigest {
-    public static final int D = 8;
+
+    /* JADX INFO: renamed from: D */
+    public static final int f80860D = 8;
     public static final int SQUEEZE_RATE_INBYTES = 16;
     public int blockCount;
     public final byte[] state;

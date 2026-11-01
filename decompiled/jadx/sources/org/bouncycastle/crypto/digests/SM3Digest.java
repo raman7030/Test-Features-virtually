@@ -1,19 +1,25 @@
 package org.bouncycastle.crypto.digests;
 
-import l.C19373;
 import org.bouncycastle.crypto.CryptoServiceProperties;
 import org.bouncycastle.crypto.CryptoServicePurpose;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
+import p067l.C20780;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SM3Digest extends GeneralDigest {
     public static final int BLOCK_SIZE = 16;
     public static final int DIGEST_LENGTH = 32;
-    public static final int[] T = new int[64];
-    public int[] V;
-    public int[] W;
+
+    /* JADX INFO: renamed from: T */
+    public static final int[] f80924T = new int[64];
+
+    /* JADX INFO: renamed from: V */
+    public int[] f80925V;
+
+    /* JADX INFO: renamed from: W */
+    public int[] f80926W;
     public int[] inwords;
     public int xOff;
 
@@ -24,12 +30,12 @@ public class SM3Digest extends GeneralDigest {
             if (i2 >= 16) {
                 break;
             }
-            T[i2] = (2043430169 >>> (32 - i2)) | (2043430169 << i2);
+            f80924T[i2] = (2043430169 >>> (32 - i2)) | (2043430169 << i2);
             i2++;
         }
         for (i = 16; i < 64; i++) {
             int i3 = i % 32;
-            T[i] = (2055708042 >>> (32 - i3)) | (2055708042 << i3);
+            f80924T[i] = (2055708042 >>> (32 - i3)) | (2055708042 << i3);
         }
     }
 
@@ -39,18 +45,18 @@ public class SM3Digest extends GeneralDigest {
 
     public SM3Digest(CryptoServicePurpose cryptoServicePurpose) {
         super(cryptoServicePurpose);
-        this.V = new int[8];
+        this.f80925V = new int[8];
         this.inwords = new int[16];
-        this.W = new int[68];
+        this.f80926W = new int[68];
         CryptoServicesRegistrar.checkConstraints(cryptoServiceProperties());
         reset();
     }
 
     public SM3Digest(SM3Digest sM3Digest) {
         super(sM3Digest);
-        this.V = new int[8];
+        this.f80925V = new int[8];
         this.inwords = new int[16];
-        this.W = new int[68];
+        this.f80926W = new int[68];
         CryptoServicesRegistrar.checkConstraints(cryptoServiceProperties());
         copyIn(sM3Digest);
     }
@@ -71,17 +77,19 @@ public class SM3Digest extends GeneralDigest {
         return ((~i) & i3) | (i2 & i);
     }
 
-    private int P0(int i) {
+    /* JADX INFO: renamed from: P0 */
+    private int m55361P0(int i) {
         return (i ^ ((i << 9) | (i >>> 23))) ^ ((i << 17) | (i >>> 15));
     }
 
-    private int P1(int i) {
+    /* JADX INFO: renamed from: P1 */
+    private int m55362P1(int i) {
         return (i ^ ((i << 15) | (i >>> 17))) ^ ((i << 23) | (i >>> 9));
     }
 
     private void copyIn(SM3Digest sM3Digest) {
-        int[] iArr = sM3Digest.V;
-        int[] iArr2 = this.V;
+        int[] iArr = sM3Digest.f80925V;
+        int[] iArr2 = this.f80925V;
         System.arraycopy(iArr, 0, iArr2, 0, iArr2.length);
         int[] iArr3 = sM3Digest.inwords;
         int[] iArr4 = this.inwords;
@@ -102,7 +110,7 @@ public class SM3Digest extends GeneralDigest {
     @Override // org.bouncycastle.crypto.Digest
     public int doFinal(byte[] bArr, int i) {
         finish();
-        Pack.intToBigEndian(this.V, bArr, i);
+        Pack.intToBigEndian(this.f80925V, bArr, i);
         reset();
         return 32;
     }
@@ -125,80 +133,80 @@ public class SM3Digest extends GeneralDigest {
             if (i2 >= 16) {
                 break;
             }
-            this.W[i2] = this.inwords[i2];
+            this.f80926W[i2] = this.inwords[i2];
             i2++;
         }
         for (int i3 = 16; i3 < 68; i3++) {
-            int[] iArr = this.W;
+            int[] iArr = this.f80926W;
             int i4 = iArr[i3 - 3];
             int i5 = iArr[i3 - 13];
-            iArr[i3] = (P1(((i4 >>> 17) | (i4 << 15)) ^ (iArr[i3 - 16] ^ iArr[i3 - 9])) ^ ((i5 >>> 25) | (i5 << 7))) ^ this.W[i3 - 6];
+            iArr[i3] = (m55362P1(((i4 >>> 17) | (i4 << 15)) ^ (iArr[i3 - 16] ^ iArr[i3 - 9])) ^ ((i5 >>> 25) | (i5 << 7))) ^ this.f80926W[i3 - 6];
         }
-        int[] iArr2 = this.V;
+        int[] iArr2 = this.f80925V;
         int i6 = iArr2[0];
         int i7 = iArr2[1];
         int i8 = iArr2[2];
         int i9 = iArr2[3];
-        int iP0 = iArr2[4];
+        int iM55361P0 = iArr2[4];
         int i10 = iArr2[5];
         int i11 = iArr2[6];
         int i12 = iArr2[7];
         int i13 = 0;
         for (i = 16; i13 < i; i = 16) {
             int i14 = (i6 << 12) | (i6 >>> 20);
-            int i15 = i14 + iP0 + T[i13];
+            int i15 = i14 + iM55361P0 + f80924T[i13];
             int i16 = (i15 << 7) | (i15 >>> 25);
-            int[] iArr3 = this.W;
+            int[] iArr3 = this.f80926W;
             int i17 = iArr3[i13];
-            int iM44633 = C19373.m44633(FF0(i6, i7, i8), i9, i14 ^ i16, iArr3[i13 + 4] ^ i17);
-            int iM44634 = C19373.m44633(GG0(iP0, i10, i11), i12, i16, i17);
+            int iM46927 = C20780.m46927(FF0(i6, i7, i8), i9, i14 ^ i16, iArr3[i13 + 4] ^ i17);
+            int iM46928 = C20780.m46927(GG0(iM55361P0, i10, i11), i12, i16, i17);
             int i18 = (i10 << 19) | (i10 >>> 13);
             i13++;
-            i10 = iP0;
-            iP0 = P0(iM44634);
+            i10 = iM55361P0;
+            iM55361P0 = m55361P0(iM46928);
             i12 = i11;
             i11 = i18;
             i9 = i8;
             i8 = (i7 >>> 23) | (i7 << 9);
             i7 = i6;
-            i6 = iM44633;
+            i6 = iM46927;
         }
         int i19 = 16;
         int i20 = i6;
         int i21 = i12;
         int i22 = i11;
         int i23 = i10;
-        int iP1 = iP0;
+        int iM55361P1 = iM55361P0;
         int i24 = i9;
         int i25 = i8;
         int i26 = i7;
         int i27 = i20;
         while (i19 < 64) {
             int i28 = (i27 << 12) | (i27 >>> 20);
-            int i29 = i28 + iP1 + T[i19];
+            int i29 = i28 + iM55361P1 + f80924T[i19];
             int i30 = (i29 >>> 25) | (i29 << 7);
-            int[] iArr4 = this.W;
+            int[] iArr4 = this.f80926W;
             int i31 = iArr4[i19];
-            int iM44635 = C19373.m44633(FF1(i27, i26, i25), i24, i28 ^ i30, iArr4[i19 + 4] ^ i31);
-            int iM44636 = C19373.m44633(GG1(iP1, i23, i22), i21, i30, i31);
+            int iM46929 = C20780.m46927(FF1(i27, i26, i25), i24, i28 ^ i30, iArr4[i19 + 4] ^ i31);
+            int iM469210 = C20780.m46927(GG1(iM55361P1, i23, i22), i21, i30, i31);
             int i32 = (i26 >>> 23) | (i26 << 9);
             int i33 = (i23 << 19) | (i23 >>> 13);
             i19++;
-            i23 = iP1;
-            iP1 = P0(iM44636);
+            i23 = iM55361P1;
+            iM55361P1 = m55361P0(iM469210);
             i21 = i22;
             i22 = i33;
             i26 = i27;
-            i27 = iM44635;
+            i27 = iM46929;
             i24 = i25;
             i25 = i32;
         }
-        int[] iArr5 = this.V;
+        int[] iArr5 = this.f80925V;
         iArr5[0] = i27 ^ iArr5[0];
         iArr5[1] = i26 ^ iArr5[1];
         iArr5[2] = iArr5[2] ^ i25;
         iArr5[3] = iArr5[3] ^ i24;
-        iArr5[4] = iArr5[4] ^ iP1;
+        iArr5[4] = iArr5[4] ^ iM55361P1;
         iArr5[5] = iArr5[5] ^ i23;
         iArr5[6] = i22 ^ iArr5[6];
         iArr5[7] = i21 ^ iArr5[7];
@@ -243,7 +251,7 @@ public class SM3Digest extends GeneralDigest {
     @Override // org.bouncycastle.crypto.digests.GeneralDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        int[] iArr = this.V;
+        int[] iArr = this.f80925V;
         iArr[0] = 1937774191;
         iArr[1] = 1226093241;
         iArr[2] = 388252375;

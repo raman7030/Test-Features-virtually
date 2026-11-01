@@ -2,7 +2,6 @@ package org.bouncycastle.asn1.x509;
 
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -14,6 +13,7 @@ import org.bouncycastle.asn1.ASN1UTCTime;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.x500.X500Name;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TBSCertList extends ASN1Object {
@@ -41,20 +41,22 @@ public class TBSCertList extends ASN1Object {
     }
 
     public class RevokedCertificatesEnumeration implements Enumeration {
-        public final Enumeration en;
+
+        /* JADX INFO: renamed from: en */
+        public final Enumeration f80712en;
 
         public RevokedCertificatesEnumeration(Enumeration enumeration) {
-            this.en = enumeration;
+            this.f80712en = enumeration;
         }
 
         @Override // java.util.Enumeration
         public boolean hasMoreElements() {
-            return this.en.hasMoreElements();
+            return this.f80712en.hasMoreElements();
         }
 
         @Override // java.util.Enumeration
         public Object nextElement() {
-            return CRLEntry.getInstance(this.en.nextElement());
+            return CRLEntry.getInstance(this.f80712en.nextElement());
         }
     }
 
@@ -187,7 +189,7 @@ public class TBSCertList extends ASN1Object {
 
         public CRLEntry(ASN1Sequence aSN1Sequence) {
             if (aSN1Sequence.size() < 2 || aSN1Sequence.size() > 3) {
-                throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+                throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
             }
             this.seq = aSN1Sequence;
         }
@@ -195,7 +197,7 @@ public class TBSCertList extends ASN1Object {
 
     public TBSCertList(ASN1Sequence aSN1Sequence) {
         if (aSN1Sequence.size() < 3 || aSN1Sequence.size() > 7) {
-            throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+            throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
         }
         int i = 0;
         if (aSN1Sequence.getObjectAt(0) instanceof ASN1Integer) {

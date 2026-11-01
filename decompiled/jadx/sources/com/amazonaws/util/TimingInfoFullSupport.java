@@ -8,44 +8,44 @@ import java.util.List;
 /* JADX INFO: loaded from: classes.dex */
 public class TimingInfoFullSupport extends TimingInfo {
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final HashMap f847;
+    /* JADX INFO: renamed from: ܽ */
+    public final HashMap f2007;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final HashMap f848;
+    /* JADX INFO: renamed from: ᩳ */
+    public final HashMap f2008;
 
     public TimingInfoFullSupport(long j) {
         super(j, null);
-        this.f848 = new HashMap();
-        this.f847 = new HashMap();
+        this.f2008 = new HashMap();
+        this.f2007 = new HashMap();
     }
 
     @Override // com.amazonaws.util.TimingInfo
     /* JADX INFO: renamed from: ֫ */
-    public final void mo793(String str, TimingInfo timingInfo) {
-        HashMap map = this.f848;
+    public final void mo1958(String str, TimingInfo timingInfo) {
+        HashMap map = this.f2008;
         List arrayList = (List) map.get(str);
         if (arrayList == null) {
             arrayList = new ArrayList();
             map.put(str, arrayList);
         }
-        if (timingInfo.m796()) {
+        if (timingInfo.m1961()) {
             arrayList.add(timingInfo);
             return;
         }
-        LogFactory.m302(getClass()).mo294("Skip submeasurement timing info with no end time for " + str);
+        LogFactory.m1468(getClass()).mo1460("Skip submeasurement timing info with no end time for " + str);
     }
 
     @Override // com.amazonaws.util.TimingInfo
     /* JADX INFO: renamed from: ֫ */
-    public final void mo792(String str) {
-        Number number = (Number) this.f847.get(str);
-        mo791((number != null ? number.intValue() : 0) + 1, str);
+    public final void mo1957(String str) {
+        Number number = (Number) this.f2007.get(str);
+        mo1956((number != null ? number.intValue() : 0) + 1, str);
     }
 
     @Override // com.amazonaws.util.TimingInfo
     /* JADX INFO: renamed from: ֫ */
-    public final void mo791(long j, String str) {
-        this.f847.put(str, Long.valueOf(j));
+    public final void mo1956(long j, String str) {
+        this.f2007.put(str, Long.valueOf(j));
     }
 }

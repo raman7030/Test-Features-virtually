@@ -16,17 +16,17 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import l.C11233;
-import l.C16630;
-import l.C17931;
-import l.C20195;
+import p067l.C13045;
+import p067l.C1667;
+import p067l.C19410;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DynamicColors {
     public static final DeviceSupportCondition DEFAULT_DEVICE_SUPPORT_CONDITION;
     public static final Map DYNAMIC_COLOR_SUPPORTED_BRANDS;
     public static final Map DYNAMIC_COLOR_SUPPORTED_MANUFACTURERS;
-    public static final int[] DYNAMIC_COLOR_THEME_OVERLAY_ATTRIBUTE = {C17931.f55767};
+    public static final int[] DYNAMIC_COLOR_THEME_OVERLAY_ATTRIBUTE = {C19410.f58964};
 
     @SuppressLint({"PrivateApi"})
     public static final DeviceSupportCondition SAMSUNG_DEVICE_SUPPORT_CONDITION;
@@ -100,11 +100,11 @@ public class DynamicColors {
         map.put("vivo", deviceSupportCondition);
         map.put("wingtech", deviceSupportCondition);
         map.put("xiaomi", deviceSupportCondition);
-        DYNAMIC_COLOR_SUPPORTED_MANUFACTURERS = C20195.unmodifiableMap(map);
+        DYNAMIC_COLOR_SUPPORTED_MANUFACTURERS = C21562.unmodifiableMap(map);
         HashMap map2 = new HashMap();
         map2.put("asus", deviceSupportCondition);
         map2.put("jio", deviceSupportCondition);
-        DYNAMIC_COLOR_SUPPORTED_BRANDS = C20195.unmodifiableMap(map2);
+        DYNAMIC_COLOR_SUPPORTED_BRANDS = C21562.unmodifiableMap(map2);
         TAG = "DynamicColors";
     }
 
@@ -215,17 +215,17 @@ public class DynamicColors {
         if (i < 31) {
             return false;
         }
-        int i2 = C16630.f51071;
+        int i2 = C1667.f54251;
         if (i < 33) {
             if (i >= 32) {
                 String str = Build.VERSION.CODENAME;
-                C11233.m27803(str, "CODENAME");
+                C13045.m29865(str, "CODENAME");
                 if (!"REL".equals(str)) {
                     Locale locale = Locale.ROOT;
                     String upperCase = str.toUpperCase(locale);
-                    C11233.m27803(upperCase, "this as java.lang.String).toUpperCase(Locale.ROOT)");
+                    C13045.m29865(upperCase, "this as java.lang.String).toUpperCase(Locale.ROOT)");
                     String upperCase2 = "Tiramisu".toUpperCase(locale);
-                    C11233.m27803(upperCase2, "this as java.lang.String).toUpperCase(Locale.ROOT)");
+                    C13045.m29865(upperCase2, "this as java.lang.String).toUpperCase(Locale.ROOT)");
                 }
             }
             Map map = DYNAMIC_COLOR_SUPPORTED_MANUFACTURERS;

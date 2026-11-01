@@ -3,7 +3,7 @@ package org.bouncycastle.crypto.generators;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.math.ec.WNafUtil;
+import org.bouncycastle.math.p080ec.WNafUtil;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */

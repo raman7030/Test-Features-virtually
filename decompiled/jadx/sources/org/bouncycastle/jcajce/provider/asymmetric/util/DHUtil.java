@@ -9,7 +9,7 @@ import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
 import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.BCDHPublicKey;
+import org.bouncycastle.jcajce.provider.asymmetric.p077dh.BCDHPublicKey;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DHUtil {

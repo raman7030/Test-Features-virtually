@@ -1,6 +1,6 @@
 package org.bouncycastle.util.encoders;
 
-import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.C0684bo;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.util.Arrays;
@@ -129,7 +129,7 @@ public class Base32Encoder implements Encoder {
         bArr2[i2 + 4] = bArr3[((i4 << 1) | (i5 >>> 7)) & 31];
         bArr2[i2 + 5] = bArr3[(i5 >>> 2) & 31];
         bArr2[i2 + 6] = bArr3[(((b2 & 255) >>> 5) | (i5 << 3)) & 31];
-        bArr2[i2 + 7] = bArr3[b2 & bo.j];
+        bArr2[i2 + 7] = bArr3[b2 & C0684bo.f2505j];
     }
 
     private boolean ignore(char c) {

@@ -17,17 +17,17 @@ import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.ua.DSTU4145BinaryField;
-import org.bouncycastle.asn1.ua.DSTU4145ECBinary;
-import org.bouncycastle.asn1.ua.DSTU4145NamedCurves;
-import org.bouncycastle.asn1.ua.DSTU4145Params;
-import org.bouncycastle.asn1.ua.DSTU4145PointEncoder;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
+import org.bouncycastle.asn1.p072ua.DSTU4145BinaryField;
+import org.bouncycastle.asn1.p072ua.DSTU4145ECBinary;
+import org.bouncycastle.asn1.p072ua.DSTU4145NamedCurves;
+import org.bouncycastle.asn1.p072ua.DSTU4145Params;
+import org.bouncycastle.asn1.p072ua.DSTU4145PointEncoder;
+import org.bouncycastle.asn1.p072ua.UAObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECPoint;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
@@ -38,7 +38,7 @@ import org.bouncycastle.jce.interfaces.ECPointEncoder;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECCurve;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class BCDSTU4145PublicKey implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder {
@@ -245,8 +245,8 @@ public class BCDSTU4145PublicKey implements ECPublicKey, org.bouncycastle.jce.in
     }
 
     @Override // org.bouncycastle.jce.interfaces.ECPublicKey
-    public org.bouncycastle.math.ec.ECPoint getQ() {
-        org.bouncycastle.math.ec.ECPoint q = this.ecPublicKey.getQ();
+    public org.bouncycastle.math.p080ec.ECPoint getQ() {
+        org.bouncycastle.math.p080ec.ECPoint q = this.ecPublicKey.getQ();
         return this.ecSpec == null ? q.getDetachedPoint() : q;
     }
 

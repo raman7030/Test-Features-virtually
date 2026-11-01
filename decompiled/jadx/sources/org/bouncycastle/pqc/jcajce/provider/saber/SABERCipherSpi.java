@@ -13,9 +13,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.DestroyFailedException;
-import l.C20094;
-import l.C4860;
-import l.C9045;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.SecretWithEncapsulation;
@@ -27,6 +24,9 @@ import org.bouncycastle.pqc.crypto.saber.SABERKEMGenerator;
 import org.bouncycastle.pqc.jcajce.provider.util.WrapUtil;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Exceptions;
+import p067l.C10965;
+import p067l.C21466;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SABERCipherSpi extends CipherSpi {
@@ -122,14 +122,14 @@ public class SABERCipherSpi extends CipherSpi {
             kEMParameterSpec = new KEMParameterSpec("AES-KWP");
         } else {
             if (!(algorithmParameterSpec instanceof KEMParameterSpec)) {
-                throw new InvalidAlgorithmParameterException(C9045.m23341(new StringBuilder(), this.algorithmName, " can only accept KTSParameterSpec"));
+                throw new InvalidAlgorithmParameterException(C10965.m25286(new StringBuilder(), this.algorithmName, " can only accept KTSParameterSpec"));
             }
             kEMParameterSpec = (KEMParameterSpec) algorithmParameterSpec;
         }
         this.kemParameterSpec = kEMParameterSpec;
         if (i == 3) {
             if (!(key instanceof BCSABERPublicKey)) {
-                throw new InvalidKeyException(C9045.m23341(new StringBuilder("Only a "), this.algorithmName, " public key can be used for wrapping"));
+                throw new InvalidKeyException(C10965.m25286(new StringBuilder("Only a "), this.algorithmName, " public key can be used for wrapping"));
             }
             this.wrapKey = (BCSABERPublicKey) key;
             this.kemGen = new SABERKEMGenerator(CryptoServicesRegistrar.getSecureRandom(secureRandom));
@@ -139,7 +139,7 @@ public class SABERCipherSpi extends CipherSpi {
             throw new InvalidParameterException("Cipher only valid for wrapping/unwrapping");
         }
         if (!(key instanceof BCSABERPrivateKey)) {
-            throw new InvalidKeyException(C9045.m23341(new StringBuilder("Only a "), this.algorithmName, " private key can be used for unwrapping"));
+            throw new InvalidKeyException(C10965.m25286(new StringBuilder("Only a "), this.algorithmName, " private key can be used for unwrapping"));
         }
         this.unwrapKey = (BCSABERPrivateKey) key;
     }
@@ -201,11 +201,11 @@ public class SABERCipherSpi extends CipherSpi {
 
     @Override // javax.crypto.CipherSpi
     public void engineSetMode(String str) throws NoSuchAlgorithmException {
-        throw new NoSuchAlgorithmException(C20094.m46315("Cannot support mode ", str));
+        throw new NoSuchAlgorithmException(C21466.m48631("Cannot support mode ", str));
     }
 
     @Override // javax.crypto.CipherSpi
     public void engineSetPadding(String str) throws NoSuchPaddingException {
-        throw new NoSuchPaddingException(C4860.m14172("Padding ", str, " unknown"));
+        throw new NoSuchPaddingException(C6988.m16053("Padding ", str, " unknown"));
     }
 }

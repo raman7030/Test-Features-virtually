@@ -1,6 +1,6 @@
 package org.simpleframework.xml.stream;
 
-import l.C19370;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class InputPosition implements Position {
@@ -17,6 +17,6 @@ public class InputPosition implements Position {
 
     @Override // org.simpleframework.xml.stream.Position
     public String toString() {
-        return C19370.m44628(getLine(), "line ");
+        return C20778.m46922(getLine(), "line ");
     }
 }

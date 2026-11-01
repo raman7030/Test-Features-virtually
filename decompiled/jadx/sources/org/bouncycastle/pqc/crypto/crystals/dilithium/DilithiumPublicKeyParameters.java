@@ -5,18 +5,20 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes2.dex */
 public class DilithiumPublicKeyParameters extends DilithiumKeyParameters {
     public final byte[] rho;
-    public final byte[] t1;
+
+    /* JADX INFO: renamed from: t1 */
+    public final byte[] f81592t1;
 
     public DilithiumPublicKeyParameters(DilithiumParameters dilithiumParameters, byte[] bArr) {
         super(false, dilithiumParameters);
         this.rho = Arrays.copyOfRange(bArr, 0, 32);
-        this.t1 = Arrays.copyOfRange(bArr, 32, bArr.length);
+        this.f81592t1 = Arrays.copyOfRange(bArr, 32, bArr.length);
     }
 
     public DilithiumPublicKeyParameters(DilithiumParameters dilithiumParameters, byte[] bArr, byte[] bArr2) {
         super(false, dilithiumParameters);
         this.rho = Arrays.clone(bArr);
-        this.t1 = Arrays.clone(bArr2);
+        this.f81592t1 = Arrays.clone(bArr2);
     }
 
     public static byte[] getEncoded(byte[] bArr, byte[] bArr2) {
@@ -24,7 +26,7 @@ public class DilithiumPublicKeyParameters extends DilithiumKeyParameters {
     }
 
     public byte[] getEncoded() {
-        return getEncoded(this.rho, this.t1);
+        return getEncoded(this.rho, this.f81592t1);
     }
 
     public byte[] getRho() {
@@ -32,6 +34,6 @@ public class DilithiumPublicKeyParameters extends DilithiumKeyParameters {
     }
 
     public byte[] getT1() {
-        return Arrays.clone(this.t1);
+        return Arrays.clone(this.f81592t1);
     }
 }

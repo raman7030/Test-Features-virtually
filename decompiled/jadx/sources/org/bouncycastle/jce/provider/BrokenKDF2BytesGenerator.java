@@ -9,7 +9,9 @@ import org.bouncycastle.crypto.params.KDFParameters;
 /* JADX INFO: loaded from: classes.dex */
 public class BrokenKDF2BytesGenerator implements DerivationFunction {
     public Digest digest;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81371iv;
     public byte[] shared;
 
     public BrokenKDF2BytesGenerator(Digest digest) {
@@ -37,7 +39,7 @@ public class BrokenKDF2BytesGenerator implements DerivationFunction {
             this.digest.update((byte) ((i3 >> 16) & 255));
             this.digest.update((byte) ((i3 >> 24) & 255));
             Digest digest2 = this.digest;
-            byte[] bArr4 = this.iv;
+            byte[] bArr4 = this.f81371iv;
             digest2.update(bArr4, 0, bArr4.length);
             this.digest.doFinal(bArr2, 0);
             int i4 = i2 - i;
@@ -63,6 +65,6 @@ public class BrokenKDF2BytesGenerator implements DerivationFunction {
         }
         KDFParameters kDFParameters = (KDFParameters) derivationParameters;
         this.shared = kDFParameters.getSharedSecret();
-        this.iv = kDFParameters.getIV();
+        this.f81371iv = kDFParameters.getIV();
     }
 }

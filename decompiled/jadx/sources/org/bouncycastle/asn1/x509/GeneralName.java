@@ -2,8 +2,6 @@ package org.bouncycastle.asn1.x509;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
-import l.C19370;
-import l.C3200;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1IA5String;
@@ -18,6 +16,8 @@ import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.util.IPAddress;
+import p067l.C20778;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GeneralName extends ASN1Object implements ASN1Choice {
@@ -47,7 +47,7 @@ public class GeneralName extends ASN1Object implements ASN1Choice {
             this.obj = new X500Name(str);
         } else {
             if (i != 7) {
-                throw new IllegalArgumentException(C19370.m44628(i, "can't process String for tag: "));
+                throw new IllegalArgumentException(C20778.m46922(i, "can't process String for tag: "));
             }
             byte[] generalNameEncoding = toGeneralNameEncoding(str);
             if (generalNameEncoding == null) {
@@ -87,7 +87,7 @@ public class GeneralName extends ASN1Object implements ASN1Choice {
         }
         if (!(obj instanceof ASN1TaggedObject)) {
             if (!(obj instanceof byte[])) {
-                throw new IllegalArgumentException(C3200.m9832(obj, "unknown object in getInstance: "));
+                throw new IllegalArgumentException(C5410.m11877(obj, "unknown object in getInstance: "));
             }
             try {
                 return getInstance(ASN1Primitive.fromByteArray((byte[]) obj));
@@ -113,7 +113,7 @@ public class GeneralName extends ASN1Object implements ASN1Choice {
             case 8:
                 return new GeneralName(tagNo, ASN1ObjectIdentifier.getInstance(aSN1TaggedObject, false));
             default:
-                throw new IllegalArgumentException(C19370.m44628(tagNo, "unknown tag: "));
+                throw new IllegalArgumentException(C20778.m46922(tagNo, "unknown tag: "));
         }
     }
 

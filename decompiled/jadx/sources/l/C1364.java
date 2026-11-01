@@ -1,7 +1,0 @@
-package l;
-
-/* JADX INFO: renamed from: l.֨᩷ۜ, reason: contains not printable characters */
-/* JADX INFO: compiled from: N7AJ */
-/* JADX INFO: loaded from: classes2.dex */
-public final class C1364 extends Exception {
-}

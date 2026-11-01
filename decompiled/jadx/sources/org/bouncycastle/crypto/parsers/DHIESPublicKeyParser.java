@@ -7,7 +7,7 @@ import org.bouncycastle.crypto.KeyParser;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DHIESPublicKeyParser implements KeyParser {

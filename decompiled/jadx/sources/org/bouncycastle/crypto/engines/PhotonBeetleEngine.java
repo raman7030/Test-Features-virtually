@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0698cb;
 import java.lang.reflect.Array;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.CipherParameters;
@@ -9,17 +9,25 @@ import org.bouncycastle.util.Bytes;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PhotonBeetleEngine extends AEADBaseEngine {
-    public static final int D = 8;
-    public byte[] K;
+
+    /* JADX INFO: renamed from: D */
+    public static final int f81045D = 8;
+
+    /* JADX INFO: renamed from: K */
+    public byte[] f81047K;
     public final int LAST_THREE_BITS_OFFSET;
-    public byte[] N;
+
+    /* JADX INFO: renamed from: N */
+    public byte[] f81048N;
     public final int RATE_INBYTES_HALF;
     public final int STATE_INBYTES;
     public boolean input_empty;
     public byte[] state;
-    public static final byte[][] RC = {new byte[]{1, 3, 7, cb.f77931l, cb.k, 11, 6, 12, 9, 2, 5, 10}, new byte[]{0, 2, 6, 15, 12, 10, 7, cb.k, 8, 3, 4, 11}, new byte[]{2, 0, 4, cb.k, cb.f77931l, 8, 5, 15, 10, 1, 6, 9}, new byte[]{6, 4, 0, 9, 10, 12, 1, 11, cb.f77931l, 5, 2, cb.k}, new byte[]{cb.f77931l, 12, 8, 1, 2, 4, 9, 3, 6, cb.k, 10, 5}, new byte[]{15, cb.k, 9, 0, 3, 5, 8, 2, 7, 12, 11, 4}, new byte[]{cb.k, 15, 11, 2, 1, 7, 10, 0, 5, cb.f77931l, 9, 6}, new byte[]{9, 11, 15, 6, 5, 3, cb.f77931l, 4, 1, 10, cb.k, 2}};
-    public static final byte[][] MixColMatrix = {new byte[]{2, 4, 2, 11, 2, 8, 5, 6}, new byte[]{12, 9, 8, cb.k, 7, 7, 5, 2}, new byte[]{4, 4, cb.k, cb.k, 9, 4, cb.k, 9}, new byte[]{1, 6, 5, 1, 12, cb.k, 15, cb.f77931l}, new byte[]{15, 12, 9, cb.k, cb.f77931l, 5, cb.f77931l, cb.k}, new byte[]{9, cb.f77931l, 5, 15, 4, 12, 9, 6}, new byte[]{12, 2, 2, 10, 3, 1, 1, cb.f77931l}, new byte[]{15, 1, cb.k, 10, 5, 10, 2, 3}};
-    public static final byte[] sbox = {12, 5, 6, 11, 9, 0, 10, cb.k, 3, cb.f77931l, 15, 8, 4, 7, 1, 2};
+
+    /* JADX INFO: renamed from: RC */
+    public static final byte[][] f81046RC = {new byte[]{1, 3, 7, C0698cb.f2570l, C0698cb.f2569k, 11, 6, 12, 9, 2, 5, 10}, new byte[]{0, 2, 6, 15, 12, 10, 7, C0698cb.f2569k, 8, 3, 4, 11}, new byte[]{2, 0, 4, C0698cb.f2569k, C0698cb.f2570l, 8, 5, 15, 10, 1, 6, 9}, new byte[]{6, 4, 0, 9, 10, 12, 1, 11, C0698cb.f2570l, 5, 2, C0698cb.f2569k}, new byte[]{C0698cb.f2570l, 12, 8, 1, 2, 4, 9, 3, 6, C0698cb.f2569k, 10, 5}, new byte[]{15, C0698cb.f2569k, 9, 0, 3, 5, 8, 2, 7, 12, 11, 4}, new byte[]{C0698cb.f2569k, 15, 11, 2, 1, 7, 10, 0, 5, C0698cb.f2570l, 9, 6}, new byte[]{9, 11, 15, 6, 5, 3, C0698cb.f2570l, 4, 1, 10, C0698cb.f2569k, 2}};
+    public static final byte[][] MixColMatrix = {new byte[]{2, 4, 2, 11, 2, 8, 5, 6}, new byte[]{12, 9, 8, C0698cb.f2569k, 7, 7, 5, 2}, new byte[]{4, 4, C0698cb.f2569k, C0698cb.f2569k, 9, 4, C0698cb.f2569k, 9}, new byte[]{1, 6, 5, 1, 12, C0698cb.f2569k, 15, C0698cb.f2570l}, new byte[]{15, 12, 9, C0698cb.f2569k, C0698cb.f2570l, 5, C0698cb.f2570l, C0698cb.f2569k}, new byte[]{9, C0698cb.f2570l, 5, 15, 4, 12, 9, 6}, new byte[]{12, 2, 2, 10, 3, 1, 1, C0698cb.f2570l}, new byte[]{15, 1, C0698cb.f2569k, 10, 5, 10, 2, 3}};
+    public static final byte[] sbox = {12, 5, 6, 11, 9, 0, 10, C0698cb.f2569k, 3, C0698cb.f2570l, 15, 8, 4, 7, 1, 2};
 
     public enum PhotonBeetleParameters {
         pb32,
@@ -72,7 +80,7 @@ public class PhotonBeetleEngine extends AEADBaseEngine {
         for (int i2 = 0; i2 < 12; i2++) {
             for (int i3 = 0; i3 < 8; i3++) {
                 byte[] bArr3 = bArr2[i3];
-                bArr3[0] = (byte) (bArr3[0] ^ RC[i3][i2]);
+                bArr3[0] = (byte) (bArr3[0] ^ f81046RC[i3][i2]);
             }
             for (int i4 = 0; i4 < 8; i4++) {
                 for (int i5 = 0; i5 < 8; i5++) {
@@ -188,8 +196,8 @@ public class PhotonBeetleEngine extends AEADBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
-        this.K = bArr;
-        this.N = bArr2;
+        this.f81047K = bArr;
+        this.f81048N = bArr2;
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -292,9 +300,9 @@ public class PhotonBeetleEngine extends AEADBaseEngine {
     public void reset(boolean z) {
         super.reset(z);
         this.input_empty = true;
-        byte[] bArr = this.K;
+        byte[] bArr = this.f81047K;
         System.arraycopy(bArr, 0, this.state, 0, bArr.length);
-        byte[] bArr2 = this.N;
-        System.arraycopy(bArr2, 0, this.state, this.K.length, bArr2.length);
+        byte[] bArr2 = this.f81048N;
+        System.arraycopy(bArr2, 0, this.state, this.f81047K.length, bArr2.length);
     }
 }

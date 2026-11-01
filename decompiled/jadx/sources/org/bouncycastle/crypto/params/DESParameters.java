@@ -1,13 +1,13 @@
 package org.bouncycastle.crypto.params;
 
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import org.bouncycastle.util.encoders.UTF8;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DESParameters extends KeyParameter {
     public static final int DES_KEY_LENGTH = 8;
-    public static byte[] DES_weak_keys = {1, 1, 1, 1, 1, 1, 1, 1, bo.j, bo.j, bo.j, bo.j, cb.f77931l, cb.f77931l, cb.f77931l, cb.f77931l, bo.k, bo.k, bo.k, bo.k, -15, -15, -15, -15, -2, -2, -2, -2, -2, -2, -2, -2, 1, -2, 1, -2, 1, -2, 1, -2, bo.j, bo.k, bo.j, bo.k, cb.f77931l, -15, cb.f77931l, -15, 1, bo.k, 1, bo.k, 1, -15, 1, -15, bo.j, -2, bo.j, -2, cb.f77931l, -2, cb.f77931l, -2, 1, bo.j, 1, bo.j, 1, cb.f77931l, 1, cb.f77931l, bo.k, -2, bo.k, -2, -15, -2, -15, -2, -2, 1, -2, 1, -2, 1, -2, 1, bo.k, bo.j, bo.k, bo.j, -15, cb.f77931l, -15, cb.f77931l, bo.k, 1, bo.k, 1, -15, 1, -15, 1, -2, bo.j, -2, bo.j, -2, cb.f77931l, -2, cb.f77931l, bo.j, 1, bo.j, 1, cb.f77931l, 1, cb.f77931l, 1, -2, bo.k, -2, bo.k, -2, -15, -2, -15};
+    public static byte[] DES_weak_keys = {1, 1, 1, 1, 1, 1, 1, 1, C0684bo.f2505j, C0684bo.f2505j, C0684bo.f2505j, C0684bo.f2505j, C0698cb.f2570l, C0698cb.f2570l, C0698cb.f2570l, C0698cb.f2570l, C0684bo.f2506k, C0684bo.f2506k, C0684bo.f2506k, C0684bo.f2506k, -15, -15, -15, -15, -2, -2, -2, -2, -2, -2, -2, -2, 1, -2, 1, -2, 1, -2, 1, -2, C0684bo.f2505j, C0684bo.f2506k, C0684bo.f2505j, C0684bo.f2506k, C0698cb.f2570l, -15, C0698cb.f2570l, -15, 1, C0684bo.f2506k, 1, C0684bo.f2506k, 1, -15, 1, -15, C0684bo.f2505j, -2, C0684bo.f2505j, -2, C0698cb.f2570l, -2, C0698cb.f2570l, -2, 1, C0684bo.f2505j, 1, C0684bo.f2505j, 1, C0698cb.f2570l, 1, C0698cb.f2570l, C0684bo.f2506k, -2, C0684bo.f2506k, -2, -15, -2, -15, -2, -2, 1, -2, 1, -2, 1, -2, 1, C0684bo.f2506k, C0684bo.f2505j, C0684bo.f2506k, C0684bo.f2505j, -15, C0698cb.f2570l, -15, C0698cb.f2570l, C0684bo.f2506k, 1, C0684bo.f2506k, 1, -15, 1, -15, 1, -2, C0684bo.f2505j, -2, C0684bo.f2505j, -2, C0698cb.f2570l, -2, C0698cb.f2570l, C0684bo.f2505j, 1, C0684bo.f2505j, 1, C0698cb.f2570l, 1, C0698cb.f2570l, 1, -2, C0684bo.f2506k, -2, C0684bo.f2506k, -2, -15, -2, -15};
     public static final int N_DES_WEAK_KEYS = 16;
 
     public DESParameters(byte[] bArr) {

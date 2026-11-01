@@ -1,10 +1,10 @@
 package org.bouncycastle.asn1;
 
 import java.io.IOException;
-import l.C19370;
-import l.C3200;
-import l.C5127;
 import org.bouncycastle.util.Arrays;
+import p067l.C20778;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class ASN1TaggedObject extends ASN1Primitive implements ASN1TaggedObjectParser {
@@ -22,7 +22,7 @@ public abstract class ASN1TaggedObject extends ASN1Primitive implements ASN1Tagg
             throw new NullPointerException("'obj' cannot be null");
         }
         if (i2 == 0 || (i2 & 192) != i2) {
-            throw new IllegalArgumentException(C19370.m44628(i2, "invalid tag class: "));
+            throw new IllegalArgumentException(C20778.m46922(i2, "invalid tag class: "));
         }
         this.explicitness = aSN1Encodable instanceof ASN1Choice ? 1 : i;
         this.tagClass = i2;
@@ -87,10 +87,10 @@ public abstract class ASN1TaggedObject extends ASN1Primitive implements ASN1Tagg
             try {
                 return checkedCast(ASN1Primitive.fromByteArray((byte[]) obj));
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("failed to construct tagged object from byte[]: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("failed to construct tagged object from byte[]: ")));
             }
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "unknown object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "unknown object in getInstance: "));
     }
 
     public static ASN1TaggedObject getInstance(Object obj, int i) {
@@ -176,7 +176,7 @@ public abstract class ASN1TaggedObject extends ASN1Primitive implements ASN1Tagg
         if (aSN1UniversalType != null) {
             return getBaseUniversal(z, aSN1UniversalType);
         }
-        throw new IllegalArgumentException(C19370.m44628(i, "unsupported UNIVERSAL tag number: "));
+        throw new IllegalArgumentException(C20778.m46922(i, "unsupported UNIVERSAL tag number: "));
     }
 
     public ASN1Primitive getBaseUniversal(boolean z, ASN1UniversalType aSN1UniversalType) {
@@ -315,7 +315,7 @@ public abstract class ASN1TaggedObject extends ASN1Primitive implements ASN1Tagg
 
     public ASN1TaggedObject getImplicitBaseTagged(int i, int i2) {
         if (i == 0 || (i & 192) != i) {
-            throw new IllegalArgumentException(C19370.m44628(i, "invalid base tag class: "));
+            throw new IllegalArgumentException(C20778.m46922(i, "invalid base tag class: "));
         }
         int i3 = this.explicitness;
         if (i3 != 1) {

@@ -15,9 +15,6 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.Iterator;
 import javax.security.auth.x500.X500Principal;
-import l.C16014;
-import l.C20094;
-import l.C4860;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
@@ -40,6 +37,9 @@ import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.x509.extension.X509ExtensionUtil;
+import p067l.C17588;
+import p067l.C21466;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class X509V3CertificateGenerator {
@@ -95,7 +95,7 @@ public class X509V3CertificateGenerator {
     public void copyAndAddExtension(String str, boolean z, X509Certificate x509Certificate) throws CertificateParsingException {
         byte[] extensionValue = x509Certificate.getExtensionValue(str);
         if (extensionValue == null) {
-            throw new CertificateParsingException(C4860.m14172("extension ", str, " not present"));
+            throw new CertificateParsingException(C6988.m16053("extension ", str, " not present"));
         }
         try {
             addExtension(str, z, X509ExtensionUtil.fromExtensionValue(extensionValue));
@@ -189,7 +189,7 @@ public class X509V3CertificateGenerator {
         try {
             this.tbsGen.setIssuer(new X509Principal(x500Principal.getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't process principal: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't process principal: ", e));
         }
     }
 
@@ -220,7 +220,7 @@ public class X509V3CertificateGenerator {
         try {
             this.tbsGen.setSubject(new X509Principal(x500Principal.getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't process principal: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't process principal: ", e));
         }
     }
 
@@ -236,7 +236,7 @@ public class X509V3CertificateGenerator {
         try {
             this.tbsGen.setSubjectPublicKeyInfo(SubjectPublicKeyInfo.getInstance(new ASN1InputStream(publicKey.getEncoded()).readObject()));
         } catch (Exception e) {
-            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("unable to process key - ")));
+            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("unable to process key - ")));
         }
     }
 
@@ -249,7 +249,7 @@ public class X509V3CertificateGenerator {
             this.sigAlgId = sigAlgID;
             this.tbsGen.setSignature(sigAlgID);
         } catch (Exception unused) {
-            throw new IllegalArgumentException(C20094.m46315("Unknown signature type requested: ", str));
+            throw new IllegalArgumentException(C21466.m48631("Unknown signature type requested: ", str));
         }
     }
 }

@@ -1,8 +1,8 @@
 package org.bouncycastle.jce.spec;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECNamedCurveParameterSpec extends ECParameterSpec {

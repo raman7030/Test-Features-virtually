@@ -1,6 +1,6 @@
 package com.umeng.commonsdk.debug;
 
-import l.C4248;
+import p067l.C6406;
 
 /* JADX INFO: loaded from: classes.dex */
 public class UMLogCommon {
@@ -28,7 +28,7 @@ public class UMLogCommon {
     public static final String SC_10025 = "传入业务类型枚举值不能为null，deleteModuleTag调用无效，请检查传入参数。";
     public static final String SC_10026 = "检测到SDK初始化过程遗漏UMConfigure.preInit函数，请参考【友盟+】合规指南: https://developer.umeng.com/docs/119267/detail/182050";
     public static final String SC_10028 = "检测到未调用隐私授权API，详情见：https://developer.umeng.com/docs/119267/detail/182050";
-    public static final String SC_10001 = C4248.m12791(new StringBuilder("不能在非主进程进行初始化|目前只能在主进程进行初始化，如何正确初始化请详见地址："), "67292");
-    public static final String SC_10002 = C4248.m12791(new StringBuilder("不能在非Application的onCreate方法中进行初始化|目前只能在Application的onCreate方法中进行初始化，如何正确初始化请详见地址："), "67292");
-    public static final String SC_10007 = C4248.m12791(new StringBuilder("AppKey不能为空|您必须正确设置AppKey，如何正确初始化请详见地址："), "67292");
+    public static final String SC_10001 = C6406.m14671(new StringBuilder("不能在非主进程进行初始化|目前只能在主进程进行初始化，如何正确初始化请详见地址："), "67292");
+    public static final String SC_10002 = C6406.m14671(new StringBuilder("不能在非Application的onCreate方法中进行初始化|目前只能在Application的onCreate方法中进行初始化，如何正确初始化请详见地址："), "67292");
+    public static final String SC_10007 = C6406.m14671(new StringBuilder("AppKey不能为空|您必须正确设置AppKey，如何正确初始化请详见地址："), "67292");
 }

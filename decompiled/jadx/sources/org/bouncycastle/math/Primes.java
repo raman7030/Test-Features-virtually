@@ -3,11 +3,11 @@ package org.bouncycastle.math;
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import l.C4860;
 import moe.shizuku.server.IShizukuService;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class Primes {
@@ -384,7 +384,7 @@ public abstract class Primes {
 
     public static void checkCandidate(BigInteger bigInteger, String str) {
         if (bigInteger == null || bigInteger.signum() < 1 || bigInteger.bitLength() < 2) {
-            throw new IllegalArgumentException(C4860.m14172("'", str, "' must be non-null and >= 2"));
+            throw new IllegalArgumentException(C6988.m16053("'", str, "' must be non-null and >= 2"));
         }
     }
 }

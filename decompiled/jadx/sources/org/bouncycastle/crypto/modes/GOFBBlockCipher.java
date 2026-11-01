@@ -8,11 +8,21 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GOFBBlockCipher extends StreamBlockCipher {
-    public static final int C1 = 16843012;
-    public static final int C2 = 16843009;
-    public byte[] IV;
-    public int N3;
-    public int N4;
+
+    /* JADX INFO: renamed from: C1 */
+    public static final int f81184C1 = 16843012;
+
+    /* JADX INFO: renamed from: C2 */
+    public static final int f81185C2 = 16843009;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81186IV;
+
+    /* JADX INFO: renamed from: N3 */
+    public int f81187N3;
+
+    /* JADX INFO: renamed from: N4 */
+    public int f81188N4;
     public final int blockSize;
     public int byteCount;
     public final BlockCipher cipher;
@@ -29,7 +39,7 @@ public class GOFBBlockCipher extends StreamBlockCipher {
         if (blockSize != 8) {
             throw new IllegalArgumentException("GCTR only for 64 bit block ciphers");
         }
-        this.IV = new byte[blockCipher.getBlockSize()];
+        this.f81186IV = new byte[blockCipher.getBlockSize()];
         this.ofbV = new byte[blockCipher.getBlockSize()];
         this.ofbOutV = new byte[blockCipher.getBlockSize()];
     }
@@ -51,19 +61,19 @@ public class GOFBBlockCipher extends StreamBlockCipher {
             if (this.firstStep) {
                 this.firstStep = false;
                 this.cipher.processBlock(this.ofbV, 0, this.ofbOutV, 0);
-                this.N3 = bytesToint(this.ofbOutV, 0);
-                this.N4 = bytesToint(this.ofbOutV, 4);
+                this.f81187N3 = bytesToint(this.ofbOutV, 0);
+                this.f81188N4 = bytesToint(this.ofbOutV, 4);
             }
-            int i = this.N3 + 16843009;
-            this.N3 = i;
-            int i2 = this.N4;
+            int i = this.f81187N3 + 16843009;
+            this.f81187N3 = i;
+            int i2 = this.f81188N4;
             int i3 = i2 + 16843012;
-            this.N4 = i3;
+            this.f81188N4 = i3;
             if (i3 < 16843012 && i3 > 0) {
-                this.N4 = i2 + R.attr.format;
+                this.f81188N4 = i2 + R.attr.format;
             }
             intTobytes(i, this.ofbV, 0);
-            intTobytes(this.N4, this.ofbV, 4);
+            intTobytes(this.f81188N4, this.ofbV, 4);
             this.cipher.processBlock(this.ofbV, 0, this.ofbOutV, 0);
         }
         byte[] bArr = this.ofbOutV;
@@ -99,18 +109,18 @@ public class GOFBBlockCipher extends StreamBlockCipher {
     public void init(boolean z, CipherParameters cipherParameters) {
         BlockCipher blockCipher;
         this.firstStep = true;
-        this.N3 = 0;
-        this.N4 = 0;
+        this.f81187N3 = 0;
+        this.f81188N4 = 0;
         if (cipherParameters instanceof ParametersWithIV) {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();
             int length = iv.length;
-            byte[] bArr = this.IV;
+            byte[] bArr = this.f81186IV;
             if (length < bArr.length) {
                 System.arraycopy(iv, 0, bArr, bArr.length - iv.length, iv.length);
                 int i = 0;
                 while (true) {
-                    byte[] bArr2 = this.IV;
+                    byte[] bArr2 = this.f81186IV;
                     if (i >= bArr2.length - iv.length) {
                         break;
                     }
@@ -146,9 +156,9 @@ public class GOFBBlockCipher extends StreamBlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
         this.firstStep = true;
-        this.N3 = 0;
-        this.N4 = 0;
-        byte[] bArr = this.IV;
+        this.f81187N3 = 0;
+        this.f81188N4 = 0;
+        byte[] bArr = this.f81186IV;
         System.arraycopy(bArr, 0, this.ofbV, 0, bArr.length);
         this.byteCount = 0;
         this.cipher.reset();

@@ -1,26 +1,37 @@
 package com.alipay.apmobilesecuritysdk.face;
 
 import android.content.Context;
-import com.alipay.apmobilesecuritysdk.a.a;
-import com.alipay.apmobilesecuritysdk.e.d;
-import com.alipay.apmobilesecuritysdk.e.g;
-import com.alipay.apmobilesecuritysdk.e.h;
-import com.alipay.apmobilesecuritysdk.e.i;
-import com.alipay.apmobilesecuritysdk.f.b;
 import com.alipay.apmobilesecuritysdk.otherid.UmidSdkWrapper;
 import com.alipay.apmobilesecuritysdk.otherid.UtdidWrapper;
-import com.alipay.sdk.m.f0.f;
+import com.alipay.apmobilesecuritysdk.p004a.C0041a;
+import com.alipay.apmobilesecuritysdk.p005b.C0043a;
+import com.alipay.apmobilesecuritysdk.p008e.C0053a;
+import com.alipay.apmobilesecuritysdk.p008e.C0056d;
+import com.alipay.apmobilesecuritysdk.p008e.C0059g;
+import com.alipay.apmobilesecuritysdk.p008e.C0060h;
+import com.alipay.apmobilesecuritysdk.p008e.C0061i;
+import com.alipay.apmobilesecuritysdk.p009f.C0063b;
+import com.alipay.sdk.p010m.p018d0.C0106a;
+import com.alipay.sdk.p010m.p022f0.InterfaceC0118f;
 import java.util.HashMap;
 import java.util.Map;
 
 /* JADX INFO: compiled from: N673 */
 /* JADX INFO: loaded from: classes.dex */
-public class APSecuritySdk implements f {
-    public static APSecuritySdk a;
+public class APSecuritySdk implements InterfaceC0118f {
+
+    /* JADX INFO: renamed from: a */
+    public static APSecuritySdk f195a;
     public static APSecBgCheckerInterface bgChecker;
-    public static IDeviceInfo c;
-    public static Object d = new Object();
-    public Context b;
+
+    /* JADX INFO: renamed from: c */
+    public static IDeviceInfo f196c;
+
+    /* JADX INFO: renamed from: d */
+    public static Object f197d = new Object();
+
+    /* JADX INFO: renamed from: b */
+    public Context f198b;
 
     /* JADX INFO: compiled from: N673 */
     public interface InitResultListener {
@@ -39,22 +50,22 @@ public class APSecuritySdk implements f {
     }
 
     public APSecuritySdk(Context context) {
-        this.b = context;
+        this.f198b = context;
     }
 
     public static IDeviceInfo getDeviceInfo() {
-        return c;
+        return f196c;
     }
 
     public static APSecuritySdk getInstance(Context context) {
-        if (a == null) {
-            synchronized (d) {
-                if (a == null) {
-                    a = new APSecuritySdk(context);
+        if (f195a == null) {
+            synchronized (f197d) {
+                if (f195a == null) {
+                    f195a = new APSecuritySdk(context);
                 }
             }
         }
-        return a;
+        return f195a;
     }
 
     public static String getUtdid(Context context) {
@@ -66,12 +77,12 @@ public class APSecuritySdk implements f {
     }
 
     public static void registerDeviceInfo(IDeviceInfo iDeviceInfo) {
-        c = iDeviceInfo;
+        f196c = iDeviceInfo;
     }
 
-    @Override // com.alipay.sdk.m.f0.f
+    @Override // com.alipay.sdk.p010m.p022f0.InterfaceC0118f
     public String getAndroidId() {
-        IDeviceInfo iDeviceInfo = c;
+        IDeviceInfo iDeviceInfo = f196c;
         if (iDeviceInfo != null) {
             return iDeviceInfo.getAndroidId();
         }
@@ -79,11 +90,11 @@ public class APSecuritySdk implements f {
     }
 
     public String getApdidToken() {
-        String strA = a.a(this.b, "");
-        if (com.alipay.sdk.m.d0.a.a(strA)) {
+        String strM269a = C0041a.m269a(this.f198b, "");
+        if (C0106a.m564a(strM269a)) {
             initToken(0, new HashMap(), null);
         }
-        return strA;
+        return strM269a;
     }
 
     public String getSdkName() {
@@ -94,9 +105,9 @@ public class APSecuritySdk implements f {
         return "3.4.0.202507280853";
     }
 
-    @Override // com.alipay.sdk.m.f0.f
+    @Override // com.alipay.sdk.p010m.p022f0.InterfaceC0118f
     public String getSubscriberId() {
-        IDeviceInfo iDeviceInfo = c;
+        IDeviceInfo iDeviceInfo = f196c;
         if (iDeviceInfo != null) {
             return iDeviceInfo.getSubscriberId();
         }
@@ -107,11 +118,11 @@ public class APSecuritySdk implements f {
         TokenResult tokenResult;
         tokenResult = new TokenResult();
         try {
-            tokenResult.apdidToken = a.a(this.b, "");
-            tokenResult.clientKey = h.f(this.b);
-            tokenResult.apdid = a.b(this.b);
-            tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.b);
-            if (com.alipay.sdk.m.d0.a.a(tokenResult.apdid) || com.alipay.sdk.m.d0.a.a(tokenResult.apdidToken) || com.alipay.sdk.m.d0.a.a(tokenResult.clientKey)) {
+            tokenResult.apdidToken = C0041a.m269a(this.f198b, "");
+            tokenResult.clientKey = C0060h.m355f(this.f198b);
+            tokenResult.apdid = C0041a.m275b(this.f198b);
+            tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f198b);
+            if (C0106a.m564a(tokenResult.apdid) || C0106a.m564a(tokenResult.apdidToken) || C0106a.m564a(tokenResult.clientKey)) {
                 initToken(0, new HashMap(), null);
             }
         } catch (Throwable unused) {
@@ -120,51 +131,53 @@ public class APSecuritySdk implements f {
     }
 
     public void initToken(int i, Map map, final InitResultListener initResultListener) {
-        com.alipay.apmobilesecuritysdk.b.a.a().a(i);
-        String strB = h.b(this.b);
-        String strC = com.alipay.apmobilesecuritysdk.b.a.a().c();
-        if (com.alipay.sdk.m.d0.a.b(strB) && !com.alipay.sdk.m.d0.a.a(strB, strC)) {
-            com.alipay.apmobilesecuritysdk.e.a.b(this.b);
-            d.a(this.b);
-            g.a(this.b);
-            i.h();
+        C0043a.m284a().m286a(i);
+        String strM347b = C0060h.m347b(this.f198b);
+        String strM288c = C0043a.m284a().m288c();
+        if (C0106a.m567b(strM347b) && !C0106a.m565a(strM347b, strM288c)) {
+            C0053a.m315b(this.f198b);
+            C0056d.m320a(this.f198b);
+            C0059g.m339a(this.f198b);
+            C0061i.m377h();
         }
-        if (!com.alipay.sdk.m.d0.a.a(strB, strC)) {
-            h.c(this.b, strC);
+        if (!C0106a.m565a(strM347b, strM288c)) {
+            C0060h.m349c(this.f198b, strM288c);
         }
-        String strA = com.alipay.sdk.m.d0.a.a(map, "utdid", "");
-        String strA2 = com.alipay.sdk.m.d0.a.a(map, "tid", "");
-        String strA3 = com.alipay.sdk.m.d0.a.a(map, "userId", "");
-        if (com.alipay.sdk.m.d0.a.a(strA)) {
-            strA = UtdidWrapper.getUtdid(this.b);
+        String strM563a = C0106a.m563a(map, "utdid", "");
+        String strM563a2 = C0106a.m563a(map, "tid", "");
+        String strM563a3 = C0106a.m563a(map, "userId", "");
+        if (C0106a.m564a(strM563a)) {
+            strM563a = UtdidWrapper.getUtdid(this.f198b);
         }
         final HashMap map2 = new HashMap();
-        map2.put("utdid", strA);
-        map2.put("tid", strA2);
-        map2.put("userId", strA3);
+        map2.put("utdid", strM563a);
+        map2.put("tid", strM563a2);
+        map2.put("userId", strM563a3);
         map2.put("appName", "");
         map2.put("appKeyClient", "");
         map2.put("appchannel", "");
         map2.put("rpcVersion", "8");
-        b.a().a(new Runnable(this) { // from class: com.alipay.apmobilesecuritysdk.face.APSecuritySdk.1
-            public final /* synthetic */ APSecuritySdk c;
+        C0063b.m382a().m385a(new Runnable(this) { // from class: com.alipay.apmobilesecuritysdk.face.APSecuritySdk.1
+
+            /* JADX INFO: renamed from: c */
+            public final /* synthetic */ APSecuritySdk f201c;
 
             {
-                this.c = this;
+                this.f201c = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                new a(this.c.b).a(map2);
+                new C0041a(this.f201c.f198b).m281a(map2);
                 InitResultListener initResultListener2 = initResultListener;
                 if (initResultListener2 != null) {
-                    initResultListener2.onResult(this.c.getTokenResult());
+                    initResultListener2.onResult(this.f201c.getTokenResult());
                 }
             }
         });
     }
 
-    @Override // com.alipay.sdk.m.f0.f
+    @Override // com.alipay.sdk.p010m.p022f0.InterfaceC0118f
     public boolean isBackgroundRunning() {
         APSecBgCheckerInterface aPSecBgCheckerInterface = bgChecker;
         if (aPSecBgCheckerInterface != null) {

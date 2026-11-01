@@ -8,13 +8,13 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import l.C19370;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.falcon.FalconParameters;
 import org.bouncycastle.pqc.crypto.falcon.FalconPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.falcon.FalconSigner;
 import org.bouncycastle.util.Strings;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SignatureSpi extends Signature {
@@ -132,7 +132,7 @@ public class SignatureSpi extends Signature {
             try {
                 publicKey = new BCFalconPublicKey(SubjectPublicKeyInfo.getInstance(publicKey.getEncoded()));
             } catch (Exception e) {
-                throw new InvalidKeyException(C19370.m44629(e, new StringBuilder("unknown public key passed to Falcon: ")), e);
+                throw new InvalidKeyException(C20778.m46923(e, new StringBuilder("unknown public key passed to Falcon: ")), e);
             }
         }
         BCFalconPublicKey bCFalconPublicKey = (BCFalconPublicKey) publicKey;

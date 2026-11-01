@@ -1,6 +1,6 @@
 package org.bouncycastle.jcajce.provider.keystore.pkcs12;
 
-import com.tencent.mm.opensdk.modelmsg.WXNativeGamePageObject;
+import com.tencent.p062mm.opensdk.modelmsg.WXNativeGamePageObject;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.EOFException;
@@ -43,10 +43,6 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-import l.C13325;
-import l.C20195;
-import l.C4860;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1BMPString;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
@@ -129,6 +125,10 @@ import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Properties;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C10927;
+import p067l.C15033;
+import p067l.C21562;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifiers, X509ObjectIdentifiers, BCKeyStore {
@@ -186,14 +186,16 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
     }
 
     public class CertId {
-        public byte[] id;
+
+        /* JADX INFO: renamed from: id */
+        public byte[] f81355id;
 
         public CertId(PublicKey publicKey) {
-            this.id = PKCS12KeyStoreSpi.this.createSubjectKeyId(publicKey).getKeyIdentifier();
+            this.f81355id = PKCS12KeyStoreSpi.this.createSubjectKeyId(publicKey).getKeyIdentifier();
         }
 
         public CertId(byte[] bArr) {
-            this.id = bArr;
+            this.f81355id = bArr;
         }
 
         public boolean equals(Object obj) {
@@ -201,13 +203,13 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
                 return true;
             }
             if (obj instanceof CertId) {
-                return Arrays.areEqual(this.id, ((CertId) obj).id);
+                return Arrays.areEqual(this.f81355id, ((CertId) obj).f81355id);
             }
             return false;
         }
 
         public int hashCode() {
-            return Arrays.hashCode(this.id);
+            return Arrays.hashCode(this.f81355id);
         }
     }
 
@@ -254,7 +256,7 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
             map.put(NTTObjectIdentifiers.id_camellia192_cbc, Integers.valueOf(192));
             map.put(NTTObjectIdentifiers.id_camellia256_cbc, Integers.valueOf(256));
             map.put(CryptoProObjectIdentifiers.gostR28147_gcfb, Integers.valueOf(256));
-            this.KEY_SIZES = C20195.unmodifiableMap(map);
+            this.KEY_SIZES = C21562.unmodifiableMap(map);
         }
 
         public int getKeySize(AlgorithmIdentifier algorithmIdentifier) {
@@ -843,7 +845,7 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
                 } catch (IOException e) {
                     throw e;
                 } catch (Exception e2) {
-                    throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e2, new StringBuilder("error constructing MAC: ")));
+                    throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e2, new StringBuilder("error constructing MAC: ")));
                 }
             }
             ASN1OctetString aSN1OctetString = null;
@@ -1100,7 +1102,7 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
             cipherCreateCipher.init(3, secretKeyFactoryCreateSecretKeyFactory.generateSecret(pBEKeySpec), pBEParameterSpec);
             return cipherCreateCipher.wrap(key);
         } catch (Exception e) {
-            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("exception encrypting data - ")));
+            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("exception encrypting data - ")));
         }
     }
 
@@ -1114,7 +1116,7 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
             cipherCreateCipher.init(3, secretKeyFactoryCreateSecretKeyFactory.generateSecret(pBEKeySpec), algorithmParameters);
             return cipherCreateCipher.wrap(key);
         } catch (Exception e) {
-            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("exception encrypting data - ")));
+            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("exception encrypting data - ")));
         }
     }
 
@@ -1125,13 +1127,13 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
         if (PKCSObjectIdentifiers.id_hmacWithSHA512.equals((ASN1Primitive) aSN1ObjectIdentifier)) {
             return new SHA512Digest();
         }
-        throw new IllegalArgumentException(C9005.m23242("unknown prf id ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unknown prf id ", aSN1ObjectIdentifier));
     }
 
     @Override // java.security.KeyStoreSpi
     public void engineSetCertificateEntry(String str, Certificate certificate) throws KeyStoreException {
         if (this.keys.get(str) != null) {
-            throw new KeyStoreException(C4860.m14172("There is a key entry with the name ", str, "."));
+            throw new KeyStoreException(C6988.m16053("There is a key entry with the name ", str, "."));
         }
         this.certs.put(str, certificate);
         this.chainCerts.put(new CertId(certificate.getPublicKey()), certificate);
@@ -1146,7 +1148,7 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
         try {
             this.certFact = jcaJceHelper.createCertificateFactory("X.509");
         } catch (Exception e) {
-            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("can't create cert factory - ")));
+            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("can't create cert factory - ")));
         }
     }
 
@@ -1159,22 +1161,22 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
         if (bigIntegerAsBigInteger == null || BigIntegers.intValueExact(bigIntegerAsBigInteger) >= iIntValueExact) {
             return iIntValueExact;
         }
-        StringBuilder sbM32308 = C13325.m32308(iIntValueExact, "iteration count ", " greater than ");
-        sbM32308.append(BigIntegers.intValueExact(bigIntegerAsBigInteger));
-        throw new IllegalStateException(sbM32308.toString());
+        StringBuilder sbM34408 = C15033.m34408(iIntValueExact, "iteration count ", " greater than ");
+        sbM34408.append(BigIntegers.intValueExact(bigIntegerAsBigInteger));
+        throw new IllegalStateException(sbM34408.toString());
     }
 
     public byte[] cryptData(boolean z, AlgorithmIdentifier algorithmIdentifier, char[] cArr, boolean z2, byte[] bArr) throws IOException {
         ASN1ObjectIdentifier algorithm = algorithmIdentifier.getAlgorithm();
         int i = z ? 1 : 2;
-        if (!algorithm.on(PKCSObjectIdentifiers.pkcs_12PbeIds)) {
+        if (!algorithm.m55304on(PKCSObjectIdentifiers.pkcs_12PbeIds)) {
             if (!algorithm.equals((ASN1Primitive) PKCSObjectIdentifiers.id_PBES2)) {
-                throw new IOException(C9005.m23242("unknown PBE algorithm: ", algorithm));
+                throw new IOException(C10927.m25186("unknown PBE algorithm: ", algorithm));
             }
             try {
                 return createCipher(i, cArr, algorithmIdentifier).doFinal(bArr);
             } catch (Exception e) {
-                throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("exception decrypting data - ")));
+                throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("exception decrypting data - ")));
             }
         }
         PKCS12PBEParams pKCS12PBEParams = PKCS12PBEParams.getInstance(algorithmIdentifier.getParameters());
@@ -1200,14 +1202,14 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
         Cipher cipherCreateCipher;
         ASN1ObjectIdentifier algorithm = algorithmIdentifier.getAlgorithm();
         try {
-            if (algorithm.on(PKCSObjectIdentifiers.pkcs_12PbeIds)) {
+            if (algorithm.m55304on(PKCSObjectIdentifiers.pkcs_12PbeIds)) {
                 PKCS12PBEParams pKCS12PBEParams = PKCS12PBEParams.getInstance(algorithmIdentifier.getParameters());
                 PBEParameterSpec pBEParameterSpec = new PBEParameterSpec(pKCS12PBEParams.getIV(), validateIterationCount(pKCS12PBEParams.getIterations()));
                 cipherCreateCipher = this.helper.createCipher(algorithm.getId());
                 cipherCreateCipher.init(4, new PKCS12Key(cArr, z), pBEParameterSpec);
             } else {
                 if (!algorithm.equals((ASN1Primitive) PKCSObjectIdentifiers.id_PBES2)) {
-                    throw new IOException(C9005.m23242("exception unwrapping private key - cannot recognise: ", algorithm));
+                    throw new IOException(C10927.m25186("exception unwrapping private key - cannot recognise: ", algorithm));
                 }
                 cipherCreateCipher = createCipher(4, cArr, algorithmIdentifier);
             }
@@ -1436,7 +1438,7 @@ public class PKCS12KeyStoreSpi extends KeyStoreSpi implements PKCSObjectIdentifi
             try {
                 macData = new MacData(new DigestInfo(this.macAlgorithm, calculatePbeMac(this.macAlgorithm.getAlgorithm(), bArr3, this.itCount, cArr, false, octets)), bArr3, this.itCount);
             } catch (Exception e5) {
-                throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e5, new StringBuilder("error constructing MAC: ")));
+                throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e5, new StringBuilder("error constructing MAC: ")));
             }
         }
         new Pfx(contentInfo, macData).encodeTo(outputStream, z ? ASN1Encoding.DER : str4);

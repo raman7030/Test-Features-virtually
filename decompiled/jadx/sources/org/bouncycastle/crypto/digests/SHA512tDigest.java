@@ -78,14 +78,14 @@ public class SHA512tDigest extends LongDigest {
     }
 
     private void tIvGenerate(int i) {
-        this.H1 = -3482333909917012819L;
-        this.H2 = 2216346199247487646L;
-        this.H3 = -7364697282686394994L;
-        this.H4 = 65953792586715988L;
-        this.H5 = -816286391624063116L;
-        this.H6 = 4512832404995164602L;
-        this.H7 = -5033199132376557362L;
-        this.H8 = -124578254951840548L;
+        this.f80836H1 = -3482333909917012819L;
+        this.f80837H2 = 2216346199247487646L;
+        this.f80838H3 = -7364697282686394994L;
+        this.f80839H4 = 65953792586715988L;
+        this.f80840H5 = -816286391624063116L;
+        this.f80841H6 = 4512832404995164602L;
+        this.f80842H7 = -5033199132376557362L;
+        this.f80843H8 = -124578254951840548L;
         update((byte) 83);
         update((byte) 72);
         update((byte) 65);
@@ -99,14 +99,14 @@ public class SHA512tDigest extends LongDigest {
             }
             update((byte) (i + 48));
             finish();
-            this.H1t = this.H1;
-            this.H2t = this.H2;
-            this.H3t = this.H3;
-            this.H4t = this.H4;
-            this.H5t = this.H5;
-            this.H6t = this.H6;
-            this.H7t = this.H7;
-            this.H8t = this.H8;
+            this.H1t = this.f80836H1;
+            this.H2t = this.f80837H2;
+            this.H3t = this.f80838H3;
+            this.H4t = this.f80839H4;
+            this.H5t = this.f80840H5;
+            this.H6t = this.f80841H6;
+            this.H7t = this.f80842H7;
+            this.H8t = this.f80843H8;
         }
         update((byte) ((i / 100) + 48));
         i %= 100;
@@ -114,14 +114,14 @@ public class SHA512tDigest extends LongDigest {
         i %= 10;
         update((byte) (i + 48));
         finish();
-        this.H1t = this.H1;
-        this.H2t = this.H2;
-        this.H3t = this.H3;
-        this.H4t = this.H4;
-        this.H5t = this.H5;
-        this.H6t = this.H6;
-        this.H7t = this.H7;
-        this.H8t = this.H8;
+        this.H1t = this.f80836H1;
+        this.H2t = this.f80837H2;
+        this.H3t = this.f80838H3;
+        this.H4t = this.f80839H4;
+        this.H5t = this.f80840H5;
+        this.H6t = this.f80841H6;
+        this.H7t = this.f80842H7;
+        this.H8t = this.f80843H8;
     }
 
     @Override // org.bouncycastle.util.Memoable
@@ -137,14 +137,14 @@ public class SHA512tDigest extends LongDigest {
     @Override // org.bouncycastle.crypto.Digest
     public int doFinal(byte[] bArr, int i) {
         finish();
-        longToBigEndian(this.H1, bArr, i, this.digestLength);
-        longToBigEndian(this.H2, bArr, i + 8, this.digestLength - 8);
-        longToBigEndian(this.H3, bArr, i + 16, this.digestLength - 16);
-        longToBigEndian(this.H4, bArr, i + 24, this.digestLength - 24);
-        longToBigEndian(this.H5, bArr, i + 32, this.digestLength - 32);
-        longToBigEndian(this.H6, bArr, i + 40, this.digestLength - 40);
-        longToBigEndian(this.H7, bArr, i + 48, this.digestLength - 48);
-        longToBigEndian(this.H8, bArr, i + 56, this.digestLength - 56);
+        longToBigEndian(this.f80836H1, bArr, i, this.digestLength);
+        longToBigEndian(this.f80837H2, bArr, i + 8, this.digestLength - 8);
+        longToBigEndian(this.f80838H3, bArr, i + 16, this.digestLength - 16);
+        longToBigEndian(this.f80839H4, bArr, i + 24, this.digestLength - 24);
+        longToBigEndian(this.f80840H5, bArr, i + 32, this.digestLength - 32);
+        longToBigEndian(this.f80841H6, bArr, i + 40, this.digestLength - 40);
+        longToBigEndian(this.f80842H7, bArr, i + 48, this.digestLength - 48);
+        longToBigEndian(this.f80843H8, bArr, i + 56, this.digestLength - 56);
         reset();
         return this.digestLength;
     }
@@ -172,14 +172,14 @@ public class SHA512tDigest extends LongDigest {
     @Override // org.bouncycastle.crypto.digests.LongDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        this.H1 = this.H1t;
-        this.H2 = this.H2t;
-        this.H3 = this.H3t;
-        this.H4 = this.H4t;
-        this.H5 = this.H5t;
-        this.H6 = this.H6t;
-        this.H7 = this.H7t;
-        this.H8 = this.H8t;
+        this.f80836H1 = this.H1t;
+        this.f80837H2 = this.H2t;
+        this.f80838H3 = this.H3t;
+        this.f80839H4 = this.H4t;
+        this.f80840H5 = this.H5t;
+        this.f80841H6 = this.H6t;
+        this.f80842H7 = this.H7t;
+        this.f80843H8 = this.H8t;
     }
 
     @Override // org.bouncycastle.util.Memoable

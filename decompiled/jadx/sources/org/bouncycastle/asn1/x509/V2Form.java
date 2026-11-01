@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.x509;
 
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
@@ -9,6 +8,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class V2Form extends ASN1Object {
@@ -19,7 +19,7 @@ public class V2Form extends ASN1Object {
     public V2Form(ASN1Sequence aSN1Sequence) {
         int i;
         if (aSN1Sequence.size() > 3) {
-            throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+            throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
         }
         if (aSN1Sequence.getObjectAt(0) instanceof ASN1TaggedObject) {
             i = 0;

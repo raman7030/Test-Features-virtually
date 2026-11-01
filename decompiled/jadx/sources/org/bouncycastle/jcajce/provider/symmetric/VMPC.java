@@ -1,7 +1,5 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.VMPCEngine;
 import org.bouncycastle.crypto.macs.VMPCMac;
@@ -10,6 +8,8 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class VMPC {
@@ -41,7 +41,7 @@ public final class VMPC {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Mac", "Mac.VMPCMAC", C5368.m15340(str, "$KeyGen", "KeyGenerator.VMPC", C5368.m15340(str, "$Base", "Cipher.VMPC", sb, configurableProvider), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$Mac", "Mac.VMPCMAC", C7470.m17249(str, "$KeyGen", "KeyGenerator.VMPC", C7470.m17249(str, "$Base", "Cipher.VMPC", sb, configurableProvider), configurableProvider), configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.Mac.VMPC", "VMPCMAC");
             configurableProvider.addAlgorithm("Alg.Alias.Mac.VMPC-MAC", "VMPCMAC");
         }

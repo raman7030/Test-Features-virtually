@@ -1,10 +1,10 @@
 package org.bouncycastle.asn1.x509;
 
-import l.C13540;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.DERBitString;
+import p067l.C1514;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KeyUsage extends ASN1Object {
@@ -69,6 +69,6 @@ public class KeyUsage extends ASN1Object {
             sb = new StringBuilder("KeyUsage: 0x");
             i = (bytes[0] & 255) | ((bytes[1] & 255) << 8);
         }
-        return C13540.m32584(sb, i);
+        return C1514.m34687(sb, i);
     }
 }

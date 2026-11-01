@@ -1,12 +1,12 @@
 package org.bouncycastle.pqc.crypto.slhdsa;
 
 import java.security.SecureRandom;
-import l.C20094;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.params.ParametersWithContext;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.MessageSigner;
 import org.bouncycastle.util.Arrays;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SLHDSASigner implements MessageSigner {
@@ -18,11 +18,11 @@ public class SLHDSASigner implements MessageSigner {
 
     public static byte[] internalGenerateSignature(SLHDSAPrivateKeyParameters sLHDSAPrivateKeyParameters, byte[] bArr, byte[] bArr2, byte[] bArr3) {
         SLHDSAEngine engine = sLHDSAPrivateKeyParameters.getParameters().getEngine();
-        engine.init(sLHDSAPrivateKeyParameters.pk.seed);
+        engine.init(sLHDSAPrivateKeyParameters.f81744pk.seed);
         Fors fors = new Fors(engine);
-        byte[] bArrPRF_msg = engine.PRF_msg(sLHDSAPrivateKeyParameters.sk.prf, bArr3, bArr, bArr2);
-        PK pk = sLHDSAPrivateKeyParameters.pk;
-        IndexedDigest indexedDigestH_msg = engine.H_msg(bArrPRF_msg, pk.seed, pk.root, bArr, bArr2);
+        byte[] bArrPRF_msg = engine.PRF_msg(sLHDSAPrivateKeyParameters.f81745sk.prf, bArr3, bArr, bArr2);
+        C2371PK c2371pk = sLHDSAPrivateKeyParameters.f81744pk;
+        IndexedDigest indexedDigestH_msg = engine.H_msg(bArrPRF_msg, c2371pk.seed, c2371pk.root, bArr, bArr2);
         byte[] bArr4 = indexedDigestH_msg.digest;
         long j = indexedDigestH_msg.idx_tree;
         int i = indexedDigestH_msg.idx_leaf;
@@ -30,14 +30,14 @@ public class SLHDSASigner implements MessageSigner {
         adrs.setTypeAndClear(3);
         adrs.setTreeAddress(j);
         adrs.setKeyPairAddress(i);
-        SIG_FORS[] sig_forsArrSign = fors.sign(bArr4, sLHDSAPrivateKeyParameters.sk.seed, sLHDSAPrivateKeyParameters.pk.seed, adrs);
+        SIG_FORS[] sig_forsArrSign = fors.sign(bArr4, sLHDSAPrivateKeyParameters.f81745sk.seed, sLHDSAPrivateKeyParameters.f81744pk.seed, adrs);
         ADRS adrs2 = new ADRS();
         adrs2.setTypeAndClear(3);
         adrs2.setTreeAddress(j);
         adrs2.setKeyPairAddress(i);
-        byte[] bArrPkFromSig = fors.pkFromSig(sig_forsArrSign, bArr4, sLHDSAPrivateKeyParameters.pk.seed, adrs2);
+        byte[] bArrPkFromSig = fors.pkFromSig(sig_forsArrSign, bArr4, sLHDSAPrivateKeyParameters.f81744pk.seed, adrs2);
         new ADRS().setTypeAndClear(2);
-        byte[] bArrSign = new HT(engine, sLHDSAPrivateKeyParameters.getSeed(), sLHDSAPrivateKeyParameters.getPublicSeed()).sign(bArrPkFromSig, j, i);
+        byte[] bArrSign = new C2370HT(engine, sLHDSAPrivateKeyParameters.getSeed(), sLHDSAPrivateKeyParameters.getPublicSeed()).sign(bArrPkFromSig, j, i);
         int length = sig_forsArrSign.length;
         byte[][] bArr5 = new byte[length + 2][];
         int i2 = 0;
@@ -45,7 +45,7 @@ public class SLHDSASigner implements MessageSigner {
         while (i2 != sig_forsArrSign.length) {
             int i3 = i2 + 1;
             SIG_FORS sig_fors = sig_forsArrSign[i2];
-            bArr5[i3] = Arrays.concatenate(sig_fors.sk, Arrays.concatenate(sig_fors.authPath));
+            bArr5[i3] = Arrays.concatenate(sig_fors.f81725sk, Arrays.concatenate(sig_fors.authPath));
             i2 = i3;
         }
         bArr5[length + 1] = bArrSign;
@@ -56,13 +56,13 @@ public class SLHDSASigner implements MessageSigner {
         SLHDSAEngine engine = sLHDSAPublicKeyParameters.getParameters().getEngine();
         engine.init(sLHDSAPublicKeyParameters.getSeed());
         ADRS adrs = new ADRS();
-        int i = engine.K;
-        int i2 = engine.A;
-        int iM46314 = C20094.m46314(i2, 1, i, 1) + engine.H;
-        int i3 = engine.D;
+        int i = engine.f81729K;
+        int i2 = engine.f81726A;
+        int iM48630 = C21466.m48630(i2, 1, i, 1) + engine.f81728H;
+        int i3 = engine.f81727D;
         int i4 = engine.WOTS_LEN;
-        int i5 = engine.N;
-        if (((i3 * i4) + iM46314) * i5 != bArr3.length) {
+        int i5 = engine.f81730N;
+        if (((i3 * i4) + iM48630) * i5 != bArr3.length) {
             return false;
         }
         SIG sig = new SIG(i5, i, i2, i3, engine.H_PRIME, i4, bArr3);
@@ -82,20 +82,20 @@ public class SLHDSASigner implements MessageSigner {
         adrs.setLayerAddress(0);
         adrs.setTreeAddress(j);
         adrs.setKeyPairAddress(i6);
-        return new HT(engine, null, sLHDSAPublicKeyParameters.getSeed()).verify(bArrPkFromSig, sig_ht, sLHDSAPublicKeyParameters.getSeed(), j, i6, sLHDSAPublicKeyParameters.getRoot());
+        return new C2370HT(engine, null, sLHDSAPublicKeyParameters.getSeed()).verify(bArrPkFromSig, sig_ht, sLHDSAPublicKeyParameters.getSeed(), j, i6, sLHDSAPublicKeyParameters.getRoot());
     }
 
     @Override // org.bouncycastle.pqc.crypto.MessageSigner
     public byte[] generateSignature(byte[] bArr) {
         SLHDSAEngine engine = this.privKey.getParameters().getEngine();
-        engine.init(this.privKey.pk.seed);
-        int i = engine.N;
+        engine.init(this.privKey.f81744pk.seed);
+        int i = engine.f81730N;
         byte[] bArr2 = new byte[i];
         SecureRandom secureRandom = this.random;
         if (secureRandom != null) {
             secureRandom.nextBytes(bArr2);
         } else {
-            System.arraycopy(this.privKey.pk.seed, 0, bArr2, 0, i);
+            System.arraycopy(this.privKey.f81744pk.seed, 0, bArr2, 0, i);
         }
         return internalGenerateSignature(this.privKey, this.msgPrefix, bArr, bArr2);
     }

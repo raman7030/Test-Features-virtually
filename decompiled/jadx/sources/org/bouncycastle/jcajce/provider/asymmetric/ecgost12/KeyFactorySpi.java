@@ -8,7 +8,6 @@ import java.security.PublicKey;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.KeySpec;
-import l.C12803;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
@@ -20,6 +19,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.jce.spec.ECPublicKeySpec;
+import p067l.C14536;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi {
@@ -89,7 +89,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (isValid(algorithm)) {
             return new BCECGOST3410_2012PrivateKey(privateKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 
     @Override // org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter
@@ -98,6 +98,6 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (isValid(algorithm)) {
             return new BCECGOST3410_2012PublicKey(subjectPublicKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 }

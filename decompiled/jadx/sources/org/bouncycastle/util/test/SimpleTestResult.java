@@ -1,10 +1,10 @@
 package org.bouncycastle.util.test;
 
-import l.C3200;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.util.Strings;
+import p067l.C10965;
+import p067l.C5410;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SimpleTestResult implements TestResult {
@@ -29,15 +29,15 @@ public class SimpleTestResult implements TestResult {
     }
 
     public static TestResult failed(Test test, String str, Object obj, Object obj2) {
-        StringBuilder sbM15339 = C5368.m15339(str);
+        StringBuilder sbM17248 = C7470.m17248(str);
         String str2 = SEPARATOR;
-        sbM15339.append(str2);
-        sbM15339.append("Expected: ");
-        sbM15339.append(obj);
-        sbM15339.append(str2);
-        sbM15339.append("Found   : ");
-        sbM15339.append(obj2);
-        return failed(test, sbM15339.toString());
+        sbM17248.append(str2);
+        sbM17248.append("Expected: ");
+        sbM17248.append(obj);
+        sbM17248.append(str2);
+        sbM17248.append("Found   : ");
+        sbM17248.append(obj2);
+        return failed(test, sbM17248.toString());
     }
 
     public static TestResult failed(Test test, String str, Throwable th) {
@@ -45,10 +45,10 @@ public class SimpleTestResult implements TestResult {
     }
 
     public static String failedMessage(String str, String str2, String str3, String str4) {
-        StringBuilder sbM9834 = C3200.m9834(str, " failing ", str2);
+        StringBuilder sbM11879 = C5410.m11879(str, " failing ", str2);
         String str5 = SEPARATOR;
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sbM9834, str5, "    expected: ", str3, str5);
-        return C9045.m23341(sbM9834, "    got     : ", str4);
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sbM11879, str5, "    expected: ", str3, str5);
+        return C10965.m25286(sbM11879, "    got     : ", str4);
     }
 
     public static TestResult successful(Test test, String str) {

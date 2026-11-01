@@ -14,8 +14,6 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPrivateCrtKeySpec;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
-import l.C12803;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
@@ -29,6 +27,8 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ExtendedInvalidKeySpecException;
 import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
 import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
+import p067l.C14536;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi {
@@ -70,7 +70,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
                 try {
                     return new BCRSAPrivateCrtKey(org.bouncycastle.asn1.pkcs.RSAPrivateKey.getInstance(((PKCS8EncodedKeySpec) keySpec).getEncoded()));
                 } catch (Exception unused) {
-                    throw new ExtendedInvalidKeySpecException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("unable to process key spec: ")), e);
+                    throw new ExtendedInvalidKeySpecException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("unable to process key spec: ")), e);
                 }
             }
         }
@@ -108,7 +108,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
             try {
                 return new OpenSSHPublicKeySpec(OpenSSHPublicKeyUtil.encodePublicKey(new RSAKeyParameters(false, ((RSAPublicKey) key).getModulus(), ((RSAPublicKey) key).getPublicExponent())));
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("unable to produce encoding: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("unable to produce encoding: ")));
             }
         }
         if (!cls.isAssignableFrom(OpenSSHPrivateKeySpec.class) || !(key instanceof RSAPrivateCrtKey)) {
@@ -117,7 +117,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         try {
             return new OpenSSHPrivateKeySpec(OpenSSHPrivateKeyUtil.encodePrivateKey(new RSAPrivateCrtKeyParameters(((RSAPrivateCrtKey) key).getModulus(), ((RSAPrivateCrtKey) key).getPublicExponent(), ((RSAPrivateCrtKey) key).getPrivateExponent(), ((RSAPrivateCrtKey) key).getPrimeP(), ((RSAPrivateCrtKey) key).getPrimeQ(), ((RSAPrivateCrtKey) key).getPrimeExponentP(), ((RSAPrivateCrtKey) key).getPrimeExponentQ(), ((RSAPrivateCrtKey) key).getCrtCoefficient())));
         } catch (IOException e2) {
-            throw new IllegalArgumentException(C5127.m14678(e2, new StringBuilder("unable to produce encoding: ")));
+            throw new IllegalArgumentException(C7241.m16586(e2, new StringBuilder("unable to produce encoding: ")));
         }
     }
 
@@ -125,7 +125,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
     public PrivateKey generatePrivate(PrivateKeyInfo privateKeyInfo) throws IOException {
         ASN1ObjectIdentifier algorithm = privateKeyInfo.getPrivateKeyAlgorithm().getAlgorithm();
         if (!RSAUtil.isRsaOid(algorithm)) {
-            throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+            throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
         }
         org.bouncycastle.asn1.pkcs.RSAPrivateKey rSAPrivateKey = org.bouncycastle.asn1.pkcs.RSAPrivateKey.getInstance(privateKeyInfo.parsePrivateKey());
         return rSAPrivateKey.getCoefficient().intValue() == 0 ? new BCRSAPrivateKey(privateKeyInfo.getPrivateKeyAlgorithm(), rSAPrivateKey) : new BCRSAPrivateCrtKey(privateKeyInfo);
@@ -137,6 +137,6 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (RSAUtil.isRsaOid(algorithm)) {
             return new BCRSAPublicKey(subjectPublicKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 }

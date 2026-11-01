@@ -4,15 +4,15 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import l.C15813;
-import l.C17931;
-import l.C18637;
-import l.C20754;
+import p067l.C17397;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SideSheetDialog extends SheetDialog {
-    public static final int SIDE_SHEET_DIALOG_THEME_ATTR = C17931.f55726;
-    public static final int SIDE_SHEET_DIALOG_DEFAULT_THEME_RES = C18637.f58696;
+    public static final int SIDE_SHEET_DIALOG_THEME_ATTR = C19410.f58923;
+    public static final int SIDE_SHEET_DIALOG_DEFAULT_THEME_RES = C20081.f61919;
 
     @Override // com.google.android.material.sidesheet.SheetDialog
     public int getStateOnStart() {
@@ -49,17 +49,17 @@ public class SideSheetDialog extends SheetDialog {
         super.setCanceledOnTouchOutside(z);
     }
 
-    @Override // com.google.android.material.sidesheet.SheetDialog, l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // com.google.android.material.sidesheet.SheetDialog, p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public /* bridge */ /* synthetic */ void setContentView(int i) {
         super.setContentView(i);
     }
 
-    @Override // com.google.android.material.sidesheet.SheetDialog, l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // com.google.android.material.sidesheet.SheetDialog, p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public /* bridge */ /* synthetic */ void setContentView(View view) {
         super.setContentView(view);
     }
 
-    @Override // com.google.android.material.sidesheet.SheetDialog, l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // com.google.android.material.sidesheet.SheetDialog, p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public /* bridge */ /* synthetic */ void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.setContentView(view, layoutParams);
     }
@@ -100,12 +100,12 @@ public class SideSheetDialog extends SheetDialog {
 
     @Override // com.google.android.material.sidesheet.SheetDialog
     public int getLayoutResId() {
-        return C15813.f48787;
+        return C17397.f51925;
     }
 
     @Override // com.google.android.material.sidesheet.SheetDialog
     public int getDialogId() {
-        return C20754.f66997;
+        return C22093.f69681;
     }
 
     @Override // com.google.android.material.sidesheet.SheetDialog

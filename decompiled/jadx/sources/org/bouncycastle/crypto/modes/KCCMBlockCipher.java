@@ -17,7 +17,9 @@ public class KCCMBlockCipher implements AEADBlockCipher {
     public static final int BYTES_IN_INT = 4;
     public static final int MAX_MAC_BIT_LENGTH = 512;
     public static final int MIN_MAC_BIT_LENGTH = 64;
-    public byte[] G1;
+
+    /* JADX INFO: renamed from: G1 */
+    public byte[] f81189G1;
     public int Nb_;
     public ExposedByteArrayOutputStream associatedText;
     public byte[] buffer;
@@ -30,7 +32,9 @@ public class KCCMBlockCipher implements AEADBlockCipher {
     public byte[] macBlock;
     public int macSize;
     public byte[] nonce;
-    public byte[] s;
+
+    /* JADX INFO: renamed from: s */
+    public byte[] f81190s;
 
     public class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         public byte[] getBuffer() {
@@ -52,9 +56,9 @@ public class KCCMBlockCipher implements AEADBlockCipher {
         this.initialAssociatedText = new byte[blockCipher.getBlockSize()];
         this.mac = new byte[blockCipher.getBlockSize()];
         this.macBlock = new byte[blockCipher.getBlockSize()];
-        this.G1 = new byte[blockCipher.getBlockSize()];
+        this.f81189G1 = new byte[blockCipher.getBlockSize()];
         this.buffer = new byte[blockCipher.getBlockSize()];
-        this.s = new byte[blockCipher.getBlockSize()];
+        this.f81190s = new byte[blockCipher.getBlockSize()];
         this.counter = new byte[blockCipher.getBlockSize()];
         setNb(i);
     }
@@ -80,11 +84,11 @@ public class KCCMBlockCipher implements AEADBlockCipher {
             if (i4 >= bArr3.length) {
                 break;
             }
-            byte[] bArr4 = this.s;
+            byte[] bArr4 = this.f81190s;
             bArr4[i4] = (byte) (bArr4[i4] + bArr3[i4]);
             i4++;
         }
-        this.engine.processBlock(this.s, 0, this.buffer, 0);
+        this.engine.processBlock(this.f81190s, 0, this.buffer, 0);
         for (int i5 = 0; i5 < this.engine.getBlockSize(); i5++) {
             bArr2[i3 + i5] = (byte) (this.buffer[i5] ^ bArr[i + i5]);
         }
@@ -144,12 +148,12 @@ public class KCCMBlockCipher implements AEADBlockCipher {
             throw new IllegalArgumentException("padding not supported");
         }
         byte[] bArr2 = this.nonce;
-        System.arraycopy(bArr2, 0, this.G1, 0, (bArr2.length - this.Nb_) - 1);
+        System.arraycopy(bArr2, 0, this.f81189G1, 0, (bArr2.length - this.Nb_) - 1);
         intToBytes(i3, this.buffer, 0);
-        System.arraycopy(this.buffer, 0, this.G1, (this.nonce.length - this.Nb_) - 1, 4);
-        byte[] bArr3 = this.G1;
+        System.arraycopy(this.buffer, 0, this.f81189G1, (this.nonce.length - this.Nb_) - 1, 4);
+        byte[] bArr3 = this.f81189G1;
         bArr3[bArr3.length - 1] = getFlag(true, this.macSize);
-        this.engine.processBlock(this.G1, 0, this.macBlock, 0);
+        this.engine.processBlock(this.f81189G1, 0, this.macBlock, 0);
         intToBytes(i2, this.buffer, 0);
         if (i2 <= this.engine.getBlockSize() - this.Nb_) {
             for (int i4 = 0; i4 < i2; i4++) {
@@ -301,7 +305,7 @@ public class KCCMBlockCipher implements AEADBlockCipher {
             if ((i2 - this.macSize) % this.engine.getBlockSize() != 0) {
                 throw new DataLengthException("partial blocks not supported");
             }
-            this.engine.processBlock(this.nonce, 0, this.s, 0);
+            this.engine.processBlock(this.nonce, 0, this.f81190s, 0);
             int blockSize = i2 / this.engine.getBlockSize();
             for (int i5 = 0; i5 < blockSize; i5++) {
                 ProcessBlock(bArr, i, i2, bArr2, i3);
@@ -315,11 +319,11 @@ public class KCCMBlockCipher implements AEADBlockCipher {
                     if (i6 >= bArr3.length) {
                         break;
                     }
-                    byte[] bArr4 = this.s;
+                    byte[] bArr4 = this.f81190s;
                     bArr4[i6] = (byte) (bArr4[i6] + bArr3[i6]);
                     i6++;
                 }
-                this.engine.processBlock(this.s, 0, this.buffer, 0);
+                this.engine.processBlock(this.f81190s, 0, this.buffer, 0);
                 int i7 = 0;
                 while (true) {
                     i4 = this.macSize;
@@ -337,11 +341,11 @@ public class KCCMBlockCipher implements AEADBlockCipher {
                 if (i8 >= bArr5.length) {
                     break;
                 }
-                byte[] bArr6 = this.s;
+                byte[] bArr6 = this.f81190s;
                 bArr6[i8] = (byte) (bArr6[i8] + bArr5[i8]);
                 i8++;
             }
-            this.engine.processBlock(this.s, 0, this.buffer, 0);
+            this.engine.processBlock(this.f81190s, 0, this.buffer, 0);
             int i9 = this.macSize;
             System.arraycopy(bArr2, i3 - i9, this.buffer, 0, i9);
             CalculateMac(bArr2, 0, i3 - this.macSize);
@@ -359,7 +363,7 @@ public class KCCMBlockCipher implements AEADBlockCipher {
             throw new DataLengthException("partial blocks not supported");
         }
         CalculateMac(bArr, i, i2);
-        this.engine.processBlock(this.nonce, 0, this.s, 0);
+        this.engine.processBlock(this.nonce, 0, this.f81190s, 0);
         int blockSize2 = i2;
         while (blockSize2 > 0) {
             ProcessBlock(bArr, i, i2, bArr2, i3);
@@ -373,11 +377,11 @@ public class KCCMBlockCipher implements AEADBlockCipher {
             if (i11 >= bArr8.length) {
                 break;
             }
-            byte[] bArr9 = this.s;
+            byte[] bArr9 = this.f81190s;
             bArr9[i11] = (byte) (bArr9[i11] + bArr8[i11]);
             i11++;
         }
-        this.engine.processBlock(this.s, 0, this.buffer, 0);
+        this.engine.processBlock(this.f81190s, 0, this.buffer, 0);
         int i12 = 0;
         while (true) {
             int i13 = this.macSize;
@@ -393,7 +397,7 @@ public class KCCMBlockCipher implements AEADBlockCipher {
 
     @Override // org.bouncycastle.crypto.modes.AEADCipher
     public void reset() throws IOException {
-        Arrays.fill(this.G1, (byte) 0);
+        Arrays.fill(this.f81189G1, (byte) 0);
         Arrays.fill(this.buffer, (byte) 0);
         Arrays.fill(this.counter, (byte) 0);
         Arrays.fill(this.macBlock, (byte) 0);

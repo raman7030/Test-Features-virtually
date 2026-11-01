@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import l.C19370;
-import l.C20195;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -26,16 +23,16 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
 import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.internal.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.internal.asn1.iana.IANAObjectIdentifiers;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
@@ -49,6 +46,9 @@ import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Exceptions;
 import org.bouncycastle.util.encoders.UTF8;
+import p067l.C20778;
+import p067l.C21562;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInfoConverter {
@@ -186,7 +186,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
         }
         arrayList.add(this.helper.createKeyFactory(CompositeIndex.getBaseName(pairing[0])));
         arrayList.add(this.helper.createKeyFactory(CompositeIndex.getBaseName(pairing[1])));
-        return C20195.unmodifiableList(arrayList);
+        return C21562.unmodifiableList(arrayList);
     }
 
     private X509EncodedKeySpec[] getKeysSpecs(ASN1ObjectIdentifier aSN1ObjectIdentifier, ASN1BitString[] aSN1BitStringArr) throws IOException {
@@ -229,7 +229,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
             }
             throw new InvalidKeyException("Key not recognized");
         } catch (IOException e) {
-            throw new InvalidKeyException(C5127.m14678(e, new StringBuilder("Key could not be parsed: ")));
+            throw new InvalidKeyException(C7241.m16586(e, new StringBuilder("Key could not be parsed: ")));
         }
     }
 
@@ -251,7 +251,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
                     privateKeyArr[i] = this.helper.createKeyFactory(privateKeyInfo2.getPrivateKeyAlgorithm().getAlgorithm().getId()).generatePrivate(new PKCS8EncodedKeySpec(privateKeyInfo2.getEncoded()));
                     i++;
                 } catch (Exception e) {
-                    throw new IOException(C19370.m44629(e, new StringBuilder("cannot decode generic composite: ")), e);
+                    throw new IOException(C20778.m46923(e, new StringBuilder("cannot decode generic composite: ")), e);
                 }
             }
             return new CompositePrivateKey(privateKeyArr);
@@ -317,7 +317,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
                     publicKeyArr[i] = this.helper.createKeyFactory(subjectPublicKeyInfo2.getAlgorithm().getAlgorithm().getId()).generatePublic(new X509EncodedKeySpec(subjectPublicKeyInfo2.getEncoded()));
                     i++;
                 } catch (Exception e) {
-                    throw new IOException(C19370.m44629(e, new StringBuilder("cannot decode generic composite: ")), e);
+                    throw new IOException(C20778.m46923(e, new StringBuilder("cannot decode generic composite: ")), e);
                 }
             }
             return new CompositePublicKey(publicKeyArr);

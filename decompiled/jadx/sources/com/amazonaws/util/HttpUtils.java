@@ -1,7 +1,8 @@
 package com.amazonaws.util;
 
-import com.alipay.sdk.m.n.b;
-import com.alipay.sdk.m.w.a;
+import com.alipay.sdk.p010m.p037n.C0170a;
+import com.alipay.sdk.p010m.p037n.C0171b;
+import com.alipay.sdk.p010m.p055w.C0233a;
 import com.amazonaws.DefaultRequest;
 import com.amazonaws.Request;
 import com.amazonaws.http.HttpMethodName;
@@ -11,15 +12,15 @@ import java.net.URI;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import l.C12789;
-import l.C15472;
-import l.C16014;
+import p067l.C14523;
+import p067l.C17073;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HttpUtils {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static final Pattern f833 = Pattern.compile(Pattern.quote(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + "|" + Pattern.quote("*") + "|" + Pattern.quote("%7E") + "|" + Pattern.quote("%2F"));
+    /* JADX INFO: renamed from: ֫ */
+    public static final Pattern f1993 = Pattern.compile(Pattern.quote(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + "|" + Pattern.quote("*") + "|" + Pattern.quote("%7E") + "|" + Pattern.quote("%2F"));
 
     static {
         StringBuilder sb = new StringBuilder();
@@ -30,14 +31,14 @@ public class HttpUtils {
         Pattern.compile(sb.toString());
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m775(String str, boolean z) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1940(String str, boolean z) {
         if (str == null) {
             return "";
         }
         try {
-            String strEncode = C12789.encode(str, a.D);
-            Matcher matcher = f833.matcher(strEncode);
+            String strEncode = C14523.encode(str, C0233a.f1077D);
+            Matcher matcher = f1993.matcher(strEncode);
             StringBuffer stringBuffer = new StringBuffer(strEncode.length());
             while (matcher.find()) {
                 String strGroup = matcher.group(0);
@@ -59,42 +60,42 @@ public class HttpUtils {
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static boolean m776(URI uri) {
-        String strM789 = StringUtils.m789(uri.getScheme());
+    /* JADX INFO: renamed from: ֫ */
+    public static boolean m1941(URI uri) {
+        String strM1954 = StringUtils.m1954(uri.getScheme());
         int port = uri.getPort();
         if (port <= 0) {
             return false;
         }
-        if (com.alipay.sdk.m.n.a.s.equals(strM789) && port == 80) {
+        if (C0170a.f680s.equals(strM1954) && port == 80) {
             return false;
         }
-        return (b.a.equals(strM789) && port == 443) ? false : true;
+        return (C0171b.f688a.equals(strM1954) && port == 443) ? false : true;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static boolean m777(Request request) {
+    /* JADX INFO: renamed from: ۧ */
+    public static boolean m1942(Request request) {
         DefaultRequest defaultRequest = (DefaultRequest) request;
-        return HttpMethodName.POST.equals(defaultRequest.m193()) && (defaultRequest.m177() == null);
+        return HttpMethodName.POST.equals(defaultRequest.m1359()) && (defaultRequest.m1343() == null);
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m773(Request request) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1938(Request request) {
         DefaultRequest defaultRequest = (DefaultRequest) request;
-        if (defaultRequest.m190().isEmpty()) {
+        if (defaultRequest.m1356().isEmpty()) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         try {
             boolean z = true;
-            for (Map.Entry entry : defaultRequest.m190().entrySet()) {
-                String strEncode = C12789.encode((String) entry.getKey(), a.D);
+            for (Map.Entry entry : defaultRequest.m1356().entrySet()) {
+                String strEncode = C14523.encode((String) entry.getKey(), C0233a.f1077D);
                 String str = (String) entry.getValue();
-                String strEncode2 = str == null ? "" : C12789.encode(str, a.D);
+                String strEncode2 = str == null ? "" : C14523.encode(str, C0233a.f1077D);
                 if (z) {
                     z = false;
                 } else {
-                    sb.append(a.p);
+                    sb.append(C0233a.f1084p);
                 }
                 sb.append(strEncode);
                 sb.append("=");
@@ -106,22 +107,22 @@ public class HttpUtils {
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m774(String str, String str2, boolean z) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1939(String str, String str2, boolean z) {
         if (str2 == null || str2.length() <= 0) {
             return !str.endsWith("/") ? str.concat("/") : str;
         }
         if (str2.startsWith("/")) {
             if (str.endsWith("/")) {
-                str = C15472.m36561(1, 0, str);
+                str = C17073.m38720(1, 0, str);
             }
         } else if (!str.endsWith("/")) {
             str = str.concat("/");
         }
-        String strM775 = m775(str2, true);
+        String strM1940 = m1940(str2, true);
         if (z) {
-            strM775 = strM775.replace("//", "/%2F");
+            strM1940 = strM1940.replace("//", "/%2F");
         }
-        return C16014.m37867(str, strM775);
+        return C17588.m40053(str, strM1940);
     }
 }

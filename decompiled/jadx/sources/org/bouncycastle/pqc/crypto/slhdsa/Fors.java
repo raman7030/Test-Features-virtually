@@ -32,27 +32,27 @@ public class Fors {
     public byte[] pkFromSig(SIG_FORS[] sig_forsArr, byte[] bArr, byte[] bArr2, ADRS adrs) {
         byte[][] bArr3 = new byte[2][];
         SLHDSAEngine sLHDSAEngine = this.engine;
-        int i = sLHDSAEngine.K;
+        int i = sLHDSAEngine.f81729K;
         byte[][] bArr4 = new byte[i][];
-        int[] iArrBase2B = base2B(bArr, sLHDSAEngine.A, i);
-        for (int i2 = 0; i2 < this.engine.K; i2++) {
+        int[] iArrBase2B = base2B(bArr, sLHDSAEngine.f81726A, i);
+        for (int i2 = 0; i2 < this.engine.f81729K; i2++) {
             int i3 = iArrBase2B[i2];
             byte[] sk = sig_forsArr[i2].getSK();
             adrs.setTreeHeight(0);
-            adrs.setTreeIndex((i2 << this.engine.A) + i3);
-            bArr3[0] = this.engine.F(bArr2, adrs, sk);
+            adrs.setTreeIndex((i2 << this.engine.f81726A) + i3);
+            bArr3[0] = this.engine.mo55430F(bArr2, adrs, sk);
             byte[][] authPath = sig_forsArr[i2].getAuthPath();
-            adrs.setTreeIndex((i2 << this.engine.A) + i3);
+            adrs.setTreeIndex((i2 << this.engine.f81726A) + i3);
             int i4 = 0;
-            while (i4 < this.engine.A) {
+            while (i4 < this.engine.f81726A) {
                 int i5 = i4 + 1;
                 adrs.setTreeHeight(i5);
                 if (((1 << i4) & i3) == 0) {
                     adrs.setTreeIndex(adrs.getTreeIndex() / 2);
-                    bArr3[1] = this.engine.H(bArr2, adrs, bArr3[0], authPath[i4]);
+                    bArr3[1] = this.engine.mo55431H(bArr2, adrs, bArr3[0], authPath[i4]);
                 } else {
                     adrs.setTreeIndex((adrs.getTreeIndex() - 1) / 2);
-                    bArr3[1] = this.engine.H(bArr2, adrs, authPath[i4], bArr3[0]);
+                    bArr3[1] = this.engine.mo55431H(bArr2, adrs, authPath[i4], bArr3[0]);
                 }
                 bArr3[0] = bArr3[1];
                 i4 = i5;
@@ -69,22 +69,22 @@ public class Fors {
         Fors fors = this;
         ADRS adrs2 = new ADRS(adrs);
         SLHDSAEngine sLHDSAEngine = fors.engine;
-        int[] iArrBase2B = base2B(bArr, sLHDSAEngine.A, sLHDSAEngine.K);
-        SIG_FORS[] sig_forsArr = new SIG_FORS[fors.engine.K];
+        int[] iArrBase2B = base2B(bArr, sLHDSAEngine.f81726A, sLHDSAEngine.f81729K);
+        SIG_FORS[] sig_forsArr = new SIG_FORS[fors.engine.f81729K];
         int i = 0;
         int i2 = 0;
-        while (i2 < fors.engine.K) {
+        while (i2 < fors.engine.f81729K) {
             int i3 = iArrBase2B[i2];
             adrs2.setTypeAndClear(6);
             adrs2.setKeyPairAddress(adrs.getKeyPairAddress());
             adrs2.setTreeHeight(i);
-            adrs2.setTreeIndex((i2 << fors.engine.A) + i3);
+            adrs2.setTreeIndex((i2 << fors.engine.f81726A) + i3);
             byte[] bArrPRF = fors.engine.PRF(bArr3, bArr2, adrs2);
             adrs2.changeType(3);
-            byte[][] bArr4 = new byte[fors.engine.A][];
+            byte[][] bArr4 = new byte[fors.engine.f81726A][];
             int i4 = 0;
             while (true) {
-                int i5 = fors.engine.A;
+                int i5 = fors.engine.f81726A;
                 if (i4 < i5) {
                     int i6 = i4;
                     byte[][] bArr5 = bArr4;
@@ -117,17 +117,17 @@ public class Fors {
             adrs2.setTreeIndex(i4);
             byte[] bArrPRF = this.engine.PRF(bArr2, bArr, adrs2);
             adrs2.changeType(3);
-            byte[] bArrF = this.engine.F(bArr2, adrs2, bArrPRF);
+            byte[] bArrMo55430F = this.engine.mo55430F(bArr2, adrs2, bArrPRF);
             adrs2.setTreeHeight(1);
             int i5 = 1;
             while (!linkedList.isEmpty() && ((NodeEntry) linkedList.get(0)).nodeHeight == i5) {
                 i4 = (i4 - 1) / 2;
                 adrs2.setTreeIndex(i4);
-                bArrF = this.engine.H(bArr2, adrs2, ((NodeEntry) linkedList.remove(0)).nodeValue, bArrF);
+                bArrMo55430F = this.engine.mo55431H(bArr2, adrs2, ((NodeEntry) linkedList.remove(0)).nodeValue, bArrMo55430F);
                 i5++;
                 adrs2.setTreeHeight(i5);
             }
-            linkedList.add(0, new NodeEntry(bArrF, i5));
+            linkedList.add(0, new NodeEntry(bArrMo55430F, i5));
         }
         return ((NodeEntry) linkedList.get(0)).nodeValue;
     }

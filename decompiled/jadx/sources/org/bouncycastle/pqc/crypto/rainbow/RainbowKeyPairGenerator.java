@@ -9,8 +9,8 @@ public class RainbowKeyPairGenerator implements AsymmetricCipherKeyPairGenerator
     public RainbowKeyComputation rkc;
     public Version version;
 
-    /* JADX INFO: renamed from: org.bouncycastle.pqc.crypto.rainbow.RainbowKeyPairGenerator$1, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass1 {
+    /* JADX INFO: renamed from: org.bouncycastle.pqc.crypto.rainbow.RainbowKeyPairGenerator$1 */
+    public /* synthetic */ class C23681 {
         public static final /* synthetic */ int[] $SwitchMap$org$bouncycastle$pqc$crypto$rainbow$Version;
 
         static {
@@ -39,7 +39,7 @@ public class RainbowKeyPairGenerator implements AsymmetricCipherKeyPairGenerator
 
     @Override // org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator
     public AsymmetricCipherKeyPair generateKeyPair() {
-        int i = AnonymousClass1.$SwitchMap$org$bouncycastle$pqc$crypto$rainbow$Version[this.version.ordinal()];
+        int i = C23681.$SwitchMap$org$bouncycastle$pqc$crypto$rainbow$Version[this.version.ordinal()];
         if (i == 1) {
             return this.rkc.genKeyPairClassical();
         }

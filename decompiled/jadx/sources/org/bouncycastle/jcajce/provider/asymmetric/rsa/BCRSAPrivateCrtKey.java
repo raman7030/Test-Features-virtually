@@ -162,7 +162,7 @@ public class BCRSAPrivateCrtKey extends BCRSAPrivateKey implements RSAPrivateCrt
         String strLineSeparator = Strings.lineSeparator();
         sb.append(RSAUtil.generateKeyFingerprint(getModulus()));
         sb.append("],[");
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, RSAUtil.generateExponentFingerprint(getPublicExponent()), "]", strLineSeparator, "             modulus: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, RSAUtil.generateExponentFingerprint(getPublicExponent()), "]", strLineSeparator, "             modulus: ");
         sb.append(getModulus().toString(16));
         sb.append(strLineSeparator);
         sb.append("     public exponent: ");

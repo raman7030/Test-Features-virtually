@@ -1,7 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
-import l.C4153;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -9,6 +7,8 @@ import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
+import p067l.C21545;
+import p067l.C6316;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RC6Engine implements BlockCipher {
@@ -18,7 +18,9 @@ public class RC6Engine implements BlockCipher {
     public static final int _noRounds = 20;
     public static final int bytesPerWord = 4;
     public static final int wordSize = 32;
-    public int[] _S = null;
+
+    /* JADX INFO: renamed from: _S */
+    public int[] f81055_S = null;
     public boolean forEncryption;
 
     private int bytesToWord(byte[] bArr, int i) {
@@ -34,23 +36,23 @@ public class RC6Engine implements BlockCipher {
         int iBytesToWord2 = bytesToWord(bArr, i + 4);
         int iBytesToWord3 = bytesToWord(bArr, i + 8);
         int iBytesToWord4 = bytesToWord(bArr, i + 12);
-        int[] iArr = this._S;
+        int[] iArr = this.f81055_S;
         int i3 = iBytesToWord3 - iArr[43];
         int iRotateRight = iBytesToWord - iArr[42];
         int i4 = 20;
         while (i4 >= 1) {
-            int iRotateLeft = rotateLeft(C4153.m12551(iRotateRight, 2, 1, iRotateRight), 5);
-            int iRotateLeft2 = rotateLeft(C4153.m12551(i3, 2, 1, i3), 5);
+            int iRotateLeft = rotateLeft(C6316.m14441(iRotateRight, 2, 1, iRotateRight), 5);
+            int iRotateLeft2 = rotateLeft(C6316.m14441(i3, 2, 1, i3), 5);
             int i5 = i4 * 2;
-            int iRotateRight2 = rotateRight(iBytesToWord2 - this._S[i5 + 1], iRotateLeft) ^ iRotateLeft2;
+            int iRotateRight2 = rotateRight(iBytesToWord2 - this.f81055_S[i5 + 1], iRotateLeft) ^ iRotateLeft2;
             i4--;
             int i6 = iRotateRight;
-            iRotateRight = rotateRight(iBytesToWord4 - this._S[i5], iRotateLeft2) ^ iRotateLeft;
+            iRotateRight = rotateRight(iBytesToWord4 - this.f81055_S[i5], iRotateLeft2) ^ iRotateLeft;
             iBytesToWord4 = i3;
             i3 = iRotateRight2;
             iBytesToWord2 = i6;
         }
-        int[] iArr2 = this._S;
+        int[] iArr2 = this.f81055_S;
         int i7 = iBytesToWord4 - iArr2[1];
         int i8 = iBytesToWord2 - iArr2[0];
         wordToBytes(iRotateRight, bArr2, i2);
@@ -65,23 +67,23 @@ public class RC6Engine implements BlockCipher {
         int iBytesToWord2 = bytesToWord(bArr, i + 4);
         int iBytesToWord3 = bytesToWord(bArr, i + 8);
         int iBytesToWord4 = bytesToWord(bArr, i + 12);
-        int[] iArr = this._S;
+        int[] iArr = this.f81055_S;
         int i3 = iBytesToWord2 + iArr[0];
         int i4 = iBytesToWord4 + iArr[1];
         int i5 = 1;
         while (i5 <= 20) {
-            int iRotateLeft = rotateLeft(C4153.m12551(i3, 2, 1, i3), 5);
-            int iRotateLeft2 = rotateLeft(C4153.m12551(i4, 2, 1, i4), 5);
+            int iRotateLeft = rotateLeft(C6316.m14441(i3, 2, 1, i3), 5);
+            int iRotateLeft2 = rotateLeft(C6316.m14441(i4, 2, 1, i4), 5);
             int i6 = i5 * 2;
-            int iRotateLeft3 = rotateLeft(iBytesToWord ^ iRotateLeft, iRotateLeft2) + this._S[i6];
-            int iRotateLeft4 = rotateLeft(iBytesToWord3 ^ iRotateLeft2, iRotateLeft) + this._S[i6 + 1];
+            int iRotateLeft3 = rotateLeft(iBytesToWord ^ iRotateLeft, iRotateLeft2) + this.f81055_S[i6];
+            int iRotateLeft4 = rotateLeft(iBytesToWord3 ^ iRotateLeft2, iRotateLeft) + this.f81055_S[i6 + 1];
             i5++;
             iBytesToWord3 = i4;
             i4 = iRotateLeft3;
             iBytesToWord = i3;
             i3 = iRotateLeft4;
         }
-        int[] iArr2 = this._S;
+        int[] iArr2 = this.f81055_S;
         int i7 = iBytesToWord + iArr2[42];
         int i8 = iBytesToWord3 + iArr2[43];
         wordToBytes(i7, bArr2, i2);
@@ -109,11 +111,11 @@ public class RC6Engine implements BlockCipher {
             iArr2[i] = (iArr2[i] << 8) + (bArr[length3] & 255);
         }
         int[] iArr3 = new int[44];
-        this._S = iArr3;
+        this.f81055_S = iArr3;
         iArr3[0] = -1209970333;
         int i2 = 1;
         while (true) {
-            iArr = this._S;
+            iArr = this.f81055_S;
             if (i2 >= iArr.length) {
                 break;
             }
@@ -126,12 +128,12 @@ public class RC6Engine implements BlockCipher {
         int iRotateLeft2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < length4; i4++) {
-            int[] iArr4 = this._S;
+            int[] iArr4 = this.f81055_S;
             iRotateLeft = rotateLeft(iArr4[length5] + iRotateLeft + iRotateLeft2, 3);
             iArr4[length5] = iRotateLeft;
             iRotateLeft2 = rotateLeft(iArr2[i3] + iRotateLeft + iRotateLeft2, iRotateLeft2 + iRotateLeft);
             iArr2[i3] = iRotateLeft2;
-            length5 = (length5 + 1) % this._S.length;
+            length5 = (length5 + 1) % this.f81055_S.length;
             i3 = (i3 + 1) % length2;
         }
     }
@@ -156,7 +158,7 @@ public class RC6Engine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public int processBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
         int blockSize = getBlockSize();
-        if (this._S == null) {
+        if (this.f81055_S == null) {
             throw new IllegalStateException("RC6 engine not initialised");
         }
         if (i + blockSize > bArr.length) {
@@ -175,7 +177,7 @@ public class RC6Engine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to RC6 init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to RC6 init - ", cipherParameters));
         }
         this.forEncryption = z;
         byte[] key = ((KeyParameter) cipherParameters).getKey();

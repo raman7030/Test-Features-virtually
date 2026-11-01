@@ -2,7 +2,6 @@ package org.bouncycastle.crypto.generators;
 
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import java.math.BigInteger;
-import l.C7416;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -15,8 +14,9 @@ import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.math.Primes;
-import org.bouncycastle.math.ec.WNafUtil;
+import org.bouncycastle.math.p080ec.WNafUtil;
 import org.bouncycastle.util.BigIntegers;
+import p067l.C9417;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RSAKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
@@ -31,7 +31,7 @@ public class RSAKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
             if (i2 <= 128) {
                 return 4;
             }
-            return C7416.m19938(i2, 127, 2, 4);
+            return C9417.m21912(i2, 127, 2, 4);
         }
         if (i >= 1024) {
             if (i2 <= 100) {
@@ -40,13 +40,13 @@ public class RSAKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
             if (i2 <= 112) {
                 return 5;
             }
-            return C7416.m19938(i2, UMErrorCode.E_UM_BE_CREATE_FAILED, 2, 5);
+            return C9417.m21912(i2, UMErrorCode.E_UM_BE_CREATE_FAILED, 2, 5);
         }
         if (i < 512) {
             if (i2 <= 80) {
                 return 40;
             }
-            return C7416.m19938(i2, 79, 2, 40);
+            return C9417.m21912(i2, 79, 2, 40);
         }
         if (i2 <= 80) {
             return 5;
@@ -54,7 +54,7 @@ public class RSAKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
         if (i2 <= 100) {
             return 7;
         }
-        return C7416.m19938(i2, 99, 2, 7);
+        return C9417.m21912(i2, 99, 2, 7);
     }
 
     public BigInteger chooseRandomPrime(int i, BigInteger bigInteger, BigInteger bigInteger2) {

@@ -20,12 +20,15 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import com.google.android.material.timepicker.TimeModel;
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import com.umeng.commonsdk.config.FieldManager;
 import com.umeng.commonsdk.framework.UMEnvelopeBuild;
 import com.umeng.commonsdk.service.UMGlobalContext;
 import com.umeng.commonsdk.statistics.AnalyticsConstants;
-import com.umeng.commonsdk.statistics.idtracking.h;
+import com.umeng.commonsdk.statistics.idtracking.C0803b;
+import com.umeng.commonsdk.statistics.idtracking.C0809h;
+import com.umeng.commonsdk.utils.C0830b;
+import com.umeng.commonsdk.utils.C0832d;
 import com.umeng.commonsdk.utils.UMUtils;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -45,7 +48,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import javax.microedition.khronos.opengles.GL10;
-import l.C20094;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DeviceConfig {
@@ -93,13 +96,13 @@ public class DeviceConfig {
             return null;
         }
         try {
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.g) && context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && checkPermission(context, "android.permission.READ_PHONE_STATE")) {
+            if (FieldManager.allow(C0832d.f3636g) && context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && checkPermission(context, "android.permission.READ_PHONE_STATE")) {
                 deviceId = telephonyManager.getDeviceId();
             }
         } catch (Throwable th) {
             try {
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.w("No IMEI.", th);
+                    MLog.m2967w("No IMEI.", th);
                 }
             } catch (Throwable th2) {
                 hasReadImeiOrMeid = true;
@@ -121,7 +124,7 @@ public class DeviceConfig {
             return null;
         }
         try {
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.g) && context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && checkPermission(context, "android.permission.READ_PHONE_STATE")) {
+            if (FieldManager.allow(C0832d.f3636g) && context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && checkPermission(context, "android.permission.READ_PHONE_STATE")) {
                 if (Build.VERSION.SDK_INT >= 26) {
                     try {
                         Method method = telephonyManager.getClass().getMethod("getImei", null);
@@ -139,7 +142,7 @@ public class DeviceConfig {
         } catch (Throwable th) {
             try {
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.w("No IMEI.", th);
+                    MLog.m2967w("No IMEI.", th);
                 }
             } catch (Throwable th2) {
                 hasReadImeiOrMeid = true;
@@ -158,16 +161,16 @@ public class DeviceConfig {
         if (hasReadAndroidID) {
             return null;
         }
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.i) && context != null) {
+        if (FieldManager.allow(C0832d.f3638i) && context != null) {
             try {
                 try {
-                    sAndroidID = Settings.Secure.getString(context.getContentResolver(), com.umeng.commonsdk.statistics.idtracking.b.a);
+                    sAndroidID = Settings.Secure.getString(context.getContentResolver(), C0803b.f3412a);
                 } finally {
                     hasReadAndroidID = true;
                 }
             } catch (Throwable unused) {
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.w("can't read android id");
+                    MLog.m2965w("can't read android id");
                 }
             }
         }
@@ -205,7 +208,7 @@ public class DeviceConfig {
             return new String[]{gl10.glGetString(7936), gl10.glGetString(7937)};
         } catch (Throwable th) {
             if (AnalyticsConstants.UM_DEBUG) {
-                MLog.e(LOG_TAG, "Could not read gpu infor:", th);
+                MLog.m2948e(LOG_TAG, "Could not read gpu infor:", th);
             }
             return new String[0];
         }
@@ -219,7 +222,7 @@ public class DeviceConfig {
             return "";
         }
         try {
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.h)) {
+            if (FieldManager.allow(C0832d.f3637h)) {
                 Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
                 while (networkInterfaces.hasMoreElements()) {
                     NetworkInterface networkInterfaceNextElement = networkInterfaces.nextElement();
@@ -253,7 +256,7 @@ public class DeviceConfig {
             return "";
         }
         try {
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.h)) {
+            if (FieldManager.allow(C0832d.f3637h)) {
                 String[] strArr = {"/sys/class/net/wlan0/address", "/sys/class/net/eth0/address", "/sys/devices/virtual/net/wlan0/address"};
                 for (int i = 0; i < 3; i++) {
                     try {
@@ -263,7 +266,7 @@ public class DeviceConfig {
                         }
                     } catch (Throwable th) {
                         if (AnalyticsConstants.UM_DEBUG) {
-                            MLog.e(LOG_TAG, "open file  Failed", th);
+                            MLog.m2948e(LOG_TAG, "open file  Failed", th);
                         }
                     }
                 }
@@ -324,10 +327,10 @@ public class DeviceConfig {
                 bufferedReader.close();
                 fileReader.close();
             } catch (Throwable th) {
-                MLog.e(LOG_TAG, "Could not read from file /proc/cpuinfo", th);
+                MLog.m2948e(LOG_TAG, "Could not read from file /proc/cpuinfo", th);
             }
         } catch (FileNotFoundException e) {
-            MLog.e(LOG_TAG, "Could not open file /proc/cpuinfo", e);
+            MLog.m2948e(LOG_TAG, "Could not open file /proc/cpuinfo", e);
         }
         return line != null ? line.substring(line.indexOf(58) + 1).trim() : "";
     }
@@ -381,7 +384,7 @@ public class DeviceConfig {
             return null;
         }
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.aj)) {
+        if (FieldManager.allow(C0832d.f3623aj)) {
             try {
                 if (checkPermission(context, "android.permission.READ_PHONE_STATE") && telephonyManager != null) {
                     subscriberId = telephonyManager.getSubscriberId();
@@ -399,7 +402,7 @@ public class DeviceConfig {
         if (context == null || ((TelephonyManager) context.getSystemService("phone")) == null) {
             return null;
         }
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.ak)) {
+        if (FieldManager.allow(C0832d.f3624ak)) {
             try {
                 if (checkPermission(context, "android.permission.READ_PHONE_STATE")) {
                     if (Build.VERSION.SDK_INT < 26) {
@@ -432,7 +435,7 @@ public class DeviceConfig {
             }
         } catch (Throwable th) {
             try {
-                ULog.e("meid:" + th.getMessage());
+                ULog.m2977e("meid:" + th.getMessage());
             } catch (Throwable th2) {
                 hasReadImeiOrMeid = true;
                 throw th2;
@@ -450,7 +453,7 @@ public class DeviceConfig {
         if (hasReadSimSerialNumber) {
             return null;
         }
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.an)) {
+        if (FieldManager.allow(C0832d.f3627an)) {
             if (context != null) {
                 try {
                     if (UMUtils.checkPermission(context, "android.permission.READ_PHONE_STATE")) {
@@ -477,7 +480,7 @@ public class DeviceConfig {
         if (hasReadIMEI2) {
             return null;
         }
-        if (context != null && FieldManager.allow(com.umeng.commonsdk.utils.d.am) && Build.VERSION.SDK_INT >= 23 && UMUtils.checkPermission(context, "android.permission.READ_PHONE_STATE")) {
+        if (context != null && FieldManager.allow(C0832d.f3626am) && Build.VERSION.SDK_INT >= 23 && UMUtils.checkPermission(context, "android.permission.READ_PHONE_STATE")) {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager != null) {
@@ -622,7 +625,7 @@ public class DeviceConfig {
                 return calendar.getTimeZone().getRawOffset() / 3600000;
             }
         } catch (Throwable th) {
-            MLog.i(LOG_TAG, "error in getTimeZone", th);
+            MLog.m2954i(LOG_TAG, "error in getTimeZone", th);
         }
         return 8;
     }
@@ -632,7 +635,7 @@ public class DeviceConfig {
             return false;
         }
         try {
-            String strImprintProperty = UMEnvelopeBuild.imprintProperty(context, am.O, "");
+            String strImprintProperty = UMEnvelopeBuild.imprintProperty(context, C0655am.f2260O, "");
             if (!TextUtils.isEmpty(strImprintProperty)) {
                 return strImprintProperty.equals("cn");
             }
@@ -673,7 +676,7 @@ public class DeviceConfig {
                     strArr[1] = "Unknown";
                 }
             } catch (Throwable th) {
-                MLog.e(LOG_TAG, "error in getLocaleInfo", th);
+                MLog.m2948e(LOG_TAG, "error in getLocaleInfo", th);
                 return strArr;
             }
         }
@@ -691,7 +694,7 @@ public class DeviceConfig {
             Settings.System.getConfiguration(context.getContentResolver(), configuration);
             locale = configuration.locale;
         } catch (Throwable unused) {
-            MLog.e(LOG_TAG, "fail to read user config locale");
+            MLog.m2950e(LOG_TAG, "fail to read user config locale");
             locale = null;
         }
         return locale == null ? Locale.getDefault() : locale;
@@ -699,7 +702,7 @@ public class DeviceConfig {
 
     public static String getMac(Context context) {
         String macByJavaAPI = "";
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.h) && context != null) {
+        if (FieldManager.allow(C0832d.f3637h) && context != null) {
             try {
                 int i = Build.VERSION.SDK_INT;
                 if (i < 23) {
@@ -733,11 +736,11 @@ public class DeviceConfig {
             return "";
         }
         try {
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.h)) {
+            if (FieldManager.allow(C0832d.f3637h)) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (!checkPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
                     if (AnalyticsConstants.UM_DEBUG) {
-                        MLog.w(LOG_TAG, "Could not get mac address.[no permission android.permission.ACCESS_WIFI_STATE");
+                        MLog.m2968w(LOG_TAG, "Could not get mac address.[no permission android.permission.ACCESS_WIFI_STATE");
                     }
                     sWifiMac = "";
                 } else if (wifiManager != null) {
@@ -749,7 +752,7 @@ public class DeviceConfig {
         } catch (Throwable th) {
             try {
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.w(LOG_TAG, "Could not get mac address." + th.toString());
+                    MLog.m2968w(LOG_TAG, "Could not get mac address." + th.toString());
                 }
             } finally {
                 hasReadMac = true;
@@ -813,11 +816,11 @@ public class DeviceConfig {
 
     public static String getAppSHA1Key(Context context) {
         try {
-            PackageInfo packageInfoA = com.umeng.commonsdk.utils.b.a().a(context, getPackageName(context), 64);
-            if (packageInfoA == null) {
+            PackageInfo packageInfoM3305a = C0830b.m3304a().m3305a(context, getPackageName(context), 64);
+            if (packageInfoM3305a == null) {
                 return null;
             }
-            return byte2HexFormatted(MessageDigest.getInstance("SHA1").digest(((X509Certificate) CertificateFactory.getInstance("X509").generateCertificate(new ByteArrayInputStream(packageInfoA.signatures[0].toByteArray()))).getEncoded()));
+            return byte2HexFormatted(MessageDigest.getInstance("SHA1").digest(((X509Certificate) CertificateFactory.getInstance("X509").generateCertificate(new ByteArrayInputStream(packageInfoM3305a.signatures[0].toByteArray()))).getEncoded()));
         } catch (Exception unused) {
             return null;
         }
@@ -825,11 +828,11 @@ public class DeviceConfig {
 
     public static String getAppHashKey(Context context) {
         try {
-            PackageInfo packageInfoA = com.umeng.commonsdk.utils.b.a().a(context, getPackageName(context), 64);
-            if (packageInfoA == null) {
+            PackageInfo packageInfoM3305a = C0830b.m3304a().m3305a(context, getPackageName(context), 64);
+            if (packageInfoM3305a == null) {
                 return null;
             }
-            Signature[] signatureArr = packageInfoA.signatures;
+            Signature[] signatureArr = packageInfoM3305a.signatures;
             if (signatureArr.length <= 0) {
                 return null;
             }
@@ -847,11 +850,11 @@ public class DeviceConfig {
             return null;
         }
         try {
-            PackageInfo packageInfoA = com.umeng.commonsdk.utils.b.a().a(context, getPackageName(context), 64);
-            if (packageInfoA == null) {
+            PackageInfo packageInfoM3305a = C0830b.m3304a().m3305a(context, getPackageName(context), 64);
+            if (packageInfoM3305a == null) {
                 return null;
             }
-            return byte2HexFormatted(MessageDigest.getInstance("MD5").digest(((X509Certificate) CertificateFactory.getInstance("X509").generateCertificate(new ByteArrayInputStream(packageInfoA.signatures[0].toByteArray()))).getEncoded()));
+            return byte2HexFormatted(MessageDigest.getInstance("MD5").digest(((X509Certificate) CertificateFactory.getInstance("X509").generateCertificate(new ByteArrayInputStream(packageInfoM3305a.signatures[0].toByteArray()))).getEncoded()));
         } catch (Throwable unused) {
             return null;
         }
@@ -888,13 +891,13 @@ public class DeviceConfig {
             return null;
         }
         try {
-            PackageInfo packageInfoA = com.umeng.commonsdk.utils.b.a().a(context, context.getPackageName(), 64);
-            if (packageInfoA != null) {
-                sAppName = packageInfoA.applicationInfo.loadLabel(context.getPackageManager()).toString();
+            PackageInfo packageInfoM3305a = C0830b.m3304a().m3305a(context, context.getPackageName(), 64);
+            if (packageInfoM3305a != null) {
+                sAppName = packageInfoM3305a.applicationInfo.loadLabel(context.getPackageManager()).toString();
             }
         } catch (Throwable th) {
             if (AnalyticsConstants.UM_DEBUG) {
-                MLog.i(LOG_TAG, th);
+                MLog.m2955i(LOG_TAG, th);
             }
         }
         return sAppName;
@@ -915,18 +918,18 @@ public class DeviceConfig {
                 }
                 boolean z = AnalyticsConstants.UM_DEBUG;
                 if (z) {
-                    MLog.w(LOG_TAG, "No IMEI.");
+                    MLog.m2968w(LOG_TAG, "No IMEI.");
                 }
                 String macBySystemInterface = getMacBySystemInterface(context);
                 deviceTypeEnum = DeviceTypeEnum.MAC;
                 if (!TextUtils.isEmpty(macBySystemInterface)) {
                     return macBySystemInterface;
                 }
-                if (FieldManager.allow(com.umeng.commonsdk.utils.d.i)) {
+                if (FieldManager.allow(C0832d.f3638i)) {
                     macBySystemInterface = getAndroidId(context);
                     deviceTypeEnum = DeviceTypeEnum.ANDROIDID;
                     if (z) {
-                        MLog.i(LOG_TAG, "getDeviceId, ANDROID_ID: " + macBySystemInterface);
+                        MLog.m2956i(LOG_TAG, "getDeviceId, ANDROID_ID: " + macBySystemInterface);
                     }
                 }
                 if (!TextUtils.isEmpty(macBySystemInterface)) {
@@ -956,16 +959,16 @@ public class DeviceConfig {
                 }
                 boolean z2 = AnalyticsConstants.UM_DEBUG;
                 if (z2) {
-                    MLog.i(LOG_TAG, "getDeviceId, MAC: " + macByJavaAPI);
+                    MLog.m2956i(LOG_TAG, "getDeviceId, MAC: " + macByJavaAPI);
                 }
                 if (!TextUtils.isEmpty(macByJavaAPI)) {
                     return macByJavaAPI;
                 }
-                if (FieldManager.allow(com.umeng.commonsdk.utils.d.i)) {
+                if (FieldManager.allow(C0832d.f3638i)) {
                     macByJavaAPI = getAndroidId(context);
                     deviceTypeEnum = DeviceTypeEnum.ANDROIDID;
                     if (z2) {
-                        MLog.i(LOG_TAG, "getDeviceId, ANDROID_ID: " + macByJavaAPI);
+                        MLog.m2956i(LOG_TAG, "getDeviceId, ANDROID_ID: " + macByJavaAPI);
                     }
                 }
                 if (!TextUtils.isEmpty(macByJavaAPI)) {
@@ -1012,11 +1015,11 @@ public class DeviceConfig {
                 imei = getSerialNo();
                 deviceTypeEnum = DeviceTypeEnum.SERIALNO;
                 if (TextUtils.isEmpty(imei)) {
-                    if (FieldManager.allow(com.umeng.commonsdk.utils.d.i)) {
+                    if (FieldManager.allow(C0832d.f3638i)) {
                         imei = getAndroidId(context);
                         deviceTypeEnum = DeviceTypeEnum.ANDROIDID;
                         if (AnalyticsConstants.UM_DEBUG) {
-                            MLog.i(LOG_TAG, "getDeviceId, ANDROID_ID: " + imei);
+                            MLog.m2956i(LOG_TAG, "getDeviceId, ANDROID_ID: " + imei);
                         }
                     }
                     if (TextUtils.isEmpty(imei)) {
@@ -1027,7 +1030,7 @@ public class DeviceConfig {
                             imei = getMacBySystemInterface(context);
                             deviceTypeEnum = deviceTypeEnum4;
                             if (AnalyticsConstants.UM_DEBUG) {
-                                MLog.i(LOG_TAG, "getDeviceId, MAC: " + imei);
+                                MLog.m2956i(LOG_TAG, "getDeviceId, MAC: " + imei);
                             }
                         }
                     }
@@ -1046,11 +1049,11 @@ public class DeviceConfig {
         try {
             int i = Build.VERSION.SDK_INT;
             if (i < 23) {
-                if (FieldManager.allow(com.umeng.commonsdk.utils.d.i)) {
+                if (FieldManager.allow(C0832d.f3638i)) {
                     serialNo = getAndroidId(context);
                     deviceTypeEnum = DeviceTypeEnum.ANDROIDID;
                     if (AnalyticsConstants.UM_DEBUG) {
-                        MLog.i(LOG_TAG, "getDeviceId, ANDROID_ID: " + serialNo);
+                        MLog.m2956i(LOG_TAG, "getDeviceId, ANDROID_ID: " + serialNo);
                     }
                 }
                 if (!TextUtils.isEmpty(serialNo)) {
@@ -1059,7 +1062,7 @@ public class DeviceConfig {
                 String macBySystemInterface = getMacBySystemInterface(context);
                 deviceTypeEnum = DeviceTypeEnum.MAC;
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.i(LOG_TAG, "getDeviceId, MAC: " + macBySystemInterface);
+                    MLog.m2956i(LOG_TAG, "getDeviceId, MAC: " + macBySystemInterface);
                 }
                 if (!TextUtils.isEmpty(macBySystemInterface)) {
                     return macBySystemInterface;
@@ -1074,11 +1077,11 @@ public class DeviceConfig {
                 return imei;
             }
             if (i == 23) {
-                if (FieldManager.allow(com.umeng.commonsdk.utils.d.i)) {
+                if (FieldManager.allow(C0832d.f3638i)) {
                     serialNo = getAndroidId(context);
                     deviceTypeEnum = DeviceTypeEnum.ANDROIDID;
                     if (AnalyticsConstants.UM_DEBUG) {
-                        MLog.i(LOG_TAG, "getDeviceId, ANDROID_ID: " + serialNo);
+                        MLog.m2956i(LOG_TAG, "getDeviceId, ANDROID_ID: " + serialNo);
                     }
                 }
                 if (!TextUtils.isEmpty(serialNo)) {
@@ -1097,7 +1100,7 @@ public class DeviceConfig {
                     }
                 }
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.i(LOG_TAG, "getDeviceId, MAC: " + macByJavaAPI);
+                    MLog.m2956i(LOG_TAG, "getDeviceId, MAC: " + macByJavaAPI);
                 }
                 if (!TextUtils.isEmpty(macByJavaAPI)) {
                     return macByJavaAPI;
@@ -1142,11 +1145,11 @@ public class DeviceConfig {
                 deviceTypeEnum = deviceTypeEnum3;
                 return macBySystemInterface2;
             }
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.i)) {
+            if (FieldManager.allow(C0832d.f3638i)) {
                 serialNo = getAndroidId(context);
                 deviceTypeEnum = DeviceTypeEnum.ANDROIDID;
                 if (AnalyticsConstants.UM_DEBUG) {
-                    MLog.i(LOG_TAG, "getDeviceId: ANDROID_ID: " + serialNo);
+                    MLog.m2956i(LOG_TAG, "getDeviceId: ANDROID_ID: " + serialNo);
                 }
             }
             if (TextUtils.isEmpty(serialNo)) {
@@ -1163,7 +1166,7 @@ public class DeviceConfig {
                             serialNo = getMacBySystemInterface(context);
                             deviceTypeEnum = deviceTypeEnum4;
                             if (AnalyticsConstants.UM_DEBUG) {
-                                MLog.i(LOG_TAG, "getDeviceId, MAC: " + serialNo);
+                                MLog.m2956i(LOG_TAG, "getDeviceId, MAC: " + serialNo);
                             }
                         }
                     }
@@ -1181,11 +1184,11 @@ public class DeviceConfig {
         if (hasReadOAID) {
             return "";
         }
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.G)) {
+        if (FieldManager.allow(C0832d.f3593G)) {
             try {
-                SharedPreferences sharedPreferences = context.getSharedPreferences(h.a, 0);
+                SharedPreferences sharedPreferences = context.getSharedPreferences(C0809h.f3434a, 0);
                 if (sharedPreferences != null) {
-                    sOAID = sharedPreferences.getString(h.b, "");
+                    sOAID = sharedPreferences.getString(C0809h.f3435b, "");
                 }
             } catch (Throwable unused) {
             }
@@ -1202,8 +1205,8 @@ public class DeviceConfig {
             return "";
         }
         try {
-            if (FieldManager.allow(com.umeng.commonsdk.utils.d.w)) {
-                sIDFA = a.a(context);
+            if (FieldManager.allow(C0832d.f3652w)) {
+                sIDFA = C0797a.m3001a(context);
             }
         } catch (Throwable unused) {
         }
@@ -1219,7 +1222,7 @@ public class DeviceConfig {
         if (hasReadImeiOrMeid) {
             return "";
         }
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.g)) {
+        if (FieldManager.allow(C0832d.f3636g)) {
             if (context == null) {
                 return "";
             }
@@ -1229,13 +1232,13 @@ public class DeviceConfig {
                     if (checkPermission(context, "android.permission.READ_PHONE_STATE")) {
                         deviceId = telephonyManager.getDeviceId();
                         if (AnalyticsConstants.UM_DEBUG) {
-                            MLog.i(LOG_TAG, "getDeviceId, IMEI: " + deviceId);
+                            MLog.m2956i(LOG_TAG, "getDeviceId, IMEI: " + deviceId);
                         }
                     }
                 } catch (Throwable th) {
                     try {
                         if (AnalyticsConstants.UM_DEBUG) {
-                            MLog.w(LOG_TAG, "No IMEI.", th);
+                            MLog.m2966w(LOG_TAG, "No IMEI.", th);
                         }
                     } catch (Throwable th2) {
                         hasReadImeiOrMeid = true;
@@ -1257,7 +1260,7 @@ public class DeviceConfig {
         if (hasReadSerialNo) {
             return "";
         }
-        if (FieldManager.allow(com.umeng.commonsdk.utils.d.j)) {
+        if (FieldManager.allow(C0832d.f3639j)) {
             try {
                 if (Build.VERSION.SDK_INT >= 26) {
                     try {
@@ -1277,7 +1280,7 @@ public class DeviceConfig {
             hasReadSerialNo = true;
         }
         if (AnalyticsConstants.UM_DEBUG) {
-            MLog.i(LOG_TAG, C20094.m46315("getDeviceId, serial no: ", str));
+            MLog.m2956i(LOG_TAG, C21466.m48631("getDeviceId, serial no: ", str));
         }
         return sSerialNo;
     }

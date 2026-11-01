@@ -14,7 +14,9 @@ public class DSTU7624Mac implements Mac {
     public int blockSize;
     public byte[] buf;
     public int bufOff;
-    public byte[] c;
+
+    /* JADX INFO: renamed from: c */
+    public byte[] f81129c;
     public byte[] cTemp;
     public DSTU7624Engine engine;
     public boolean initCalled = false;
@@ -26,15 +28,15 @@ public class DSTU7624Mac implements Mac {
         int i3 = i / 8;
         this.blockSize = i3;
         this.macSize = i2 / 8;
-        this.c = new byte[i3];
+        this.f81129c = new byte[i3];
         this.kDelta = new byte[i3];
         this.cTemp = new byte[i3];
         this.buf = new byte[i3];
     }
 
     private void processBlock(byte[] bArr, int i) {
-        xor(this.c, 0, bArr, i, this.cTemp);
-        this.engine.processBlock(this.cTemp, 0, this.c, 0);
+        xor(this.f81129c, 0, bArr, i, this.cTemp);
+        this.engine.processBlock(this.cTemp, 0, this.f81129c, 0);
     }
 
     private void xor(byte[] bArr, int i, byte[] bArr2, int i2, byte[] bArr3) {
@@ -55,16 +57,16 @@ public class DSTU7624Mac implements Mac {
         if (i2 % bArr2.length != 0) {
             throw new DataLengthException("input must be a multiple of blocksize");
         }
-        xor(this.c, 0, bArr2, 0, this.cTemp);
-        xor(this.cTemp, 0, this.kDelta, 0, this.c);
+        xor(this.f81129c, 0, bArr2, 0, this.cTemp);
+        xor(this.cTemp, 0, this.kDelta, 0, this.f81129c);
         DSTU7624Engine dSTU7624Engine = this.engine;
-        byte[] bArr3 = this.c;
+        byte[] bArr3 = this.f81129c;
         dSTU7624Engine.processBlock(bArr3, 0, bArr3, 0);
         int i3 = this.macSize;
         if (i3 + i > bArr.length) {
             throw new OutputLengthException("output buffer too short");
         }
-        System.arraycopy(this.c, 0, bArr, i, i3);
+        System.arraycopy(this.f81129c, 0, bArr, i, i3);
         reset();
         return this.macSize;
     }
@@ -91,7 +93,7 @@ public class DSTU7624Mac implements Mac {
 
     @Override // org.bouncycastle.crypto.Mac
     public void reset() {
-        Arrays.fill(this.c, (byte) 0);
+        Arrays.fill(this.f81129c, (byte) 0);
         Arrays.fill(this.cTemp, (byte) 0);
         Arrays.fill(this.kDelta, (byte) 0);
         Arrays.fill(this.buf, (byte) 0);

@@ -1,12 +1,12 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C12662;
-import l.C8954;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C10878;
+import p067l.C14403;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class SipHash128 {
@@ -38,8 +38,8 @@ public final class SipHash128 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Mac24", "Mac.SIPHASH128-2-4", sb, configurableProvider);
-            configurableProvider.addAlgorithm("KeyGenerator.SIPHASH128", C8954.m23074("Mac.SIPHASH128-4-8", C8954.m23074("Alg.Alias.Mac.SIPHASH128", "SIPHASH128-2-4", str, "$Mac48", configurableProvider), str, "$KeyGen", configurableProvider));
+            C14403.m33021(str, "$Mac24", "Mac.SIPHASH128-2-4", sb, configurableProvider);
+            configurableProvider.addAlgorithm("KeyGenerator.SIPHASH128", C10878.m25048("Mac.SIPHASH128-4-8", C10878.m25048("Alg.Alias.Mac.SIPHASH128", "SIPHASH128-2-4", str, "$Mac48", configurableProvider), str, "$KeyGen", configurableProvider));
             configurableProvider.addAlgorithm("Alg.Alias.KeyGenerator.SIPHASH128-2-4", "SIPHASH128");
             configurableProvider.addAlgorithm("Alg.Alias.KeyGenerator.SIPHASH128-4-8", "SIPHASH128");
         }

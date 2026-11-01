@@ -17,9 +17,6 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C20094;
-import l.C3200;
-import l.C4860;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -27,14 +24,17 @@ import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.DERNull;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
 import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.util.Strings;
+import p067l.C21466;
+import p067l.C5410;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class X509Util {
@@ -237,7 +237,7 @@ public class X509Util {
             } catch (NoSuchAlgorithmException unused) {
             }
         }
-        throw new NoSuchAlgorithmException(C20094.m46315("cannot find implementation ", str2));
+        throw new NoSuchAlgorithmException(C21466.m48631("cannot find implementation ", str2));
     }
 
     public static Implementation getImplementation(String str, String str2, Provider provider) throws NoSuchAlgorithmException {
@@ -251,27 +251,27 @@ public class X509Util {
         }
         String property2 = provider.getProperty(str + "." + upperCase);
         if (property2 == null) {
-            StringBuilder sbM9834 = C3200.m9834("cannot find implementation ", upperCase, " for provider ");
-            sbM9834.append(provider.getName());
-            throw new NoSuchAlgorithmException(sbM9834.toString());
+            StringBuilder sbM11879 = C5410.m11879("cannot find implementation ", upperCase, " for provider ");
+            sbM11879.append(provider.getName());
+            throw new NoSuchAlgorithmException(sbM11879.toString());
         }
         try {
             ClassLoader classLoader = provider.getClass().getClassLoader();
             return new Implementation((classLoader != null ? classLoader.loadClass(property2) : Class.forName(property2)).newInstance(), provider);
         } catch (ClassNotFoundException unused) {
-            StringBuilder sbM9835 = C3200.m9834("algorithm ", upperCase, " in provider ");
-            sbM9835.append(provider.getName());
-            sbM9835.append(" but no class \"");
-            sbM9835.append(property2);
-            sbM9835.append("\" found!");
-            throw new IllegalStateException(sbM9835.toString());
+            StringBuilder sbM118710 = C5410.m11879("algorithm ", upperCase, " in provider ");
+            sbM118710.append(provider.getName());
+            sbM118710.append(" but no class \"");
+            sbM118710.append(property2);
+            sbM118710.append("\" found!");
+            throw new IllegalStateException(sbM118710.toString());
         } catch (Exception unused2) {
-            StringBuilder sbM9836 = C3200.m9834("algorithm ", upperCase, " in provider ");
-            sbM9836.append(provider.getName());
-            sbM9836.append(" but class \"");
-            sbM9836.append(property2);
-            sbM9836.append("\" inaccessible!");
-            throw new IllegalStateException(sbM9836.toString());
+            StringBuilder sbM118711 = C5410.m11879("algorithm ", upperCase, " in provider ");
+            sbM118711.append(provider.getName());
+            sbM118711.append(" but class \"");
+            sbM118711.append(property2);
+            sbM118711.append("\" inaccessible!");
+            throw new IllegalStateException(sbM118711.toString());
         }
     }
 
@@ -296,6 +296,6 @@ public class X509Util {
         if (provider != null) {
             return provider;
         }
-        throw new NoSuchProviderException(C4860.m14172("Provider ", str, " not found"));
+        throw new NoSuchProviderException(C6988.m16053("Provider ", str, " not found"));
     }
 }

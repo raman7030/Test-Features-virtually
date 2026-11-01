@@ -6,15 +6,15 @@ public enum SignatureVersion {
     V2("2");
 
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public String f161;
+    /* JADX INFO: renamed from: ᩸ */
+    public String f1321;
 
     SignatureVersion(String str) {
-        this.f161 = str;
+        this.f1321 = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f161;
+        return this.f1321;
     }
 }

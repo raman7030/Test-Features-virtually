@@ -1,5 +1,0 @@
-package com.amazonaws.services.s3.model.metrics;
-
-/* JADX INFO: loaded from: classes.dex */
-public final class MetricsPrefixPredicate extends MetricsFilterPredicate {
-}

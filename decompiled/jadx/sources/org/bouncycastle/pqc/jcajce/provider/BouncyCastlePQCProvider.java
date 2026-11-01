@@ -7,11 +7,6 @@ import java.security.Provider;
 import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
-import l.C20087;
-import l.C22870;
-import l.C4860;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
@@ -19,6 +14,11 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+import p067l.C10965;
+import p067l.C21459;
+import p067l.C24104;
+import p067l.C6988;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class BouncyCastlePQCProvider extends Provider implements ConfigurableProvider {
@@ -91,7 +91,7 @@ public class BouncyCastlePQCProvider extends Provider implements ConfigurablePro
     @Override // org.bouncycastle.jcajce.provider.config.ConfigurableProvider
     public void addAlgorithm(String str, String str2) {
         if (containsKey(str)) {
-            throw new IllegalStateException(C4860.m14172("duplicate provider key (", str, ") found"));
+            throw new IllegalStateException(C6988.m16053("duplicate provider key (", str, ") found"));
         }
         put(str, str2);
     }
@@ -105,7 +105,7 @@ public class BouncyCastlePQCProvider extends Provider implements ConfigurablePro
     @Override // org.bouncycastle.jcajce.provider.config.ConfigurableProvider
     public void addAlgorithm(String str, ASN1ObjectIdentifier aSN1ObjectIdentifier, String str2) {
         if (!containsKey(str + "." + str2)) {
-            throw new IllegalStateException(C20087.m46306("primary key (", str, ".", str2, ") not found"));
+            throw new IllegalStateException(C21459.m48622("primary key (", str, ".", str2, ") not found"));
         }
         addAlgorithm(str + "." + aSN1ObjectIdentifier, str2);
         addAlgorithm(str + ".OID." + aSN1ObjectIdentifier, str2);
@@ -151,7 +151,7 @@ public class BouncyCastlePQCProvider extends Provider implements ConfigurablePro
 
     private void loadAlgorithms(String str, String[] strArr) {
         for (int i = 0; i != strArr.length; i++) {
-            Class clsLoadClass = loadClass(BouncyCastlePQCProvider.class, C9045.m23341(C5368.m15339(str), strArr[i], "$Mappings"));
+            Class clsLoadClass = loadClass(BouncyCastlePQCProvider.class, C10965.m25286(C7470.m17248(str), strArr[i], "$Mappings"));
             if (clsLoadClass != null) {
                 try {
                     ((AlgorithmProvider) clsLoadClass.newInstance()).configure(this);
@@ -165,11 +165,11 @@ public class BouncyCastlePQCProvider extends Provider implements ConfigurablePro
     @Override // org.bouncycastle.jcajce.provider.config.ConfigurableProvider
     public void addAttributes(String str, Map map) {
         for (String str2 : map.keySet()) {
-            String strM50967 = C22870.m50967(str, " ", str2);
-            if (containsKey(strM50967)) {
-                throw new IllegalStateException(C4860.m14172("duplicate provider attribute key (", strM50967, ") found"));
+            String strM53357 = C24104.m53357(str, " ", str2);
+            if (containsKey(strM53357)) {
+                throw new IllegalStateException(C6988.m16053("duplicate provider attribute key (", strM53357, ") found"));
             }
-            put(strM50967, map.get(str2));
+            put(strM53357, map.get(str2));
         }
     }
 }

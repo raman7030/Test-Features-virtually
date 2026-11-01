@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
-import com.umeng.commonsdk.internal.a;
+import com.umeng.commonsdk.internal.C0771a;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Bytes;
@@ -11,7 +11,9 @@ public class ISAPEngine extends AEADBaseEngine {
     public static final int ISAP_STATE_SZ = 40;
     public final ISAP_AEAD ISAPAEAD;
     public int ISAP_rH;
-    public byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public byte[] f81039k;
     public byte[] npub;
 
     public abstract class ISAPAEAD_A implements ISAP_AEAD {
@@ -21,12 +23,14 @@ public class ISAPEngine extends AEADBaseEngine {
         public long[] k64;
         public AsconPermutationFriend.AsconPermutation mac;
         public long[] npub64;
-        public AsconPermutationFriend.AsconPermutation p;
+
+        /* JADX INFO: renamed from: p */
+        public AsconPermutationFriend.AsconPermutation f81040p;
 
         public ISAPAEAD_A() {
             ISAPEngine.this.ISAP_rH = 64;
             ISAPEngine.this.BlockSize = (ISAPEngine.this.ISAP_rH + 7) >> 3;
-            this.p = new AsconPermutationFriend.AsconPermutation();
+            this.f81040p = new AsconPermutationFriend.AsconPermutation();
             this.mac = new AsconPermutationFriend.AsconPermutation();
         }
 
@@ -37,13 +41,13 @@ public class ISAPEngine extends AEADBaseEngine {
         private void isap_rk(AsconPermutationFriend.AsconPermutation asconPermutation, long j, byte[] bArr, int i) {
             long[] jArr = this.k64;
             asconPermutation.set(jArr[0], jArr[1], j, 0L, 0L);
-            asconPermutation.p(12);
+            asconPermutation.m55366p(12);
             for (int i2 = 0; i2 < (i << 3) - 1; i2++) {
-                asconPermutation.x0 ^= (((long) (((bArr[i2 >>> 3] >>> (7 - (i2 & 7))) & 1) << 7)) & 255) << 56;
+                asconPermutation.f80983x0 ^= (((long) (((bArr[i2 >>> 3] >>> (7 - (i2 & 7))) & 1) << 7)) & 255) << 56;
                 PX2(asconPermutation);
             }
-            asconPermutation.x0 ^= (((long) bArr[i - 1]) & 1) << 63;
-            asconPermutation.p(12);
+            asconPermutation.f80983x0 ^= (((long) bArr[i - 1]) & 1) << 63;
+            asconPermutation.m55366p(12);
         }
 
         public abstract void PX1(AsconPermutationFriend.AsconPermutation asconPermutation);
@@ -58,12 +62,12 @@ public class ISAPEngine extends AEADBaseEngine {
                 int i2 = iSAPEngine.m_aadPos;
                 if (i >= i2) {
                     AsconPermutationFriend.AsconPermutation asconPermutation = this.mac;
-                    asconPermutation.x0 = (128 << ((7 - i2) << 3)) ^ asconPermutation.x0;
-                    asconPermutation.p(12);
-                    this.mac.x4 ^= 1;
+                    asconPermutation.f80983x0 = (128 << ((7 - i2) << 3)) ^ asconPermutation.f80983x0;
+                    asconPermutation.m55366p(12);
+                    this.mac.f80987x4 ^= 1;
                     return;
                 }
-                this.mac.x0 ^= (((long) iSAPEngine.m_aad[i]) & 255) << ((7 - i) << 3);
+                this.mac.f80983x0 ^= (((long) iSAPEngine.m_aad[i]) & 255) << ((7 - i) << 3);
                 i++;
             }
         }
@@ -71,27 +75,27 @@ public class ISAPEngine extends AEADBaseEngine {
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void absorbMacBlock(byte[] bArr, int i) {
             AsconPermutationFriend.AsconPermutation asconPermutation = this.mac;
-            asconPermutation.x0 = Pack.bigEndianToLong(bArr, i) ^ asconPermutation.x0;
-            this.mac.p(12);
+            asconPermutation.f80983x0 = Pack.bigEndianToLong(bArr, i) ^ asconPermutation.f80983x0;
+            this.mac.m55366p(12);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void init() {
             this.npub64 = new long[getLongSize(ISAPEngine.this.npub.length)];
-            this.k64 = new long[getLongSize(ISAPEngine.this.k.length)];
+            this.k64 = new long[getLongSize(ISAPEngine.this.f81039k.length)];
             Pack.bigEndianToLong(ISAPEngine.this.npub, 0, this.npub64);
-            Pack.bigEndianToLong(ISAPEngine.this.k, 0, this.k64);
+            Pack.bigEndianToLong(ISAPEngine.this.f81039k, 0, this.k64);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void processEncBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
-            Pack.longToBigEndian(Pack.bigEndianToLong(bArr, i) ^ this.p.x0, bArr2, i2);
-            PX1(this.p);
+            Pack.longToBigEndian(Pack.bigEndianToLong(bArr, i) ^ this.f81040p.f80983x0, bArr2, i2);
+            PX1(this.f81040p);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void processEncFinalBlock(byte[] bArr, int i) {
-            byte[] bArrLongToLittleEndian = Pack.longToLittleEndian(this.p.x0);
+            byte[] bArrLongToLittleEndian = Pack.longToLittleEndian(this.f81040p.f80983x0);
             ISAPEngine iSAPEngine = ISAPEngine.this;
             int i2 = iSAPEngine.m_bufPos;
             Bytes.xor(i2, bArrLongToLittleEndian, iSAPEngine.BlockSize - i2, iSAPEngine.m_buf, 0, bArr, i);
@@ -102,41 +106,41 @@ public class ISAPEngine extends AEADBaseEngine {
             int i3 = i;
             int i4 = 0;
             while (i4 < i2) {
-                this.mac.x0 ^= (((long) bArr[i3]) & 255) << ((7 - i4) << 3);
+                this.mac.f80983x0 ^= (((long) bArr[i3]) & 255) << ((7 - i4) << 3);
                 i4++;
                 i3++;
             }
             AsconPermutationFriend.AsconPermutation asconPermutation = this.mac;
-            asconPermutation.x0 ^= 128 << ((7 - i2) << 3);
-            asconPermutation.p(12);
-            Pack.longToBigEndian(this.mac.x0, bArr2, 0);
-            Pack.longToBigEndian(this.mac.x1, bArr2, 8);
+            asconPermutation.f80983x0 ^= 128 << ((7 - i2) << 3);
+            asconPermutation.m55366p(12);
+            Pack.longToBigEndian(this.mac.f80983x0, bArr2, 0);
+            Pack.longToBigEndian(this.mac.f80984x1, bArr2, 8);
             AsconPermutationFriend.AsconPermutation asconPermutation2 = this.mac;
-            long j = asconPermutation2.x2;
-            long j2 = asconPermutation2.x3;
-            long j3 = asconPermutation2.x4;
+            long j = asconPermutation2.f80985x2;
+            long j2 = asconPermutation2.f80986x3;
+            long j3 = asconPermutation2.f80987x4;
             isap_rk(asconPermutation2, this.ISAP_IV2_64, bArr2, ISAPEngine.this.KEY_SIZE);
             AsconPermutationFriend.AsconPermutation asconPermutation3 = this.mac;
-            asconPermutation3.x2 = j;
-            asconPermutation3.x3 = j2;
-            asconPermutation3.x4 = j3;
-            asconPermutation3.p(12);
-            Pack.longToBigEndian(this.mac.x0, bArr2, 0);
-            Pack.longToBigEndian(this.mac.x1, bArr2, 8);
+            asconPermutation3.f80985x2 = j;
+            asconPermutation3.f80986x3 = j2;
+            asconPermutation3.f80987x4 = j3;
+            asconPermutation3.m55366p(12);
+            Pack.longToBigEndian(this.mac.f80983x0, bArr2, 0);
+            Pack.longToBigEndian(this.mac.f80984x1, bArr2, 8);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void reset() {
-            isap_rk(this.p, this.ISAP_IV3_64, ISAPEngine.this.npub, ISAPEngine.this.IV_SIZE);
-            AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
+            isap_rk(this.f81040p, this.ISAP_IV3_64, ISAPEngine.this.npub, ISAPEngine.this.IV_SIZE);
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.f81040p;
             long[] jArr = this.npub64;
-            asconPermutation.x3 = jArr[0];
-            asconPermutation.x4 = jArr[1];
+            asconPermutation.f80986x3 = jArr[0];
+            asconPermutation.f80987x4 = jArr[1];
             PX1(asconPermutation);
             AsconPermutationFriend.AsconPermutation asconPermutation2 = this.mac;
             long[] jArr2 = this.npub64;
             asconPermutation2.set(jArr2[0], jArr2[1], this.ISAP_IV1_64, 0L, 0L);
-            this.mac.p(12);
+            this.mac.m55366p(12);
         }
     }
 
@@ -150,12 +154,12 @@ public class ISAPEngine extends AEADBaseEngine {
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
         public void PX1(AsconPermutationFriend.AsconPermutation asconPermutation) {
-            asconPermutation.p(12);
+            asconPermutation.m55366p(12);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
         public void PX2(AsconPermutationFriend.AsconPermutation asconPermutation) {
-            asconPermutation.p(12);
+            asconPermutation.m55366p(12);
         }
     }
 
@@ -169,7 +173,7 @@ public class ISAPEngine extends AEADBaseEngine {
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
         public void PX1(AsconPermutationFriend.AsconPermutation asconPermutation) {
-            asconPermutation.p(6);
+            asconPermutation.m55366p(6);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAPAEAD_A
@@ -185,11 +189,17 @@ public class ISAPEngine extends AEADBaseEngine {
         public final int ISAP_STATE_SZ_CRYPTO_NPUBBYTES;
         public short[] iv16;
         public short[] k16;
-        public final int[] KeccakF400RoundConstants = {1, 32898, 32906, 32768, 32907, 1, 32897, a.n, 138, 136, a.n, 10, 32907, 139, 32905, a.h, a.g, 128, 32778, 10};
-        public short[] SX = new short[25];
+        public final int[] KeccakF400RoundConstants = {1, 32898, 32906, 32768, 32907, 1, 32897, C0771a.f3229n, 138, 136, C0771a.f3229n, 10, 32907, 139, 32905, C0771a.f3223h, C0771a.f3222g, 128, 32778, 10};
+
+        /* JADX INFO: renamed from: SX */
+        public short[] f81043SX = new short[25];
         public short[] macSX = new short[25];
-        public short[] E = new short[25];
-        public short[] C = new short[5];
+
+        /* JADX INFO: renamed from: E */
+        public short[] f81042E = new short[25];
+
+        /* JADX INFO: renamed from: C */
+        public short[] f81041C = new short[5];
         public short[] macE = new short[25];
         public short[] macC = new short[5];
 
@@ -246,8 +256,8 @@ public class ISAPEngine extends AEADBaseEngine {
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void init() {
-            this.k16 = new short[ISAPEngine.this.k.length >> 1];
-            byte[] bArr = ISAPEngine.this.k;
+            this.k16 = new short[ISAPEngine.this.f81039k.length >> 1];
+            byte[] bArr = ISAPEngine.this.f81039k;
             short[] sArr = this.k16;
             Pack.littleEndianToShort(bArr, 0, sArr, 0, sArr.length);
             this.iv16 = new short[ISAPEngine.this.npub.length >> 1];
@@ -283,12 +293,12 @@ public class ISAPEngine extends AEADBaseEngine {
         public void processEncBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
             int i3 = 0;
             while (i3 < ISAPEngine.this.BlockSize) {
-                bArr2[i2] = (byte) (bArr[i] ^ (this.SX[i3 >> 1] >>> ((i3 & 1) << 3)));
+                bArr2[i2] = (byte) (bArr[i] ^ (this.f81043SX[i3 >> 1] >>> ((i3 & 1) << 3)));
                 i3++;
                 i2++;
                 i++;
             }
-            PermuteRoundsKX(this.SX, this.E, this.C);
+            PermuteRoundsKX(this.f81043SX, this.f81042E, this.f81041C);
         }
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
@@ -299,7 +309,7 @@ public class ISAPEngine extends AEADBaseEngine {
                 if (i2 >= iSAPEngine.m_bufPos) {
                     return;
                 }
-                bArr[i] = (byte) (iSAPEngine.m_buf[i2] ^ (this.SX[i2 >> 1] >>> ((i2 & 1) << 3)));
+                bArr[i] = (byte) (iSAPEngine.m_buf[i2] ^ (this.f81043SX[i2 >> 1] >>> ((i2 & 1) << 3)));
                 i2++;
                 i++;
             }
@@ -329,10 +339,10 @@ public class ISAPEngine extends AEADBaseEngine {
 
         @Override // org.bouncycastle.crypto.engines.ISAPEngine.ISAP_AEAD
         public void reset() {
-            Arrays.fill(this.SX, (short) 0);
-            isap_rk(this.ISAP_IV3_16, ISAPEngine.this.npub, ISAPEngine.this.IV_SIZE, this.SX, this.ISAP_STATE_SZ_CRYPTO_NPUBBYTES, this.C);
-            System.arraycopy(this.iv16, 0, this.SX, 17, 8);
-            PermuteRoundsKX(this.SX, this.E, this.C);
+            Arrays.fill(this.f81043SX, (short) 0);
+            isap_rk(this.ISAP_IV3_16, ISAPEngine.this.npub, ISAPEngine.this.IV_SIZE, this.f81043SX, this.ISAP_STATE_SZ_CRYPTO_NPUBBYTES, this.f81041C);
+            System.arraycopy(this.iv16, 0, this.f81043SX, 17, 8);
+            PermuteRoundsKX(this.f81043SX, this.f81042E, this.f81041C);
             Arrays.fill(this.macSX, 12, 25, (short) 0);
             System.arraycopy(this.iv16, 0, this.macSX, 0, 8);
             System.arraycopy(this.ISAP_IV1_16, 0, this.macSX, 8, 4);
@@ -791,7 +801,7 @@ public class ISAPEngine extends AEADBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
         this.npub = bArr2;
-        this.k = bArr;
+        this.f81039k = bArr;
         this.ISAPAEAD.init();
     }
 

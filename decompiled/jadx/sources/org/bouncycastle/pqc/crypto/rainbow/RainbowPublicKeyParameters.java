@@ -10,7 +10,9 @@ public class RainbowPublicKeyParameters extends RainbowKeyParameters {
     public short[][][] l1_Q6;
     public short[][][] l1_Q9;
     public short[][][] l2_Q9;
-    public short[][][] pk;
+
+    /* JADX INFO: renamed from: pk */
+    public short[][][] f81716pk;
     public byte[] pk_seed;
 
     public RainbowPublicKeyParameters(RainbowParameters rainbowParameters, byte[] bArr) {
@@ -37,12 +39,12 @@ public class RainbowPublicKeyParameters extends RainbowKeyParameters {
             }
             return;
         }
-        this.pk = (short[][][]) Array.newInstance((Class<?>) cls, m, n, n);
+        this.f81716pk = (short[][][]) Array.newInstance((Class<?>) cls, m, n, n);
         int i = 0;
         for (int i2 = 0; i2 < n; i2++) {
             for (int i3 = 0; i3 < n; i3++) {
                 for (int i4 = 0; i4 < m; i4++) {
-                    short[][][] sArr = this.pk;
+                    short[][][] sArr = this.f81716pk;
                     if (i2 > i3) {
                         sArr[i4][i2][i3] = 0;
                     } else {
@@ -69,46 +71,46 @@ public class RainbowPublicKeyParameters extends RainbowKeyParameters {
         int v1 = rainbowParameters.getV1();
         int o1 = rainbowParameters.getO1();
         int o2 = rainbowParameters.getO2();
-        this.pk = (short[][][]) Array.newInstance((Class<?>) Short.TYPE, rainbowParameters.getM(), rainbowParameters.getN(), rainbowParameters.getN());
+        this.f81716pk = (short[][][]) Array.newInstance((Class<?>) Short.TYPE, rainbowParameters.getM(), rainbowParameters.getN(), rainbowParameters.getN());
         for (int i = 0; i < o1; i++) {
             for (int i2 = 0; i2 < v1; i2++) {
-                System.arraycopy(sArr[i][i2], 0, this.pk[i][i2], 0, v1);
-                System.arraycopy(sArr2[i][i2], 0, this.pk[i][i2], v1, o1);
-                System.arraycopy(sArr3[i][i2], 0, this.pk[i][i2], v1 + o1, o2);
+                System.arraycopy(sArr[i][i2], 0, this.f81716pk[i][i2], 0, v1);
+                System.arraycopy(sArr2[i][i2], 0, this.f81716pk[i][i2], v1, o1);
+                System.arraycopy(sArr3[i][i2], 0, this.f81716pk[i][i2], v1 + o1, o2);
             }
             for (int i3 = 0; i3 < o1; i3++) {
                 int i4 = i3 + v1;
-                System.arraycopy(sArr4[i][i3], 0, this.pk[i][i4], v1, o1);
-                System.arraycopy(sArr5[i][i3], 0, this.pk[i][i4], v1 + o1, o2);
+                System.arraycopy(sArr4[i][i3], 0, this.f81716pk[i][i4], v1, o1);
+                System.arraycopy(sArr5[i][i3], 0, this.f81716pk[i][i4], v1 + o1, o2);
             }
             for (int i5 = 0; i5 < o2; i5++) {
-                System.arraycopy(sArr6[i][i5], 0, this.pk[i][i5 + v1 + o1], v1 + o1, o2);
+                System.arraycopy(sArr6[i][i5], 0, this.f81716pk[i][i5 + v1 + o1], v1 + o1, o2);
             }
         }
         for (int i6 = 0; i6 < o2; i6++) {
             for (int i7 = 0; i7 < v1; i7++) {
                 int i8 = i6 + o1;
-                System.arraycopy(sArr7[i6][i7], 0, this.pk[i8][i7], 0, v1);
-                System.arraycopy(sArr8[i6][i7], 0, this.pk[i8][i7], v1, o1);
-                System.arraycopy(sArr9[i6][i7], 0, this.pk[i8][i7], v1 + o1, o2);
+                System.arraycopy(sArr7[i6][i7], 0, this.f81716pk[i8][i7], 0, v1);
+                System.arraycopy(sArr8[i6][i7], 0, this.f81716pk[i8][i7], v1, o1);
+                System.arraycopy(sArr9[i6][i7], 0, this.f81716pk[i8][i7], v1 + o1, o2);
             }
             for (int i9 = 0; i9 < o1; i9++) {
                 int i10 = i6 + o1;
                 int i11 = i9 + v1;
-                System.arraycopy(sArr10[i6][i9], 0, this.pk[i10][i11], v1, o1);
-                System.arraycopy(sArr11[i6][i9], 0, this.pk[i10][i11], v1 + o1, o2);
+                System.arraycopy(sArr10[i6][i9], 0, this.f81716pk[i10][i11], v1, o1);
+                System.arraycopy(sArr11[i6][i9], 0, this.f81716pk[i10][i11], v1 + o1, o2);
             }
             for (int i12 = 0; i12 < o2; i12++) {
-                System.arraycopy(sArr12[i6][i12], 0, this.pk[i6 + o1][i12 + v1 + o1], v1 + o1, o2);
+                System.arraycopy(sArr12[i6][i12], 0, this.f81716pk[i6 + o1][i12 + v1 + o1], v1 + o1, o2);
             }
         }
     }
 
     public byte[] getEncoded() {
-        return getParameters().getVersion() != Version.CLASSIC ? Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(this.pk_seed, RainbowUtil.getEncoded(this.l1_Q3, false)), RainbowUtil.getEncoded(this.l1_Q5, true)), RainbowUtil.getEncoded(this.l1_Q6, false)), RainbowUtil.getEncoded(this.l1_Q9, true)), RainbowUtil.getEncoded(this.l2_Q9, true)) : RainbowUtil.getEncoded(this.pk, true);
+        return getParameters().getVersion() != Version.CLASSIC ? Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(Arrays.concatenate(this.pk_seed, RainbowUtil.getEncoded(this.l1_Q3, false)), RainbowUtil.getEncoded(this.l1_Q5, true)), RainbowUtil.getEncoded(this.l1_Q6, false)), RainbowUtil.getEncoded(this.l1_Q9, true)), RainbowUtil.getEncoded(this.l2_Q9, true)) : RainbowUtil.getEncoded(this.f81716pk, true);
     }
 
     public short[][][] getPk() {
-        return RainbowUtil.cloneArray(this.pk);
+        return RainbowUtil.cloneArray(this.f81716pk);
     }
 }

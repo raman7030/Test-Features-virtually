@@ -3,7 +3,7 @@ package org.bouncycastle.asn1;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DefiniteLengthInputStream extends LimitedInputStream {

@@ -4,14 +4,18 @@ package org.bouncycastle.pqc.crypto.snova;
 public class SnovaParameters {
     public final int alpha;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public final int f77983l;
+    /* JADX INFO: renamed from: l */
+    public final int f81755l;
     public final int lsq;
     public final String name;
-    public final int o;
+
+    /* JADX INFO: renamed from: o */
+    public final int f81756o;
     public final boolean pkExpandShake;
     public final boolean skIsSeed;
-    public final int v;
+
+    /* JADX INFO: renamed from: v */
+    public final int f81757v;
     public static final SnovaParameters SNOVA_24_5_4_SSK = new SnovaParameters("SNOVA_24_5_4_SSK", 24, 5, 4, true, false);
     public static final SnovaParameters SNOVA_24_5_4_ESK = new SnovaParameters("SNOVA_24_5_4_ESK", 24, 5, 4, false, false);
     public static final SnovaParameters SNOVA_24_5_4_SHAKE_SSK = new SnovaParameters("SNOVA_24_5_4_SHAKE_SSK", 24, 5, 4, true, true);
@@ -59,9 +63,9 @@ public class SnovaParameters {
 
     public SnovaParameters(String str, int i, int i2, int i3, boolean z, boolean z2) {
         this.name = str;
-        this.v = i;
-        this.o = i2;
-        this.f77983l = i3;
+        this.f81757v = i;
+        this.f81756o = i2;
+        this.f81755l = i3;
         int i4 = i3 * i3;
         this.lsq = i4;
         this.alpha = i4 + i3;
@@ -74,7 +78,7 @@ public class SnovaParameters {
     }
 
     public int getL() {
-        return this.f77983l;
+        return this.f81755l;
     }
 
     public int getLsq() {
@@ -82,11 +86,11 @@ public class SnovaParameters {
     }
 
     public int getM() {
-        return this.o;
+        return this.f81756o;
     }
 
     public int getN() {
-        return this.v + this.o;
+        return this.f81757v + this.f81756o;
     }
 
     public String getName() {
@@ -94,19 +98,19 @@ public class SnovaParameters {
     }
 
     public int getO() {
-        return this.o;
+        return this.f81756o;
     }
 
     public int getPrivateKeyLength() {
         int i = this.lsq;
-        int i2 = this.o;
+        int i2 = this.f81756o;
         int i3 = i2 * 4 * this.alpha;
-        int i4 = this.v;
+        int i4 = this.f81757v;
         return (((((i4 * i2) + ((((i2 * i4) + ((i4 * i2) + (i4 * i4))) * i2) + i3)) * i) + 1) >> 1) + 48;
     }
 
     public int getPublicKeyLength() {
-        int i = this.o;
+        int i = this.f81756o;
         return (((((i * i) * i) * this.lsq) + 1) >>> 1) + 16;
     }
 
@@ -115,7 +119,7 @@ public class SnovaParameters {
     }
 
     public int getV() {
-        return this.v;
+        return this.f81757v;
     }
 
     public boolean isPkExpandShake() {

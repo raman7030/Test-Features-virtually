@@ -7,13 +7,17 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */
 public class G3413CBCBlockCipher implements BlockCipher {
-    public byte[] R;
+
+    /* JADX INFO: renamed from: R */
+    public byte[] f81170R;
     public byte[] R_init;
     public int blockSize;
     public BlockCipher cipher;
     public boolean forEncryption;
     public boolean initialized = false;
-    public int m;
+
+    /* JADX INFO: renamed from: m */
+    public int f81171m;
 
     public G3413CBCBlockCipher(BlockCipher blockCipher) {
         this.blockSize = blockCipher.getBlockSize();
@@ -21,7 +25,7 @@ public class G3413CBCBlockCipher implements BlockCipher {
     }
 
     private int decrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
-        byte[] bArrMSB = GOST3413CipherUtil.MSB(this.R, this.blockSize);
+        byte[] bArrMSB = GOST3413CipherUtil.MSB(this.f81170R, this.blockSize);
         byte[] bArrCopyFromInput = GOST3413CipherUtil.copyFromInput(bArr, this.blockSize, i);
         byte[] bArr3 = new byte[bArrCopyFromInput.length];
         this.cipher.processBlock(bArrCopyFromInput, 0, bArr3, 0);
@@ -34,7 +38,7 @@ public class G3413CBCBlockCipher implements BlockCipher {
     }
 
     private int encrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
-        byte[] bArrSum = GOST3413CipherUtil.sum(GOST3413CipherUtil.copyFromInput(bArr, this.blockSize, i), GOST3413CipherUtil.MSB(this.R, this.blockSize));
+        byte[] bArrSum = GOST3413CipherUtil.sum(GOST3413CipherUtil.copyFromInput(bArr, this.blockSize, i), GOST3413CipherUtil.MSB(this.f81170R, this.blockSize));
         int length = bArrSum.length;
         byte[] bArr3 = new byte[length];
         this.cipher.processBlock(bArrSum, 0, bArr3, 0);
@@ -46,19 +50,19 @@ public class G3413CBCBlockCipher implements BlockCipher {
     }
 
     private void generateR(byte[] bArr) {
-        byte[] bArrLSB = GOST3413CipherUtil.LSB(this.R, this.m - this.blockSize);
-        System.arraycopy(bArrLSB, 0, this.R, 0, bArrLSB.length);
-        System.arraycopy(bArr, 0, this.R, bArrLSB.length, this.m - bArrLSB.length);
+        byte[] bArrLSB = GOST3413CipherUtil.LSB(this.f81170R, this.f81171m - this.blockSize);
+        System.arraycopy(bArrLSB, 0, this.f81170R, 0, bArrLSB.length);
+        System.arraycopy(bArr, 0, this.f81170R, bArrLSB.length, this.f81171m - bArrLSB.length);
     }
 
     private void initArrays() {
-        int i = this.m;
-        this.R = new byte[i];
+        int i = this.f81171m;
+        this.f81170R = new byte[i];
         this.R_init = new byte[i];
     }
 
     private void setupDefaultParams() {
-        this.m = this.blockSize;
+        this.f81171m = this.blockSize;
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher
@@ -81,11 +85,11 @@ public class G3413CBCBlockCipher implements BlockCipher {
             if (iv.length < this.blockSize) {
                 throw new IllegalArgumentException("Parameter m must blockSize <= m");
             }
-            this.m = iv.length;
+            this.f81171m = iv.length;
             initArrays();
             byte[] bArrClone = Arrays.clone(iv);
             this.R_init = bArrClone;
-            System.arraycopy(bArrClone, 0, this.R, 0, bArrClone.length);
+            System.arraycopy(bArrClone, 0, this.f81170R, 0, bArrClone.length);
             if (parametersWithIV.getParameters() != null) {
                 blockCipher = this.cipher;
                 cipherParameters = parametersWithIV.getParameters();
@@ -95,7 +99,7 @@ public class G3413CBCBlockCipher implements BlockCipher {
             setupDefaultParams();
             initArrays();
             byte[] bArr = this.R_init;
-            System.arraycopy(bArr, 0, this.R, 0, bArr.length);
+            System.arraycopy(bArr, 0, this.f81170R, 0, bArr.length);
             if (cipherParameters != null) {
                 blockCipher = this.cipher;
                 blockCipher.init(z, cipherParameters);
@@ -113,7 +117,7 @@ public class G3413CBCBlockCipher implements BlockCipher {
     public void reset() {
         if (this.initialized) {
             byte[] bArr = this.R_init;
-            System.arraycopy(bArr, 0, this.R, 0, bArr.length);
+            System.arraycopy(bArr, 0, this.f81170R, 0, bArr.length);
             this.cipher.reset();
         }
     }

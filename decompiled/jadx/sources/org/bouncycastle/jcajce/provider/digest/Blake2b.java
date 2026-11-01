@@ -1,12 +1,12 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C19462;
-import l.C9045;
 import org.bouncycastle.crypto.digests.Blake2bDigest;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
+import p067l.C10965;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Blake2b {
@@ -74,16 +74,16 @@ public class Blake2b {
             sb.append(str);
             sb.append("$Blake2b512");
             configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-512", sb.toString());
-            StringBuilder sbM23342 = C9045.m23342("BLAKE2B-512", str, new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b512, configurableProvider);
-            sbM23342.append("$Blake2b384");
-            configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-384", sbM23342.toString());
-            StringBuilder sbM23343 = C9045.m23342("BLAKE2B-384", str, new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b384, configurableProvider);
-            sbM23343.append("$Blake2b256");
-            configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-256", sbM23343.toString());
-            StringBuilder sbM23344 = C9045.m23342("BLAKE2B-256", str, new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b256, configurableProvider);
-            sbM23344.append("$Blake2b160");
-            configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-160", sbM23344.toString());
-            C19462.m44861(new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b160, configurableProvider, "BLAKE2B-160");
+            StringBuilder sbM25287 = C10965.m25287("BLAKE2B-512", str, new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b512, configurableProvider);
+            sbM25287.append("$Blake2b384");
+            configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-384", sbM25287.toString());
+            StringBuilder sbM25288 = C10965.m25287("BLAKE2B-384", str, new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b384, configurableProvider);
+            sbM25288.append("$Blake2b256");
+            configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-256", sbM25288.toString());
+            StringBuilder sbM25289 = C10965.m25287("BLAKE2B-256", str, new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b256, configurableProvider);
+            sbM25289.append("$Blake2b160");
+            configurableProvider.addAlgorithm("MessageDigest.BLAKE2B-160", sbM25289.toString());
+            C20865.m47157(new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.id_blake2b160, configurableProvider, "BLAKE2B-160");
         }
     }
 }

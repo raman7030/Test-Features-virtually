@@ -5,13 +5,15 @@ import org.bouncycastle.pqc.math.ntru.Polynomial;
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class NTRUParameterSet {
     public final int logQ;
-    public final int n;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81795n;
     public final int prfKeyBytes;
     public final int seedBytes;
     public final int sharedKeyBytes;
 
     public NTRUParameterSet(int i, int i2, int i3, int i4, int i5) {
-        this.n = i;
+        this.f81795n = i;
         this.logQ = i2;
         this.seedBytes = i3;
         this.prfKeyBytes = i4;
@@ -24,8 +26,9 @@ public abstract class NTRUParameterSet {
         return this.logQ;
     }
 
-    public int n() {
-        return this.n;
+    /* JADX INFO: renamed from: n */
+    public int m55436n() {
+        return this.f81795n;
     }
 
     public int ntruCiphertextBytes() {
@@ -57,7 +60,7 @@ public abstract class NTRUParameterSet {
     }
 
     public int packDegree() {
-        return this.n - 1;
+        return this.f81795n - 1;
     }
 
     public int packTrinaryBytes() {
@@ -68,18 +71,19 @@ public abstract class NTRUParameterSet {
         return this.prfKeyBytes;
     }
 
-    public int q() {
+    /* JADX INFO: renamed from: q */
+    public int m55437q() {
         return 1 << this.logQ;
     }
 
     public abstract int sampleFgBytes();
 
     public int sampleFixedTypeBytes() {
-        return (((this.n - 1) * 30) + 7) / 8;
+        return (((this.f81795n - 1) * 30) + 7) / 8;
     }
 
     public int sampleIidBytes() {
-        return this.n - 1;
+        return this.f81795n - 1;
     }
 
     public abstract int sampleRmBytes();

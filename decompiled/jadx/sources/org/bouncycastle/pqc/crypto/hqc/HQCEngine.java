@@ -18,27 +18,41 @@ public class HQCEngine {
     public final int N_MU;
     public final int delta;
     public final int fft;
-    public final int g;
+
+    /* JADX INFO: renamed from: g */
+    public final int f81621g;
     public final int[] generatorPoly;
-    public final GF2PolynomialCalculator gf;
-    public final int k;
+
+    /* JADX INFO: renamed from: gf */
+    public final GF2PolynomialCalculator f81622gf;
+
+    /* JADX INFO: renamed from: k */
+    public final int f81623k;
     public final int mulParam;
-    public final int n;
-    public final int n1;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81624n;
+
+    /* JADX INFO: renamed from: n1 */
+    public final int f81625n1;
     public final int pkSize;
     public final long rejectionThreshold;
-    public final int w;
-    public final int wr;
+
+    /* JADX INFO: renamed from: w */
+    public final int f81626w;
+
+    /* JADX INFO: renamed from: wr */
+    public final int f81627wr;
 
     public HQCEngine(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int[] iArr) {
-        this.n = i;
-        this.k = i4;
+        this.f81624n = i;
+        this.f81623k = i4;
         this.delta = i6;
-        this.w = i7;
-        this.wr = i8;
-        this.n1 = i2;
+        this.f81626w = i7;
+        this.f81627wr = i8;
+        this.f81625n1 = i2;
         this.generatorPoly = iArr;
-        this.g = i5;
+        this.f81621g = i5;
         this.fft = i9;
         this.N_MU = i10;
         this.pkSize = i11;
@@ -50,14 +64,14 @@ public class HQCEngine {
         int i12 = i2 * i3;
         this.N1N2_BYTE_64 = Utils.getByte64SizeFromBitSize(i12);
         this.N1N2_BYTE = Utils.getByteSizeFromBitSize(i12);
-        this.gf = new GF2PolynomialCalculator(byte64SizeFromBitSize, i, (1 << (i & 63)) - 1);
+        this.f81622gf = new GF2PolynomialCalculator(byte64SizeFromBitSize, i, (1 << (i & 63)) - 1);
         long j = i;
         this.rejectionThreshold = (16777216 / j) * j;
     }
 
     private int barrettReduce(int i) {
         long j = (((long) i) * ((long) this.N_MU)) >>> 32;
-        int i2 = this.n;
+        int i2 = this.f81624n;
         int i3 = i - ((int) (j * ((long) i2)));
         return i3 - ((-(((i3 - i2) >>> 31) ^ 1)) & i2);
     }
@@ -118,22 +132,22 @@ public class HQCEngine {
         int i2 = this.N_BYTE_64;
         long[] jArr3 = new long[i2];
         long[] jArr4 = new long[i2];
-        int i3 = this.n1;
+        int i3 = this.f81625n1;
         byte[] bArr4 = new byte[i3];
-        ReedSolomon.encode(bArr4, bArr2, i3, this.k, this.g, this.generatorPoly);
-        ReedMuller.encode(jArr2, bArr4, this.n1, this.mulParam);
+        ReedSolomon.encode(bArr4, bArr2, i3, this.f81623k, this.f81621g, this.generatorPoly);
+        ReedMuller.encode(jArr2, bArr4, this.f81625n1, this.mulParam);
         Shake256RandomGenerator shake256RandomGenerator = new Shake256RandomGenerator(bArr, 0, 32, (byte) 1);
         vectSetRandom(shake256RandomGenerator, jArr4);
         shake256RandomGenerator.init(bArr3, i, 32, (byte) 1);
-        vectSampleFixedWeights2(shake256RandomGenerator, jArr3, this.wr);
-        this.gf.vectMul(jArr, jArr3, jArr4);
+        vectSampleFixedWeights2(shake256RandomGenerator, jArr3, this.f81627wr);
+        this.f81622gf.vectMul(jArr, jArr3, jArr4);
         Utils.fromByteArrayToLongArray(jArr4, bArr, 32, this.pkSize - 32);
-        this.gf.vectMul(jArr4, jArr3, jArr4);
-        vectSampleFixedWeights2(shake256RandomGenerator, jArr3, this.wr);
+        this.f81622gf.vectMul(jArr4, jArr3, jArr4);
+        vectSampleFixedWeights2(shake256RandomGenerator, jArr3, this.f81627wr);
         Longs.xorTo(this.N_BYTE_64, jArr3, 0, jArr4, 0);
         vectTruncate(jArr4);
         Longs.xorTo(this.N1N2_BYTE_64, jArr4, 0, jArr2, 0);
-        vectSampleFixedWeights2(shake256RandomGenerator, jArr4, this.wr);
+        vectSampleFixedWeights2(shake256RandomGenerator, jArr4, this.f81627wr);
         Longs.xorTo(this.N_BYTE_64, jArr4, 0, jArr, 0);
         Arrays.clear(jArr3);
         Arrays.clear(jArr4);
@@ -141,14 +155,14 @@ public class HQCEngine {
     }
 
     private void vectSampleFixedWeights2(Shake256RandomGenerator shake256RandomGenerator, long[] jArr, int i) {
-        int i2 = this.wr;
+        int i2 = this.f81627wr;
         int[] iArr = new int[i2];
         int i3 = i2 << 2;
         byte[] bArr = new byte[i3];
         shake256RandomGenerator.xofGetBytes(bArr, i3);
         Pack.littleEndianToInt(bArr, 0, iArr);
         for (int i4 = 0; i4 < i; i4++) {
-            iArr[i4] = ((int) (((((long) iArr[i4]) & 4294967295L) * ((long) (this.n - i4))) >> 32)) + i4;
+            iArr[i4] = ((int) (((((long) iArr[i4]) & 4294967295L) * ((long) (this.f81624n - i4))) >> 32)) + i4;
         }
         int i5 = i - 1;
         while (true) {
@@ -173,15 +187,15 @@ public class HQCEngine {
         shake256RandomGenerator.xofGetBytes(bArr, this.N_BYTE);
         Pack.littleEndianToLong(bArr, 0, jArr);
         int i = this.N_BYTE_64 - 1;
-        jArr[i] = jArr[i] & Utils.bitMask(this.n, 64L);
+        jArr[i] = jArr[i] & Utils.bitMask(this.f81624n, 64L);
     }
 
     private void vectTruncate(long[] jArr) {
-        Arrays.fill(jArr, this.N1N2_BYTE_64, (this.n + 63) >> 6, 0L);
+        Arrays.fill(jArr, this.N1N2_BYTE_64, (this.f81624n + 63) >> 6, 0L);
     }
 
     private void writeSupportToVector(long[] jArr, int[] iArr, int i) {
-        int i2 = this.wr;
+        int i2 = this.f81627wr;
         int[] iArr2 = new int[i2];
         long[] jArr2 = new long[i2];
         for (int i3 = 0; i3 < i; i3++) {
@@ -206,18 +220,18 @@ public class HQCEngine {
         long[] jArr4 = new long[i];
         byte[] bArr4 = new byte[32];
         byte[] bArr5 = new byte[64];
-        int i2 = this.k;
+        int i2 = this.f81623k;
         byte[] bArr6 = new byte[i2];
         byte[] bArr7 = new byte[32];
-        byte[] bArr8 = new byte[this.n1];
-        vectSampleFixedWeight1(jArr4, new Shake256RandomGenerator(bArr3, this.pkSize, 32, (byte) 1), this.w);
+        byte[] bArr8 = new byte[this.f81625n1];
+        vectSampleFixedWeight1(jArr4, new Shake256RandomGenerator(bArr3, this.pkSize, 32, (byte) 1), this.f81626w);
         Utils.fromByteArrayToLongArray(jArr, bArr2, 0, this.N_BYTE);
         Utils.fromByteArrayToLongArray(jArr2, bArr2, this.N_BYTE, this.N1N2_BYTE);
-        this.gf.vectMul(jArr3, jArr4, jArr);
+        this.f81622gf.vectMul(jArr3, jArr4, jArr);
         vectTruncate(jArr3);
         Longs.xorTo(this.N_BYTE_64, jArr2, 0, jArr3, 0);
-        ReedMuller.decode(bArr8, jArr3, this.n1, this.mulParam);
-        ReedSolomon.decode(bArr6, bArr8, this.n1, this.fft, this.delta, this.k, this.g);
+        ReedMuller.decode(bArr8, jArr3, this.f81625n1, this.mulParam);
+        ReedSolomon.decode(bArr6, bArr8, this.f81625n1, this.fft, this.delta, this.f81623k, this.f81621g);
         hashHI(bArr4, 256, bArr3, this.pkSize, (byte) 1);
         hashGJ(bArr5, 512, bArr4, bArr6, 0, i2, bArr2, this.N_BYTE + this.N1N2_BYTE, 16, (byte) 0);
         System.arraycopy(bArr5, 0, bArr, 0, 32);
@@ -277,12 +291,12 @@ public class HQCEngine {
         shake256RandomGenerator.nextBytes(bArr2, this.pkSize + 32, this.K_BYTE);
         hashHI(bArr4, 512, bArr3, 32, (byte) 2);
         shake256RandomGenerator.init(bArr4, 0, 32, (byte) 1);
-        vectSampleFixedWeight1(jArr2, shake256RandomGenerator, this.w);
-        vectSampleFixedWeight1(jArr, shake256RandomGenerator, this.w);
+        vectSampleFixedWeight1(jArr2, shake256RandomGenerator, this.f81626w);
+        vectSampleFixedWeight1(jArr, shake256RandomGenerator, this.f81626w);
         System.arraycopy(bArr4, 32, bArr, 0, 32);
         shake256RandomGenerator.init(bArr4, 32, 32, (byte) 1);
         vectSetRandom(shake256RandomGenerator, jArr3);
-        this.gf.vectMul(jArr3, jArr2, jArr3);
+        this.f81622gf.vectMul(jArr3, jArr2, jArr3);
         Longs.xorTo(this.N_BYTE_64, jArr, 0, jArr3, 0);
         Utils.fromLongArrayToByteArray(bArr, 32, bArr.length - 32, jArr3);
         System.arraycopy(bArr4, 0, bArr2, this.pkSize, 32);
@@ -294,7 +308,7 @@ public class HQCEngine {
     }
 
     public void vectSampleFixedWeight1(long[] jArr, Shake256RandomGenerator shake256RandomGenerator, int i) {
-        int[] iArr = new int[this.wr];
+        int[] iArr = new int[this.f81627wr];
         generateRandomSupport(iArr, i, shake256RandomGenerator);
         writeSupportToVector(jArr, iArr, i);
     }

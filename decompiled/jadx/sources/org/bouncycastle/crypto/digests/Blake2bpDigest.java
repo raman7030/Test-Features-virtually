@@ -15,7 +15,9 @@ public class Blake2bpDigest implements ExtendedDigest {
     public int bufferPos = 0;
     public int keyLength = 0;
     public int nodeOffset = 0;
-    public Blake2bDigest[] S = new Blake2bDigest[4];
+
+    /* JADX INFO: renamed from: S */
+    public Blake2bDigest[] f80799S = new Blake2bDigest[4];
     public byte[] salt = null;
     public byte[] key = null;
     public final int BLAKE2B_BLOCKBYTES = 128;
@@ -57,17 +59,17 @@ public class Blake2bpDigest implements ExtendedDigest {
         this.param[16] = 0;
         for (int i2 = 0; i2 < 4; i2++) {
             Pack.intToLittleEndian(i2, this.param, 8);
-            this.S[i2] = new Blake2bDigest((byte[]) null, this.param);
+            this.f80799S[i2] = new Blake2bDigest((byte[]) null, this.param);
         }
         this.root.setAsLastNode();
-        this.S[3].setAsLastNode();
+        this.f80799S[3].setAsLastNode();
         if (bArr == null || (i = this.keyLength) <= 0) {
             return;
         }
         byte[] bArr3 = new byte[128];
         System.arraycopy(bArr, 0, bArr3, 0, i);
         for (int i3 = 0; i3 < 4; i3++) {
-            this.S[i3].update(bArr3, 0, 128);
+            this.f80799S[i3].update(bArr3, 0, 128);
         }
     }
 
@@ -82,9 +84,9 @@ public class Blake2bpDigest implements ExtendedDigest {
                 if (i5 > 128) {
                     i5 = 128;
                 }
-                this.S[i2].update(this.buffer, i4, i5);
+                this.f80799S[i2].update(this.buffer, i4, i5);
             }
-            this.S[i2].doFinal(bArr2[i2], 0);
+            this.f80799S[i2].doFinal(bArr2[i2], 0);
         }
         for (int i6 = 0; i6 < 4; i6++) {
             this.root.update(bArr2[i6], 0, 64);
@@ -115,16 +117,16 @@ public class Blake2bpDigest implements ExtendedDigest {
         this.digestLength = 64;
         this.root.reset();
         for (int i = 0; i < 4; i++) {
-            this.S[i].reset();
+            this.f80799S[i].reset();
         }
         this.root.setAsLastNode();
-        this.S[3].setAsLastNode();
+        this.f80799S[3].setAsLastNode();
         byte[] bArr = this.key;
         if (bArr != null) {
             byte[] bArr2 = new byte[128];
             System.arraycopy(bArr, 0, bArr2, 0, this.keyLength);
             for (int i2 = 0; i2 < 4; i2++) {
-                this.S[i2].update(bArr2, 0, 128);
+                this.f80799S[i2].update(bArr2, 0, 128);
             }
         }
     }
@@ -143,7 +145,7 @@ public class Blake2bpDigest implements ExtendedDigest {
         if (i3 != 0 && i2 >= i4) {
             System.arraycopy(bArr, i, this.buffer, i3, i4);
             for (int i5 = 0; i5 < 4; i5++) {
-                this.S[i5].update(this.buffer, i5 * 128, 128);
+                this.f80799S[i5].update(this.buffer, i5 * 128, 128);
             }
             i += i4;
             i2 -= i4;
@@ -152,7 +154,7 @@ public class Blake2bpDigest implements ExtendedDigest {
         for (int i6 = 0; i6 < 4; i6++) {
             int i7 = (i6 * 128) + i;
             for (int i8 = i2; i8 >= 512; i8 -= 512) {
-                this.S[i6].update(bArr, i7, 128);
+                this.f80799S[i6].update(bArr, i7, 128);
                 i7 += 512;
             }
         }

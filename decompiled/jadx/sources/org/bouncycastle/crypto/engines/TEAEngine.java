@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -8,6 +7,7 @@ import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TEAEngine implements BlockCipher {
@@ -15,10 +15,18 @@ public class TEAEngine implements BlockCipher {
     public static final int d_sum = -957401312;
     public static final int delta = -1640531527;
     public static final int rounds = 32;
-    public int _a;
-    public int _b;
-    public int _c;
-    public int _d;
+
+    /* JADX INFO: renamed from: _a */
+    public int f81082_a;
+
+    /* JADX INFO: renamed from: _b */
+    public int f81083_b;
+
+    /* JADX INFO: renamed from: _c */
+    public int f81084_c;
+
+    /* JADX INFO: renamed from: _d */
+    public int f81085_d;
     public boolean _forEncryption;
     public boolean _initialised = false;
 
@@ -32,8 +40,8 @@ public class TEAEngine implements BlockCipher {
         int iBytesToInt2 = bytesToInt(bArr, i + 4);
         int i3 = d_sum;
         for (int i4 = 0; i4 != 32; i4++) {
-            iBytesToInt2 -= (((iBytesToInt << 4) + this._c) ^ (iBytesToInt + i3)) ^ ((iBytesToInt >>> 5) + this._d);
-            iBytesToInt -= (((iBytesToInt2 << 4) + this._a) ^ (iBytesToInt2 + i3)) ^ ((iBytesToInt2 >>> 5) + this._b);
+            iBytesToInt2 -= (((iBytesToInt << 4) + this.f81084_c) ^ (iBytesToInt + i3)) ^ ((iBytesToInt >>> 5) + this.f81085_d);
+            iBytesToInt -= (((iBytesToInt2 << 4) + this.f81082_a) ^ (iBytesToInt2 + i3)) ^ ((iBytesToInt2 >>> 5) + this.f81083_b);
             i3 += 1640531527;
         }
         unpackInt(iBytesToInt, bArr2, i2);
@@ -47,8 +55,8 @@ public class TEAEngine implements BlockCipher {
         int i3 = 0;
         for (int i4 = 0; i4 != 32; i4++) {
             i3 -= 1640531527;
-            iBytesToInt += (((iBytesToInt2 << 4) + this._a) ^ (iBytesToInt2 + i3)) ^ ((iBytesToInt2 >>> 5) + this._b);
-            iBytesToInt2 += (((iBytesToInt << 4) + this._c) ^ (iBytesToInt + i3)) ^ ((iBytesToInt >>> 5) + this._d);
+            iBytesToInt += (((iBytesToInt2 << 4) + this.f81082_a) ^ (iBytesToInt2 + i3)) ^ ((iBytesToInt2 >>> 5) + this.f81083_b);
+            iBytesToInt2 += (((iBytesToInt << 4) + this.f81084_c) ^ (iBytesToInt + i3)) ^ ((iBytesToInt >>> 5) + this.f81085_d);
         }
         unpackInt(iBytesToInt, bArr2, i2);
         unpackInt(iBytesToInt2, bArr2, i2 + 4);
@@ -59,10 +67,10 @@ public class TEAEngine implements BlockCipher {
         if (bArr.length != 16) {
             throw new IllegalArgumentException("Key size must be 128 bits.");
         }
-        this._a = bytesToInt(bArr, 0);
-        this._b = bytesToInt(bArr, 4);
-        this._c = bytesToInt(bArr, 8);
-        this._d = bytesToInt(bArr, 12);
+        this.f81082_a = bytesToInt(bArr, 0);
+        this.f81083_b = bytesToInt(bArr, 4);
+        this.f81084_c = bytesToInt(bArr, 8);
+        this.f81085_d = bytesToInt(bArr, 12);
     }
 
     private void unpackInt(int i, byte[] bArr, int i2) {
@@ -103,7 +111,7 @@ public class TEAEngine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to TEA init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to TEA init - ", cipherParameters));
         }
         this._forEncryption = z;
         this._initialised = true;

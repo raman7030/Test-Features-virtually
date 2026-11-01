@@ -7,99 +7,99 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.tencent.connect.common.AssistActivity;
 import java.util.HashMap;
-import l.C16220;
-import l.C18338;
-import l.C5638;
-import l.C7733;
-import l.C8956;
-import l.C9145;
-import l.InterfaceC0698;
-import l.InterfaceC4227;
+import p067l.C10880;
+import p067l.C11060;
+import p067l.C17784;
+import p067l.C19797;
+import p067l.C7727;
+import p067l.C9718;
+import p067l.InterfaceC3032;
+import p067l.InterfaceC6386;
 
 /* JADX INFO: compiled from: 51RR */
 /* JADX INFO: loaded from: classes.dex */
 public class AuthActivity extends Activity {
 
-    /* JADX INFO: renamed from: ᩹, reason: not valid java name and contains not printable characters */
-    public static int f908;
+    /* JADX INFO: renamed from: ᩹ */
+    public static int f2142;
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public final HashMap f909 = new HashMap();
+    /* JADX INFO: renamed from: ᩸ */
+    public final HashMap f2143 = new HashMap();
 
     @Override // android.app.Activity
     public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        C9145.m23518("openSDK_LOG.AuthActivity", "->onCreate");
-        C16220 c16220 = new C16220(this);
-        HashMap map = this.f909;
-        map.put("action_common_channel", c16220);
-        map.put("action_auth", new C5638());
-        m927();
+        C11060.m25469("openSDK_LOG.AuthActivity", "->onCreate");
+        C17784 c17784 = new C17784(this);
+        HashMap map = this.f2143;
+        map.put("action_common_channel", c17784);
+        map.put("action_auth", new C7727());
+        m2044();
     }
 
     @Override // android.app.Activity
     public final void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        C9145.m23518("openSDK_LOG.AuthActivity", "->onNewIntent");
-        m927();
+        C11060.m25469("openSDK_LOG.AuthActivity", "->onNewIntent");
+        m2044();
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    private void m927() {
+    /* JADX INFO: renamed from: ֫ */
+    private void m2044() {
         Uri data;
         Intent intent = getIntent();
         if (intent == null) {
-            C9145.m23519("openSDK_LOG.AuthActivity", "-->onCreate, getIntent() return null");
+            C11060.m25470("openSDK_LOG.AuthActivity", "-->onCreate, getIntent() return null");
             finish();
             return;
         }
         try {
             data = intent.getData();
         } catch (Exception e) {
-            C9145.m23514("openSDK_LOG.AuthActivity", "onCreate exception: ", e);
+            C11060.m25465("openSDK_LOG.AuthActivity", "onCreate exception: ", e);
             data = null;
         }
-        C9145.m23520("openSDK_LOG.AuthActivity", "-->onCreate, uri: " + data);
+        C11060.m25471("openSDK_LOG.AuthActivity", "-->onCreate, uri: " + data);
         try {
-            m928(intent, data);
+            m2045(intent, data);
         } catch (Exception e2) {
-            C9145.m23514("openSDK_LOG.AuthActivity", "onCreate exception: ", e2);
+            C11060.m25465("openSDK_LOG.AuthActivity", "onCreate exception: ", e2);
             finish();
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    private void m928(Intent intent, Uri uri) {
-        C9145.m23518("openSDK_LOG.AuthActivity", "-->handleActionUri--start");
+    /* JADX INFO: renamed from: ֫ */
+    private void m2045(Intent intent, Uri uri) {
+        C11060.m25469("openSDK_LOG.AuthActivity", "-->handleActionUri--start");
         if (uri != null && uri.toString() != null) {
             String string = "";
             if (!uri.toString().equals("")) {
                 String string2 = uri.toString();
-                Bundle bundleM42734 = C18338.m42734(string2.substring(string2.indexOf("#") + 1));
-                if (bundleM42734 == null) {
-                    C9145.m23519("openSDK_LOG.AuthActivity", "-->handleActionUri, bundle is null");
+                Bundle bundleM44996 = C19797.m44996(string2.substring(string2.indexOf("#") + 1));
+                if (bundleM44996 == null) {
+                    C11060.m25470("openSDK_LOG.AuthActivity", "-->handleActionUri, bundle is null");
                     finish();
                     return;
                 }
-                String string3 = bundleM42734.getString("action");
-                C9145.m23518("openSDK_LOG.AuthActivity", "-->handleActionUri, action: " + string3);
+                String string3 = bundleM44996.getString("action");
+                C11060.m25469("openSDK_LOG.AuthActivity", "-->handleActionUri, action: " + string3);
                 if (string3 == null) {
                     finish();
                     return;
                 }
                 if (string3.equals("shareToQQ") || string3.equals("shareToQzone") || string3.equals("sendToMyComputer") || string3.equals("shareToTroopBar")) {
-                    if (string3.equals("shareToQzone") && C7733.m20714(this, "com.tencent.mobileqq") != null && C7733.m20709(C7733.m20714(this, "com.tencent.mobileqq"), "5.2.0") < 0) {
-                        int i = f908 + 1;
-                        f908 = i;
+                    if (string3.equals("shareToQzone") && C9718.m22694(this, "com.tencent.mobileqq") != null && C9718.m22689(C9718.m22694(this, "com.tencent.mobileqq"), "5.2.0") < 0) {
+                        int i = f2142 + 1;
+                        f2142 = i;
                         if (i == 2) {
-                            f908 = 0;
+                            f2142 = 0;
                             finish();
                             return;
                         }
                     }
-                    C9145.m23518("openSDK_LOG.AuthActivity", "-->handleActionUri, most share action, start assistactivity");
+                    C11060.m25469("openSDK_LOG.AuthActivity", "-->handleActionUri, most share action, start assistactivity");
                     Intent intent2 = new Intent(this, (Class<?>) AssistActivity.class);
-                    intent2.putExtras(bundleM42734);
+                    intent2.putExtras(bundleM44996);
                     intent2.setFlags(603979776);
                     startActivity(intent2);
                     finish();
@@ -107,12 +107,12 @@ public class AuthActivity extends Activity {
                 }
                 if (string3.equals("addToQQFavorites")) {
                     Intent intent3 = getIntent();
-                    intent3.putExtras(bundleM42734);
+                    intent3.putExtras(bundleM44996);
                     intent3.putExtra("key_action", "action_share");
-                    InterfaceC4227 interfaceC4227M23093 = C8956.m23090().m23093(string3);
-                    if (interfaceC4227M23093 != null) {
-                        C8956.m23090().getClass();
-                        C8956.m23091(intent3, interfaceC4227M23093);
+                    InterfaceC6386 interfaceC6386M25067 = C10880.m25064().m25067(string3);
+                    if (interfaceC6386M25067 != null) {
+                        C10880.m25064().getClass();
+                        C10880.m25065(intent3, interfaceC6386M25067);
                     }
                     finish();
                     return;
@@ -120,9 +120,9 @@ public class AuthActivity extends Activity {
                 if (string3.equals("sharePrize")) {
                     Intent launchIntentForPackage = getPackageManager().getLaunchIntentForPackage(getPackageName());
                     try {
-                        string = C18338.m42748(bundleM42734.getString("response")).getString("activityid");
+                        string = C19797.m45010(bundleM44996.getString("response")).getString("activityid");
                     } catch (Exception e) {
-                        C9145.m23514("openSDK_LOG.AuthActivity", "sharePrize parseJson has exception.", e);
+                        C11060.m25465("openSDK_LOG.AuthActivity", "sharePrize parseJson has exception.", e);
                     }
                     if (!TextUtils.isEmpty(string)) {
                         launchIntentForPackage.putExtra("sharePrize", true);
@@ -139,7 +139,7 @@ public class AuthActivity extends Activity {
                     Intent intent4 = new Intent(this, (Class<?>) AssistActivity.class);
                     intent4.putExtra("key_request_code", 10108);
                     intent4.putExtra("stay_back_stack", booleanExtra);
-                    intent4.putExtras(bundleM42734);
+                    intent4.putExtras(bundleM44996);
                     intent4.setFlags(603979776);
                     startActivity(intent4);
                     finish();
@@ -150,7 +150,7 @@ public class AuthActivity extends Activity {
                     Intent intent5 = new Intent(this, (Class<?>) AssistActivity.class);
                     intent5.putExtra("key_request_code", 10110);
                     intent5.putExtra("stay_back_stack", booleanExtra2);
-                    intent5.putExtras(bundleM42734);
+                    intent5.putExtras(bundleM44996);
                     intent5.setFlags(603979776);
                     startActivity(intent5);
                     finish();
@@ -161,31 +161,31 @@ public class AuthActivity extends Activity {
                     Intent intent6 = new Intent(this, (Class<?>) AssistActivity.class);
                     intent6.putExtra("key_request_code", 10109);
                     intent6.putExtra("stay_back_stack", booleanExtra3);
-                    intent6.putExtras(bundleM42734);
+                    intent6.putExtras(bundleM44996);
                     intent6.setFlags(603979776);
                     startActivity(intent6);
                     finish();
                     return;
                 }
                 if (string3.equals("bindGroup")) {
-                    C9145.m23518("openSDK_LOG.AuthActivity", "-->handleActionUri--bind group callback.");
+                    C11060.m25469("openSDK_LOG.AuthActivity", "-->handleActionUri--bind group callback.");
                     boolean booleanExtra4 = getIntent().getBooleanExtra("stay_back_stack", false);
                     Intent intent7 = new Intent(this, (Class<?>) AssistActivity.class);
                     intent7.putExtra("key_request_code", 10112);
                     intent7.putExtra("stay_back_stack", booleanExtra4);
-                    intent7.putExtras(bundleM42734);
+                    intent7.putExtras(bundleM44996);
                     intent7.setFlags(603979776);
                     startActivity(intent7);
                     finish();
                     return;
                 }
                 if (string3.equals("joinGroup")) {
-                    C9145.m23518("openSDK_LOG.AuthActivity", "-->handleActionUri--join group callback. ");
+                    C11060.m25469("openSDK_LOG.AuthActivity", "-->handleActionUri--join group callback. ");
                     boolean booleanExtra5 = getIntent().getBooleanExtra("stay_back_stack", false);
                     Intent intent8 = new Intent(this, (Class<?>) AssistActivity.class);
                     intent8.putExtra("key_request_code", 10111);
                     intent8.putExtra("stay_back_stack", booleanExtra5);
-                    intent8.putExtras(bundleM42734);
+                    intent8.putExtras(bundleM44996);
                     intent8.setFlags(603979776);
                     startActivity(intent8);
                     finish();
@@ -193,23 +193,23 @@ public class AuthActivity extends Activity {
                 }
                 if ("guildOpen".equals(string3)) {
                     Intent intent9 = new Intent(this, (Class<?>) AssistActivity.class);
-                    intent9.putExtras(bundleM42734);
+                    intent9.putExtras(bundleM44996);
                     intent9.putExtra("key_request_code", 10113);
                     intent9.setFlags(603979776);
                     startActivity(intent9);
                     finish();
                     return;
                 }
-                InterfaceC0698 interfaceC0698 = (InterfaceC0698) this.f909.get(string3);
-                C9145.m23520("openSDK_LOG.AuthActivity", "actionHandler: " + interfaceC0698);
-                if (interfaceC0698 != null) {
-                    interfaceC0698.mo2785(intent, bundleM42734);
+                InterfaceC3032 interfaceC3032 = (InterfaceC3032) this.f2143.get(string3);
+                C11060.m25471("openSDK_LOG.AuthActivity", "actionHandler: " + interfaceC3032);
+                if (interfaceC3032 != null) {
+                    interfaceC3032.mo5130(intent, bundleM44996);
                 }
                 finish();
                 return;
             }
         }
-        C9145.m23519("openSDK_LOG.AuthActivity", "-->handleActionUri, uri invalid");
+        C11060.m25470("openSDK_LOG.AuthActivity", "-->handleActionUri, uri invalid");
         finish();
     }
 
@@ -218,7 +218,7 @@ public class AuthActivity extends Activity {
         try {
             super.finish();
         } catch (Exception e) {
-            C9145.m23514("openSDK_LOG.AuthActivity", "activity finish exception: ", e);
+            C11060.m25465("openSDK_LOG.AuthActivity", "activity finish exception: ", e);
         }
     }
 }

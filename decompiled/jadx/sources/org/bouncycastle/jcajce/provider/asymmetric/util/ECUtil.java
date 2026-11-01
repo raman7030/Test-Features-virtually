@@ -8,12 +8,12 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.util.Enumeration;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.p073x9.ECNamedCurveTable;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
+import org.bouncycastle.crypto.p074ec.CustomNamedCurves;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
@@ -26,9 +26,9 @@ import org.bouncycastle.jce.interfaces.ECPublicKey;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
+import org.bouncycastle.math.p080ec.FixedPointCombMultiplier;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Fingerprint;
 import org.bouncycastle.util.Strings;
@@ -249,7 +249,7 @@ public class ECUtil {
             }
             throw new InvalidKeyException("can't identify EC private key.");
         } catch (Exception e) {
-            throw new InvalidKeyException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("cannot identify EC private key: ")));
+            throw new InvalidKeyException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("cannot identify EC private key: ")));
         }
     }
 
@@ -275,7 +275,7 @@ public class ECUtil {
             }
             throw new InvalidKeyException("cannot identify EC public key.");
         } catch (Exception e) {
-            throw new InvalidKeyException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("cannot identify EC public key: ")));
+            throw new InvalidKeyException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("cannot identify EC public key: ")));
         }
     }
 }

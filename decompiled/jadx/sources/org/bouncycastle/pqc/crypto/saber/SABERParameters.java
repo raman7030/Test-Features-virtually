@@ -7,8 +7,8 @@ public class SABERParameters implements KEMParameters {
     public final int defaultKeySize;
     public final SABEREngine engine;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public final int f77981l;
+    /* JADX INFO: renamed from: l */
+    public final int f81723l;
     public final String name;
     public static final SABERParameters lightsaberkem128r3 = new SABERParameters("lightsaberkem128r3", 2, 128, false, false);
     public static final SABERParameters saberkem128r3 = new SABERParameters("saberkem128r3", 3, 128, false, false);
@@ -31,7 +31,7 @@ public class SABERParameters implements KEMParameters {
 
     public SABERParameters(String str, int i, int i2, boolean z, boolean z2) {
         this.name = str;
-        this.f77981l = i;
+        this.f81723l = i;
         this.defaultKeySize = i2;
         this.engine = new SABEREngine(i, i2, z, z2);
     }
@@ -41,7 +41,7 @@ public class SABERParameters implements KEMParameters {
     }
 
     public int getL() {
-        return this.f77981l;
+        return this.f81723l;
     }
 
     public String getName() {

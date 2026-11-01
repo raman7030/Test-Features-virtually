@@ -1,6 +1,6 @@
 package org.bouncycastle.pqc.crypto.mlkem;
 
-import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.C0684bo;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Poly {
@@ -136,7 +136,7 @@ public class Poly {
             byte[] bArr2 = {b2, b4, b5, b7, (byte) (i7 | ((b8 & 255) << 4)), (byte) ((b8 & 255) >> 1), (byte) (((b8 & 255) >> 6) | ((b9 & 255) << 2)), (byte) ((b9 & 255) >> 3)};
             i6 += 5;
             for (int i8 = 0; i8 < 8; i8++) {
-                setCoeffIndex((i5 * 8) + i8, (short) ((((bArr2[i8] & bo.j) * MLKEMEngine.KyberQ) + 16) >> 5));
+                setCoeffIndex((i5 * 8) + i8, (short) ((((bArr2[i8] & C0684bo.f2505j) * MLKEMEngine.KyberQ) + 16) >> 5));
             }
             i5++;
             i = 1;

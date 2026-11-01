@@ -13,9 +13,9 @@ import org.bouncycastle.crypto.params.ECKeyParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECConstants;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes2.dex */

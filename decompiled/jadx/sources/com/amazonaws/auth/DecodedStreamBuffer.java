@@ -3,70 +3,70 @@ package com.amazonaws.auth;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.logging.Log;
 import com.amazonaws.logging.LogFactory;
-import l.C3200;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DecodedStreamBuffer {
 
-    /* JADX INFO: renamed from: ܳ, reason: not valid java name and contains not printable characters */
-    public static final Log f150 = LogFactory.m302(DecodedStreamBuffer.class);
+    /* JADX INFO: renamed from: ܳ */
+    public static final Log f1310 = LogFactory.m1468(DecodedStreamBuffer.class);
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public byte[] f151;
+    /* JADX INFO: renamed from: ֫ */
+    public byte[] f1311;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public boolean f152;
+    /* JADX INFO: renamed from: ۧ */
+    public boolean f1312;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public int f153;
+    /* JADX INFO: renamed from: ܽ */
+    public int f1313;
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public int f154 = -1;
+    /* JADX INFO: renamed from: ܿ */
+    public int f1314 = -1;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public int f155;
+    /* JADX INFO: renamed from: ᩳ */
+    public int f1315;
 
     public DecodedStreamBuffer(int i) {
-        this.f151 = new byte[i];
-        this.f155 = i;
+        this.f1311 = new byte[i];
+        this.f1315 = i;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m218(int i, int i2, byte[] bArr) {
-        this.f154 = -1;
-        int i3 = this.f153;
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1384(int i, int i2, byte[] bArr) {
+        this.f1314 = -1;
+        int i3 = this.f1313;
         int i4 = i3 + i2;
-        int i5 = this.f155;
+        int i5 = this.f1315;
         if (i4 > i5) {
-            Log log = f150;
-            if (log.mo293()) {
-                log.mo294("Buffer size " + i5 + " has been exceeded and the input stream will not be repeatable. Freeing buffer memory");
+            Log log = f1310;
+            if (log.mo1459()) {
+                log.mo1460("Buffer size " + i5 + " has been exceeded and the input stream will not be repeatable. Freeing buffer memory");
             }
-            this.f152 = true;
+            this.f1312 = true;
             return;
         }
-        System.arraycopy(bArr, i, this.f151, i3, i2);
-        this.f153 += i2;
+        System.arraycopy(bArr, i, this.f1311, i3, i2);
+        this.f1313 += i2;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final boolean m219() {
-        int i = this.f154;
-        return i != -1 && i < this.f153;
+    /* JADX INFO: renamed from: ֫ */
+    public final boolean m1385() {
+        int i = this.f1314;
+        return i != -1 && i < this.f1313;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final byte m220() {
-        int i = this.f154;
-        this.f154 = i + 1;
-        return this.f151[i];
+    /* JADX INFO: renamed from: ۧ */
+    public final byte m1386() {
+        int i = this.f1314;
+        this.f1314 = i + 1;
+        return this.f1311[i];
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final void m221() {
-        if (this.f152) {
-            throw new AmazonClientException(C3200.m9831(this.f155, " has been exceeded.", new StringBuilder("The input stream is not repeatable since the buffer size ")));
+    /* JADX INFO: renamed from: ܽ */
+    public final void m1387() {
+        if (this.f1312) {
+            throw new AmazonClientException(C5410.m11876(this.f1315, " has been exceeded.", new StringBuilder("The input stream is not repeatable since the buffer size ")));
         }
-        this.f154 = 0;
+        this.f1314 = 0;
     }
 }

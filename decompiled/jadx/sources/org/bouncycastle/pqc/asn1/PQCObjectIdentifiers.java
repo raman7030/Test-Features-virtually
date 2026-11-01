@@ -1,7 +1,7 @@
 package org.bouncycastle.pqc.asn1;
 
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 
 /* JADX INFO: loaded from: classes2.dex */
 public interface PQCObjectIdentifiers {

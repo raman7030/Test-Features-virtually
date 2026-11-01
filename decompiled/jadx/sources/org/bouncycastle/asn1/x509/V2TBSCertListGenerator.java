@@ -1,8 +1,6 @@
 package org.bouncycastle.asn1.x509;
 
 import java.io.IOException;
-import l.C16014;
-import l.C19370;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -12,6 +10,8 @@ import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.x500.X500Name;
+import p067l.C17588;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class V2TBSCertListGenerator {
@@ -81,7 +81,7 @@ public class V2TBSCertListGenerator {
             aSN1EncodableVector.add(createReasonExtension(i));
         } else {
             if (i < 0) {
-                throw new IllegalArgumentException(C19370.m44628(i, "invalid reason value: "));
+                throw new IllegalArgumentException(C20778.m46922(i, "invalid reason value: "));
             }
             aSN1EncodableVector.add(aSN1SequenceArr[i]);
         }
@@ -163,7 +163,7 @@ public class V2TBSCertListGenerator {
         try {
             return new DERSequence(Extension.invalidityDate, new DEROctetString(aSN1GeneralizedTime.getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("error encoding reason: ", e));
+            throw new IllegalArgumentException(C17588.m40052("error encoding reason: ", e));
         }
     }
 
@@ -171,7 +171,7 @@ public class V2TBSCertListGenerator {
         try {
             return new DERSequence(Extension.reasonCode, new DEROctetString(CRLReason.lookup(i).getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("error encoding reason: ", e));
+            throw new IllegalArgumentException(C17588.m40052("error encoding reason: ", e));
         }
     }
 }

@@ -1,10 +1,10 @@
 package org.bouncycastle.asn1;
 
 import java.io.IOException;
-import l.C19370;
-import l.C3200;
-import l.C5127;
 import org.bouncycastle.util.Objects;
+import p067l.C20778;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class ASN1External extends ASN1Primitive {
@@ -106,10 +106,10 @@ public abstract class ASN1External extends ASN1Primitive {
             try {
                 return (ASN1External) TYPE.fromByteArray((byte[]) obj);
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("failed to construct external from byte[]: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("failed to construct external from byte[]: ")));
             }
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 
     public static ASN1External getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {
@@ -194,7 +194,7 @@ public abstract class ASN1External extends ASN1Primitive {
 
     public static int checkEncoding(int i) {
         if (i < 0 || i > 2) {
-            throw new IllegalArgumentException(C19370.m44628(i, "invalid encoding value: "));
+            throw new IllegalArgumentException(C20778.m46922(i, "invalid encoding value: "));
         }
         return i;
     }

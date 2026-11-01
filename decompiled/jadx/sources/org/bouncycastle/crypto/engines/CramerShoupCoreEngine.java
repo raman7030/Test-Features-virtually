@@ -109,8 +109,8 @@ public class CramerShoupCoreEngine {
         byte[] bArr2 = new byte[h.getDigestSize()];
         h.doFinal(bArr2, 0);
         BigInteger bigInteger = new BigInteger(1, bArr2);
-        if (cramerShoupCiphertext.v.equals(cramerShoupCiphertext.u1.modPow(cramerShoupPrivateKeyParameters.getX1().add(cramerShoupPrivateKeyParameters.getY1().multiply(bigInteger)), p).multiply(cramerShoupCiphertext.u2.modPow(cramerShoupPrivateKeyParameters.getX2().add(cramerShoupPrivateKeyParameters.getY2().multiply(bigInteger)), p)).mod(p))) {
-            return cramerShoupCiphertext.e.multiply(cramerShoupCiphertext.u1.modPow(cramerShoupPrivateKeyParameters.getZ(), p).modInverse(p)).mod(p);
+        if (cramerShoupCiphertext.f81009v.equals(cramerShoupCiphertext.f81007u1.modPow(cramerShoupPrivateKeyParameters.getX1().add(cramerShoupPrivateKeyParameters.getY1().multiply(bigInteger)), p).multiply(cramerShoupCiphertext.f81008u2.modPow(cramerShoupPrivateKeyParameters.getX2().add(cramerShoupPrivateKeyParameters.getY2().multiply(bigInteger)), p)).mod(p))) {
+            return cramerShoupCiphertext.f81006e.multiply(cramerShoupCiphertext.f81007u1.modPow(cramerShoupPrivateKeyParameters.getZ(), p).modInverse(p)).mod(p);
         }
         throw new CramerShoupCiphertextException("Sorry, that ciphertext is not correct");
     }

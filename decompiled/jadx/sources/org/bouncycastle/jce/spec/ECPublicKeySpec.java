@@ -1,21 +1,23 @@
 package org.bouncycastle.jce.spec;
 
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECPublicKeySpec extends ECKeySpec {
-    public ECPoint q;
+
+    /* JADX INFO: renamed from: q */
+    public ECPoint f81389q;
 
     public ECPublicKeySpec(ECPoint eCPoint, ECParameterSpec eCParameterSpec) {
         super(eCParameterSpec);
         if (eCPoint.getCurve() != null) {
-            this.q = eCPoint.normalize();
+            this.f81389q = eCPoint.normalize();
         } else {
-            this.q = eCPoint;
+            this.f81389q = eCPoint;
         }
     }
 
     public ECPoint getQ() {
-        return this.q;
+        return this.f81389q;
     }
 }

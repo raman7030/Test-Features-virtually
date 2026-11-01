@@ -2,7 +2,6 @@ package org.bouncycastle.crypto.signers;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
 import java.security.SecureRandom;
-import l.C19370;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -12,6 +11,7 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.ParametersWithSalt;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.util.Arrays;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ISO9796d2PSSSigner implements SignerWithRecovery {
@@ -392,7 +392,7 @@ public class ISO9796d2PSSSigner implements SignerWithRecovery {
             }
             int iIntValue = trailer.intValue();
             if (i4 != iIntValue && (iIntValue != 15052 || i4 != 16588)) {
-                throw new IllegalStateException(C19370.m44628(i4, "signer initialised with wrong digest for trailer "));
+                throw new IllegalStateException(C20778.m46922(i4, "signer initialised with wrong digest for trailer "));
             }
             i = 2;
         }

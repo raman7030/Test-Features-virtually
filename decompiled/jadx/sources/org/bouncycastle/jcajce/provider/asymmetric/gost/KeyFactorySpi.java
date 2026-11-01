@@ -6,7 +6,6 @@ import java.security.Key;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.KeySpec;
-import l.C12803;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
@@ -18,6 +17,7 @@ import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
 import org.bouncycastle.jce.spec.GOST3410PrivateKeySpec;
 import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
 import org.bouncycastle.jce.spec.GOST3410PublicKeySpec;
+import p067l.C14536;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi {
@@ -63,7 +63,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (algorithm.equals((ASN1Primitive) CryptoProObjectIdentifiers.gostR3410_94)) {
             return new BCGOST3410PrivateKey(privateKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 
     @Override // org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter
@@ -72,6 +72,6 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (algorithm.equals((ASN1Primitive) CryptoProObjectIdentifiers.gostR3410_94)) {
             return new BCGOST3410PublicKey(subjectPublicKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 }

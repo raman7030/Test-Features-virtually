@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.generators;
 
-import l.C3200;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.DerivationParameters;
 import org.bouncycastle.crypto.Mac;
@@ -8,15 +7,22 @@ import org.bouncycastle.crypto.MacDerivationFunction;
 import org.bouncycastle.crypto.params.KDFFeedbackParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Integers;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KDFFeedbackBytesGenerator implements MacDerivationFunction {
     public byte[] fixedInputData;
     public int generatedBytes;
-    public final int h;
+
+    /* JADX INFO: renamed from: h */
+    public final int f81118h;
     public byte[] ios;
-    public byte[] iv;
-    public byte[] k;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81119iv;
+
+    /* JADX INFO: renamed from: k */
+    public byte[] f81120k;
     public int maxSizeExcl;
     public final Mac prf;
     public boolean useCounter;
@@ -24,22 +30,22 @@ public class KDFFeedbackBytesGenerator implements MacDerivationFunction {
     public KDFFeedbackBytesGenerator(Mac mac) {
         this.prf = mac;
         int macSize = mac.getMacSize();
-        this.h = macSize;
-        this.k = new byte[macSize];
+        this.f81118h = macSize;
+        this.f81120k = new byte[macSize];
     }
 
     private void generateNext() {
         if (this.generatedBytes == 0) {
             Mac mac = this.prf;
-            byte[] bArr = this.iv;
+            byte[] bArr = this.f81119iv;
             mac.update(bArr, 0, bArr.length);
         } else {
             Mac mac2 = this.prf;
-            byte[] bArr2 = this.k;
+            byte[] bArr2 = this.f81120k;
             mac2.update(bArr2, 0, bArr2.length);
         }
         if (this.useCounter) {
-            int i = (this.generatedBytes / this.h) + 1;
+            int i = (this.generatedBytes / this.f81118h) + 1;
             byte[] bArr3 = this.ios;
             int length = bArr3.length;
             if (length != 1) {
@@ -60,7 +66,7 @@ public class KDFFeedbackBytesGenerator implements MacDerivationFunction {
         Mac mac3 = this.prf;
         byte[] bArr4 = this.fixedInputData;
         mac3.update(bArr4, 0, bArr4.length);
-        this.prf.doFinal(this.k, 0);
+        this.prf.doFinal(this.f81120k, 0);
     }
 
     @Override // org.bouncycastle.crypto.MacDerivationFunction
@@ -79,11 +85,11 @@ public class KDFFeedbackBytesGenerator implements MacDerivationFunction {
         int r = kDFFeedbackParameters.getR();
         this.ios = new byte[r / 8];
         int i = Integer.MAX_VALUE;
-        if (kDFFeedbackParameters.useCounter() && r < Integers.numberOfLeadingZeros(this.h)) {
-            i = this.h << r;
+        if (kDFFeedbackParameters.useCounter() && r < Integers.numberOfLeadingZeros(this.f81118h)) {
+            i = this.f81118h << r;
         }
         this.maxSizeExcl = i;
-        this.iv = kDFFeedbackParameters.getIV();
+        this.f81119iv = kDFFeedbackParameters.getIV();
         this.useCounter = kDFFeedbackParameters.useCounter();
         this.generatedBytes = 0;
     }
@@ -93,16 +99,16 @@ public class KDFFeedbackBytesGenerator implements MacDerivationFunction {
         int i3 = this.generatedBytes;
         int i4 = i3 + i2;
         if (i4 < 0 || i4 >= this.maxSizeExcl) {
-            throw new DataLengthException(C3200.m9831(this.maxSizeExcl, " bytes", new StringBuilder("Current KDFCTR may only be used for ")));
+            throw new DataLengthException(C5410.m11876(this.maxSizeExcl, " bytes", new StringBuilder("Current KDFCTR may only be used for ")));
         }
-        if (i3 % this.h == 0) {
+        if (i3 % this.f81118h == 0) {
             generateNext();
         }
         int i5 = this.generatedBytes;
-        int i6 = this.h;
+        int i6 = this.f81118h;
         int i7 = i5 % i6;
         int iMin = Math.min(i6 - (i5 % i6), i2);
-        System.arraycopy(this.k, i7, bArr, i, iMin);
+        System.arraycopy(this.f81120k, i7, bArr, i, iMin);
         this.generatedBytes += iMin;
         int i8 = i2 - iMin;
         while (true) {
@@ -111,8 +117,8 @@ public class KDFFeedbackBytesGenerator implements MacDerivationFunction {
                 return i2;
             }
             generateNext();
-            iMin = Math.min(this.h, i8);
-            System.arraycopy(this.k, 0, bArr, i, iMin);
+            iMin = Math.min(this.f81118h, i8);
+            System.arraycopy(this.f81120k, 0, bArr, i, iMin);
             this.generatedBytes += iMin;
             i8 -= iMin;
         }

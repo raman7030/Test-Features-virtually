@@ -1,0 +1,14 @@
+package p067l;
+
+import com.google.android.material.slider.BaseSlider;
+
+/* JADX INFO: renamed from: l.۬۟ۢ, reason: contains not printable characters */
+/* JADX INFO: compiled from: T6QI */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C14692 extends C10856 {
+    @Override // p067l.C20915
+    /* JADX INFO: renamed from: ۧ */
+    public final int mo3481() {
+        return BaseSlider.DEFAULT_LABEL_ANIMATION_EXIT_DURATION;
+    }
+}

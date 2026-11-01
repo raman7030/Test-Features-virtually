@@ -35,7 +35,7 @@ public class NTRUKEMExtractor implements EncapsulatedSecretExtractor {
         }
         byte[] bArr2 = this.ntruPrivateKey.privateKey;
         OWCPADecryptResult oWCPADecryptResultDecrypt = new NTRUOWCPA(parameterSet).decrypt(bArr, bArr2);
-        byte[] bArr3 = oWCPADecryptResultDecrypt.rm;
+        byte[] bArr3 = oWCPADecryptResultDecrypt.f81683rm;
         int i = oWCPADecryptResultDecrypt.fail;
         SHA3Digest sHA3Digest = new SHA3Digest(256);
         byte[] bArr4 = new byte[sHA3Digest.getDigestSize()];

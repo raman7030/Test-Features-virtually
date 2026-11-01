@@ -1,20 +1,26 @@
 package org.bouncycastle.crypto.agreement.jpake;
 
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import java.math.BigInteger;
 
 /* JADX INFO: loaded from: classes.dex */
 public class JPAKEPrimeOrderGroup {
-    public final BigInteger g;
-    public final BigInteger p;
-    public final BigInteger q;
+
+    /* JADX INFO: renamed from: g */
+    public final BigInteger f80757g;
+
+    /* JADX INFO: renamed from: p */
+    public final BigInteger f80758p;
+
+    /* JADX INFO: renamed from: q */
+    public final BigInteger f80759q;
 
     public JPAKEPrimeOrderGroup(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3) {
         this(bigInteger, bigInteger2, bigInteger3, false);
     }
 
     public JPAKEPrimeOrderGroup(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, boolean z) {
-        JPAKEUtil.validateNotNull(bigInteger, am.ax);
+        JPAKEUtil.validateNotNull(bigInteger, C0655am.f2322ax);
         JPAKEUtil.validateNotNull(bigInteger2, "q");
         JPAKEUtil.validateNotNull(bigInteger3, "g");
         if (!z) {
@@ -35,20 +41,20 @@ public class JPAKEPrimeOrderGroup {
                 throw new IllegalArgumentException("q must be prime");
             }
         }
-        this.p = bigInteger;
-        this.q = bigInteger2;
-        this.g = bigInteger3;
+        this.f80758p = bigInteger;
+        this.f80759q = bigInteger2;
+        this.f80757g = bigInteger3;
     }
 
     public BigInteger getG() {
-        return this.g;
+        return this.f80757g;
     }
 
     public BigInteger getP() {
-        return this.p;
+        return this.f80758p;
     }
 
     public BigInteger getQ() {
-        return this.q;
+        return this.f80759q;
     }
 }

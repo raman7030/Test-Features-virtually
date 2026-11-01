@@ -5,7 +5,7 @@ import java.security.cert.CertPathParameters;
 import java.security.cert.PKIXBuilderParameters;
 import java.util.HashSet;
 import java.util.Set;
-import l.C20195;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PKIXExtendedBuilderParameters implements CertPathParameters {
@@ -51,7 +51,7 @@ public class PKIXExtendedBuilderParameters implements CertPathParameters {
 
     public PKIXExtendedBuilderParameters(Builder builder) {
         this.baseParameters = builder.baseParameters;
-        this.excludedCerts = C20195.unmodifiableSet(builder.excludedCerts);
+        this.excludedCerts = C21562.unmodifiableSet(builder.excludedCerts);
         this.maxPathLength = builder.maxPathLength;
     }
 

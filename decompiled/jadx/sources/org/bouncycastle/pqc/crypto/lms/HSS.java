@@ -2,8 +2,8 @@ package org.bouncycastle.pqc.crypto.lms;
 
 import java.util.Arrays;
 import java.util.List;
-import l.C13132;
 import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
+import p067l.C14849;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HSS {
@@ -49,7 +49,7 @@ public class HSS {
             bArr4 = bArr;
         }
         if (h == 0) {
-            h = C13132.FOREVER_NS;
+            h = C14849.FOREVER_NS;
         }
         return new HSSPrivateKeyParameters(hSSKeyGenerationParameters.getDepth(), Arrays.asList(lMSPrivateKeyParametersArr), Arrays.asList(lMSSignatureArr), 0L, h);
     }

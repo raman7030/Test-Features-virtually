@@ -9,8 +9,6 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import l.C12803;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
@@ -39,6 +37,8 @@ import org.bouncycastle.jcajce.spec.RawEncodedKeySpec;
 import org.bouncycastle.jcajce.spec.XDHParameterSpec;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C14536;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInfoConverter {
@@ -156,7 +156,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
                     try {
                         encoded = new SubjectPublicKeyInfo(new AlgorithmIdentifier(subjectPublicKeyInfo.getAlgorithm().getAlgorithm()), subjectPublicKeyInfo.getPublicKeyData().getBytes()).getEncoded(ASN1Encoding.DER);
                     } catch (IOException e) {
-                        throw new InvalidKeySpecException(C5127.m14678(e, new StringBuilder("attempt to reconstruct key failed: ")));
+                        throw new InvalidKeySpecException(C7241.m16586(e, new StringBuilder("attempt to reconstruct key failed: ")));
                     }
                 }
                 switch (encoded[8]) {
@@ -224,7 +224,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
                 }
             }
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognized"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognized"));
     }
 
     @Override // org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter
@@ -252,6 +252,6 @@ public class KeyFactorySpi extends BaseKeyFactorySpi implements AsymmetricKeyInf
                 }
             }
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognized"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognized"));
     }
 }

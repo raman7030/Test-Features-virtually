@@ -10,14 +10,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import l.C12662;
-import l.C20094;
-import l.C20382;
-import l.C3200;
-import l.C3435;
-import l.C5368;
-import l.C8954;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -40,6 +32,14 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C10878;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C21466;
+import p067l.C21740;
+import p067l.C5410;
+import p067l.C5633;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class DESede {
@@ -199,12 +199,12 @@ public final class DESede {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$ECB", "Cipher.DESEDE", sb, configurableProvider);
+            C14403.m33021(str, "$ECB", "Cipher.DESEDE", sb, configurableProvider);
             ASN1ObjectIdentifier aSN1ObjectIdentifier = PKCSObjectIdentifiers.des_EDE3_CBC;
             configurableProvider.addAlgorithm("Cipher", aSN1ObjectIdentifier, str + "$CBC");
-            C12662.m30943(str, "$Wrap", "Cipher.DESEDEWRAP", new StringBuilder(), configurableProvider);
+            C14403.m33021(str, "$Wrap", "Cipher.DESEDEWRAP", new StringBuilder(), configurableProvider);
             configurableProvider.addAlgorithm("Cipher", PKCSObjectIdentifiers.id_alg_CMS3DESwrap, str + "$Wrap");
-            C12662.m30943(str, "$RFC3211", "Cipher.DESEDERFC3211WRAP", new StringBuilder(), configurableProvider);
+            C14403.m33021(str, "$RFC3211", "Cipher.DESEDERFC3211WRAP", new StringBuilder(), configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.Cipher.DESEDERFC3217WRAP", "DESEDEWRAP");
             configurableProvider.addAlgorithm("Alg.Alias.Cipher.TDEA", "DESEDE");
             configurableProvider.addAlgorithm("Alg.Alias.Cipher.TDEAWRAP", "DESEDEWRAP");
@@ -216,7 +216,7 @@ public final class DESede {
                 configurableProvider.addAlgorithm("Cipher.PBEWITHSHAAND3-KEYTRIPLEDES-CBC", str + "$PBEWithSHAAndDES3Key");
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(str);
-                C3200.m9836(sb2, "$PBEWithSHAAndDES2Key", configurableProvider, "Cipher.PBEWITHSHAAND2-KEYTRIPLEDES-CBC");
+                C5410.m11881(sb2, "$PBEWithSHAAndDES2Key", configurableProvider, "Cipher.PBEWITHSHAAND2-KEYTRIPLEDES-CBC");
                 configurableProvider.addAlgorithm("Alg.Alias.Cipher", PKCSObjectIdentifiers.pbeWithSHAAnd3_KeyTripleDES_CBC, "PBEWITHSHAAND3-KEYTRIPLEDES-CBC");
                 configurableProvider.addAlgorithm("Alg.Alias.Cipher", PKCSObjectIdentifiers.pbeWithSHAAnd2_KeyTripleDES_CBC, "PBEWITHSHAAND2-KEYTRIPLEDES-CBC");
                 configurableProvider.addAlgorithm("Alg.Alias.Cipher.PBEWITHSHA1ANDDESEDE", "PBEWITHSHAAND3-KEYTRIPLEDES-CBC");
@@ -228,23 +228,23 @@ public final class DESede {
                 configurableProvider.addAlgorithm("Alg.Alias.Cipher.PBEWITHSHA1AND2-KEYDESEDE-CBC", "PBEWITHSHAAND2-KEYTRIPLEDES-CBC");
                 configurableProvider.addAlgorithm("Alg.Alias.Cipher.PBEWITHSHA1ANDDESEDE-CBC", "PBEWITHSHAAND3-KEYTRIPLEDES-CBC");
             }
-            StringBuilder sbM46316 = C20094.m46316(str, "$KeyGenerator", "KeyGenerator.DESEDE", "KeyGenerator.", configurableProvider);
-            sbM46316.append(aSN1ObjectIdentifier);
-            configurableProvider.addAlgorithm(sbM46316.toString(), str + "$KeyGenerator3");
+            StringBuilder sbM48632 = C21466.m48632(str, "$KeyGenerator", "KeyGenerator.DESEDE", "KeyGenerator.", configurableProvider);
+            sbM48632.append(aSN1ObjectIdentifier);
+            configurableProvider.addAlgorithm(sbM48632.toString(), str + "$KeyGenerator3");
             StringBuilder sb3 = new StringBuilder();
             sb3.append(str);
-            C3200.m9836(C3435.m10502("$KeyGenerator", "KeyGenerator.DESEDEWRAP", str, sb3, configurableProvider), "$KeyFactory", configurableProvider, "SecretKeyFactory.DESEDE");
+            C5410.m11881(C5633.m12526("$KeyGenerator", "KeyGenerator.DESEDEWRAP", str, sb3, configurableProvider), "$KeyFactory", configurableProvider, "SecretKeyFactory.DESEDE");
             configurableProvider.addAlgorithm("SecretKeyFactory", OIWObjectIdentifiers.desEDE, str + "$KeyFactory");
-            C12662.m30943(str, "$CBCMAC", "Mac.DESEDEMAC", C5368.m15340(str, "$CMAC", "Mac.DESEDECMAC", new StringBuilder(), configurableProvider), configurableProvider);
-            C12662.m30943(str, "$DESede64", "Mac.DESEDEMAC64", C20382.m46696("Mac.DESEDEMAC/CFB8", C8954.m23074("Alg.Alias.Mac.DESEDE", "DESEDEMAC", str, "$DESedeCFB8", configurableProvider), "Alg.Alias.Mac.DESEDE/CFB8", "DESEDEMAC/CFB8", configurableProvider), configurableProvider);
-            configurableProvider.addAlgorithm("Mac.DESEDEMAC64WITHISO7816-4PADDING", C8954.m23074("Alg.Alias.Mac.DESEDE64", "DESEDEMAC64", str, "$DESede64with7816d4", configurableProvider));
+            C14403.m33021(str, "$CBCMAC", "Mac.DESEDEMAC", C7470.m17249(str, "$CMAC", "Mac.DESEDECMAC", new StringBuilder(), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$DESede64", "Mac.DESEDEMAC64", C21740.m49019("Mac.DESEDEMAC/CFB8", C10878.m25048("Alg.Alias.Mac.DESEDE", "DESEDEMAC", str, "$DESedeCFB8", configurableProvider), "Alg.Alias.Mac.DESEDE/CFB8", "DESEDEMAC/CFB8", configurableProvider), configurableProvider);
+            configurableProvider.addAlgorithm("Mac.DESEDEMAC64WITHISO7816-4PADDING", C10878.m25048("Alg.Alias.Mac.DESEDE64", "DESEDEMAC64", str, "$DESede64with7816d4", configurableProvider));
             configurableProvider.addAlgorithm("Alg.Alias.Mac.DESEDE64WITHISO7816-4PADDING", "DESEDEMAC64WITHISO7816-4PADDING");
             configurableProvider.addAlgorithm("Alg.Alias.Mac.DESEDEISO9797ALG1MACWITHISO7816-4PADDING", "DESEDEMAC64WITHISO7816-4PADDING");
             configurableProvider.addAlgorithm("Alg.Alias.Mac.DESEDEISO9797ALG1WITHISO7816-4PADDING", "DESEDEMAC64WITHISO7816-4PADDING");
             configurableProvider.addAlgorithm("AlgorithmParameters.DESEDE", "org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters");
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameters." + aSN1ObjectIdentifier, "DESEDE");
             configurableProvider.addAlgorithm("AlgorithmParameterGenerator.DESEDE", str + "$AlgParamGen");
-            C3200.m9836(C3435.m10502("$PBEWithSHAAndDES3KeyFactory", "SecretKeyFactory.PBEWITHSHAAND3-KEYTRIPLEDES-CBC", str, C9045.m23342("DESEDE", str, new StringBuilder("Alg.Alias.AlgorithmParameterGenerator."), aSN1ObjectIdentifier, configurableProvider), configurableProvider), "$PBEWithSHAAndDES2KeyFactory", configurableProvider, "SecretKeyFactory.PBEWITHSHAAND2-KEYTRIPLEDES-CBC");
+            C5410.m11881(C5633.m12526("$PBEWithSHAAndDES3KeyFactory", "SecretKeyFactory.PBEWITHSHAAND3-KEYTRIPLEDES-CBC", str, C10965.m25287("DESEDE", str, new StringBuilder("Alg.Alias.AlgorithmParameterGenerator."), aSN1ObjectIdentifier, configurableProvider), configurableProvider), "$PBEWithSHAAndDES2KeyFactory", configurableProvider, "SecretKeyFactory.PBEWITHSHAAND2-KEYTRIPLEDES-CBC");
             configurableProvider.addAlgorithm("Alg.Alias.SecretKeyFactory.PBEWITHSHA1ANDDESEDE", "PBEWITHSHAAND3-KEYTRIPLEDES-CBC");
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameters.PBEWITHSHAAND3-KEYTRIPLEDES", "PKCS12PBE");
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameters.PBEWITHSHAAND2-KEYTRIPLEDES", "PKCS12PBE");

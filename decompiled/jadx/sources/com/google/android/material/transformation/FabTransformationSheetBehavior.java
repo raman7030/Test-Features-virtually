@@ -8,10 +8,10 @@ import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.animation.Positioning;
 import java.util.HashMap;
 import java.util.Map;
-import l.C14077;
-import l.C16519;
-import l.C17648;
-import l.C18333;
+import p067l.C1540;
+import p067l.C1717;
+import p067l.C1751;
+import p067l.C18068;
 
 /* JADX INFO: loaded from: classes2.dex */
 @Deprecated
@@ -29,9 +29,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public FabTransformationBehavior.FabTransformationSpec onCreateMotionSpec(Context context, boolean z) {
         int i;
         if (z) {
-            i = C16519.f50767;
+            i = C18068.f53945;
         } else {
-            i = C16519.f50776;
+            i = C18068.f53954;
         }
         FabTransformationBehavior.FabTransformationSpec fabTransformationSpec = new FabTransformationBehavior.FabTransformationSpec();
         fabTransformationSpec.timings = MotionSpec.createFromResource(context, i);
@@ -48,25 +48,25 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     private void updateImportantForAccessibility(View view, boolean z) {
         int iIntValue;
         ViewParent parent = view.getParent();
-        if (parent instanceof C18333) {
-            C18333 c18333 = (C18333) parent;
-            int childCount = c18333.getChildCount();
+        if (parent instanceof C1751) {
+            C1751 c1751 = (C1751) parent;
+            int childCount = c1751.getChildCount();
             if (z) {
                 this.importantForAccessibilityMap = new HashMap(childCount);
             }
             for (int i = 0; i < childCount; i++) {
-                View childAt = c18333.getChildAt(i);
-                boolean z2 = (childAt.getLayoutParams() instanceof C14077) && (((C14077) childAt.getLayoutParams()).m33687() instanceof FabTransformationScrimBehavior);
+                View childAt = c1751.getChildAt(i);
+                boolean z2 = (childAt.getLayoutParams() instanceof C1540) && (((C1540) childAt.getLayoutParams()).m35812() instanceof FabTransformationScrimBehavior);
                 if (childAt != view && !z2) {
                     if (!z) {
                         Map map = this.importantForAccessibilityMap;
                         if (map != null && map.containsKey(childAt)) {
                             iIntValue = ((Integer) this.importantForAccessibilityMap.get(childAt)).intValue();
-                            int i2 = C17648.f53953;
+                            int i2 = C1717.f57146;
                         }
                     } else {
                         this.importantForAccessibilityMap.put(childAt, Integer.valueOf(childAt.getImportantForAccessibility()));
-                        int i3 = C17648.f53953;
+                        int i3 = C1717.f57146;
                         iIntValue = 4;
                     }
                     childAt.setImportantForAccessibility(iIntValue);

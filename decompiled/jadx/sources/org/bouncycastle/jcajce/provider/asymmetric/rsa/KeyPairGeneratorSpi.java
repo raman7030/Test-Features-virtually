@@ -1,6 +1,6 @@
 package org.bouncycastle.jcajce.provider.asymmetric.rsa;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
@@ -35,7 +35,7 @@ public class KeyPairGeneratorSpi extends KeyPairGenerator {
     }
 
     public KeyPairGeneratorSpi() {
-        this(d.a, PKCS_ALGID);
+        this(C0187d.f883a, PKCS_ALGID);
     }
 
     public KeyPairGeneratorSpi(String str, AlgorithmIdentifier algorithmIdentifier) {

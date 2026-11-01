@@ -8,7 +8,7 @@ import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.params.Ed448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 import org.bouncycastle.jcajce.spec.EdDSAParameterSpec;
-import org.bouncycastle.math.ec.rfc8032.Ed448;
+import org.bouncycastle.math.p080ec.rfc8032.Ed448;
 import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */

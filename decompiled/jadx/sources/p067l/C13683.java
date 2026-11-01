@@ -1,0 +1,94 @@
+package p067l;
+
+/* JADX INFO: renamed from: l.ۨ᩵ۚ, reason: contains not printable characters */
+/* JADX INFO: compiled from: 54VR */
+/* JADX INFO: loaded from: classes3.dex */
+public final class C13683 {
+
+    /* JADX INFO: renamed from: ᩳ */
+    public static final Object f38588 = new Object();
+
+    /* JADX INFO: renamed from: ֫ */
+    public int[] f38589;
+
+    /* JADX INFO: renamed from: ۧ */
+    public int f38590 = 0;
+
+    /* JADX INFO: renamed from: ܽ */
+    public Object[] f38591;
+
+    public C13683(int i) {
+        this.f38589 = new int[i];
+        this.f38591 = new Object[i];
+    }
+
+    /* JADX INFO: renamed from: ֫ */
+    public static int m31083(int i, int i2, int[] iArr) {
+        int i3 = -1;
+        int i4 = i;
+        while (i4 - i3 > 1) {
+            int i5 = (i4 + i3) / 2;
+            if (iArr[i5] < i2) {
+                i3 = i5;
+            } else {
+                i4 = i5;
+            }
+        }
+        if (i4 == i) {
+            return ~i;
+        }
+        return iArr[i4] == i2 ? i4 : ~i4;
+    }
+
+    /* JADX INFO: renamed from: ֫ */
+    public final Object m31084(int i) {
+        Object obj;
+        int iM31083 = m31083(this.f38590, i, this.f38589);
+        if (iM31083 < 0 || (obj = this.f38591[iM31083]) == f38588) {
+            return null;
+        }
+        return obj;
+    }
+
+    /* JADX INFO: renamed from: ֫ */
+    public final void m31085(int i, Comparable comparable) {
+        int iM31083 = m31083(this.f38590, i, this.f38589);
+        if (iM31083 >= 0) {
+            this.f38591[iM31083] = comparable;
+            return;
+        }
+        int i2 = ~iM31083;
+        int i3 = this.f38590;
+        if (i2 < i3) {
+            Object[] objArr = this.f38591;
+            if (objArr[i2] == f38588) {
+                this.f38589[i2] = i;
+                objArr[i2] = comparable;
+                return;
+            }
+        }
+        int[] iArr = this.f38589;
+        if (i3 >= iArr.length) {
+            int iMax = Math.max(i3 + 1, iArr.length * 2);
+            int[] iArr2 = new int[iMax];
+            Object[] objArr2 = new Object[iMax];
+            int[] iArr3 = this.f38589;
+            System.arraycopy(iArr3, 0, iArr2, 0, iArr3.length);
+            Object[] objArr3 = this.f38591;
+            System.arraycopy(objArr3, 0, objArr2, 0, objArr3.length);
+            this.f38589 = iArr2;
+            this.f38591 = objArr2;
+        }
+        int i4 = this.f38590 - i2;
+        if (i4 != 0) {
+            int[] iArr4 = this.f38589;
+            int i5 = i2 + 1;
+            System.arraycopy(iArr4, i2, iArr4, i5, i4);
+            Object[] objArr4 = this.f38591;
+            System.arraycopy(objArr4, i2, objArr4, i5, this.f38590 - i2);
+        }
+        this.f38589[i2] = i;
+        this.f38591[i2] = comparable;
+        this.f38590++;
+    }
+}

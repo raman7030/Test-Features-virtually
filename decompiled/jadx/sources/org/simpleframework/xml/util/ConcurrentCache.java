@@ -1,9 +1,9 @@
 package org.simpleframework.xml.util;
 
-import l.ConcurrentMapC10942;
+import p067l.ConcurrentMapC12768;
 
 /* JADX INFO: loaded from: classes2.dex */
-public class ConcurrentCache extends ConcurrentMapC10942 implements Cache {
+public class ConcurrentCache extends ConcurrentMapC12768 implements Cache {
     @Override // org.simpleframework.xml.util.Cache
     public void cache(Object obj, Object obj2) {
         put(obj, obj2);
@@ -19,7 +19,7 @@ public class ConcurrentCache extends ConcurrentMapC10942 implements Cache {
         return get(obj);
     }
 
-    @Override // l.ConcurrentMapC10942, org.simpleframework.xml.util.Cache
+    @Override // p067l.ConcurrentMapC12768, org.simpleframework.xml.util.Cache
     public boolean contains(Object obj) {
         return containsKey(obj);
     }

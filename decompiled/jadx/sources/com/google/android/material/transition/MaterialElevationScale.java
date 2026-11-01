@@ -3,7 +3,7 @@ package com.google.android.material.transition;
 import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
-import l.C19444;
+import p067l.C20848;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class MaterialElevationScale extends MaterialVisibility {
@@ -30,19 +30,19 @@ public final class MaterialElevationScale extends MaterialVisibility {
         return super.getSecondaryAnimatorProvider();
     }
 
-    @Override // com.google.android.material.transition.MaterialVisibility, l.AbstractC16620
+    @Override // com.google.android.material.transition.MaterialVisibility, p067l.AbstractC18164
     public /* bridge */ /* synthetic */ boolean isSeekingSupported() {
         return super.isSeekingSupported();
     }
 
-    @Override // com.google.android.material.transition.MaterialVisibility, l.AbstractC2136
-    public /* bridge */ /* synthetic */ Animator onAppear(ViewGroup viewGroup, View view, C19444 c19444, C19444 c19445) {
-        return super.onAppear(viewGroup, view, c19444, c19445);
+    @Override // com.google.android.material.transition.MaterialVisibility, p067l.AbstractC4399
+    public /* bridge */ /* synthetic */ Animator onAppear(ViewGroup viewGroup, View view, C20848 c20848, C20848 c20849) {
+        return super.onAppear(viewGroup, view, c20848, c20849);
     }
 
-    @Override // com.google.android.material.transition.MaterialVisibility, l.AbstractC2136
-    public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view, C19444 c19444, C19444 c19445) {
-        return super.onDisappear(viewGroup, view, c19444, c19445);
+    @Override // com.google.android.material.transition.MaterialVisibility, p067l.AbstractC4399
+    public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view, C20848 c20848, C20848 c20849) {
+        return super.onDisappear(viewGroup, view, c20848, c20849);
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility

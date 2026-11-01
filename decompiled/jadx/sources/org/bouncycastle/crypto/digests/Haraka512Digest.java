@@ -35,7 +35,7 @@ public class Haraka512Digest extends HarakaBase {
         System.arraycopy(bArr, 32, bArr3[2], 0, 16);
         System.arraycopy(bArr, 48, bArr3[3], 0, 16);
         byte[] bArr5 = bArr3[0];
-        byte[][] bArr6 = HarakaBase.RC;
+        byte[][] bArr6 = HarakaBase.f80832RC;
         bArr3[0] = HarakaBase.aesEnc(bArr5, bArr6[0]);
         bArr3[1] = HarakaBase.aesEnc(bArr3[1], bArr6[1]);
         bArr3[2] = HarakaBase.aesEnc(bArr3[2], bArr6[2]);

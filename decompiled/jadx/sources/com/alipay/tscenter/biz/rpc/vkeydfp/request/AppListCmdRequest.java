@@ -7,7 +7,9 @@ import java.io.Serializable;
 public class AppListCmdRequest implements Serializable {
     public String apdid;
     public String applist;
-    public String os;
+
+    /* JADX INFO: renamed from: os */
+    public String f1228os;
     public String token;
     public String userId;
 }

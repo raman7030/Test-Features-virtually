@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -103,7 +103,7 @@ public class RSACoreEngine {
         this.forEncryption = z;
         RSAKeyParameters rSAKeyParameters = (RSAKeyParameters) cipherParameters;
         this.key = rSAKeyParameters;
-        CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(d.a, ConstraintUtils.bitsOfSecurityFor(rSAKeyParameters.getModulus()), this.key, getPurpose(this.key.isPrivate(), z)));
+        CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(C0187d.f883a, ConstraintUtils.bitsOfSecurityFor(rSAKeyParameters.getModulus()), this.key, getPurpose(this.key.isPrivate(), z)));
     }
 
     public BigInteger processBlock(BigInteger bigInteger) {

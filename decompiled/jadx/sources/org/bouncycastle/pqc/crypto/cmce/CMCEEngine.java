@@ -2,9 +2,9 @@ package org.bouncycastle.pqc.crypto.cmce;
 
 import java.lang.reflect.Array;
 import java.security.SecureRandom;
-import l.C13132;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.util.Arrays;
+import p067l.C14849;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CMCEEngine {
@@ -21,7 +21,9 @@ public class CMCEEngine {
     public BENES benes;
     public boolean countErrorIndices;
     public final int defaultKeySize;
-    public GF gf;
+
+    /* JADX INFO: renamed from: gf */
+    public AbstractC2364GF f81580gf;
     public int[] poly;
     public boolean usePadding;
     public boolean usePivots;
@@ -44,10 +46,10 @@ public class CMCEEngine {
         this.SYND_BYTES = (i5 + 7) / 8;
         this.GFMASK = (1 << i) - 1;
         if (i == 12) {
-            this.gf = new GF12();
+            this.f81580gf = new GF12();
             benes13 = new BENES12(this.SYS_N, this.SYS_T, this.GFBITS);
         } else {
-            this.gf = new GF13();
+            this.f81580gf = new GF13();
             benes13 = new BENES13(this.SYS_N, this.SYS_T, this.GFBITS);
         }
         this.benes = benes13;
@@ -55,7 +57,8 @@ public class CMCEEngine {
         this.countErrorIndices = (1 << this.GFBITS) > this.SYS_N;
     }
 
-    private void bm(short[] sArr, short[] sArr2) {
+    /* JADX INFO: renamed from: bm */
+    private void m55419bm(short[] sArr, short[] sArr2) {
         int i;
         int i2 = this.SYS_T;
         short[] sArr3 = new short[i2 + 1];
@@ -75,22 +78,22 @@ public class CMCEEngine {
         while (s2 < this.SYS_T * 2) {
             int iGf_mul_ext = 0;
             for (int i5 = 0; i5 <= min(s2, this.SYS_T); i5++) {
-                iGf_mul_ext ^= this.gf.gf_mul_ext(sArr4[i5], sArr2[s2 - i5]);
+                iGf_mul_ext ^= this.f81580gf.gf_mul_ext(sArr4[i5], sArr2[s2 - i5]);
             }
-            short sGf_reduce = this.gf.gf_reduce(iGf_mul_ext);
+            short sGf_reduce = this.f81580gf.gf_reduce(iGf_mul_ext);
             short s5 = (short) (((short) (((short) (((short) (sGf_reduce - 1)) >> 15)) & s)) - s);
             short s6 = (short) (((short) (((short) (((short) (((short) (s2 - (s3 * 2))) >> 15)) & s)) - s)) & s5);
             for (int i6 = 0; i6 <= this.SYS_T; i6++) {
                 sArr3[i6] = sArr4[i6];
             }
-            short sGf_frac = this.gf.gf_frac(s4, sGf_reduce);
+            short sGf_frac = this.f81580gf.gf_frac(s4, sGf_reduce);
             int i7 = 0;
             while (true) {
                 i = this.SYS_T;
                 if (i7 > i) {
                     break;
                 }
-                sArr4[i7] = (short) (sArr4[i7] ^ (this.gf.gf_mul(sGf_frac, sArr5[i7]) & s5));
+                sArr4[i7] = (short) (sArr4[i7] ^ (this.f81580gf.gf_mul(sGf_frac, sArr5[i7]) & s5));
                 i7++;
             }
             int i8 = ~s6;
@@ -438,14 +441,14 @@ public class CMCEEngine {
         sArr[i2] = 1;
         this.benes.support_gen(sArr2, bArr2);
         synd(sArr3, sArr, sArr2, bArr4);
-        bm(sArr5, sArr3);
+        m55419bm(sArr5, sArr3);
         root(sArr6, sArr5, sArr2);
         for (int i7 = 0; i7 < this.SYS_N / 8; i7++) {
             bArr[i7] = 0;
         }
         int i8 = 0;
         for (int i9 = 0; i9 < this.SYS_N; i9++) {
-            short sGf_iszero = (short) (this.gf.gf_iszero(sArr6[i9]) & 1);
+            short sGf_iszero = (short) (this.f81580gf.gf_iszero(sArr6[i9]) & 1);
             int i10 = i9 / 8;
             bArr[i10] = (byte) (bArr[i10] | (sGf_iszero << (i9 % 8)));
             i8 += sGf_iszero;
@@ -471,7 +474,7 @@ public class CMCEEngine {
             if (i < 0) {
                 return sGf_mul;
             }
-            sGf_mul = (short) (this.gf.gf_mul(sGf_mul, s) ^ sArr[i]);
+            sGf_mul = (short) (this.f81580gf.gf_mul(sGf_mul, s) ^ sArr[i]);
         }
     }
 
@@ -549,12 +552,12 @@ public class CMCEEngine {
             if (i3 >= i) {
                 break;
             }
-            this.gf.gf_sqr_poly(i, this.poly, sArr2[i3], sArr2[i3 >>> 1], iArr);
-            this.gf.gf_mul_poly(this.SYS_T, this.poly, sArr2[i3 + 1], sArr2[i3], sArr, iArr);
+            this.f81580gf.gf_sqr_poly(i, this.poly, sArr2[i3], sArr2[i3 >>> 1], iArr);
+            this.f81580gf.gf_mul_poly(this.SYS_T, this.poly, sArr2[i3 + 1], sArr2[i3], sArr, iArr);
             i3 += 2;
         }
         if (i3 == i) {
-            this.gf.gf_sqr_poly(i, this.poly, sArr2[i3], sArr2[i3 >>> 1], iArr);
+            this.f81580gf.gf_sqr_poly(i, this.poly, sArr2[i3], sArr2[i3 >>> 1], iArr);
         }
         int i4 = 0;
         while (true) {
@@ -565,7 +568,7 @@ public class CMCEEngine {
             }
             int i6 = i4 + 1;
             for (int i7 = i6; i7 < this.SYS_T; i7++) {
-                short sGf_iszero = this.gf.gf_iszero(sArr2[i4][i4]);
+                short sGf_iszero = this.f81580gf.gf_iszero(sArr2[i4][i4]);
                 for (int i8 = i4; i8 < this.SYS_T + 1; i8++) {
                     short[] sArr3 = sArr2[i8];
                     sArr3[i4] = (short) (sArr3[i4] ^ ((short) (sArr3[i7] & sGf_iszero)));
@@ -575,17 +578,17 @@ public class CMCEEngine {
             if (s == 0) {
                 return -1;
             }
-            short sGf_inv = this.gf.gf_inv(s);
+            short sGf_inv = this.f81580gf.gf_inv(s);
             for (int i9 = i4; i9 < this.SYS_T + 1; i9++) {
                 short[] sArr4 = sArr2[i9];
-                sArr4[i4] = this.gf.gf_mul(sArr4[i4], sGf_inv);
+                sArr4[i4] = this.f81580gf.gf_mul(sArr4[i4], sGf_inv);
             }
             for (int i10 = 0; i10 < this.SYS_T; i10++) {
                 if (i10 != i4) {
                     short s2 = sArr2[i4][i10];
                     for (int i11 = i4; i11 <= this.SYS_T; i11++) {
                         short[] sArr5 = sArr2[i11];
-                        sArr5[i10] = (short) (sArr5[i10] ^ this.gf.gf_mul(sArr5[i4], s2));
+                        sArr5[i10] = (short) (sArr5[i10] ^ this.f81580gf.gf_mul(sArr5[i4], s2));
                     }
                 }
             }
@@ -763,7 +766,7 @@ public class CMCEEngine {
             jArr2[i6] = j2;
             long j3 = j2 | ((long) i6);
             jArr2[i6] = j3;
-            jArr2[i6] = j3 & C13132.FOREVER_NS;
+            jArr2[i6] = j3 & C14849.FOREVER_NS;
         }
         sort64(jArr2, 0, i5);
         for (int i7 = 1; i7 < (1 << this.GFBITS); i7++) {
@@ -792,7 +795,7 @@ public class CMCEEngine {
             if (i10 >= i2) {
                 break;
             }
-            sArr4[i10] = this.gf.gf_inv(sArr4[i10]);
+            sArr4[i10] = this.f81580gf.gf_inv(sArr4[i10]);
             i10++;
         }
         byte[][] bArr3 = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, this.PK_NROWS, i2 / 8);
@@ -814,7 +817,7 @@ public class CMCEEngine {
                 }
             }
             for (int i17 = 0; i17 < this.SYS_N; i17++) {
-                sArr4[i17] = this.gf.gf_mul(sArr4[i17], sArr3[i17]);
+                sArr4[i17] = this.f81580gf.gf_mul(sArr4[i17], sArr3[i17]);
             }
             i13++;
         }
@@ -1006,22 +1009,22 @@ public class CMCEEngine {
         short s = (short) (bArr[0] & 1);
         short s2 = sArr3[0];
         short sEval = eval(sArr2, s2);
-        GF gf = this.gf;
-        short sGf_inv = (short) ((-s) & gf.gf_inv(gf.gf_sq(sEval)));
+        AbstractC2364GF abstractC2364GF = this.f81580gf;
+        short sGf_inv = (short) ((-s) & abstractC2364GF.gf_inv(abstractC2364GF.gf_sq(sEval)));
         sArr[0] = sGf_inv;
         for (int i = 1; i < this.SYS_T * 2; i++) {
-            sGf_inv = this.gf.gf_mul(sGf_inv, s2);
+            sGf_inv = this.f81580gf.gf_mul(sGf_inv, s2);
             sArr[i] = sGf_inv;
         }
         for (int i2 = 1; i2 < this.SYS_N; i2++) {
             short s3 = (short) ((bArr[i2 / 8] >> (i2 % 8)) & 1);
             short s4 = sArr3[i2];
             short sEval2 = eval(sArr2, s4);
-            GF gf2 = this.gf;
-            short sGf_mul = this.gf.gf_mul(gf2.gf_inv(gf2.gf_sq(sEval2)), s3);
+            AbstractC2364GF abstractC2364GF2 = this.f81580gf;
+            short sGf_mul = this.f81580gf.gf_mul(abstractC2364GF2.gf_inv(abstractC2364GF2.gf_sq(sEval2)), s3);
             sArr[0] = (short) (sArr[0] ^ sGf_mul);
             for (int i3 = 1; i3 < this.SYS_T * 2; i3++) {
-                sGf_mul = this.gf.gf_mul(sGf_mul, s4);
+                sGf_mul = this.f81580gf.gf_mul(sGf_mul, s4);
                 sArr[i3] = (short) (sArr[i3] ^ sGf_mul);
             }
         }
@@ -1132,7 +1135,7 @@ public class CMCEEngine {
                     jArr[i13] = j2;
                     long j3 = j2 | ((long) i13);
                     jArr[i13] = j3;
-                    jArr[i13] = j3 & C13132.FOREVER_NS;
+                    jArr[i13] = j3 & C14849.FOREVER_NS;
                 }
                 sort64(jArr, 0, i12);
                 for (int i14 = 0; i14 < (1 << this.GFBITS); i14++) {

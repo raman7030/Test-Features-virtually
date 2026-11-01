@@ -44,11 +44,11 @@ public class SamplerZ {
         double d5 = d2 * d2 * 0.5d;
         double d6 = samplerCtx.sigma_min * d2;
         do {
-            iGaussian0_sampler = gaussian0_sampler(samplerCtx.p);
-            int iPrng_get_u8 = samplerCtx.p.prng_get_u8() & 1;
+            iGaussian0_sampler = gaussian0_sampler(samplerCtx.f81607p);
+            int iPrng_get_u8 = samplerCtx.f81607p.prng_get_u8() & 1;
             i = (((iPrng_get_u8 << 1) - 1) * iGaussian0_sampler) + iPrng_get_u8;
             d3 = ((double) i) - d4;
-        } while (BerExp(samplerCtx.p, ((d3 * d3) * d5) - (((double) (iGaussian0_sampler * iGaussian0_sampler)) * 0.15086504887537272d), d6) == 0);
+        } while (BerExp(samplerCtx.f81607p, ((d3 * d3) * d5) - (((double) (iGaussian0_sampler * iGaussian0_sampler)) * 0.15086504887537272d), d6) == 0);
         return iFpr_floor + i;
     }
 }

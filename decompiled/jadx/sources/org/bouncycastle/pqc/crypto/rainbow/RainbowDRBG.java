@@ -11,7 +11,9 @@ public class RainbowDRBG extends SecureRandom {
     public Digest hashAlgo;
     public byte[] key;
     public byte[] seed;
-    public byte[] v;
+
+    /* JADX INFO: renamed from: v */
+    public byte[] f81696v;
 
     public RainbowDRBG(byte[] bArr, Digest digest) {
         this.seed = bArr;
@@ -68,7 +70,7 @@ public class RainbowDRBG extends SecureRandom {
         byte[] bArr3 = new byte[32];
         this.key = bArr3;
         byte[] bArr4 = new byte[16];
-        this.v = bArr4;
+        this.f81696v = bArr4;
         AES256_CTR_DRBG_Update(bArr2, bArr3, bArr4);
     }
 
@@ -79,7 +81,7 @@ public class RainbowDRBG extends SecureRandom {
         int i = 0;
         while (length > 0) {
             for (int i2 = 15; i2 >= 0; i2--) {
-                byte[] bArr3 = this.v;
+                byte[] bArr3 = this.f81696v;
                 byte b = bArr3[i2];
                 if ((b & 255) != 255) {
                     bArr3[i2] = (byte) (b + 1);
@@ -87,7 +89,7 @@ public class RainbowDRBG extends SecureRandom {
                 }
                 bArr3[i2] = 0;
             }
-            AES256_ECB(this.key, this.v, bArr2, 0);
+            AES256_ECB(this.key, this.f81696v, bArr2, 0);
             if (length > 15) {
                 System.arraycopy(bArr2, 0, bArr, i, 16);
                 i += 16;
@@ -97,6 +99,6 @@ public class RainbowDRBG extends SecureRandom {
                 length = 0;
             }
         }
-        AES256_CTR_DRBG_Update(null, this.key, this.v);
+        AES256_CTR_DRBG_Update(null, this.key, this.f81696v);
     }
 }

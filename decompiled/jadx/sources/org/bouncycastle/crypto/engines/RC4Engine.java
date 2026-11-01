@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.DataLengthException;
@@ -8,14 +7,19 @@ import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RC4Engine implements StreamCipher {
     public static final int STATE_LENGTH = 256;
     public boolean forEncryption;
     public byte[] engineState = null;
-    public int x = 0;
-    public int y = 0;
+
+    /* JADX INFO: renamed from: x */
+    public int f81051x = 0;
+
+    /* JADX INFO: renamed from: y */
+    public int f81052y = 0;
     public byte[] workingKey = null;
 
     public RC4Engine() {
@@ -24,8 +28,8 @@ public class RC4Engine implements StreamCipher {
 
     private void setKey(byte[] bArr) {
         this.workingKey = bArr;
-        this.x = 0;
-        this.y = 0;
+        this.f81051x = 0;
+        this.f81052y = 0;
         if (this.engineState == null) {
             this.engineState = new byte[256];
         }
@@ -59,12 +63,12 @@ public class RC4Engine implements StreamCipher {
             throw new OutputLengthException("output buffer too short");
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            int i5 = (this.x + 1) & 255;
-            this.x = i5;
+            int i5 = (this.f81051x + 1) & 255;
+            this.f81051x = i5;
             byte[] bArr3 = this.engineState;
             byte b = bArr3[i5];
-            int i6 = (this.y + b) & 255;
-            this.y = i6;
+            int i6 = (this.f81052y + b) & 255;
+            this.f81052y = i6;
             bArr3[i5] = bArr3[i6];
             bArr3[i6] = b;
             bArr2[i4 + i3] = (byte) (bArr3[(bArr3[i5] + b) & 255] ^ bArr[i4 + i]);
@@ -79,12 +83,12 @@ public class RC4Engine implements StreamCipher {
 
     @Override // org.bouncycastle.crypto.StreamCipher
     public byte returnByte(byte b) {
-        int i = (this.x + 1) & 255;
-        this.x = i;
+        int i = (this.f81051x + 1) & 255;
+        this.f81051x = i;
         byte[] bArr = this.engineState;
         byte b2 = bArr[i];
-        int i2 = (this.y + b2) & 255;
-        this.y = i2;
+        int i2 = (this.f81052y + b2) & 255;
+        this.f81052y = i2;
         bArr[i] = bArr[i2];
         bArr[i2] = b2;
         return (byte) (b ^ bArr[(bArr[i] + b2) & 255]);
@@ -93,7 +97,7 @@ public class RC4Engine implements StreamCipher {
     @Override // org.bouncycastle.crypto.StreamCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to RC4 init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to RC4 init - ", cipherParameters));
         }
         byte[] key = ((KeyParameter) cipherParameters).getKey();
         this.workingKey = key;

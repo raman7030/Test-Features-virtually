@@ -5,11 +5,12 @@ import android.text.TextUtils;
 import com.umeng.commonsdk.config.FieldManager;
 import com.umeng.commonsdk.framework.UMFrUtils;
 import com.umeng.commonsdk.framework.UMModuleRegister;
+import com.umeng.commonsdk.internal.C0775d;
 import com.umeng.commonsdk.internal.crash.UMCrashManager;
-import com.umeng.commonsdk.internal.utils.c;
-import com.umeng.commonsdk.internal.utils.k;
+import com.umeng.commonsdk.internal.utils.C0778c;
+import com.umeng.commonsdk.internal.utils.C0786k;
 import com.umeng.commonsdk.statistics.common.ULog;
-import com.umeng.commonsdk.utils.d;
+import com.umeng.commonsdk.utils.C0832d;
 
 /* JADX INFO: loaded from: classes.dex */
 public class UMInnerImpl {
@@ -30,16 +31,16 @@ public class UMInnerImpl {
                                     return;
                                 }
                                 try {
-                                    if (FieldManager.allow(d.ao) && !c.a(context).a()) {
-                                        c.a(context).b();
+                                    if (FieldManager.allow(C0832d.f3628ao) && !C0778c.m2847a(context).m2849a()) {
+                                        C0778c.m2847a(context).m2850b();
                                     }
                                 } catch (Throwable th) {
-                                    ULog.e(UMModuleRegister.INNER, "e is " + th);
+                                    ULog.m2980e(UMModuleRegister.INNER, "e is " + th);
                                 }
                                 try {
-                                    k.b(context);
+                                    C0786k.m2872b(context);
                                 } catch (Throwable th2) {
-                                    ULog.e(UMModuleRegister.INNER, "e is " + th2);
+                                    ULog.m2980e(UMModuleRegister.INNER, "e is " + th2);
                                 }
                             } catch (Throwable th3) {
                                 UMCrashManager.reportCrash(context, th3);
@@ -50,7 +51,7 @@ public class UMInnerImpl {
                     sendInternal(context);
                 }
             } catch (Throwable th) {
-                ULog.e(UMModuleRegister.INNER, "e is " + th.getMessage());
+                ULog.m2980e(UMModuleRegister.INNER, "e is " + th.getMessage());
                 UMCrashManager.reportCrash(context, th);
             }
         }
@@ -69,9 +70,9 @@ public class UMInnerImpl {
                                 return;
                             }
                             try {
-                                com.umeng.commonsdk.internal.d.b(context);
+                                C0775d.m2816b(context);
                             } catch (Throwable th) {
-                                ULog.e(UMModuleRegister.INNER, "e is " + th);
+                                ULog.m2980e(UMModuleRegister.INNER, "e is " + th);
                             }
                         } catch (Throwable th2) {
                             UMCrashManager.reportCrash(context, th2);
@@ -80,7 +81,7 @@ public class UMInnerImpl {
                 }).start();
                 isInternal = true;
             } catch (Throwable th) {
-                ULog.e(UMModuleRegister.INNER, "e is " + th.getMessage());
+                ULog.m2980e(UMModuleRegister.INNER, "e is " + th.getMessage());
                 UMCrashManager.reportCrash(context, th);
             }
         }

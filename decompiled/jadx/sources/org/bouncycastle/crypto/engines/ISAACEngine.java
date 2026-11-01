@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.DataLengthException;
@@ -9,6 +8,7 @@ import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Pack;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ISAACEngine implements StreamCipher {
@@ -16,9 +16,15 @@ public class ISAACEngine implements StreamCipher {
     public final int stateArraySize = 256;
     public int[] engineState = null;
     public int[] results = null;
-    public int a = 0;
-    public int b = 0;
-    public int c = 0;
+
+    /* JADX INFO: renamed from: a */
+    public int f81036a = 0;
+
+    /* JADX INFO: renamed from: b */
+    public int f81037b = 0;
+
+    /* JADX INFO: renamed from: c */
+    public int f81038c = 0;
     public int index = 0;
     public byte[] keyStream = new byte[1024];
     public byte[] workingKey = null;
@@ -27,45 +33,45 @@ public class ISAACEngine implements StreamCipher {
     private void isaac() {
         int i;
         int i2;
-        int i3 = this.b;
-        int i4 = this.c + 1;
-        this.c = i4;
-        this.b = i3 + i4;
+        int i3 = this.f81037b;
+        int i4 = this.f81038c + 1;
+        this.f81038c = i4;
+        this.f81037b = i3 + i4;
         for (int i5 = 0; i5 < 256; i5++) {
             int[] iArr = this.engineState;
             int i6 = iArr[i5];
             int i7 = i5 & 3;
             if (i7 == 0) {
-                i = this.a;
+                i = this.f81036a;
                 i2 = i << 13;
             } else if (i7 == 1) {
-                i = this.a;
+                i = this.f81036a;
                 i2 = i >>> 6;
             } else if (i7 != 2) {
                 if (i7 == 3) {
-                    i = this.a;
+                    i = this.f81036a;
                     i2 = i >>> 16;
                 }
-                int i8 = this.a + iArr[(i5 + 128) & 255];
-                this.a = i8;
-                int i9 = iArr[(i6 >>> 2) & 255] + i8 + this.b;
+                int i8 = this.f81036a + iArr[(i5 + 128) & 255];
+                this.f81036a = i8;
+                int i9 = iArr[(i6 >>> 2) & 255] + i8 + this.f81037b;
                 iArr[i5] = i9;
                 int[] iArr2 = this.results;
                 int i10 = iArr[(i9 >>> 10) & 255] + i6;
-                this.b = i10;
+                this.f81037b = i10;
                 iArr2[i5] = i10;
             } else {
-                i = this.a;
+                i = this.f81036a;
                 i2 = i << 2;
             }
-            this.a = i ^ i2;
-            int i11 = this.a + iArr[(i5 + 128) & 255];
-            this.a = i11;
-            int i12 = iArr[(i6 >>> 2) & 255] + i11 + this.b;
+            this.f81036a = i ^ i2;
+            int i11 = this.f81036a + iArr[(i5 + 128) & 255];
+            this.f81036a = i11;
+            int i12 = iArr[(i6 >>> 2) & 255] + i11 + this.f81037b;
             iArr[i5] = i12;
             int[] iArr3 = this.results;
             int i13 = iArr[(i12 >>> 10) & 255] + i6;
-            this.b = i13;
+            this.f81037b = i13;
             iArr3[i5] = i13;
         }
     }
@@ -135,9 +141,9 @@ public class ISAACEngine implements StreamCipher {
             this.results[i] = 0;
             iArr[i] = 0;
         }
-        this.c = 0;
-        this.b = 0;
-        this.a = 0;
+        this.f81038c = 0;
+        this.f81037b = 0;
+        this.f81036a = 0;
         this.index = 0;
         int length = bArr.length + (bArr.length & 3);
         byte[] bArr2 = new byte[length];
@@ -219,7 +225,7 @@ public class ISAACEngine implements StreamCipher {
     @Override // org.bouncycastle.crypto.StreamCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to ISAAC init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to ISAAC init - ", cipherParameters));
         }
         byte[] key = ((KeyParameter) cipherParameters).getKey();
         setKey(key);

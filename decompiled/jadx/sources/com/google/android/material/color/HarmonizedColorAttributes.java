@@ -1,11 +1,11 @@
 package com.google.android.material.color;
 
-import l.C17931;
-import l.C18637;
+import p067l.C19410;
+import p067l.C20081;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class HarmonizedColorAttributes {
-    public static final int[] HARMONIZED_MATERIAL_ATTRIBUTES = {C17931.f55741, C17931.f55261, C17931.f54989, C17931.f55057};
+    public static final int[] HARMONIZED_MATERIAL_ATTRIBUTES = {C19410.f58938, C19410.f58458, C19410.f58186, C19410.f58254};
     public final int[] attributes;
     public final int themeOverlay;
 
@@ -18,7 +18,7 @@ public final class HarmonizedColorAttributes {
     }
 
     public static HarmonizedColorAttributes createMaterialDefaults() {
-        return create(HARMONIZED_MATERIAL_ATTRIBUTES, C18637.f58312);
+        return create(HARMONIZED_MATERIAL_ATTRIBUTES, C20081.f61535);
     }
 
     public HarmonizedColorAttributes(int[] iArr, int i) {

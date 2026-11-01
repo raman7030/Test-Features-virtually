@@ -5,13 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import l.C12662;
-import l.C13325;
-import l.C16014;
-import l.C3435;
-import l.C4153;
-import l.C8954;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
@@ -33,6 +26,13 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C10878;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C15033;
+import p067l.C17588;
+import p067l.C5633;
+import p067l.C6316;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class SEED {
@@ -127,18 +127,18 @@ public final class SEED {
             configurableProvider.addAlgorithm("AlgorithmParameters.SEED", sb.toString());
             StringBuilder sb2 = new StringBuilder("Alg.Alias.AlgorithmParameters.");
             ASN1ObjectIdentifier aSN1ObjectIdentifier = KISAObjectIdentifiers.id_seedCBC;
-            StringBuilder sbM23342 = C9045.m23342("SEED", str, sb2, aSN1ObjectIdentifier, configurableProvider);
-            sbM23342.append("$AlgParamGen");
-            configurableProvider.addAlgorithm("AlgorithmParameterGenerator.SEED", sbM23342.toString());
-            C12662.m30943(str, "$Wrap", "Cipher.SEEDWRAP", C4153.m12553("$CBC", "Cipher", C3435.m10502("$ECB", "Cipher.SEED", str, C9045.m23342("SEED", str, new StringBuilder("Alg.Alias.AlgorithmParameterGenerator."), aSN1ObjectIdentifier, configurableProvider), configurableProvider), aSN1ObjectIdentifier, configurableProvider), configurableProvider);
+            StringBuilder sbM25287 = C10965.m25287("SEED", str, sb2, aSN1ObjectIdentifier, configurableProvider);
+            sbM25287.append("$AlgParamGen");
+            configurableProvider.addAlgorithm("AlgorithmParameterGenerator.SEED", sbM25287.toString());
+            C14403.m33021(str, "$Wrap", "Cipher.SEEDWRAP", C6316.m14443("$CBC", "Cipher", C5633.m12526("$ECB", "Cipher.SEED", str, C10965.m25287("SEED", str, new StringBuilder("Alg.Alias.AlgorithmParameterGenerator."), aSN1ObjectIdentifier, configurableProvider), configurableProvider), aSN1ObjectIdentifier, configurableProvider), configurableProvider);
             ASN1ObjectIdentifier aSN1ObjectIdentifier2 = KISAObjectIdentifiers.id_npki_app_cmsSeed_wrap;
             configurableProvider.addAlgorithm("Alg.Alias.Cipher", aSN1ObjectIdentifier2, "SEEDWRAP");
-            C12662.m30943(str, "$KeyFactory", "SecretKeyFactory.SEED", C4153.m12553("$KeyGen", "KeyGenerator", C13325.m32309(configurableProvider, "KeyGenerator", C8954.m23074("KeyGenerator.SEED", C8954.m23074("Alg.Alias.Cipher.SEEDKW", "SEEDWRAP", str, "$KeyGen", configurableProvider), str, "$KeyGen", configurableProvider), str, aSN1ObjectIdentifier), aSN1ObjectIdentifier2, configurableProvider), configurableProvider);
-            StringBuilder sbM32309 = C13325.m32309(configurableProvider, "Alg.Alias.SecretKeyFactory", "SEED", str, aSN1ObjectIdentifier);
-            sbM32309.append("$CMAC");
-            addCMacAlgorithm(configurableProvider, "SEED", sbM32309.toString(), C16014.m37867(str, "$KeyGen"));
-            addGMacAlgorithm(configurableProvider, "SEED", C16014.m37867(str, "$GMAC"), C16014.m37867(str, "$KeyGen"));
-            addPoly1305Algorithm(configurableProvider, "SEED", C16014.m37867(str, "$Poly1305"), C16014.m37867(str, "$Poly1305KeyGen"));
+            C14403.m33021(str, "$KeyFactory", "SecretKeyFactory.SEED", C6316.m14443("$KeyGen", "KeyGenerator", C15033.m34409(configurableProvider, "KeyGenerator", C10878.m25048("KeyGenerator.SEED", C10878.m25048("Alg.Alias.Cipher.SEEDKW", "SEEDWRAP", str, "$KeyGen", configurableProvider), str, "$KeyGen", configurableProvider), str, aSN1ObjectIdentifier), aSN1ObjectIdentifier2, configurableProvider), configurableProvider);
+            StringBuilder sbM34409 = C15033.m34409(configurableProvider, "Alg.Alias.SecretKeyFactory", "SEED", str, aSN1ObjectIdentifier);
+            sbM34409.append("$CMAC");
+            addCMacAlgorithm(configurableProvider, "SEED", sbM34409.toString(), C17588.m40053(str, "$KeyGen"));
+            addGMacAlgorithm(configurableProvider, "SEED", C17588.m40053(str, "$GMAC"), C17588.m40053(str, "$KeyGen"));
+            addPoly1305Algorithm(configurableProvider, "SEED", C17588.m40053(str, "$Poly1305"), C17588.m40053(str, "$Poly1305KeyGen"));
         }
     }
 

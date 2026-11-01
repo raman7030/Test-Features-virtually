@@ -1,9 +1,9 @@
 package com.umeng.commonsdk.statistics.proto;
 
-import com.umeng.analytics.pro.az;
+import com.umeng.analytics.pro.InterfaceC0668az;
 
 /* JADX INFO: loaded from: classes.dex */
-public enum Gender implements az {
+public enum Gender implements InterfaceC0668az {
     MALE(0),
     FEMALE(1),
     UNKNOWN(2);
@@ -14,7 +14,7 @@ public enum Gender implements az {
         this.value = i;
     }
 
-    @Override // com.umeng.analytics.pro.az
+    @Override // com.umeng.analytics.pro.InterfaceC0668az
     public int getValue() {
         return this.value;
     }

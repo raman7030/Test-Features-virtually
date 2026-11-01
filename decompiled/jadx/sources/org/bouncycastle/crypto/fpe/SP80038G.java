@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.fpe;
 
 import java.math.BigInteger;
-import l.C19370;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.hpke.HPKE;
 import org.bouncycastle.crypto.util.RadixConverter;
@@ -10,6 +9,7 @@ import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.Bytes;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Pack;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SP80038G {
@@ -387,7 +387,7 @@ public class SP80038G {
             double d = i;
             if (Math.pow(d, i2) >= 1000000.0d) {
                 if (!z && i2 > (iFloor = ((int) Math.floor(Math.log(TWO_TO_96) / Math.log(d))) * 2)) {
-                    throw new IllegalArgumentException(C19370.m44628(iFloor, "maximum input length is "));
+                    throw new IllegalArgumentException(C20778.m46922(iFloor, "maximum input length is "));
                 }
                 return;
             }

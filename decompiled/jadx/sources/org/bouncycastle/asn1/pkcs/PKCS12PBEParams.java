@@ -12,15 +12,17 @@ import org.bouncycastle.asn1.DERSequence;
 /* JADX INFO: loaded from: classes.dex */
 public class PKCS12PBEParams extends ASN1Object {
     public ASN1Integer iterations;
-    public ASN1OctetString iv;
+
+    /* JADX INFO: renamed from: iv */
+    public ASN1OctetString f80677iv;
 
     public PKCS12PBEParams(ASN1Sequence aSN1Sequence) {
-        this.iv = (ASN1OctetString) aSN1Sequence.getObjectAt(0);
+        this.f80677iv = (ASN1OctetString) aSN1Sequence.getObjectAt(0);
         this.iterations = ASN1Integer.getInstance(aSN1Sequence.getObjectAt(1));
     }
 
     public PKCS12PBEParams(byte[] bArr, int i) {
-        this.iv = new DEROctetString(bArr);
+        this.f80677iv = new DEROctetString(bArr);
         this.iterations = new ASN1Integer(i);
     }
 
@@ -35,7 +37,7 @@ public class PKCS12PBEParams extends ASN1Object {
     }
 
     public byte[] getIV() {
-        return this.iv.getOctets();
+        return this.f80677iv.getOctets();
     }
 
     public BigInteger getIterations() {
@@ -44,6 +46,6 @@ public class PKCS12PBEParams extends ASN1Object {
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
-        return new DERSequence(this.iv, this.iterations);
+        return new DERSequence(this.f80677iv, this.iterations);
     }
 }

@@ -1,14 +1,16 @@
 package org.bouncycastle.crypto.modes;
 
-import l.C18307;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.StreamBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class OFBBlockCipher extends StreamBlockCipher {
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81195IV;
     public final int blockSize;
     public int byteCount;
     public final BlockCipher cipher;
@@ -56,12 +58,12 @@ public class OFBBlockCipher extends StreamBlockCipher {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();
             int length = iv.length;
-            byte[] bArr = this.IV;
+            byte[] bArr = this.f81195IV;
             if (length < bArr.length) {
                 System.arraycopy(iv, 0, bArr, bArr.length - iv.length, iv.length);
                 int i = 0;
                 while (true) {
-                    byte[] bArr2 = this.IV;
+                    byte[] bArr2 = this.f81195IV;
                     if (i >= bArr2.length - iv.length) {
                         break;
                     }
@@ -96,7 +98,7 @@ public class OFBBlockCipher extends StreamBlockCipher {
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81195IV;
         System.arraycopy(bArr, 0, this.ofbV, 0, bArr.length);
         this.byteCount = 0;
         this.cipher.reset();
@@ -105,11 +107,11 @@ public class OFBBlockCipher extends StreamBlockCipher {
     public OFBBlockCipher(BlockCipher blockCipher, int i) {
         super(blockCipher);
         if (i > blockCipher.getBlockSize() * 8 || i < 8 || i % 8 != 0) {
-            throw new IllegalArgumentException(C18307.m42645(i, "0FB", " not supported"));
+            throw new IllegalArgumentException(C19768.m44906(i, "0FB", " not supported"));
         }
         this.cipher = blockCipher;
         this.blockSize = i / 8;
-        this.IV = new byte[blockCipher.getBlockSize()];
+        this.f81195IV = new byte[blockCipher.getBlockSize()];
         this.ofbV = new byte[blockCipher.getBlockSize()];
         this.ofbOutV = new byte[blockCipher.getBlockSize()];
     }

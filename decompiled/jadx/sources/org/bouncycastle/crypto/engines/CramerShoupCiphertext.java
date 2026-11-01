@@ -6,77 +6,85 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CramerShoupCiphertext {
-    public BigInteger e;
-    public BigInteger u1;
-    public BigInteger u2;
-    public BigInteger v;
+
+    /* JADX INFO: renamed from: e */
+    public BigInteger f81006e;
+
+    /* JADX INFO: renamed from: u1 */
+    public BigInteger f81007u1;
+
+    /* JADX INFO: renamed from: u2 */
+    public BigInteger f81008u2;
+
+    /* JADX INFO: renamed from: v */
+    public BigInteger f81009v;
 
     public CramerShoupCiphertext() {
     }
 
     public CramerShoupCiphertext(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, BigInteger bigInteger4) {
-        this.u1 = bigInteger;
-        this.u2 = bigInteger2;
-        this.e = bigInteger3;
-        this.v = bigInteger4;
+        this.f81007u1 = bigInteger;
+        this.f81008u2 = bigInteger2;
+        this.f81006e = bigInteger3;
+        this.f81009v = bigInteger4;
     }
 
     public CramerShoupCiphertext(byte[] bArr) {
         int iBigEndianToInt = Pack.bigEndianToInt(bArr, 0);
         int i = iBigEndianToInt + 4;
-        this.u1 = new BigInteger(Arrays.copyOfRange(bArr, 4, i));
+        this.f81007u1 = new BigInteger(Arrays.copyOfRange(bArr, 4, i));
         int i2 = iBigEndianToInt + 8;
         int iBigEndianToInt2 = Pack.bigEndianToInt(bArr, i) + i2;
-        this.u2 = new BigInteger(Arrays.copyOfRange(bArr, i2, iBigEndianToInt2));
+        this.f81008u2 = new BigInteger(Arrays.copyOfRange(bArr, i2, iBigEndianToInt2));
         int iBigEndianToInt3 = Pack.bigEndianToInt(bArr, iBigEndianToInt2);
         int i3 = iBigEndianToInt2 + 4;
         int i4 = iBigEndianToInt3 + i3;
-        this.e = new BigInteger(Arrays.copyOfRange(bArr, i3, i4));
+        this.f81006e = new BigInteger(Arrays.copyOfRange(bArr, i3, i4));
         int iBigEndianToInt4 = Pack.bigEndianToInt(bArr, i4);
         int i5 = i4 + 4;
-        this.v = new BigInteger(Arrays.copyOfRange(bArr, i5, iBigEndianToInt4 + i5));
+        this.f81009v = new BigInteger(Arrays.copyOfRange(bArr, i5, iBigEndianToInt4 + i5));
     }
 
     public BigInteger getE() {
-        return this.e;
+        return this.f81006e;
     }
 
     public BigInteger getU1() {
-        return this.u1;
+        return this.f81007u1;
     }
 
     public BigInteger getU2() {
-        return this.u2;
+        return this.f81008u2;
     }
 
     public BigInteger getV() {
-        return this.v;
+        return this.f81009v;
     }
 
     public void setE(BigInteger bigInteger) {
-        this.e = bigInteger;
+        this.f81006e = bigInteger;
     }
 
     public void setU1(BigInteger bigInteger) {
-        this.u1 = bigInteger;
+        this.f81007u1 = bigInteger;
     }
 
     public void setU2(BigInteger bigInteger) {
-        this.u2 = bigInteger;
+        this.f81008u2 = bigInteger;
     }
 
     public void setV(BigInteger bigInteger) {
-        this.v = bigInteger;
+        this.f81009v = bigInteger;
     }
 
     public byte[] toByteArray() {
-        byte[] byteArray = this.u1.toByteArray();
+        byte[] byteArray = this.f81007u1.toByteArray();
         int length = byteArray.length;
-        byte[] byteArray2 = this.u2.toByteArray();
+        byte[] byteArray2 = this.f81008u2.toByteArray();
         int length2 = byteArray2.length;
-        byte[] byteArray3 = this.e.toByteArray();
+        byte[] byteArray3 = this.f81006e.toByteArray();
         int length3 = byteArray3.length;
-        byte[] byteArray4 = this.v.toByteArray();
+        byte[] byteArray4 = this.f81009v.toByteArray();
         int length4 = byteArray4.length;
         byte[] bArr = new byte[length + length2 + length3 + length4 + 16];
         Pack.intToBigEndian(length, bArr, 0);
@@ -96,10 +104,10 @@ public class CramerShoupCiphertext {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("u1: " + this.u1.toString());
-        sb.append("\nu2: " + this.u2.toString());
-        sb.append("\ne: " + this.e.toString());
-        sb.append("\nv: " + this.v.toString());
+        sb.append("u1: " + this.f81007u1.toString());
+        sb.append("\nu2: " + this.f81008u2.toString());
+        sb.append("\ne: " + this.f81006e.toString());
+        sb.append("\nv: " + this.f81009v.toString());
         return sb.toString();
     }
 }

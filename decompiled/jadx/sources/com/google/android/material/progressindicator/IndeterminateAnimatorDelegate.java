@@ -2,7 +2,7 @@ package com.google.android.material.progressindicator;
 
 import java.util.ArrayList;
 import java.util.List;
-import l.AbstractC18364;
+import p067l.AbstractC19822;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class IndeterminateAnimatorDelegate {
@@ -17,7 +17,7 @@ public abstract class IndeterminateAnimatorDelegate {
 
     public abstract void invalidateSpecValues();
 
-    public abstract void registerAnimatorsCompleteCallback(AbstractC18364 abstractC18364);
+    public abstract void registerAnimatorsCompleteCallback(AbstractC19822 abstractC19822);
 
     public abstract void requestCancelAnimatorAfterCurrentCycle();
 

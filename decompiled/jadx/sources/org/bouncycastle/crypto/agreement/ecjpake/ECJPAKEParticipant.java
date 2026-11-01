@@ -6,8 +6,8 @@ import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Exceptions;
 
@@ -21,24 +21,38 @@ public class ECJPAKEParticipant {
     public static final int STATE_ROUND_2_VALIDATED = 40;
     public static final int STATE_ROUND_3_CREATED = 60;
     public static final int STATE_ROUND_3_VALIDATED = 70;
-    public ECPoint b;
+
+    /* JADX INFO: renamed from: b */
+    public ECPoint f80741b;
     public final Digest digest;
     public ECCurve.AbstractFp ecCurve;
-    public ECPoint g;
+
+    /* JADX INFO: renamed from: g */
+    public ECPoint f80742g;
     public ECPoint gx1;
     public ECPoint gx2;
     public ECPoint gx3;
     public ECPoint gx4;
-    public BigInteger h;
-    public BigInteger n;
+
+    /* JADX INFO: renamed from: h */
+    public BigInteger f80743h;
+
+    /* JADX INFO: renamed from: n */
+    public BigInteger f80744n;
     public final String participantId;
     public String partnerParticipantId;
     public char[] password;
-    public BigInteger q;
+
+    /* JADX INFO: renamed from: q */
+    public BigInteger f80745q;
     public final SecureRandom random;
     public int state;
-    public BigInteger x1;
-    public BigInteger x2;
+
+    /* JADX INFO: renamed from: x1 */
+    public BigInteger f80746x1;
+
+    /* JADX INFO: renamed from: x2 */
+    public BigInteger f80747x2;
 
     public ECJPAKEParticipant(String str, char[] cArr) {
         this(str, cArr, ECJPAKECurves.NIST_P256);
@@ -60,10 +74,10 @@ public class ECJPAKEParticipant {
         this.participantId = str;
         this.password = Arrays.copyOf(cArr, cArr.length);
         this.ecCurve = eCJPAKECurve.getCurve();
-        this.g = eCJPAKECurve.getG();
-        this.h = eCJPAKECurve.getH();
-        this.n = eCJPAKECurve.getN();
-        this.q = eCJPAKECurve.getQ();
+        this.f80742g = eCJPAKECurve.getG();
+        this.f80743h = eCJPAKECurve.getH();
+        this.f80744n = eCJPAKECurve.getN();
+        this.f80745q = eCJPAKECurve.getQ();
         this.digest = digest;
         this.random = secureRandom;
         this.state = 0;
@@ -71,7 +85,7 @@ public class ECJPAKEParticipant {
 
     private BigInteger calculateS() {
         try {
-            return ECJPAKEUtil.calculateS(this.n, this.password);
+            return ECJPAKEUtil.calculateS(this.f80744n, this.password);
         } catch (CryptoException e) {
             throw Exceptions.illegalStateException(e.getMessage(), e);
         }
@@ -88,10 +102,10 @@ public class ECJPAKEParticipant {
         BigInteger bigIntegerCalculateS = calculateS();
         Arrays.fill(this.password, (char) 0);
         this.password = null;
-        BigInteger bigIntegerCalculateKeyingMaterial = ECJPAKEUtil.calculateKeyingMaterial(this.n, this.gx4, this.x2, bigIntegerCalculateS, this.b);
-        this.x1 = null;
-        this.x2 = null;
-        this.b = null;
+        BigInteger bigIntegerCalculateKeyingMaterial = ECJPAKEUtil.calculateKeyingMaterial(this.f80744n, this.gx4, this.f80747x2, bigIntegerCalculateS, this.f80741b);
+        this.f80746x1 = null;
+        this.f80747x2 = null;
+        this.f80741b = null;
         this.state = 50;
         return bigIntegerCalculateKeyingMaterial;
     }
@@ -100,12 +114,12 @@ public class ECJPAKEParticipant {
         if (this.state >= 10) {
             throw new IllegalStateException("Round1 payload already created for " + this.participantId);
         }
-        this.x1 = ECJPAKEUtil.generateX1(this.n, this.random);
-        this.x2 = ECJPAKEUtil.generateX1(this.n, this.random);
-        this.gx1 = ECJPAKEUtil.calculateGx(this.g, this.x1);
-        this.gx2 = ECJPAKEUtil.calculateGx(this.g, this.x2);
-        ECSchnorrZKP eCSchnorrZKPCalculateZeroKnowledgeProof = ECJPAKEUtil.calculateZeroKnowledgeProof(this.g, this.n, this.x1, this.gx1, this.digest, this.participantId, this.random);
-        ECSchnorrZKP eCSchnorrZKPCalculateZeroKnowledgeProof2 = ECJPAKEUtil.calculateZeroKnowledgeProof(this.g, this.n, this.x2, this.gx2, this.digest, this.participantId, this.random);
+        this.f80746x1 = ECJPAKEUtil.generateX1(this.f80744n, this.random);
+        this.f80747x2 = ECJPAKEUtil.generateX1(this.f80744n, this.random);
+        this.gx1 = ECJPAKEUtil.calculateGx(this.f80742g, this.f80746x1);
+        this.gx2 = ECJPAKEUtil.calculateGx(this.f80742g, this.f80747x2);
+        ECSchnorrZKP eCSchnorrZKPCalculateZeroKnowledgeProof = ECJPAKEUtil.calculateZeroKnowledgeProof(this.f80742g, this.f80744n, this.f80746x1, this.gx1, this.digest, this.participantId, this.random);
+        ECSchnorrZKP eCSchnorrZKPCalculateZeroKnowledgeProof2 = ECJPAKEUtil.calculateZeroKnowledgeProof(this.f80742g, this.f80744n, this.f80747x2, this.gx2, this.digest, this.participantId, this.random);
         this.state = 10;
         return new ECJPAKERound1Payload(this.participantId, this.gx1, this.gx2, eCSchnorrZKPCalculateZeroKnowledgeProof, eCSchnorrZKPCalculateZeroKnowledgeProof2);
     }
@@ -119,9 +133,9 @@ public class ECJPAKEParticipant {
             throw new IllegalStateException("Round1 payload must be validated prior to creating Round2 payload for " + this.participantId);
         }
         ECPoint eCPointCalculateGA = ECJPAKEUtil.calculateGA(this.gx1, this.gx3, this.gx4);
-        BigInteger bigIntegerCalculateX2s = ECJPAKEUtil.calculateX2s(this.n, this.x2, calculateS());
+        BigInteger bigIntegerCalculateX2s = ECJPAKEUtil.calculateX2s(this.f80744n, this.f80747x2, calculateS());
         ECPoint eCPointCalculateA = ECJPAKEUtil.calculateA(eCPointCalculateGA, bigIntegerCalculateX2s);
-        ECSchnorrZKP eCSchnorrZKPCalculateZeroKnowledgeProof = ECJPAKEUtil.calculateZeroKnowledgeProof(eCPointCalculateGA, this.n, bigIntegerCalculateX2s, eCPointCalculateA, this.digest, this.participantId, this.random);
+        ECSchnorrZKP eCSchnorrZKPCalculateZeroKnowledgeProof = ECJPAKEUtil.calculateZeroKnowledgeProof(eCPointCalculateGA, this.f80744n, bigIntegerCalculateX2s, eCPointCalculateA, this.digest, this.participantId, this.random);
         this.state = 30;
         return new ECJPAKERound2Payload(this.participantId, eCPointCalculateA, eCSchnorrZKPCalculateZeroKnowledgeProof);
     }
@@ -153,8 +167,8 @@ public class ECJPAKEParticipant {
         ECSchnorrZKP knowledgeProofForX1 = eCJPAKERound1Payload.getKnowledgeProofForX1();
         ECSchnorrZKP knowledgeProofForX2 = eCJPAKERound1Payload.getKnowledgeProofForX2();
         ECJPAKEUtil.validateParticipantIdsDiffer(this.participantId, eCJPAKERound1Payload.getParticipantId());
-        ECJPAKEUtil.validateZeroKnowledgeProof(this.g, this.gx3, knowledgeProofForX1, this.q, this.n, this.ecCurve, this.h, eCJPAKERound1Payload.getParticipantId(), this.digest);
-        ECJPAKEUtil.validateZeroKnowledgeProof(this.g, this.gx4, knowledgeProofForX2, this.q, this.n, this.ecCurve, this.h, eCJPAKERound1Payload.getParticipantId(), this.digest);
+        ECJPAKEUtil.validateZeroKnowledgeProof(this.f80742g, this.gx3, knowledgeProofForX1, this.f80745q, this.f80744n, this.ecCurve, this.f80743h, eCJPAKERound1Payload.getParticipantId(), this.digest);
+        ECJPAKEUtil.validateZeroKnowledgeProof(this.f80742g, this.gx4, knowledgeProofForX2, this.f80745q, this.f80744n, this.ecCurve, this.f80743h, eCJPAKERound1Payload.getParticipantId(), this.digest);
         this.state = 20;
     }
 
@@ -167,11 +181,11 @@ public class ECJPAKEParticipant {
             throw new IllegalStateException("Round1 payload must be validated prior to validating Round2 payload for " + this.participantId);
         }
         ECPoint eCPointCalculateGA = ECJPAKEUtil.calculateGA(this.gx3, this.gx1, this.gx2);
-        this.b = eCJPAKERound2Payload.getA();
+        this.f80741b = eCJPAKERound2Payload.getA();
         ECSchnorrZKP knowledgeProofForX2s = eCJPAKERound2Payload.getKnowledgeProofForX2s();
         ECJPAKEUtil.validateParticipantIdsDiffer(this.participantId, eCJPAKERound2Payload.getParticipantId());
         ECJPAKEUtil.validateParticipantIdsEqual(this.partnerParticipantId, eCJPAKERound2Payload.getParticipantId());
-        ECJPAKEUtil.validateZeroKnowledgeProof(eCPointCalculateGA, this.b, knowledgeProofForX2s, this.q, this.n, this.ecCurve, this.h, eCJPAKERound2Payload.getParticipantId(), this.digest);
+        ECJPAKEUtil.validateZeroKnowledgeProof(eCPointCalculateGA, this.f80741b, knowledgeProofForX2s, this.f80745q, this.f80744n, this.ecCurve, this.f80743h, eCJPAKERound2Payload.getParticipantId(), this.digest);
         this.state = 40;
     }
 

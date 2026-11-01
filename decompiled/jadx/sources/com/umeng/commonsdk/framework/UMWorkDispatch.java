@@ -21,12 +21,12 @@ public class UMWorkDispatch {
     public static final int MSG_QUIT = 784;
     public static final int MSG_SEND_EVENT = 768;
     public static HandlerThread mNetTask;
-    public static a mSender;
+    public static C0770a mSender;
     public static Object mSenderInitLock = new Object();
     public static Handler mTaskHandler;
 
     public static synchronized void init() {
-        ULog.d("--->>> Dispatch: init Enter...");
+        ULog.m2971d("--->>> Dispatch: init Enter...");
         try {
             if (mNetTask == null) {
                 HandlerThread handlerThread = new HandlerThread("work_thread");
@@ -58,18 +58,18 @@ public class UMWorkDispatch {
         } catch (Throwable th) {
             UMCrashManager.reportCrash(UMModuleRegister.getAppContext(), th);
         }
-        ULog.d("--->>> Dispatch: init Exit...");
+        ULog.m2971d("--->>> Dispatch: init Exit...");
     }
 
     public static void registerConnStateObserver(UMSenderStateNotify uMSenderStateNotify) {
         if (mSender != null) {
-            a.a(uMSenderStateNotify);
+            C0770a.m2771a(uMSenderStateNotify);
         }
     }
 
     public static void sendEventInternal(Context context, int i, int i2, UMLogDataProtocol uMLogDataProtocol, Object obj, long j) {
         if (context == null || uMLogDataProtocol == null) {
-            ULog.d("--->>> Context or UMLogDataProtocol parameter cannot be null!");
+            ULog.m2971d("--->>> Context or UMLogDataProtocol parameter cannot be null!");
             return;
         }
         UMModuleRegister.registerAppContext(context.getApplicationContext());
@@ -83,7 +83,7 @@ public class UMWorkDispatch {
                         synchronized (mSenderInitLock) {
                             if (mSender == null) {
                                 UMFrUtils.syncLegacyEnvelopeIfNeeded(context);
-                                mSender = new a(context, mTaskHandler);
+                                mSender = new C0770a(context, mTaskHandler);
                             }
                         }
                     }
@@ -114,8 +114,8 @@ public class UMWorkDispatch {
     public static void delayProcess() {
         JSONObject jSONObject;
         JSONObject jSONObjectBuildEnvelopeWithExtHeader;
-        ULog.d("--->>> delayProcess Enter...");
-        UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> delayProcess Enter...");
+        ULog.m2971d("--->>> delayProcess Enter...");
+        UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> delayProcess Enter...");
         Context appContext = UMModuleRegister.getAppContext();
         if (appContext == null || !UMFrUtils.isOnline(appContext)) {
             return;
@@ -126,7 +126,7 @@ public class UMWorkDispatch {
             try {
                 jSONObject = callbackFromModuleName.setupReportData(jMaxDataSpace);
                 if (jSONObject == null) {
-                    UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> analyticsCB.setupReportData() return null");
+                    UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> analyticsCB.setupReportData() return null");
                     return;
                 }
             } catch (Throwable th) {
@@ -146,11 +146,11 @@ public class UMWorkDispatch {
         }
         try {
             if (jSONObjectBuildEnvelopeWithExtHeader.has("exception")) {
-                UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> autoProcess: Build envelope error code: " + jSONObjectBuildEnvelopeWithExtHeader.getInt("exception"));
+                UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> autoProcess: Build envelope error code: " + jSONObjectBuildEnvelopeWithExtHeader.getInt("exception"));
             }
         } catch (Throwable unused) {
         }
-        UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> autoProcess: removeCacheData ... ");
+        UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> autoProcess: removeCacheData ... ");
         callbackFromModuleName.removeCacheData(jSONObjectBuildEnvelopeWithExtHeader);
     }
 
@@ -158,10 +158,10 @@ public class UMWorkDispatch {
         Handler handler = mTaskHandler;
         if (handler != null) {
             if (handler.hasMessages(MSG_DELAY_PROCESS)) {
-                UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> MSG_DELAY_PROCESS has exist. do nothing.");
+                UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> MSG_DELAY_PROCESS has exist. do nothing.");
                 return;
             }
-            UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> MSG_DELAY_PROCESS not exist. send it.");
+            UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> MSG_DELAY_PROCESS not exist. send it.");
             Message messageObtainMessage = mTaskHandler.obtainMessage();
             messageObtainMessage.what = MSG_DELAY_PROCESS;
             mTaskHandler.sendMessageDelayed(messageObtainMessage, j);
@@ -205,7 +205,7 @@ public class UMWorkDispatch {
         Object obj = message.obj;
         UMLogDataProtocol callbackFromModuleName = UMModuleRegister.getCallbackFromModuleName(UMModuleRegister.eventType2ModuleName(i));
         if (callbackFromModuleName != null) {
-            ULog.d("--->>> dispatch:handleEvent: call back workEvent with msg type [ 0x" + Integer.toHexString(i) + "]");
+            ULog.m2971d("--->>> dispatch:handleEvent: call back workEvent with msg type [ 0x" + Integer.toHexString(i) + "]");
             callbackFromModuleName.workEvent(obj, i);
         }
     }
@@ -226,8 +226,8 @@ public class UMWorkDispatch {
         if (mSender == null || mNetTask == null) {
             return;
         }
-        a.c();
-        ULog.d("--->>> handleQuit: Quit dispatch thread.");
+        C0770a.m2777c();
+        ULog.m2971d("--->>> handleQuit: Quit dispatch thread.");
         mNetTask.quit();
         teardown();
     }

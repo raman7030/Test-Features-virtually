@@ -1,8 +1,8 @@
 package org.bouncycastle.asn1;
 
 import java.io.IOException;
-import l.C3200;
-import l.C5127;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ASN1Boolean extends ASN1Primitive {
@@ -42,12 +42,12 @@ public class ASN1Boolean extends ASN1Primitive {
             return (ASN1Boolean) obj;
         }
         if (!(obj instanceof byte[])) {
-            throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+            throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
         }
         try {
             return (ASN1Boolean) TYPE.fromByteArray((byte[]) obj);
         } catch (IOException e) {
-            throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("failed to construct boolean from byte[]: ")));
+            throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("failed to construct boolean from byte[]: ")));
         }
     }
 

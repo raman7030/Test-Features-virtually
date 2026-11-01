@@ -11,7 +11,9 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */
 public class IvAlgorithmParameters extends BaseAlgorithmParameters {
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81364iv;
 
     @Override // java.security.AlgorithmParametersSpi
     public byte[] engineGetEncoded() {
@@ -24,7 +26,7 @@ public class IvAlgorithmParameters extends BaseAlgorithmParameters {
             return new DEROctetString(engineGetEncoded("RAW")).getEncoded();
         }
         if (str.equals("RAW")) {
-            return Arrays.clone(this.iv);
+            return Arrays.clone(this.f81364iv);
         }
         return null;
     }
@@ -34,7 +36,7 @@ public class IvAlgorithmParameters extends BaseAlgorithmParameters {
         if (!(algorithmParameterSpec instanceof IvParameterSpec)) {
             throw new InvalidParameterSpecException("IvParameterSpec required to initialise a IV parameters algorithm parameters object");
         }
-        this.iv = ((IvParameterSpec) algorithmParameterSpec).getIV();
+        this.f81364iv = ((IvParameterSpec) algorithmParameterSpec).getIV();
     }
 
     @Override // java.security.AlgorithmParametersSpi
@@ -42,7 +44,7 @@ public class IvAlgorithmParameters extends BaseAlgorithmParameters {
         if (bArr.length % 8 != 0 && bArr[0] == 4 && bArr[1] == bArr.length - 2) {
             bArr = ((ASN1OctetString) ASN1Primitive.fromByteArray(bArr)).getOctets();
         }
-        this.iv = Arrays.clone(bArr);
+        this.f81364iv = Arrays.clone(bArr);
     }
 
     @Override // java.security.AlgorithmParametersSpi
@@ -69,7 +71,7 @@ public class IvAlgorithmParameters extends BaseAlgorithmParameters {
     @Override // org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters
     public AlgorithmParameterSpec localEngineGetParameterSpec(Class cls) throws InvalidParameterSpecException {
         if (cls == IvParameterSpec.class || cls == AlgorithmParameterSpec.class) {
-            return new IvParameterSpec(this.iv);
+            return new IvParameterSpec(this.f81364iv);
         }
         throw new InvalidParameterSpecException("unknown parameter spec passed to IV parameters object.");
     }

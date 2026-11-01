@@ -2,8 +2,8 @@ package org.bouncycastle.crypto.params;
 
 import java.io.EOFException;
 import java.io.InputStream;
-import org.bouncycastle.math.ec.rfc8032.Ed448;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.math.p080ec.rfc8032.Ed448;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Ed448PublicKeyParameters extends AsymmetricKeyParameter {

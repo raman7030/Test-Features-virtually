@@ -15,24 +15,48 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST3411Digest implements ExtendedDigest, Memoable {
-    public static final byte[] C2 = {0, -1, 0, -1, 0, -1, 0, -1, -1, 0, -1, 0, -1, 0, -1, 0, 0, -1, -1, 0, -1, 0, 0, -1, -1, 0, 0, 0, -1, -1, 0, -1};
+
+    /* JADX INFO: renamed from: C2 */
+    public static final byte[] f80811C2 = {0, -1, 0, -1, 0, -1, 0, -1, -1, 0, -1, 0, -1, 0, -1, 0, 0, -1, -1, 0, -1, 0, 0, -1, -1, 0, 0, 0, -1, -1, 0, -1};
     public static final int DIGEST_LENGTH = 32;
-    public byte[][] C;
-    public byte[] H;
-    public byte[] K;
-    public byte[] L;
-    public byte[] M;
-    public byte[] S;
+
+    /* JADX INFO: renamed from: C */
+    public byte[][] f80812C;
+
+    /* JADX INFO: renamed from: H */
+    public byte[] f80813H;
+
+    /* JADX INFO: renamed from: K */
+    public byte[] f80814K;
+
+    /* JADX INFO: renamed from: L */
+    public byte[] f80815L;
+
+    /* JADX INFO: renamed from: M */
+    public byte[] f80816M;
+
+    /* JADX INFO: renamed from: S */
+    public byte[] f80817S;
     public byte[] Sum;
-    public byte[] U;
-    public byte[] V;
-    public byte[] W;
-    public byte[] a;
+
+    /* JADX INFO: renamed from: U */
+    public byte[] f80818U;
+
+    /* JADX INFO: renamed from: V */
+    public byte[] f80819V;
+
+    /* JADX INFO: renamed from: W */
+    public byte[] f80820W;
+
+    /* JADX INFO: renamed from: a */
+    public byte[] f80821a;
     public long byteCount;
     public BlockCipher cipher;
     public final CryptoServicePurpose purpose;
     public byte[] sBox;
-    public short[] wS;
+
+    /* JADX INFO: renamed from: wS */
+    public short[] f80822wS;
     public short[] w_S;
     public byte[] xBuf;
     public int xBufOff;
@@ -42,21 +66,21 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
     }
 
     public GOST3411Digest(CryptoServicePurpose cryptoServicePurpose) {
-        this.H = new byte[32];
-        this.L = new byte[32];
-        this.M = new byte[32];
+        this.f80813H = new byte[32];
+        this.f80815L = new byte[32];
+        this.f80816M = new byte[32];
         this.Sum = new byte[32];
-        this.C = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, 4, 32);
+        this.f80812C = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, 4, 32);
         this.xBuf = new byte[32];
         this.cipher = new GOST28147Engine();
-        this.K = new byte[32];
-        this.a = new byte[8];
-        this.wS = new short[16];
+        this.f80814K = new byte[32];
+        this.f80821a = new byte[8];
+        this.f80822wS = new short[16];
         this.w_S = new short[16];
-        this.S = new byte[32];
-        this.U = new byte[32];
-        this.V = new byte[32];
-        this.W = new byte[32];
+        this.f80817S = new byte[32];
+        this.f80818U = new byte[32];
+        this.f80819V = new byte[32];
+        this.f80820W = new byte[32];
         this.purpose = cryptoServicePurpose;
         CryptoServicesRegistrar.checkConstraints(cryptoServiceProperties());
         byte[] sBox = GOST28147Engine.getSBox("D-A");
@@ -66,21 +90,21 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
     }
 
     public GOST3411Digest(GOST3411Digest gOST3411Digest) {
-        this.H = new byte[32];
-        this.L = new byte[32];
-        this.M = new byte[32];
+        this.f80813H = new byte[32];
+        this.f80815L = new byte[32];
+        this.f80816M = new byte[32];
         this.Sum = new byte[32];
-        this.C = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, 4, 32);
+        this.f80812C = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, 4, 32);
         this.xBuf = new byte[32];
         this.cipher = new GOST28147Engine();
-        this.K = new byte[32];
-        this.a = new byte[8];
-        this.wS = new short[16];
+        this.f80814K = new byte[32];
+        this.f80821a = new byte[8];
+        this.f80822wS = new short[16];
         this.w_S = new short[16];
-        this.S = new byte[32];
-        this.U = new byte[32];
-        this.V = new byte[32];
-        this.W = new byte[32];
+        this.f80817S = new byte[32];
+        this.f80818U = new byte[32];
+        this.f80819V = new byte[32];
+        this.f80820W = new byte[32];
         this.purpose = gOST3411Digest.purpose;
         CryptoServicesRegistrar.checkConstraints(cryptoServiceProperties());
         reset(gOST3411Digest);
@@ -91,21 +115,21 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
     }
 
     public GOST3411Digest(byte[] bArr, CryptoServicePurpose cryptoServicePurpose) {
-        this.H = new byte[32];
-        this.L = new byte[32];
-        this.M = new byte[32];
+        this.f80813H = new byte[32];
+        this.f80815L = new byte[32];
+        this.f80816M = new byte[32];
         this.Sum = new byte[32];
-        this.C = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, 4, 32);
+        this.f80812C = (byte[][]) Array.newInstance((Class<?>) Byte.TYPE, 4, 32);
         this.xBuf = new byte[32];
         this.cipher = new GOST28147Engine();
-        this.K = new byte[32];
-        this.a = new byte[8];
-        this.wS = new short[16];
+        this.f80814K = new byte[32];
+        this.f80821a = new byte[8];
+        this.f80822wS = new short[16];
         this.w_S = new short[16];
-        this.S = new byte[32];
-        this.U = new byte[32];
-        this.V = new byte[32];
-        this.W = new byte[32];
+        this.f80817S = new byte[32];
+        this.f80818U = new byte[32];
+        this.f80819V = new byte[32];
+        this.f80820W = new byte[32];
         this.purpose = cryptoServicePurpose;
         CryptoServicesRegistrar.checkConstraints(cryptoServiceProperties());
         byte[] bArrClone = Arrays.clone(bArr);
@@ -114,30 +138,33 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         reset();
     }
 
-    private byte[] A(byte[] bArr) {
+    /* JADX INFO: renamed from: A */
+    private byte[] m55312A(byte[] bArr) {
         for (int i = 0; i < 8; i++) {
-            this.a[i] = (byte) (bArr[i] ^ bArr[i + 8]);
+            this.f80821a[i] = (byte) (bArr[i] ^ bArr[i + 8]);
         }
         System.arraycopy(bArr, 8, bArr, 0, 24);
-        System.arraycopy(this.a, 0, bArr, 24, 8);
+        System.arraycopy(this.f80821a, 0, bArr, 24, 8);
         return bArr;
     }
 
-    private void E(byte[] bArr, byte[] bArr2, int i, byte[] bArr3, int i2) {
+    /* JADX INFO: renamed from: E */
+    private void m55313E(byte[] bArr, byte[] bArr2, int i, byte[] bArr3, int i2) {
         this.cipher.init(true, new KeyParameter(bArr));
         this.cipher.processBlock(bArr3, i2, bArr2, i);
     }
 
-    private byte[] P(byte[] bArr) {
+    /* JADX INFO: renamed from: P */
+    private byte[] m55314P(byte[] bArr) {
         for (int i = 0; i < 8; i++) {
-            byte[] bArr2 = this.K;
+            byte[] bArr2 = this.f80814K;
             int i2 = i * 4;
             bArr2[i2] = bArr[i];
             bArr2[i2 + 1] = bArr[i + 8];
             bArr2[i2 + 2] = bArr[i + 16];
             bArr2[i2 + 3] = bArr[i + 24];
         }
-        return this.K;
+        return this.f80814K;
     }
 
     private void cpyBytesToShort(byte[] bArr, short[] sArr) {
@@ -157,18 +184,19 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
     }
 
     private void finish() {
-        Pack.longToLittleEndian(this.byteCount * 8, this.L, 0);
+        Pack.longToLittleEndian(this.byteCount * 8, this.f80815L, 0);
         while (this.xBufOff != 0) {
             update((byte) 0);
         }
-        processBlock(this.L, 0);
+        processBlock(this.f80815L, 0);
         processBlock(this.Sum, 0);
     }
 
-    private void fw(byte[] bArr) {
-        cpyBytesToShort(bArr, this.wS);
+    /* JADX INFO: renamed from: fw */
+    private void m55315fw(byte[] bArr) {
+        cpyBytesToShort(bArr, this.f80822wS);
         short[] sArr = this.w_S;
-        short[] sArr2 = this.wS;
+        short[] sArr2 = this.f80822wS;
         sArr[15] = (short) (((((sArr2[0] ^ sArr2[1]) ^ sArr2[2]) ^ sArr2[3]) ^ sArr2[12]) ^ sArr2[15]);
         System.arraycopy(sArr2, 1, sArr, 0, 15);
         cpyShortToBytes(this.w_S, bArr);
@@ -201,7 +229,7 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
     @Override // org.bouncycastle.crypto.Digest
     public int doFinal(byte[] bArr, int i) {
         finish();
-        byte[] bArr2 = this.H;
+        byte[] bArr2 = this.f80813H;
         System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
         reset();
         return 32;
@@ -223,42 +251,42 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
     }
 
     public void processBlock(byte[] bArr, int i) {
-        System.arraycopy(bArr, i, this.M, 0, 32);
-        System.arraycopy(this.H, 0, this.U, 0, 32);
-        System.arraycopy(this.M, 0, this.V, 0, 32);
+        System.arraycopy(bArr, i, this.f80816M, 0, 32);
+        System.arraycopy(this.f80813H, 0, this.f80818U, 0, 32);
+        System.arraycopy(this.f80816M, 0, this.f80819V, 0, 32);
         for (int i2 = 0; i2 < 32; i2++) {
-            this.W[i2] = (byte) (this.U[i2] ^ this.V[i2]);
+            this.f80820W[i2] = (byte) (this.f80818U[i2] ^ this.f80819V[i2]);
         }
-        E(P(this.W), this.S, 0, this.H, 0);
+        m55313E(m55314P(this.f80820W), this.f80817S, 0, this.f80813H, 0);
         for (int i3 = 1; i3 < 4; i3++) {
-            byte[] bArrA = A(this.U);
+            byte[] bArrM55312A = m55312A(this.f80818U);
             for (int i4 = 0; i4 < 32; i4++) {
-                this.U[i4] = (byte) (bArrA[i4] ^ this.C[i3][i4]);
+                this.f80818U[i4] = (byte) (bArrM55312A[i4] ^ this.f80812C[i3][i4]);
             }
-            this.V = A(A(this.V));
+            this.f80819V = m55312A(m55312A(this.f80819V));
             for (int i5 = 0; i5 < 32; i5++) {
-                this.W[i5] = (byte) (this.U[i5] ^ this.V[i5]);
+                this.f80820W[i5] = (byte) (this.f80818U[i5] ^ this.f80819V[i5]);
             }
             int i6 = i3 * 8;
-            E(P(this.W), this.S, i6, this.H, i6);
+            m55313E(m55314P(this.f80820W), this.f80817S, i6, this.f80813H, i6);
         }
         for (int i7 = 0; i7 < 12; i7++) {
-            fw(this.S);
+            m55315fw(this.f80817S);
         }
         for (int i8 = 0; i8 < 32; i8++) {
-            byte[] bArr2 = this.S;
-            bArr2[i8] = (byte) (bArr2[i8] ^ this.M[i8]);
+            byte[] bArr2 = this.f80817S;
+            bArr2[i8] = (byte) (bArr2[i8] ^ this.f80816M[i8]);
         }
-        fw(this.S);
+        m55315fw(this.f80817S);
         for (int i9 = 0; i9 < 32; i9++) {
-            byte[] bArr3 = this.S;
-            bArr3[i9] = (byte) (this.H[i9] ^ bArr3[i9]);
+            byte[] bArr3 = this.f80817S;
+            bArr3[i9] = (byte) (this.f80813H[i9] ^ bArr3[i9]);
         }
         for (int i10 = 0; i10 < 61; i10++) {
-            fw(this.S);
+            m55315fw(this.f80817S);
         }
-        byte[] bArr4 = this.S;
-        byte[] bArr5 = this.H;
+        byte[] bArr4 = this.f80817S;
+        byte[] bArr5 = this.f80813H;
         System.arraycopy(bArr4, 0, bArr5, 0, bArr5.length);
     }
 
@@ -268,7 +296,7 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         this.xBufOff = 0;
         int i = 0;
         while (true) {
-            byte[] bArr = this.H;
+            byte[] bArr = this.f80813H;
             if (i >= bArr.length) {
                 break;
             }
@@ -277,7 +305,7 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         }
         int i2 = 0;
         while (true) {
-            byte[] bArr2 = this.L;
+            byte[] bArr2 = this.f80815L;
             if (i2 >= bArr2.length) {
                 break;
             }
@@ -286,7 +314,7 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         }
         int i3 = 0;
         while (true) {
-            byte[] bArr3 = this.M;
+            byte[] bArr3 = this.f80816M;
             if (i3 >= bArr3.length) {
                 break;
             }
@@ -295,7 +323,7 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         }
         int i4 = 0;
         while (true) {
-            byte[] bArr4 = this.C[1];
+            byte[] bArr4 = this.f80812C[1];
             if (i4 >= bArr4.length) {
                 break;
             }
@@ -304,7 +332,7 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         }
         int i5 = 0;
         while (true) {
-            byte[] bArr5 = this.C[3];
+            byte[] bArr5 = this.f80812C[3];
             if (i5 >= bArr5.length) {
                 break;
             }
@@ -324,8 +352,8 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         while (true) {
             byte[] bArr7 = this.xBuf;
             if (i7 >= bArr7.length) {
-                byte[] bArr8 = C2;
-                System.arraycopy(bArr8, 0, this.C[2], 0, bArr8.length);
+                byte[] bArr8 = f80811C2;
+                System.arraycopy(bArr8, 0, this.f80812C[2], 0, bArr8.length);
                 return;
             } else {
                 bArr7[i7] = 0;
@@ -341,20 +369,20 @@ public class GOST3411Digest implements ExtendedDigest, Memoable {
         this.sBox = bArr;
         this.cipher.init(true, new ParametersWithSBox(null, bArr));
         reset();
-        byte[] bArr2 = gOST3411Digest.H;
-        System.arraycopy(bArr2, 0, this.H, 0, bArr2.length);
-        byte[] bArr3 = gOST3411Digest.L;
-        System.arraycopy(bArr3, 0, this.L, 0, bArr3.length);
-        byte[] bArr4 = gOST3411Digest.M;
-        System.arraycopy(bArr4, 0, this.M, 0, bArr4.length);
+        byte[] bArr2 = gOST3411Digest.f80813H;
+        System.arraycopy(bArr2, 0, this.f80813H, 0, bArr2.length);
+        byte[] bArr3 = gOST3411Digest.f80815L;
+        System.arraycopy(bArr3, 0, this.f80815L, 0, bArr3.length);
+        byte[] bArr4 = gOST3411Digest.f80816M;
+        System.arraycopy(bArr4, 0, this.f80816M, 0, bArr4.length);
         byte[] bArr5 = gOST3411Digest.Sum;
         System.arraycopy(bArr5, 0, this.Sum, 0, bArr5.length);
-        byte[] bArr6 = gOST3411Digest.C[1];
-        System.arraycopy(bArr6, 0, this.C[1], 0, bArr6.length);
-        byte[] bArr7 = gOST3411Digest.C[2];
-        System.arraycopy(bArr7, 0, this.C[2], 0, bArr7.length);
-        byte[] bArr8 = gOST3411Digest.C[3];
-        System.arraycopy(bArr8, 0, this.C[3], 0, bArr8.length);
+        byte[] bArr6 = gOST3411Digest.f80812C[1];
+        System.arraycopy(bArr6, 0, this.f80812C[1], 0, bArr6.length);
+        byte[] bArr7 = gOST3411Digest.f80812C[2];
+        System.arraycopy(bArr7, 0, this.f80812C[2], 0, bArr7.length);
+        byte[] bArr8 = gOST3411Digest.f80812C[3];
+        System.arraycopy(bArr8, 0, this.f80812C[3], 0, bArr8.length);
         byte[] bArr9 = gOST3411Digest.xBuf;
         System.arraycopy(bArr9, 0, this.xBuf, 0, bArr9.length);
         this.xBufOff = gOST3411Digest.xBufOff;

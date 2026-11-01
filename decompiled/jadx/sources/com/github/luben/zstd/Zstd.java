@@ -4,7 +4,7 @@ import com.github.luben.zstd.util.Native;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import l.C18307;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Zstd {
@@ -821,7 +821,7 @@ public class Zstd {
     public static ByteBuffer getArrayBackedBuffer(BufferPool bufferPool, int i) throws ZstdIOException {
         ByteBuffer byteBuffer = bufferPool.get(i);
         if (byteBuffer == null) {
-            throw new ZstdIOException(errMemoryAllocation(), C18307.m42645(i, "Cannot get ByteBuffer of size ", " from the BufferPool"));
+            throw new ZstdIOException(errMemoryAllocation(), C19768.m44906(i, "Cannot get ByteBuffer of size ", " from the BufferPool"));
         }
         if (byteBuffer.hasArray() && byteBuffer.arrayOffset() == 0) {
             return byteBuffer;

@@ -1,30 +1,30 @@
 package pl.droidsonroids.gif;
 
 import java.io.IOException;
-import l.EnumC17962;
+import p067l.EnumC19439;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GifIOException extends IOException {
     public static final long serialVersionUID = 13038402904505L;
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public final String f77901;
+    /* JADX INFO: renamed from: ᩸ */
+    public final String f81814;
 
-    /* JADX INFO: renamed from: ᩹, reason: not valid java name and contains not printable characters */
-    public final EnumC17962 f77902;
+    /* JADX INFO: renamed from: ᩹ */
+    public final EnumC19439 f81815;
 
     @Override // java.lang.Throwable
     public final String getMessage() {
-        EnumC17962 enumC17962 = this.f77902;
-        String str = this.f77901;
+        EnumC19439 enumC19439 = this.f81815;
+        String str = this.f81814;
         if (str == null) {
-            return enumC17962.m41956();
+            return enumC19439.m44205();
         }
-        return enumC17962.m41956() + ": " + str;
+        return enumC19439.m44205() + ": " + str;
     }
 
     public GifIOException(int i, String str) {
-        this.f77902 = EnumC17962.m41953(i);
-        this.f77901 = str;
+        this.f81815 = EnumC19439.m44202(i);
+        this.f81814 = str;
     }
 }

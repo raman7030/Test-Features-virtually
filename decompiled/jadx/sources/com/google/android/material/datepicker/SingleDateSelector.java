@@ -16,10 +16,10 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import l.C15813;
-import l.C17931;
-import l.C20754;
-import l.C3820;
+import p067l.C17397;
+import p067l.C19410;
+import p067l.C22093;
+import p067l.C5999;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SingleDateSelector implements DateSelector {
@@ -96,8 +96,8 @@ public class SingleDateSelector implements DateSelector {
     @Override // com.google.android.material.datepicker.DateSelector
     public View onCreateTextInputView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle, CalendarConstraints calendarConstraints, final OnSelectionChangedListener onSelectionChangedListener) {
         String defaultTextInputHint;
-        View viewInflate = layoutInflater.inflate(C15813.f48801, viewGroup, false);
-        final TextInputLayout textInputLayout = (TextInputLayout) viewInflate.findViewById(C20754.f67006);
+        View viewInflate = layoutInflater.inflate(C17397.f51939, viewGroup, false);
+        final TextInputLayout textInputLayout = (TextInputLayout) viewInflate.findViewById(C22093.f69690);
         EditText editText = textInputLayout.getEditText();
         if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
             editText.setInputType(17);
@@ -143,7 +143,7 @@ public class SingleDateSelector implements DateSelector {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public int getDefaultThemeResId(Context context) {
-        return MaterialAttributes.resolveOrThrow(context, C17931.f54980, MaterialDatePicker.class.getCanonicalName());
+        return MaterialAttributes.resolveOrThrow(context, C19410.f58177, MaterialDatePicker.class.getCanonicalName());
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -151,9 +151,9 @@ public class SingleDateSelector implements DateSelector {
         Resources resources = context.getResources();
         Long l2 = this.selectedItem;
         if (l2 == null) {
-            return resources.getString(C3820.f12085);
+            return resources.getString(C5999.f14892);
         }
-        return resources.getString(C3820.f12166, DateStrings.getYearMonthDay(l2.longValue()));
+        return resources.getString(C5999.f14973, DateStrings.getYearMonthDay(l2.longValue()));
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -162,11 +162,11 @@ public class SingleDateSelector implements DateSelector {
         Resources resources = context.getResources();
         Long l2 = this.selectedItem;
         if (l2 == null) {
-            yearMonthDay = resources.getString(C3820.f12201);
+            yearMonthDay = resources.getString(C5999.f15008);
         } else {
             yearMonthDay = DateStrings.getYearMonthDay(l2.longValue());
         }
-        return resources.getString(C3820.f12104, yearMonthDay);
+        return resources.getString(C5999.f14911, yearMonthDay);
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -179,7 +179,7 @@ public class SingleDateSelector implements DateSelector {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public int getDefaultTitleResId() {
-        return C3820.f12075;
+        return C5999.f14882;
     }
 
     @Override // android.os.Parcelable

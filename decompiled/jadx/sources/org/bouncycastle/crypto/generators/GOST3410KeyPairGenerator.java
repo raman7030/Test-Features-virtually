@@ -14,7 +14,7 @@ import org.bouncycastle.crypto.params.GOST3410KeyGenerationParameters;
 import org.bouncycastle.crypto.params.GOST3410Parameters;
 import org.bouncycastle.crypto.params.GOST3410PrivateKeyParameters;
 import org.bouncycastle.crypto.params.GOST3410PublicKeyParameters;
-import org.bouncycastle.math.ec.WNafUtil;
+import org.bouncycastle.math.p080ec.WNafUtil;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */

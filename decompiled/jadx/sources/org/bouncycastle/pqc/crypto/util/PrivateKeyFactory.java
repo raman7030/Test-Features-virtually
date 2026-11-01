@@ -2,8 +2,6 @@ package org.bouncycastle.pqc.crypto.util;
 
 import java.io.IOException;
 import java.io.InputStream;
-import l.C18736;
-import l.C19370;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1InputStream;
@@ -13,8 +11,8 @@ import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
@@ -67,6 +65,8 @@ import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
+import p067l.C20175;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PrivateKeyFactory {
@@ -103,7 +103,7 @@ public class PrivateKeyFactory {
             }
             return HSSPrivateKeyParameters.getInstance(Arrays.copyOfRange(octets, 4, octets.length));
         }
-        if (algorithm.on(BCObjectIdentifiers.sphincsPlus) || algorithm.on(BCObjectIdentifiers.sphincsPlus_interop)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.sphincsPlus) || algorithm.m55304on(BCObjectIdentifiers.sphincsPlus_interop)) {
             SPHINCSPlusParameters sPHINCSPlusParametersSphincsPlusParamsLookup = Utils.sphincsPlusParamsLookup(algorithm);
             ASN1Encodable privateKey = privateKeyInfo.parsePrivateKey();
             if (!(privateKey instanceof ASN1Sequence)) {
@@ -117,20 +117,20 @@ public class PrivateKeyFactory {
             SLHDSAParameters sLHDSAParametersSlhdsaParamsLookup = Utils.slhdsaParamsLookup(algorithm);
             return new SLHDSAPrivateKeyParameters(sLHDSAParametersSlhdsaParamsLookup, parseOctetString(privateKeyInfo.getPrivateKey(), sLHDSAParametersSlhdsaParamsLookup.getN() * 4).getOctets());
         }
-        if (algorithm.on(BCObjectIdentifiers.picnic)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.picnic)) {
             return new PicnicPrivateKeyParameters(Utils.picnicParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_mceliece)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_mceliece)) {
             CMCEPrivateKey cMCEPrivateKey = CMCEPrivateKey.getInstance(privateKeyInfo.parsePrivateKey());
             return new CMCEPrivateKeyParameters(Utils.mcElieceParamsLookup(algorithm), cMCEPrivateKey.getDelta(), cMCEPrivateKey.getC(), cMCEPrivateKey.getG(), cMCEPrivateKey.getAlpha(), cMCEPrivateKey.getS());
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_frodo)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_frodo)) {
             return new FrodoPrivateKeyParameters(Utils.frodoParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_saber)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_saber)) {
             return new SABERPrivateKeyParameters(Utils.saberParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_ntru)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_ntru)) {
             return new NTRUPrivateKeyParameters(Utils.ntruParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
         }
         if (algorithm.equals((ASN1Primitive) NISTObjectIdentifiers.id_alg_ml_kem_512) || algorithm.equals((ASN1Primitive) NISTObjectIdentifiers.id_alg_ml_kem_768) || algorithm.equals((ASN1Primitive) NISTObjectIdentifiers.id_alg_ml_kem_1024)) {
@@ -144,21 +144,21 @@ public class PrivateKeyFactory {
                 throw new IllegalArgumentException("invalid " + mLKEMParametersMlkemParamsLookup.getName() + " private key");
             }
             ASN1Sequence aSN1Sequence = (ASN1Sequence) primitiveString;
-            byte[] bArrM43391 = C18736.m43391(aSN1Sequence, 0);
-            byte[] bArrM43392 = C18736.m43391(aSN1Sequence, 1);
-            MLKEMPrivateKeyParameters mLKEMPrivateKeyParameters = new MLKEMPrivateKeyParameters(mLKEMParametersMlkemParamsLookup, bArrM43391, publicKeyParams);
-            if (Arrays.constantTimeAreEqual(mLKEMPrivateKeyParameters.getEncoded(), bArrM43392)) {
+            byte[] bArrM45658 = C20175.m45658(aSN1Sequence, 0);
+            byte[] bArrM45659 = C20175.m45658(aSN1Sequence, 1);
+            MLKEMPrivateKeyParameters mLKEMPrivateKeyParameters = new MLKEMPrivateKeyParameters(mLKEMParametersMlkemParamsLookup, bArrM45658, publicKeyParams);
+            if (Arrays.constantTimeAreEqual(mLKEMPrivateKeyParameters.getEncoded(), bArrM45659)) {
                 return mLKEMPrivateKeyParameters;
             }
             throw new IllegalArgumentException("inconsistent " + mLKEMParametersMlkemParamsLookup.getName() + " private key");
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_ntrulprime)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_ntrulprime)) {
             ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(privateKeyInfo.parsePrivateKey());
-            return new NTRULPRimePrivateKeyParameters(Utils.ntrulprimeParamsLookup(algorithm), C18736.m43391(aSN1Sequence2, 0), C18736.m43391(aSN1Sequence2, 1), C18736.m43391(aSN1Sequence2, 2), C18736.m43391(aSN1Sequence2, 3));
+            return new NTRULPRimePrivateKeyParameters(Utils.ntrulprimeParamsLookup(algorithm), C20175.m45658(aSN1Sequence2, 0), C20175.m45658(aSN1Sequence2, 1), C20175.m45658(aSN1Sequence2, 2), C20175.m45658(aSN1Sequence2, 3));
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_sntruprime)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_sntruprime)) {
             ASN1Sequence aSN1Sequence3 = ASN1Sequence.getInstance(privateKeyInfo.parsePrivateKey());
-            return new SNTRUPrimePrivateKeyParameters(Utils.sntruprimeParamsLookup(algorithm), C18736.m43391(aSN1Sequence3, 0), C18736.m43391(aSN1Sequence3, 1), C18736.m43391(aSN1Sequence3, 2), C18736.m43391(aSN1Sequence3, 3), C18736.m43391(aSN1Sequence3, 4));
+            return new SNTRUPrimePrivateKeyParameters(Utils.sntruprimeParamsLookup(algorithm), C20175.m45658(aSN1Sequence3, 0), C20175.m45658(aSN1Sequence3, 1), C20175.m45658(aSN1Sequence3, 2), C20175.m45658(aSN1Sequence3, 3), C20175.m45658(aSN1Sequence3, 4));
         }
         if (Utils.mldsaParams.containsKey(algorithm)) {
             ASN1Primitive primitiveString2 = parsePrimitiveString(privateKeyInfo.getPrivateKey(), 32);
@@ -171,10 +171,10 @@ public class PrivateKeyFactory {
                 throw new IllegalArgumentException("invalid " + mLDSAParametersMldsaParamsLookup.getName() + " private key");
             }
             ASN1Sequence aSN1Sequence4 = (ASN1Sequence) primitiveString2;
-            byte[] bArrM43393 = C18736.m43391(aSN1Sequence4, 0);
-            byte[] bArrM43394 = C18736.m43391(aSN1Sequence4, 1);
-            MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters = new MLDSAPrivateKeyParameters(mLDSAParametersMldsaParamsLookup, bArrM43393, publicKeyParams2);
-            if (Arrays.constantTimeAreEqual(mLDSAPrivateKeyParameters.getEncoded(), bArrM43394)) {
+            byte[] bArrM456510 = C20175.m45658(aSN1Sequence4, 0);
+            byte[] bArrM456511 = C20175.m45658(aSN1Sequence4, 1);
+            MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters = new MLDSAPrivateKeyParameters(mLDSAParametersMldsaParamsLookup, bArrM456510, publicKeyParams2);
+            if (Arrays.constantTimeAreEqual(mLDSAPrivateKeyParameters.getEncoded(), bArrM456511)) {
                 return mLDSAPrivateKeyParameters;
             }
             throw new IllegalArgumentException("inconsistent " + mLDSAParametersMldsaParamsLookup.getName() + " private key");
@@ -192,7 +192,7 @@ public class PrivateKeyFactory {
             ASN1Sequence aSN1Sequence5 = ASN1Sequence.getInstance(privateKey2);
             int iIntValueExact = ASN1Integer.getInstance(aSN1Sequence5.getObjectAt(0)).intValueExact();
             if (iIntValueExact != 0) {
-                throw new IOException(C19370.m44628(iIntValueExact, "unknown private key version: "));
+                throw new IOException(C20778.m46922(iIntValueExact, "unknown private key version: "));
             }
             if (privateKeyInfo.getPublicKeyData() != null) {
                 return new DilithiumPrivateKeyParameters(dilithiumParametersDilithiumParamsLookup, ASN1BitString.getInstance(aSN1Sequence5.getObjectAt(1)).getOctets(), ASN1BitString.getInstance(aSN1Sequence5.getObjectAt(2)).getOctets(), ASN1BitString.getInstance(aSN1Sequence5.getObjectAt(3)).getOctets(), ASN1BitString.getInstance(aSN1Sequence5.getObjectAt(4)).getOctets(), ASN1BitString.getInstance(aSN1Sequence5.getObjectAt(5)).getOctets(), ASN1BitString.getInstance(aSN1Sequence5.getObjectAt(6)).getOctets(), PublicKeyFactory.DilithiumConverter.getPublicKeyParams(dilithiumParametersDilithiumParamsLookup, privateKeyInfo.getPublicKeyData()).getT1());
@@ -207,15 +207,15 @@ public class PrivateKeyFactory {
             FalconPrivateKey falconPrivateKey2 = FalconPrivateKey.getInstance(privateKeyInfo.parsePrivateKey());
             return new FalconPrivateKeyParameters(Utils.falconParamsLookup(algorithm), falconPrivateKey2.getf(), falconPrivateKey2.getG(), falconPrivateKey2.getF(), falconPrivateKey2.getPublicKey().getH());
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_bike)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_bike)) {
             byte[] octets3 = ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets();
             BIKEParameters bIKEParametersBikeParamsLookup = Utils.bikeParamsLookup(algorithm);
             return new BIKEPrivateKeyParameters(bIKEParametersBikeParamsLookup, Arrays.copyOfRange(octets3, 0, bIKEParametersBikeParamsLookup.getRByte()), Arrays.copyOfRange(octets3, bIKEParametersBikeParamsLookup.getRByte(), bIKEParametersBikeParamsLookup.getRByte() * 2), Arrays.copyOfRange(octets3, bIKEParametersBikeParamsLookup.getRByte() * 2, octets3.length));
         }
-        if (algorithm.on(BCObjectIdentifiers.pqc_kem_hqc)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.pqc_kem_hqc)) {
             return new HQCPrivateKeyParameters(Utils.hqcParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
         }
-        if (algorithm.on(BCObjectIdentifiers.rainbow)) {
+        if (algorithm.m55304on(BCObjectIdentifiers.rainbow)) {
             return new RainbowPrivateKeyParameters(Utils.rainbowParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
         }
         if (algorithm.equals((ASN1Primitive) PQCObjectIdentifiers.xmss)) {
@@ -236,10 +236,10 @@ public class PrivateKeyFactory {
             }
         }
         if (!algorithm.equals((ASN1Primitive) PQCObjectIdentifiers.xmss_mt)) {
-            if (algorithm.on(BCObjectIdentifiers.mayo)) {
+            if (algorithm.m55304on(BCObjectIdentifiers.mayo)) {
                 return new MayoPrivateKeyParameters(Utils.mayoParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
             }
-            if (algorithm.on(BCObjectIdentifiers.snova)) {
+            if (algorithm.m55304on(BCObjectIdentifiers.snova)) {
                 return new SnovaPrivateKeyParameters(Utils.snovaParamsLookup(algorithm), ASN1OctetString.getInstance(privateKeyInfo.parsePrivateKey()).getOctets());
             }
             throw new RuntimeException("algorithm identifier in private key not recognised");

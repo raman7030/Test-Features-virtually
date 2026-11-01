@@ -16,10 +16,10 @@ import com.google.android.material.internal.TextWatcherAdapter;
 import com.google.android.material.internal.ViewUtils;
 import java.lang.reflect.Field;
 import java.util.Locale;
-import l.C14369;
-import l.C20754;
-import l.C21311;
-import l.C3820;
+import p067l.C1555;
+import p067l.C22093;
+import p067l.C22622;
+import p067l.C5999;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionChange, TimePickerPresenter {
@@ -62,23 +62,23 @@ public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionC
         this.timePickerView = linearLayout;
         this.time = timeModel;
         Resources resources = linearLayout.getResources();
-        ChipTextInputComboView chipTextInputComboView = (ChipTextInputComboView) linearLayout.findViewById(C20754.f66915);
+        ChipTextInputComboView chipTextInputComboView = (ChipTextInputComboView) linearLayout.findViewById(C22093.f69599);
         this.minuteTextInput = chipTextInputComboView;
-        ChipTextInputComboView chipTextInputComboView2 = (ChipTextInputComboView) linearLayout.findViewById(C20754.f67196);
+        ChipTextInputComboView chipTextInputComboView2 = (ChipTextInputComboView) linearLayout.findViewById(C22093.f69880);
         this.hourTextInput = chipTextInputComboView2;
-        TextView textView = (TextView) chipTextInputComboView.findViewById(C20754.f67172);
-        TextView textView2 = (TextView) chipTextInputComboView2.findViewById(C20754.f67172);
-        textView.setText(resources.getString(C3820.f12112));
-        textView2.setText(resources.getString(C3820.f12064));
-        chipTextInputComboView.setTag(C20754.f66999, 12);
-        chipTextInputComboView2.setTag(C20754.f66999, 10);
+        TextView textView = (TextView) chipTextInputComboView.findViewById(C22093.f69856);
+        TextView textView2 = (TextView) chipTextInputComboView2.findViewById(C22093.f69856);
+        textView.setText(resources.getString(C5999.f14919));
+        textView2.setText(resources.getString(C5999.f14871));
+        chipTextInputComboView.setTag(C22093.f69683, 12);
+        chipTextInputComboView2.setTag(C22093.f69683, 10);
         if (timeModel.format == 0) {
             setupPeriodToggle();
         }
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.google.android.material.timepicker.TimePickerTextInputPresenter.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TimePickerTextInputPresenter.this.onSelectionChanged(((Integer) view.getTag(C20754.f66999)).intValue());
+                TimePickerTextInputPresenter.this.onSelectionChanged(((Integer) view.getTag(C22093.f69683)).intValue());
             }
         };
         chipTextInputComboView2.setOnClickListener(onClickListener);
@@ -88,18 +88,18 @@ public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionC
         this.hourEditText = chipTextInputComboView2.getTextInput().getEditText();
         this.minuteEditText = chipTextInputComboView.getTextInput().getEditText();
         this.controller = new TimePickerTextInputKeyController(chipTextInputComboView2, chipTextInputComboView, timeModel);
-        chipTextInputComboView2.setChipDelegate(new ClickActionDelegate(linearLayout.getContext(), C3820.f12175) { // from class: com.google.android.material.timepicker.TimePickerTextInputPresenter.4
-            @Override // com.google.android.material.timepicker.ClickActionDelegate, l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view, c14369);
-                c14369.m34305((CharSequence) view.getResources().getString(timeModel.getHourContentDescriptionResId(), String.valueOf(timeModel.getHourForDisplay())));
+        chipTextInputComboView2.setChipDelegate(new ClickActionDelegate(linearLayout.getContext(), C5999.f14982) { // from class: com.google.android.material.timepicker.TimePickerTextInputPresenter.4
+            @Override // com.google.android.material.timepicker.ClickActionDelegate, p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view, c1555);
+                c1555.m36438((CharSequence) view.getResources().getString(timeModel.getHourContentDescriptionResId(), String.valueOf(timeModel.getHourForDisplay())));
             }
         });
-        chipTextInputComboView.setChipDelegate(new ClickActionDelegate(linearLayout.getContext(), C3820.f12219) { // from class: com.google.android.material.timepicker.TimePickerTextInputPresenter.5
-            @Override // com.google.android.material.timepicker.ClickActionDelegate, l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view, c14369);
-                c14369.m34305((CharSequence) view.getResources().getString(C3820.f12103, String.valueOf(timeModel.minute)));
+        chipTextInputComboView.setChipDelegate(new ClickActionDelegate(linearLayout.getContext(), C5999.f15026) { // from class: com.google.android.material.timepicker.TimePickerTextInputPresenter.5
+            @Override // com.google.android.material.timepicker.ClickActionDelegate, p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view, c1555);
+                c1555.m36438((CharSequence) view.getResources().getString(C5999.f14910, String.valueOf(timeModel.minute)));
             }
         });
         initialize();
@@ -134,7 +134,7 @@ public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionC
     }
 
     private void setupPeriodToggle() {
-        MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup) this.timePickerView.findViewById(C20754.f67088);
+        MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup) this.timePickerView.findViewById(C22093.f69772);
         this.toggle = materialButtonToggleGroup;
         materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() { // from class: com.google.android.material.timepicker.TimePickerTextInputPresenter$$ExternalSyntheticLambda0
             @Override // com.google.android.material.button.MaterialButtonToggleGroup.OnButtonCheckedListener
@@ -149,7 +149,7 @@ public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionC
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void lambda$setupPeriodToggle$0(MaterialButtonToggleGroup materialButtonToggleGroup, int i, boolean z) {
         if (z) {
-            this.time.setPeriod(i == C20754.f66973 ? 1 : 0);
+            this.time.setPeriod(i == C22093.f69657 ? 1 : 0);
         }
     }
 
@@ -160,9 +160,9 @@ public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionC
             return;
         }
         if (this.time.period == 0) {
-            i = C20754.f66855;
+            i = C22093.f69539;
         } else {
-            i = C20754.f66973;
+            i = C22093.f69657;
         }
         materialButtonToggleGroup.check(i);
     }
@@ -206,9 +206,9 @@ public class TimePickerTextInputPresenter implements TimePickerView.OnSelectionC
             Object obj = declaredField2.get(editText);
             Field declaredField3 = obj.getClass().getDeclaredField("mCursorDrawable");
             declaredField3.setAccessible(true);
-            Drawable drawableM48345 = C21311.m48345(context, i2);
-            drawableM48345.setColorFilter(i, PorterDuff.Mode.SRC_IN);
-            declaredField3.set(obj, new Drawable[]{drawableM48345, drawableM48345});
+            Drawable drawableM50680 = C22622.m50680(context, i2);
+            drawableM50680.setColorFilter(i, PorterDuff.Mode.SRC_IN);
+            declaredField3.set(obj, new Drawable[]{drawableM50680, drawableM50680});
         } catch (Throwable unused) {
         }
     }

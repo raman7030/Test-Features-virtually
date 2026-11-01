@@ -1,8 +1,5 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C12662;
-import l.C5368;
-import l.C8954;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.SkipjackEngine;
 import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
@@ -13,6 +10,9 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C10878;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Skipjack {
@@ -59,8 +59,8 @@ public final class Skipjack {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Mac", "Mac.SKIPJACKMAC", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.SKIPJACK", C5368.m15340(str, "$KeyGen", "KeyGenerator.SKIPJACK", C5368.m15340(str, "$ECB", "Cipher.SKIPJACK", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider);
-            configurableProvider.addAlgorithm("Mac.SKIPJACKMAC/CFB8", C8954.m23074("Alg.Alias.Mac.SKIPJACK", "SKIPJACKMAC", str, "$MacCFB8", configurableProvider));
+            C14403.m33021(str, "$Mac", "Mac.SKIPJACKMAC", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.SKIPJACK", C7470.m17249(str, "$KeyGen", "KeyGenerator.SKIPJACK", C7470.m17249(str, "$ECB", "Cipher.SKIPJACK", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            configurableProvider.addAlgorithm("Mac.SKIPJACKMAC/CFB8", C10878.m25048("Alg.Alias.Mac.SKIPJACK", "SKIPJACKMAC", str, "$MacCFB8", configurableProvider));
             configurableProvider.addAlgorithm("Alg.Alias.Mac.SKIPJACK/CFB8", "SKIPJACKMAC/CFB8");
         }
     }

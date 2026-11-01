@@ -11,9 +11,6 @@ import java.security.spec.DSAPrivateKeySpec;
 import java.security.spec.DSAPublicKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import l.C12803;
-import l.C19370;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
@@ -26,6 +23,9 @@ import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
 import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
+import p067l.C14536;
+import p067l.C20778;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi {
@@ -62,7 +62,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
             try {
                 return new BCDSAPublicKey((DSAPublicKeySpec) keySpec);
             } catch (Exception e) {
-                throw new InvalidKeySpecException(this, C19370.m44629(e, new StringBuilder("invalid KeySpec: "))) { // from class: org.bouncycastle.jcajce.provider.asymmetric.dsa.KeyFactorySpi.1
+                throw new InvalidKeySpecException(this, C20778.m46923(e, new StringBuilder("invalid KeySpec: "))) { // from class: org.bouncycastle.jcajce.provider.asymmetric.dsa.KeyFactorySpi.1
                     public final /* synthetic */ KeyFactorySpi this$0;
 
                     {
@@ -102,7 +102,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
             try {
                 return new OpenSSHPublicKeySpec(OpenSSHPublicKeyUtil.encodePublicKey(new DSAPublicKeyParameters(dSAPublicKey2.getY(), new DSAParameters(dSAPublicKey2.getParams().getP(), dSAPublicKey2.getParams().getQ(), dSAPublicKey2.getParams().getG()))));
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("unable to produce encoding: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("unable to produce encoding: ")));
             }
         }
         if (!cls.isAssignableFrom(OpenSSHPrivateKeySpec.class) || !(key instanceof DSAPrivateKey)) {
@@ -112,7 +112,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         try {
             return new OpenSSHPrivateKeySpec(OpenSSHPrivateKeyUtil.encodePrivateKey(new DSAPrivateKeyParameters(dSAPrivateKey2.getX(), new DSAParameters(dSAPrivateKey2.getParams().getP(), dSAPrivateKey2.getParams().getQ(), dSAPrivateKey2.getParams().getG()))));
         } catch (IOException e2) {
-            throw new IllegalArgumentException(C5127.m14678(e2, new StringBuilder("unable to produce encoding: ")));
+            throw new IllegalArgumentException(C7241.m16586(e2, new StringBuilder("unable to produce encoding: ")));
         }
     }
 
@@ -122,7 +122,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (DSAUtil.isDsaOid(algorithm)) {
             return new BCDSAPrivateKey(privateKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 
     @Override // org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter
@@ -131,6 +131,6 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (DSAUtil.isDsaOid(algorithm)) {
             return new BCDSAPublicKey(subjectPublicKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 }

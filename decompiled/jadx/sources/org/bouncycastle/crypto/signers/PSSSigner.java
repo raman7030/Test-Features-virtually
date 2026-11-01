@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.signers;
 
 import java.security.SecureRandom;
-import l.C23202;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -13,6 +12,7 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.RSABlindingParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.util.Arrays;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PSSSigner implements Signer {
@@ -229,7 +229,7 @@ public class PSSSigner implements Signer {
         int iBitLength = publicKey.getModulus().bitLength();
         int i = iBitLength - 1;
         this.emBits = i;
-        if (i < C23202.m51496(this.sLen, 8, this.hLen * 8, 9)) {
+        if (i < C24420.m53892(this.sLen, 8, this.hLen * 8, 9)) {
             throw new IllegalArgumentException("key too small for specified hash and salt lengths");
         }
         this.block = new byte[(iBitLength + 6) / 8];

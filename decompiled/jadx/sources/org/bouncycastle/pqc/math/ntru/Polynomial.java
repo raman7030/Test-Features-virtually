@@ -9,7 +9,7 @@ public abstract class Polynomial {
     public NTRUParameterSet params;
 
     public Polynomial(NTRUParameterSet nTRUParameterSet) {
-        this.coeffs = new short[nTRUParameterSet.n()];
+        this.coeffs = new short[nTRUParameterSet.m55436n()];
         this.params = nTRUParameterSet;
     }
 
@@ -58,18 +58,18 @@ public abstract class Polynomial {
     public abstract void lift(Polynomial polynomial);
 
     public void mod3PhiN() {
-        int iN = this.params.n();
-        for (int i = 0; i < iN; i++) {
+        int iM55436n = this.params.m55436n();
+        for (int i = 0; i < iM55436n; i++) {
             short[] sArr = this.coeffs;
-            sArr[i] = mod3((short) ((sArr[iN - 1] * 2) + sArr[i]));
+            sArr[i] = mod3((short) ((sArr[iM55436n - 1] * 2) + sArr[i]));
         }
     }
 
     public void modQPhiN() {
-        int iN = this.params.n();
-        for (int i = 0; i < iN; i++) {
+        int iM55436n = this.params.m55436n();
+        for (int i = 0; i < iM55436n; i++) {
             short[] sArr = this.coeffs;
-            sArr[i] = (short) (sArr[i] - sArr[iN - 1]);
+            sArr[i] = (short) (sArr[i] - sArr[iM55436n - 1]);
         }
     }
 
@@ -198,7 +198,7 @@ public abstract class Polynomial {
     public void rqToS3(Polynomial polynomial) {
         int length = this.coeffs.length;
         for (int i = 0; i < length; i++) {
-            this.coeffs[i] = (short) modQ(polynomial.coeffs[i] & HPKE.aead_EXPORT_ONLY, this.params.q());
+            this.coeffs[i] = (short) modQ(polynomial.coeffs[i] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             short sLogQ = (short) (this.coeffs[i] >>> (this.params.logQ() - 1));
             short[] sArr = this.coeffs;
             sArr[i] = (short) (sArr[i] + (sLogQ << (1 - (this.params.logQ() & 1))));
@@ -364,7 +364,7 @@ public abstract class Polynomial {
         int length = this.coeffs.length;
         for (int i = 0; i < length; i++) {
             short[] sArr = this.coeffs;
-            sArr[i] = (short) modQ(sArr[i] & HPKE.aead_EXPORT_ONLY, this.params.q());
+            sArr[i] = (short) modQ(sArr[i] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             short[] sArr2 = this.coeffs;
             short s = sArr2[i];
             sArr2[i] = (short) ((s ^ (s >>> (this.params.logQ() - 1))) & 3);
@@ -376,7 +376,7 @@ public abstract class Polynomial {
         for (int i = 0; i < length; i++) {
             short[] sArr = this.coeffs;
             short s = sArr[i];
-            sArr[i] = (short) (s | ((-(s >>> 1)) & (this.params.q() - 1)));
+            sArr[i] = (short) (s | ((-(s >>> 1)) & (this.params.m55437q() - 1)));
         }
     }
 }

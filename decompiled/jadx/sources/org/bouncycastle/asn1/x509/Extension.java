@@ -1,9 +1,6 @@
 package org.bouncycastle.asn1.x509;
 
 import java.io.IOException;
-import l.C16014;
-import l.C22870;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Boolean;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
@@ -15,47 +12,50 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
+import p067l.C24104;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Extension extends ASN1Object {
     public boolean critical;
     public ASN1ObjectIdentifier extnId;
     public ASN1OctetString value;
-    public static final ASN1ObjectIdentifier subjectDirectoryAttributes = C22870.m50969("2.5.29.9");
-    public static final ASN1ObjectIdentifier subjectKeyIdentifier = C22870.m50969("2.5.29.14");
-    public static final ASN1ObjectIdentifier keyUsage = C22870.m50969("2.5.29.15");
-    public static final ASN1ObjectIdentifier privateKeyUsagePeriod = C22870.m50969("2.5.29.16");
-    public static final ASN1ObjectIdentifier subjectAlternativeName = C22870.m50969("2.5.29.17");
-    public static final ASN1ObjectIdentifier issuerAlternativeName = C22870.m50969("2.5.29.18");
-    public static final ASN1ObjectIdentifier basicConstraints = C22870.m50969("2.5.29.19");
-    public static final ASN1ObjectIdentifier cRLNumber = C22870.m50969("2.5.29.20");
-    public static final ASN1ObjectIdentifier reasonCode = C22870.m50969("2.5.29.21");
-    public static final ASN1ObjectIdentifier instructionCode = C22870.m50969("2.5.29.23");
-    public static final ASN1ObjectIdentifier invalidityDate = C22870.m50969("2.5.29.24");
-    public static final ASN1ObjectIdentifier deltaCRLIndicator = C22870.m50969("2.5.29.27");
-    public static final ASN1ObjectIdentifier issuingDistributionPoint = C22870.m50969("2.5.29.28");
-    public static final ASN1ObjectIdentifier certificateIssuer = C22870.m50969("2.5.29.29");
-    public static final ASN1ObjectIdentifier nameConstraints = C22870.m50969("2.5.29.30");
-    public static final ASN1ObjectIdentifier cRLDistributionPoints = C22870.m50969("2.5.29.31");
-    public static final ASN1ObjectIdentifier certificatePolicies = C22870.m50969("2.5.29.32");
-    public static final ASN1ObjectIdentifier policyMappings = C22870.m50969("2.5.29.33");
-    public static final ASN1ObjectIdentifier authorityKeyIdentifier = C22870.m50969("2.5.29.35");
-    public static final ASN1ObjectIdentifier policyConstraints = C22870.m50969("2.5.29.36");
-    public static final ASN1ObjectIdentifier extendedKeyUsage = C22870.m50969("2.5.29.37");
-    public static final ASN1ObjectIdentifier freshestCRL = C22870.m50969("2.5.29.46");
-    public static final ASN1ObjectIdentifier inhibitAnyPolicy = C22870.m50969("2.5.29.54");
-    public static final ASN1ObjectIdentifier authorityInfoAccess = C22870.m50969("1.3.6.1.5.5.7.1.1");
-    public static final ASN1ObjectIdentifier subjectInfoAccess = C22870.m50969("1.3.6.1.5.5.7.1.11");
-    public static final ASN1ObjectIdentifier logoType = C22870.m50969("1.3.6.1.5.5.7.1.12");
-    public static final ASN1ObjectIdentifier biometricInfo = C22870.m50969("1.3.6.1.5.5.7.1.2");
-    public static final ASN1ObjectIdentifier qCStatements = C22870.m50969("1.3.6.1.5.5.7.1.3");
-    public static final ASN1ObjectIdentifier auditIdentity = C22870.m50969("1.3.6.1.5.5.7.1.4");
-    public static final ASN1ObjectIdentifier noRevAvail = C22870.m50969("2.5.29.56");
-    public static final ASN1ObjectIdentifier targetInformation = C22870.m50969("2.5.29.55");
-    public static final ASN1ObjectIdentifier expiredCertsOnCRL = C22870.m50969("2.5.29.60");
-    public static final ASN1ObjectIdentifier subjectAltPublicKeyInfo = C22870.m50969("2.5.29.72");
-    public static final ASN1ObjectIdentifier altSignatureAlgorithm = C22870.m50969("2.5.29.73");
-    public static final ASN1ObjectIdentifier altSignatureValue = C22870.m50969("2.5.29.74");
+    public static final ASN1ObjectIdentifier subjectDirectoryAttributes = C24104.m53359("2.5.29.9");
+    public static final ASN1ObjectIdentifier subjectKeyIdentifier = C24104.m53359("2.5.29.14");
+    public static final ASN1ObjectIdentifier keyUsage = C24104.m53359("2.5.29.15");
+    public static final ASN1ObjectIdentifier privateKeyUsagePeriod = C24104.m53359("2.5.29.16");
+    public static final ASN1ObjectIdentifier subjectAlternativeName = C24104.m53359("2.5.29.17");
+    public static final ASN1ObjectIdentifier issuerAlternativeName = C24104.m53359("2.5.29.18");
+    public static final ASN1ObjectIdentifier basicConstraints = C24104.m53359("2.5.29.19");
+    public static final ASN1ObjectIdentifier cRLNumber = C24104.m53359("2.5.29.20");
+    public static final ASN1ObjectIdentifier reasonCode = C24104.m53359("2.5.29.21");
+    public static final ASN1ObjectIdentifier instructionCode = C24104.m53359("2.5.29.23");
+    public static final ASN1ObjectIdentifier invalidityDate = C24104.m53359("2.5.29.24");
+    public static final ASN1ObjectIdentifier deltaCRLIndicator = C24104.m53359("2.5.29.27");
+    public static final ASN1ObjectIdentifier issuingDistributionPoint = C24104.m53359("2.5.29.28");
+    public static final ASN1ObjectIdentifier certificateIssuer = C24104.m53359("2.5.29.29");
+    public static final ASN1ObjectIdentifier nameConstraints = C24104.m53359("2.5.29.30");
+    public static final ASN1ObjectIdentifier cRLDistributionPoints = C24104.m53359("2.5.29.31");
+    public static final ASN1ObjectIdentifier certificatePolicies = C24104.m53359("2.5.29.32");
+    public static final ASN1ObjectIdentifier policyMappings = C24104.m53359("2.5.29.33");
+    public static final ASN1ObjectIdentifier authorityKeyIdentifier = C24104.m53359("2.5.29.35");
+    public static final ASN1ObjectIdentifier policyConstraints = C24104.m53359("2.5.29.36");
+    public static final ASN1ObjectIdentifier extendedKeyUsage = C24104.m53359("2.5.29.37");
+    public static final ASN1ObjectIdentifier freshestCRL = C24104.m53359("2.5.29.46");
+    public static final ASN1ObjectIdentifier inhibitAnyPolicy = C24104.m53359("2.5.29.54");
+    public static final ASN1ObjectIdentifier authorityInfoAccess = C24104.m53359("1.3.6.1.5.5.7.1.1");
+    public static final ASN1ObjectIdentifier subjectInfoAccess = C24104.m53359("1.3.6.1.5.5.7.1.11");
+    public static final ASN1ObjectIdentifier logoType = C24104.m53359("1.3.6.1.5.5.7.1.12");
+    public static final ASN1ObjectIdentifier biometricInfo = C24104.m53359("1.3.6.1.5.5.7.1.2");
+    public static final ASN1ObjectIdentifier qCStatements = C24104.m53359("1.3.6.1.5.5.7.1.3");
+    public static final ASN1ObjectIdentifier auditIdentity = C24104.m53359("1.3.6.1.5.5.7.1.4");
+    public static final ASN1ObjectIdentifier noRevAvail = C24104.m53359("2.5.29.56");
+    public static final ASN1ObjectIdentifier targetInformation = C24104.m53359("2.5.29.55");
+    public static final ASN1ObjectIdentifier expiredCertsOnCRL = C24104.m53359("2.5.29.60");
+    public static final ASN1ObjectIdentifier subjectAltPublicKeyInfo = C24104.m53359("2.5.29.72");
+    public static final ASN1ObjectIdentifier altSignatureAlgorithm = C24104.m53359("2.5.29.73");
+    public static final ASN1ObjectIdentifier altSignatureValue = C24104.m53359("2.5.29.74");
     public static final ASN1ObjectIdentifier deltaCertificateDescriptor = new ASN1ObjectIdentifier("2.16.840.1.114027.80.6.1");
 
     public Extension(ASN1ObjectIdentifier aSN1ObjectIdentifier, ASN1Boolean aSN1Boolean, ASN1OctetString aSN1OctetString) {
@@ -80,7 +80,7 @@ public class Extension extends ASN1Object {
             objectAt = aSN1Sequence.getObjectAt(1);
         } else {
             if (aSN1Sequence.size() != 3) {
-                throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+                throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
             }
             this.extnId = ASN1ObjectIdentifier.getInstance(aSN1Sequence.getObjectAt(0));
             this.critical = ASN1Boolean.getInstance(aSN1Sequence.getObjectAt(1)).isTrue();
@@ -148,7 +148,7 @@ public class Extension extends ASN1Object {
         try {
             return ASN1Primitive.fromByteArray(extension.getExtnValue().getOctets());
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't convert extension: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't convert extension: ", e));
         }
     }
 }

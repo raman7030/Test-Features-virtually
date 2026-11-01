@@ -1,13 +1,12 @@
 package org.bouncycastle.pqc.jcajce.provider.util;
 
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
 import org.bouncycastle.crypto.digests.SHA256Digest;
@@ -22,6 +21,7 @@ import org.bouncycastle.crypto.params.KDFParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.jcajce.spec.KEMKDFSpec;
 import org.bouncycastle.util.Arrays;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KdfUtil {
@@ -134,6 +134,6 @@ public class KdfUtil {
         if (aSN1ObjectIdentifier.equals((ASN1Primitive) NISTObjectIdentifiers.id_shake256)) {
             return new SHAKEDigest(256);
         }
-        throw new IllegalArgumentException(C9005.m23242("unrecognized digest OID: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unrecognized digest OID: ", aSN1ObjectIdentifier));
     }
 }

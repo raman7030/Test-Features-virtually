@@ -19,10 +19,14 @@ public class RC2WrapEngine implements Wrapper {
     public static final byte[] IV2 = {74, -35, -94, 44, 121, -24, PublicSuffixDatabase.EXCEPTION_MARKER, 5};
     public CBCBlockCipher engine;
     public boolean forWrapping;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81049iv;
     public CipherParameters param;
     public ParametersWithIV paramPlusIV;
-    public SecureRandom sr;
+
+    /* JADX INFO: renamed from: sr */
+    public SecureRandom f81050sr;
     public Digest sha1 = DigestFactory.createSHA1();
     public byte[] digest = new byte[20];
 
@@ -49,30 +53,30 @@ public class RC2WrapEngine implements Wrapper {
         this.engine = new CBCBlockCipher(new RC2Engine());
         if (cipherParameters instanceof ParametersWithRandom) {
             ParametersWithRandom parametersWithRandom = (ParametersWithRandom) cipherParameters;
-            this.sr = parametersWithRandom.getRandom();
+            this.f81050sr = parametersWithRandom.getRandom();
             cipherParameters = parametersWithRandom.getParameters();
         } else {
-            this.sr = CryptoServicesRegistrar.getSecureRandom();
+            this.f81050sr = CryptoServicesRegistrar.getSecureRandom();
         }
         if (!(cipherParameters instanceof ParametersWithIV)) {
             this.param = cipherParameters;
             if (this.forWrapping) {
                 byte[] bArr = new byte[8];
-                this.iv = bArr;
-                this.sr.nextBytes(bArr);
-                this.paramPlusIV = new ParametersWithIV(this.param, this.iv);
+                this.f81049iv = bArr;
+                this.f81050sr.nextBytes(bArr);
+                this.paramPlusIV = new ParametersWithIV(this.param, this.f81049iv);
                 return;
             }
             return;
         }
         ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
         this.paramPlusIV = parametersWithIV;
-        this.iv = parametersWithIV.getIV();
+        this.f81049iv = parametersWithIV.getIV();
         this.param = this.paramPlusIV.getParameters();
         if (!this.forWrapping) {
             throw new IllegalArgumentException("You should not supply an IV for unwrapping");
         }
-        byte[] bArr2 = this.iv;
+        byte[] bArr2 = this.f81049iv;
         if (bArr2 == null || bArr2.length != 8) {
             throw new IllegalArgumentException("IV is not 8 octets");
         }
@@ -104,12 +108,12 @@ public class RC2WrapEngine implements Wrapper {
             i4 = i5;
         }
         byte[] bArr4 = new byte[8];
-        this.iv = bArr4;
+        this.f81049iv = bArr4;
         int i6 = i2 - 8;
         byte[] bArr5 = new byte[i6];
         System.arraycopy(bArr3, 0, bArr4, 0, 8);
         System.arraycopy(bArr3, 8, bArr5, 0, i6);
-        ParametersWithIV parametersWithIV = new ParametersWithIV(this.param, this.iv);
+        ParametersWithIV parametersWithIV = new ParametersWithIV(this.param, this.f81049iv);
         this.paramPlusIV = parametersWithIV;
         this.engine.init(false, parametersWithIV);
         byte[] bArr6 = new byte[i6];
@@ -149,7 +153,7 @@ public class RC2WrapEngine implements Wrapper {
         int i6 = (i5 - i2) - 1;
         byte[] bArr3 = new byte[i6];
         if (i6 > 0) {
-            this.sr.nextBytes(bArr3);
+            this.f81050sr.nextBytes(bArr3);
             System.arraycopy(bArr3, 0, bArr2, i3, i6);
         }
         byte[] bArrCalculateCMSKeyChecksum = calculateCMSKeyChecksum(bArr2);
@@ -168,11 +172,11 @@ public class RC2WrapEngine implements Wrapper {
             int blockSize2 = this.engine.getBlockSize() * i7;
             this.engine.processBlock(bArr5, blockSize2, bArr5, blockSize2);
         }
-        byte[] bArr6 = this.iv;
+        byte[] bArr6 = this.f81049iv;
         int length2 = bArr6.length + length;
         byte[] bArr7 = new byte[length2];
         System.arraycopy(bArr6, 0, bArr7, 0, bArr6.length);
-        System.arraycopy(bArr5, 0, bArr7, this.iv.length, length);
+        System.arraycopy(bArr5, 0, bArr7, this.f81049iv.length, length);
         byte[] bArr8 = new byte[length2];
         int i8 = 0;
         while (i8 < length2) {

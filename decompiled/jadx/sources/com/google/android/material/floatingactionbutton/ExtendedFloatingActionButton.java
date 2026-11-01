@@ -23,23 +23,23 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.Iterator;
 import java.util.List;
-import l.AbstractC6317;
-import l.C14077;
-import l.C16519;
-import l.C17648;
-import l.C17931;
-import l.C18333;
-import l.C18637;
-import l.C19343;
-import l.C19370;
-import l.InterfaceC10551;
+import p067l.AbstractC1155;
+import p067l.C1540;
+import p067l.C1717;
+import p067l.C1751;
+import p067l.C18068;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C20778;
+import p067l.InterfaceC1365;
 
 /* JADX INFO: loaded from: classes2.dex */
-public class ExtendedFloatingActionButton extends MaterialButton implements InterfaceC10551 {
+public class ExtendedFloatingActionButton extends MaterialButton implements InterfaceC1365 {
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
-    public static final int DEF_STYLE_RES = C18637.f58295;
+    public static final int DEF_STYLE_RES = C20081.f61518;
     public static final int EXTEND = 3;
     public static final int EXTEND_STRATEGY_AUTO = 0;
     public static final int EXTEND_STRATEGY_MATCH_PARENT = 2;
@@ -53,7 +53,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
     public static final Property WIDTH;
     public int animState;
     public boolean animateShowBeforeLayout;
-    public final AbstractC6317 behavior;
+    public final AbstractC1155 behavior;
     public final AnimatorTracker changeVisibilityTracker;
     public final int collapsedSize;
     public final MotionStrategy extendStrategy;
@@ -128,26 +128,26 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
             public void set(View view, Float f) {
                 int iIntValue = f.intValue();
                 int paddingTop = view.getPaddingTop();
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 view.setPaddingRelative(iIntValue, paddingTop, view.getPaddingEnd(), view.getPaddingBottom());
             }
 
             @Override // android.util.Property
             public Float get(View view) {
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 return Float.valueOf(view.getPaddingStart());
             }
         };
         PADDING_END = new Property(cls, "paddingEnd") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.9
             @Override // android.util.Property
             public void set(View view, Float f) {
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 view.setPaddingRelative(view.getPaddingStart(), view.getPaddingTop(), f.intValue(), view.getPaddingBottom());
             }
 
             @Override // android.util.Property
             public Float get(View view) {
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 return Float.valueOf(view.getPaddingEnd());
             }
         };
@@ -158,7 +158,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
     }
 
     public ExtendedFloatingActionButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55502);
+        this(context, attributeSet, C19410.f58699);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -177,15 +177,15 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
         this.animateShowBeforeLayout = false;
         Context context2 = getContext();
         this.behavior = new ExtendedFloatingActionButtonBehavior(context2, attributeSet);
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C19343.f62421, i, i2, new int[0]);
-        MotionSpec motionSpecCreateFromAttribute = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C19343.f61250);
-        MotionSpec motionSpecCreateFromAttribute2 = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C19343.f60878);
-        MotionSpec motionSpecCreateFromAttribute3 = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C19343.f62262);
-        MotionSpec motionSpecCreateFromAttribute4 = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C19343.f60931);
-        this.collapsedSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61038, -1);
-        int i3 = typedArrayObtainStyledAttributes.getInt(C19343.f62315, 1);
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C20752.f65109, i, i2, new int[0]);
+        MotionSpec motionSpecCreateFromAttribute = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C20752.f64339);
+        MotionSpec motionSpecCreateFromAttribute2 = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C20752.f64094);
+        MotionSpec motionSpecCreateFromAttribute3 = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C20752.f65004);
+        MotionSpec motionSpecCreateFromAttribute4 = MotionSpec.createFromAttribute(context2, typedArrayObtainStyledAttributes, C20752.f64129);
+        this.collapsedSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64199, -1);
+        int i3 = typedArrayObtainStyledAttributes.getInt(C20752.f65039, 1);
         this.extendStrategyType = i3;
-        int i4 = C17648.f53953;
+        int i4 = C1717.f57146;
         this.extendedPaddingStart = getPaddingStart();
         this.extendedPaddingEnd = getPaddingEnd();
         AnimatorTracker animatorTracker2 = new AnimatorTracker();
@@ -377,8 +377,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
         }
     }
 
-    @Override // l.InterfaceC10551
-    public AbstractC6317 getBehavior() {
+    @Override // p067l.InterfaceC1365
+    public AbstractC1155 getBehavior() {
         return this.behavior;
     }
 
@@ -417,7 +417,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
         if (!this.isExtended || this.isTransforming) {
             return;
         }
-        int i5 = C17648.f53953;
+        int i5 = C1717.f57146;
         this.extendedPaddingStart = getPaddingStart();
         this.extendedPaddingEnd = getPaddingEnd();
     }
@@ -545,7 +545,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
             motionStrategy = this.shrinkStrategy;
         } else {
             if (i != 3) {
-                throw new IllegalStateException(C19370.m44628(i, "Unknown strategy type: "));
+                throw new IllegalStateException(C20778.m46922(i, "Unknown strategy type: "));
             }
             motionStrategy = this.extendStrategy;
         }
@@ -617,7 +617,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
     }
 
     private boolean shouldAnimateVisibilityChange() {
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         return (isLaidOut() || (!isOrWillBeShown() && this.animateShowBeforeLayout)) && !isInEditMode();
     }
 
@@ -626,7 +626,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
         if (i >= 0) {
             return i;
         }
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         return getIconSize() + (Math.min(getPaddingStart(), getPaddingEnd()) * 2);
     }
 
@@ -635,7 +635,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
     }
 
     /* JADX INFO: loaded from: classes.dex */
-    public class ExtendedFloatingActionButtonBehavior extends AbstractC6317 {
+    public class ExtendedFloatingActionButtonBehavior extends AbstractC1155 {
         public static final boolean AUTO_HIDE_DEFAULT = false;
         public static final boolean AUTO_SHRINK_DEFAULT = true;
         public boolean autoHideEnabled;
@@ -651,9 +651,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
 
         public ExtendedFloatingActionButtonBehavior(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C19343.f61568);
-            this.autoHideEnabled = typedArrayObtainStyledAttributes.getBoolean(C19343.f61515, false);
-            this.autoShrinkEnabled = typedArrayObtainStyledAttributes.getBoolean(C19343.f62047, true);
+            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C20752.f64549);
+            this.autoHideEnabled = typedArrayObtainStyledAttributes.getBoolean(C20752.f64514, false);
+            this.autoShrinkEnabled = typedArrayObtainStyledAttributes.getBoolean(C20752.f64864, true);
             typedArrayObtainStyledAttributes.recycle();
         }
 
@@ -673,22 +673,22 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
             return this.autoShrinkEnabled;
         }
 
-        @Override // l.AbstractC6317
-        public boolean getInsetDodgeRect(C18333 c18333, ExtendedFloatingActionButton extendedFloatingActionButton, Rect rect) {
-            return super.getInsetDodgeRect(c18333, (View) extendedFloatingActionButton, rect);
+        @Override // p067l.AbstractC1155
+        public boolean getInsetDodgeRect(C1751 c1751, ExtendedFloatingActionButton extendedFloatingActionButton, Rect rect) {
+            return super.getInsetDodgeRect(c1751, (View) extendedFloatingActionButton, rect);
         }
 
-        @Override // l.AbstractC6317
-        public void onAttachedToLayoutParams(C14077 c14077) {
-            if (c14077.f42515 == 0) {
-                c14077.f42515 = 80;
+        @Override // p067l.AbstractC1155
+        public void onAttachedToLayoutParams(C1540 c1540) {
+            if (c1540.f45601 == 0) {
+                c1540.f45601 = 80;
             }
         }
 
-        @Override // l.AbstractC6317
-        public boolean onDependentViewChanged(C18333 c18333, ExtendedFloatingActionButton extendedFloatingActionButton, View view) {
+        @Override // p067l.AbstractC1155
+        public boolean onDependentViewChanged(C1751 c1751, ExtendedFloatingActionButton extendedFloatingActionButton, View view) {
             if (view instanceof AppBarLayout) {
-                updateFabVisibilityForAppBarLayout(c18333, (AppBarLayout) view, extendedFloatingActionButton);
+                updateFabVisibilityForAppBarLayout(c1751, (AppBarLayout) view, extendedFloatingActionButton);
                 return false;
             }
             if (!isBottomSheet(view)) {
@@ -700,8 +700,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
 
         public static boolean isBottomSheet(View view) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-            if (layoutParams instanceof C14077) {
-                return ((C14077) layoutParams).m33687() instanceof BottomSheetBehavior;
+            if (layoutParams instanceof C1540) {
+                return ((C1540) layoutParams).m35812() instanceof BottomSheetBehavior;
             }
             return false;
         }
@@ -715,10 +715,10 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
         }
 
         private boolean shouldUpdateVisibility(View view, ExtendedFloatingActionButton extendedFloatingActionButton) {
-            return (this.autoHideEnabled || this.autoShrinkEnabled) && ((C14077) extendedFloatingActionButton.getLayoutParams()).m33685() == view.getId();
+            return (this.autoHideEnabled || this.autoShrinkEnabled) && ((C1540) extendedFloatingActionButton.getLayoutParams()).m35810() == view.getId();
         }
 
-        private boolean updateFabVisibilityForAppBarLayout(C18333 c18333, AppBarLayout appBarLayout, ExtendedFloatingActionButton extendedFloatingActionButton) {
+        private boolean updateFabVisibilityForAppBarLayout(C1751 c1751, AppBarLayout appBarLayout, ExtendedFloatingActionButton extendedFloatingActionButton) {
             if (!shouldUpdateVisibility(appBarLayout, extendedFloatingActionButton)) {
                 return false;
             }
@@ -726,7 +726,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
                 this.tmpRect = new Rect();
             }
             Rect rect = this.tmpRect;
-            DescendantOffsetUtils.getDescendantRect(c18333, appBarLayout, rect);
+            DescendantOffsetUtils.getDescendantRect(c1751, appBarLayout, rect);
             if (rect.bottom <= appBarLayout.getMinimumHeightForVisibleOverlappingContent()) {
                 shrinkOrHide(extendedFloatingActionButton);
                 return true;
@@ -739,7 +739,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
             if (!shouldUpdateVisibility(view, extendedFloatingActionButton)) {
                 return false;
             }
-            if (view.getTop() < (extendedFloatingActionButton.getHeight() / 2) + ((ViewGroup.MarginLayoutParams) ((C14077) extendedFloatingActionButton.getLayoutParams())).topMargin) {
+            if (view.getTop() < (extendedFloatingActionButton.getHeight() / 2) + ((ViewGroup.MarginLayoutParams) ((C1540) extendedFloatingActionButton.getLayoutParams())).topMargin) {
                 shrinkOrHide(extendedFloatingActionButton);
                 return true;
             }
@@ -769,14 +769,14 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
             extendedFloatingActionButton.performMotion(z ? 3 : 0, onChangedCallback);
         }
 
-        @Override // l.AbstractC6317
-        public boolean onLayoutChild(C18333 c18333, ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
-            List dependencies = c18333.getDependencies(extendedFloatingActionButton);
+        @Override // p067l.AbstractC1155
+        public boolean onLayoutChild(C1751 c1751, ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
+            List dependencies = c1751.getDependencies(extendedFloatingActionButton);
             int size = dependencies.size();
             for (int i2 = 0; i2 < size; i2++) {
                 View view = (View) dependencies.get(i2);
                 if (view instanceof AppBarLayout) {
-                    if (updateFabVisibilityForAppBarLayout(c18333, (AppBarLayout) view, extendedFloatingActionButton)) {
+                    if (updateFabVisibilityForAppBarLayout(c1751, (AppBarLayout) view, extendedFloatingActionButton)) {
                         break;
                     }
                 } else {
@@ -785,7 +785,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
                     }
                 }
             }
-            c18333.onLayoutChild(extendedFloatingActionButton, i);
+            c1751.onLayoutChild(extendedFloatingActionButton, i);
             return true;
         }
     }
@@ -819,7 +819,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
             int paddingTop = ExtendedFloatingActionButton.this.getPaddingTop();
             int paddingEnd = this.size.getPaddingEnd();
             int paddingBottom = ExtendedFloatingActionButton.this.getPaddingBottom();
-            int i = C17648.f53953;
+            int i = C1717.f57146;
             extendedFloatingActionButton.setPaddingRelative(paddingStart, paddingTop, paddingEnd, paddingBottom);
             ExtendedFloatingActionButton.this.requestLayout();
         }
@@ -839,9 +839,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {
             if (this.extending) {
-                return C16519.f50775;
+                return C18068.f53953;
             }
-            return C16519.f50761;
+            return C18068.f53939;
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
@@ -861,7 +861,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
                 PropertyValuesHolder[] propertyValues3 = currentMotionSpec.getPropertyValues("paddingStart");
                 PropertyValuesHolder propertyValuesHolder = propertyValues3[0];
                 ExtendedFloatingActionButton extendedFloatingActionButton = ExtendedFloatingActionButton.this;
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 propertyValuesHolder.setFloatValues(extendedFloatingActionButton.getPaddingStart(), this.size.getPaddingStart());
                 currentMotionSpec.setPropertyValues("paddingStart", propertyValues3);
             }
@@ -869,7 +869,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
                 PropertyValuesHolder[] propertyValues4 = currentMotionSpec.getPropertyValues("paddingEnd");
                 PropertyValuesHolder propertyValuesHolder2 = propertyValues4[0];
                 ExtendedFloatingActionButton extendedFloatingActionButton2 = ExtendedFloatingActionButton.this;
-                int i2 = C17648.f53953;
+                int i2 = C1717.f57146;
                 propertyValuesHolder2.setFloatValues(extendedFloatingActionButton2.getPaddingEnd(), this.size.getPaddingEnd());
                 currentMotionSpec.setPropertyValues("paddingEnd", propertyValues4);
             }
@@ -932,7 +932,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {
-            return C16519.f50771;
+            return C18068.f53949;
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
@@ -981,7 +981,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Inte
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {
-            return C16519.f50774;
+            return C18068.f53952;
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy

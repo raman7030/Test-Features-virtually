@@ -1,16 +1,16 @@
 package org.bouncycastle.crypto.prng.drbg;
 
 import java.math.BigInteger;
-import l.C18307;
 import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
+import org.bouncycastle.crypto.p074ec.CustomNamedCurves;
 import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECMultiplier;
+import org.bouncycastle.math.p080ec.ECPoint;
+import org.bouncycastle.math.p080ec.FixedPointCombMultiplier;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DualECSP800DRBG implements SP80090DRBG {
@@ -31,14 +31,20 @@ public class DualECSP800DRBG implements SP80090DRBG {
     public static final BigInteger p521_Py;
     public static final BigInteger p521_Qx;
     public static final BigInteger p521_Qy;
-    public ECPoint _P;
-    public ECPoint _Q;
+
+    /* JADX INFO: renamed from: _P */
+    public ECPoint f81304_P;
+
+    /* JADX INFO: renamed from: _Q */
+    public ECPoint f81305_Q;
     public Digest _digest;
     public EntropySource _entropySource;
     public ECMultiplier _fixedPointMultiplier;
     public int _outlen;
     public long _reseedCounter;
-    public byte[] _s;
+
+    /* JADX INFO: renamed from: _s */
+    public byte[] f81306_s;
     public int _sLength;
     public int _securityStrength;
     public int _seedlen;
@@ -84,7 +90,7 @@ public class DualECSP800DRBG implements SP80090DRBG {
             throw new IllegalArgumentException("Personalization string too large");
         }
         if (entropySource.entropySize() < i || entropySource.entropySize() > 4096) {
-            throw new IllegalArgumentException(C18307.m42645(i, "EntropySource must provide between ", " and 4096 bits"));
+            throw new IllegalArgumentException(C19768.m44906(i, "EntropySource must provide between ", " and 4096 bits"));
         }
         byte[] bArrConcatenate = Arrays.concatenate(getEntropy(), bArr2, bArr);
         for (int i2 = 0; i2 != dualECPointsArr.length; i2++) {
@@ -94,16 +100,16 @@ public class DualECSP800DRBG implements SP80090DRBG {
                 }
                 this._seedlen = dualECPointsArr[i2].getSeedLen();
                 this._outlen = dualECPointsArr[i2].getMaxOutlen() / 8;
-                this._P = dualECPointsArr[i2].getP();
-                this._Q = dualECPointsArr[i2].getQ();
+                this.f81304_P = dualECPointsArr[i2].getP();
+                this.f81305_Q = dualECPointsArr[i2].getQ();
                 break;
             }
         }
-        if (this._P == null) {
+        if (this.f81304_P == null) {
             throw new IllegalArgumentException("security strength cannot be greater than 256 bits");
         }
         byte[] bArrHash_df = Utils.hash_df(this._digest, bArrConcatenate, this._seedlen);
-        this._s = bArrHash_df;
+        this.f81306_s = bArrHash_df;
         this._sLength = bArrHash_df.length;
         this._reseedCounter = 0L;
     }
@@ -168,13 +174,13 @@ public class DualECSP800DRBG implements SP80090DRBG {
             reseed(bArr2);
             bArr2 = null;
         }
-        BigInteger bigInteger = bArr2 != null ? new BigInteger(1, xor(this._s, Utils.hash_df(this._digest, bArr2, this._seedlen))) : new BigInteger(1, this._s);
+        BigInteger bigInteger = bArr2 != null ? new BigInteger(1, xor(this.f81306_s, Utils.hash_df(this._digest, bArr2, this._seedlen))) : new BigInteger(1, this.f81306_s);
         int length3 = 0;
         Arrays.fill(bArr, (byte) 0);
         int i = 0;
         for (int i2 = 0; i2 < length2; i2++) {
-            bigInteger = getScalarMultipleXCoord(this._P, bigInteger);
-            byte[] byteArray = getScalarMultipleXCoord(this._Q, bigInteger).toByteArray();
+            bigInteger = getScalarMultipleXCoord(this.f81304_P, bigInteger);
+            byte[] byteArray = getScalarMultipleXCoord(this.f81305_Q, bigInteger).toByteArray();
             int length4 = byteArray.length;
             int i3 = this._outlen;
             if (length4 >= i3) {
@@ -186,8 +192,8 @@ public class DualECSP800DRBG implements SP80090DRBG {
             this._reseedCounter++;
         }
         if (i < bArr.length) {
-            bigInteger = getScalarMultipleXCoord(this._P, bigInteger);
-            byte[] byteArray2 = getScalarMultipleXCoord(this._Q, bigInteger).toByteArray();
+            bigInteger = getScalarMultipleXCoord(this.f81304_P, bigInteger);
+            byte[] byteArray2 = getScalarMultipleXCoord(this.f81305_Q, bigInteger).toByteArray();
             int length5 = bArr.length - i;
             int length6 = byteArray2.length;
             int i4 = this._outlen;
@@ -204,7 +210,7 @@ public class DualECSP800DRBG implements SP80090DRBG {
             System.arraycopy(byteArray2, length3, bArr, i, length5);
             this._reseedCounter++;
         }
-        this._s = BigIntegers.asUnsignedByteArray(this._sLength, getScalarMultipleXCoord(this._P, bigInteger));
+        this.f81306_s = BigIntegers.asUnsignedByteArray(this._sLength, getScalarMultipleXCoord(this.f81304_P, bigInteger));
         return length;
     }
 
@@ -218,7 +224,7 @@ public class DualECSP800DRBG implements SP80090DRBG {
         if (Utils.isTooLarge(bArr, 512)) {
             throw new IllegalArgumentException("Additional input string too large");
         }
-        this._s = Utils.hash_df(this._digest, Arrays.concatenate(pad8(this._s, this._seedlen), getEntropy(), bArr), this._seedlen);
+        this.f81306_s = Utils.hash_df(this._digest, Arrays.concatenate(pad8(this.f81306_s, this._seedlen), getEntropy(), bArr), this._seedlen);
         this._reseedCounter = 0L;
     }
 }

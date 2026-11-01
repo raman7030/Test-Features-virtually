@@ -20,20 +20,24 @@ public interface IRemoteServiceCallback extends IInterface {
         public static final int TRANSACTION_r03 = 5;
         public static final int TRANSACTION_startActivity = 1;
 
+        /* JADX INFO: renamed from: com.alipay.android.app.IRemoteServiceCallback$Stub$a */
         /* JADX INFO: compiled from: N673 */
-        public class a implements IRemoteServiceCallback {
-            public IBinder a;
+        public class C0002a implements IRemoteServiceCallback {
 
-            public a(IBinder iBinder) {
-                this.a = iBinder;
+            /* JADX INFO: renamed from: a */
+            public IBinder f69a;
+
+            public C0002a(IBinder iBinder) {
+                this.f69a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.a;
+                return this.f69a;
             }
 
-            public String d() {
+            /* JADX INFO: renamed from: d */
+            public String m141d() {
                 return Stub.DESCRIPTOR;
             }
 
@@ -43,7 +47,7 @@ public interface IRemoteServiceCallback extends IInterface {
                 Parcel parcelObtain2 = Parcel.obtain();
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.a.transact(4, parcelObtain, parcelObtain2, 0);
+                    this.f69a.transact(4, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readInt();
                 } finally {
@@ -58,7 +62,7 @@ public interface IRemoteServiceCallback extends IInterface {
                 Parcel parcelObtain2 = Parcel.obtain();
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.a.transact(3, parcelObtain, parcelObtain2, 0);
+                    this.f69a.transact(3, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readInt() != 0;
                 } finally {
@@ -75,7 +79,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeInt(z ? 1 : 0);
                     parcelObtain.writeString(str);
-                    this.a.transact(2, parcelObtain, parcelObtain2, 0);
+                    this.f69a.transact(2, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                 } finally {
                     parcelObtain2.recycle();
@@ -91,7 +95,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     parcelObtain.writeString(str);
                     parcelObtain.writeString(str2);
                     parcelObtain.writeMap(map);
-                    this.a.transact(5, parcelObtain, null, 1);
+                    this.f69a.transact(5, parcelObtain, null, 1);
                 } finally {
                     parcelObtain.recycle();
                 }
@@ -112,7 +116,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     } else {
                         parcelObtain.writeInt(0);
                     }
-                    this.a.transact(1, parcelObtain, parcelObtain2, 0);
+                    this.f69a.transact(1, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                 } finally {
                     parcelObtain2.recycle();
@@ -130,7 +134,7 @@ public interface IRemoteServiceCallback extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IRemoteServiceCallback)) ? new a(iBinder) : (IRemoteServiceCallback) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IRemoteServiceCallback)) ? new C0002a(iBinder) : (IRemoteServiceCallback) iInterfaceQueryLocalInterface;
         }
 
         @Override // android.os.IInterface

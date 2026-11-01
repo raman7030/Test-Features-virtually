@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.nist;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -9,6 +8,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KMACwithSHAKE128_params extends ASN1Object {
@@ -33,7 +33,7 @@ public class KMACwithSHAKE128_params extends ASN1Object {
         }
         if (aSN1Sequence.size() == 2) {
             this.outputLength = ASN1Integer.getInstance(aSN1Sequence.getObjectAt(0)).intValueExact();
-            this.customizationString = C16014.m37869(aSN1Sequence, 1);
+            this.customizationString = C17588.m40055(aSN1Sequence, 1);
         } else if (aSN1Sequence.size() != 1) {
             this.outputLength = 256;
             this.customizationString = EMPTY_STRING;
@@ -42,7 +42,7 @@ public class KMACwithSHAKE128_params extends ASN1Object {
             this.customizationString = EMPTY_STRING;
         } else {
             this.outputLength = 256;
-            this.customizationString = C16014.m37869(aSN1Sequence, 0);
+            this.customizationString = C17588.m40055(aSN1Sequence, 0);
         }
     }
 

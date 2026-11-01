@@ -1,6 +1,6 @@
 package com.amazonaws.http;
 
-import com.alipay.sdk.m.w.a;
+import com.alipay.sdk.p010m.p055w.C0233a;
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.DefaultRequest;
 import com.amazonaws.util.HttpUtils;
@@ -10,54 +10,54 @@ import java.io.InputStream;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import l.C22870;
-import l.C7166;
+import p067l.C24104;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HttpRequestFactory {
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static HttpRequest m265(DefaultRequest defaultRequest, ClientConfiguration clientConfiguration) {
+    /* JADX INFO: renamed from: ֫ */
+    public static HttpRequest m1431(DefaultRequest defaultRequest, ClientConfiguration clientConfiguration) {
         boolean z = true;
-        String strM774 = HttpUtils.m774(defaultRequest.m188().toString(), defaultRequest.m195(), true);
-        String strM773 = HttpUtils.m773(defaultRequest);
-        HttpMethodName httpMethodNameM193 = defaultRequest.m193();
-        boolean z2 = defaultRequest.m177() != null;
-        if (httpMethodNameM193 == HttpMethodName.POST && !z2) {
+        String strM1939 = HttpUtils.m1939(defaultRequest.m1354().toString(), defaultRequest.m1361(), true);
+        String strM1938 = HttpUtils.m1938(defaultRequest);
+        HttpMethodName httpMethodNameM1359 = defaultRequest.m1359();
+        boolean z2 = defaultRequest.m1343() != null;
+        if (httpMethodNameM1359 == HttpMethodName.POST && !z2) {
             z = false;
         }
-        if (strM773 != null && z) {
-            strM774 = C22870.m50967(strM774, "?", strM773);
+        if (strM1938 != null && z) {
+            strM1939 = C24104.m53357(strM1939, "?", strM1938);
         }
         HashMap map = new HashMap();
-        URI uriM188 = defaultRequest.m188();
-        String host = uriM188.getHost();
-        if (HttpUtils.m776(uriM188)) {
-            StringBuilder sbM19190 = C7166.m19190(host, ":");
-            sbM19190.append(uriM188.getPort());
-            host = sbM19190.toString();
+        URI uriM1354 = defaultRequest.m1354();
+        String host = uriM1354.getHost();
+        if (HttpUtils.m1941(uriM1354)) {
+            StringBuilder sbM21133 = C9179.m21133(host, ":");
+            sbM21133.append(uriM1354.getPort());
+            host = sbM21133.toString();
         }
         map.put("Host", host);
-        for (Map.Entry entry : defaultRequest.m191().entrySet()) {
+        for (Map.Entry entry : defaultRequest.m1357().entrySet()) {
             map.put(entry.getKey(), entry.getValue());
         }
         if (map.get("Content-Type") == null || ((String) map.get("Content-Type")).isEmpty()) {
-            map.put("Content-Type", "application/x-www-form-urlencoded; charset=" + StringUtils.m789(a.D));
+            map.put("Content-Type", "application/x-www-form-urlencoded; charset=" + StringUtils.m1954(C0233a.f1077D));
         }
-        InputStream inputStreamM177 = defaultRequest.m177();
+        InputStream inputStreamM1343 = defaultRequest.m1343();
         HttpMethodName httpMethodName = HttpMethodName.PATCH;
-        if (httpMethodNameM193 == httpMethodName) {
-            httpMethodNameM193 = HttpMethodName.POST;
+        if (httpMethodNameM1359 == httpMethodName) {
+            httpMethodNameM1359 = HttpMethodName.POST;
             map.put("X-HTTP-Method-Override", httpMethodName.toString());
         }
-        if (httpMethodNameM193 == HttpMethodName.POST && defaultRequest.m177() == null && strM773 != null) {
-            byte[] bytes = strM773.getBytes(StringUtils.f844);
-            inputStreamM177 = new ByteArrayInputStream(bytes);
+        if (httpMethodNameM1359 == HttpMethodName.POST && defaultRequest.m1343() == null && strM1938 != null) {
+            byte[] bytes = strM1938.getBytes(StringUtils.f2004);
+            inputStreamM1343 = new ByteArrayInputStream(bytes);
             map.put("Content-Length", String.valueOf(bytes.length));
         }
         clientConfiguration.getClass();
         map.put("Accept-Encoding", "identity");
-        HttpRequest httpRequest = new HttpRequest(httpMethodNameM193.toString(), URI.create(strM774), map, inputStreamM177);
-        httpRequest.m259(defaultRequest.m194());
+        HttpRequest httpRequest = new HttpRequest(httpMethodNameM1359.toString(), URI.create(strM1939), map, inputStreamM1343);
+        httpRequest.m1425(defaultRequest.m1360());
         return httpRequest;
     }
 }

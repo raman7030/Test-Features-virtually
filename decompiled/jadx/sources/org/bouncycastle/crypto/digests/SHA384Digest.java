@@ -44,12 +44,12 @@ public class SHA384Digest extends LongDigest {
     @Override // org.bouncycastle.crypto.Digest
     public int doFinal(byte[] bArr, int i) {
         finish();
-        Pack.longToBigEndian(this.H1, bArr, i);
-        Pack.longToBigEndian(this.H2, bArr, i + 8);
-        Pack.longToBigEndian(this.H3, bArr, i + 16);
-        Pack.longToBigEndian(this.H4, bArr, i + 24);
-        Pack.longToBigEndian(this.H5, bArr, i + 32);
-        Pack.longToBigEndian(this.H6, bArr, i + 40);
+        Pack.longToBigEndian(this.f80836H1, bArr, i);
+        Pack.longToBigEndian(this.f80837H2, bArr, i + 8);
+        Pack.longToBigEndian(this.f80838H3, bArr, i + 16);
+        Pack.longToBigEndian(this.f80839H4, bArr, i + 24);
+        Pack.longToBigEndian(this.f80840H5, bArr, i + 32);
+        Pack.longToBigEndian(this.f80841H6, bArr, i + 40);
         reset();
         return 48;
     }
@@ -76,14 +76,14 @@ public class SHA384Digest extends LongDigest {
     @Override // org.bouncycastle.crypto.digests.LongDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        this.H1 = -3766243637369397544L;
-        this.H2 = 7105036623409894663L;
-        this.H3 = -7973340178411365097L;
-        this.H4 = 1526699215303891257L;
-        this.H5 = 7436329637833083697L;
-        this.H6 = -8163818279084223215L;
-        this.H7 = -2662702644619276377L;
-        this.H8 = 5167115440072839076L;
+        this.f80836H1 = -3766243637369397544L;
+        this.f80837H2 = 7105036623409894663L;
+        this.f80838H3 = -7973340178411365097L;
+        this.f80839H4 = 1526699215303891257L;
+        this.f80840H5 = 7436329637833083697L;
+        this.f80841H6 = -8163818279084223215L;
+        this.f80842H7 = -2662702644619276377L;
+        this.f80843H8 = 5167115440072839076L;
     }
 
     @Override // org.bouncycastle.util.Memoable

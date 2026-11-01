@@ -82,7 +82,8 @@ public class KGCMUtil_128 {
         jArr2[1] = (j2 ^ ((((j4 << 1) ^ j4) ^ (j4 << 2)) ^ (j4 << 7))) ^ ((j5 >>> 57) ^ ((j5 >>> 63) ^ (j5 >>> 62)));
     }
 
-    public static void x(long[] jArr) {
+    /* JADX INFO: renamed from: x */
+    public static void m55407x(long[] jArr) {
         jArr[0] = 2;
         jArr[1] = 0;
     }

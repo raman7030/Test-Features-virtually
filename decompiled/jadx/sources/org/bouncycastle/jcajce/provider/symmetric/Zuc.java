@@ -1,8 +1,5 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C12662;
-import l.C5368;
-import l.C8954;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.Zuc128Engine;
 import org.bouncycastle.crypto.engines.Zuc256Engine;
@@ -13,6 +10,9 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C10878;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Zuc {
@@ -45,8 +45,8 @@ public class Zuc {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$ZucMac256", "Mac.ZUC-256", C5368.m15340(str, "$ZucMac128", "Mac.ZUC-128", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.ZUC-256", C5368.m15340(str, "$KeyGen256", "KeyGenerator.ZUC-256", C5368.m15340(str, "$Zuc256", "Cipher.ZUC-256", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.ZUC-128", C5368.m15340(str, "$KeyGen128", "KeyGenerator.ZUC-128", C5368.m15340(str, "$Zuc128", "Cipher.ZUC-128", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
-            configurableProvider.addAlgorithm("Mac.ZUC-256-32", C8954.m23074("Mac.ZUC-256-64", C8954.m23074("Alg.Alias.Mac.ZUC-256-128", "ZUC-256", str, "$ZucMac256_64", configurableProvider), str, "$ZucMac256_32", configurableProvider));
+            C14403.m33021(str, "$ZucMac256", "Mac.ZUC-256", C7470.m17249(str, "$ZucMac128", "Mac.ZUC-128", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.ZUC-256", C7470.m17249(str, "$KeyGen256", "KeyGenerator.ZUC-256", C7470.m17249(str, "$Zuc256", "Cipher.ZUC-256", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.ZUC-128", C7470.m17249(str, "$KeyGen128", "KeyGenerator.ZUC-128", C7470.m17249(str, "$Zuc128", "Cipher.ZUC-128", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            configurableProvider.addAlgorithm("Mac.ZUC-256-32", C10878.m25048("Mac.ZUC-256-64", C10878.m25048("Alg.Alias.Mac.ZUC-256-128", "ZUC-256", str, "$ZucMac256_64", configurableProvider), str, "$ZucMac256_32", configurableProvider));
         }
     }
 

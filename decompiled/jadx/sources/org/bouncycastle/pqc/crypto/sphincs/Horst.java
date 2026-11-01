@@ -1,6 +1,6 @@
 package org.bouncycastle.pqc.crypto.sphincs;
 
-import l.C23202;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Horst {
@@ -107,7 +107,7 @@ public class Horst {
             int i13 = i5 >>> 1;
             hashFunctions.hash_2n_n_mask(bArr5, 0, bArr5, 0, bArr3, 576);
             for (int i14 = 0; i14 < 32; i14++) {
-                if (bArr2[C23202.m51496(i13, 32, i, i14)] != bArr5[i14]) {
+                if (bArr2[C24420.m53892(i13, 32, i, i14)] != bArr5[i14]) {
                     for (int i15 = 0; i15 < 32; i15++) {
                         bArr[i15] = 0;
                     }

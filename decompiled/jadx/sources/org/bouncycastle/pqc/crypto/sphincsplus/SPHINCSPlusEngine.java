@@ -16,13 +16,25 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class SPHINCSPlusEngine {
-    public final int A;
-    public final int D;
-    public final int H;
+
+    /* JADX INFO: renamed from: A */
+    public final int f81760A;
+
+    /* JADX INFO: renamed from: D */
+    public final int f81761D;
+
+    /* JADX INFO: renamed from: H */
+    public final int f81762H;
     public final int H_PRIME;
-    public final int K;
-    public final int N;
-    public final int T;
+
+    /* JADX INFO: renamed from: K */
+    public final int f81763K;
+
+    /* JADX INFO: renamed from: N */
+    public final int f81764N;
+
+    /* JADX INFO: renamed from: T */
+    public final int f81765T;
     public final int WOTS_LEN;
     public final int WOTS_LEN1;
     public final int WOTS_LEN2;
@@ -42,7 +54,8 @@ public abstract class SPHINCSPlusEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
-        public byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2) {
+        /* JADX INFO: renamed from: F */
+        public byte[] mo55432F(byte[] bArr, ADRS adrs, byte[] bArr2) {
             byte[] bArr3 = new byte[32];
             HarakaS512Digest harakaS512Digest = this.harakaS512Digest;
             byte[] bArr4 = adrs.value;
@@ -58,12 +71,13 @@ public abstract class SPHINCSPlusEngine {
                 this.harakaS512Digest.update(bArr2, 0, bArr2.length);
             }
             this.harakaS512Digest.doFinal(bArr3, 0);
-            return Arrays.copyOf(bArr3, this.N);
+            return Arrays.copyOf(bArr3, this.f81764N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
-        public byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
-            int i = this.N;
+        /* JADX INFO: renamed from: H */
+        public byte[] mo55433H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
+            int i = this.f81764N;
             byte[] bArr4 = new byte[i];
             byte[] bArr5 = new byte[bArr2.length + bArr3.length];
             System.arraycopy(bArr2, 0, bArr5, 0, bArr2.length);
@@ -79,9 +93,9 @@ public abstract class SPHINCSPlusEngine {
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
         public IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4) {
-            int i = ((this.A * this.K) + 7) >> 3;
-            int i2 = this.H;
-            int i3 = i2 / this.D;
+            int i = ((this.f81760A * this.f81763K) + 7) >> 3;
+            int i2 = this.f81762H;
+            int i3 = i2 / this.f81761D;
             int i4 = i2 - i3;
             int i5 = (i3 + 7) >> 3;
             int i6 = (i4 + 7) >> 3;
@@ -107,12 +121,12 @@ public abstract class SPHINCSPlusEngine {
             harakaS512Digest.update(bArr4, 0, bArr4.length);
             this.harakaS512Digest.update(bArr2, 0, bArr2.length);
             this.harakaS512Digest.doFinal(bArr3, 0);
-            return Arrays.copyOf(bArr3, this.N);
+            return Arrays.copyOf(bArr3, this.f81764N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
         public byte[] PRF_msg(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-            int i = this.N;
+            int i = this.f81764N;
             byte[] bArr4 = new byte[i];
             this.harakaSXof.update(bArr, 0, bArr.length);
             this.harakaSXof.update(bArr2, 0, bArr2.length);
@@ -123,7 +137,7 @@ public abstract class SPHINCSPlusEngine {
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
         public byte[] T_l(byte[] bArr, ADRS adrs, byte[] bArr2) {
-            int i = this.N;
+            int i = this.f81764N;
             byte[] bArr3 = new byte[i];
             byte[] bArrBitmask = bitmask(adrs, bArr2);
             HarakaSXof harakaSXof = this.harakaSXof;
@@ -157,7 +171,9 @@ public abstract class SPHINCSPlusEngine {
     }
 
     public class Sha2Engine extends SPHINCSPlusEngine {
-        public final int bl;
+
+        /* JADX INFO: renamed from: bl */
+        public final int f81766bl;
         public final byte[] hmacBuf;
         public final MGF1BytesGenerator mgf1;
         public final Digest msgDigest;
@@ -185,7 +201,7 @@ public abstract class SPHINCSPlusEngine {
                 this.mgf1 = new MGF1BytesGenerator(new SHA512Digest());
                 i7 = 128;
             }
-            this.bl = i7;
+            this.f81766bl = i7;
             this.hmacBuf = new byte[this.treeHMac.getMacSize()];
             this.msgDigestBuf = new byte[this.msgDigest.getDigestSize()];
         }
@@ -200,7 +216,8 @@ public abstract class SPHINCSPlusEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
-        public byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2) {
+        /* JADX INFO: renamed from: F */
+        public byte[] mo55432F(byte[] bArr, ADRS adrs, byte[] bArr2) {
             byte[] bArrCompressedADRS = compressedADRS(adrs);
             if (this.robust) {
                 bArr2 = bitmask256(Arrays.concatenate(bArr, bArrCompressedADRS), bArr2);
@@ -209,11 +226,12 @@ public abstract class SPHINCSPlusEngine {
             this.sha256.update(bArrCompressedADRS, 0, bArrCompressedADRS.length);
             this.sha256.update(bArr2, 0, bArr2.length);
             this.sha256.doFinal(this.sha256Buf, 0);
-            return Arrays.copyOfRange(this.sha256Buf, 0, this.N);
+            return Arrays.copyOfRange(this.sha256Buf, 0, this.f81764N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
-        public byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
+        /* JADX INFO: renamed from: H */
+        public byte[] mo55433H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
             byte[] bArrCompressedADRS = compressedADRS(adrs);
             ((Memoable) this.msgDigest).reset(this.msgMemo);
             this.msgDigest.update(bArrCompressedADRS, 0, bArrCompressedADRS.length);
@@ -225,14 +243,14 @@ public abstract class SPHINCSPlusEngine {
                 this.msgDigest.update(bArr3, 0, bArr3.length);
             }
             this.msgDigest.doFinal(this.msgDigestBuf, 0);
-            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.N);
+            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.f81764N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
         public IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4) {
-            int i = ((this.A * this.K) + 7) / 8;
-            int i2 = this.H;
-            int i3 = i2 / this.D;
+            int i = ((this.f81760A * this.f81763K) + 7) / 8;
+            int i2 = this.f81762H;
+            int i3 = i2 / this.f81761D;
             int i4 = i2 - i3;
             int i5 = (i3 + 7) / 8;
             int i6 = (i4 + 7) / 8;
@@ -268,7 +286,7 @@ public abstract class SPHINCSPlusEngine {
             this.treeHMac.update(bArr2, 0, bArr2.length);
             this.treeHMac.update(bArr3, 0, bArr3.length);
             this.treeHMac.doFinal(this.hmacBuf, 0);
-            return Arrays.copyOfRange(this.hmacBuf, 0, this.N);
+            return Arrays.copyOfRange(this.hmacBuf, 0, this.f81764N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
@@ -281,7 +299,7 @@ public abstract class SPHINCSPlusEngine {
             this.msgDigest.update(bArrCompressedADRS, 0, bArrCompressedADRS.length);
             this.msgDigest.update(bArr2, 0, bArr2.length);
             this.msgDigest.doFinal(this.msgDigestBuf, 0);
-            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.N);
+            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.f81764N);
         }
 
         public byte[] bitmask(byte[] bArr, byte[] bArr2) {
@@ -315,9 +333,9 @@ public abstract class SPHINCSPlusEngine {
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
         public void init(byte[] bArr) {
-            byte[] bArr2 = new byte[this.bl];
+            byte[] bArr2 = new byte[this.f81766bl];
             this.msgDigest.update(bArr, 0, bArr.length);
-            this.msgDigest.update(bArr2, 0, this.bl - this.N);
+            this.msgDigest.update(bArr2, 0, this.f81766bl - this.f81764N);
             this.msgMemo = ((Memoable) this.msgDigest).copy();
             this.msgDigest.reset();
             this.sha256.update(bArr, 0, bArr.length);
@@ -338,11 +356,12 @@ public abstract class SPHINCSPlusEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
-        public byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2) {
+        /* JADX INFO: renamed from: F */
+        public byte[] mo55432F(byte[] bArr, ADRS adrs, byte[] bArr2) {
             if (this.robust) {
                 bArr2 = bitmask(bArr, adrs, bArr2);
             }
-            int i = this.N;
+            int i = this.f81764N;
             byte[] bArr3 = new byte[i];
             this.treeDigest.update(bArr, 0, bArr.length);
             Xof xof = this.treeDigest;
@@ -354,8 +373,9 @@ public abstract class SPHINCSPlusEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
-        public byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
-            int i = this.N;
+        /* JADX INFO: renamed from: H */
+        public byte[] mo55433H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
+            int i = this.f81764N;
             byte[] bArr4 = new byte[i];
             this.treeDigest.update(bArr, 0, bArr.length);
             Xof xof = this.treeDigest;
@@ -374,9 +394,9 @@ public abstract class SPHINCSPlusEngine {
 
         @Override // org.bouncycastle.pqc.crypto.sphincsplus.SPHINCSPlusEngine
         public IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4) {
-            int i = ((this.A * this.K) + 7) / 8;
-            int i2 = this.H;
-            int i3 = i2 / this.D;
+            int i = ((this.f81760A * this.f81763K) + 7) / 8;
+            int i2 = this.f81762H;
+            int i3 = i2 / this.f81761D;
             int i4 = i2 - i3;
             int i5 = (i3 + 7) / 8;
             int i6 = (i4 + 7) / 8;
@@ -402,7 +422,7 @@ public abstract class SPHINCSPlusEngine {
             byte[] bArr3 = adrs.value;
             xof.update(bArr3, 0, bArr3.length);
             this.treeDigest.update(bArr2, 0, bArr2.length);
-            int i = this.N;
+            int i = this.f81764N;
             byte[] bArr4 = new byte[i];
             this.treeDigest.doFinal(bArr4, 0, i);
             return bArr4;
@@ -413,7 +433,7 @@ public abstract class SPHINCSPlusEngine {
             this.treeDigest.update(bArr, 0, bArr.length);
             this.treeDigest.update(bArr2, 0, bArr2.length);
             this.treeDigest.update(bArr3, 0, bArr3.length);
-            int i = this.N;
+            int i = this.f81764N;
             byte[] bArr4 = new byte[i];
             this.treeDigest.doFinal(bArr4, 0, i);
             return bArr4;
@@ -424,7 +444,7 @@ public abstract class SPHINCSPlusEngine {
             if (this.robust) {
                 bArr2 = bitmask(bArr, adrs, bArr2);
             }
-            int i = this.N;
+            int i = this.f81764N;
             byte[] bArr3 = new byte[i];
             this.treeDigest.update(bArr, 0, bArr.length);
             Xof xof = this.treeDigest;
@@ -466,7 +486,7 @@ public abstract class SPHINCSPlusEngine {
     }
 
     public SPHINCSPlusEngine(boolean z, int i, int i2, int i3, int i4, int i5, int i6) {
-        this.N = i;
+        this.f81764N = i;
         if (i2 == 16) {
             this.WOTS_LOGW = 4;
             this.WOTS_LEN1 = (i * 8) / 4;
@@ -498,17 +518,19 @@ public abstract class SPHINCSPlusEngine {
         this.WOTS_W = i2;
         this.WOTS_LEN = this.WOTS_LEN1 + this.WOTS_LEN2;
         this.robust = z;
-        this.D = i3;
-        this.A = i4;
-        this.K = i5;
-        this.H = i6;
+        this.f81761D = i3;
+        this.f81760A = i4;
+        this.f81763K = i5;
+        this.f81762H = i6;
         this.H_PRIME = i6 / i3;
-        this.T = 1 << i4;
+        this.f81765T = 1 << i4;
     }
 
-    public abstract byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2);
+    /* JADX INFO: renamed from: F */
+    public abstract byte[] mo55432F(byte[] bArr, ADRS adrs, byte[] bArr2);
 
-    public abstract byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3);
+    /* JADX INFO: renamed from: H */
+    public abstract byte[] mo55433H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3);
 
     public abstract IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4);
 

@@ -1,7 +1,7 @@
 package org.bouncycastle.pqc.crypto.saber;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.C0684bo;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Utils {
@@ -42,7 +42,7 @@ public class Utils {
             int i4 = ((short) (s * 13)) + i;
             int i5 = bArr[i4] & 255;
             byte b2 = bArr[i4 + 1];
-            sArr[s3] = (short) (i5 | ((b2 & bo.j) << 8));
+            sArr[s3] = (short) (i5 | ((b2 & C0684bo.f2505j) << 8));
             int i6 = ((b2 >> 5) & 7) | ((bArr[i4 + 2] & 255) << 3);
             byte b3 = bArr[i4 + 3];
             sArr[s3 + 1] = (short) (i6 | ((b3 & 3) << 11));

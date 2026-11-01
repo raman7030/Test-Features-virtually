@@ -28,8 +28,12 @@ public class SABEREngine {
     public final int SABER_SCALEBYTES_KEM;
     public final int SABER_SECRETKEYBYTES;
     public final int defaultKeySize;
-    public final int h1;
-    public final int h2;
+
+    /* JADX INFO: renamed from: h1 */
+    public final int f81719h1;
+
+    /* JADX INFO: renamed from: h2 */
+    public final int f81720h2;
     public final Poly poly;
     public final Symmetric symmetric;
     public final boolean usingAES;
@@ -81,8 +85,8 @@ public class SABEREngine {
         this.SABER_SECRETKEYBYTES = i6 + i10 + 64;
         this.SABER_BYTES_CCA_DEC = i7 + i9;
         int i11 = 1 << (i4 - 11);
-        this.h1 = i11;
-        this.h2 = (256 - (1 << (9 - i8))) + i11;
+        this.f81719h1 = i11;
+        this.f81720h2 = (256 - (1 << (9 - i8))) + i11;
         this.utils = new Utils(this);
         this.poly = new Poly(this);
     }
@@ -107,7 +111,7 @@ public class SABEREngine {
         this.poly.InnerProd(sArr2, sArr, sArr3);
         this.utils.BS2POLT(bArr2, this.SABER_POLYVECCOMPRESSEDBYTES, sArr4);
         for (int i = 0; i < 256; i++) {
-            sArr3[i] = (short) ((((sArr3[i] + this.h2) - (sArr4[i] << (10 - this.SABER_ET))) & 65535) >> 9);
+            sArr3[i] = (short) ((((sArr3[i] + this.f81720h2) - (sArr4[i] << (10 - this.SABER_ET))) & 65535) >> 9);
         }
         this.utils.POLmsg2BS(bArr3, sArr3);
     }
@@ -128,7 +132,7 @@ public class SABEREngine {
         for (int i2 = 0; i2 < this.SABER_L; i2++) {
             for (int i3 = 0; i3 < 256; i3++) {
                 short[] sArr7 = sArr3[i2];
-                sArr7[i3] = (short) (((sArr7[i3] + this.h1) & 65535) >>> (this.SABER_EQ - 10));
+                sArr7[i3] = (short) (((sArr7[i3] + this.f81719h1) & 65535) >>> (this.SABER_EQ - 10));
             }
         }
         this.utils.POLVECp2BS(bArr4, sArr3);
@@ -136,7 +140,7 @@ public class SABEREngine {
         this.poly.InnerProd(sArr4, sArr2, sArr6);
         this.utils.BS2POLmsg(bArr, sArr5);
         for (int i4 = 0; i4 < 256; i4++) {
-            sArr6[i4] = (short) ((((sArr6[i4] - (sArr5[i4] << 9)) + this.h1) & 65535) >>> (10 - this.SABER_ET));
+            sArr6[i4] = (short) ((((sArr6[i4] - (sArr5[i4] << 9)) + this.f81719h1) & 65535) >>> (10 - this.SABER_ET));
         }
         this.utils.POLT2BS(bArr4, this.SABER_POLYVECCOMPRESSEDBYTES, sArr6);
     }
@@ -159,7 +163,7 @@ public class SABEREngine {
         for (int i2 = 0; i2 < this.SABER_L; i2++) {
             for (int i3 = 0; i3 < 256; i3++) {
                 short[] sArr4 = sArr3[i2];
-                sArr4[i3] = (short) (((sArr4[i3] + this.h1) & 65535) >>> (this.SABER_EQ - 10));
+                sArr4[i3] = (short) (((sArr4[i3] + this.f81719h1) & 65535) >>> (this.SABER_EQ - 10));
             }
         }
         this.utils.POLVECq2BS(bArr2, sArr2);

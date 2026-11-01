@@ -12,19 +12,19 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 import com.google.android.material.motion.MaterialBackOrchestrator;
-import l.C14077;
-import l.C14369;
-import l.C16445;
-import l.C17648;
-import l.C18333;
-import l.C18637;
-import l.C20754;
-import l.DialogC8224;
+import p067l.C1540;
+import p067l.C1555;
+import p067l.C1658;
+import p067l.C1717;
+import p067l.C1751;
+import p067l.C20081;
+import p067l.C22093;
+import p067l.DialogC1250;
 
 /* JADX INFO: loaded from: classes2.dex */
-public abstract class SheetDialog extends DialogC8224 {
-    public static final int COORDINATOR_LAYOUT_ID = C20754.f67039;
-    public static final int TOUCH_OUTSIDE_ID = C20754.f67015;
+public abstract class SheetDialog extends DialogC1250 {
+    public static final int COORDINATOR_LAYOUT_ID = C22093.f69723;
+    public static final int TOUCH_OUTSIDE_ID = C22093.f69699;
     public MaterialBackOrchestrator backOrchestrator;
     public Sheet behavior;
     public boolean cancelable;
@@ -51,22 +51,22 @@ public abstract class SheetDialog extends DialogC8224 {
         supportRequestWindowFeature(1);
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void setContentView(int i) {
         super.setContentView(wrapInSheet(i, null, null));
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void setContentView(View view) {
         super.setContentView(wrapInSheet(0, view, null));
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.setContentView(wrapInSheet(0, view, layoutParams));
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Window window = getWindow();
@@ -104,7 +104,7 @@ public abstract class SheetDialog extends DialogC8224 {
         }
     }
 
-    @Override // l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1183, android.app.Dialog
     public void onStart() {
         super.onStart();
         Sheet sheet = this.behavior;
@@ -194,9 +194,9 @@ public abstract class SheetDialog extends DialogC8224 {
 
     private View wrapInSheet(int i, View view, ViewGroup.LayoutParams layoutParams) {
         ensureContainerAndBehavior();
-        C18333 c18333 = (C18333) getContainer().findViewById(COORDINATOR_LAYOUT_ID);
+        C1751 c1751 = (C1751) getContainer().findViewById(COORDINATOR_LAYOUT_ID);
         if (i != 0 && view == null) {
-            view = getLayoutInflater().inflate(i, (ViewGroup) c18333, false);
+            view = getLayoutInflater().inflate(i, (ViewGroup) c1751, false);
         }
         FrameLayout sheet = getSheet();
         sheet.removeAllViews();
@@ -205,25 +205,25 @@ public abstract class SheetDialog extends DialogC8224 {
         } else {
             sheet.addView(view, layoutParams);
         }
-        c18333.findViewById(TOUCH_OUTSIDE_ID).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.sidesheet.SheetDialog$$ExternalSyntheticLambda0
+        c1751.findViewById(TOUCH_OUTSIDE_ID).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.sidesheet.SheetDialog$$ExternalSyntheticLambda0
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 this.f$0.lambda$wrapInSheet$0(view2);
             }
         });
-        C17648.m41309(getSheet(), new C16445() { // from class: com.google.android.material.sidesheet.SheetDialog.1
-            @Override // l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view2, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view2, c14369);
+        C1717.m43555(getSheet(), new C1658() { // from class: com.google.android.material.sidesheet.SheetDialog.1
+            @Override // p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view2, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view2, c1555);
                 if (SheetDialog.this.cancelable) {
-                    c14369.m34275(1048576);
-                    c14369.m34324(true);
+                    c1555.m36408(1048576);
+                    c1555.m36457(true);
                 } else {
-                    c14369.m34324(false);
+                    c1555.m36457(false);
                 }
             }
 
-            @Override // l.C16445
+            @Override // p067l.C1658
             public boolean performAccessibilityAction(View view2, int i2, Bundle bundle) {
                 if (i2 == 1048576) {
                     SheetDialog sheetDialog = SheetDialog.this;
@@ -250,13 +250,13 @@ public abstract class SheetDialog extends DialogC8224 {
         if (frameLayout == null) {
             throw new IllegalStateException("Sheet view reference is null; sheet edge cannot be changed if the sheet view is null.");
         }
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         if (frameLayout.isLaidOut()) {
             throw new IllegalStateException("Sheet view has been laid out; sheet edge cannot be changed once the sheet has been laid out.");
         }
         ViewGroup.LayoutParams layoutParams = this.sheet.getLayoutParams();
-        if (layoutParams instanceof C14077) {
-            ((C14077) layoutParams).f42518 = i;
+        if (layoutParams instanceof C1540) {
+            ((C1540) layoutParams).f45604 = i;
             maybeUpdateWindowAnimationsBasedOnLayoutDirection();
         }
     }
@@ -265,16 +265,16 @@ public abstract class SheetDialog extends DialogC8224 {
         FrameLayout frameLayout;
         int i;
         Window window = getWindow();
-        if (window == null || (frameLayout = this.sheet) == null || !(frameLayout.getLayoutParams() instanceof C14077)) {
+        if (window == null || (frameLayout = this.sheet) == null || !(frameLayout.getLayoutParams() instanceof C1540)) {
             return;
         }
-        int i2 = ((C14077) this.sheet.getLayoutParams()).f42518;
+        int i2 = ((C1540) this.sheet.getLayoutParams()).f45604;
         FrameLayout frameLayout2 = this.sheet;
-        int i3 = C17648.f53953;
+        int i3 = C1717.f57146;
         if (Gravity.getAbsoluteGravity(i2, frameLayout2.getLayoutDirection()) == 3) {
-            i = C18637.f58784;
+            i = C20081.f62007;
         } else {
-            i = C18637.f58253;
+            i = C20081.f61476;
         }
         window.setWindowAnimations(i);
     }

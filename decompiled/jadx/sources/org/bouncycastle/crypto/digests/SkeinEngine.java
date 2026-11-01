@@ -3,8 +3,6 @@ package org.bouncycastle.crypto.digests;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import l.C13132;
-import l.C19370;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.engines.ThreefishEngine;
@@ -15,6 +13,8 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
+import p067l.C14849;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SkeinEngine implements Memoable {
@@ -214,7 +214,7 @@ public class SkeinEngine implements Memoable {
                 jArr[1] = jArr[1] | Long.MIN_VALUE;
             } else {
                 long[] jArr2 = this.tweak;
-                jArr2[1] = jArr2[1] & C13132.FOREVER_NS;
+                jArr2[1] = jArr2[1] & C14849.FOREVER_NS;
             }
         }
 
@@ -253,7 +253,7 @@ public class SkeinEngine implements Memoable {
     public SkeinEngine(int i, int i2) {
         this.singleByte = new byte[1];
         if (i2 % 8 != 0) {
-            throw new IllegalArgumentException(C19370.m44628(i2, "Output size must be a multiple of 8 bits. :"));
+            throw new IllegalArgumentException(C20778.m46922(i2, "Output size must be a multiple of 8 bits. :"));
         }
         this.outputSizeBytes = i2 / 8;
         ThreefishEngine threefishEngine = new ThreefishEngine(i);

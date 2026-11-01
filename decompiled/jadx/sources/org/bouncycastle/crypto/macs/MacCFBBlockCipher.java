@@ -8,7 +8,9 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MacCFBBlockCipher {
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81131IV;
     public int blockSize;
     public byte[] cfbOutV;
     public byte[] cfbV;
@@ -17,7 +19,7 @@ public class MacCFBBlockCipher {
     public MacCFBBlockCipher(BlockCipher blockCipher, int i) {
         this.cipher = blockCipher;
         this.blockSize = i / 8;
-        this.IV = new byte[blockCipher.getBlockSize()];
+        this.f81131IV = new byte[blockCipher.getBlockSize()];
         this.cfbV = new byte[blockCipher.getBlockSize()];
         this.cfbOutV = new byte[blockCipher.getBlockSize()];
     }
@@ -40,7 +42,7 @@ public class MacCFBBlockCipher {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();
             int length = iv.length;
-            byte[] bArr = this.IV;
+            byte[] bArr = this.f81131IV;
             if (length < bArr.length) {
                 System.arraycopy(iv, 0, bArr, bArr.length - iv.length, iv.length);
             } else {
@@ -83,7 +85,7 @@ public class MacCFBBlockCipher {
     }
 
     public void reset() {
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81131IV;
         System.arraycopy(bArr, 0, this.cfbV, 0, bArr.length);
         this.cipher.reset();
     }

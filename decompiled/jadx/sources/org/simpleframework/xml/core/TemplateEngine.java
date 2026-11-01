@@ -1,6 +1,6 @@
 package org.simpleframework.xml.core;
 
-import com.alipay.sdk.m.y.l;
+import com.alipay.sdk.p010m.p058y.C0249l;
 import org.simpleframework.xml.filter.Filter;
 
 /* JADX INFO: loaded from: classes2.dex */
@@ -90,7 +90,7 @@ public class TemplateEngine {
         if (strReplace == null) {
             this.text.append("${");
             this.text.append(str);
-            this.text.append(l.d);
+            this.text.append(C0249l.f1198d);
             return;
         }
         this.text.append(strReplace);

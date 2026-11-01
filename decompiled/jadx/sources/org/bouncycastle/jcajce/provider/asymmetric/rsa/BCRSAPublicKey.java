@@ -1,6 +1,6 @@
 package org.bouncycastle.jcajce.provider.asymmetric.rsa;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -103,7 +103,7 @@ public class BCRSAPublicKey implements RSAPublicKey, BCKey {
 
     @Override // java.security.Key
     public String getAlgorithm() {
-        return this.algorithmIdentifier.getAlgorithm().equals((ASN1Primitive) PKCSObjectIdentifiers.id_RSASSA_PSS) ? "RSASSA-PSS" : d.a;
+        return this.algorithmIdentifier.getAlgorithm().equals((ASN1Primitive) PKCSObjectIdentifiers.id_RSASSA_PSS) ? "RSASSA-PSS" : C0187d.f883a;
     }
 
     @Override // java.security.Key
@@ -135,7 +135,7 @@ public class BCRSAPublicKey implements RSAPublicKey, BCKey {
         String strLineSeparator = Strings.lineSeparator();
         sb.append(RSAUtil.generateKeyFingerprint(getModulus()));
         sb.append("],[");
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, RSAUtil.generateExponentFingerprint(getPublicExponent()), "]", strLineSeparator, "        modulus: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, RSAUtil.generateExponentFingerprint(getPublicExponent()), "]", strLineSeparator, "        modulus: ");
         sb.append(getModulus().toString(16));
         sb.append(strLineSeparator);
         sb.append("public exponent: ");

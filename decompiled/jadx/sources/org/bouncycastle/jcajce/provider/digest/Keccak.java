@@ -1,8 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C16014;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.KeccakDigest;
@@ -11,6 +8,9 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
+import p067l.C10965;
+import p067l.C17588;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Keccak {
@@ -136,11 +136,11 @@ public class Keccak {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            addHMACAlgorithm(configurableProvider, "KECCAK224", C9045.m23341(C5368.m15340(str, "$Digest512", "MessageDigest.KECCAK-512", C5368.m15340(str, "$Digest384", "MessageDigest.KECCAK-384", C5368.m15340(str, "$Digest256", "MessageDigest.KECCAK-256", C5368.m15340(str, "$Digest288", "MessageDigest.KECCAK-288", C5368.m15340(str, "$Digest224", "MessageDigest.KECCAK-224", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), str, "$HashMac224"), C16014.m37867(str, "$KeyGenerator224"));
-            addHMACAlgorithm(configurableProvider, "KECCAK256", C16014.m37867(str, "$HashMac256"), C16014.m37867(str, "$KeyGenerator256"));
-            addHMACAlgorithm(configurableProvider, "KECCAK288", C16014.m37867(str, "$HashMac288"), C16014.m37867(str, "$KeyGenerator288"));
-            addHMACAlgorithm(configurableProvider, "KECCAK384", C16014.m37867(str, "$HashMac384"), C16014.m37867(str, "$KeyGenerator384"));
-            addHMACAlgorithm(configurableProvider, "KECCAK512", C16014.m37867(str, "$HashMac512"), C16014.m37867(str, "$KeyGenerator512"));
+            addHMACAlgorithm(configurableProvider, "KECCAK224", C10965.m25286(C7470.m17249(str, "$Digest512", "MessageDigest.KECCAK-512", C7470.m17249(str, "$Digest384", "MessageDigest.KECCAK-384", C7470.m17249(str, "$Digest256", "MessageDigest.KECCAK-256", C7470.m17249(str, "$Digest288", "MessageDigest.KECCAK-288", C7470.m17249(str, "$Digest224", "MessageDigest.KECCAK-224", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), str, "$HashMac224"), C17588.m40053(str, "$KeyGenerator224"));
+            addHMACAlgorithm(configurableProvider, "KECCAK256", C17588.m40053(str, "$HashMac256"), C17588.m40053(str, "$KeyGenerator256"));
+            addHMACAlgorithm(configurableProvider, "KECCAK288", C17588.m40053(str, "$HashMac288"), C17588.m40053(str, "$KeyGenerator288"));
+            addHMACAlgorithm(configurableProvider, "KECCAK384", C17588.m40053(str, "$HashMac384"), C17588.m40053(str, "$KeyGenerator384"));
+            addHMACAlgorithm(configurableProvider, "KECCAK512", C17588.m40053(str, "$HashMac512"), C17588.m40053(str, "$KeyGenerator512"));
         }
     }
 }

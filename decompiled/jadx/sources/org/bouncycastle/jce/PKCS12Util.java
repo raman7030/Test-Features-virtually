@@ -49,7 +49,7 @@ public class PKCS12Util {
             int iIntValue = macData.getIterationCount().intValue();
             return new Pfx(contentInfo, new MacData(new DigestInfo(new AlgorithmIdentifier(macData.getMac().getAlgorithmId().getAlgorithm(), DERNull.INSTANCE), calculatePbeMac(macData.getMac().getAlgorithmId().getAlgorithm(), macData.getSalt(), iIntValue, cArr, ASN1OctetString.getInstance(contentInfo.getContent()).getOctets(), str)), macData.getSalt(), iIntValue)).getEncoded(ASN1Encoding.DER);
         } catch (Exception e) {
-            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("error constructing MAC: ")));
+            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("error constructing MAC: ")));
         }
     }
 }

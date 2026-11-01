@@ -10,7 +10,8 @@ public class ReversableAnimatedValueInterpolator implements TimeInterpolator {
         this.sourceInterpolator = timeInterpolator;
     }
 
-    public static TimeInterpolator of(boolean z, TimeInterpolator timeInterpolator) {
+    /* JADX INFO: renamed from: of */
+    public static TimeInterpolator m1978of(boolean z, TimeInterpolator timeInterpolator) {
         return z ? timeInterpolator : new ReversableAnimatedValueInterpolator(timeInterpolator);
     }
 

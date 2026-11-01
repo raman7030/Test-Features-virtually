@@ -1,6 +1,6 @@
 package org.bouncycastle.jcajce.provider.keystore.bcfks;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import com.google.android.material.motion.MotionUtils;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -43,11 +43,6 @@ import javax.crypto.Mac;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import l.C19370;
-import l.C20094;
-import l.C3200;
-import l.C4860;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -55,18 +50,19 @@ import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.bc.EncryptedObjectStoreData;
-import org.bouncycastle.asn1.bc.EncryptedPrivateKeyData;
-import org.bouncycastle.asn1.bc.EncryptedSecretKeyData;
-import org.bouncycastle.asn1.bc.ObjectData;
-import org.bouncycastle.asn1.bc.ObjectDataSequence;
-import org.bouncycastle.asn1.bc.ObjectStore;
-import org.bouncycastle.asn1.bc.ObjectStoreData;
-import org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck;
-import org.bouncycastle.asn1.bc.PbkdMacIntegrityCheck;
-import org.bouncycastle.asn1.bc.SecretKeyData;
-import org.bouncycastle.asn1.bc.SignatureCheck;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.EncryptedObjectStoreData;
+import org.bouncycastle.asn1.p070bc.EncryptedPrivateKeyData;
+import org.bouncycastle.asn1.p070bc.EncryptedSecretKeyData;
+import org.bouncycastle.asn1.p070bc.ObjectData;
+import org.bouncycastle.asn1.p070bc.ObjectDataSequence;
+import org.bouncycastle.asn1.p070bc.ObjectStore;
+import org.bouncycastle.asn1.p070bc.ObjectStoreData;
+import org.bouncycastle.asn1.p070bc.ObjectStoreIntegrityCheck;
+import org.bouncycastle.asn1.p070bc.PbkdMacIntegrityCheck;
+import org.bouncycastle.asn1.p070bc.SecretKeyData;
+import org.bouncycastle.asn1.p070bc.SignatureCheck;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
 import org.bouncycastle.asn1.pkcs.EncryptionScheme;
 import org.bouncycastle.asn1.pkcs.KeyDerivationFunc;
@@ -76,7 +72,6 @@ import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.digests.SHA3Digest;
@@ -106,6 +101,11 @@ import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.interfaces.ECKey;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Strings;
+import p067l.C10927;
+import p067l.C20778;
+import p067l.C21466;
+import p067l.C5410;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BcFKSKeyStoreSpi extends KeyStoreSpi {
@@ -585,7 +585,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
         map.put("ARIA.128", NSRIObjectIdentifiers.id_aria128_cbc);
         map.put("ARIA.192", NSRIObjectIdentifiers.id_aria192_cbc);
         map.put("ARIA.256", NSRIObjectIdentifiers.id_aria256_cbc);
-        map2.put(PKCSObjectIdentifiers.rsaEncryption, d.a);
+        map2.put(PKCSObjectIdentifiers.rsaEncryption, C0187d.f883a);
         map2.put(X9ObjectIdentifiers.id_ecPublicKey, "EC");
         map2.put(OIWObjectIdentifiers.elGamalAlgorithm, "DH");
         map2.put(PKCSObjectIdentifiers.dhKeyAgreement, "DH");
@@ -727,7 +727,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
         if (aSN1ObjectIdentifier2.equals((ASN1Primitive) aSN1ObjectIdentifier)) {
             return new KeyDerivationFunc(aSN1ObjectIdentifier2, new PBKDF2Params(bArr, PKCS12KeyStoreSpi.MIN_ITERATIONS, i, new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA512, DERNull.INSTANCE)));
         }
-        throw new IllegalStateException(C9005.m23242("unknown derivation algorithm: ", aSN1ObjectIdentifier));
+        throw new IllegalStateException(C10927.m25186("unknown derivation algorithm: ", aSN1ObjectIdentifier));
     }
 
     private KeyDerivationFunc generatePkbdAlgorithmIdentifier(KeyDerivationFunc keyDerivationFunc, int i) {
@@ -1150,7 +1150,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
                 }
                 this.entries.put(str, new ObjectData(PRIVATE_KEY, str, dateExtractCreationDate, date, createPrivateKeySequence(encryptedPrivateKeyInfo, certificateArr).getEncoded(), null));
             } catch (Exception e) {
-                throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("BCFKS KeyStore exception storing private key: ")), e);
+                throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("BCFKS KeyStore exception storing private key: ")), e);
             }
         } else {
             if (!(key instanceof SecretKey)) {
@@ -1192,7 +1192,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
                 }
                 this.entries.put(str, new ObjectData(SECRET_KEY, str, dateExtractCreationDate, date, encryptedSecretKeyData.getEncoded(), null));
             } catch (Exception e2) {
-                throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m(e2, new StringBuilder("BCFKS KeyStore exception storing private key: ")), e2);
+                throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e2, new StringBuilder("BCFKS KeyStore exception storing private key: ")), e2);
             }
         }
         this.lastModifiedDate = date;
@@ -1210,7 +1210,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
                     this.privateKeyCache.remove(str);
                     this.entries.put(str, new ObjectData(PROTECTED_PRIVATE_KEY, str, dateExtractCreationDate, date, createPrivateKeySequence(encryptedPrivateKeyInfo, certificateArr).getEncoded(), null));
                 } catch (Exception e) {
-                    throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("BCFKS KeyStore exception storing protected private key: ")), e);
+                    throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("BCFKS KeyStore exception storing protected private key: ")), e);
                 }
             } catch (Exception e2) {
                 throw new ExtKeyStoreException("BCFKS KeyStore private key encoding must be an EncryptedPrivateKeyInfo.", e2);
@@ -1219,7 +1219,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
             try {
                 this.entries.put(str, new ObjectData(PROTECTED_SECRET_KEY, str, dateExtractCreationDate, date, bArr, null));
             } catch (Exception e3) {
-                throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m(e3, new StringBuilder("BCFKS KeyStore exception storing protected private key: ")), e3);
+                throw new ExtKeyStoreException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e3, new StringBuilder("BCFKS KeyStore exception storing protected private key: ")), e3);
             }
         }
         this.lastModifiedDate = date;
@@ -1320,14 +1320,14 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
         }
         if (!objectData.getType().equals(PRIVATE_KEY) && !objectData.getType().equals(PROTECTED_PRIVATE_KEY)) {
             if (!objectData.getType().equals(SECRET_KEY) && !objectData.getType().equals(PROTECTED_SECRET_KEY)) {
-                throw new UnrecoverableKeyException(C4860.m14172("BCFKS KeyStore unable to recover secret key (", str, "): type not recognized"));
+                throw new UnrecoverableKeyException(C6988.m16053("BCFKS KeyStore unable to recover secret key (", str, "): type not recognized"));
             }
             EncryptedSecretKeyData encryptedSecretKeyData = EncryptedSecretKeyData.getInstance(objectData.getData());
             try {
                 SecretKeyData secretKeyData = SecretKeyData.getInstance(decryptData("SECRET_KEY_ENCRYPTION", encryptedSecretKeyData.getKeyEncryptionAlgorithm(), cArr, encryptedSecretKeyData.getEncryptedKeyData()));
                 return this.helper.createSecretKeyFactory(secretKeyData.getKeyAlgorithm().getId()).generateSecret(new SecretKeySpec(secretKeyData.getKeyBytes(), secretKeyData.getKeyAlgorithm().getId()));
             } catch (Exception e) {
-                throw new UnrecoverableKeyException(C19370.m44629(e, C3200.m9834("BCFKS KeyStore unable to recover secret key (", str, "): ")));
+                throw new UnrecoverableKeyException(C20778.m46923(e, C5410.m11879("BCFKS KeyStore unable to recover secret key (", str, "): ")));
             }
         }
         PrivateKey privateKey = (PrivateKey) this.privateKeyCache.get(str);
@@ -1341,7 +1341,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
             this.privateKeyCache.put(str, privateKeyGeneratePrivate);
             return privateKeyGeneratePrivate;
         } catch (Exception e2) {
-            throw new UnrecoverableKeyException(C19370.m44629(e2, C3200.m9834("BCFKS KeyStore unable to recover private key (", str, "): ")));
+            throw new UnrecoverableKeyException(C20778.m46923(e2, C5410.m11879("BCFKS KeyStore unable to recover private key (", str, "): ")));
         }
     }
 
@@ -1354,7 +1354,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
             dateExtractCreationDate = date;
         } else {
             if (!objectData.getType().equals(CERTIFICATE)) {
-                throw new KeyStoreException(C20094.m46315("BCFKS KeyStore already has a key entry with alias ", str));
+                throw new KeyStoreException(C21466.m48631("BCFKS KeyStore already has a key entry with alias ", str));
             }
             dateExtractCreationDate = extractCreationDate(objectData, date);
         }
@@ -1411,7 +1411,7 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
             try {
                 byte[] bArrCalculateMac = calculateMac(str, cArr);
                 if (this.cache.containsKey(str) && !Arrays.constantTimeAreEqual((byte[]) this.cache.get(str), bArrCalculateMac)) {
-                    throw new UnrecoverableKeyException(C4860.m14172("unable to recover key (", str, MotionUtils.EASING_TYPE_FORMAT_END));
+                    throw new UnrecoverableKeyException(C6988.m16053("unable to recover key (", str, MotionUtils.EASING_TYPE_FORMAT_END));
                 }
                 Key keyEngineGetKey = super.engineGetKey(str, cArr);
                 if (keyEngineGetKey != null && !this.cache.containsKey(str)) {
@@ -1419,9 +1419,9 @@ public class BcFKSKeyStoreSpi extends KeyStoreSpi {
                 }
                 return keyEngineGetKey;
             } catch (InvalidKeyException e) {
-                StringBuilder sbM9834 = C3200.m9834("unable to recover key (", str, "): ");
-                sbM9834.append(e.getMessage());
-                throw new UnrecoverableKeyException(sbM9834.toString());
+                StringBuilder sbM11879 = C5410.m11879("unable to recover key (", str, "): ");
+                sbM11879.append(e.getMessage());
+                throw new UnrecoverableKeyException(sbM11879.toString());
             }
         }
     }

@@ -1,13 +1,13 @@
 package org.bouncycastle.crypto.generators;
 
 import com.google.android.material.motion.MotionUtils;
-import l.C19373;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.engines.Salsa20Engine;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Pack;
+import p067l.C20780;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SCrypt {
@@ -157,7 +157,7 @@ public class SCrypt {
         }
         int i5 = Integer.MAX_VALUE / (i2 * 1024);
         if (i3 < 1 || i3 > i5) {
-            throw new IllegalArgumentException(C19373.m44634("Parallelisation parameter p must be >= 1 and <= ", i5, " (based on block size r of ", MotionUtils.EASING_TYPE_FORMAT_END, i2));
+            throw new IllegalArgumentException(C20780.m46928("Parallelisation parameter p must be >= 1 and <= ", i5, " (based on block size r of ", MotionUtils.EASING_TYPE_FORMAT_END, i2));
         }
         if (i4 >= 1) {
             return MFcrypt(bArr, bArr2, i, i2, i3, i4);

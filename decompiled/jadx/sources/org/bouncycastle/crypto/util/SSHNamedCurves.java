@@ -3,20 +3,20 @@ package org.bouncycastle.crypto.util;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.nist.NISTNamedCurves;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
+import org.bouncycastle.crypto.p074ec.CustomNamedCurves;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECCurve;
 import org.bouncycastle.util.Strings;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SSHNamedCurves {
-    public static final Map oidMap = C20195.unmodifiableMap(new HashMap() { // from class: org.bouncycastle.crypto.util.SSHNamedCurves.1
+    public static final Map oidMap = C21562.unmodifiableMap(new HashMap() { // from class: org.bouncycastle.crypto.util.SSHNamedCurves.1
         {
             put("nistp256", SECObjectIdentifiers.secp256r1);
             put("nistp384", SECObjectIdentifiers.secp384r1);
@@ -32,7 +32,7 @@ public class SSHNamedCurves {
             put("nistt571", SECObjectIdentifiers.sect571k1);
         }
     });
-    public static final Map curveNameToSSHName = C20195.unmodifiableMap(new HashMap() { // from class: org.bouncycastle.crypto.util.SSHNamedCurves.2
+    public static final Map curveNameToSSHName = C21562.unmodifiableMap(new HashMap() { // from class: org.bouncycastle.crypto.util.SSHNamedCurves.2
         {
             String[][] strArr = {new String[]{"secp256r1", "nistp256"}, new String[]{"secp384r1", "nistp384"}, new String[]{"secp521r1", "nistp521"}, new String[]{"sect163k1", "nistk163"}, new String[]{"secp192r1", "nistp192"}, new String[]{"secp224r1", "nistp224"}, new String[]{"sect233k1", "nistk233"}, new String[]{"sect233r1", "nistb233"}, new String[]{"sect283k1", "nistk283"}, new String[]{"sect409k1", "nistk409"}, new String[]{"sect409r1", "nistb409"}, new String[]{"sect571k1", "nistt571"}};
             for (int i = 0; i != 12; i++) {
@@ -50,7 +50,7 @@ public class SSHNamedCurves {
             }
         }
     };
-    public static final Map oidToName = C20195.unmodifiableMap(new HashMap() { // from class: org.bouncycastle.crypto.util.SSHNamedCurves.4
+    public static final Map oidToName = C21562.unmodifiableMap(new HashMap() { // from class: org.bouncycastle.crypto.util.SSHNamedCurves.4
         {
             for (String str : SSHNamedCurves.oidMap.keySet()) {
                 put((ASN1ObjectIdentifier) SSHNamedCurves.oidMap.get(str), str);

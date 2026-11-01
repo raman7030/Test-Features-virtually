@@ -5,7 +5,7 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes2.dex */
 public class ErrorCorrection {
     public static short LDDecode(int i, int i2, int i3, int i4) {
-        return (short) (((((g(i) + g(i2)) + g(i3)) + g(i4)) - 98312) >>> 31);
+        return (short) (((((m55422g(i) + m55422g(i2)) + m55422g(i3)) + m55422g(i4)) - 98312) >>> 31);
     }
 
     public static int abs(int i) {
@@ -13,7 +13,8 @@ public class ErrorCorrection {
         return (i ^ i2) - i2;
     }
 
-    public static int f(int[] iArr, int i, int i2, int i3) {
+    /* JADX INFO: renamed from: f */
+    public static int m55421f(int[] iArr, int i, int i2, int i3) {
         int i4 = (i3 * 2730) >> 25;
         int i5 = i4 - ((12288 - (i3 - (i4 * 12289))) >> 31);
         iArr[i] = (i5 >> 1) + (i5 & 1);
@@ -22,7 +23,8 @@ public class ErrorCorrection {
         return abs(i3 - (iArr[i] * 24578));
     }
 
-    public static int g(int i) {
+    /* JADX INFO: renamed from: g */
+    public static int m55422g(int i) {
         int i2 = (i * 2730) >> 27;
         int i3 = i2 - ((49155 - (i - (49156 * i2))) >> 31);
         return abs((((i3 >> 1) + (i3 & 1)) * 98312) - i);
@@ -39,15 +41,15 @@ public class ErrorCorrection {
             int i3 = i + 256;
             int i4 = i + 512;
             int i5 = i + 768;
-            int iF = (24577 - (((f(iArr, 0, 4, (sArr2[i] * 8) + i2) + f(iArr, 1, 5, (sArr2[i3] * 8) + i2)) + f(iArr, 2, 6, (sArr2[i4] * 8) + i2)) + f(iArr, 3, 7, (sArr2[i5] * 8) + i2))) >> 31;
-            int i6 = ~iF;
-            int[] iArr2 = {(i6 & iArr[0]) ^ (iArr[4] & iF), (i6 & iArr[1]) ^ (iArr[5] & iF), (i6 & iArr[2]) ^ (iArr[6] & iF), (i6 & iArr[3]) ^ (iArr[7] & iF)};
+            int iM55421f = (24577 - (((m55421f(iArr, 0, 4, (sArr2[i] * 8) + i2) + m55421f(iArr, 1, 5, (sArr2[i3] * 8) + i2)) + m55421f(iArr, 2, 6, (sArr2[i4] * 8) + i2)) + m55421f(iArr, 3, 7, (sArr2[i5] * 8) + i2))) >> 31;
+            int i6 = ~iM55421f;
+            int[] iArr2 = {(i6 & iArr[0]) ^ (iArr[4] & iM55421f), (i6 & iArr[1]) ^ (iArr[5] & iM55421f), (i6 & iArr[2]) ^ (iArr[6] & iM55421f), (i6 & iArr[3]) ^ (iArr[7] & iM55421f)};
             int i7 = iArr2[0];
             int i8 = iArr2[3];
             sArr[i] = (short) ((i7 - i8) & 3);
             sArr[i3] = (short) ((iArr2[1] - i8) & 3);
             sArr[i4] = (short) (3 & (iArr2[2] - i8));
-            sArr[i5] = (short) (((i8 * 2) + (-iF)) & 3);
+            sArr[i5] = (short) (((i8 * 2) + (-iM55421f)) & 3);
         }
     }
 

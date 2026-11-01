@@ -15,7 +15,9 @@ import org.bouncycastle.asn1.x509.X509Extensions;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ResponseData extends ASN1Object {
-    public static final ASN1Integer V1 = new ASN1Integer(0);
+
+    /* JADX INFO: renamed from: V1 */
+    public static final ASN1Integer f80672V1 = new ASN1Integer(0);
     public ASN1GeneralizedTime producedAt;
     public ResponderID responderID;
     public Extensions responseExtensions;
@@ -38,7 +40,7 @@ public class ResponseData extends ASN1Object {
             this.version = ASN1Integer.getInstance((ASN1TaggedObject) aSN1Sequence.getObjectAt(0), true);
             i = 1;
         } else {
-            this.version = V1;
+            this.version = f80672V1;
         }
         this.responderID = ResponderID.getInstance(aSN1Sequence.getObjectAt(i));
         int i2 = i + 2;
@@ -51,11 +53,11 @@ public class ResponseData extends ASN1Object {
     }
 
     public ResponseData(ResponderID responderID, ASN1GeneralizedTime aSN1GeneralizedTime, ASN1Sequence aSN1Sequence, Extensions extensions) {
-        this(V1, responderID, aSN1GeneralizedTime, aSN1Sequence, extensions);
+        this(f80672V1, responderID, aSN1GeneralizedTime, aSN1Sequence, extensions);
     }
 
     public ResponseData(ResponderID responderID, ASN1GeneralizedTime aSN1GeneralizedTime, ASN1Sequence aSN1Sequence, X509Extensions x509Extensions) {
-        this(V1, responderID, ASN1GeneralizedTime.getInstance(aSN1GeneralizedTime), aSN1Sequence, Extensions.getInstance(x509Extensions));
+        this(f80672V1, responderID, ASN1GeneralizedTime.getInstance(aSN1GeneralizedTime), aSN1Sequence, Extensions.getInstance(x509Extensions));
     }
 
     public static ResponseData getInstance(Object obj) {
@@ -95,7 +97,7 @@ public class ResponseData extends ASN1Object {
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector(5);
-        if (this.versionPresent || !this.version.equals((ASN1Primitive) V1)) {
+        if (this.versionPresent || !this.version.equals((ASN1Primitive) f80672V1)) {
             aSN1EncodableVector.add(new DERTaggedObject(true, 0, (ASN1Encodable) this.version));
         }
         aSN1EncodableVector.add(this.responderID);

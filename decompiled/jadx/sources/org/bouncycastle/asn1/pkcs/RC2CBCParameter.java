@@ -13,12 +13,14 @@ import org.bouncycastle.asn1.DERSequence;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RC2CBCParameter extends ASN1Object {
-    public ASN1OctetString iv;
+
+    /* JADX INFO: renamed from: iv */
+    public ASN1OctetString f80678iv;
     public ASN1Integer version;
 
     public RC2CBCParameter(int i, byte[] bArr) {
         this.version = new ASN1Integer(i);
-        this.iv = new DEROctetString(bArr);
+        this.f80678iv = new DEROctetString(bArr);
     }
 
     public RC2CBCParameter(ASN1Sequence aSN1Sequence) {
@@ -30,12 +32,12 @@ public class RC2CBCParameter extends ASN1Object {
             this.version = (ASN1Integer) aSN1Sequence.getObjectAt(0);
             objectAt = aSN1Sequence.getObjectAt(1);
         }
-        this.iv = (ASN1OctetString) objectAt;
+        this.f80678iv = (ASN1OctetString) objectAt;
     }
 
     public RC2CBCParameter(byte[] bArr) {
         this.version = null;
-        this.iv = new DEROctetString(bArr);
+        this.f80678iv = new DEROctetString(bArr);
     }
 
     public static RC2CBCParameter getInstance(Object obj) {
@@ -49,7 +51,7 @@ public class RC2CBCParameter extends ASN1Object {
     }
 
     public byte[] getIV() {
-        return this.iv.getOctets();
+        return this.f80678iv.getOctets();
     }
 
     public BigInteger getRC2ParameterVersion() {
@@ -71,7 +73,7 @@ public class RC2CBCParameter extends ASN1Object {
         if (aSN1Integer != null) {
             aSN1EncodableVector.add(aSN1Integer);
         }
-        aSN1EncodableVector.add(this.iv);
+        aSN1EncodableVector.add(this.f80678iv);
         return new DERSequence(aSN1EncodableVector);
     }
 }

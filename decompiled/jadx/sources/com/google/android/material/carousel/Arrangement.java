@@ -1,6 +1,6 @@
 package com.google.android.material.carousel;
 
-import l.C1814;
+import p067l.C0932;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Arrangement {
@@ -24,7 +24,7 @@ public final class Arrangement {
 
     public Arrangement(int i, float f, float f2, float f3, int i2, float f4, int i3, float f5, int i4, float f6) {
         this.priority = i;
-        this.smallSize = C1814.m6035(f, f2, f3);
+        this.smallSize = C0932.m8233(f, f2, f3);
         this.smallCount = i2;
         this.mediumSize = f4;
         this.mediumCount = i3;

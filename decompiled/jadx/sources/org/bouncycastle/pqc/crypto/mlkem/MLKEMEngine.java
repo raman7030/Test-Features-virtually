@@ -1,9 +1,9 @@
 package org.bouncycastle.pqc.crypto.mlkem;
 
 import java.security.SecureRandom;
-import l.C18307;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.util.Arrays;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MLKEMEngine {
@@ -189,7 +189,7 @@ public class MLKEMEngine {
                 this.KyberEta1 = 2;
             } else {
                 if (i != 4) {
-                    throw new IllegalArgumentException(C18307.m42645(i, "K: ", " is not supported for Crystals Kyber"));
+                    throw new IllegalArgumentException(C19768.m44906(i, "K: ", " is not supported for Crystals Kyber"));
                 }
                 this.KyberEta1 = 2;
                 this.KyberPolyCompressedBytes = DHParameters.DEFAULT_MINIMUM_LENGTH;

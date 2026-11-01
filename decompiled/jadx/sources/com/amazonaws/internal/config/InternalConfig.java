@@ -5,38 +5,38 @@ import com.amazonaws.logging.LogFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import l.C20195;
-import l.C22870;
+import p067l.C21562;
+import p067l.C24104;
 
 /* JADX INFO: loaded from: classes.dex */
 public class InternalConfig {
 
-    /* JADX INFO: renamed from: ᩻, reason: not valid java name and contains not printable characters */
-    public static final Log f215 = LogFactory.m302(InternalConfig.class);
+    /* JADX INFO: renamed from: ᩻ */
+    public static final Log f1375 = LogFactory.m1468(InternalConfig.class);
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final SignerConfig f216 = new SignerConfig("AWS4SignerType");
+    /* JADX INFO: renamed from: ֫ */
+    public final SignerConfig f1376 = new SignerConfig("AWS4SignerType");
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final ArrayList f217;
+    /* JADX INFO: renamed from: ۧ */
+    public final ArrayList f1377;
 
-    /* JADX INFO: renamed from: ܳ, reason: not valid java name and contains not printable characters */
-    public final HashMap f218;
+    /* JADX INFO: renamed from: ܳ */
+    public final HashMap f1378;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final HashMap f219;
+    /* JADX INFO: renamed from: ܽ */
+    public final HashMap f1379;
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final HashMap f220;
+    /* JADX INFO: renamed from: ܿ */
+    public final HashMap f1380;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final HashMap f221;
+    /* JADX INFO: renamed from: ᩳ */
+    public final HashMap f1381;
 
     public InternalConfig() {
         HashMap map = new HashMap();
         map.put("eu-central-1", new SignerConfig("AWS4SignerType"));
         map.put("cn-north-1", new SignerConfig("AWS4SignerType"));
-        this.f221 = map;
+        this.f1381 = map;
         HashMap map2 = new HashMap();
         map2.put("ec2", new SignerConfig("QueryStringSignerType"));
         map2.put("email", new SignerConfig("AWS4SignerType"));
@@ -44,7 +44,7 @@ public class InternalConfig {
         map2.put("sdb", new SignerConfig("QueryStringSignerType"));
         map2.put("lex", new SignerConfig("AmazonLexV4Signer"));
         map2.put("polly", new SignerConfig("AmazonPollyCustomPresigner"));
-        this.f218 = map2;
+        this.f1378 = map2;
         HashMap map3 = new HashMap();
         map3.put("s3/eu-central-1", new SignerConfig("AWSS3V4SignerType"));
         map3.put("s3/cn-north-1", new SignerConfig("AWSS3V4SignerType"));
@@ -57,7 +57,7 @@ public class InternalConfig {
         map3.put("lex/cn-north-1", new SignerConfig("AmazonLexV4Signer"));
         map3.put("polly/eu-central-1", new SignerConfig("AmazonPollyCustomPresigner"));
         map3.put("polly/cn-north-1", new SignerConfig("AmazonPollyCustomPresigner"));
-        this.f220 = map3;
+        this.f1380 = map3;
         HashMap map4 = new HashMap();
         map4.put("AmazonCloudWatchClient", new HttpClientConfig("monitoring"));
         map4.put("AmazonCloudWatchLogsClient", new HttpClientConfig("logs"));
@@ -80,51 +80,51 @@ public class InternalConfig {
         map4.put("AmazonTextractClient", new HttpClientConfig("textract"));
         map4.put("AmazonTranscribeClient", new HttpClientConfig("transcribe"));
         map4.put("AmazonTranslateClient", new HttpClientConfig("translate"));
-        this.f219 = map4;
+        this.f1379 = map4;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new HostRegexToRegionMapping("(.+\\.)?s3\\.amazonaws\\.com", "us-east-1"));
         arrayList.add(new HostRegexToRegionMapping("(.+\\.)?s3-external-1\\.amazonaws\\.com", "us-east-1"));
         arrayList.add(new HostRegexToRegionMapping("(.+\\.)?s3-fips-us-gov-west-1\\.amazonaws\\.com", "us-gov-west-1"));
-        this.f217 = arrayList;
+        this.f1377 = arrayList;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final HttpClientConfig m286(String str) {
-        return (HttpClientConfig) this.f219.get(str);
+    /* JADX INFO: renamed from: ֫ */
+    public final HttpClientConfig m1452(String str) {
+        return (HttpClientConfig) this.f1379.get(str);
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final SignerConfig m287(String str, String str2) {
+    /* JADX INFO: renamed from: ֫ */
+    public final SignerConfig m1453(String str, String str2) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
         if (str2 != null) {
-            SignerConfig signerConfig = (SignerConfig) this.f220.get(C22870.m50967(str, "/", str2));
+            SignerConfig signerConfig = (SignerConfig) this.f1380.get(C24104.m53357(str, "/", str2));
             if (signerConfig != null) {
                 return signerConfig;
             }
-            SignerConfig signerConfig2 = (SignerConfig) this.f221.get(str2);
+            SignerConfig signerConfig2 = (SignerConfig) this.f1381.get(str2);
             if (signerConfig2 != null) {
                 return signerConfig2;
             }
         }
-        SignerConfig signerConfig3 = (SignerConfig) this.f218.get(str);
-        return signerConfig3 == null ? this.f216 : signerConfig3;
+        SignerConfig signerConfig3 = (SignerConfig) this.f1378.get(str);
+        return signerConfig3 == null ? this.f1376 : signerConfig3;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final List m288() {
-        return C20195.unmodifiableList(this.f217);
+    /* JADX INFO: renamed from: ֫ */
+    public final List m1454() {
+        return C21562.unmodifiableList(this.f1377);
     }
 
     public class Factory {
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public static final InternalConfig f222;
+        /* JADX INFO: renamed from: ֫ */
+        public static final InternalConfig f1382;
 
         static {
             try {
-                f222 = new InternalConfig();
+                f1382 = new InternalConfig();
             } catch (RuntimeException e) {
                 throw e;
             } catch (Exception e2) {
@@ -132,9 +132,9 @@ public class InternalConfig {
             }
         }
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public static InternalConfig m289() {
-            return f222;
+        /* JADX INFO: renamed from: ֫ */
+        public static InternalConfig m1455() {
+            return f1382;
         }
     }
 }

@@ -7,9 +7,15 @@ import org.bouncycastle.crypto.params.DHValidationParameters;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DHDomainParameterSpec extends DHParameterSpec {
-    public final BigInteger j;
-    public final int m;
-    public final BigInteger q;
+
+    /* JADX INFO: renamed from: j */
+    public final BigInteger f81365j;
+
+    /* JADX INFO: renamed from: m */
+    public final int f81366m;
+
+    /* JADX INFO: renamed from: q */
+    public final BigInteger f81367q;
     public DHValidationParameters validationParameters;
 
     public DHDomainParameterSpec(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3) {
@@ -26,9 +32,9 @@ public class DHDomainParameterSpec extends DHParameterSpec {
 
     public DHDomainParameterSpec(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, BigInteger bigInteger4, int i, int i2) {
         super(bigInteger, bigInteger3, i2);
-        this.q = bigInteger2;
-        this.j = bigInteger4;
-        this.m = i;
+        this.f81367q = bigInteger2;
+        this.f81365j = bigInteger4;
+        this.f81366m = i;
     }
 
     public DHDomainParameterSpec(DHParameters dHParameters) {
@@ -37,18 +43,18 @@ public class DHDomainParameterSpec extends DHParameterSpec {
     }
 
     public DHParameters getDomainParameters() {
-        return new DHParameters(getP(), getG(), this.q, this.m, getL(), this.j, this.validationParameters);
+        return new DHParameters(getP(), getG(), this.f81367q, this.f81366m, getL(), this.f81365j, this.validationParameters);
     }
 
     public BigInteger getJ() {
-        return this.j;
+        return this.f81365j;
     }
 
     public int getM() {
-        return this.m;
+        return this.f81366m;
     }
 
     public BigInteger getQ() {
-        return this.q;
+        return this.f81367q;
     }
 }

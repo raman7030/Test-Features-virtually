@@ -14,7 +14,6 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.Iterator;
 import javax.security.auth.x500.X500Principal;
-import l.C16014;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -33,6 +32,7 @@ import org.bouncycastle.jcajce.util.BCJcaJceHelper;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class X509V1CertificateGenerator {
@@ -127,7 +127,7 @@ public class X509V1CertificateGenerator {
         try {
             this.tbsGen.setIssuer(new X509Principal(x500Principal.getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't process principal: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't process principal: ", e));
         }
     }
 
@@ -167,7 +167,7 @@ public class X509V1CertificateGenerator {
         try {
             this.tbsGen.setSubject(new X509Principal(x500Principal.getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't process principal: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't process principal: ", e));
         }
     }
 
@@ -179,7 +179,7 @@ public class X509V1CertificateGenerator {
         try {
             this.tbsGen.setSubjectPublicKeyInfo(SubjectPublicKeyInfo.getInstance(publicKey.getEncoded()));
         } catch (Exception e) {
-            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("unable to process key - ")));
+            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("unable to process key - ")));
         }
     }
 }

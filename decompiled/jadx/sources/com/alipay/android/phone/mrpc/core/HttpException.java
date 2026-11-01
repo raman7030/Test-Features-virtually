@@ -18,7 +18,7 @@ public class HttpException extends Exception {
     public String mMsg;
 
     public HttpException(Integer num, String str) {
-        super(a(num, str));
+        super(m142a(num, str));
         this.mCode = num.intValue();
         this.mMsg = str;
     }
@@ -29,7 +29,8 @@ public class HttpException extends Exception {
         this.mMsg = str;
     }
 
-    public static String a(Integer num, String str) {
+    /* JADX INFO: renamed from: a */
+    public static String m142a(Integer num, String str) {
         StringBuilder sb = new StringBuilder("Http Transport error");
         if (num != null) {
             sb.append("[");

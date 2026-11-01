@@ -4,14 +4,16 @@ import java.math.BigInteger;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ECPrivateKeyParameters extends ECKeyParameters {
-    public final BigInteger d;
+
+    /* JADX INFO: renamed from: d */
+    public final BigInteger f81251d;
 
     public ECPrivateKeyParameters(BigInteger bigInteger, ECDomainParameters eCDomainParameters) {
         super(true, eCDomainParameters);
-        this.d = eCDomainParameters.validatePrivateScalar(bigInteger);
+        this.f81251d = eCDomainParameters.validatePrivateScalar(bigInteger);
     }
 
     public BigInteger getD() {
-        return this.d;
+        return this.f81251d;
     }
 }

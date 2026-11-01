@@ -1,0 +1,29 @@
+package org.bouncycastle.asn1.p073x9;
+
+import org.bouncycastle.math.p080ec.ECCurve;
+
+/* JADX INFO: loaded from: classes.dex */
+public abstract class X9ECParametersHolder {
+    public ECCurve curve;
+    public X9ECParameters params;
+
+    public ECCurve createCurve() {
+        return createParameters().getCurve();
+    }
+
+    public abstract X9ECParameters createParameters();
+
+    public synchronized ECCurve getCurve() {
+        if (this.curve == null) {
+            this.curve = createCurve();
+        }
+        return this.curve;
+    }
+
+    public synchronized X9ECParameters getParameters() {
+        if (this.params == null) {
+            this.params = createParameters();
+        }
+        return this.params;
+    }
+}

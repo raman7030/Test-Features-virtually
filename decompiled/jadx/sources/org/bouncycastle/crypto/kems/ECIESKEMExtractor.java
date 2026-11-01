@@ -9,8 +9,8 @@ import org.bouncycastle.crypto.constraints.ConstraintUtils;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECIESKEMExtractor implements EncapsulatedSecretExtractor {

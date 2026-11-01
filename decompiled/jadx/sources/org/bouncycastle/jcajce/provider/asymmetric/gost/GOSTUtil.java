@@ -19,7 +19,7 @@ public class GOSTUtil {
         BigInteger bigIntegerModPow = gOST3410Parameters.getA().modPow(bigInteger, gOST3410Parameters.getP());
         sb.append(str);
         sb.append(" Private Key [");
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, generateKeyFingerprint(bigIntegerModPow, gOST3410Parameters), "]", strLineSeparator, "                  Y: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, generateKeyFingerprint(bigIntegerModPow, gOST3410Parameters), "]", strLineSeparator, "                  Y: ");
         sb.append(bigIntegerModPow.toString(16));
         sb.append(strLineSeparator);
         return sb.toString();
@@ -30,7 +30,7 @@ public class GOSTUtil {
         String strLineSeparator = Strings.lineSeparator();
         sb.append(str);
         sb.append(" Public Key [");
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, generateKeyFingerprint(bigInteger, gOST3410Parameters), "]", strLineSeparator, "                 Y: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, generateKeyFingerprint(bigInteger, gOST3410Parameters), "]", strLineSeparator, "                 Y: ");
         sb.append(bigInteger.toString(16));
         sb.append(strLineSeparator);
         return sb.toString();

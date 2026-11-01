@@ -6,13 +6,15 @@ import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SAKKEPrivateKeyParameters extends AsymmetricKeyParameter {
-    public static final BigInteger qMinOne = SAKKEPublicKeyParameters.q.subtract(BigInteger.ONE);
+    public static final BigInteger qMinOne = SAKKEPublicKeyParameters.f81290q.subtract(BigInteger.ONE);
     public final SAKKEPublicKeyParameters publicParams;
-    public final BigInteger z;
+
+    /* JADX INFO: renamed from: z */
+    public final BigInteger f81283z;
 
     public SAKKEPrivateKeyParameters(BigInteger bigInteger, SAKKEPublicKeyParameters sAKKEPublicKeyParameters) {
         super(true);
-        this.z = bigInteger;
+        this.f81283z = bigInteger;
         this.publicParams = sAKKEPublicKeyParameters;
         if (!sAKKEPublicKeyParameters.getPoint().multiply(bigInteger).normalize().equals(sAKKEPublicKeyParameters.getZ())) {
             throw new IllegalStateException("public key and private key of SAKKE do not match");
@@ -24,12 +26,12 @@ public class SAKKEPrivateKeyParameters extends AsymmetricKeyParameter {
         BigInteger bigInteger = BigIntegers.TWO;
         BigInteger bigInteger2 = qMinOne;
         BigInteger bigIntegerCreateRandomInRange = BigIntegers.createRandomInRange(bigInteger, bigInteger2, secureRandom);
-        this.z = bigIntegerCreateRandomInRange;
-        this.publicParams = new SAKKEPublicKeyParameters(BigIntegers.createRandomInRange(bigInteger, bigInteger2, secureRandom), SAKKEPublicKeyParameters.P.multiply(bigIntegerCreateRandomInRange).normalize());
+        this.f81283z = bigIntegerCreateRandomInRange;
+        this.publicParams = new SAKKEPublicKeyParameters(BigIntegers.createRandomInRange(bigInteger, bigInteger2, secureRandom), SAKKEPublicKeyParameters.f81284P.multiply(bigIntegerCreateRandomInRange).normalize());
     }
 
     public BigInteger getMasterSecret() {
-        return this.z;
+        return this.f81283z;
     }
 
     public SAKKEPublicKeyParameters getPublicParams() {

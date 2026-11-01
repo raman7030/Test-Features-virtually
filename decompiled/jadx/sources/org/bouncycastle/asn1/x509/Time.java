@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-import l.C3200;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
 import org.bouncycastle.asn1.ASN1Object;
@@ -15,6 +14,7 @@ import org.bouncycastle.asn1.ASN1UTCTime;
 import org.bouncycastle.asn1.DERGeneralizedTime;
 import org.bouncycastle.asn1.DERUTCTime;
 import org.bouncycastle.asn1.LocaleUtil;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Time extends ASN1Object implements ASN1Choice {
@@ -55,7 +55,7 @@ public class Time extends ASN1Object implements ASN1Choice {
         if (obj instanceof ASN1GeneralizedTime) {
             return new Time((ASN1GeneralizedTime) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "unknown object in factory: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "unknown object in factory: "));
     }
 
     public static Time getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {

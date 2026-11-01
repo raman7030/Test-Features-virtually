@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -9,6 +8,7 @@ import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SkipjackEngine implements BlockCipher {
@@ -24,7 +24,8 @@ public class SkipjackEngine implements BlockCipher {
         CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(getAlgorithmName(), 80));
     }
 
-    private int g(int i, int i2) {
+    /* JADX INFO: renamed from: g */
+    private int m55393g(int i, int i2) {
         int i3 = (i2 >> 8) & 255;
         int i4 = i2 & 255;
         short[] sArr = ftable;
@@ -41,7 +42,8 @@ public class SkipjackEngine implements BlockCipher {
         return this.encrypting ? CryptoServicePurpose.ENCRYPTION : CryptoServicePurpose.DECRYPTION;
     }
 
-    private int h(int i, int i2) {
+    /* JADX INFO: renamed from: h */
+    private int m55394h(int i, int i2) {
         int i3 = i2 & 255;
         int i4 = (i2 >> 8) & 255;
         short[] sArr = ftable;
@@ -60,25 +62,25 @@ public class SkipjackEngine implements BlockCipher {
         for (int i8 = 0; i8 < 2; i8++) {
             int i9 = 0;
             while (i9 < 8) {
-                int iH = h(i7, i4);
-                int i10 = (i5 ^ iH) ^ (i7 + 1);
+                int iM55394h = m55394h(i7, i4);
+                int i10 = (i5 ^ iM55394h) ^ (i7 + 1);
                 i7--;
                 i9++;
                 int i11 = i6;
                 i6 = i3;
-                i3 = iH;
+                i3 = iM55394h;
                 i4 = i10;
                 i5 = i11;
             }
             int i12 = 0;
             while (i12 < 8) {
                 int i13 = (i3 ^ i4) ^ (i7 + 1);
-                int iH2 = h(i7, i4);
+                int iM55394h2 = m55394h(i7, i4);
                 i7--;
                 i12++;
                 int i14 = i6;
                 i6 = i13;
-                i3 = iH2;
+                i3 = iM55394h2;
                 i4 = i5;
                 i5 = i14;
             }
@@ -103,12 +105,12 @@ public class SkipjackEngine implements BlockCipher {
         for (int i8 = 0; i8 < 2; i8++) {
             int i9 = 0;
             while (i9 < 8) {
-                int iG = g(i7, i3);
+                int iM55393g = m55393g(i7, i3);
                 i7++;
                 i9++;
                 int i10 = i4;
-                i4 = iG;
-                i3 = (i6 ^ iG) ^ i7;
+                i4 = iM55393g;
+                i3 = (i6 ^ iM55393g) ^ i7;
                 i6 = i5;
                 i5 = i10;
             }
@@ -116,12 +118,12 @@ public class SkipjackEngine implements BlockCipher {
             while (i11 < 8) {
                 int i12 = i7 + 1;
                 int i13 = (i4 ^ i3) ^ i12;
-                int iG2 = g(i7, i3);
+                int iM55393g2 = m55393g(i7, i3);
                 i11++;
                 i3 = i6;
                 i6 = i5;
                 i5 = i13;
-                i4 = iG2;
+                i4 = iM55393g2;
                 i7 = i12;
             }
         }
@@ -172,7 +174,7 @@ public class SkipjackEngine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to SKIPJACK init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to SKIPJACK init - ", cipherParameters));
         }
         byte[] key = ((KeyParameter) cipherParameters).getKey();
         this.encrypting = z;

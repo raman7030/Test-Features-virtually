@@ -1,11 +1,11 @@
 package org.bouncycastle.crypto.digests;
 
-import l.C18307;
 import org.bouncycastle.crypto.CryptoServiceProperties;
 import org.bouncycastle.crypto.CryptoServicePurpose;
 import org.bouncycastle.crypto.SavableDigest;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.util.Memoable;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SHAKEDigest extends KeccakDigest implements Xof, SavableDigest {
@@ -110,6 +110,6 @@ public class SHAKEDigest extends KeccakDigest implements Xof, SavableDigest {
         if (i == 128 || i == 256) {
             return i;
         }
-        throw new IllegalArgumentException(C18307.m42645(i, "'bitStrength' ", " not supported for SHAKE"));
+        throw new IllegalArgumentException(C19768.m44906(i, "'bitStrength' ", " not supported for SHAKE"));
     }
 }

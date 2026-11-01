@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.signers;
 
-import l.C19370;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;
@@ -9,6 +8,7 @@ import org.bouncycastle.crypto.SignerWithRecovery;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.encoders.UTF8;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ISO9796d2Signer implements SignerWithRecovery {
@@ -241,7 +241,7 @@ public class ISO9796d2Signer implements SignerWithRecovery {
             }
             int iIntValue = trailer.intValue();
             if (i2 != iIntValue && (iIntValue != 15052 || i2 != 16588)) {
-                throw new IllegalStateException(C19370.m44628(i2, "signer initialised with wrong digest for trailer "));
+                throw new IllegalStateException(C20778.m46922(i2, "signer initialised with wrong digest for trailer "));
             }
             i = 2;
         }
@@ -310,7 +310,7 @@ public class ISO9796d2Signer implements SignerWithRecovery {
             }
             int iIntValue = trailer.intValue();
             if (i2 != iIntValue && (iIntValue != 15052 || i2 != 16588)) {
-                throw new IllegalStateException(C19370.m44628(i2, "signer initialised with wrong digest for trailer "));
+                throw new IllegalStateException(C20778.m46922(i2, "signer initialised with wrong digest for trailer "));
             }
             i = 2;
         }

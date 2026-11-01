@@ -6,9 +6,9 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextPaint;
-import l.AbstractC14951;
-import l.C19343;
-import l.C4369;
+import p067l.AbstractC1584;
+import p067l.C1059;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TextAppearance {
@@ -35,25 +35,25 @@ public class TextAppearance {
     public final int typeface;
 
     public TextAppearance(Context context, int i) {
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(i, C19343.f61053);
-        setTextSize(typedArrayObtainStyledAttributes.getDimension(C19343.f61640, 0.0f));
-        setTextColor(MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f62542));
-        this.textColorHint = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f61849);
-        this.textColorLink = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f61371);
-        this.textStyle = typedArrayObtainStyledAttributes.getInt(C19343.f62066, 0);
-        this.typeface = typedArrayObtainStyledAttributes.getInt(C19343.f62174, 1);
-        int indexWithValue = MaterialResources.getIndexWithValue(typedArrayObtainStyledAttributes, C19343.f62120, C19343.f61796);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(i, C20752.f82404);
+        setTextSize(typedArrayObtainStyledAttributes.getDimension(C20752.f82604, 0.0f));
+        setTextColor(MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f82913));
+        this.textColorHint = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f82675);
+        this.textColorLink = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f82512);
+        this.textStyle = typedArrayObtainStyledAttributes.getInt(C20752.f82750, 0);
+        this.typeface = typedArrayObtainStyledAttributes.getInt(C20752.f82788, 1);
+        int indexWithValue = MaterialResources.getIndexWithValue(typedArrayObtainStyledAttributes, C20752.f82769, C20752.f82657);
         this.fontFamilyResourceId = typedArrayObtainStyledAttributes.getResourceId(indexWithValue, 0);
         this.fontFamily = typedArrayObtainStyledAttributes.getString(indexWithValue);
-        this.textAllCaps = typedArrayObtainStyledAttributes.getBoolean(C19343.f62598, false);
-        this.shadowColor = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f61743);
-        this.shadowDx = typedArrayObtainStyledAttributes.getFloat(C19343.f61583, 0.0f);
-        this.shadowDy = typedArrayObtainStyledAttributes.getFloat(C19343.f61265, 0.0f);
-        this.shadowRadius = typedArrayObtainStyledAttributes.getFloat(C19343.f61690, 0.0f);
+        this.textAllCaps = typedArrayObtainStyledAttributes.getBoolean(C20752.f82932, false);
+        this.shadowColor = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f82639);
+        this.shadowDx = typedArrayObtainStyledAttributes.getFloat(C20752.f82584, 0.0f);
+        this.shadowDy = typedArrayObtainStyledAttributes.getFloat(C20752.f82476, 0.0f);
+        this.shadowRadius = typedArrayObtainStyledAttributes.getFloat(C20752.f82621, 0.0f);
         typedArrayObtainStyledAttributes.recycle();
-        TypedArray typedArrayObtainStyledAttributes2 = context.obtainStyledAttributes(i, C19343.f61688);
-        this.hasLetterSpacing = typedArrayObtainStyledAttributes2.hasValue(C19343.f62540);
-        this.letterSpacing = typedArrayObtainStyledAttributes2.getFloat(C19343.f62540, 0.0f);
+        TypedArray typedArrayObtainStyledAttributes2 = context.obtainStyledAttributes(i, C20752.f82620);
+        this.hasLetterSpacing = typedArrayObtainStyledAttributes2.hasValue(C20752.f82912);
+        this.letterSpacing = typedArrayObtainStyledAttributes2.getFloat(C20752.f82912, 0.0f);
         typedArrayObtainStyledAttributes2.recycle();
     }
 
@@ -63,10 +63,10 @@ public class TextAppearance {
         }
         if (!context.isRestricted()) {
             try {
-                Typeface typefaceM13096 = C4369.m13096(context, this.fontFamilyResourceId);
-                this.font = typefaceM13096;
-                if (typefaceM13096 != null) {
-                    this.font = Typeface.create(typefaceM13096, this.textStyle);
+                Typeface typefaceM14960 = C1059.m14960(context, this.fontFamilyResourceId);
+                this.font = typefaceM14960;
+                if (typefaceM14960 != null) {
+                    this.font = Typeface.create(typefaceM14960, this.textStyle);
                 }
             } catch (Resources.NotFoundException | UnsupportedOperationException | Exception unused) {
             }
@@ -91,19 +91,19 @@ public class TextAppearance {
             return;
         }
         try {
-            C4369.m13093(context, i, new AbstractC14951() { // from class: com.google.android.material.resources.TextAppearance.1
-                @Override // l.AbstractC14951
+            C1059.m14957(context, i, new AbstractC1584() { // from class: com.google.android.material.resources.TextAppearance.1
+                @Override // p067l.AbstractC1584
                 /* JADX INFO: renamed from: onFontRetrieved */
-                public void m35417(Typeface typeface) {
+                public void m37569(Typeface typeface) {
                     TextAppearance textAppearance = TextAppearance.this;
                     textAppearance.font = Typeface.create(typeface, textAppearance.textStyle);
                     TextAppearance.this.fontResolved = true;
                     textAppearanceFontCallback.onFontRetrieved(TextAppearance.this.font, false);
                 }
 
-                @Override // l.AbstractC14951
+                @Override // p067l.AbstractC1584
                 /* JADX INFO: renamed from: onFontRetrievalFailed */
-                public void m35416(int i2) {
+                public void m37568(int i2) {
                     TextAppearance.this.fontResolved = true;
                     textAppearanceFontCallback.onFontRetrievalFailed(i2);
                 }
@@ -213,6 +213,6 @@ public class TextAppearance {
             return true;
         }
         int i = this.fontFamilyResourceId;
-        return (i != 0 ? C4369.m13090(context, i) : null) != null;
+        return (i != 0 ? C1059.m14954(context, i) : null) != null;
     }
 }

@@ -1,9 +1,9 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C19462;
 import org.bouncycastle.crypto.digests.Blake3Digest;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Blake3 {
@@ -28,7 +28,7 @@ public class Blake3 {
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
         public void configure(ConfigurableProvider configurableProvider) {
             configurableProvider.addAlgorithm("MessageDigest.BLAKE3-256", PREFIX + "$Blake3_256");
-            C19462.m44861(new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.blake3_256, configurableProvider, "BLAKE3-256");
+            C20865.m47157(new StringBuilder("Alg.Alias.MessageDigest."), MiscObjectIdentifiers.blake3_256, configurableProvider, "BLAKE3-256");
         }
     }
 }

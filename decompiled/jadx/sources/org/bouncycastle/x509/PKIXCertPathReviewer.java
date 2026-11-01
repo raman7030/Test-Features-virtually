@@ -1,7 +1,7 @@
 package org.bouncycastle.x509;
 
-import com.alipay.sdk.m.n.a;
-import com.alipay.sdk.m.n.b;
+import com.alipay.sdk.p010m.p037n.C0170a;
+import com.alipay.sdk.p010m.p037n.C0171b;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -87,7 +87,9 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
     public Date currentDate;
     public List[] errors;
     public boolean initialized;
-    public int n;
+
+    /* JADX INFO: renamed from: n */
+    public int f81798n;
     public List[] notifications;
     public PKIXParameters pkixParams;
     public PolicyNode policyTree;
@@ -241,7 +243,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
     private void checkPathLength() {
         BasicConstraints basicConstraints;
         ASN1Integer pathLenConstraintInteger;
-        int iMin = this.n;
+        int iMin = this.f81798n;
         int i = 0;
         for (int size = this.certs.size() - 1; size > 0; size--) {
             X509Certificate x509Certificate = (X509Certificate) this.certs.get(size);
@@ -297,7 +299,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
         PKIXPolicyNode pKIXPolicyNodeRemovePolicyNode2;
         String str4 = "CertPathReviewer.policyExtError";
         Set<String> initialPolicies = this.pkixParams.getInitialPolicies();
-        int i7 = this.n + 1;
+        int i7 = this.f81798n + 1;
         ArrayList[] arrayListArr = new ArrayList[i7];
         for (int i8 = 0; i8 < i7; i8++) {
             arrayListArr[i8] = new ArrayList();
@@ -306,15 +308,15 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
         hashSet2.add("2.5.29.32.0");
         PKIXPolicyNode pKIXPolicyNode2 = new PKIXPolicyNode(new ArrayList(), 0, hashSet2, null, new HashSet(), "2.5.29.32.0", false);
         arrayListArr[0].add(pKIXPolicyNode2);
-        int i9 = this.pkixParams.isExplicitPolicyRequired() ? 0 : this.n + 1;
-        int i10 = this.pkixParams.isAnyPolicyInhibited() ? 0 : this.n + 1;
-        int i11 = this.pkixParams.isPolicyMappingInhibited() ? 0 : this.n + 1;
+        int i9 = this.pkixParams.isExplicitPolicyRequired() ? 0 : this.f81798n + 1;
+        int i10 = this.pkixParams.isAnyPolicyInhibited() ? 0 : this.f81798n + 1;
+        int i11 = this.pkixParams.isPolicyMappingInhibited() ? 0 : this.f81798n + 1;
         try {
             int size = this.certs.size() - 1;
             X509Certificate x509Certificate = null;
             HashSet hashSet3 = null;
             while (size >= 0) {
-                int i12 = this.n - size;
+                int i12 = this.f81798n - size;
                 X509Certificate x509Certificate2 = (X509Certificate) this.certs.get(size);
                 int i13 = i7;
                 try {
@@ -357,7 +359,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                             }
                             hashSet4 = hashSet5;
                         }
-                        if (i10 > 0 || (i12 < this.n && CertPathValidatorUtilities.isSelfIssued(x509Certificate2))) {
+                        if (i10 > 0 || (i12 < this.f81798n && CertPathValidatorUtilities.isSelfIssued(x509Certificate2))) {
                             Enumeration objects2 = aSN1Sequence.getObjects();
                             while (true) {
                                 if (!objects2.hasMoreElements()) {
@@ -471,7 +473,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                     if (i9 <= 0 && pKIXPolicyNode2 == null) {
                         throw new CertPathReviewerException(new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.noValidPolicyTree"));
                     }
-                    if (i12 != this.n) {
+                    if (i12 != this.f81798n) {
                         try {
                             ASN1Primitive extensionValue = CertPathValidatorUtilities.getExtensionValue(x509Certificate2, CertPathValidatorUtilities.POLICY_MAPPINGS);
                             if (extensionValue != null) {
@@ -643,7 +645,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                         set = set2;
                     }
                     if (pKIXPolicyNodeRemovePolicyNode != null) {
-                        int i21 = this.n;
+                        int i21 = this.f81798n;
                         while (true) {
                             i21--;
                             if (i21 < 0) {
@@ -682,7 +684,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                         hashSet3.contains(((PKIXPolicyNode) it2.next()).getValidPolicy());
                     }
                     pKIXPolicyNodeRemovePolicyNode = pKIXPolicyNode7;
-                    for (int i25 = this.n - 1; i25 >= 0; i25--) {
+                    for (int i25 = this.f81798n - 1; i25 >= 0; i25--) {
                         ArrayList arrayList8 = arrayListArr[i25];
                         for (int i26 = 0; i26 < arrayList8.size(); i26++) {
                             PKIXPolicyNode pKIXPolicyNode13 = (PKIXPolicyNode) arrayList8.get(i26);
@@ -844,7 +846,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                     subjectX500Principal = x500Principal;
                     size = this.certs.size() - 1;
                     while (size >= 0) {
-                        i = this.n - size;
+                        i = this.f81798n - size;
                         x509Certificate2 = (X509Certificate) this.certs.get(size);
                         if (nextWorkingKey != null) {
                             try {
@@ -979,7 +981,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                             objArr7[1] = name4;
                             addError(new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.certWrongIssuer", objArr7), i5);
                         }
-                        if (i3 != this.n) {
+                        if (i3 != this.f81798n) {
                             x509Certificate4 = x509Certificate3;
                             if (x509Certificate4 != null && x509Certificate4.getVersion() == 1) {
                                 addError(new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.noCACert"), i5);
@@ -1064,7 +1066,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
         subjectX500Principal = x500Principal;
         size = this.certs.size() - 1;
         while (size >= 0) {
-            i = this.n - size;
+            i = this.f81798n - size;
             x509Certificate2 = (X509Certificate) this.certs.get(size);
             if (nextWorkingKey != null) {
                 CertPathValidatorUtilities.verifyX509Certificate(x509Certificate2, nextWorkingKey, this.pkixParams.getSigProvider());
@@ -1139,7 +1141,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
                 objArr10[1] = name6;
                 addError(new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.certWrongIssuer", objArr10), i5);
             }
-            if (i3 != this.n) {
+            if (i3 != this.f81798n) {
                 x509Certificate4 = x509Certificate3;
                 if (x509Certificate4 != null) {
                     addError(new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.noCACert"), i5);
@@ -1174,7 +1176,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
     private X509CRL getCRL(String str) throws CertPathReviewerException {
         try {
             URL url = new URL(str);
-            if (!url.getProtocol().equals(a.s) && !url.getProtocol().equals(b.a)) {
+            if (!url.getProtocol().equals(C0170a.f680s) && !url.getProtocol().equals(C0171b.f688a)) {
                 return null;
             }
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -1234,7 +1236,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
     }
 
     public void addError(ErrorBundle errorBundle, int i) {
-        if (i < -1 || i >= this.n) {
+        if (i < -1 || i >= this.f81798n) {
             throw new IndexOutOfBoundsException();
         }
         this.errors[i + 1].add(errorBundle);
@@ -1245,7 +1247,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
     }
 
     public void addNotification(ErrorBundle errorBundle, int i) {
-        if (i < -1 || i >= this.n) {
+        if (i < -1 || i >= this.f81798n) {
             throw new IndexOutOfBoundsException();
         }
         this.notifications[i + 1].add(errorBundle);
@@ -2129,7 +2131,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
         if (this.notifications != null) {
             return;
         }
-        int i = this.n;
+        int i = this.f81798n;
         this.notifications = new List[i + 1];
         this.errors = new List[i + 1];
         int i2 = 0;
@@ -2172,7 +2174,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
     }
 
     public int getCertPathSize() {
-        return this.n;
+        return this.f81798n;
     }
 
     public List getErrors(int i) {
@@ -2291,7 +2293,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
             this.certPath = certPath;
             this.certs = certPath.getCertificates();
         }
-        this.n = this.certs.size();
+        this.f81798n = this.certs.size();
         if (this.certs.isEmpty()) {
             throw new CertPathReviewerException(new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.emptyCertPath"));
         }

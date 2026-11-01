@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import com.google.android.material.internal.ThemeEnforcement;
-import l.C17931;
-import l.C9465;
+import p067l.C11364;
+import p067l.C19410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ViewUtilsLollipop {
@@ -34,10 +34,10 @@ public class ViewUtilsLollipop {
     }
 
     public static void setDefaultAppBarLayoutStateListAnimator(View view, float f) {
-        int integer = view.getResources().getInteger(C9465.f28748);
+        int integer = view.getResources().getInteger(C11364.f31697);
         StateListAnimator stateListAnimator = new StateListAnimator();
         long j = integer;
-        stateListAnimator.addState(new int[]{R.attr.state_enabled, C17931.f54987, -C17931.f54919}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j));
+        stateListAnimator.addState(new int[]{R.attr.state_enabled, C19410.f58184, -C19410.f58116}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j));
         stateListAnimator.addState(new int[]{R.attr.state_enabled}, ObjectAnimator.ofFloat(view, "elevation", f).setDuration(j));
         stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(0L));
         view.setStateListAnimator(stateListAnimator);

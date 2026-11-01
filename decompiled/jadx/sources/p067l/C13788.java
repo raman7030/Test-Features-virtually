@@ -1,0 +1,55 @@
+package p067l;
+
+import bin.p000mt.plus.R;
+import java.util.List;
+
+/* JADX INFO: renamed from: l.ۨ᩺ܳ, reason: contains not printable characters */
+/* JADX INFO: compiled from: K8BJ */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C13788 extends AbstractC3947 {
+
+    /* JADX INFO: renamed from: ۗ */
+    public final String f38978;
+
+    public C13788(String str) {
+        super(R.string.MT_Protector, R.drawable.MT_Protector);
+        this.f38978 = str;
+        m7834();
+    }
+
+    @Override // p067l.AbstractC3947
+    /* JADX INFO: renamed from: ᩳ */
+    public final boolean mo3869(C4697 c4697) {
+        C18107 c18107M9967 = c4697.m9967();
+        return c4697.m9964(this.f38978) && c18107M9967.m41261("local") && !c18107M9967.m41264();
+    }
+
+    @Override // p067l.AbstractC3947
+    /* JADX INFO: renamed from: ܽ */
+    public final void mo3868(C4697 c4697) {
+        C18107 c18107M9967 = c4697.m9967();
+        c4697.m9955(this.f38978);
+        c18107M9967.m41224("local");
+        m7832(c4697, R.string.MT_Protector, AbstractC3947.m7830(c4697, R.string.MT_Protector));
+    }
+
+    @Override // p067l.AbstractC3947
+    /* JADX INFO: renamed from: ܿ */
+    public final void mo4692(C4697 c4697) {
+        C18107 c18107M9967 = c4697.m9967();
+        c18107M9967.m41224("local");
+        AbstractC17043 abstractC17043M42109 = C18524.m42109(c18107M9967.m41284(), new String[0]);
+        if (!abstractC17043M42109.mo25094() || abstractC17043M42109.mo29985()) {
+            List listM9957 = c4697.m9957();
+            int i = C16723.f49313;
+            C3313 c3313 = new C3313(C8423.class);
+            c3313.m5786(listM9957);
+            c3313.m5787(c4697);
+            c3313.m5784(c4697.m9970());
+            c3313.m5777("targetPath", c18107M9967.m41284());
+            c3313.m5772();
+            return;
+        }
+        c4697.m9965().m12257(C7050.m16203(R.string.MT_Protector, c18107M9967.m41284()), false);
+    }
+}

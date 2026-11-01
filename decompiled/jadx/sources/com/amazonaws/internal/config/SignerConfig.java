@@ -3,19 +3,19 @@ package com.amazonaws.internal.config;
 /* JADX INFO: loaded from: classes.dex */
 public class SignerConfig {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final String f223;
+    /* JADX INFO: renamed from: ֫ */
+    public final String f1383;
 
     public SignerConfig(String str) {
-        this.f223 = str;
+        this.f1383 = str;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final String m290() {
-        return this.f223;
+    /* JADX INFO: renamed from: ֫ */
+    public final String m1456() {
+        return this.f1383;
     }
 
     public final String toString() {
-        return this.f223;
+        return this.f1383;
     }
 }

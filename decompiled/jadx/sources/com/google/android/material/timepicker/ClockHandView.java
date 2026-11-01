@@ -22,12 +22,12 @@ import com.google.android.material.motion.MotionUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import l.C17648;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C23575;
-import org.bouncycastle.math.ec.rfc8032.Ed448;
+import org.bouncycastle.math.p080ec.rfc8032.Ed448;
+import p067l.C1717;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ClockHandView extends View {
@@ -67,7 +67,7 @@ public class ClockHandView extends View {
     }
 
     public ClockHandView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55868);
+        this(context, attributeSet, C19410.f59065);
     }
 
     public ClockHandView(Context context, AttributeSet attributeSet, int i) {
@@ -78,20 +78,20 @@ public class ClockHandView extends View {
         this.paint = paint;
         this.selectorBox = new RectF();
         this.currentLevel = 1;
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C19343.f62515, i, C18637.f58053);
-        this.animationDuration = MotionUtils.resolveThemeDuration(context, C17931.f54897, 200);
-        this.animationInterpolator = MotionUtils.resolveThemeInterpolator(context, C17931.f55271, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
-        this.circleRadius = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61185, 0);
-        this.selectorRadius = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61079, 0);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C20752.f65173, i, C20081.f61276);
+        this.animationDuration = MotionUtils.resolveThemeDuration(context, C19410.f58094, 200);
+        this.animationInterpolator = MotionUtils.resolveThemeInterpolator(context, C19410.f58468, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+        this.circleRadius = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64298, 0);
+        this.selectorRadius = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64228, 0);
         Resources resources = getResources();
-        this.selectorStrokeWidth = resources.getDimensionPixelSize(C23575.f75988);
-        this.centerDotRadius = resources.getDimensionPixelSize(C23575.f75893);
-        int color = typedArrayObtainStyledAttributes.getColor(C19343.f62356, 0);
+        this.selectorStrokeWidth = resources.getDimensionPixelSize(C24774.f78734);
+        this.centerDotRadius = resources.getDimensionPixelSize(C24774.f78639);
+        int color = typedArrayObtainStyledAttributes.getColor(C20752.f65068, 0);
         paint.setAntiAlias(true);
         paint.setColor(color);
         setHandRotation(0.0f);
         this.scaledTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         setImportantForAccessibility(2);
         typedArrayObtainStyledAttributes.recycle();
     }

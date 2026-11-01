@@ -8,10 +8,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class AbstractConcurrentSet implements Set {
-    public static final AtomicLong id = new AtomicLong();
+
+    /* JADX INFO: renamed from: id */
+    public static final AtomicLong f80622id = new AtomicLong();
     public final Map entries;
     public Entry head;
-    public final long ID = id.getAndIncrement();
+
+    /* JADX INFO: renamed from: ID */
+    public final long f80623ID = f80622id.getAndIncrement();
     public final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
     public abstract Entry createEntry(Object obj, Entry entry);
@@ -151,7 +155,7 @@ public abstract class AbstractConcurrentSet implements Set {
 
     @Override // java.util.Set, java.util.Collection
     public int hashCode() {
-        long j = this.ID;
+        long j = this.f80623ID;
         return ((int) (j ^ (j >>> 32))) + 31;
     }
 
@@ -160,7 +164,7 @@ public abstract class AbstractConcurrentSet implements Set {
         if (this == obj) {
             return true;
         }
-        return obj != null && getClass() == obj.getClass() && this.ID == ((AbstractConcurrentSet) obj).ID;
+        return obj != null && getClass() == obj.getClass() && this.f80623ID == ((AbstractConcurrentSet) obj).f80623ID;
     }
 
     public abstract class Entry implements ISetEntry {

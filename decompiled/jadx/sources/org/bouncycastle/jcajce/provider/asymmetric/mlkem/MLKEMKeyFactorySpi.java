@@ -10,8 +10,6 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashSet;
 import java.util.Set;
-import l.C21639;
-import l.C7166;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
@@ -23,6 +21,8 @@ import org.bouncycastle.pqc.crypto.mlkem.MLKEMPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMPublicKeyParameters;
 import org.bouncycastle.pqc.jcajce.provider.util.BaseKeyFactorySpi;
 import org.bouncycastle.util.Arrays;
+import p067l.C22934;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MLKEMKeyFactorySpi extends BaseKeyFactorySpi {
@@ -126,7 +126,7 @@ public class MLKEMKeyFactorySpi extends BaseKeyFactorySpi {
             }
         } else {
             if (!(key instanceof BCMLKEMPublicKey)) {
-                throw new InvalidKeySpecException(C7166.m19189(key, new StringBuilder("Unsupported key type: "), "."));
+                throw new InvalidKeySpecException(C9179.m21132(key, new StringBuilder("Unsupported key type: "), "."));
             }
             if (X509EncodedKeySpec.class.isAssignableFrom(cls)) {
                 return new X509EncodedKeySpec(key.getEncoded());
@@ -136,6 +136,6 @@ public class MLKEMKeyFactorySpi extends BaseKeyFactorySpi {
                 return new MLKEMPublicKeySpec(bCMLKEMPublicKey.getParameterSpec(), bCMLKEMPublicKey.getPublicData());
             }
         }
-        throw new InvalidKeySpecException(C21639.m48905(cls, "unknown key specification: ", "."));
+        throw new InvalidKeySpecException(C22934.m51253(cls, "unknown key specification: ", "."));
     }
 }

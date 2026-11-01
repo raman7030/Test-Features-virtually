@@ -6,19 +6,16 @@ import java.security.Provider;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.List;
-import l.C20195;
-import l.C3200;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.DERSequence;
+import org.bouncycastle.asn1.p073x9.ECNamedCurveTable;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.sec.ECPrivateKey;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
 import org.bouncycastle.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.internal.asn1.iana.IANAObjectIdentifiers;
@@ -28,6 +25,9 @@ import org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.Composite
 import org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.KeyFactorySpi;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Exceptions;
+import p067l.C21562;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CompositePrivateKey implements PrivateKey {
@@ -60,7 +60,7 @@ public class CompositePrivateKey implements PrivateKey {
             int i = this.count;
             PrivateKey[] privateKeyArr = this.keys;
             if (i == privateKeyArr.length) {
-                throw new IllegalStateException(C3200.m9831(this.keys.length, " allowed in composite", new StringBuilder("only ")));
+                throw new IllegalStateException(C5410.m11876(this.keys.length, " allowed in composite", new StringBuilder("only ")));
             }
             privateKeyArr[i] = privateKey;
             Provider[] providerArr = this.providers;
@@ -106,7 +106,7 @@ public class CompositePrivateKey implements PrivateKey {
         for (PrivateKey privateKey : privateKeyArr) {
             arrayList.add(processKey(privateKey));
         }
-        this.keys = C20195.unmodifiableList(arrayList);
+        this.keys = C21562.unmodifiableList(arrayList);
         this.providers = null;
     }
 
@@ -131,10 +131,10 @@ public class CompositePrivateKey implements PrivateKey {
                 arrayList.add(processKey(privateKeyArr[i]));
                 i++;
             }
-            listUnmodifiableList = C20195.unmodifiableList(arrayList2);
+            listUnmodifiableList = C21562.unmodifiableList(arrayList2);
         }
         this.providers = listUnmodifiableList;
-        this.keys = C20195.unmodifiableList(arrayList);
+        this.keys = C21562.unmodifiableList(arrayList);
     }
 
     public CompositePrivateKey(PrivateKey... privateKeyArr) {
@@ -202,7 +202,7 @@ public class CompositePrivateKey implements PrivateKey {
     @Override // java.security.Key
     public byte[] getEncoded() {
         int i = 0;
-        if (this.algorithmIdentifier.getAlgorithm().on(IANAObjectIdentifiers.id_alg)) {
+        if (this.algorithmIdentifier.getAlgorithm().m55304on(IANAObjectIdentifiers.id_alg)) {
             try {
                 byte[] seed = ((MLDSAPrivateKey) this.keys.get(0)).getSeed();
                 byte[] octets = PrivateKeyInfoFactory.createPrivateKeyInfo(PrivateKeyFactory.createKey(((PrivateKey) this.keys.get(1)).getEncoded())).getPrivateKey().getOctets();
@@ -214,7 +214,7 @@ public class CompositePrivateKey implements PrivateKey {
                 }
                 return new PrivateKeyInfo(this.algorithmIdentifier, Arrays.concatenate(seed, octets)).getEncoded();
             } catch (IOException e) {
-                throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to encode composite public key: ")));
+                throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to encode composite public key: ")));
             }
         }
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
@@ -226,7 +226,7 @@ public class CompositePrivateKey implements PrivateKey {
             try {
                 return new PrivateKeyInfo(this.algorithmIdentifier, new DERSequence(aSN1EncodableVector)).getEncoded(ASN1Encoding.DER);
             } catch (IOException e2) {
-                throw new IllegalStateException(C5127.m14678(e2, new StringBuilder("unable to encode composite private key: ")));
+                throw new IllegalStateException(C7241.m16586(e2, new StringBuilder("unable to encode composite private key: ")));
             }
         }
         byte[] bArrConcatenate = null;
@@ -237,7 +237,7 @@ public class CompositePrivateKey implements PrivateKey {
         try {
             return new PrivateKeyInfo(this.algorithmIdentifier, bArrConcatenate).getEncoded(ASN1Encoding.DER);
         } catch (IOException e3) {
-            throw new IllegalStateException(C5127.m14678(e3, new StringBuilder("unable to encode composite private key: ")));
+            throw new IllegalStateException(C7241.m16586(e3, new StringBuilder("unable to encode composite private key: ")));
         }
     }
 }

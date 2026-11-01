@@ -13,8 +13,6 @@ import javax.crypto.KeyAgreementSpi;
 import javax.crypto.SecretKey;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.SecretKeySpec;
-import l.C20094;
-import l.C3200;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
@@ -38,6 +36,8 @@ import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Strings;
+import p067l.C21466;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class BaseAgreementSpi extends KeyAgreementSpi {
@@ -239,7 +239,7 @@ public abstract class BaseAgreementSpi extends KeyAgreementSpi {
         StringBuilder sb = new StringBuilder();
         sb.append(this.kaAlgorithm);
         sb.append(" key agreement: need ");
-        throw new ShortBufferException(C3200.m9831(bArrEngineGenerateSecret.length, " bytes", sb));
+        throw new ShortBufferException(C5410.m11876(bArrEngineGenerateSecret.length, " bytes", sb));
     }
 
     @Override // javax.crypto.KeyAgreementSpi
@@ -303,7 +303,7 @@ public abstract class BaseAgreementSpi extends KeyAgreementSpi {
             return bArr2;
         }
         if (i < 0) {
-            throw new NoSuchAlgorithmException(C20094.m46315("unknown algorithm encountered: ", str));
+            throw new NoSuchAlgorithmException(C21466.m48631("unknown algorithm encountered: ", str));
         }
         int i3 = i / 8;
         byte[] bArr3 = new byte[i3];

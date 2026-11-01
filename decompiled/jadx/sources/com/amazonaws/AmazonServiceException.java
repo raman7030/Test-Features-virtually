@@ -1,26 +1,26 @@
 package com.amazonaws;
 
 import com.google.android.material.motion.MotionUtils;
-import l.C9045;
+import p067l.C10965;
 
 /* JADX INFO: loaded from: classes.dex */
 public class AmazonServiceException extends AmazonClientException {
     public static final long serialVersionUID = 1;
 
-    /* JADX INFO: renamed from: ۗ, reason: not valid java name and contains not printable characters */
-    public int f70;
+    /* JADX INFO: renamed from: ۗ */
+    public int f1230;
 
-    /* JADX INFO: renamed from: ۙ, reason: not valid java name and contains not printable characters */
-    public String f71;
+    /* JADX INFO: renamed from: ۙ */
+    public String f1231;
 
-    /* JADX INFO: renamed from: ᩶, reason: not valid java name and contains not printable characters */
-    public String f72;
+    /* JADX INFO: renamed from: ᩶ */
+    public String f1232;
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public String f73;
+    /* JADX INFO: renamed from: ᩸ */
+    public String f1233;
 
-    /* JADX INFO: renamed from: ᩹, reason: not valid java name and contains not printable characters */
-    public String f74;
+    /* JADX INFO: renamed from: ᩹ */
+    public String f1234;
 
     public enum ErrorType {
         Client,
@@ -31,65 +31,65 @@ public class AmazonServiceException extends AmazonClientException {
     public AmazonServiceException(String str) {
         super(str);
         ErrorType errorType = ErrorType.Client;
-        this.f74 = str;
+        this.f1234 = str;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final void m148(String str) {
-        this.f72 = str;
+    /* JADX INFO: renamed from: ܽ */
+    public final void m1315(String str) {
+        this.f1232 = str;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final String m147() {
-        return this.f72;
+    /* JADX INFO: renamed from: ܽ */
+    public final String m1314() {
+        return this.f1232;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final void m150(String str) {
-        this.f71 = str;
+    /* JADX INFO: renamed from: ᩳ */
+    public final void m1317(String str) {
+        this.f1231 = str;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m144(String str) {
-        this.f73 = str;
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1311(String str) {
+        this.f1233 = str;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public String m142() {
-        return this.f73;
+    /* JADX INFO: renamed from: ֫ */
+    public String m1309() {
+        return this.f1233;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final String m145() {
-        return this.f74;
+    /* JADX INFO: renamed from: ۧ */
+    public final String m1312() {
+        return this.f1234;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m143(int i) {
-        this.f70 = i;
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1310(int i) {
+        this.f1230 = i;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final int m149() {
-        return this.f70;
+    /* JADX INFO: renamed from: ᩳ */
+    public final int m1316() {
+        return this.f1230;
     }
 
     @Override // java.lang.Throwable
     public final String getMessage() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f74);
+        sb.append(this.f1234);
         sb.append(" (Service: ");
-        sb.append(this.f71);
+        sb.append(this.f1231);
         sb.append("; Status Code: ");
-        sb.append(this.f70);
+        sb.append(this.f1230);
         sb.append("; Error Code: ");
-        sb.append(m142());
+        sb.append(m1309());
         sb.append("; Request ID: ");
-        return C9045.m23341(sb, this.f72, MotionUtils.EASING_TYPE_FORMAT_END);
+        return C10965.m25286(sb, this.f1232, MotionUtils.EASING_TYPE_FORMAT_END);
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final void m146(String str) {
-        this.f74 = str;
+    /* JADX INFO: renamed from: ۧ */
+    public final void m1313(String str) {
+        this.f1234 = str;
     }
 }

@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.prng;
 
 import java.security.SecureRandom;
-import l.C20087;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.Digest;
@@ -13,6 +12,7 @@ import org.bouncycastle.crypto.prng.drbg.HMacSP800DRBG;
 import org.bouncycastle.crypto.prng.drbg.HashSP800DRBG;
 import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
 import org.bouncycastle.util.Arrays;
+import p067l.C21459;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SP800SecureRandomBuilder {
@@ -162,6 +162,6 @@ public class SP800SecureRandomBuilder {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(algorithmName.substring(0, iIndexOf));
-        return C20087.m46305(iIndexOf + 1, algorithmName, sb);
+        return C21459.m48621(iIndexOf + 1, algorithmName, sb);
     }
 }

@@ -6,7 +6,9 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class AsconEngine extends AsconBaseEngine {
-    public long K2;
+
+    /* JADX INFO: renamed from: K2 */
+    public long f80982K2;
     public final AsconParameters asconParameters;
 
     /* JADX INFO: loaded from: classes.dex */
@@ -43,7 +45,7 @@ public class AsconEngine extends AsconBaseEngine {
         }
         this.algorithmName = str;
         int i = this.BlockSize;
-        this.nr = i == 8 ? 6 : 8;
+        this.f80980nr = i == 8 ? 6 : 8;
         this.AADBufferSize = i;
         this.dsep = 1L;
         setInnerMembers(AEADBaseEngine.ProcessingBufferType.Immediate, AEADBaseEngine.AADOperatorType.Default, AEADBaseEngine.DataOperatorType.Default);
@@ -51,17 +53,17 @@ public class AsconEngine extends AsconBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
     public void ascon_aeadinit() {
-        this.p.set(this.ASCON_IV, this.K1, this.K2, this.N0, this.N1);
+        this.f80981p.set(this.ASCON_IV, this.f80977K1, this.f80982K2, this.f80978N0, this.f80979N1);
         if (this.KEY_SIZE == 20) {
-            this.p.x0 ^= this.K0;
+            this.f80981p.f80983x0 ^= this.f80976K0;
         }
-        this.p.p(12);
+        this.f80981p.m55366p(12);
         if (this.KEY_SIZE == 20) {
-            this.p.x2 ^= this.K0;
+            this.f80981p.f80985x2 ^= this.f80976K0;
         }
-        AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-        asconPermutation.x3 ^= this.K1;
-        asconPermutation.x4 ^= this.K2;
+        AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+        asconPermutation.f80986x3 ^= this.f80977K1;
+        asconPermutation.f80987x4 ^= this.f80982K2;
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -76,40 +78,40 @@ public class AsconEngine extends AsconBaseEngine {
         int iOrdinal = this.asconParameters.ordinal();
         if (iOrdinal != 0) {
             if (iOrdinal == 1) {
-                asconPermutation = this.p;
-                asconPermutation.x2 ^= this.K1;
-                j = asconPermutation.x3;
-                j2 = this.K2;
+                asconPermutation = this.f80981p;
+                asconPermutation.f80985x2 ^= this.f80977K1;
+                j = asconPermutation.f80986x3;
+                j2 = this.f80982K2;
             } else {
                 if (iOrdinal != 2) {
                     throw new IllegalStateException();
                 }
-                AsconPermutationFriend.AsconPermutation asconPermutation2 = this.p;
-                asconPermutation2.x1 ^= this.K1;
-                asconPermutation2.x2 ^= this.K2;
+                AsconPermutationFriend.AsconPermutation asconPermutation2 = this.f80981p;
+                asconPermutation2.f80984x1 ^= this.f80977K1;
+                asconPermutation2.f80985x2 ^= this.f80982K2;
             }
-            this.p.p(12);
-            AsconPermutationFriend.AsconPermutation asconPermutation3 = this.p;
-            asconPermutation3.x3 ^= this.K1;
-            asconPermutation3.x4 ^= this.K2;
+            this.f80981p.m55366p(12);
+            AsconPermutationFriend.AsconPermutation asconPermutation3 = this.f80981p;
+            asconPermutation3.f80986x3 ^= this.f80977K1;
+            asconPermutation3.f80987x4 ^= this.f80982K2;
             this.m_state = state;
         }
-        asconPermutation = this.p;
-        long j3 = asconPermutation.x1;
-        long j4 = this.K0 << 32;
-        long j5 = this.K1;
-        asconPermutation.x1 = j3 ^ (j4 | (j5 >> 32));
-        long j6 = asconPermutation.x2;
+        asconPermutation = this.f80981p;
+        long j3 = asconPermutation.f80984x1;
+        long j4 = this.f80976K0 << 32;
+        long j5 = this.f80977K1;
+        asconPermutation.f80984x1 = j3 ^ (j4 | (j5 >> 32));
+        long j6 = asconPermutation.f80985x2;
         long j7 = j5 << 32;
-        long j8 = this.K2;
-        asconPermutation.x2 = j6 ^ (j7 | (j8 >> 32));
-        j = asconPermutation.x3;
+        long j8 = this.f80982K2;
+        asconPermutation.f80985x2 = j6 ^ (j7 | (j8 >> 32));
+        j = asconPermutation.f80986x3;
         j2 = j8 << 32;
-        asconPermutation.x3 = j ^ j2;
-        this.p.p(12);
-        AsconPermutationFriend.AsconPermutation asconPermutation4 = this.p;
-        asconPermutation4.x3 ^= this.K1;
-        asconPermutation4.x4 ^= this.K2;
+        asconPermutation.f80986x3 = j ^ j2;
+        this.f80981p.m55366p(12);
+        AsconPermutationFriend.AsconPermutation asconPermutation4 = this.f80981p;
+        asconPermutation4.f80986x3 ^= this.f80977K1;
+        asconPermutation4.f80987x4 ^= this.f80982K2;
         this.m_state = state;
     }
 
@@ -156,21 +158,21 @@ public class AsconEngine extends AsconBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
         long jBigEndianToLong;
-        this.N0 = Pack.bigEndianToLong(bArr2, 0);
-        this.N1 = Pack.bigEndianToLong(bArr2, 8);
+        this.f80978N0 = Pack.bigEndianToLong(bArr2, 0);
+        this.f80979N1 = Pack.bigEndianToLong(bArr2, 8);
         int i = this.KEY_SIZE;
         if (i == 16) {
-            this.K1 = Pack.bigEndianToLong(bArr, 0);
+            this.f80977K1 = Pack.bigEndianToLong(bArr, 0);
             jBigEndianToLong = Pack.bigEndianToLong(bArr, 8);
         } else {
             if (i != 20) {
                 throw new IllegalStateException();
             }
-            this.K0 = Pack.bigEndianToInt(bArr, 0);
-            this.K1 = Pack.bigEndianToLong(bArr, 4);
+            this.f80976K0 = Pack.bigEndianToInt(bArr, 0);
+            this.f80977K1 = Pack.bigEndianToLong(bArr, 4);
             jBigEndianToLong = Pack.bigEndianToLong(bArr, 12);
         }
-        this.K2 = jBigEndianToLong;
+        this.f80982K2 = jBigEndianToLong;
     }
 
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
@@ -209,47 +211,47 @@ public class AsconEngine extends AsconBaseEngine {
         int i = this.m_aadPos;
         bArr[i] = GCMSIVBlockCipher.MASK;
         if (i < 8) {
-            AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-            asconPermutation.x0 = (((-1) << (56 - (this.m_aadPos << 3))) & Pack.bigEndianToLong(bArr, 0)) ^ asconPermutation.x0;
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+            asconPermutation.f80983x0 = (((-1) << (56 - (this.m_aadPos << 3))) & Pack.bigEndianToLong(bArr, 0)) ^ asconPermutation.f80983x0;
             return;
         }
-        this.p.x0 ^= Pack.bigEndianToLong(bArr, 0);
-        AsconPermutationFriend.AsconPermutation asconPermutation2 = this.p;
-        asconPermutation2.x1 = (((-1) << (56 - ((this.m_aadPos - 8) << 3))) & Pack.bigEndianToLong(this.m_aad, 8)) ^ asconPermutation2.x1;
+        this.f80981p.f80983x0 ^= Pack.bigEndianToLong(bArr, 0);
+        AsconPermutationFriend.AsconPermutation asconPermutation2 = this.f80981p;
+        asconPermutation2.f80984x1 = (((-1) << (56 - ((this.m_aadPos - 8) << 3))) & Pack.bigEndianToLong(this.m_aad, 8)) ^ asconPermutation2.f80984x1;
     }
 
     @Override // org.bouncycastle.crypto.engines.AsconBaseEngine
     public void processFinalDecrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
         if (i >= 8) {
             long jBigEndianToLong = Pack.bigEndianToLong(bArr, 0);
-            AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-            long j = asconPermutation.x0 ^ jBigEndianToLong;
-            asconPermutation.x0 = j;
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.f80981p;
+            long j = asconPermutation.f80983x0 ^ jBigEndianToLong;
+            asconPermutation.f80983x0 = j;
             Pack.longToBigEndian(j, bArr2, i2);
-            AsconPermutationFriend.AsconPermutation asconPermutation2 = this.p;
-            asconPermutation2.x0 = jBigEndianToLong;
+            AsconPermutationFriend.AsconPermutation asconPermutation2 = this.f80981p;
+            asconPermutation2.f80983x0 = jBigEndianToLong;
             int i3 = i2 + 8;
             int i4 = i - 8;
-            asconPermutation2.x1 ^= pad(i4);
+            asconPermutation2.f80984x1 ^= pad(i4);
             if (i4 != 0) {
                 long jLittleEndianToLong_High = Pack.littleEndianToLong_High(bArr, 8, i4);
-                AsconPermutationFriend.AsconPermutation asconPermutation3 = this.p;
-                long j2 = asconPermutation3.x1 ^ jLittleEndianToLong_High;
-                asconPermutation3.x1 = j2;
+                AsconPermutationFriend.AsconPermutation asconPermutation3 = this.f80981p;
+                long j2 = asconPermutation3.f80984x1 ^ jLittleEndianToLong_High;
+                asconPermutation3.f80984x1 = j2;
                 Pack.longToLittleEndian_High(j2, bArr2, i3, i4);
-                AsconPermutationFriend.AsconPermutation asconPermutation4 = this.p;
-                asconPermutation4.x1 = (asconPermutation4.x1 & ((-1) >>> (i4 << 3))) ^ jLittleEndianToLong_High;
+                AsconPermutationFriend.AsconPermutation asconPermutation4 = this.f80981p;
+                asconPermutation4.f80984x1 = (asconPermutation4.f80984x1 & ((-1) >>> (i4 << 3))) ^ jLittleEndianToLong_High;
             }
         } else {
-            this.p.x0 ^= pad(i);
+            this.f80981p.f80983x0 ^= pad(i);
             if (i != 0) {
                 long jLittleEndianToLong_High2 = Pack.littleEndianToLong_High(bArr, 0, i);
-                AsconPermutationFriend.AsconPermutation asconPermutation5 = this.p;
-                long j3 = asconPermutation5.x0 ^ jLittleEndianToLong_High2;
-                asconPermutation5.x0 = j3;
+                AsconPermutationFriend.AsconPermutation asconPermutation5 = this.f80981p;
+                long j3 = asconPermutation5.f80983x0 ^ jLittleEndianToLong_High2;
+                asconPermutation5.f80983x0 = j3;
                 Pack.longToLittleEndian_High(j3, bArr2, i2, i);
-                AsconPermutationFriend.AsconPermutation asconPermutation6 = this.p;
-                asconPermutation6.x0 = (asconPermutation6.x0 & ((-1) >>> (i << 3))) ^ jLittleEndianToLong_High2;
+                AsconPermutationFriend.AsconPermutation asconPermutation6 = this.f80981p;
+                asconPermutation6.f80983x0 = (asconPermutation6.f80983x0 & ((-1) >>> (i << 3))) ^ jLittleEndianToLong_High2;
             }
         }
         finishData(AEADBaseEngine.State.DecFinal);
@@ -259,21 +261,21 @@ public class AsconEngine extends AsconBaseEngine {
     public void processFinalEncrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
         long j;
         if (i >= 8) {
-            this.p.x0 ^= Pack.bigEndianToLong(bArr, 0);
-            Pack.longToBigEndian(this.p.x0, bArr2, i2);
+            this.f80981p.f80983x0 ^= Pack.bigEndianToLong(bArr, 0);
+            Pack.longToBigEndian(this.f80981p.f80983x0, bArr2, i2);
             i2 += 8;
             i -= 8;
-            this.p.x1 ^= pad(i);
+            this.f80981p.f80984x1 ^= pad(i);
             if (i != 0) {
-                this.p.x1 ^= Pack.littleEndianToLong_High(bArr, 8, i);
-                j = this.p.x1;
+                this.f80981p.f80984x1 ^= Pack.littleEndianToLong_High(bArr, 8, i);
+                j = this.f80981p.f80984x1;
                 Pack.longToLittleEndian_High(j, bArr2, i2, i);
             }
         } else {
-            this.p.x0 ^= pad(i);
+            this.f80981p.f80983x0 ^= pad(i);
             if (i != 0) {
-                this.p.x0 ^= Pack.littleEndianToLong_High(bArr, 0, i);
-                j = this.p.x0;
+                this.f80981p.f80983x0 ^= Pack.littleEndianToLong_High(bArr, 0, i);
+                j = this.f80981p.f80983x0;
                 Pack.longToLittleEndian_High(j, bArr2, i2, i);
             }
         }

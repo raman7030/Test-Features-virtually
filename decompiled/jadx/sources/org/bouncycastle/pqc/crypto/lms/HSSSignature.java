@@ -3,11 +3,11 @@ package org.bouncycastle.pqc.crypto.lms;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.InputStream;
-import l.C5368;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Encodable;
 import org.bouncycastle.util.Objects;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HSSSignature implements Encodable {
@@ -85,7 +85,7 @@ public class HSSSignature implements Encodable {
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj), i);
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream = null;
         try {

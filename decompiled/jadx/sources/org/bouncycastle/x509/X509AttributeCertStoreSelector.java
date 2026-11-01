@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.DEROctetString;
@@ -18,6 +17,7 @@ import org.bouncycastle.asn1.x509.Target;
 import org.bouncycastle.asn1.x509.TargetInformation;
 import org.bouncycastle.asn1.x509.Targets;
 import org.bouncycastle.util.Selector;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class X509AttributeCertStoreSelector implements Selector {
@@ -96,11 +96,11 @@ public class X509AttributeCertStoreSelector implements Selector {
     }
 
     public Collection getTargetGroups() {
-        return C20195.unmodifiableCollection(this.targetGroups);
+        return C21562.unmodifiableCollection(this.targetGroups);
     }
 
     public Collection getTargetNames() {
-        return C20195.unmodifiableCollection(this.targetNames);
+        return C21562.unmodifiableCollection(this.targetNames);
     }
 
     @Override // org.bouncycastle.util.Selector

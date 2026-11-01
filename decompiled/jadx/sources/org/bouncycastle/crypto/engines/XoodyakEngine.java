@@ -13,12 +13,18 @@ public class XoodyakEngine extends AEADBaseEngine {
     public static final int ModeKeyed = 0;
     public static final int PhaseDown = 1;
     public static final int PhaseUp = 2;
-    public static final int[] RC = {88, 56, 960, 208, 288, 20, 96, 44, 896, 240, 416, 18};
+
+    /* JADX INFO: renamed from: RC */
+    public static final int[] f81095RC = {88, 56, 960, 208, 288, 20, 96, 44, 896, 240, 416, 18};
     public static final int f_bPrime_1 = 47;
-    public byte[] K;
+
+    /* JADX INFO: renamed from: K */
+    public byte[] f81096K;
     public byte aadcd;
     public boolean encrypted;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81097iv;
     public int mode;
     public int phase;
     public final byte[] state;
@@ -36,7 +42,7 @@ public class XoodyakEngine extends AEADBaseEngine {
 
     private void AbsorbAny(byte[] bArr, int i, int i2, int i3) {
         if (this.phase != 2) {
-            up(this.mode, this.state, 0);
+            m55399up(this.mode, this.state, 0);
         }
         int i4 = i3;
         while (true) {
@@ -70,7 +76,8 @@ public class XoodyakEngine extends AEADBaseEngine {
         down(i, bArr, bArr2, i2, i3, i4);
     }
 
-    public static void up(int i, byte[] bArr, int i2) {
+    /* JADX INFO: renamed from: up */
+    public static void m55399up(int i, byte[] bArr, int i2) {
         if (i != 1) {
             bArr[47] = (byte) (bArr[47] ^ i2);
         }
@@ -112,7 +119,7 @@ public class XoodyakEngine extends AEADBaseEngine {
             int iRotateLeft6 = Integers.rotateLeft(i15, 11);
             int iRotateLeft7 = Integers.rotateLeft(iLittleEndianToInt11 ^ iRotateLeft3, 11);
             int iRotateLeft8 = Integers.rotateLeft(i10 ^ iRotateLeft4, 11);
-            int i20 = (iLittleEndianToInt ^ iRotateLeft) ^ RC[i8];
+            int i20 = (iLittleEndianToInt ^ iRotateLeft) ^ f81095RC[i8];
             int i21 = ((~i19) & iRotateLeft5) ^ i20;
             int i22 = ((~i12) & iRotateLeft6) ^ i13;
             int i23 = ((~i14) & iRotateLeft7) ^ i16;
@@ -154,11 +161,12 @@ public class XoodyakEngine extends AEADBaseEngine {
         Pack.intToLittleEndian(iLittleEndianToInt12, bArr, 44);
     }
 
-    public static void up(XoodyakDigest.Friend friend, int i, byte[] bArr, int i2) {
+    /* JADX INFO: renamed from: up */
+    public static void m55400up(XoodyakDigest.Friend friend, int i, byte[] bArr, int i2) {
         if (friend == null) {
             throw new NullPointerException("This method is only for use by XoodyakDigest");
         }
-        up(i, bArr, i2);
+        m55399up(i, bArr, i2);
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -208,8 +216,8 @@ public class XoodyakEngine extends AEADBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
-        this.K = bArr;
-        this.iv = bArr2;
+        this.f81096K = bArr;
+        this.f81097iv = bArr2;
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -230,7 +238,7 @@ public class XoodyakEngine extends AEADBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processBufferDecrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
-        up(this.mode, this.state, this.encrypted ? 0 : 128);
+        m55399up(this.mode, this.state, this.encrypted ? 0 : 128);
         Bytes.xor(this.BlockSize, this.state, bArr, i, bArr2, i2);
         down(this.mode, this.state, bArr2, i2, this.BlockSize, 0);
         this.phase = 1;
@@ -239,7 +247,7 @@ public class XoodyakEngine extends AEADBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processBufferEncrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
-        up(this.mode, this.state, this.encrypted ? 0 : 128);
+        m55399up(this.mode, this.state, this.encrypted ? 0 : 128);
         Bytes.xor(this.BlockSize, this.state, bArr, i, bArr2, i2);
         down(this.mode, this.state, bArr, i, this.BlockSize, 0);
         this.phase = 1;
@@ -264,7 +272,7 @@ public class XoodyakEngine extends AEADBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processFinalBlock(byte[] bArr, int i) {
         if (this.m_bufPos != 0 || !this.encrypted) {
-            up(this.mode, this.state, this.encrypted ? 0 : 128);
+            m55399up(this.mode, this.state, this.encrypted ? 0 : 128);
             Bytes.xor(this.m_bufPos, this.state, this.m_buf, 0, bArr, i);
             if (this.forEncryption) {
                 down(this.mode, this.state, this.m_buf, 0, this.m_bufPos, 0);
@@ -273,7 +281,7 @@ public class XoodyakEngine extends AEADBaseEngine {
             }
             this.phase = 1;
         }
-        up(this.mode, this.state, 64);
+        m55399up(this.mode, this.state, 64);
         System.arraycopy(this.state, 0, this.mac, 0, this.MAC_SIZE);
         this.phase = 2;
     }
@@ -290,13 +298,13 @@ public class XoodyakEngine extends AEADBaseEngine {
         this.encrypted = false;
         this.phase = 2;
         this.aadcd = (byte) 3;
-        byte[] bArr = this.K;
+        byte[] bArr = this.f81096K;
         int length = bArr.length;
-        int length2 = this.iv.length;
+        int length2 = this.f81097iv.length;
         byte[] bArr2 = new byte[this.AADBufferSize];
         this.mode = 0;
         System.arraycopy(bArr, 0, bArr2, 0, length);
-        System.arraycopy(this.iv, 0, bArr2, length, length2);
+        System.arraycopy(this.f81097iv, 0, bArr2, length, length2);
         int i = length + length2;
         bArr2[i] = (byte) length2;
         AbsorbAny(bArr2, 0, i + 1, 2);

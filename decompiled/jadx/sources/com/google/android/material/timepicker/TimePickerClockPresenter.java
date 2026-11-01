@@ -2,10 +2,10 @@ package com.google.android.material.timepicker;
 
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
-import l.C0881;
-import l.C14369;
-import l.C3820;
 import org.bouncycastle.crypto.agreement.srp.SRP6StandardGroups;
+import p067l.C0886;
+import p067l.C1555;
+import p067l.C5999;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TimePickerClockPresenter implements ClockHandView.OnRotateListener, TimePickerView.OnSelectionChange, TimePickerView.OnPeriodChangeListener, ClockHandView.OnActionUpListener, TimePickerPresenter {
@@ -115,22 +115,22 @@ public class TimePickerClockPresenter implements ClockHandView.OnRotateListener,
         boolean z2 = i == 12;
         this.timePickerView.setAnimateOnTouchUp(z2);
         this.time.selection = i;
-        this.timePickerView.setValues(z2 ? MINUTE_CLOCK_VALUES : getHourClockValues(), z2 ? C3820.f12103 : this.time.getHourContentDescriptionResId());
+        this.timePickerView.setValues(z2 ? MINUTE_CLOCK_VALUES : getHourClockValues(), z2 ? C5999.f14910 : this.time.getHourContentDescriptionResId());
         updateCurrentLevel();
         this.timePickerView.setHandRotation(z2 ? this.minuteRotation : this.hourRotation, z);
         this.timePickerView.setActiveSelection(i);
-        this.timePickerView.setMinuteHourDelegate(new ClickActionDelegate(this.timePickerView.getContext(), C3820.f12175) { // from class: com.google.android.material.timepicker.TimePickerClockPresenter.1
-            @Override // com.google.android.material.timepicker.ClickActionDelegate, l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view, c14369);
-                c14369.m34305((CharSequence) view.getResources().getString(TimePickerClockPresenter.this.time.getHourContentDescriptionResId(), String.valueOf(TimePickerClockPresenter.this.time.getHourForDisplay())));
+        this.timePickerView.setMinuteHourDelegate(new ClickActionDelegate(this.timePickerView.getContext(), C5999.f14982) { // from class: com.google.android.material.timepicker.TimePickerClockPresenter.1
+            @Override // com.google.android.material.timepicker.ClickActionDelegate, p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view, c1555);
+                c1555.m36438((CharSequence) view.getResources().getString(TimePickerClockPresenter.this.time.getHourContentDescriptionResId(), String.valueOf(TimePickerClockPresenter.this.time.getHourForDisplay())));
             }
         });
-        this.timePickerView.setHourClickDelegate(new ClickActionDelegate(this.timePickerView.getContext(), C3820.f12219) { // from class: com.google.android.material.timepicker.TimePickerClockPresenter.2
-            @Override // com.google.android.material.timepicker.ClickActionDelegate, l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view, c14369);
-                c14369.m34305((CharSequence) view.getResources().getString(C3820.f12103, String.valueOf(TimePickerClockPresenter.this.time.minute)));
+        this.timePickerView.setHourClickDelegate(new ClickActionDelegate(this.timePickerView.getContext(), C5999.f15026) { // from class: com.google.android.material.timepicker.TimePickerClockPresenter.2
+            @Override // com.google.android.material.timepicker.ClickActionDelegate, p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view, c1555);
+                c1555.m36438((CharSequence) view.getResources().getString(C5999.f14910, String.valueOf(TimePickerClockPresenter.this.time.minute)));
             }
         });
     }
@@ -152,7 +152,7 @@ public class TimePickerClockPresenter implements ClockHandView.OnRotateListener,
         int i2 = timeModel.hour;
         if (timeModel.selection == 10) {
             this.timePickerView.setHandRotation(this.hourRotation, false);
-            AccessibilityManager accessibilityManager = (AccessibilityManager) C0881.m3230(this.timePickerView.getContext(), AccessibilityManager.class);
+            AccessibilityManager accessibilityManager = (AccessibilityManager) C0886.m5544(this.timePickerView.getContext(), AccessibilityManager.class);
             if (accessibilityManager == null || !accessibilityManager.isTouchExplorationEnabled()) {
                 setSelection(12, true);
             }

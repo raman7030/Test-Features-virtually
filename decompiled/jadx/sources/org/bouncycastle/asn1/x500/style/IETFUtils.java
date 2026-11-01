@@ -1,13 +1,10 @@
 package org.bouncycastle.asn1.x500.style;
 
-import com.alipay.sdk.m.p.a;
+import com.alipay.sdk.p010m.p041p.C0184a;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import l.C16014;
-import l.C4860;
-import l.EnumC0121;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -21,6 +18,9 @@ import org.bouncycastle.asn1.x500.X500NameStyle;
 import org.bouncycastle.crypto.engines.ThreefishEngine;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C17588;
+import p067l.C6988;
+import p067l.EnumC2483;
 
 /* JADX INFO: loaded from: classes.dex */
 public class IETFUtils {
@@ -43,7 +43,7 @@ public class IETFUtils {
     }
 
     public static void addRDN(X500NameStyle x500NameStyle, X500NameBuilder x500NameBuilder, String str) {
-        X500NameTokenizer x500NameTokenizer = new X500NameTokenizer(str, a.h);
+        X500NameTokenizer x500NameTokenizer = new X500NameTokenizer(str, C0184a.f880h);
         x500NameBuilder.addRDN(x500NameStyle.attrNameToOID(nextToken(x500NameTokenizer, true).trim()), unescape(nextToken(x500NameTokenizer, false)));
     }
 
@@ -107,7 +107,7 @@ public class IETFUtils {
             id = attributeTypeAndValue.getType().getId();
         }
         stringBuffer.append(id);
-        stringBuffer.append(a.h);
+        stringBuffer.append(C0184a.f880h);
         stringBuffer.append(valueToString(attributeTypeAndValue.getValue()));
     }
 
@@ -117,7 +117,7 @@ public class IETFUtils {
             id = attributeTypeAndValue.getType().getId();
         }
         sb.append(id);
-        sb.append(a.h);
+        sb.append(C0184a.f880h);
         sb.append(valueToString(attributeTypeAndValue.getValue()));
     }
 
@@ -161,7 +161,7 @@ public class IETFUtils {
     }
 
     public static void collectAttributeTypeAndValue(X500NameStyle x500NameStyle, Vector vector, Vector vector2, String str) {
-        X500NameTokenizer x500NameTokenizer = new X500NameTokenizer(str, a.h);
+        X500NameTokenizer x500NameTokenizer = new X500NameTokenizer(str, C0184a.f880h);
         String strNextToken = nextToken(x500NameTokenizer, true);
         String strNextToken2 = nextToken(x500NameTokenizer, false);
         ASN1ObjectIdentifier aSN1ObjectIdentifierAttrNameToOID = x500NameStyle.attrNameToOID(strNextToken.trim());
@@ -241,7 +241,7 @@ public class IETFUtils {
     }
 
     public static String stripInternalSpaces(String str) {
-        if (str.indexOf(EnumC0121.f1143) < 0) {
+        if (str.indexOf(EnumC2483.f3919) < 0) {
             return str;
         }
         StringBuilder sb = new StringBuilder();
@@ -398,7 +398,7 @@ public class IETFUtils {
         try {
             return ASN1Primitive.fromByteArray(Hex.decodeStrict(str, 1, str.length() - 1));
         } catch (IOException e) {
-            throw new IllegalStateException(C16014.m37866("unknown encoding in name: ", e));
+            throw new IllegalStateException(C17588.m40052("unknown encoding in name: ", e));
         }
     }
 
@@ -414,6 +414,6 @@ public class IETFUtils {
         if (aSN1ObjectIdentifier != null) {
             return aSN1ObjectIdentifier;
         }
-        throw new IllegalArgumentException(C4860.m14172("Unknown object id - ", str, " - passed to distinguished name"));
+        throw new IllegalArgumentException(C6988.m16053("Unknown object id - ", str, " - passed to distinguished name"));
     }
 }

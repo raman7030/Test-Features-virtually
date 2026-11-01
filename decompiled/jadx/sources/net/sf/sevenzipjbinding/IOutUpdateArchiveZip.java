@@ -1,5 +1,0 @@
-package net.sf.sevenzipjbinding;
-
-/* JADX INFO: loaded from: classes.dex */
-public interface IOutUpdateArchiveZip extends IOutUpdateArchive, IOutFeatureSetLevel {
-}

@@ -8,12 +8,12 @@ import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Set;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class BaseKeyFactorySpi extends KeyFactorySpi implements AsymmetricKeyInfoConverter {
@@ -68,10 +68,10 @@ public abstract class BaseKeyFactorySpi extends KeyFactorySpi implements Asymmet
         ASN1ObjectIdentifier aSN1ObjectIdentifier2 = this.keyOid;
         if (aSN1ObjectIdentifier2 != null) {
             if (!aSN1ObjectIdentifier2.equals((ASN1Primitive) aSN1ObjectIdentifier)) {
-                throw new InvalidKeySpecException(C9005.m23242("incorrect algorithm OID for key: ", aSN1ObjectIdentifier));
+                throw new InvalidKeySpecException(C10927.m25186("incorrect algorithm OID for key: ", aSN1ObjectIdentifier));
             }
         } else if (!this.keyOids.contains(aSN1ObjectIdentifier)) {
-            throw new InvalidKeySpecException(C9005.m23242("incorrect algorithm OID for key: ", aSN1ObjectIdentifier));
+            throw new InvalidKeySpecException(C10927.m25186("incorrect algorithm OID for key: ", aSN1ObjectIdentifier));
         }
     }
 }

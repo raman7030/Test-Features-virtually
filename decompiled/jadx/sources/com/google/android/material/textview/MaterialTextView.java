@@ -8,12 +8,12 @@ import android.util.AttributeSet;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-import l.C14615;
-import l.C17931;
-import l.C19343;
+import p067l.C1567;
+import p067l.C19410;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
-public class MaterialTextView extends C14615 {
+public class MaterialTextView extends C1567 {
     public MaterialTextView(Context context) {
         this(context, null);
     }
@@ -33,7 +33,7 @@ public class MaterialTextView extends C14615 {
         initialize(attributeSet, i, i2);
     }
 
-    @Override // l.C14615, android.widget.TextView
+    @Override // p067l.C1567, android.widget.TextView
     public void setTextAppearance(Context context, int i) {
         super.setTextAppearance(context, i);
         if (canApplyTextAppearanceLineHeight(context)) {
@@ -54,8 +54,8 @@ public class MaterialTextView extends C14615 {
     }
 
     private void applyLineHeightFromViewAppearance(Resources.Theme theme, int i) {
-        TypedArray typedArrayObtainStyledAttributes = theme.obtainStyledAttributes(i, C19343.f61688);
-        int firstAvailableDimension = readFirstAvailableDimension(getContext(), typedArrayObtainStyledAttributes, C19343.f61847, C19343.f61369);
+        TypedArray typedArrayObtainStyledAttributes = theme.obtainStyledAttributes(i, C20752.f82620);
+        int firstAvailableDimension = readFirstAvailableDimension(getContext(), typedArrayObtainStyledAttributes, C20752.f82674, C20752.f82511);
         typedArrayObtainStyledAttributes.recycle();
         if (firstAvailableDimension >= 0) {
             setLineHeight(firstAvailableDimension);
@@ -63,7 +63,7 @@ public class MaterialTextView extends C14615 {
     }
 
     public static boolean canApplyTextAppearanceLineHeight(Context context) {
-        return MaterialAttributes.resolveBoolean(context, C17931.f55900, true);
+        return MaterialAttributes.resolveBoolean(context, C19410.f59097, true);
     }
 
     public static int readFirstAvailableDimension(Context context, TypedArray typedArray, int... iArr) {
@@ -75,15 +75,15 @@ public class MaterialTextView extends C14615 {
     }
 
     public static boolean viewAttrsHasLineHeight(Context context, Resources.Theme theme, AttributeSet attributeSet, int i, int i2) {
-        TypedArray typedArrayObtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, C19343.f60965, i, i2);
-        int firstAvailableDimension = readFirstAvailableDimension(context, typedArrayObtainStyledAttributes, C19343.f61655, C19343.f62189);
+        TypedArray typedArrayObtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, C20752.f82374, i, i2);
+        int firstAvailableDimension = readFirstAvailableDimension(context, typedArrayObtainStyledAttributes, C20752.f82609, C20752.f82793);
         typedArrayObtainStyledAttributes.recycle();
         return firstAvailableDimension != -1;
     }
 
     public static int findViewAppearanceResourceId(Resources.Theme theme, AttributeSet attributeSet, int i, int i2) {
-        TypedArray typedArrayObtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, C19343.f60965, i, i2);
-        int resourceId = typedArrayObtainStyledAttributes.getResourceId(C19343.f62081, -1);
+        TypedArray typedArrayObtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, C20752.f82374, i, i2);
+        int resourceId = typedArrayObtainStyledAttributes.getResourceId(C20752.f82755, -1);
         typedArrayObtainStyledAttributes.recycle();
         return resourceId;
     }

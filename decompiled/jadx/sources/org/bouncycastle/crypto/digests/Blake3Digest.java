@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.digests;
 
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0698cb;
 import java.util.Iterator;
 import java.util.Stack;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -61,8 +61,10 @@ public class Blake3Digest implements ExtendedDigest, Memoable, Xof {
     public int thePos;
     public final Stack theStack;
     public final int[] theV;
-    public static final byte[] SIGMA = {2, 6, 3, 10, 7, 0, 4, cb.k, 1, 11, 12, 5, 9, cb.f77931l, 15, 8};
-    public static final int[] IV = {1779033703, -1150833019, 1013904242, -1521486534, 1359893119, -1694144372, 528734635, 1541459225};
+    public static final byte[] SIGMA = {2, 6, 3, 10, 7, 0, 4, C0698cb.f2569k, 1, 11, 12, 5, 9, C0698cb.f2570l, 15, 8};
+
+    /* JADX INFO: renamed from: IV */
+    public static final int[] f80806IV = {1779033703, -1150833019, 1013904242, -1521486534, 1359893119, -1694144372, 528734635, 1541459225};
 
     public Blake3Digest() {
         this(256);
@@ -166,7 +168,7 @@ public class Blake3Digest implements ExtendedDigest, Memoable, Xof {
 
     private void initChunkBlock(int i, boolean z) {
         System.arraycopy(this.theCurrBytes == 0 ? this.theK : this.theChaining, 0, this.theV, 0, 8);
-        System.arraycopy(IV, 0, this.theV, 8, 4);
+        System.arraycopy(f80806IV, 0, this.theV, 8, 4);
         int[] iArr = this.theV;
         long j = this.theCounter;
         iArr[12] = (int) j;
@@ -214,12 +216,12 @@ public class Blake3Digest implements ExtendedDigest, Memoable, Xof {
     }
 
     private void initNullKey() {
-        System.arraycopy(IV, 0, this.theK, 0, 8);
+        System.arraycopy(f80806IV, 0, this.theK, 0, 8);
     }
 
     private void initParentBlock() {
         System.arraycopy(this.theK, 0, this.theV, 0, 8);
-        System.arraycopy(IV, 0, this.theV, 8, 4);
+        System.arraycopy(f80806IV, 0, this.theV, 8, 4);
         int[] iArr = this.theV;
         iArr[12] = 0;
         iArr[13] = 0;
@@ -251,7 +253,7 @@ public class Blake3Digest implements ExtendedDigest, Memoable, Xof {
     private void nextOutputBlock() {
         this.theCounter++;
         System.arraycopy(this.theChaining, 0, this.theV, 0, 8);
-        System.arraycopy(IV, 0, this.theV, 8, 4);
+        System.arraycopy(f80806IV, 0, this.theV, 8, 4);
         int[] iArr = this.theV;
         long j = this.theCounter;
         iArr[12] = (int) j;

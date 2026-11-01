@@ -8,13 +8,13 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
-import l.C19370;
-import l.C20087;
-import l.C3200;
-import l.C5368;
-import l.C7416;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Strings;
+import p067l.C20778;
+import p067l.C21459;
+import p067l.C5410;
+import p067l.C7470;
+import p067l.C9417;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ASN1GeneralizedTime extends ASN1Primitive {
@@ -97,7 +97,7 @@ public class ASN1GeneralizedTime extends ASN1Primitive {
     }
 
     private String convert(int i) {
-        return i < 10 ? C19370.m44628(i, "0") : Integer.toString(i);
+        return i < 10 ? C20778.m46922(i, "0") : Integer.toString(i);
     }
 
     public static ASN1GeneralizedTime createPrimitive(byte[] bArr) {
@@ -115,12 +115,12 @@ public class ASN1GeneralizedTime extends ASN1Primitive {
             }
         }
         if (!(obj instanceof byte[])) {
-            throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+            throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
         }
         try {
             return (ASN1GeneralizedTime) TYPE.fromByteArray((byte[]) obj);
         } catch (Exception e) {
-            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("encoding error in getInstance: ")));
+            throw new IllegalArgumentException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("encoding error in getInstance: ")));
         }
     }
 
@@ -232,7 +232,7 @@ public class ASN1GeneralizedTime extends ASN1Primitive {
 
     public String getTime() {
         String strFromByteArray = Strings.fromByteArray(this.contents);
-        if (C7416.m19937(1, strFromByteArray) == 'Z') {
+        if (C9417.m21911(1, strFromByteArray) == 'Z') {
             return strFromByteArray.substring(0, strFromByteArray.length() - 1) + "GMT+00:00";
         }
         int length = strFromByteArray.length();
@@ -250,14 +250,14 @@ public class ASN1GeneralizedTime extends ASN1Primitive {
             int i2 = length2 - 2;
             sb.append(strFromByteArray.substring(i, i2));
             sb.append(":");
-            return C20087.m46305(i2, strFromByteArray, sb);
+            return C21459.m48621(i2, strFromByteArray, sb);
         }
         int length3 = strFromByteArray.length() - 3;
         char cCharAt3 = strFromByteArray.charAt(length3);
         if (cCharAt3 != '-' && cCharAt3 != '+') {
-            StringBuilder sbM15339 = C5368.m15339(strFromByteArray);
-            sbM15339.append(calculateGMTOffset(strFromByteArray));
-            return sbM15339.toString();
+            StringBuilder sbM17248 = C7470.m17248(strFromByteArray);
+            sbM17248.append(calculateGMTOffset(strFromByteArray));
+            return sbM17248.toString();
         }
         return strFromByteArray.substring(0, length3) + "GMT" + strFromByteArray.substring(length3) + ":00";
     }
@@ -277,7 +277,7 @@ public class ASN1GeneralizedTime extends ASN1Primitive {
             StringBuilder sb = new StringBuilder();
             sb.append(strSubstring.substring(0, i));
             sb.append(ChipTextInputComboView.TextFormatter.DEFAULT_TEXT);
-            return str.substring(0, 14) + C20087.m46305(i, strSubstring, sb);
+            return str.substring(0, 14) + C21459.m48621(i, strSubstring, sb);
         }
         if (i2 != 2) {
             return str;
@@ -285,6 +285,6 @@ public class ASN1GeneralizedTime extends ASN1Primitive {
         StringBuilder sb2 = new StringBuilder();
         sb2.append(strSubstring.substring(0, i));
         sb2.append("0");
-        return str.substring(0, 14) + C20087.m46305(i, strSubstring, sb2);
+        return str.substring(0, 14) + C21459.m48621(i, strSubstring, sb2);
     }
 }

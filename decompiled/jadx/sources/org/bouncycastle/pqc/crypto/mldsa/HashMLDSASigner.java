@@ -2,7 +2,6 @@ package org.bouncycastle.pqc.crypto.mldsa;
 
 import java.io.IOException;
 import java.security.SecureRandom;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;
@@ -12,6 +11,7 @@ import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.crypto.params.ParametersWithContext;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.DigestUtils;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HashMLDSASigner implements Signer {
@@ -53,7 +53,7 @@ public class HashMLDSASigner implements Signer {
         byte[] bArrGenerateMu = this.engine.generateMu(sHAKEDigestFinishPreHash);
         MLDSAEngine mLDSAEngine = this.engine;
         MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters = this.privKey;
-        return mLDSAEngine.generateSignature(bArrGenerateMu, sHAKEDigestFinishPreHash, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.k, mLDSAPrivateKeyParameters.t0, mLDSAPrivateKeyParameters.s1, mLDSAPrivateKeyParameters.s2, bArr);
+        return mLDSAEngine.generateSignature(bArrGenerateMu, sHAKEDigestFinishPreHash, mLDSAPrivateKeyParameters.rho, mLDSAPrivateKeyParameters.f81668k, mLDSAPrivateKeyParameters.f81671t0, mLDSAPrivateKeyParameters.f81669s1, mLDSAPrivateKeyParameters.f81670s2, bArr);
     }
 
     @Override // org.bouncycastle.crypto.Signer
@@ -81,7 +81,7 @@ public class HashMLDSASigner implements Signer {
             parameters = this.privKey.getParameters();
             MLDSAEngine engine = parameters.getEngine(this.random);
             this.engine = engine;
-            engine.initSign(this.privKey.tr, true, context);
+            engine.initSign(this.privKey.f81673tr, true, context);
         } else {
             MLDSAPublicKeyParameters mLDSAPublicKeyParameters = (MLDSAPublicKeyParameters) cipherParameters;
             this.pubKey = mLDSAPublicKeyParameters;
@@ -91,7 +91,7 @@ public class HashMLDSASigner implements Signer {
             MLDSAEngine engine2 = parameters.getEngine(null);
             this.engine = engine2;
             MLDSAPublicKeyParameters mLDSAPublicKeyParameters2 = this.pubKey;
-            engine2.initVerify(mLDSAPublicKeyParameters2.rho, mLDSAPublicKeyParameters2.t1, true, context);
+            engine2.initVerify(mLDSAPublicKeyParameters2.rho, mLDSAPublicKeyParameters2.f81674t1, true, context);
         }
         initDigest(parameters);
     }
@@ -117,7 +117,7 @@ public class HashMLDSASigner implements Signer {
         MLDSAEngine mLDSAEngine = this.engine;
         int length = bArr.length;
         MLDSAPublicKeyParameters mLDSAPublicKeyParameters = this.pubKey;
-        return mLDSAEngine.verifyInternal(bArr, length, sHAKEDigestFinishPreHash, mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.t1);
+        return mLDSAEngine.verifyInternal(bArr, length, sHAKEDigestFinishPreHash, mLDSAPublicKeyParameters.rho, mLDSAPublicKeyParameters.f81674t1);
     }
 
     private void initDigest(MLDSAParameters mLDSAParameters) {
@@ -126,7 +126,7 @@ public class HashMLDSASigner implements Signer {
         try {
             this.digestOIDEncoding = DigestUtils.getDigestOid(digestCreateDigest.getAlgorithmName()).getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("oid encoding failed: ")));
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("oid encoding failed: ")));
         }
     }
 }

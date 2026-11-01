@@ -1,25 +1,25 @@
 package com.umeng.commonsdk.statistics.proto;
 
 import com.google.android.material.motion.MotionUtils;
-import com.umeng.analytics.pro.am;
-import com.umeng.analytics.pro.as;
-import com.umeng.analytics.pro.av;
-import com.umeng.analytics.pro.bb;
-import com.umeng.analytics.pro.bc;
-import com.umeng.analytics.pro.bh;
-import com.umeng.analytics.pro.bi;
-import com.umeng.analytics.pro.bm;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.bp;
-import com.umeng.analytics.pro.bu;
-import com.umeng.analytics.pro.bv;
-import com.umeng.analytics.pro.bx;
-import com.umeng.analytics.pro.bz;
-import com.umeng.analytics.pro.ca;
-import com.umeng.analytics.pro.cd;
-import com.umeng.analytics.pro.ce;
-import com.umeng.analytics.pro.cf;
-import com.umeng.analytics.pro.cg;
+import com.umeng.analytics.pro.AbstractC0690bu;
+import com.umeng.analytics.pro.AbstractC0701ce;
+import com.umeng.analytics.pro.AbstractC0702cf;
+import com.umeng.analytics.pro.C0655am;
+import com.umeng.analytics.pro.C0661as;
+import com.umeng.analytics.pro.C0671bb;
+import com.umeng.analytics.pro.C0677bh;
+import com.umeng.analytics.pro.C0678bi;
+import com.umeng.analytics.pro.C0682bm;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0685bp;
+import com.umeng.analytics.pro.C0691bv;
+import com.umeng.analytics.pro.C0693bx;
+import com.umeng.analytics.pro.C0695bz;
+import com.umeng.analytics.pro.C0697ca;
+import com.umeng.analytics.pro.C0703cg;
+import com.umeng.analytics.pro.InterfaceC0664av;
+import com.umeng.analytics.pro.InterfaceC0672bc;
+import com.umeng.analytics.pro.InterfaceC0700cd;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -29,55 +29,63 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-import l.C18307;
-import l.C20195;
+import p067l.C19768;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
-public class Response implements av, Serializable, Cloneable {
+public class Response implements InterfaceC0664av, Serializable, Cloneable {
     public static final int __RESP_CODE_ISSET_ID = 0;
     public static final Map metaDataMap;
     public static final Map schemes;
     public static final long serialVersionUID = -4549277923241195391L;
     public byte __isset_bitfield;
-    public com.umeng.commonsdk.statistics.proto.d imprint;
+    public C0827d imprint;
     public String msg;
-    public e[] optionals;
+    public EnumC0823e[] optionals;
     public int resp_code;
-    public static final bz STRUCT_DESC = new bz("Response");
-    public static final bp RESP_CODE_FIELD_DESC = new bp("resp_code", (byte) 8, 1);
-    public static final bp MSG_FIELD_DESC = new bp("msg", (byte) 11, 2);
-    public static final bp IMPRINT_FIELD_DESC = new bp(am.X, (byte) 12, 3);
+    public static final C0695bz STRUCT_DESC = new C0695bz("Response");
+    public static final C0685bp RESP_CODE_FIELD_DESC = new C0685bp("resp_code", (byte) 8, 1);
+    public static final C0685bp MSG_FIELD_DESC = new C0685bp("msg", (byte) 11, 2);
+    public static final C0685bp IMPRINT_FIELD_DESC = new C0685bp(C0655am.f2269X, (byte) 12, 3);
 
     static {
         HashMap map = new HashMap();
         schemes = map;
-        map.put(ce.class, new b());
-        map.put(cf.class, new d());
-        EnumMap enumMap = new EnumMap(e.class);
-        enumMap.put(e.RESP_CODE, new bh("resp_code", (byte) 1, new bi((byte) 8)));
-        enumMap.put(e.MSG, new bh("msg", (byte) 2, new bi((byte) 11)));
-        enumMap.put(e.IMPRINT, new bh(am.X, (byte) 2, new bm((byte) 12, com.umeng.commonsdk.statistics.proto.d.class)));
-        Map mapUnmodifiableMap = C20195.unmodifiableMap(enumMap);
+        map.put(AbstractC0701ce.class, new C0820b());
+        map.put(AbstractC0702cf.class, new C0822d());
+        EnumMap enumMap = new EnumMap(EnumC0823e.class);
+        enumMap.put(EnumC0823e.RESP_CODE, new C0677bh("resp_code", (byte) 1, new C0678bi((byte) 8)));
+        enumMap.put(EnumC0823e.MSG, new C0677bh("msg", (byte) 2, new C0678bi((byte) 11)));
+        enumMap.put(EnumC0823e.IMPRINT, new C0677bh(C0655am.f2269X, (byte) 2, new C0682bm((byte) 12, C0827d.class)));
+        Map mapUnmodifiableMap = C21562.unmodifiableMap(enumMap);
         metaDataMap = mapUnmodifiableMap;
-        bh.a(Response.class, mapUnmodifiableMap);
+        C0677bh.m2351a(Response.class, mapUnmodifiableMap);
     }
 
-    public enum e implements bc {
+    /* JADX INFO: renamed from: com.umeng.commonsdk.statistics.proto.Response$e */
+    public enum EnumC0823e implements InterfaceC0672bc {
         RESP_CODE(1, "resp_code"),
         MSG(2, "msg"),
-        IMPRINT(3, am.X);
+        IMPRINT(3, C0655am.f2269X);
 
-        public static final Map d = new HashMap();
-        public final short e;
-        public final String f;
+
+        /* JADX INFO: renamed from: d */
+        public static final Map f3460d = new HashMap();
+
+        /* JADX INFO: renamed from: e */
+        public final short f3462e;
+
+        /* JADX INFO: renamed from: f */
+        public final String f3463f;
 
         static {
-            for (e eVar : EnumSet.allOf(e.class)) {
-                d.put(eVar.b(), eVar);
+            for (EnumC0823e enumC0823e : EnumSet.allOf(EnumC0823e.class)) {
+                f3460d.put(enumC0823e.mo2228b(), enumC0823e);
             }
         }
 
-        public static e a(int i) {
+        /* JADX INFO: renamed from: a */
+        public static EnumC0823e m3113a(int i) {
             if (i == 1) {
                 return RESP_CODE;
             }
@@ -90,37 +98,41 @@ public class Response implements av, Serializable, Cloneable {
             return IMPRINT;
         }
 
-        public static e b(int i) {
-            e eVarA = a(i);
-            if (eVarA != null) {
-                return eVarA;
+        /* JADX INFO: renamed from: b */
+        public static EnumC0823e m3115b(int i) {
+            EnumC0823e enumC0823eM3113a = m3113a(i);
+            if (enumC0823eM3113a != null) {
+                return enumC0823eM3113a;
             }
-            throw new IllegalArgumentException(C18307.m42645(i, "Field ", " doesn't exist!"));
+            throw new IllegalArgumentException(C19768.m44906(i, "Field ", " doesn't exist!"));
         }
 
-        public static e a(String str) {
-            return (e) d.get(str);
+        /* JADX INFO: renamed from: a */
+        public static EnumC0823e m3114a(String str) {
+            return (EnumC0823e) f3460d.get(str);
         }
 
-        e(short s, String str) {
-            this.e = s;
-            this.f = str;
+        EnumC0823e(short s, String str) {
+            this.f3462e = s;
+            this.f3463f = str;
         }
 
-        @Override // com.umeng.analytics.pro.bc
-        public short a() {
-            return this.e;
+        @Override // com.umeng.analytics.pro.InterfaceC0672bc
+        /* JADX INFO: renamed from: a */
+        public short mo2227a() {
+            return this.f3462e;
         }
 
-        @Override // com.umeng.analytics.pro.bc
-        public String b() {
-            return this.f;
+        @Override // com.umeng.analytics.pro.InterfaceC0672bc
+        /* JADX INFO: renamed from: b */
+        public String mo2228b() {
+            return this.f3463f;
         }
     }
 
     public Response() {
         this.__isset_bitfield = (byte) 0;
-        this.optionals = new e[]{e.MSG, e.IMPRINT};
+        this.optionals = new EnumC0823e[]{EnumC0823e.MSG, EnumC0823e.IMPRINT};
     }
 
     public Response(int i) {
@@ -131,23 +143,23 @@ public class Response implements av, Serializable, Cloneable {
 
     public Response(Response response) {
         this.__isset_bitfield = (byte) 0;
-        this.optionals = new e[]{e.MSG, e.IMPRINT};
+        this.optionals = new EnumC0823e[]{EnumC0823e.MSG, EnumC0823e.IMPRINT};
         this.__isset_bitfield = response.__isset_bitfield;
         this.resp_code = response.resp_code;
         if (response.isSetMsg()) {
             this.msg = response.msg;
         }
         if (response.isSetImprint()) {
-            this.imprint = new com.umeng.commonsdk.statistics.proto.d(response.imprint);
+            this.imprint = new C0827d(response.imprint);
         }
     }
 
-    @Override // com.umeng.analytics.pro.av
+    @Override // com.umeng.analytics.pro.InterfaceC0664av
     public Response deepCopy() {
         return new Response(this);
     }
 
-    @Override // com.umeng.analytics.pro.av
+    @Override // com.umeng.analytics.pro.InterfaceC0664av
     public void clear() {
         setResp_codeIsSet(false);
         this.resp_code = 0;
@@ -166,15 +178,15 @@ public class Response implements av, Serializable, Cloneable {
     }
 
     public void unsetResp_code() {
-        this.__isset_bitfield = as.b(this.__isset_bitfield, 0);
+        this.__isset_bitfield = C0661as.m2264b(this.__isset_bitfield, 0);
     }
 
     public boolean isSetResp_code() {
-        return as.a(this.__isset_bitfield, 0);
+        return C0661as.m2260a(this.__isset_bitfield, 0);
     }
 
     public void setResp_codeIsSet(boolean z) {
-        this.__isset_bitfield = as.a(this.__isset_bitfield, 0, z);
+        this.__isset_bitfield = C0661as.m2252a(this.__isset_bitfield, 0, z);
     }
 
     public String getMsg() {
@@ -201,12 +213,12 @@ public class Response implements av, Serializable, Cloneable {
         this.msg = null;
     }
 
-    public com.umeng.commonsdk.statistics.proto.d getImprint() {
+    public C0827d getImprint() {
         return this.imprint;
     }
 
-    public Response setImprint(com.umeng.commonsdk.statistics.proto.d dVar) {
-        this.imprint = dVar;
+    public Response setImprint(C0827d c0827d) {
+        this.imprint = c0827d;
         return this;
     }
 
@@ -225,19 +237,19 @@ public class Response implements av, Serializable, Cloneable {
         this.imprint = null;
     }
 
-    @Override // com.umeng.analytics.pro.av
-    public e fieldForId(int i) {
-        return e.a(i);
+    @Override // com.umeng.analytics.pro.InterfaceC0664av
+    public EnumC0823e fieldForId(int i) {
+        return EnumC0823e.m3113a(i);
     }
 
-    @Override // com.umeng.analytics.pro.av
-    public void read(bu buVar) {
-        ((cd) schemes.get(buVar.D())).b().b(buVar, this);
+    @Override // com.umeng.analytics.pro.InterfaceC0664av
+    public void read(AbstractC0690bu abstractC0690bu) {
+        ((InterfaceC0700cd) schemes.get(abstractC0690bu.mo2427D())).mo2220b().mo2218b(abstractC0690bu, this);
     }
 
-    @Override // com.umeng.analytics.pro.av
-    public void write(bu buVar) {
-        ((cd) schemes.get(buVar.D())).b().a(buVar, this);
+    @Override // com.umeng.analytics.pro.InterfaceC0664av
+    public void write(AbstractC0690bu abstractC0690bu) {
+        ((InterfaceC0700cd) schemes.get(abstractC0690bu.mo2427D())).mo2220b().mo2216a(abstractC0690bu, this);
     }
 
     public String toString() {
@@ -256,142 +268,147 @@ public class Response implements av, Serializable, Cloneable {
         if (isSetImprint()) {
             sb.append(", ");
             sb.append("imprint:");
-            com.umeng.commonsdk.statistics.proto.d dVar = this.imprint;
-            if (dVar == null) {
+            C0827d c0827d = this.imprint;
+            if (c0827d == null) {
                 sb.append("null");
             } else {
-                sb.append(dVar);
+                sb.append(c0827d);
             }
         }
         sb.append(MotionUtils.EASING_TYPE_FORMAT_END);
         return sb.toString();
     }
 
-    public void validate() throws bv {
-        com.umeng.commonsdk.statistics.proto.d dVar = this.imprint;
-        if (dVar != null) {
-            dVar.l();
+    public void validate() throws C0691bv {
+        C0827d c0827d = this.imprint;
+        if (c0827d != null) {
+            c0827d.m3251l();
         }
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
         try {
-            write(new bo(new cg(objectOutputStream)));
-        } catch (bb e2) {
-            throw new IOException(e2.getMessage());
+            write(new C0684bo(new C0703cg(objectOutputStream)));
+        } catch (C0671bb e) {
+            throw new IOException(e.getMessage());
         }
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException {
         try {
             this.__isset_bitfield = (byte) 0;
-            read(new bo(new cg(objectInputStream)));
-        } catch (bb e2) {
-            throw new IOException(e2.getMessage());
+            read(new C0684bo(new C0703cg(objectInputStream)));
+        } catch (C0671bb e) {
+            throw new IOException(e.getMessage());
         }
     }
 
-    public class b implements cd {
-        public b() {
+    /* JADX INFO: renamed from: com.umeng.commonsdk.statistics.proto.Response$b */
+    public class C0820b implements InterfaceC0700cd {
+        public C0820b() {
         }
 
-        @Override // com.umeng.analytics.pro.cd
+        @Override // com.umeng.analytics.pro.InterfaceC0700cd
         /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
-        public a b() {
-            return new a();
+        public C0819a mo2220b() {
+            return new C0819a();
         }
     }
 
-    public class a extends ce {
-        public a() {
+    /* JADX INFO: renamed from: com.umeng.commonsdk.statistics.proto.Response$a */
+    public class C0819a extends AbstractC0701ce {
+        public C0819a() {
         }
 
-        @Override // com.umeng.analytics.pro.cc
+        @Override // com.umeng.analytics.pro.InterfaceC0699cc
         /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
-        public void b(bu buVar, Response response) throws bv {
-            buVar.j();
+        public void mo2218b(AbstractC0690bu abstractC0690bu, Response response) throws C0691bv {
+            abstractC0690bu.mo2385j();
             while (true) {
-                bp bpVarL = buVar.l();
-                byte b = bpVarL.b;
+                C0685bp c0685bpMo2387l = abstractC0690bu.mo2387l();
+                byte b = c0685bpMo2387l.f2531b;
                 if (b == 0) {
                     break;
                 }
-                short s = bpVarL.c;
+                short s = c0685bpMo2387l.f2532c;
                 if (s != 1) {
                     if (s != 2) {
                         if (s != 3) {
-                            bx.a(buVar, b);
+                            C0693bx.m2431a(abstractC0690bu, b);
                         } else if (b == 12) {
-                            com.umeng.commonsdk.statistics.proto.d dVar = new com.umeng.commonsdk.statistics.proto.d();
-                            response.imprint = dVar;
-                            dVar.read(buVar);
+                            C0827d c0827d = new C0827d();
+                            response.imprint = c0827d;
+                            c0827d.read(abstractC0690bu);
                             response.setImprintIsSet(true);
                         } else {
-                            bx.a(buVar, b);
+                            C0693bx.m2431a(abstractC0690bu, b);
                         }
                     } else if (b == 11) {
-                        response.msg = buVar.z();
+                        response.msg = abstractC0690bu.mo2401z();
                         response.setMsgIsSet(true);
                     } else {
-                        bx.a(buVar, b);
+                        C0693bx.m2431a(abstractC0690bu, b);
                     }
                 } else if (b == 8) {
-                    response.resp_code = buVar.w();
+                    response.resp_code = abstractC0690bu.mo2398w();
                     response.setResp_codeIsSet(true);
                 } else {
-                    bx.a(buVar, b);
+                    C0693bx.m2431a(abstractC0690bu, b);
                 }
-                buVar.m();
+                abstractC0690bu.mo2388m();
             }
-            buVar.k();
+            abstractC0690bu.mo2386k();
             if (!response.isSetResp_code()) {
-                throw new bv("Required field 'resp_code' was not found in serialized data! Struct: " + toString());
+                throw new C0691bv("Required field 'resp_code' was not found in serialized data! Struct: " + toString());
             }
             response.validate();
         }
 
-        @Override // com.umeng.analytics.pro.cc
+        @Override // com.umeng.analytics.pro.InterfaceC0699cc
         /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
-        public void a(bu buVar, Response response) throws bv {
+        public void mo2216a(AbstractC0690bu abstractC0690bu, Response response) throws C0691bv {
             response.validate();
-            buVar.a(Response.STRUCT_DESC);
-            buVar.a(Response.RESP_CODE_FIELD_DESC);
-            buVar.a(response.resp_code);
-            buVar.c();
+            abstractC0690bu.mo2369a(Response.STRUCT_DESC);
+            abstractC0690bu.mo2364a(Response.RESP_CODE_FIELD_DESC);
+            abstractC0690bu.mo2362a(response.resp_code);
+            abstractC0690bu.mo2376c();
             if (response.msg != null && response.isSetMsg()) {
-                buVar.a(Response.MSG_FIELD_DESC);
-                buVar.a(response.msg);
-                buVar.c();
+                abstractC0690bu.mo2364a(Response.MSG_FIELD_DESC);
+                abstractC0690bu.mo2370a(response.msg);
+                abstractC0690bu.mo2376c();
             }
             if (response.imprint != null && response.isSetImprint()) {
-                buVar.a(Response.IMPRINT_FIELD_DESC);
-                response.imprint.write(buVar);
-                buVar.c();
+                abstractC0690bu.mo2364a(Response.IMPRINT_FIELD_DESC);
+                response.imprint.write(abstractC0690bu);
+                abstractC0690bu.mo2376c();
             }
-            buVar.d();
-            buVar.b();
+            abstractC0690bu.mo2378d();
+            abstractC0690bu.mo2375b();
         }
     }
 
-    public class d implements cd {
-        public d() {
+    /* JADX INFO: renamed from: com.umeng.commonsdk.statistics.proto.Response$d */
+    public class C0822d implements InterfaceC0700cd {
+        public C0822d() {
         }
 
-        @Override // com.umeng.analytics.pro.cd
+        @Override // com.umeng.analytics.pro.InterfaceC0700cd
         /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
-        public c b() {
-            return new c();
+        public C0821c mo2220b() {
+            return new C0821c();
         }
     }
 
-    public class c extends cf {
-        public c() {
+    /* JADX INFO: renamed from: com.umeng.commonsdk.statistics.proto.Response$c */
+    public class C0821c extends AbstractC0702cf {
+        public C0821c() {
         }
 
-        @Override // com.umeng.analytics.pro.cc
-        public void a(bu buVar, Response response) {
-            ca caVar = (ca) buVar;
-            caVar.a(response.resp_code);
+        @Override // com.umeng.analytics.pro.InterfaceC0699cc
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void mo2216a(AbstractC0690bu abstractC0690bu, Response response) {
+            C0697ca c0697ca = (C0697ca) abstractC0690bu;
+            c0697ca.mo2362a(response.resp_code);
             BitSet bitSet = new BitSet();
             if (response.isSetMsg()) {
                 bitSet.set(0);
@@ -399,29 +416,30 @@ public class Response implements av, Serializable, Cloneable {
             if (response.isSetImprint()) {
                 bitSet.set(1);
             }
-            caVar.a(bitSet, 2);
+            c0697ca.m2435a(bitSet, 2);
             if (response.isSetMsg()) {
-                caVar.a(response.msg);
+                c0697ca.mo2370a(response.msg);
             }
             if (response.isSetImprint()) {
-                response.imprint.write(caVar);
+                response.imprint.write(c0697ca);
             }
         }
 
-        @Override // com.umeng.analytics.pro.cc
-        public void b(bu buVar, Response response) {
-            ca caVar = (ca) buVar;
-            response.resp_code = caVar.w();
+        @Override // com.umeng.analytics.pro.InterfaceC0699cc
+        /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+        public void mo2218b(AbstractC0690bu abstractC0690bu, Response response) {
+            C0697ca c0697ca = (C0697ca) abstractC0690bu;
+            response.resp_code = c0697ca.mo2398w();
             response.setResp_codeIsSet(true);
-            BitSet bitSetB = caVar.b(2);
-            if (bitSetB.get(0)) {
-                response.msg = caVar.z();
+            BitSet bitSetM2436b = c0697ca.m2436b(2);
+            if (bitSetM2436b.get(0)) {
+                response.msg = c0697ca.mo2401z();
                 response.setMsgIsSet(true);
             }
-            if (bitSetB.get(1)) {
-                com.umeng.commonsdk.statistics.proto.d dVar = new com.umeng.commonsdk.statistics.proto.d();
-                response.imprint = dVar;
-                dVar.read(caVar);
+            if (bitSetM2436b.get(1)) {
+                C0827d c0827d = new C0827d();
+                response.imprint = c0827d;
+                c0827d.read(c0697ca);
                 response.setImprintIsSet(true);
             }
         }

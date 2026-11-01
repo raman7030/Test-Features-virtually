@@ -1,11 +1,11 @@
 package org.bouncycastle.jcajce.provider.asymmetric;
 
-import l.C18473;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.pqc.jcajce.provider.sphincsplus.SPHINCSPlusKeyFactorySpi;
+import p067l.C19925;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SPHINCSPlus {
@@ -43,9 +43,9 @@ public class SPHINCSPlus {
             }
             ASN1ObjectIdentifier[] aSN1ObjectIdentifierArr = {BCObjectIdentifiers.sphincsPlus_sha2_128s, BCObjectIdentifiers.sphincsPlus_sha2_128f, BCObjectIdentifiers.sphincsPlus_shake_128s, BCObjectIdentifiers.sphincsPlus_shake_128f, BCObjectIdentifiers.sphincsPlus_sha2_192s, BCObjectIdentifiers.sphincsPlus_sha2_192f, BCObjectIdentifiers.sphincsPlus_shake_192s, BCObjectIdentifiers.sphincsPlus_shake_192f, BCObjectIdentifiers.sphincsPlus_sha2_256s, BCObjectIdentifiers.sphincsPlus_sha2_256f, BCObjectIdentifiers.sphincsPlus_shake_256s, BCObjectIdentifiers.sphincsPlus_shake_256f};
             for (int i2 = 0; i2 != 12; i2++) {
-                StringBuilder sbM42951 = C18473.m42951("SPHINCSPLUS", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr[i2], configurableProvider);
-                sbM42951.append(aSN1ObjectIdentifierArr[i2]);
-                configurableProvider.addAlgorithm(sbM42951.toString(), "SPHINCSPLUS");
+                StringBuilder sbM45227 = C19925.m45227("SPHINCSPLUS", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr[i2], configurableProvider);
+                sbM45227.append(aSN1ObjectIdentifierArr[i2]);
+                configurableProvider.addAlgorithm(sbM45227.toString(), "SPHINCSPLUS");
             }
             configurableProvider.addAlgorithm("Alg.Alias.Signature.SPHINCS+", "SPHINCSPLUS");
             SPHINCSPlusKeyFactorySpi sPHINCSPlusKeyFactorySpi = new SPHINCSPlusKeyFactorySpi();

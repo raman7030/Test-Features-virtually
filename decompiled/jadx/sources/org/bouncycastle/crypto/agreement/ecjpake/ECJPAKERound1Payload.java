@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.agreement.ecjpake;
 
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECJPAKERound1Payload {

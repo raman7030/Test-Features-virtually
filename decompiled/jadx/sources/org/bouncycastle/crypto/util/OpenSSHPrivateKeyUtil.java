@@ -1,8 +1,6 @@
 package org.bouncycastle.crypto.util;
 
 import java.math.BigInteger;
-import l.C19370;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -11,10 +9,10 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.nist.NISTNamedCurves;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
 import org.bouncycastle.asn1.sec.ECPrivateKey;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DSAParameters;
@@ -28,6 +26,8 @@ import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.Strings;
+import p067l.C10927;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class OpenSSHPrivateKeyUtil {
@@ -96,7 +96,7 @@ public class OpenSSHPrivateKeyUtil {
                 }
                 X9ECParameters byOID = NISTNamedCurves.getByOID(byName);
                 if (byOID == null) {
-                    throw new IllegalStateException(C9005.m23242("Curve not found for: ", byName));
+                    throw new IllegalStateException(C10927.m25186("Curve not found for: ", byName));
                 }
                 sSHBuffer2.readBlock();
                 rSAPrivateCrtKeyParameters = new ECPrivateKeyParameters(new BigInteger(1, sSHBuffer2.readBlock()), new ECNamedDomainParameters(byName, byOID));
@@ -144,7 +144,7 @@ public class OpenSSHPrivateKeyUtil {
             try {
                 return new DERSequence(aSN1EncodableVector).getEncoded();
             } catch (Exception e) {
-                throw new IllegalStateException(C19370.m44629(e, new StringBuilder("unable to encode DSAPrivateKeyParameters ")));
+                throw new IllegalStateException(C20778.m46923(e, new StringBuilder("unable to encode DSAPrivateKeyParameters ")));
             }
         }
         if (!(asymmetricKeyParameter instanceof Ed25519PrivateKeyParameters)) {

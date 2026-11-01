@@ -7,72 +7,87 @@ import java.util.ArrayList;
 
 /* JADX INFO: loaded from: classes.dex */
 public class FieldManager {
-    public static final String a = "cfgfd";
-    public static b b = b.b();
-    public static boolean c = false;
-    public static Object d = new Object();
+
+    /* JADX INFO: renamed from: a */
+    public static final String f3052a = "cfgfd";
+
+    /* JADX INFO: renamed from: b */
+    public static C0757b f3053b = C0757b.m2742b();
+
+    /* JADX INFO: renamed from: c */
+    public static boolean f3054c = false;
+
+    /* JADX INFO: renamed from: d */
+    public static Object f3055d = new Object();
 
     public FieldManager() {
     }
 
-    public class a {
-        public static final FieldManager a = new FieldManager();
+    /* JADX INFO: renamed from: com.umeng.commonsdk.config.FieldManager$a */
+    public class C0755a {
+
+        /* JADX INFO: renamed from: a */
+        public static final FieldManager f3056a = new FieldManager();
     }
 
-    public static FieldManager a() {
-        return a.a;
+    /* JADX INFO: renamed from: a */
+    public static FieldManager m2730a() {
+        return C0755a.f3056a;
     }
 
     public static boolean allow(String str) {
-        synchronized (d) {
-            if (!c) {
+        synchronized (f3055d) {
+            if (!f3054c) {
                 return false;
             }
-            return b.a(str);
+            return C0757b.m2741a(str);
         }
     }
 
-    public static boolean b() {
+    /* JADX INFO: renamed from: b */
+    public static boolean m2731b() {
         boolean z;
-        synchronized (d) {
-            z = c;
+        synchronized (f3055d) {
+            z = f3054c;
         }
         return z;
     }
 
-    public void a(Context context) {
+    /* JADX INFO: renamed from: a */
+    public void m2732a(Context context) {
         String str;
         String str2 = "1001@3749699455,2130669566,262139,1983";
-        String[] strArr = {d.a.class.getName(), d.b.class.getName(), d.c.class.getName(), d.EnumC0038d.class.getName()};
+        String[] strArr = {C0759d.a.class.getName(), C0759d.b.class.getName(), C0759d.c.class.getName(), C0759d.d.class.getName()};
         String strImprintProperty = UMEnvelopeBuild.imprintProperty(context, "cfgfd", "1001@3749699455,2130669566,262139,1983");
-        synchronized (d) {
-            Pair pairA = a(strImprintProperty);
-            if (((Long) pairA.first).longValue() > 1000 && (str = (String) pairA.second) != null && str.length() > 0) {
+        synchronized (f3055d) {
+            Pair pairM2729a = m2729a(strImprintProperty);
+            if (((Long) pairM2729a.first).longValue() > 1000 && (str = (String) pairM2729a.second) != null && str.length() > 0) {
                 str2 = str;
             }
             String[] strArrSplit = str2.split(",");
             int length = strArrSplit.length;
             if (length > 0) {
                 ArrayList arrayList = new ArrayList();
-                g gVar = new g();
+                C0762g c0762g = new C0762g();
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(gVar);
-                    ((e) arrayList.get(i)).a(strArrSplit[i], b, d.b(strArr[i]));
+                    arrayList.add(c0762g);
+                    ((InterfaceC0760e) arrayList.get(i)).mo2746a(strArrSplit[i], f3053b, C0759d.m2748b(strArr[i]));
                 }
             }
-            c = true;
+            f3054c = true;
         }
     }
 
-    public void a(Context context, String str) {
+    /* JADX INFO: renamed from: a */
+    public void m2733a(Context context, String str) {
         String str2;
         String str3 = "1001@3749699455,2130669566,262139,1983";
-        String[] strArr = {d.a.class.getName(), d.b.class.getName(), d.c.class.getName(), d.EnumC0038d.class.getName()};
-        synchronized (d) {
-            b.a();
+        String[] strArr = {C0759d.a.class.getName(), C0759d.b.class.getName(), C0759d.c.class.getName(), C0759d.d.class.getName()};
+        synchronized (f3055d) {
+            f3053b.m2743a();
             if (str != null) {
-                Pair pairA = a(str);
-                if (((Long) pairA.first).longValue() > 1000 && (str2 = (String) pairA.second) != null && str2.length() > 0) {
+                Pair pairM2729a = m2729a(str);
+                if (((Long) pairM2729a.first).longValue() > 1000 && (str2 = (String) pairM2729a.second) != null && str2.length() > 0) {
                     str3 = str2;
                 }
             }
@@ -80,17 +95,18 @@ public class FieldManager {
             int length = strArrSplit.length;
             if (length > 0) {
                 ArrayList arrayList = new ArrayList();
-                g gVar = new g();
+                C0762g c0762g = new C0762g();
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(gVar);
-                    ((e) arrayList.get(i)).a(strArrSplit[i], b, d.b(strArr[i]));
+                    arrayList.add(c0762g);
+                    ((InterfaceC0760e) arrayList.get(i)).mo2746a(strArrSplit[i], f3053b, C0759d.m2748b(strArr[i]));
                 }
             }
-            c = true;
+            f3054c = true;
         }
     }
 
-    public static Pair a(String str) {
+    /* JADX INFO: renamed from: a */
+    public static Pair m2729a(String str) {
         Pair pair = new Pair(-1L, null);
         if (str != null && str.length() >= 2) {
             String[] strArrSplit = str.split("@");

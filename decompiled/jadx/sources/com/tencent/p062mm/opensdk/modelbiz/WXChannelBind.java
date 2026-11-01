@@ -1,0 +1,64 @@
+package com.tencent.p062mm.opensdk.modelbiz;
+
+import android.os.Bundle;
+import com.tencent.p062mm.opensdk.modelbase.BaseReq;
+import com.tencent.p062mm.opensdk.modelbase.BaseResp;
+
+/* JADX INFO: loaded from: classes.dex */
+public class WXChannelBind {
+
+    public class Req extends BaseReq {
+        public static final String TAG = "MicroMsg.SDK.WXChannelBind.Req";
+
+        @Override // com.tencent.p062mm.opensdk.modelbase.BaseReq
+        public boolean checkArgs() {
+            return true;
+        }
+
+        @Override // com.tencent.p062mm.opensdk.modelbase.BaseReq
+        public int getType() {
+            return 42;
+        }
+    }
+
+    public class Resp extends BaseResp {
+        public static final String KEY_AUTH_BUFFER = "_wxapi_finder_authBuffer";
+        public static final String KEY_EXT_MSG = "_wxapi_finder_extMsg";
+        public static final String TAG = "MicroMsg.SDK.WXChannelBind.Resp";
+        public byte[] authBuffer;
+        public String extMsg;
+
+        public Resp() {
+        }
+
+        public Resp(Bundle bundle) {
+            if (bundle != null) {
+                fromBundle(bundle);
+            }
+        }
+
+        @Override // com.tencent.p062mm.opensdk.modelbase.BaseResp
+        public boolean checkArgs() {
+            return true;
+        }
+
+        @Override // com.tencent.p062mm.opensdk.modelbase.BaseResp
+        public void fromBundle(Bundle bundle) {
+            super.fromBundle(bundle);
+            this.authBuffer = bundle.getByteArray(KEY_AUTH_BUFFER);
+            this.extMsg = bundle.getString(KEY_EXT_MSG);
+        }
+
+        @Override // com.tencent.p062mm.opensdk.modelbase.BaseResp
+        public int getType() {
+            return 42;
+        }
+
+        @Override // com.tencent.p062mm.opensdk.modelbase.BaseResp
+        public void toBundle(Bundle bundle) {
+            super.toBundle(bundle);
+            bundle.putByteArray(KEY_AUTH_BUFFER, this.authBuffer);
+            bundle.putString(KEY_EXT_MSG, this.extMsg);
+        }
+    }
+}

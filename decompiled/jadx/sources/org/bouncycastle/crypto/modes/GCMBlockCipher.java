@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.modes;
 
-import l.C19370;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DataLengthException;
@@ -16,13 +15,20 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GCMBlockCipher implements GCMModeCipher {
     public static final int BLOCK_SIZE = 16;
-    public byte[] H;
-    public byte[] J0;
-    public byte[] S;
+
+    /* JADX INFO: renamed from: H */
+    public byte[] f81181H;
+
+    /* JADX INFO: renamed from: J0 */
+    public byte[] f81182J0;
+
+    /* JADX INFO: renamed from: S */
+    public byte[] f81183S;
     public byte[] S_at;
     public byte[] S_atPre;
     public byte[] atBlock;
@@ -77,7 +83,7 @@ public class GCMBlockCipher implements GCMModeCipher {
         }
         byte[] bArr3 = new byte[16];
         getNextCTRBlock(bArr3);
-        gHASHBlock(this.S, bArr, i);
+        gHASHBlock(this.f81183S, bArr, i);
         GCMUtil.xor(bArr3, 0, bArr, i, bArr2, i2);
         this.totalLength += 16;
     }
@@ -92,7 +98,7 @@ public class GCMBlockCipher implements GCMModeCipher {
         byte[] bArr3 = new byte[16];
         getNextCTRBlock(bArr3);
         GCMUtil.xor(bArr3, bArr, i);
-        gHASHBlock(this.S, bArr3);
+        gHASHBlock(this.f81183S, bArr3);
         System.arraycopy(bArr3, 0, bArr2, i2, 16);
         this.totalLength += 16;
     }
@@ -146,7 +152,7 @@ public class GCMBlockCipher implements GCMModeCipher {
             this.atLengthPre += (long) this.atBlockPos;
         }
         if (this.atLengthPre > 0) {
-            System.arraycopy(this.S_atPre, 0, this.S, 0, 16);
+            System.arraycopy(this.S_atPre, 0, this.f81183S, 0, 16);
         }
     }
 
@@ -163,9 +169,9 @@ public class GCMBlockCipher implements GCMModeCipher {
         getNextCTRBlock(bArr3);
         if (this.forEncryption) {
             GCMUtil.xor(bArr, i, bArr3, 0, i2);
-            gHASHPartial(this.S, bArr, i, i2);
+            gHASHPartial(this.f81183S, bArr, i, i2);
         } else {
-            gHASHPartial(this.S, bArr, i, i2);
+            gHASHPartial(this.f81183S, bArr, i, i2);
             GCMUtil.xor(bArr, i, bArr3, 0, i2);
         }
         System.arraycopy(bArr, i, bArr2, i3, i2);
@@ -174,14 +180,14 @@ public class GCMBlockCipher implements GCMModeCipher {
 
     private void reset(boolean z) {
         this.cipher.reset();
-        this.S = new byte[16];
+        this.f81183S = new byte[16];
         this.S_at = new byte[16];
         this.S_atPre = new byte[16];
         this.atBlock = new byte[16];
         this.atBlockPos = 0;
         this.atLength = 0L;
         this.atLengthPre = 0L;
-        this.counter = Arrays.clone(this.J0);
+        this.counter = Arrays.clone(this.f81182J0);
         this.blocksRemaining = -2;
         this.bufOff = 0;
         this.totalLength = 0L;
@@ -240,19 +246,19 @@ public class GCMBlockCipher implements GCMModeCipher {
             if (this.exp == null) {
                 BasicGCMExponentiator basicGCMExponentiator = new BasicGCMExponentiator();
                 this.exp = basicGCMExponentiator;
-                basicGCMExponentiator.init(this.H);
+                basicGCMExponentiator.init(this.f81181H);
             }
             this.exp.exponentiateX(j3, bArr2);
             GCMUtil.multiply(this.S_at, bArr2);
-            GCMUtil.xor(this.S, this.S_at);
+            GCMUtil.xor(this.f81183S, this.S_at);
         }
         byte[] bArr3 = new byte[16];
         Pack.longToBigEndian(this.atLength * 8, bArr3, 0);
         Pack.longToBigEndian(this.totalLength * 8, bArr3, 8);
-        gHASHBlock(this.S, bArr3);
+        gHASHBlock(this.f81183S, bArr3);
         byte[] bArr4 = new byte[16];
-        this.cipher.processBlock(this.J0, 0, bArr4, 0);
-        GCMUtil.xor(bArr4, this.S);
+        this.cipher.processBlock(this.f81182J0, 0, bArr4, 0);
+        GCMUtil.xor(bArr4, this.f81183S);
         int i5 = this.macSize;
         byte[] bArr5 = new byte[i5];
         this.macBlock = bArr5;
@@ -485,7 +491,7 @@ public class GCMBlockCipher implements GCMModeCipher {
             this.initialAssociatedText = aEADParameters.getAssociatedText();
             int macSize = aEADParameters.getMacSize();
             if (macSize < 32 || macSize > 128 || macSize % 8 != 0) {
-                throw new IllegalArgumentException(C19370.m44628(macSize, "Invalid value for MAC size: "));
+                throw new IllegalArgumentException(C20778.m46922(macSize, "Invalid value for MAC size: "));
             }
             this.macSize = macSize / 8;
             key = aEADParameters.getKey();
@@ -519,33 +525,33 @@ public class GCMBlockCipher implements GCMModeCipher {
         if (key != null) {
             this.cipher.init(true, key);
             byte[] bArr3 = new byte[16];
-            this.H = bArr3;
+            this.f81181H = bArr3;
             this.cipher.processBlock(bArr3, 0, bArr3, 0);
-            this.multiplier.init(this.H);
+            this.multiplier.init(this.f81181H);
             this.exp = null;
-        } else if (this.H == null) {
+        } else if (this.f81181H == null) {
             throw new IllegalArgumentException("Key must be specified in initial init");
         }
         byte[] bArr4 = new byte[16];
-        this.J0 = bArr4;
+        this.f81182J0 = bArr4;
         byte[] bArr5 = this.nonce;
         if (bArr5.length == 12) {
             System.arraycopy(bArr5, 0, bArr4, 0, bArr5.length);
-            this.J0[15] = 1;
+            this.f81182J0[15] = 1;
         } else {
             gHASH(bArr4, bArr5, bArr5.length);
             byte[] bArr6 = new byte[16];
             Pack.longToBigEndian(((long) this.nonce.length) * 8, bArr6, 8);
-            gHASHBlock(this.J0, bArr6);
+            gHASHBlock(this.f81182J0, bArr6);
         }
-        this.S = new byte[16];
+        this.f81183S = new byte[16];
         this.S_at = new byte[16];
         this.S_atPre = new byte[16];
         this.atBlock = new byte[16];
         this.atBlockPos = 0;
         this.atLength = 0L;
         this.atLengthPre = 0L;
-        this.counter = Arrays.clone(this.J0);
+        this.counter = Arrays.clone(this.f81182J0);
         this.blocksRemaining = -2;
         this.bufOff = 0;
         this.totalLength = 0L;

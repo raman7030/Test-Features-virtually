@@ -6,19 +6,21 @@ import org.bouncycastle.crypto.digests.WhirlpoolDigest;
 public class PolynomialNative extends Polynomial {
     public final int IRREDUCIBLE;
 
-    /* JADX INFO: renamed from: org.bouncycastle.crypto.threshold.PolynomialNative$1, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass1 {
-        public static final /* synthetic */ int[] $SwitchMap$org$bouncycastle$crypto$threshold$ShamirSecretSplitter$Algorithm;
+    /* JADX INFO: renamed from: org.bouncycastle.crypto.threshold.PolynomialNative$1 */
+    public /* synthetic */ class C22091 {
+
+        /* JADX INFO: renamed from: $SwitchMap$org$bouncycastle$crypto$threshold$ShamirSecretSplitter$Algorithm */
+        public static final /* synthetic */ int[] f81323xc314a858;
 
         static {
             int[] iArr = new int[ShamirSecretSplitter.Algorithm.values().length];
-            $SwitchMap$org$bouncycastle$crypto$threshold$ShamirSecretSplitter$Algorithm = iArr;
+            f81323xc314a858 = iArr;
             try {
                 iArr[ShamirSecretSplitter.Algorithm.AES.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                $SwitchMap$org$bouncycastle$crypto$threshold$ShamirSecretSplitter$Algorithm[ShamirSecretSplitter.Algorithm.RSA.ordinal()] = 2;
+                f81323xc314a858[ShamirSecretSplitter.Algorithm.RSA.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -26,7 +28,7 @@ public class PolynomialNative extends Polynomial {
 
     public PolynomialNative(ShamirSecretSplitter.Algorithm algorithm) {
         int i;
-        int i2 = AnonymousClass1.$SwitchMap$org$bouncycastle$crypto$threshold$ShamirSecretSplitter$Algorithm[algorithm.ordinal()];
+        int i2 = C22091.f81323xc314a858[algorithm.ordinal()];
         if (i2 == 1) {
             i = 283;
         } else {

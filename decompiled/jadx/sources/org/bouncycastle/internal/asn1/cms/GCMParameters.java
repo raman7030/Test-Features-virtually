@@ -1,6 +1,5 @@
 package org.bouncycastle.internal.asn1.cms;
 
-import l.C18736;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -9,6 +8,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C20175;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GCMParameters extends ASN1Object {
@@ -16,7 +16,7 @@ public class GCMParameters extends ASN1Object {
     public byte[] nonce;
 
     public GCMParameters(ASN1Sequence aSN1Sequence) {
-        this.nonce = C18736.m43391(aSN1Sequence, 0);
+        this.nonce = C20175.m45658(aSN1Sequence, 0);
         this.icvLen = aSN1Sequence.size() == 2 ? ASN1Integer.getInstance(aSN1Sequence.getObjectAt(1)).intValueExact() : 12;
     }
 

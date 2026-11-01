@@ -1,7 +1,6 @@
 package org.bouncycastle.pqc.crypto.mayo;
 
 import java.security.SecureRandom;
-import l.C19373;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
@@ -12,6 +11,7 @@ import org.bouncycastle.util.Bytes;
 import org.bouncycastle.util.GF16;
 import org.bouncycastle.util.Longs;
 import org.bouncycastle.util.Pack;
+import p067l.C20780;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MayoSigner implements MessageSigner {
@@ -302,10 +302,10 @@ public class MayoSigner implements MessageSigner {
                     int i23 = 0;
                     while (i23 < mVecLimbs) {
                         long j2 = jArr[i14 + i23 + i19];
-                        int iM44633 = C19373.m44633(i9, i20, i12, i22);
-                        jArr2[iM44633] = jArr2[iM44633] ^ (j2 << i11);
+                        int iM46927 = C20780.m46927(i9, i20, i12, i22);
+                        jArr2[iM46927] = jArr2[iM46927] ^ (j2 << i11);
                         if (i11 > 0) {
-                            int i24 = iM44633 + i4;
+                            int i24 = iM46927 + i4;
                             jArr2[i24] = jArr2[i24] ^ (j2 >>> (64 - i11));
                         }
                         i23++;
@@ -327,10 +327,10 @@ public class MayoSigner implements MessageSigner {
                         int i30 = 0;
                         while (i30 < mVecLimbs) {
                             long j3 = jArr[i10 + i30 + i27];
-                            int iM44634 = C19373.m44633(i18, i26, i12, i28);
-                            jArr2[iM44634] = jArr2[iM44634] ^ (j3 << i11);
+                            int iM46928 = C20780.m46927(i18, i26, i12, i28);
+                            jArr2[iM46928] = jArr2[iM46928] ^ (j3 << i11);
                             if (i11 > 0) {
-                                int i31 = iM44634 + i4;
+                                int i31 = iM46928 + i4;
                                 jArr2[i31] = jArr2[i31] ^ (j3 >>> (64 - i11));
                             }
                             i30++;
@@ -539,7 +539,8 @@ public class MayoSigner implements MessageSigner {
         }
     }
 
-    public void ef(byte[] bArr, int i, int i2) {
+    /* JADX INFO: renamed from: ef */
+    public void m55420ef(byte[] bArr, int i, int i2) {
         int i3 = i;
         int i4 = i2;
         int i5 = (i4 + 15) >> 4;
@@ -1233,7 +1234,7 @@ public class MayoSigner implements MessageSigner {
             i5++;
             i6 += i4;
         }
-        ef(bArr, m, aCols);
+        m55420ef(bArr, m, aCols);
         int i7 = m - 1;
         int i8 = i7 * aCols;
         int i9 = 0;

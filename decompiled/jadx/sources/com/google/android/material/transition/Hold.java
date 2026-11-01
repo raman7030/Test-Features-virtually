@@ -4,18 +4,18 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
-import l.AbstractC2136;
-import l.C19444;
+import p067l.AbstractC4399;
+import p067l.C20848;
 
 /* JADX INFO: loaded from: classes.dex */
-public final class Hold extends AbstractC2136 {
-    @Override // l.AbstractC2136
-    public Animator onAppear(ViewGroup viewGroup, View view, C19444 c19444, C19444 c19445) {
+public final class Hold extends AbstractC4399 {
+    @Override // p067l.AbstractC4399
+    public Animator onAppear(ViewGroup viewGroup, View view, C20848 c20848, C20848 c20849) {
         return ValueAnimator.ofFloat(0.0f);
     }
 
-    @Override // l.AbstractC2136
-    public Animator onDisappear(ViewGroup viewGroup, View view, C19444 c19444, C19444 c19445) {
+    @Override // p067l.AbstractC4399
+    public Animator onDisappear(ViewGroup viewGroup, View view, C20848 c20848, C20848 c20849) {
         return ValueAnimator.ofFloat(0.0f);
     }
 }

@@ -1,6 +1,6 @@
 package org.bouncycastle.jce;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -19,8 +19,6 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C5127;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1InputStream;
@@ -33,6 +31,7 @@ import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.DERNull;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.CertificationRequest;
 import org.bouncycastle.asn1.pkcs.CertificationRequestInfo;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
@@ -41,10 +40,11 @@ import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.asn1.x509.X509Name;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.Strings;
+import p067l.C10965;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PKCS10CertificationRequest extends CertificationRequest {
@@ -154,7 +154,7 @@ public class PKCS10CertificationRequest extends CertificationRequest {
         hashtable18.put(aSN1ObjectIdentifier18, "SHA1WITHDSA");
         oids.put(aSN1ObjectIdentifier9, "SHA224WITHDSA");
         oids.put(aSN1ObjectIdentifier10, "SHA256WITHDSA");
-        keyAlgorithms.put(PKCSObjectIdentifiers.rsaEncryption, d.a);
+        keyAlgorithms.put(PKCSObjectIdentifiers.rsaEncryption, C0187d.f883a);
         keyAlgorithms.put(X9ObjectIdentifiers.id_dsa, "DSA");
         noParams.add(aSN1ObjectIdentifier11);
         noParams.add(aSN1ObjectIdentifier12);
@@ -383,7 +383,7 @@ public class PKCS10CertificationRequest extends CertificationRequest {
         if (parameters == null || DERNull.INSTANCE.equals(parameters) || !algorithmIdentifier.getAlgorithm().equals((ASN1Primitive) PKCSObjectIdentifiers.id_RSASSA_PSS)) {
             return algorithmIdentifier.getAlgorithm().getId();
         }
-        return C9045.m23341(new StringBuilder(), getDigestAlgName(RSASSAPSSparams.getInstance(parameters).getHashAlgorithm().getAlgorithm()), "withRSAandMGF1");
+        return C10965.m25286(new StringBuilder(), getDigestAlgName(RSASSAPSSparams.getInstance(parameters).getHashAlgorithm().getAlgorithm()), "withRSAandMGF1");
     }
 
     private void setSignatureParameters(Signature signature, ASN1Encodable aSN1Encodable) throws NoSuchAlgorithmException, SignatureException {
@@ -401,7 +401,7 @@ public class PKCS10CertificationRequest extends CertificationRequest {
                 }
             }
         } catch (IOException e2) {
-            throw new SignatureException(C5127.m14678(e2, new StringBuilder("IOException decoding parameters: ")));
+            throw new SignatureException(C7241.m16586(e2, new StringBuilder("IOException decoding parameters: ")));
         }
     }
 }

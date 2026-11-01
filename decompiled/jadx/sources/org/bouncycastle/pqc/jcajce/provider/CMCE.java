@@ -1,12 +1,12 @@
 package org.bouncycastle.pqc.jcajce.provider;
 
-import l.C18515;
-import l.C19462;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.pqc.jcajce.provider.cmce.CMCEKeyFactorySpi;
+import p067l.C19965;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CMCE {
@@ -19,9 +19,9 @@ public class CMCE {
             configurableProvider.addAlgorithm("KeyPairGenerator.CMCE", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCEKeyPairGeneratorSpi");
             configurableProvider.addAlgorithm("KeyGenerator.CMCE", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCEKeyGeneratorSpi");
             CMCEKeyFactorySpi cMCEKeyFactorySpi = new CMCEKeyFactorySpi();
-            StringBuilder sbM43029 = C18515.m43029(configurableProvider, "Cipher.CMCE", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCECipherSpi$Base", "Alg.Alias.Cipher.");
+            StringBuilder sbM45307 = C19965.m45307(configurableProvider, "Cipher.CMCE", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCECipherSpi$Base", "Alg.Alias.Cipher.");
             ASN1ObjectIdentifier aSN1ObjectIdentifier = BCObjectIdentifiers.pqc_kem_mceliece;
-            C19462.m44861(sbM43029, aSN1ObjectIdentifier, configurableProvider, "CMCE");
+            C20865.m47157(sbM45307, aSN1ObjectIdentifier, configurableProvider, "CMCE");
             addCipherAlgorithm(configurableProvider, "mceliece348864", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCECipherSpi$MCE348864", BCObjectIdentifiers.mceliece348864_r3);
             addCipherAlgorithm(configurableProvider, "mceliece460896", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCECipherSpi$MCE460896", BCObjectIdentifiers.mceliece460896_r3);
             addCipherAlgorithm(configurableProvider, "mceliece6688128", "org.bouncycastle.pqc.jcajce.provider.cmce.CMCECipherSpi$MCE6688128", BCObjectIdentifiers.mceliece6688128_r3);

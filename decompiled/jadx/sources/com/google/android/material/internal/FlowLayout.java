@@ -6,9 +6,9 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import l.C17648;
-import l.C19343;
-import l.C20754;
+import p067l.C1717;
+import p067l.C20752;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes.dex */
 public class FlowLayout extends ViewGroup {
@@ -39,9 +39,9 @@ public class FlowLayout extends ViewGroup {
     }
 
     private void loadFromAttributes(Context context, AttributeSet attributeSet) {
-        TypedArray typedArrayObtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, C19343.f61907, 0, 0);
-        this.lineSpacing = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61322, 0);
-        this.itemSpacing = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f62599, 0);
+        TypedArray typedArrayObtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, C20752.f64772, 0, 0);
+        this.lineSpacing = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64387, 0);
+        this.itemSpacing = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f65227, 0);
         typedArrayObtainStyledAttributes.recycle();
     }
 
@@ -136,7 +136,7 @@ public class FlowLayout extends ViewGroup {
             return;
         }
         this.rowCount = 1;
-        int i5 = C17648.f53953;
+        int i5 = C1717.f57146;
         boolean z2 = getLayoutDirection() == 1;
         int paddingRight = z2 ? getPaddingRight() : getPaddingLeft();
         int paddingLeft = z2 ? getPaddingLeft() : getPaddingRight();
@@ -147,7 +147,7 @@ public class FlowLayout extends ViewGroup {
         for (int i8 = 0; i8 < getChildCount(); i8++) {
             View childAt = getChildAt(i8);
             if (childAt.getVisibility() == 8) {
-                childAt.setTag(C20754.f67190, -1);
+                childAt.setTag(C22093.f69874, -1);
             } else {
                 ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -164,7 +164,7 @@ public class FlowLayout extends ViewGroup {
                     this.rowCount++;
                     measuredWidth = paddingRight;
                 }
-                childAt.setTag(C20754.f67190, Integer.valueOf(this.rowCount - 1));
+                childAt.setTag(C22093.f69874, Integer.valueOf(this.rowCount - 1));
                 int i9 = measuredWidth + marginStart;
                 int measuredWidth3 = childAt.getMeasuredWidth() + i9;
                 int measuredHeight = childAt.getMeasuredHeight() + i7;
@@ -184,7 +184,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     public int getRowIndex(View view) {
-        Object tag = view.getTag(C20754.f67190);
+        Object tag = view.getTag(C22093.f69874);
         if (tag instanceof Integer) {
             return ((Integer) tag).intValue();
         }

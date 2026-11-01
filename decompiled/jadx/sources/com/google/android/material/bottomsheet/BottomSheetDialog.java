@@ -19,22 +19,22 @@ import com.google.android.material.internal.EdgeToEdgeUtils;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.motion.MaterialBackOrchestrator;
 import com.google.android.material.shape.MaterialShapeDrawable;
-import l.C12437;
-import l.C14369;
-import l.C15813;
-import l.C16445;
-import l.C17648;
-import l.C17931;
-import l.C18333;
-import l.C18637;
-import l.C20754;
-import l.C21610;
-import l.C4948;
-import l.DialogC8224;
-import l.InterfaceC16610;
+import p067l.C1087;
+import p067l.C1459;
+import p067l.C1555;
+import p067l.C1658;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C1751;
+import p067l.C1914;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C22093;
+import p067l.DialogC1250;
+import p067l.InterfaceC1666;
 
 /* JADX INFO: loaded from: classes2.dex */
-public class BottomSheetDialog extends DialogC8224 {
+public class BottomSheetDialog extends DialogC1250 {
     public MaterialBackOrchestrator backOrchestrator;
     public BottomSheetBehavior behavior;
     public FrameLayout bottomSheet;
@@ -43,14 +43,14 @@ public class BottomSheetDialog extends DialogC8224 {
     public boolean canceledOnTouchOutside;
     public boolean canceledOnTouchOutsideSet;
     public FrameLayout container;
-    public C18333 coordinator;
+    public C1751 coordinator;
     public boolean dismissWithAnimation;
     public EdgeToEdgeCallback edgeToEdgeCallback;
     public boolean edgeToEdgeEnabled;
 
     public BottomSheetDialog(Context context) {
         this(context, 0);
-        this.edgeToEdgeEnabled = getContext().getTheme().obtainStyledAttributes(new int[]{C17931.f55015}).getBoolean(0, false);
+        this.edgeToEdgeEnabled = getContext().getTheme().obtainStyledAttributes(new int[]{C19410.f58212}).getBoolean(0, false);
     }
 
     public BottomSheetDialog(Context context, int i) {
@@ -70,7 +70,7 @@ public class BottomSheetDialog extends DialogC8224 {
             }
         };
         supportRequestWindowFeature(1);
-        this.edgeToEdgeEnabled = getContext().getTheme().obtainStyledAttributes(new int[]{C17931.f55015}).getBoolean(0, false);
+        this.edgeToEdgeEnabled = getContext().getTheme().obtainStyledAttributes(new int[]{C19410.f58212}).getBoolean(0, false);
     }
 
     public BottomSheetDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
@@ -91,15 +91,15 @@ public class BottomSheetDialog extends DialogC8224 {
         };
         supportRequestWindowFeature(1);
         this.cancelable = z;
-        this.edgeToEdgeEnabled = getContext().getTheme().obtainStyledAttributes(new int[]{C17931.f55015}).getBoolean(0, false);
+        this.edgeToEdgeEnabled = getContext().getTheme().obtainStyledAttributes(new int[]{C19410.f58212}).getBoolean(0, false);
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void setContentView(int i) {
         super.setContentView(wrapInBottomSheet(i, null, null));
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Window window = getWindow();
@@ -114,12 +114,12 @@ public class BottomSheetDialog extends DialogC8224 {
         }
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void setContentView(View view) {
         super.setContentView(wrapInBottomSheet(0, view, null));
     }
 
-    @Override // l.DialogC8224, l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1250, p067l.DialogC1183, android.app.Dialog
     public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.setContentView(wrapInBottomSheet(0, view, layoutParams));
     }
@@ -139,7 +139,7 @@ public class BottomSheetDialog extends DialogC8224 {
         }
     }
 
-    @Override // l.DialogC6876, android.app.Dialog
+    @Override // p067l.DialogC1183, android.app.Dialog
     public void onStart() {
         super.onStart();
         BottomSheetBehavior bottomSheetBehavior = this.behavior;
@@ -159,11 +159,11 @@ public class BottomSheetDialog extends DialogC8224 {
             if (frameLayout != null) {
                 frameLayout.setFitsSystemWindows(!z);
             }
-            C18333 c18333 = this.coordinator;
-            if (c18333 != null) {
-                c18333.setFitsSystemWindows(!z);
+            C1751 c1751 = this.coordinator;
+            if (c1751 != null) {
+                c1751.setFitsSystemWindows(!z);
             }
-            C4948.m14388(window, !z);
+            C1087.m16291(window, !z);
             EdgeToEdgeCallback edgeToEdgeCallback = this.edgeToEdgeCallback;
             if (edgeToEdgeCallback != null) {
                 edgeToEdgeCallback.setWindow(window);
@@ -225,10 +225,10 @@ public class BottomSheetDialog extends DialogC8224 {
 
     private FrameLayout ensureContainerAndBehavior() {
         if (this.container == null) {
-            FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), C15813.f48836, null);
+            FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), C17397.f51974, null);
             this.container = frameLayout;
-            this.coordinator = (C18333) frameLayout.findViewById(C20754.f67039);
-            FrameLayout frameLayout2 = (FrameLayout) this.container.findViewById(C20754.f67230);
+            this.coordinator = (C1751) frameLayout.findViewById(C22093.f69723);
+            FrameLayout frameLayout2 = (FrameLayout) this.container.findViewById(C22093.f69914);
             this.bottomSheet = frameLayout2;
             BottomSheetBehavior bottomSheetBehaviorFrom = BottomSheetBehavior.from(frameLayout2);
             this.behavior = bottomSheetBehaviorFrom;
@@ -241,24 +241,24 @@ public class BottomSheetDialog extends DialogC8224 {
 
     private View wrapInBottomSheet(int i, View view, ViewGroup.LayoutParams layoutParams) {
         ensureContainerAndBehavior();
-        C18333 c18333 = (C18333) this.container.findViewById(C20754.f67039);
+        C1751 c1751 = (C1751) this.container.findViewById(C22093.f69723);
         if (i != 0 && view == null) {
-            view = getLayoutInflater().inflate(i, (ViewGroup) c18333, false);
+            view = getLayoutInflater().inflate(i, (ViewGroup) c1751, false);
         }
         if (this.edgeToEdgeEnabled) {
-            C17648.m41310(this.bottomSheet, new InterfaceC16610() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
-                @Override // l.InterfaceC16610
-                public C21610 onApplyWindowInsets(View view2, C21610 c21610) {
+            C1717.m43556(this.bottomSheet, new InterfaceC1666() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+                @Override // p067l.InterfaceC1666
+                public C1914 onApplyWindowInsets(View view2, C1914 c1914) {
                     if (BottomSheetDialog.this.edgeToEdgeCallback != null) {
                         BottomSheetDialog.this.behavior.removeBottomSheetCallback(BottomSheetDialog.this.edgeToEdgeCallback);
                     }
-                    if (c21610 != null) {
+                    if (c1914 != null) {
                         BottomSheetDialog bottomSheetDialog = BottomSheetDialog.this;
-                        bottomSheetDialog.edgeToEdgeCallback = new EdgeToEdgeCallback(bottomSheetDialog.bottomSheet, c21610);
+                        bottomSheetDialog.edgeToEdgeCallback = new EdgeToEdgeCallback(bottomSheetDialog.bottomSheet, c1914);
                         BottomSheetDialog.this.edgeToEdgeCallback.setWindow(BottomSheetDialog.this.getWindow());
                         BottomSheetDialog.this.behavior.addBottomSheetCallback(BottomSheetDialog.this.edgeToEdgeCallback);
                     }
-                    return c21610;
+                    return c1914;
                 }
             });
         }
@@ -268,7 +268,7 @@ public class BottomSheetDialog extends DialogC8224 {
         } else {
             this.bottomSheet.addView(view, layoutParams);
         }
-        c18333.findViewById(C20754.f67015).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.2
+        c1751.findViewById(C22093.f69699).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 BottomSheetDialog bottomSheetDialog = BottomSheetDialog.this;
@@ -277,19 +277,19 @@ public class BottomSheetDialog extends DialogC8224 {
                 }
             }
         });
-        C17648.m41309(this.bottomSheet, new C16445() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.3
-            @Override // l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view2, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view2, c14369);
+        C1717.m43555(this.bottomSheet, new C1658() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.3
+            @Override // p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view2, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view2, c1555);
                 if (BottomSheetDialog.this.cancelable) {
-                    c14369.m34275(1048576);
-                    c14369.m34324(true);
+                    c1555.m36408(1048576);
+                    c1555.m36457(true);
                 } else {
-                    c14369.m34324(false);
+                    c1555.m36457(false);
                 }
             }
 
-            @Override // l.C16445
+            @Override // p067l.C1658
             public boolean performAccessibilityAction(View view2, int i2, Bundle bundle) {
                 if (i2 == 1048576) {
                     BottomSheetDialog bottomSheetDialog = BottomSheetDialog.this;
@@ -337,10 +337,10 @@ public class BottomSheetDialog extends DialogC8224 {
             return i;
         }
         TypedValue typedValue = new TypedValue();
-        if (context.getTheme().resolveAttribute(C17931.f55676, typedValue, true)) {
+        if (context.getTheme().resolveAttribute(C19410.f58873, typedValue, true)) {
             return typedValue.resourceId;
         }
-        return C18637.f57825;
+        return C20081.f61048;
     }
 
     public void removeDefaultCallback() {
@@ -349,22 +349,22 @@ public class BottomSheetDialog extends DialogC8224 {
 
     /* JADX INFO: loaded from: classes.dex */
     public class EdgeToEdgeCallback extends BottomSheetBehavior.BottomSheetCallback {
-        public final C21610 insetsCompat;
+        public final C1914 insetsCompat;
         public final Boolean lightBottomSheet;
         public boolean lightStatusBar;
         public Window window;
 
-        public EdgeToEdgeCallback(View view, C21610 c21610) {
-            ColorStateList colorStateListM41329;
-            this.insetsCompat = c21610;
+        public EdgeToEdgeCallback(View view, C1914 c1914) {
+            ColorStateList colorStateListM43575;
+            this.insetsCompat = c1914;
             MaterialShapeDrawable materialShapeDrawable = BottomSheetBehavior.from(view).getMaterialShapeDrawable();
             if (materialShapeDrawable != null) {
-                colorStateListM41329 = materialShapeDrawable.getFillColor();
+                colorStateListM43575 = materialShapeDrawable.getFillColor();
             } else {
-                colorStateListM41329 = C17648.m41329(view);
+                colorStateListM43575 = C1717.m43575(view);
             }
-            if (colorStateListM41329 != null) {
-                this.lightBottomSheet = Boolean.valueOf(MaterialColors.isColorLight(colorStateListM41329.getDefaultColor()));
+            if (colorStateListM43575 != null) {
+                this.lightBottomSheet = Boolean.valueOf(MaterialColors.isColorLight(colorStateListM43575.getDefaultColor()));
                 return;
             }
             Integer backgroundColor = ViewUtils.getBackgroundColor(view);
@@ -396,18 +396,18 @@ public class BottomSheetDialog extends DialogC8224 {
             }
             this.window = window;
             if (window != null) {
-                this.lightStatusBar = new C12437(window, window.getDecorView()).m30601();
+                this.lightStatusBar = new C1459(window, window.getDecorView()).m32666();
             }
         }
 
         private void setPaddingForPosition(View view) {
-            if (view.getTop() < this.insetsCompat.m48826()) {
+            if (view.getTop() < this.insetsCompat.m51174()) {
                 Window window = this.window;
                 if (window != null) {
                     Boolean bool = this.lightBottomSheet;
                     EdgeToEdgeUtils.setLightStatusBar(window, bool == null ? this.lightStatusBar : bool.booleanValue());
                 }
-                view.setPadding(view.getPaddingLeft(), this.insetsCompat.m48826() - view.getTop(), view.getPaddingRight(), view.getPaddingBottom());
+                view.setPadding(view.getPaddingLeft(), this.insetsCompat.m51174() - view.getTop(), view.getPaddingRight(), view.getPaddingBottom());
                 return;
             }
             if (view.getTop() != 0) {

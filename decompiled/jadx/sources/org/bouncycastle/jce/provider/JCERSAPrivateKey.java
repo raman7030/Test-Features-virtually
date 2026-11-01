@@ -1,6 +1,6 @@
 package org.bouncycastle.jce.provider;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -71,7 +71,7 @@ public class JCERSAPrivateKey implements RSAPrivateKey, PKCS12BagAttributeCarrie
 
     @Override // java.security.Key
     public String getAlgorithm() {
-        return d.a;
+        return C0187d.f883a;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier

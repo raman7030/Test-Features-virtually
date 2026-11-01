@@ -7,51 +7,53 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.p073x9.DomainParameters;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.DHParameter;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.DomainParameters;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes.dex */
 public class JCEDHPublicKey implements DHPublicKey {
     public static final long serialVersionUID = -216691575254424324L;
     public DHParameterSpec dhSpec;
     public SubjectPublicKeyInfo info;
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81373y;
 
     public JCEDHPublicKey(BigInteger bigInteger, DHParameterSpec dHParameterSpec) {
-        this.y = bigInteger;
+        this.f81373y = bigInteger;
         this.dhSpec = dHParameterSpec;
     }
 
     public JCEDHPublicKey(DHPublicKey dHPublicKey) {
-        this.y = dHPublicKey.getY();
+        this.f81373y = dHPublicKey.getY();
         this.dhSpec = dHPublicKey.getParams();
     }
 
     public JCEDHPublicKey(DHPublicKeySpec dHPublicKeySpec) {
-        this.y = dHPublicKeySpec.getY();
+        this.f81373y = dHPublicKeySpec.getY();
         this.dhSpec = new DHParameterSpec(dHPublicKeySpec.getP(), dHPublicKeySpec.getG());
     }
 
     public JCEDHPublicKey(SubjectPublicKeyInfo subjectPublicKeyInfo) {
         this.info = subjectPublicKeyInfo;
         try {
-            this.y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
+            this.f81373y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
             ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(subjectPublicKeyInfo.getAlgorithm().getParameters());
             ASN1ObjectIdentifier algorithm = subjectPublicKeyInfo.getAlgorithm().getAlgorithm();
             if (!algorithm.equals((ASN1Primitive) PKCSObjectIdentifiers.dhKeyAgreement) && !isPKCSParam(aSN1Sequence)) {
                 if (!algorithm.equals((ASN1Primitive) X9ObjectIdentifiers.dhpublicnumber)) {
-                    throw new IllegalArgumentException(C9005.m23242("unknown algorithm type: ", algorithm));
+                    throw new IllegalArgumentException(C10927.m25186("unknown algorithm type: ", algorithm));
                 }
                 DomainParameters domainParameters = DomainParameters.getInstance(aSN1Sequence);
                 this.dhSpec = new DHParameterSpec(domainParameters.getP(), domainParameters.getG());
@@ -69,7 +71,7 @@ public class JCEDHPublicKey implements DHPublicKey {
     }
 
     public JCEDHPublicKey(DHPublicKeyParameters dHPublicKeyParameters) {
-        this.y = dHPublicKeyParameters.getY();
+        this.f81373y = dHPublicKeyParameters.getY();
         this.dhSpec = new DHParameterSpec(dHPublicKeyParameters.getParameters().getP(), dHPublicKeyParameters.getParameters().getG(), dHPublicKeyParameters.getParameters().getL());
     }
 
@@ -84,7 +86,7 @@ public class JCEDHPublicKey implements DHPublicKey {
     }
 
     private void readObject(ObjectInputStream objectInputStream) {
-        this.y = (BigInteger) objectInputStream.readObject();
+        this.f81373y = (BigInteger) objectInputStream.readObject();
         this.dhSpec = new DHParameterSpec((BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject(), objectInputStream.readInt());
     }
 
@@ -103,7 +105,7 @@ public class JCEDHPublicKey implements DHPublicKey {
     @Override // java.security.Key
     public byte[] getEncoded() {
         SubjectPublicKeyInfo subjectPublicKeyInfo = this.info;
-        return subjectPublicKeyInfo != null ? KeyUtil.getEncodedSubjectPublicKeyInfo(subjectPublicKeyInfo) : KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.dhKeyAgreement, new DHParameter(this.dhSpec.getP(), this.dhSpec.getG(), this.dhSpec.getL())), new ASN1Integer(this.y));
+        return subjectPublicKeyInfo != null ? KeyUtil.getEncodedSubjectPublicKeyInfo(subjectPublicKeyInfo) : KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.dhKeyAgreement, new DHParameter(this.dhSpec.getP(), this.dhSpec.getG(), this.dhSpec.getL())), new ASN1Integer(this.f81373y));
     }
 
     @Override // java.security.Key
@@ -118,6 +120,6 @@ public class JCEDHPublicKey implements DHPublicKey {
 
     @Override // javax.crypto.interfaces.DHPublicKey
     public BigInteger getY() {
-        return this.y;
+        return this.f81373y;
     }
 }

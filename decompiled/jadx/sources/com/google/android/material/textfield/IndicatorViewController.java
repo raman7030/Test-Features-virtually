@@ -23,12 +23,12 @@ import com.google.android.material.motion.MotionUtils;
 import com.google.android.material.resources.MaterialResources;
 import java.util.ArrayList;
 import java.util.List;
-import l.C14615;
-import l.C17648;
-import l.C17931;
-import l.C20754;
-import l.C23575;
-import l.C4330;
+import p067l.C1567;
+import p067l.C1717;
+import p067l.C19410;
+import p067l.C22093;
+import p067l.C24774;
+import p067l.C6483;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class IndicatorViewController {
@@ -77,15 +77,15 @@ public final class IndicatorViewController {
         Context context = textInputLayout.getContext();
         this.context = context;
         this.textInputView = textInputLayout;
-        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(C23575.f76149);
-        this.captionTranslationYAnimationDuration = MotionUtils.resolveThemeDuration(context, C17931.f55853, DEFAULT_CAPTION_TRANSLATION_Y_ANIMATION_DURATION);
-        this.captionFadeInAnimationDuration = MotionUtils.resolveThemeDuration(context, C17931.f54828, 167);
-        this.captionFadeOutAnimationDuration = MotionUtils.resolveThemeDuration(context, C17931.f55853, 167);
-        this.captionTranslationYAnimationInterpolator = MotionUtils.resolveThemeInterpolator(context, C17931.f55374, AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
-        int i = C17931.f55374;
+        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(C24774.f78895);
+        this.captionTranslationYAnimationDuration = MotionUtils.resolveThemeDuration(context, C19410.f59050, DEFAULT_CAPTION_TRANSLATION_Y_ANIMATION_DURATION);
+        this.captionFadeInAnimationDuration = MotionUtils.resolveThemeDuration(context, C19410.f58025, 167);
+        this.captionFadeOutAnimationDuration = MotionUtils.resolveThemeDuration(context, C19410.f59050, 167);
+        this.captionTranslationYAnimationInterpolator = MotionUtils.resolveThemeInterpolator(context, C19410.f58571, AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
+        int i = C19410.f58571;
         TimeInterpolator timeInterpolator = AnimationUtils.LINEAR_INTERPOLATOR;
         this.captionFadeInAnimationInterpolator = MotionUtils.resolveThemeInterpolator(context, i, timeInterpolator);
-        this.captionFadeOutAnimationInterpolator = MotionUtils.resolveThemeInterpolator(context, C17931.f55340, timeInterpolator);
+        this.captionFadeOutAnimationInterpolator = MotionUtils.resolveThemeInterpolator(context, C19410.f58537, timeInterpolator);
     }
 
     public void showHelper(CharSequence charSequence) {
@@ -134,7 +134,7 @@ public final class IndicatorViewController {
 
     private boolean shouldAnimateCaptionView(TextView textView, CharSequence charSequence) {
         TextInputLayout textInputLayout = this.textInputView;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         if (textInputLayout.isLaidOut() && this.textInputView.isEnabled()) {
             return (this.captionToShow == this.captionDisplayed && textView != null && TextUtils.equals(textView.getText(), charSequence)) ? false : true;
         }
@@ -277,9 +277,9 @@ public final class IndicatorViewController {
             EditText editText = this.textInputView.getEditText();
             boolean zIsFontScaleAtLeast1_3 = MaterialResources.isFontScaleAtLeast1_3(this.context);
             LinearLayout linearLayout = this.indicatorArea;
-            int i = C23575.f76059;
-            int i2 = C17648.f53953;
-            linearLayout.setPaddingRelative(getIndicatorPadding(zIsFontScaleAtLeast1_3, i, editText.getPaddingStart()), getIndicatorPadding(zIsFontScaleAtLeast1_3, C23575.f76436, this.context.getResources().getDimensionPixelSize(C23575.f75870)), getIndicatorPadding(zIsFontScaleAtLeast1_3, C23575.f76059, editText.getPaddingEnd()), 0);
+            int i = C24774.f78805;
+            int i2 = C1717.f57146;
+            linearLayout.setPaddingRelative(getIndicatorPadding(zIsFontScaleAtLeast1_3, i, editText.getPaddingStart()), getIndicatorPadding(zIsFontScaleAtLeast1_3, C24774.f79182, this.context.getResources().getDimensionPixelSize(C24774.f78616)), getIndicatorPadding(zIsFontScaleAtLeast1_3, C24774.f78805, editText.getPaddingEnd()), 0);
         }
     }
 
@@ -340,9 +340,9 @@ public final class IndicatorViewController {
         }
         cancelCaptionAnimator();
         if (z) {
-            C14615 c14615 = new C14615(this.context);
-            this.errorView = c14615;
-            c14615.setId(C20754.f66911);
+            C1567 c1567 = new C1567(this.context);
+            this.errorView = c1567;
+            c1567.setId(C22093.f69595);
             this.errorView.setTextAlignment(5);
             Typeface typeface = this.typeface;
             if (typeface != null) {
@@ -378,9 +378,9 @@ public final class IndicatorViewController {
         }
         cancelCaptionAnimator();
         if (z) {
-            C14615 c14615 = new C14615(this.context);
-            this.helperTextView = c14615;
-            c14615.setId(C20754.f66887);
+            C1567 c1567 = new C1567(this.context);
+            this.helperTextView = c1567;
+            c1567.setId(C22093.f69571);
             this.helperTextView.setTextAlignment(5);
             Typeface typeface = this.typeface;
             if (typeface != null) {
@@ -388,7 +388,7 @@ public final class IndicatorViewController {
             }
             this.helperTextView.setVisibility(4);
             TextView textView = this.helperTextView;
-            int i = C17648.f53953;
+            int i = C1717.f57146;
             textView.setAccessibilityLiveRegion(1);
             setHelperTextAppearance(this.helperTextTextAppearance);
             setHelperTextViewTextColor(this.helperTextViewTextColor);
@@ -508,7 +508,7 @@ public final class IndicatorViewController {
         this.errorViewAccessibilityLiveRegion = i;
         TextView textView = this.errorView;
         if (textView != null) {
-            int i2 = C17648.f53953;
+            int i2 = C1717.f57146;
             textView.setAccessibilityLiveRegion(i);
         }
     }
@@ -550,7 +550,7 @@ public final class IndicatorViewController {
         this.helperTextTextAppearance = i;
         TextView textView = this.helperTextView;
         if (textView != null) {
-            C4330.m12997(textView, i);
+            C6483.m14861(textView, i);
         }
     }
 }

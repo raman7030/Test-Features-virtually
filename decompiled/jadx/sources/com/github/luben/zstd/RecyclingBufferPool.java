@@ -3,7 +3,7 @@ package com.github.luben.zstd;
 import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import l.C19373;
+import p067l.C20780;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RecyclingBufferPool implements BufferPool {
@@ -16,7 +16,7 @@ public class RecyclingBufferPool implements BufferPool {
         ByteBuffer byteBuffer;
         int i2 = buffSize;
         if (i > i2) {
-            throw new RuntimeException(C19373.m44634("Unsupported buffer size: ", i, ". Supported buffer sizes: ", " or smaller.", i2));
+            throw new RuntimeException(C20780.m46928("Unsupported buffer size: ", i, ". Supported buffer sizes: ", " or smaller.", i2));
         }
         do {
             SoftReference softReference = (SoftReference) this.pool.poll();

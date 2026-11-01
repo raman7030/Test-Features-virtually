@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.FileChannel;
-import l.C12084;
+import p067l.C13853;
 
 /* JADX INFO: loaded from: classes.dex */
 public class StreamUtil {
@@ -21,7 +21,7 @@ public class StreamUtil {
         }
         if (inputStream instanceof FileInputStream) {
             try {
-                FileChannel fileChannelConvertMaybeLegacyFileChannelFromLibrary = C12084.convertMaybeLegacyFileChannelFromLibrary(((FileInputStream) inputStream).getChannel());
+                FileChannel fileChannelConvertMaybeLegacyFileChannelFromLibrary = C13853.convertMaybeLegacyFileChannelFromLibrary(((FileInputStream) inputStream).getChannel());
                 long size = fileChannelConvertMaybeLegacyFileChannelFromLibrary != null ? fileChannelConvertMaybeLegacyFileChannelFromLibrary.size() : 2147483647L;
                 if (size < 2147483647L) {
                     return (int) size;

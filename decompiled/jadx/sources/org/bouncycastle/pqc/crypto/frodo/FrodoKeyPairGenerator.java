@@ -8,10 +8,16 @@ import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FrodoKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
-    public int B;
-    public int D;
+
+    /* JADX INFO: renamed from: B */
+    public int f81613B;
+
+    /* JADX INFO: renamed from: D */
+    public int f81614D;
     public FrodoKeyGenerationParameters frodoParams;
-    public int n;
+
+    /* JADX INFO: renamed from: n */
+    public int f81615n;
     public SecureRandom random;
 
     private AsymmetricCipherKeyPair genKeyPair() {
@@ -25,9 +31,9 @@ public class FrodoKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
     private void initialize(KeyGenerationParameters keyGenerationParameters) {
         this.frodoParams = (FrodoKeyGenerationParameters) keyGenerationParameters;
         this.random = keyGenerationParameters.getRandom();
-        this.n = this.frodoParams.getParameters().getN();
-        this.D = this.frodoParams.getParameters().getD();
-        this.B = this.frodoParams.getParameters().getB();
+        this.f81615n = this.frodoParams.getParameters().getN();
+        this.f81614D = this.frodoParams.getParameters().getD();
+        this.f81613B = this.frodoParams.getParameters().getB();
     }
 
     @Override // org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator

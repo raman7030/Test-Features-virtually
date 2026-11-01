@@ -2,20 +2,21 @@ package com.umeng.commonsdk.statistics.noise;
 
 import android.content.Context;
 import com.google.android.material.progressindicator.LinearIndeterminateDisjointAnimatorDelegate;
-import com.umeng.analytics.pro.am;
-import com.umeng.commonsdk.statistics.a;
+import com.umeng.analytics.pro.C0655am;
+import com.umeng.commonsdk.statistics.C0794a;
+import com.umeng.commonsdk.statistics.common.C0800d;
 import com.umeng.commonsdk.statistics.common.DataHelper;
 import com.umeng.commonsdk.statistics.idtracking.Envelope;
 import com.umeng.commonsdk.statistics.idtracking.ImprintHandler;
+import com.umeng.commonsdk.statistics.internal.InterfaceC0817d;
 import com.umeng.commonsdk.statistics.internal.StatTracer;
-import com.umeng.commonsdk.statistics.internal.d;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ImLatent implements d {
+public class ImLatent implements InterfaceC0817d {
     public static ImLatent instanse;
     public Context context;
     public StatTracer statTracer;
-    public com.umeng.commonsdk.statistics.common.d storeHelper;
+    public C0800d storeHelper;
     public final int _DEFAULT_HOURS = 360;
     public final int _DEFAULT_MIN_HOURS = 36;
     public final int _DEFAULT_MIN_LATENT = 1;
@@ -36,19 +37,19 @@ public class ImLatent implements d {
         if (instanse == null) {
             ImLatent imLatent = new ImLatent(context, statTracer);
             instanse = imLatent;
-            imLatent.onImprintChanged(ImprintHandler.getImprintService(context).c());
+            imLatent.onImprintChanged(ImprintHandler.getImprintService(context).m3050c());
         }
         return instanse;
     }
 
     public ImLatent(Context context, StatTracer statTracer) {
         this.context = context;
-        this.storeHelper = com.umeng.commonsdk.statistics.common.d.a(context);
+        this.storeHelper = C0800d.m3016a(context);
         this.statTracer = statTracer;
     }
 
     public boolean shouldStartLatency() {
-        if (this.storeHelper.c() || this.statTracer.isFirstRequest()) {
+        if (this.storeHelper.m3023c() || this.statTracer.isFirstRequest()) {
             return false;
         }
         synchronized (this.mLatentLock) {
@@ -103,16 +104,16 @@ public class ImLatent implements d {
         return this.mElapsed;
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.d
-    public void onImprintChanged(ImprintHandler.a aVar) {
-        int iIntValue = Integer.valueOf(aVar.a("latent_hours", String.valueOf(360))).intValue();
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0817d
+    public void onImprintChanged(ImprintHandler.C0801a c0801a) {
+        int iIntValue = Integer.valueOf(c0801a.m3053a("latent_hours", String.valueOf(360))).intValue();
         this.latentHour = ((long) (iIntValue > 36 ? iIntValue : 360)) * 3600000;
-        int iIntValue2 = Integer.valueOf(aVar.a(am.aS, "0")).intValue();
+        int iIntValue2 = Integer.valueOf(c0801a.m3053a(C0655am.f2291aS, "0")).intValue();
         if (iIntValue2 < 1 || iIntValue2 > 1800) {
             iIntValue2 = 0;
         }
         if (iIntValue2 == 0) {
-            int i = a.c;
+            int i = C0794a.f3341c;
             if (i <= 0 || i > 1800000) {
                 this.latentWindow = 10;
                 return;

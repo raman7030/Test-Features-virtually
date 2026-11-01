@@ -4,8 +4,8 @@ package com.amazonaws.util;
 public enum CodecUtils {
     ;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static int m763(String str, byte[] bArr) {
+    /* JADX INFO: renamed from: ֫ */
+    public static int m1928(String str, byte[] bArr) {
         int length = bArr.length;
         char[] charArray = str.toCharArray();
         int i = 0;
@@ -22,8 +22,8 @@ public enum CodecUtils {
         return i;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static byte[] m765(String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public static byte[] m1930(String str) {
         char[] charArray = str.toCharArray();
         int length = charArray.length;
         byte[] bArr = new byte[length];
@@ -37,8 +37,8 @@ public enum CodecUtils {
         return bArr;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m764(byte[] bArr) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1929(byte[] bArr) {
         char[] cArr = new char[bArr.length];
         int length = bArr.length;
         int i = 0;
@@ -51,8 +51,8 @@ public enum CodecUtils {
         return new String(cArr);
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static void m766(int i, int i2) {
+    /* JADX INFO: renamed from: ۧ */
+    public static void m1931(int i, int i2) {
         if ((i & i2) != 0) {
             throw new IllegalArgumentException("Invalid last non-pad character detected");
         }

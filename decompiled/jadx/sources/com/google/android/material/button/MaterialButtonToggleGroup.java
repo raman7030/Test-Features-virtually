@@ -26,18 +26,18 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
-import l.C14369;
-import l.C16445;
-import l.C16486;
-import l.C17648;
-import l.C17898;
-import l.C17931;
-import l.C18637;
-import l.C19343;
+import p067l.C1555;
+import p067l.C1658;
+import p067l.C1660;
+import p067l.C1717;
+import p067l.C1730;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
-    public static final int DEF_STYLE_RES = C18637.f58461;
+    public static final int DEF_STYLE_RES = C20081.f61684;
     public static final String LOG_TAG = "MButtonToggleGroup";
     public Set checkedIds;
     public Integer[] childOrder;
@@ -59,7 +59,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     public MaterialButtonToggleGroup(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55184);
+        this(context, attributeSet, C19410.f58381);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -82,14 +82,14 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         };
         this.skipCheckedStateTracker = false;
         this.checkedIds = new HashSet();
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, C19343.f61414, i, i2, new int[0]);
-        setSingleSelection(typedArrayObtainStyledAttributes.getBoolean(C19343.f62193, false));
-        this.defaultCheckId = typedArrayObtainStyledAttributes.getResourceId(C19343.f61659, -1);
-        this.selectionRequired = typedArrayObtainStyledAttributes.getBoolean(C19343.f62085, false);
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, C20752.f64448, i, i2, new int[0]);
+        setSingleSelection(typedArrayObtainStyledAttributes.getBoolean(C20752.f64960, false));
+        this.defaultCheckId = typedArrayObtainStyledAttributes.getResourceId(C20752.f64610, -1);
+        this.selectionRequired = typedArrayObtainStyledAttributes.getBoolean(C20752.f64890, false);
         setChildrenDrawingOrderEnabled(true);
-        setEnabled(typedArrayObtainStyledAttributes.getBoolean(C19343.f60969, true));
+        setEnabled(typedArrayObtainStyledAttributes.getBoolean(C20752.f64155, true));
         typedArrayObtainStyledAttributes.recycle();
-        int i3 = C17648.f53953;
+        int i3 = C1717.f57146;
         setImportantForAccessibility(1);
     }
 
@@ -119,11 +119,11 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             ShapeAppearanceModel shapeAppearanceModel = materialButton.getShapeAppearanceModel();
             this.originalCornerData.add(new CornerData(shapeAppearanceModel.getTopLeftCornerSize(), shapeAppearanceModel.getBottomLeftCornerSize(), shapeAppearanceModel.getTopRightCornerSize(), shapeAppearanceModel.getBottomRightCornerSize()));
             materialButton.setEnabled(isEnabled());
-            C17648.m41309(materialButton, new C16445() { // from class: com.google.android.material.button.MaterialButtonToggleGroup.2
-                @Override // l.C16445
-                public void onInitializeAccessibilityNodeInfo(View view2, C14369 c14369) {
-                    super.onInitializeAccessibilityNodeInfo(view2, c14369);
-                    c14369.m34286(C17898.m41877(0, 1, MaterialButtonToggleGroup.this.getIndexWithinVisibleButtons(view2), 1, false, ((MaterialButton) view2).isChecked()));
+            C1717.m43555(materialButton, new C1658() { // from class: com.google.android.material.button.MaterialButtonToggleGroup.2
+                @Override // p067l.C1658
+                public void onInitializeAccessibilityNodeInfo(View view2, C1555 c1555) {
+                    super.onInitializeAccessibilityNodeInfo(view2, c1555);
+                    c1555.m36419(C1730.m44124(0, 1, MaterialButtonToggleGroup.this.getIndexWithinVisibleButtons(view2), 1, false, ((MaterialButton) view2).isChecked()));
                 }
             });
         }
@@ -153,7 +153,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-        C14369.m34264(accessibilityNodeInfo).m34284(C16486.m38850(1, getVisibleButtonCount(), isSingleSelection() ? 1 : 2, false));
+        C1555.m36397(accessibilityNodeInfo).m36417(C1660.m41076(1, getVisibleButtonCount(), isSingleSelection() ? 1 : 2, false));
     }
 
     public void check(int i) {
@@ -412,7 +412,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
 
     private void setGeneratedIdIfNeeded(MaterialButton materialButton) {
         if (materialButton.getId() == -1) {
-            int i = C17648.f53953;
+            int i = C1717.f57146;
             materialButton.setId(View.generateViewId());
         }
     }

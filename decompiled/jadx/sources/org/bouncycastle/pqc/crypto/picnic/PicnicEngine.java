@@ -4,14 +4,14 @@ import com.google.android.material.motion.MotionUtils;
 import java.lang.reflect.Array;
 import java.security.SecureRandom;
 import java.util.logging.Logger;
-import l.C19370;
-import l.C20094;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.math.raw.Bits;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Pack;
+import p067l.C20778;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PicnicEngine {
@@ -63,7 +63,8 @@ public class PicnicEngine {
         this.digest.doFinal(bArr2, 0, this.digestSizeBytes);
     }
 
-    private void G(int i, byte[] bArr, int i2, View view, byte[] bArr2) {
+    /* JADX INFO: renamed from: G */
+    private void m55427G(int i, byte[] bArr, int i2, View view, byte[] bArr2) {
         int i3 = this.seedSizeBytes + this.andSizeBytes;
         this.digest.update((byte) 5);
         this.digest.update(bArr, i2, this.seedSizeBytes);
@@ -78,7 +79,8 @@ public class PicnicEngine {
         this.digest.doFinal(bArr2, 0, i3);
     }
 
-    private void H3(int[] iArr, int[] iArr2, View[][] viewArr, byte[][][] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[][][] bArr5) {
+    /* JADX INFO: renamed from: H3 */
+    private void m55428H3(int[] iArr, int[] iArr2, View[][] viewArr, byte[][][] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[][][] bArr5) {
         this.digest.update((byte) 1);
         byte[] bArr6 = new byte[this.stateSizeWords * 4];
         for (int i = 0; i < this.numMPCRounds; i++) {
@@ -90,7 +92,8 @@ public class PicnicEngine {
         implH3(iArr, iArr2, bArr, bArr2, bArr3, bArr4, bArr5);
     }
 
-    private void H3(int[] iArr, int[] iArr2, int[][][] iArr3, byte[][][] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[][][] bArr5) {
+    /* JADX INFO: renamed from: H3 */
+    private void m55429H3(int[] iArr, int[] iArr2, int[][][] iArr3, byte[][][] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[][][] bArr5) {
         this.digest.update((byte) 1);
         byte[] bArr6 = new byte[this.stateSizeWords * 4];
         for (int i = 0; i < this.numMPCRounds; i++) {
@@ -423,7 +426,7 @@ public class PicnicEngine {
                             System.arraycopy(bArr, i17, signature2.proofs[i15].msgs, 0, i18);
                             i3 = i17 + i18;
                             if (arePaddingBitsZero(signature2.proofs[i15].msgs, this.numRounds * 3 * this.numSboxes)) {
-                                System.arraycopy(bArr, i3, signature2.proofs[i15].C, 0, this.digestSizeBytes);
+                                System.arraycopy(bArr, i3, signature2.proofs[i15].f81695C, 0, this.digestSizeBytes);
                                 i14 = i3 + this.digestSizeBytes;
                             } else {
                                 logger = LOG;
@@ -443,7 +446,7 @@ public class PicnicEngine {
                             logger = LOG;
                             str = "failed while deserializing msgs bits";
                         } else {
-                            System.arraycopy(bArr, i3, signature2.proofs[i15].C, 0, this.digestSizeBytes);
+                            System.arraycopy(bArr, i3, signature2.proofs[i15].f81695C, 0, this.digestSizeBytes);
                             i14 = i3 + this.digestSizeBytes;
                         }
                     }
@@ -907,7 +910,7 @@ public class PicnicEngine {
                 int i12 = i11 + this.stateSizeBytes;
                 System.arraycopy(signature2.proofs[i10].msgs, 0, bArr, i12, this.andSizeBytes);
                 int i13 = i12 + this.andSizeBytes;
-                System.arraycopy(signature2.proofs[i10].C, 0, bArr, i13, this.digestSizeBytes);
+                System.arraycopy(signature2.proofs[i10].f81695C, 0, bArr, i13, this.digestSizeBytes);
                 i9 = i13 + this.digestSizeBytes;
             }
         }
@@ -993,9 +996,9 @@ public class PicnicEngine {
             Commit(bArrComputeSeeds, this.seedSizeBytes + i11, viewArr[i10][1], bArr8[i10][1]);
             Commit(bArrComputeSeeds, (this.seedSizeBytes * 2) + i11, viewArr[i10][2], bArr8[i10][2]);
             if (this.transform == 1) {
-                G(0, bArrComputeSeeds, i11, viewArr[i10][0], bArr9[i10][0]);
-                G(1, bArrComputeSeeds, i11 + this.seedSizeBytes, viewArr[i10][1], bArr9[i10][1]);
-                G(2, bArrComputeSeeds, (this.seedSizeBytes * 2) + i11, viewArr[i10][2], bArr9[i10][2]);
+                m55427G(0, bArrComputeSeeds, i11, viewArr[i10][0], bArr9[i10][0]);
+                m55427G(1, bArrComputeSeeds, i11 + this.seedSizeBytes, viewArr[i10][1], bArr9[i10][1]);
+                m55427G(2, bArrComputeSeeds, (this.seedSizeBytes * 2) + i11, viewArr[i10][2], bArr9[i10][2]);
             }
             i4 = i10 + 1;
             i = 2;
@@ -1010,7 +1013,7 @@ public class PicnicEngine {
         byte[][][] bArr11 = bArr2;
         byte[][][] bArr12 = bArr3;
         int i13 = i2;
-        H3(iArr2, iArr3, viewArr, bArr11, signature.challengeBits, signature.salt, bArr, bArr12);
+        m55428H3(iArr2, iArr3, viewArr, bArr11, signature.challengeBits, signature.salt, bArr, bArr12);
         for (int i14 = 0; i14 < this.numMPCRounds; i14++) {
             prove(signature.proofs[i14], getChallenge(signature.challengeBits, i14), bArrComputeSeeds, i13 * i14, viewArr[i14], bArr11[i14], this.transform != 1 ? null : bArr12[i14]);
         }
@@ -1132,7 +1135,7 @@ public class PicnicEngine {
                         }
                         System.arraycopy(bArr3[i20], 0, signature2.proofs[i20].input, 0, this.stateSizeBytes);
                         System.arraycopy(msgArr[i20].msgs[signature2.challengeP[iIndexOf]], 0, signature2.proofs[i20].msgs, 0, this.andSizeBytes);
-                        System.arraycopy(bArr5[i20][signature2.challengeP[iIndexOf]], 0, signature2.proofs[i20].C, 0, this.digestSizeBytes);
+                        System.arraycopy(bArr5[i20][signature2.challengeP[iIndexOf]], 0, signature2.proofs[i20].f81695C, 0, this.digestSizeBytes);
                     }
                 }
                 return true;
@@ -1243,7 +1246,7 @@ public class PicnicEngine {
             int i5 = picnicEngine.numMPCRounds;
             if (i4 >= i5) {
                 byte[] bArr6 = new byte[Utils.numBytes(i5 * 2)];
-                picnicEngine.H3(iArr, iArr2, iArr4, bArr2, bArr6, signature.salt, bArr, bArr3);
+                picnicEngine.m55429H3(iArr, iArr2, iArr4, bArr2, bArr6, signature.salt, bArr, bArr3);
                 if (!subarrayEquals(bArr4, bArr6, Utils.numBytes(picnicEngine.numMPCRounds * 2))) {
                     break;
                 }
@@ -1264,9 +1267,9 @@ public class PicnicEngine {
             Tape tape2 = tape;
             System.arraycopy(proofArr[i4].view3Commitment, 0, bArr2[i4][i7], 0, picnicEngine.digestSizeBytes);
             if (picnicEngine.transform == 1) {
-                picnicEngine.G(challenge, proofArr[i4].seed1, 0, viewArr[i4], bArr3[i4][challenge]);
+                picnicEngine.m55427G(challenge, proofArr[i4].seed1, 0, viewArr[i4], bArr3[i4][challenge]);
                 i = i4;
-                G(i6, proofArr[i4].seed2, 0, viewArr2[i4], bArr3[i4][i6]);
+                m55427G(i6, proofArr[i4].seed2, 0, viewArr2[i4], bArr3[i4][i6]);
                 System.arraycopy(proofArr[i].view3UnruhG, 0, bArr3[i][i7], 0, challenge == 0 ? this.UnruhGWithInputBytes : this.UnruhGWithoutInputBytes);
                 picnicEngine = this;
             } else {
@@ -1343,7 +1346,7 @@ public class PicnicEngine {
                             i3 = i7;
                             i4 = i9;
                         }
-                        System.arraycopy(signature2.proofs[i2].C, 0, bArr2[i2][i4], 0, this.digestSizeBytes);
+                        System.arraycopy(signature2.proofs[i2].f81695C, 0, bArr2[i2][i4], 0, this.digestSizeBytes);
                         picnicEngine = this;
                     } else {
                         tapeArr[i8].computeAuxTape(null);
@@ -1640,11 +1643,11 @@ public class PicnicEngine {
         byte[] bArr2 = signature.challengeBits;
         int iNumBytes = Utils.numBytes(this.numMPCRounds * 2) + 32;
         int i2 = this.numMPCRounds;
-        int iM46314 = C20094.m46314((this.seedSizeBytes * 2) + this.stateSizeBytes + this.andSizeBytes, this.digestSizeBytes, i2, iNumBytes);
+        int iM48630 = C21466.m48630((this.seedSizeBytes * 2) + this.stateSizeBytes + this.andSizeBytes, this.digestSizeBytes, i2, iNumBytes);
         if (this.transform == 1) {
-            iM46314 += this.UnruhGWithoutInputBytes * i2;
+            iM48630 += this.UnruhGWithoutInputBytes * i2;
         }
-        if (this.CRYPTO_BYTES < iM46314) {
+        if (this.CRYPTO_BYTES < iM48630) {
             return -1;
         }
         System.arraycopy(bArr2, 0, bArr, i, Utils.numBytes(i2 * 2));
@@ -2852,7 +2855,7 @@ public class PicnicEngine {
                 this.digest = sHAKEDigest;
                 return;
             default:
-                throw new IllegalArgumentException(C19370.m44628(i, "unknown parameter set "));
+                throw new IllegalArgumentException(C20778.m46922(i, "unknown parameter set "));
         }
     }
 }

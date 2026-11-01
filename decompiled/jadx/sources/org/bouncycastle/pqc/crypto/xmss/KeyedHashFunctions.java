@@ -33,7 +33,8 @@ public final class KeyedHashFunctions {
         return bArr3;
     }
 
-    public byte[] F(byte[] bArr, byte[] bArr2) {
+    /* JADX INFO: renamed from: F */
+    public byte[] m55434F(byte[] bArr, byte[] bArr2) {
         int length = bArr.length;
         int i = this.digestSize;
         if (length != i) {
@@ -45,7 +46,8 @@ public final class KeyedHashFunctions {
         throw new IllegalArgumentException("wrong in length");
     }
 
-    public byte[] H(byte[] bArr, byte[] bArr2) {
+    /* JADX INFO: renamed from: H */
+    public byte[] m55435H(byte[] bArr, byte[] bArr2) {
         int length = bArr.length;
         int i = this.digestSize;
         if (length != i) {

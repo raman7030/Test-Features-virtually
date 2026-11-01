@@ -28,39 +28,41 @@ public class BCElGamalPrivateKey implements ElGamalPrivateKey, DHPrivateKey, PKC
     public static final long serialVersionUID = 4819350091141529678L;
     public transient PKCS12BagAttributeCarrierImpl attrCarrier = new PKCS12BagAttributeCarrierImpl();
     public transient ElGamalParameterSpec elSpec;
-    public BigInteger x;
+
+    /* JADX INFO: renamed from: x */
+    public BigInteger f81347x;
 
     public BCElGamalPrivateKey() {
     }
 
     public BCElGamalPrivateKey(DHPrivateKey dHPrivateKey) {
-        this.x = dHPrivateKey.getX();
+        this.f81347x = dHPrivateKey.getX();
         this.elSpec = new ElGamalParameterSpec(dHPrivateKey.getParams().getP(), dHPrivateKey.getParams().getG());
     }
 
     public BCElGamalPrivateKey(DHPrivateKeySpec dHPrivateKeySpec) {
-        this.x = dHPrivateKeySpec.getX();
+        this.f81347x = dHPrivateKeySpec.getX();
         this.elSpec = new ElGamalParameterSpec(dHPrivateKeySpec.getP(), dHPrivateKeySpec.getG());
     }
 
     public BCElGamalPrivateKey(PrivateKeyInfo privateKeyInfo) {
         ElGamalParameter elGamalParameter = ElGamalParameter.getInstance(privateKeyInfo.getPrivateKeyAlgorithm().getParameters());
-        this.x = ASN1Integer.getInstance(privateKeyInfo.parsePrivateKey()).getValue();
+        this.f81347x = ASN1Integer.getInstance(privateKeyInfo.parsePrivateKey()).getValue();
         this.elSpec = new ElGamalParameterSpec(elGamalParameter.getP(), elGamalParameter.getG());
     }
 
     public BCElGamalPrivateKey(ElGamalPrivateKeyParameters elGamalPrivateKeyParameters) {
-        this.x = elGamalPrivateKeyParameters.getX();
+        this.f81347x = elGamalPrivateKeyParameters.getX();
         this.elSpec = new ElGamalParameterSpec(elGamalPrivateKeyParameters.getParameters().getP(), elGamalPrivateKeyParameters.getParameters().getG());
     }
 
     public BCElGamalPrivateKey(ElGamalPrivateKey elGamalPrivateKey) {
-        this.x = elGamalPrivateKey.getX();
+        this.f81347x = elGamalPrivateKey.getX();
         this.elSpec = elGamalPrivateKey.getParameters();
     }
 
     public BCElGamalPrivateKey(ElGamalPrivateKeySpec elGamalPrivateKeySpec) {
-        this.x = elGamalPrivateKeySpec.getX();
+        this.f81347x = elGamalPrivateKeySpec.getX();
         this.elSpec = new ElGamalParameterSpec(elGamalPrivateKeySpec.getParams().getP(), elGamalPrivateKeySpec.getParams().getG());
     }
 
@@ -125,7 +127,7 @@ public class BCElGamalPrivateKey implements ElGamalPrivateKey, DHPrivateKey, PKC
 
     @Override // org.bouncycastle.jce.interfaces.ElGamalPrivateKey, javax.crypto.interfaces.DHPrivateKey
     public BigInteger getX() {
-        return this.x;
+        return this.f81347x;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier

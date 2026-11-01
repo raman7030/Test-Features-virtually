@@ -1,8 +1,8 @@
 package org.bouncycastle.crypto.engines;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import java.lang.reflect.Array;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.CipherParameters;
@@ -10,7 +10,7 @@ import org.bouncycastle.crypto.digests.RomulusDigest;
 import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
 import org.bouncycastle.crypto.signers.PSSSigner;
 import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
-import org.bouncycastle.math.ec.rfc8032.Scalar25519;
+import org.bouncycastle.math.p080ec.rfc8032.Scalar25519;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Bytes;
 import org.bouncycastle.util.encoders.Base32Encoder;
@@ -21,11 +21,15 @@ public class RomulusEngine extends AEADBaseEngine {
     public static final int AD_BLK_LEN_HALF = 16;
     public final byte[] CNT;
     public Instance instance;
-    public byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public byte[] f81065k;
     public byte[] npub;
-    public static final byte[] sbox_8 = {101, 76, 106, 66, 75, 99, 67, 107, 85, 117, 90, 122, 83, 115, 91, 123, 53, -116, 58, -127, -119, 51, GCMSIVBlockCipher.MASK, 59, -107, 37, -104, 42, -112, 35, -103, 43, -27, -52, -24, -63, -55, bo.k, -64, -23, -43, -11, -40, -8, -48, -16, -39, -7, -91, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, -88, 18, 27, -96, 19, -87, 5, -75, 10, -72, 3, -80, 11, -71, 50, -120, 60, -123, -115, 52, -124, Base32Encoder.DEFAULT_PADDING, -111, 34, -100, 44, -108, 36, -99, 45, 98, 74, 108, 69, 77, 100, 68, 109, 82, 114, 92, 124, 84, 116, 93, 125, -95, 26, -84, 21, 29, -92, 20, -83, 2, -79, 12, PSSSigner.TRAILER_IMPLICIT, 4, -76, cb.k, -67, GCMSIVBlockCipher.ADD, -56, -20, -59, -51, -28, -60, -19, -47, -15, -36, -4, -44, -12, -35, -3, 54, -114, 56, bo.h, -117, UTF8.S_P3A, -125, 57, -106, 38, -102, 40, -109, UTF8.S_CS3, -101, 41, 102, 78, 104, 65, 73, UTF8.S_P4B, 64, 105, 86, 118, 88, 120, UTF8.S_P4A, KeyFactorySpi.Ed25519_type, 89, 121, -90, 30, -86, 17, 25, -93, 16, -85, 6, -74, 8, -70, 0, -77, 9, -69, -26, -50, -22, -62, -53, -29, -61, -21, -42, -10, -38, -6, -45, -13, -37, -5, 49, -118, 62, -122, -113, 55, -121, 63, -110, PublicSuffixDatabase.EXCEPTION_MARKER, -98, 46, -105, 39, -97, 47, 97, 72, KeyFactorySpi.x25519_type, 70, 79, 103, 71, KeyFactorySpi.x448_type, 81, KeyFactorySpi.Ed448_type, 94, 126, 87, 119, 95, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -94, 24, -82, 22, bo.j, -89, 23, -81, 1, -78, cb.f77931l, -66, 7, -73, 15, -65, -30, -54, -18, -58, -49, -25, -57, -17, -46, -14, -34, -2, -41, -9, -33, -1};
-    public static final byte[] TWEAKEY_P = {9, 15, 8, cb.k, 10, cb.f77931l, 12, 11, 0, 1, 2, 3, 4, 5, 6, 7};
-    public static final byte[] RC = {1, 3, 7, 15, bo.j, 62, Base32Encoder.DEFAULT_PADDING, 59, 55, 47, 30, 60, 57, 51, 39, cb.f77931l, 29, 58, 53, 43, 22, 44, 24, UTF8.S_P3A, PublicSuffixDatabase.EXCEPTION_MARKER, 2, 5, 11, 23, 46, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 56, 49, 35, 6, cb.k, 27, 54, 45, 26};
+    public static final byte[] sbox_8 = {101, 76, 106, 66, 75, 99, 67, 107, 85, 117, 90, 122, 83, 115, 91, 123, 53, -116, 58, -127, -119, 51, GCMSIVBlockCipher.MASK, 59, -107, 37, -104, 42, -112, 35, -103, 43, -27, -52, -24, -63, -55, C0684bo.f2506k, -64, -23, -43, -11, -40, -8, -48, -16, -39, -7, -91, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, -88, 18, 27, -96, 19, -87, 5, -75, 10, -72, 3, -80, 11, -71, 50, -120, 60, -123, -115, 52, -124, Base32Encoder.DEFAULT_PADDING, -111, 34, -100, 44, -108, 36, -99, 45, 98, 74, 108, 69, 77, 100, 68, 109, 82, 114, 92, 124, 84, 116, 93, 125, -95, 26, -84, 21, 29, -92, 20, -83, 2, -79, 12, PSSSigner.TRAILER_IMPLICIT, 4, -76, C0698cb.f2569k, -67, GCMSIVBlockCipher.ADD, -56, -20, -59, -51, -28, -60, -19, -47, -15, -36, -4, -44, -12, -35, -3, 54, -114, 56, C0684bo.f2503h, -117, UTF8.S_P3A, -125, 57, -106, 38, -102, 40, -109, UTF8.S_CS3, -101, 41, 102, 78, 104, 65, 73, UTF8.S_P4B, 64, 105, 86, 118, 88, 120, UTF8.S_P4A, KeyFactorySpi.Ed25519_type, 89, 121, -90, 30, -86, 17, 25, -93, 16, -85, 6, -74, 8, -70, 0, -77, 9, -69, -26, -50, -22, -62, -53, -29, -61, -21, -42, -10, -38, -6, -45, -13, -37, -5, 49, -118, 62, -122, -113, 55, -121, 63, -110, PublicSuffixDatabase.EXCEPTION_MARKER, -98, 46, -105, 39, -97, 47, 97, 72, KeyFactorySpi.x25519_type, 70, 79, 103, 71, KeyFactorySpi.x448_type, 81, KeyFactorySpi.Ed448_type, 94, 126, 87, 119, 95, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -94, 24, -82, 22, C0684bo.f2505j, -89, 23, -81, 1, -78, C0698cb.f2570l, -66, 7, -73, 15, -65, -30, -54, -18, -58, -49, -25, -57, -17, -46, -14, -34, -2, -41, -9, -33, -1};
+    public static final byte[] TWEAKEY_P = {9, 15, 8, C0698cb.f2569k, 10, C0698cb.f2570l, 12, 11, 0, 1, 2, 3, 4, 5, 6, 7};
+
+    /* JADX INFO: renamed from: RC */
+    public static final byte[] f81064RC = {1, 3, 7, 15, C0684bo.f2505j, 62, Base32Encoder.DEFAULT_PADDING, 59, 55, 47, 30, 60, 57, 51, 39, C0698cb.f2570l, 29, 58, 53, 43, 22, 44, 24, UTF8.S_P3A, PublicSuffixDatabase.EXCEPTION_MARKER, 2, 5, 11, 23, 46, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 56, 49, 35, 6, C0698cb.f2569k, 27, 54, 45, 26};
 
     public interface Instance {
         void processBufferAAD(byte[] bArr, int i);
@@ -45,7 +49,9 @@ public class RomulusEngine extends AEADBaseEngine {
         public int offset;
         public final byte[] mac_s = new byte[16];
         public final byte[] mac_CNT = new byte[7];
-        public final byte[] s = new byte[16];
+
+        /* JADX INFO: renamed from: s */
+        public final byte[] f81066s = new byte[16];
         public boolean twist = true;
 
         public RomulusM() {
@@ -79,7 +85,7 @@ public class RomulusEngine extends AEADBaseEngine {
                 Bytes.xorTo(RomulusEngine.this.MAC_SIZE, bArr, i, this.mac_s);
             } else {
                 RomulusEngine romulusEngine = RomulusEngine.this;
-                romulusEngine.block_cipher(this.mac_s, romulusEngine.k, bArr, i, this.mac_CNT, (byte) 40);
+                romulusEngine.block_cipher(this.mac_s, romulusEngine.f81065k, bArr, i, this.mac_CNT, (byte) 40);
             }
             this.twist = !this.twist;
             RomulusEngine.this.lfsr_gf56(this.mac_CNT);
@@ -109,7 +115,7 @@ public class RomulusEngine extends AEADBaseEngine {
                     if (this.twist) {
                         Bytes.xorTo(i2, bArr, this.mac_s);
                     } else {
-                        romulusEngine2.block_cipher(this.mac_s, romulusEngine2.k, RomulusEngine.this.m_aad, 0, this.mac_CNT, (byte) 40);
+                        romulusEngine2.block_cipher(this.mac_s, romulusEngine2.f81065k, RomulusEngine.this.m_aad, 0, this.mac_CNT, (byte) 40);
                     }
                     RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                 }
@@ -189,7 +195,7 @@ public class RomulusEngine extends AEADBaseEngine {
                                     int iMin = Math.min(i13, 16);
                                     RomulusEngine.this.pad(bytes, 0, bArr2, 16, iMin);
                                     RomulusEngine romulusEngine4 = RomulusEngine.this;
-                                    romulusEngine4.block_cipher(this.mac_s, romulusEngine4.k, bArr2, 0, this.mac_CNT, (byte) 44);
+                                    romulusEngine4.block_cipher(this.mac_s, romulusEngine4.f81065k, bArr2, 0, this.mac_CNT, (byte) 44);
                                     RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                                     iAd_encryption2 = i13 - iMin;
                                     i12 = iMin;
@@ -202,13 +208,13 @@ public class RomulusEngine extends AEADBaseEngine {
                                 }
                                 while (iAd_encryption2 > 0) {
                                     this.offset = i12;
-                                    iAd_encryption2 = ad_encryption(bytes, i12, this.mac_s, RomulusEngine.this.k, iAd_encryption2, this.mac_CNT);
+                                    iAd_encryption2 = ad_encryption(bytes, i12, this.mac_s, RomulusEngine.this.f81065k, iAd_encryption2, this.mac_CNT);
                                     i12 = this.offset;
                                     bytes = bytes;
                                 }
                                 RomulusEngine romulusEngine5 = RomulusEngine.this;
                                 i6 = 16;
-                                romulusEngine5.block_cipher(this.mac_s, romulusEngine5.k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
+                                romulusEngine5.block_cipher(this.mac_s, romulusEngine5.f81065k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
                                 RomulusEngine romulusEngine6 = RomulusEngine.this;
                                 romulusEngine6.g8A(this.mac_s, romulusEngine6.mac, 0);
                                 i5 = i12 - i13;
@@ -220,24 +226,24 @@ public class RomulusEngine extends AEADBaseEngine {
                             }
                             RomulusEngine romulusEngine7 = RomulusEngine.this;
                             romulusEngine7.reset_lfsr_gf56(romulusEngine7.CNT);
-                            System.arraycopy(RomulusEngine.this.mac, 0, this.s, 0, i6);
+                            System.arraycopy(RomulusEngine.this.mac, 0, this.f81066s, 0, i6);
                             if (i13 > 0) {
                                 RomulusEngine romulusEngine8 = RomulusEngine.this;
-                                romulusEngine8.block_cipher(this.s, romulusEngine8.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
+                                romulusEngine8.block_cipher(this.f81066s, romulusEngine8.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
                                 i10 = i;
                                 i11 = i5;
                                 while (i13 > 16) {
                                     i13 -= 16;
-                                    RomulusEngine.this.rho(bytes, i11, bArr, i10, this.s, 16);
+                                    RomulusEngine.this.rho(bytes, i11, bArr, i10, this.f81066s, 16);
                                     i10 += 16;
                                     i11 += 16;
                                     RomulusEngine romulusEngine9 = RomulusEngine.this;
                                     romulusEngine9.lfsr_gf56(romulusEngine9.CNT);
                                     RomulusEngine romulusEngine10 = RomulusEngine.this;
-                                    romulusEngine10.block_cipher(this.s, romulusEngine10.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
+                                    romulusEngine10.block_cipher(this.f81066s, romulusEngine10.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
                                 }
                                 i8 = 16;
-                                RomulusEngine.this.rho(bytes, i11, bArr, i10, this.s, i13);
+                                RomulusEngine.this.rho(bytes, i11, bArr, i10, this.f81066s, i13);
                             } else {
                                 i8 = 16;
                             }
@@ -249,7 +255,7 @@ public class RomulusEngine extends AEADBaseEngine {
                                 int iMin2 = Math.min(i7, i8);
                                 RomulusEngine.this.pad(bArr, i, bArr3, 16, iMin2);
                                 RomulusEngine romulusEngine11 = RomulusEngine.this;
-                                romulusEngine11.block_cipher(this.mac_s, romulusEngine11.k, bArr3, 0, this.mac_CNT, (byte) 44);
+                                romulusEngine11.block_cipher(this.mac_s, romulusEngine11.f81065k, bArr3, 0, this.mac_CNT, (byte) 44);
                                 RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                                 iAd_encryption = i7 - iMin2;
                                 i9 = i + iMin2;
@@ -262,12 +268,12 @@ public class RomulusEngine extends AEADBaseEngine {
                             }
                             while (iAd_encryption > 0) {
                                 this.offset = i9;
-                                iAd_encryption = ad_encryption(bArr, i9, this.mac_s, RomulusEngine.this.k, iAd_encryption, this.mac_CNT);
+                                iAd_encryption = ad_encryption(bArr, i9, this.mac_s, RomulusEngine.this.f81065k, iAd_encryption, this.mac_CNT);
                                 i9 = this.offset;
                                 bytes = bytes;
                             }
                             RomulusEngine romulusEngine12 = RomulusEngine.this;
-                            romulusEngine12.block_cipher(this.mac_s, romulusEngine12.k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
+                            romulusEngine12.block_cipher(this.mac_s, romulusEngine12.f81065k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
                             RomulusEngine romulusEngine13 = RomulusEngine.this;
                             romulusEngine13.g8A(this.mac_s, romulusEngine13.mac, 0);
                             int len3 = RomulusEngine.this.dataOperator.getLen();
@@ -288,7 +294,7 @@ public class RomulusEngine extends AEADBaseEngine {
                             int iMin3 = Math.min(i13, 16);
                             RomulusEngine.this.pad(bytes, 0, bArr4, 16, iMin3);
                             RomulusEngine romulusEngine15 = RomulusEngine.this;
-                            romulusEngine15.block_cipher(this.mac_s, romulusEngine15.k, bArr4, 0, this.mac_CNT, (byte) 44);
+                            romulusEngine15.block_cipher(this.mac_s, romulusEngine15.f81065k, bArr4, 0, this.mac_CNT, (byte) 44);
                             RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                             iAd_encryption2 = i13 - iMin3;
                             i12 = iMin3;
@@ -301,13 +307,13 @@ public class RomulusEngine extends AEADBaseEngine {
                         }
                         while (iAd_encryption2 > 0) {
                             this.offset = i12;
-                            iAd_encryption2 = ad_encryption(bytes, i12, this.mac_s, RomulusEngine.this.k, iAd_encryption2, this.mac_CNT);
+                            iAd_encryption2 = ad_encryption(bytes, i12, this.mac_s, RomulusEngine.this.f81065k, iAd_encryption2, this.mac_CNT);
                             i12 = this.offset;
                             bytes = bytes;
                         }
                         RomulusEngine romulusEngine16 = RomulusEngine.this;
                         i6 = 16;
-                        romulusEngine16.block_cipher(this.mac_s, romulusEngine16.k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
+                        romulusEngine16.block_cipher(this.mac_s, romulusEngine16.f81065k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
                         RomulusEngine romulusEngine17 = RomulusEngine.this;
                         romulusEngine17.g8A(this.mac_s, romulusEngine17.mac, 0);
                         i5 = i12 - i13;
@@ -319,24 +325,24 @@ public class RomulusEngine extends AEADBaseEngine {
                     }
                     RomulusEngine romulusEngine18 = RomulusEngine.this;
                     romulusEngine18.reset_lfsr_gf56(romulusEngine18.CNT);
-                    System.arraycopy(RomulusEngine.this.mac, 0, this.s, 0, i6);
+                    System.arraycopy(RomulusEngine.this.mac, 0, this.f81066s, 0, i6);
                     if (i13 > 0) {
                         RomulusEngine romulusEngine19 = RomulusEngine.this;
-                        romulusEngine19.block_cipher(this.s, romulusEngine19.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
+                        romulusEngine19.block_cipher(this.f81066s, romulusEngine19.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
                         i10 = i;
                         i11 = i5;
                         while (i13 > 16) {
                             i13 -= 16;
-                            RomulusEngine.this.rho(bytes, i11, bArr, i10, this.s, 16);
+                            RomulusEngine.this.rho(bytes, i11, bArr, i10, this.f81066s, 16);
                             i10 += 16;
                             i11 += 16;
                             RomulusEngine romulusEngine20 = RomulusEngine.this;
                             romulusEngine20.lfsr_gf56(romulusEngine20.CNT);
                             RomulusEngine romulusEngine110 = RomulusEngine.this;
-                            romulusEngine110.block_cipher(this.s, romulusEngine110.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
+                            romulusEngine110.block_cipher(this.f81066s, romulusEngine110.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
                         }
                         i8 = 16;
-                        RomulusEngine.this.rho(bytes, i11, bArr, i10, this.s, i13);
+                        RomulusEngine.this.rho(bytes, i11, bArr, i10, this.f81066s, i13);
                     } else {
                         i8 = 16;
                     }
@@ -347,7 +353,7 @@ public class RomulusEngine extends AEADBaseEngine {
                             int iMin4 = Math.min(i7, i8);
                             RomulusEngine.this.pad(bArr, i, bArr5, 16, iMin4);
                             RomulusEngine romulusEngine111 = RomulusEngine.this;
-                            romulusEngine111.block_cipher(this.mac_s, romulusEngine111.k, bArr5, 0, this.mac_CNT, (byte) 44);
+                            romulusEngine111.block_cipher(this.mac_s, romulusEngine111.f81065k, bArr5, 0, this.mac_CNT, (byte) 44);
                             RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                             iAd_encryption = i7 - iMin4;
                             i9 = i + iMin4;
@@ -360,12 +366,12 @@ public class RomulusEngine extends AEADBaseEngine {
                         }
                         while (iAd_encryption > 0) {
                             this.offset = i9;
-                            iAd_encryption = ad_encryption(bArr, i9, this.mac_s, RomulusEngine.this.k, iAd_encryption, this.mac_CNT);
+                            iAd_encryption = ad_encryption(bArr, i9, this.mac_s, RomulusEngine.this.f81065k, iAd_encryption, this.mac_CNT);
                             i9 = this.offset;
                             bytes = bytes;
                         }
                         RomulusEngine romulusEngine112 = RomulusEngine.this;
-                        romulusEngine112.block_cipher(this.mac_s, romulusEngine112.k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
+                        romulusEngine112.block_cipher(this.mac_s, romulusEngine112.f81065k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
                         RomulusEngine romulusEngine113 = RomulusEngine.this;
                         romulusEngine113.g8A(this.mac_s, romulusEngine113.mac, 0);
                         int len4 = RomulusEngine.this.dataOperator.getLen();
@@ -403,7 +409,7 @@ public class RomulusEngine extends AEADBaseEngine {
                     int iMin5 = Math.min(i13, 16);
                     RomulusEngine.this.pad(bytes, 0, bArr6, 16, iMin5);
                     RomulusEngine romulusEngine115 = RomulusEngine.this;
-                    romulusEngine115.block_cipher(this.mac_s, romulusEngine115.k, bArr6, 0, this.mac_CNT, (byte) 44);
+                    romulusEngine115.block_cipher(this.mac_s, romulusEngine115.f81065k, bArr6, 0, this.mac_CNT, (byte) 44);
                     RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                     iAd_encryption2 = i13 - iMin5;
                     i12 = iMin5;
@@ -416,13 +422,13 @@ public class RomulusEngine extends AEADBaseEngine {
                 }
                 while (iAd_encryption2 > 0) {
                     this.offset = i12;
-                    iAd_encryption2 = ad_encryption(bytes, i12, this.mac_s, RomulusEngine.this.k, iAd_encryption2, this.mac_CNT);
+                    iAd_encryption2 = ad_encryption(bytes, i12, this.mac_s, RomulusEngine.this.f81065k, iAd_encryption2, this.mac_CNT);
                     i12 = this.offset;
                     bytes = bytes;
                 }
                 RomulusEngine romulusEngine116 = RomulusEngine.this;
                 i6 = 16;
-                romulusEngine116.block_cipher(this.mac_s, romulusEngine116.k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
+                romulusEngine116.block_cipher(this.mac_s, romulusEngine116.f81065k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
                 RomulusEngine romulusEngine117 = RomulusEngine.this;
                 romulusEngine117.g8A(this.mac_s, romulusEngine117.mac, 0);
                 i5 = i12 - i13;
@@ -434,24 +440,24 @@ public class RomulusEngine extends AEADBaseEngine {
             }
             RomulusEngine romulusEngine118 = RomulusEngine.this;
             romulusEngine118.reset_lfsr_gf56(romulusEngine118.CNT);
-            System.arraycopy(RomulusEngine.this.mac, 0, this.s, 0, i6);
+            System.arraycopy(RomulusEngine.this.mac, 0, this.f81066s, 0, i6);
             if (i13 > 0) {
                 RomulusEngine romulusEngine119 = RomulusEngine.this;
-                romulusEngine119.block_cipher(this.s, romulusEngine119.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
+                romulusEngine119.block_cipher(this.f81066s, romulusEngine119.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
                 i10 = i;
                 i11 = i5;
                 while (i13 > 16) {
                     i13 -= 16;
-                    RomulusEngine.this.rho(bytes, i11, bArr, i10, this.s, 16);
+                    RomulusEngine.this.rho(bytes, i11, bArr, i10, this.f81066s, 16);
                     i10 += 16;
                     i11 += 16;
                     RomulusEngine romulusEngine21 = RomulusEngine.this;
                     romulusEngine21.lfsr_gf56(romulusEngine21.CNT);
                     RomulusEngine romulusEngine1110 = RomulusEngine.this;
-                    romulusEngine1110.block_cipher(this.s, romulusEngine1110.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
+                    romulusEngine1110.block_cipher(this.f81066s, romulusEngine1110.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 36);
                 }
                 i8 = 16;
-                RomulusEngine.this.rho(bytes, i11, bArr, i10, this.s, i13);
+                RomulusEngine.this.rho(bytes, i11, bArr, i10, this.f81066s, i13);
             } else {
                 i8 = 16;
             }
@@ -462,7 +468,7 @@ public class RomulusEngine extends AEADBaseEngine {
                     int iMin6 = Math.min(i7, i8);
                     RomulusEngine.this.pad(bArr, i, bArr7, 16, iMin6);
                     RomulusEngine romulusEngine1111 = RomulusEngine.this;
-                    romulusEngine1111.block_cipher(this.mac_s, romulusEngine1111.k, bArr7, 0, this.mac_CNT, (byte) 44);
+                    romulusEngine1111.block_cipher(this.mac_s, romulusEngine1111.f81065k, bArr7, 0, this.mac_CNT, (byte) 44);
                     RomulusEngine.this.lfsr_gf56(this.mac_CNT);
                     iAd_encryption = i7 - iMin6;
                     i9 = i + iMin6;
@@ -475,12 +481,12 @@ public class RomulusEngine extends AEADBaseEngine {
                 }
                 while (iAd_encryption > 0) {
                     this.offset = i9;
-                    iAd_encryption = ad_encryption(bArr, i9, this.mac_s, RomulusEngine.this.k, iAd_encryption, this.mac_CNT);
+                    iAd_encryption = ad_encryption(bArr, i9, this.mac_s, RomulusEngine.this.f81065k, iAd_encryption, this.mac_CNT);
                     i9 = this.offset;
                     bytes = bytes;
                 }
                 RomulusEngine romulusEngine1112 = RomulusEngine.this;
-                romulusEngine1112.block_cipher(this.mac_s, romulusEngine1112.k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
+                romulusEngine1112.block_cipher(this.mac_s, romulusEngine1112.f81065k, RomulusEngine.this.npub, 0, this.mac_CNT, b2);
                 RomulusEngine romulusEngine1113 = RomulusEngine.this;
                 romulusEngine1113.g8A(this.mac_s, romulusEngine1113.mac, 0);
                 int len5 = RomulusEngine.this.dataOperator.getLen();
@@ -493,7 +499,7 @@ public class RomulusEngine extends AEADBaseEngine {
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void reset() {
-            Arrays.clear(this.s);
+            Arrays.clear(this.f81066s);
             Arrays.clear(this.mac_s);
             RomulusEngine.this.reset_lfsr_gf56(this.mac_CNT);
             RomulusEngine romulusEngine = RomulusEngine.this;
@@ -503,7 +509,9 @@ public class RomulusEngine extends AEADBaseEngine {
     }
 
     public class RomulusN implements Instance {
-        public final byte[] s = new byte[16];
+
+        /* JADX INFO: renamed from: s */
+        public final byte[] f81067s = new byte[16];
         public boolean twist;
 
         public RomulusN() {
@@ -512,10 +520,10 @@ public class RomulusEngine extends AEADBaseEngine {
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void processBufferAAD(byte[] bArr, int i) {
             if (this.twist) {
-                Bytes.xorTo(16, bArr, i, this.s);
+                Bytes.xorTo(16, bArr, i, this.f81067s);
             } else {
                 RomulusEngine romulusEngine = RomulusEngine.this;
-                romulusEngine.block_cipher(this.s, romulusEngine.k, bArr, i, RomulusEngine.this.CNT, (byte) 8);
+                romulusEngine.block_cipher(this.f81067s, romulusEngine.f81065k, bArr, i, RomulusEngine.this.CNT, (byte) 8);
             }
             RomulusEngine romulusEngine2 = RomulusEngine.this;
             romulusEngine2.lfsr_gf56(romulusEngine2.CNT);
@@ -524,25 +532,25 @@ public class RomulusEngine extends AEADBaseEngine {
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void processBufferDecrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
-            RomulusEngine.this.g8A(this.s, bArr2, i2);
+            RomulusEngine.this.g8A(this.f81067s, bArr2, i2);
             for (int i3 = 0; i3 < 16; i3++) {
                 int i4 = i3 + i2;
                 byte b = (byte) (bArr2[i4] ^ bArr[i3 + i]);
                 bArr2[i4] = b;
-                byte[] bArr3 = this.s;
+                byte[] bArr3 = this.f81067s;
                 bArr3[i3] = (byte) (b ^ bArr3[i3]);
             }
             RomulusEngine romulusEngine = RomulusEngine.this;
             romulusEngine.lfsr_gf56(romulusEngine.CNT);
             RomulusEngine romulusEngine2 = RomulusEngine.this;
-            romulusEngine2.block_cipher(this.s, romulusEngine2.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 4);
+            romulusEngine2.block_cipher(this.f81067s, romulusEngine2.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 4);
         }
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void processBufferEncrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
-            RomulusEngine.this.g8A(this.s, bArr2, i2);
+            RomulusEngine.this.g8A(this.f81067s, bArr2, i2);
             for (int i3 = 0; i3 < 16; i3++) {
-                byte[] bArr3 = this.s;
+                byte[] bArr3 = this.f81067s;
                 int i4 = i3 + i;
                 bArr3[i3] = (byte) (bArr3[i3] ^ bArr[i4]);
                 int i5 = i3 + i2;
@@ -551,7 +559,7 @@ public class RomulusEngine extends AEADBaseEngine {
             RomulusEngine romulusEngine = RomulusEngine.this;
             romulusEngine.lfsr_gf56(romulusEngine.CNT);
             RomulusEngine romulusEngine2 = RomulusEngine.this;
-            romulusEngine2.block_cipher(this.s, romulusEngine2.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 4);
+            romulusEngine2.block_cipher(this.f81067s, romulusEngine2.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 4);
         }
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
@@ -563,10 +571,10 @@ public class RomulusEngine extends AEADBaseEngine {
                 RomulusEngine romulusEngine = RomulusEngine.this;
                 romulusEngine.pad(romulusEngine.m_aad, 0, bArr, 16, iMin);
                 if (this.twist) {
-                    Bytes.xorTo(16, bArr, this.s);
+                    Bytes.xorTo(16, bArr, this.f81067s);
                 } else {
                     RomulusEngine romulusEngine2 = RomulusEngine.this;
-                    romulusEngine2.block_cipher(this.s, romulusEngine2.k, bArr, 0, RomulusEngine.this.CNT, (byte) 8);
+                    romulusEngine2.block_cipher(this.f81067s, romulusEngine2.f81065k, bArr, 0, RomulusEngine.this.CNT, (byte) 8);
                 }
                 RomulusEngine romulusEngine3 = RomulusEngine.this;
                 romulusEngine3.lfsr_gf56(romulusEngine3.CNT);
@@ -575,12 +583,12 @@ public class RomulusEngine extends AEADBaseEngine {
                 RomulusEngine romulusEngine4 = RomulusEngine.this;
                 romulusEngine4.lfsr_gf56(romulusEngine4.CNT);
                 RomulusEngine romulusEngine5 = RomulusEngine.this;
-                romulusEngine5.block_cipher(this.s, romulusEngine5.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 26);
+                romulusEngine5.block_cipher(this.f81067s, romulusEngine5.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 26);
             } else {
                 RomulusEngine romulusEngine6 = RomulusEngine.this;
                 int i2 = romulusEngine6.m_aadPos & 15;
-                byte[] bArr2 = this.s;
-                byte[] bArr3 = romulusEngine6.k;
+                byte[] bArr2 = this.f81067s;
+                byte[] bArr3 = romulusEngine6.f81065k;
                 if (i2 != 0) {
                     romulusEngine6.block_cipher(bArr2, bArr3, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 26);
                 } else {
@@ -598,26 +606,26 @@ public class RomulusEngine extends AEADBaseEngine {
             if (len - (romulusEngine.forEncryption ? 0 : romulusEngine.MAC_SIZE) == 0) {
                 romulusEngine.lfsr_gf56(romulusEngine.CNT);
                 RomulusEngine romulusEngine2 = RomulusEngine.this;
-                romulusEngine2.block_cipher(this.s, romulusEngine2.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 21);
+                romulusEngine2.block_cipher(this.f81067s, romulusEngine2.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, (byte) 21);
             } else {
                 int i2 = romulusEngine.m_bufPos;
                 if (i2 != 0) {
                     int iMin = Math.min(i2, 16);
                     RomulusEngine romulusEngine3 = RomulusEngine.this;
-                    romulusEngine3.rho(romulusEngine3.m_buf, 0, bArr, i, this.s, iMin);
+                    romulusEngine3.rho(romulusEngine3.m_buf, 0, bArr, i, this.f81067s, iMin);
                     RomulusEngine romulusEngine4 = RomulusEngine.this;
                     romulusEngine4.lfsr_gf56(romulusEngine4.CNT);
                     RomulusEngine romulusEngine5 = RomulusEngine.this;
-                    romulusEngine5.block_cipher(this.s, romulusEngine5.k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, RomulusEngine.this.m_bufPos == 16 ? (byte) 20 : (byte) 21);
+                    romulusEngine5.block_cipher(this.f81067s, romulusEngine5.f81065k, RomulusEngine.this.npub, 0, RomulusEngine.this.CNT, RomulusEngine.this.m_bufPos == 16 ? (byte) 20 : (byte) 21);
                 }
             }
             RomulusEngine romulusEngine6 = RomulusEngine.this;
-            romulusEngine6.g8A(this.s, romulusEngine6.mac, 0);
+            romulusEngine6.g8A(this.f81067s, romulusEngine6.mac, 0);
         }
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void reset() {
-            Arrays.clear(this.s);
+            Arrays.clear(this.f81067s);
             RomulusEngine romulusEngine = RomulusEngine.this;
             romulusEngine.reset_lfsr_gf56(romulusEngine.CNT);
             this.twist = true;
@@ -640,21 +648,33 @@ public class RomulusEngine extends AEADBaseEngine {
 
     public class RomulusT implements Instance {
         public byte[] CNT_Z;
-        public byte[] LR;
-        public byte[] S;
-        public byte[] T;
-        public byte[] Z;
-        public final byte[] g;
-        public final byte[] h;
+
+        /* JADX INFO: renamed from: LR */
+        public byte[] f81068LR;
+
+        /* JADX INFO: renamed from: S */
+        public byte[] f81069S;
+
+        /* JADX INFO: renamed from: T */
+        public byte[] f81070T;
+
+        /* JADX INFO: renamed from: Z */
+        public byte[] f81071Z;
+
+        /* JADX INFO: renamed from: g */
+        public final byte[] f81072g;
+
+        /* JADX INFO: renamed from: h */
+        public final byte[] f81073h;
 
         public RomulusT() {
-            this.h = new byte[16];
-            this.g = new byte[16];
-            this.Z = new byte[16];
+            this.f81073h = new byte[16];
+            this.f81072g = new byte[16];
+            this.f81071Z = new byte[16];
             this.CNT_Z = new byte[7];
-            this.LR = new byte[32];
-            this.T = new byte[16];
-            this.S = new byte[16];
+            this.f81068LR = new byte[32];
+            this.f81070T = new byte[16];
+            this.f81069S = new byte[16];
         }
 
         private void processAfterAbsorbCiphertext() {
@@ -662,7 +682,7 @@ public class RomulusEngine extends AEADBaseEngine {
             int i = romulusEngine.m_aadPos;
             int i2 = romulusEngine.BlockSize;
             if (i == i2) {
-                RomulusEngine.hirose_128_128_256(this.h, this.g, romulusEngine.m_aad, 0);
+                RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, romulusEngine.m_aad, 0);
                 RomulusEngine.this.m_aadPos = 0;
             } else {
                 romulusEngine.m_aadPos = i2;
@@ -671,21 +691,21 @@ public class RomulusEngine extends AEADBaseEngine {
         }
 
         private void processBuffer(byte[] bArr, int i, byte[] bArr2, int i2) {
-            System.arraycopy(RomulusEngine.this.npub, 0, this.S, 0, 16);
+            System.arraycopy(RomulusEngine.this.npub, 0, this.f81069S, 0, 16);
             RomulusEngine romulusEngine = RomulusEngine.this;
-            romulusEngine.block_cipher(this.S, this.Z, this.T, 0, romulusEngine.CNT, (byte) 64);
-            Bytes.xor(16, this.S, bArr, i, bArr2, i2);
-            System.arraycopy(RomulusEngine.this.npub, 0, this.S, 0, 16);
+            romulusEngine.block_cipher(this.f81069S, this.f81071Z, this.f81070T, 0, romulusEngine.CNT, (byte) 64);
+            Bytes.xor(16, this.f81069S, bArr, i, bArr2, i2);
+            System.arraycopy(RomulusEngine.this.npub, 0, this.f81069S, 0, 16);
             RomulusEngine romulusEngine2 = RomulusEngine.this;
-            romulusEngine2.block_cipher(this.S, this.Z, this.T, 0, romulusEngine2.CNT, (byte) 65);
-            System.arraycopy(this.S, 0, this.Z, 0, 16);
+            romulusEngine2.block_cipher(this.f81069S, this.f81071Z, this.f81070T, 0, romulusEngine2.CNT, (byte) 65);
+            System.arraycopy(this.f81069S, 0, this.f81071Z, 0, 16);
             RomulusEngine romulusEngine3 = RomulusEngine.this;
             romulusEngine3.lfsr_gf56(romulusEngine3.CNT);
         }
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void processBufferAAD(byte[] bArr, int i) {
-            RomulusEngine.hirose_128_128_256(this.h, this.g, bArr, i);
+            RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, bArr, i);
         }
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
@@ -713,7 +733,7 @@ public class RomulusEngine extends AEADBaseEngine {
             if (i >= 16) {
                 byte[] bArr = romulusEngine2.m_aad;
                 bArr[romulusEngine2.AADBufferSize - 1] = (byte) (i & 15);
-                RomulusEngine.hirose_128_128_256(this.h, this.g, bArr, 0);
+                RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, bArr, 0);
                 RomulusEngine.this.m_aadPos = 0;
                 return;
             }
@@ -736,11 +756,11 @@ public class RomulusEngine extends AEADBaseEngine {
             int i3 = romulusEngine.m_bufPos;
             if (i3 != 0) {
                 int iMin = Math.min(i3, 16);
-                System.arraycopy(RomulusEngine.this.npub, 0, this.S, 0, 16);
+                System.arraycopy(RomulusEngine.this.npub, 0, this.f81069S, 0, 16);
                 RomulusEngine romulusEngine2 = RomulusEngine.this;
-                romulusEngine2.block_cipher(this.S, this.Z, this.T, 0, romulusEngine2.CNT, (byte) 64);
-                Bytes.xor(iMin, RomulusEngine.this.m_buf, this.S, bArr, i);
-                System.arraycopy(RomulusEngine.this.npub, 0, this.S, 0, 16);
+                romulusEngine2.block_cipher(this.f81069S, this.f81071Z, this.f81070T, 0, romulusEngine2.CNT, (byte) 64);
+                Bytes.xor(iMin, RomulusEngine.this.m_buf, this.f81069S, bArr, i);
+                System.arraycopy(RomulusEngine.this.npub, 0, this.f81069S, 0, 16);
                 RomulusEngine romulusEngine3 = RomulusEngine.this;
                 romulusEngine3.lfsr_gf56(romulusEngine3.CNT);
                 RomulusEngine romulusEngine4 = RomulusEngine.this;
@@ -765,7 +785,7 @@ public class RomulusEngine extends AEADBaseEngine {
                 } else {
                     c = 16;
                 }
-                RomulusEngine.hirose_128_128_256(this.h, this.g, RomulusEngine.this.m_aad, 0);
+                RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, RomulusEngine.this.m_aad, 0);
                 RomulusEngine.this.lfsr_gf56(this.CNT_Z);
             } else if (romulusEngine.m_aadPos != 0) {
                 if (i2 > 0) {
@@ -778,10 +798,10 @@ public class RomulusEngine extends AEADBaseEngine {
                         RomulusEngine.this.m_aadPos = 0;
                         c = 0;
                     }
-                    RomulusEngine.hirose_128_128_256(this.h, this.g, RomulusEngine.this.m_aad, 0);
+                    RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, RomulusEngine.this.m_aad, 0);
                 }
                 c = 16;
-                RomulusEngine.hirose_128_128_256(this.h, this.g, RomulusEngine.this.m_aad, 0);
+                RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, RomulusEngine.this.m_aad, 0);
             } else if (i2 > 0) {
                 Arrays.fill(romulusEngine.m_aad, 0, romulusEngine.BlockSize, (byte) 0);
                 byte[] bArr6 = RomulusEngine.this.npub;
@@ -789,7 +809,7 @@ public class RomulusEngine extends AEADBaseEngine {
                 byte[] bArr7 = romulusEngine9.m_aad;
                 int i6 = romulusEngine9.BlockSize;
                 System.arraycopy(bArr6, 0, bArr7, i6, i6);
-                RomulusEngine.hirose_128_128_256(this.h, this.g, RomulusEngine.this.m_aad, 0);
+                RomulusEngine.hirose_128_128_256(this.f81073h, this.f81072g, RomulusEngine.this.m_aad, 0);
                 c = 0;
             } else {
                 c = 16;
@@ -804,32 +824,32 @@ public class RomulusEngine extends AEADBaseEngine {
                 Arrays.fill(RomulusEngine.this.m_aad, 7, 31, (byte) 0);
                 RomulusEngine.this.m_aad[31] = 7;
             }
-            byte[] bArr8 = this.h;
+            byte[] bArr8 = this.f81073h;
             bArr8[0] = (byte) (bArr8[0] ^ 2);
-            RomulusEngine.hirose_128_128_256(bArr8, this.g, RomulusEngine.this.m_aad, 0);
-            System.arraycopy(this.h, 0, this.LR, 0, 16);
-            System.arraycopy(this.g, 0, this.LR, 16, 16);
+            RomulusEngine.hirose_128_128_256(bArr8, this.f81072g, RomulusEngine.this.m_aad, 0);
+            System.arraycopy(this.f81073h, 0, this.f81068LR, 0, 16);
+            System.arraycopy(this.f81072g, 0, this.f81068LR, 16, 16);
             Arrays.clear(this.CNT_Z);
             RomulusEngine romulusEngine10 = RomulusEngine.this;
-            romulusEngine10.block_cipher(this.LR, romulusEngine10.k, this.LR, 16, this.CNT_Z, (byte) 68);
-            byte[] bArr9 = this.LR;
+            romulusEngine10.block_cipher(this.f81068LR, romulusEngine10.f81065k, this.f81068LR, 16, this.CNT_Z, (byte) 68);
+            byte[] bArr9 = this.f81068LR;
             RomulusEngine romulusEngine11 = RomulusEngine.this;
             System.arraycopy(bArr9, 0, romulusEngine11.mac, 0, romulusEngine11.MAC_SIZE);
         }
 
         @Override // org.bouncycastle.crypto.engines.RomulusEngine.Instance
         public void reset() {
-            Arrays.clear(this.h);
-            Arrays.clear(this.g);
-            Arrays.clear(this.LR);
-            Arrays.clear(this.T);
-            Arrays.clear(this.S);
+            Arrays.clear(this.f81073h);
+            Arrays.clear(this.f81072g);
+            Arrays.clear(this.f81068LR);
+            Arrays.clear(this.f81070T);
+            Arrays.clear(this.f81069S);
             Arrays.clear(this.CNT_Z);
             RomulusEngine romulusEngine = RomulusEngine.this;
             romulusEngine.reset_lfsr_gf56(romulusEngine.CNT);
-            System.arraycopy(RomulusEngine.this.npub, 0, this.Z, 0, RomulusEngine.this.IV_SIZE);
+            System.arraycopy(RomulusEngine.this.npub, 0, this.f81071Z, 0, RomulusEngine.this.IV_SIZE);
             RomulusEngine romulusEngine2 = RomulusEngine.this;
-            romulusEngine2.block_cipher(this.Z, romulusEngine2.k, this.T, 0, this.CNT_Z, (byte) 66);
+            romulusEngine2.block_cipher(this.f81071Z, romulusEngine2.f81065k, this.f81070T, 0, this.CNT_Z, (byte) 66);
             RomulusEngine.this.reset_lfsr_gf56(this.CNT_Z);
         }
     }
@@ -941,7 +961,7 @@ public class RomulusEngine extends AEADBaseEngine {
             }
             byte[] bArr7 = bArr3[0];
             byte b = bArr7[0];
-            byte[] bArr8 = RC;
+            byte[] bArr8 = f81064RC;
             bArr7[0] = (byte) (b ^ (bArr8[i3] & 15));
             byte[] bArr9 = bArr3[1];
             bArr9[0] = (byte) (bArr9[0] ^ ((bArr8[i3] >>> 4) & 3));
@@ -1089,7 +1109,7 @@ public class RomulusEngine extends AEADBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
         this.npub = bArr2;
-        this.k = bArr;
+        this.f81065k = bArr;
     }
 
     public void lfsr_gf56(byte[] bArr) {

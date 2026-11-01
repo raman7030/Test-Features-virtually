@@ -1,7 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
-import l.C3200;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -11,6 +9,8 @@ import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.TweakableBlockCipherParameters;
 import org.bouncycastle.util.Pack;
+import p067l.C21545;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ThreefishEngine implements BlockCipher {
@@ -33,8 +33,12 @@ public class ThreefishEngine implements BlockCipher {
     public ThreefishCipher cipher;
     public long[] currentBlock;
     public boolean forEncryption;
-    public long[] kw;
-    public long[] t;
+
+    /* JADX INFO: renamed from: kw */
+    public long[] f81086kw;
+
+    /* JADX INFO: renamed from: t */
+    public long[] f81087t;
 
     public final class Threefish1024Cipher extends ThreefishCipher {
         public static final int ROTATION_0_0 = 24;
@@ -108,8 +112,8 @@ public class ThreefishEngine implements BlockCipher {
 
         @Override // org.bouncycastle.crypto.engines.ThreefishEngine.ThreefishCipher
         public void decryptBlock(long[] jArr, long[] jArr2) {
-            long[] jArr3 = this.kw;
-            long[] jArr4 = this.t;
+            long[] jArr3 = this.f81088kw;
+            long[] jArr4 = this.f81089t;
             int[] iArr = ThreefishEngine.MOD17;
             int[] iArr2 = ThreefishEngine.MOD3;
             if (jArr3.length != 33) {
@@ -371,8 +375,8 @@ public class ThreefishEngine implements BlockCipher {
 
         @Override // org.bouncycastle.crypto.engines.ThreefishEngine.ThreefishCipher
         public void encryptBlock(long[] jArr, long[] jArr2) {
-            long[] jArr3 = this.kw;
-            long[] jArr4 = this.t;
+            long[] jArr3 = this.f81088kw;
+            long[] jArr4 = this.f81089t;
             int[] iArr = ThreefishEngine.MOD17;
             int[] iArr2 = ThreefishEngine.MOD3;
             if (jArr3.length != 33) {
@@ -665,8 +669,8 @@ public class ThreefishEngine implements BlockCipher {
 
         @Override // org.bouncycastle.crypto.engines.ThreefishEngine.ThreefishCipher
         public void decryptBlock(long[] jArr, long[] jArr2) {
-            long[] jArr3 = this.kw;
-            long[] jArr4 = this.t;
+            long[] jArr3 = this.f81088kw;
+            long[] jArr4 = this.f81089t;
             int[] iArr = ThreefishEngine.MOD5;
             int[] iArr2 = ThreefishEngine.MOD3;
             if (jArr3.length != 9) {
@@ -744,8 +748,8 @@ public class ThreefishEngine implements BlockCipher {
 
         @Override // org.bouncycastle.crypto.engines.ThreefishEngine.ThreefishCipher
         public void encryptBlock(long[] jArr, long[] jArr2) {
-            long[] jArr3 = this.kw;
-            long[] jArr4 = this.t;
+            long[] jArr3 = this.f81088kw;
+            long[] jArr4 = this.f81089t;
             int[] iArr = ThreefishEngine.MOD5;
             int[] iArr2 = ThreefishEngine.MOD3;
             if (jArr3.length != 9) {
@@ -865,8 +869,8 @@ public class ThreefishEngine implements BlockCipher {
 
         @Override // org.bouncycastle.crypto.engines.ThreefishEngine.ThreefishCipher
         public void decryptBlock(long[] jArr, long[] jArr2) {
-            long[] jArr3 = this.kw;
-            long[] jArr4 = this.t;
+            long[] jArr3 = this.f81088kw;
+            long[] jArr4 = this.f81089t;
             int[] iArr = ThreefishEngine.MOD9;
             int[] iArr2 = ThreefishEngine.MOD3;
             if (jArr3.length != 17) {
@@ -1010,8 +1014,8 @@ public class ThreefishEngine implements BlockCipher {
 
         @Override // org.bouncycastle.crypto.engines.ThreefishEngine.ThreefishCipher
         public void encryptBlock(long[] jArr, long[] jArr2) {
-            long[] jArr3 = this.kw;
-            long[] jArr4 = this.t;
+            long[] jArr3 = this.f81088kw;
+            long[] jArr4 = this.f81089t;
             int[] iArr = ThreefishEngine.MOD9;
             int[] iArr2 = ThreefishEngine.MOD3;
             if (jArr3.length != 17) {
@@ -1161,12 +1165,16 @@ public class ThreefishEngine implements BlockCipher {
     }
 
     public abstract class ThreefishCipher {
-        public final long[] kw;
-        public final long[] t;
+
+        /* JADX INFO: renamed from: kw */
+        public final long[] f81088kw;
+
+        /* JADX INFO: renamed from: t */
+        public final long[] f81089t;
 
         public ThreefishCipher(long[] jArr, long[] jArr2) {
-            this.kw = jArr;
-            this.t = jArr2;
+            this.f81088kw = jArr;
+            this.f81089t = jArr2;
         }
 
         public abstract void decryptBlock(long[] jArr, long[] jArr2);
@@ -1197,14 +1205,14 @@ public class ThreefishEngine implements BlockCipher {
     public ThreefishEngine(int i) {
         ThreefishCipher threefish256Cipher;
         long[] jArr = new long[5];
-        this.t = jArr;
+        this.f81087t = jArr;
         int i2 = i / 8;
         this.blocksizeBytes = i2;
         int i3 = i2 / 8;
         this.blocksizeWords = i3;
         this.currentBlock = new long[i3];
         long[] jArr2 = new long[(i3 * 2) + 1];
-        this.kw = jArr2;
+        this.f81086kw = jArr2;
         if (i == 256) {
             threefish256Cipher = new Threefish256Cipher(jArr2, jArr);
         } else if (i == 512) {
@@ -1228,19 +1236,19 @@ public class ThreefishEngine implements BlockCipher {
 
     private void setKey(long[] jArr) {
         if (jArr.length != this.blocksizeWords) {
-            throw new IllegalArgumentException(C3200.m9831(this.blocksizeWords, " words)", new StringBuilder("Threefish key must be same size as block (")));
+            throw new IllegalArgumentException(C5410.m11876(this.blocksizeWords, " words)", new StringBuilder("Threefish key must be same size as block (")));
         }
         long j = C_240;
         int i = 0;
         while (true) {
             int i2 = this.blocksizeWords;
             if (i >= i2) {
-                long[] jArr2 = this.kw;
+                long[] jArr2 = this.f81086kw;
                 jArr2[i2] = j;
                 System.arraycopy(jArr2, 0, jArr2, i2 + 1, i2);
                 return;
             } else {
-                long[] jArr3 = this.kw;
+                long[] jArr3 = this.f81086kw;
                 long j2 = jArr[i];
                 jArr3[i] = j2;
                 j ^= j2;
@@ -1253,7 +1261,7 @@ public class ThreefishEngine implements BlockCipher {
         if (jArr.length != 2) {
             throw new IllegalArgumentException("Tweak must be 2 words.");
         }
-        long[] jArr2 = this.t;
+        long[] jArr2 = this.f81087t;
         long j = jArr[0];
         jArr2[0] = j;
         long j2 = jArr[1];
@@ -1294,7 +1302,7 @@ public class ThreefishEngine implements BlockCipher {
             tweak = tweakableBlockCipherParameters.getTweak();
         } else {
             if (!(cipherParameters instanceof KeyParameter)) {
-                throw new IllegalArgumentException(C20177.m46409("Invalid parameter passed to Threefish init - ", cipherParameters));
+                throw new IllegalArgumentException(C21545.m48728("Invalid parameter passed to Threefish init - ", cipherParameters));
             }
             key = ((KeyParameter) cipherParameters).getKey();
             tweak = null;
@@ -1303,7 +1311,7 @@ public class ThreefishEngine implements BlockCipher {
             jArr = null;
         } else {
             if (key.length != this.blocksizeBytes) {
-                throw new IllegalArgumentException(C3200.m9831(this.blocksizeBytes, " bytes)", new StringBuilder("Threefish key must be same size as block (")));
+                throw new IllegalArgumentException(C5410.m11876(this.blocksizeBytes, " bytes)", new StringBuilder("Threefish key must be same size as block (")));
             }
             jArr = new long[this.blocksizeWords];
             Pack.littleEndianToLong(key, 0, jArr);
@@ -1346,7 +1354,7 @@ public class ThreefishEngine implements BlockCipher {
     }
 
     public int processBlock(long[] jArr, long[] jArr2) {
-        long[] jArr3 = this.kw;
+        long[] jArr3 = this.f81086kw;
         int i = this.blocksizeWords;
         if (jArr3[i] == 0) {
             throw new IllegalStateException("Threefish engine not initialised");

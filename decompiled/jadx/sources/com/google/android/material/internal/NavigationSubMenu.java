@@ -1,19 +1,19 @@
 package com.google.android.material.internal;
 
 import android.content.Context;
-import l.C3060;
-import l.C5882;
-import l.SubMenuC19703;
+import p067l.C0994;
+import p067l.C1134;
+import p067l.SubMenuC1819;
 
 /* JADX INFO: loaded from: classes2.dex */
-public class NavigationSubMenu extends SubMenuC19703 {
-    public NavigationSubMenu(Context context, NavigationMenu navigationMenu, C5882 c5882) {
-        super(context, navigationMenu, c5882);
+public class NavigationSubMenu extends SubMenuC1819 {
+    public NavigationSubMenu(Context context, NavigationMenu navigationMenu, C1134 c1134) {
+        super(context, navigationMenu, c1134);
     }
 
-    @Override // l.C3060
+    @Override // p067l.C0994
     public void onItemsChanged(boolean z) {
         super.onItemsChanged(z);
-        ((C3060) getParentMenu()).onItemsChanged(z);
+        ((C0994) getParentMenu()).onItemsChanged(z);
     }
 }

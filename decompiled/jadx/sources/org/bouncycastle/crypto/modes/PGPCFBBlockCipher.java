@@ -1,18 +1,22 @@
 package org.bouncycastle.crypto.modes;
 
-import l.C19373;
-import l.C23202;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.ParametersWithIV;
+import p067l.C20780;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PGPCFBBlockCipher implements BlockCipher {
-    public byte[] FR;
+
+    /* JADX INFO: renamed from: FR */
+    public byte[] f81198FR;
     public byte[] FRE;
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81199IV;
     public int blockSize;
     public BlockCipher cipher;
     public int count;
@@ -25,8 +29,8 @@ public class PGPCFBBlockCipher implements BlockCipher {
         this.inlineIv = z;
         int blockSize = blockCipher.getBlockSize();
         this.blockSize = blockSize;
-        this.IV = new byte[blockSize];
-        this.FR = new byte[blockSize];
+        this.f81199IV = new byte[blockSize];
+        this.f81198FR = new byte[blockSize];
         this.FRE = new byte[blockSize];
         this.tmp = new byte[blockSize];
     }
@@ -40,7 +44,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
             throw new OutputLengthException("output buffer too short");
         }
         int i4 = 0;
-        this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+        this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
         for (int i5 = 0; i5 < this.blockSize; i5++) {
             bArr2[i2 + i5] = encryptByte(bArr[i + i5], i5);
         }
@@ -49,7 +53,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
             if (i4 >= i6) {
                 return i6;
             }
-            this.FR[i4] = bArr[i + i4];
+            this.f81198FR[i4] = bArr[i + i4];
             i4++;
         }
     }
@@ -66,9 +70,9 @@ public class PGPCFBBlockCipher implements BlockCipher {
         int i5 = this.count;
         if (i5 == 0) {
             for (int i6 = 0; i6 < this.blockSize; i6++) {
-                this.FR[i6] = bArr[i + i6];
+                this.f81198FR[i6] = bArr[i + i6];
             }
-            this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+            this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
             this.count += this.blockSize;
             return 0;
         }
@@ -77,8 +81,8 @@ public class PGPCFBBlockCipher implements BlockCipher {
                 System.arraycopy(bArr, i, this.tmp, 0, i4);
                 bArr2[i2] = encryptByte(this.tmp[0], this.blockSize - 2);
                 bArr2[i2 + 1] = encryptByte(this.tmp[1], this.blockSize - 1);
-                System.arraycopy(this.tmp, 0, this.FR, this.blockSize - 2, 2);
-                this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                System.arraycopy(this.tmp, 0, this.f81198FR, this.blockSize - 2, 2);
+                this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
                 int i7 = 0;
                 while (true) {
                     i3 = this.blockSize;
@@ -88,14 +92,14 @@ public class PGPCFBBlockCipher implements BlockCipher {
                     bArr2[i2 + i7 + 2] = encryptByte(this.tmp[i7 + 2], i7);
                     i7++;
                 }
-                System.arraycopy(this.tmp, 2, this.FR, 0, i3 - 2);
+                System.arraycopy(this.tmp, 2, this.f81198FR, 0, i3 - 2);
             }
             return this.blockSize;
         }
         System.arraycopy(bArr, i, this.tmp, 0, i4);
-        byte[] bArr3 = this.FR;
+        byte[] bArr3 = this.f81198FR;
         System.arraycopy(bArr3, 2, bArr3, 0, this.blockSize - 2);
-        byte[] bArr4 = this.FR;
+        byte[] bArr4 = this.f81198FR;
         int i8 = this.blockSize;
         byte[] bArr5 = this.tmp;
         bArr4[i8 - 2] = bArr5[0];
@@ -105,7 +109,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
         while (true) {
             int i10 = this.blockSize;
             if (i9 >= i10 - 2) {
-                System.arraycopy(this.tmp, 2, this.FR, 0, i10 - 2);
+                System.arraycopy(this.tmp, 2, this.f81198FR, 0, i10 - 2);
                 this.count += 2;
                 return this.blockSize - 2;
             }
@@ -123,7 +127,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
             throw new OutputLengthException("output buffer too short");
         }
         int i4 = 0;
-        this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+        this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
         for (int i5 = 0; i5 < this.blockSize; i5++) {
             bArr2[i2 + i5] = encryptByte(bArr[i + i5], i5);
         }
@@ -132,7 +136,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
             if (i4 >= i6) {
                 return i6;
             }
-            this.FR[i4] = bArr2[i2 + i4];
+            this.f81198FR[i4] = bArr2[i2 + i4];
             i4++;
         }
     }
@@ -150,7 +154,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
                 if (i5 + i2 > bArr2.length) {
                     throw new OutputLengthException("output buffer too short");
                 }
-                this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
                 int i7 = 0;
                 while (true) {
                     i3 = this.blockSize;
@@ -160,42 +164,42 @@ public class PGPCFBBlockCipher implements BlockCipher {
                     bArr2[i2 + i7] = encryptByte(bArr[i + i7], i7);
                     i7++;
                 }
-                System.arraycopy(bArr2, i2, this.FR, 0, i3);
+                System.arraycopy(bArr2, i2, this.f81198FR, 0, i3);
             }
             return this.blockSize;
         }
-        if (C23202.m51496(i5, 2, i2, 2) > bArr2.length) {
+        if (C24420.m53892(i5, 2, i2, 2) > bArr2.length) {
             throw new OutputLengthException("output buffer too short");
         }
-        this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+        this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
         int i8 = 0;
         while (true) {
             i4 = this.blockSize;
             if (i8 >= i4) {
                 break;
             }
-            bArr2[i2 + i8] = encryptByte(this.IV[i8], i8);
+            bArr2[i2 + i8] = encryptByte(this.f81199IV[i8], i8);
             i8++;
         }
-        System.arraycopy(bArr2, i2, this.FR, 0, i4);
-        this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+        System.arraycopy(bArr2, i2, this.f81198FR, 0, i4);
+        this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
         int i9 = this.blockSize;
-        bArr2[i2 + i9] = encryptByte(this.IV[i9 - 2], 0);
+        bArr2[i2 + i9] = encryptByte(this.f81199IV[i9 - 2], 0);
         int i10 = this.blockSize;
-        bArr2[i2 + i10 + 1] = encryptByte(this.IV[i10 - 1], 1);
-        System.arraycopy(bArr2, i2 + 2, this.FR, 0, this.blockSize);
-        this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+        bArr2[i2 + i10 + 1] = encryptByte(this.f81199IV[i10 - 1], 1);
+        System.arraycopy(bArr2, i2 + 2, this.f81198FR, 0, this.blockSize);
+        this.cipher.processBlock(this.f81198FR, 0, this.FRE, 0);
         int i11 = 0;
         while (true) {
             int i12 = this.blockSize;
             if (i11 >= i12) {
-                System.arraycopy(bArr2, i2 + i12 + 2, this.FR, 0, i12);
+                System.arraycopy(bArr2, i2 + i12 + 2, this.f81198FR, 0, i12);
                 int i13 = this.count;
                 int i14 = this.blockSize;
-                this.count = C23202.m51496(i14, 2, 2, i13);
+                this.count = C24420.m53892(i14, 2, 2, i13);
                 return (i14 * 2) + 2;
             }
-            bArr2[C19373.m44633(i2, i12, 2, i11)] = encryptByte(bArr[i + i11], i11);
+            bArr2[C20780.m46927(i2, i12, 2, i11)] = encryptByte(bArr[i + i11], i11);
             i11++;
         }
     }
@@ -238,12 +242,12 @@ public class PGPCFBBlockCipher implements BlockCipher {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();
             int length = iv.length;
-            byte[] bArr = this.IV;
+            byte[] bArr = this.f81199IV;
             if (length < bArr.length) {
                 System.arraycopy(iv, 0, bArr, bArr.length - iv.length, iv.length);
                 int i = 0;
                 while (true) {
-                    byte[] bArr2 = this.IV;
+                    byte[] bArr2 = this.f81199IV;
                     if (i >= bArr2.length - iv.length) {
                         break;
                     }
@@ -276,7 +280,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
         this.count = 0;
         int i = 0;
         while (true) {
-            byte[] bArr = this.FR;
+            byte[] bArr = this.f81198FR;
             if (i == bArr.length) {
                 this.cipher.reset();
                 return;
@@ -284,7 +288,7 @@ public class PGPCFBBlockCipher implements BlockCipher {
             if (this.inlineIv) {
                 bArr[i] = 0;
             } else {
-                bArr[i] = this.IV[i];
+                bArr[i] = this.f81199IV[i];
             }
             i++;
         }

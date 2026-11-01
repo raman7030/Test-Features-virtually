@@ -1,6 +1,5 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -9,12 +8,19 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FalconPrivateKey extends ASN1Object {
-    public byte[] F;
-    public byte[] f;
-    public byte[] g;
+
+    /* JADX INFO: renamed from: F */
+    public byte[] f81556F;
+
+    /* JADX INFO: renamed from: f */
+    public byte[] f81557f;
+
+    /* JADX INFO: renamed from: g */
+    public byte[] f81558g;
     public FalconPublicKey publicKey;
     public int version;
 
@@ -24,9 +30,9 @@ public class FalconPrivateKey extends ASN1Object {
 
     public FalconPrivateKey(int i, byte[] bArr, byte[] bArr2, byte[] bArr3, FalconPublicKey falconPublicKey) {
         this.version = i;
-        this.f = bArr;
-        this.g = bArr2;
-        this.F = bArr3;
+        this.f81557f = bArr;
+        this.f81558g = bArr2;
+        this.f81556F = bArr3;
         this.publicKey = falconPublicKey;
     }
 
@@ -36,9 +42,9 @@ public class FalconPrivateKey extends ASN1Object {
         if (iIntValueExact != 0) {
             throw new IllegalArgumentException("unrecognized version");
         }
-        this.f = C16014.m37869(aSN1Sequence, 1);
-        this.g = C16014.m37869(aSN1Sequence, 2);
-        this.F = C16014.m37869(aSN1Sequence, 3);
+        this.f81557f = C17588.m40055(aSN1Sequence, 1);
+        this.f81558g = C17588.m40055(aSN1Sequence, 2);
+        this.f81556F = C17588.m40055(aSN1Sequence, 3);
         if (aSN1Sequence.size() == 5) {
             this.publicKey = FalconPublicKey.getInstance(aSN1Sequence.getObjectAt(4));
         }
@@ -55,11 +61,11 @@ public class FalconPrivateKey extends ASN1Object {
     }
 
     public byte[] getF() {
-        return Arrays.clone(this.F);
+        return Arrays.clone(this.f81556F);
     }
 
     public byte[] getG() {
-        return Arrays.clone(this.g);
+        return Arrays.clone(this.f81558g);
     }
 
     public FalconPublicKey getPublicKey() {
@@ -71,16 +77,16 @@ public class FalconPrivateKey extends ASN1Object {
     }
 
     public byte[] getf() {
-        return Arrays.clone(this.f);
+        return Arrays.clone(this.f81557f);
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
         aSN1EncodableVector.add(new ASN1Integer(this.version));
-        aSN1EncodableVector.add(new DEROctetString(this.f));
-        aSN1EncodableVector.add(new DEROctetString(this.g));
-        aSN1EncodableVector.add(new DEROctetString(this.F));
+        aSN1EncodableVector.add(new DEROctetString(this.f81557f));
+        aSN1EncodableVector.add(new DEROctetString(this.f81558g));
+        aSN1EncodableVector.add(new DEROctetString(this.f81556F));
         FalconPublicKey falconPublicKey = this.publicKey;
         if (falconPublicKey != null) {
             aSN1EncodableVector.add(new FalconPublicKey(falconPublicKey.getH()));

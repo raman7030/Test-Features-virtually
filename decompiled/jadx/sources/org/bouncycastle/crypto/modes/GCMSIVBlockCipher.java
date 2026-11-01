@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.modes;
 
-import com.alipay.sdk.m.p.a;
+import com.alipay.sdk.p010m.p041p.C0184a;
 import com.google.android.material.color.ColorResourcesTableCreator;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -330,7 +330,7 @@ public class GCMSIVBlockCipher implements AEADBlockCipher {
         for (int i2 = 0; i2 < 16; i2++) {
             byte b = bArr[i2];
             bArr[i2] = (byte) (i | ((b >> 1) & 127));
-            i = (b & 1) == 0 ? 0 : a.g;
+            i = (b & 1) == 0 ? 0 : C0184a.f879g;
         }
         if (i != 0) {
             bArr[0] = (byte) (bArr[0] ^ ADD);

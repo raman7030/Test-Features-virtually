@@ -6,11 +6,13 @@ import java.math.BigInteger;
 public class DSAPublicKeyParameters extends DSAKeyParameters {
     public static final BigInteger ONE = BigInteger.valueOf(1);
     public static final BigInteger TWO = BigInteger.valueOf(2);
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81243y;
 
     public DSAPublicKeyParameters(BigInteger bigInteger, DSAParameters dSAParameters) {
         super(false, dSAParameters);
-        this.y = validate(bigInteger, dSAParameters);
+        this.f81243y = validate(bigInteger, dSAParameters);
     }
 
     private BigInteger validate(BigInteger bigInteger, DSAParameters dSAParameters) {
@@ -25,6 +27,6 @@ public class DSAPublicKeyParameters extends DSAKeyParameters {
     }
 
     public BigInteger getY() {
-        return this.y;
+        return this.f81243y;
     }
 }

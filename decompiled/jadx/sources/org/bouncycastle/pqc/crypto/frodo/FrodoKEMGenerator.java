@@ -8,10 +8,12 @@ import org.bouncycastle.pqc.crypto.util.SecretWithEncapsulationImpl;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FrodoKEMGenerator implements EncapsulatedSecretGenerator {
-    public final SecureRandom sr;
+
+    /* JADX INFO: renamed from: sr */
+    public final SecureRandom f81612sr;
 
     public FrodoKEMGenerator(SecureRandom secureRandom) {
-        this.sr = secureRandom;
+        this.f81612sr = secureRandom;
     }
 
     @Override // org.bouncycastle.crypto.EncapsulatedSecretGenerator
@@ -20,7 +22,7 @@ public class FrodoKEMGenerator implements EncapsulatedSecretGenerator {
         FrodoEngine engine = frodoPublicKeyParameters.getParameters().getEngine();
         byte[] bArr = new byte[engine.getCipherTextSize()];
         byte[] bArr2 = new byte[engine.getSessionKeySize()];
-        engine.kem_enc(bArr, bArr2, frodoPublicKeyParameters.getPublicKey(), this.sr);
+        engine.kem_enc(bArr, bArr2, frodoPublicKeyParameters.getPublicKey(), this.f81612sr);
         return new SecretWithEncapsulationImpl(bArr2, bArr);
     }
 }

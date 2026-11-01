@@ -2,40 +2,48 @@ package org.bouncycastle.crypto.params;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECCSIKeyGenerationParameters extends KeyGenerationParameters {
-    public final ECPoint G;
+
+    /* JADX INFO: renamed from: G */
+    public final ECPoint f81244G;
     public final Digest digest;
-    public final byte[] id;
+
+    /* JADX INFO: renamed from: id */
+    public final byte[] f81245id;
     public final ECPoint kpak;
     public final BigInteger ksak;
-    public final int n;
-    public final BigInteger q;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81246n;
+
+    /* JADX INFO: renamed from: q */
+    public final BigInteger f81247q;
 
     public ECCSIKeyGenerationParameters(SecureRandom secureRandom, X9ECParameters x9ECParameters, Digest digest, byte[] bArr) {
         super(secureRandom, x9ECParameters.getCurve().getA().bitLength());
         BigInteger order = x9ECParameters.getCurve().getOrder();
-        this.q = order;
+        this.f81247q = order;
         ECPoint g = x9ECParameters.getG();
-        this.G = g;
+        this.f81244G = g;
         this.digest = digest;
-        this.id = Arrays.clone(bArr);
+        this.f81245id = Arrays.clone(bArr);
         int iBitLength = x9ECParameters.getCurve().getA().bitLength();
-        this.n = iBitLength;
+        this.f81246n = iBitLength;
         BigInteger bigIntegerMod = BigIntegers.createRandomBigInteger(iBitLength, secureRandom).mod(order);
         this.ksak = bigIntegerMod;
         this.kpak = g.multiply(bigIntegerMod).normalize();
     }
 
     public BigInteger computeSSK(BigInteger bigInteger) {
-        return this.ksak.add(bigInteger).mod(this.q);
+        return this.ksak.add(bigInteger).mod(this.f81247q);
     }
 
     public Digest getDigest() {
@@ -43,11 +51,11 @@ public class ECCSIKeyGenerationParameters extends KeyGenerationParameters {
     }
 
     public ECPoint getG() {
-        return this.G;
+        return this.f81244G;
     }
 
     public byte[] getId() {
-        return Arrays.clone(this.id);
+        return Arrays.clone(this.f81245id);
     }
 
     public ECPoint getKPAK() {
@@ -55,10 +63,10 @@ public class ECCSIKeyGenerationParameters extends KeyGenerationParameters {
     }
 
     public int getN() {
-        return this.n;
+        return this.f81246n;
     }
 
     public BigInteger getQ() {
-        return this.q;
+        return this.f81247q;
     }
 }

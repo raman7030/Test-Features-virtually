@@ -13,7 +13,7 @@ import com.amazonaws.handlers.RequestHandler2;
 import com.amazonaws.logging.Log;
 import com.amazonaws.logging.LogFactory;
 import com.amazonaws.retry.RetryPolicy;
-import com.amazonaws.services.s3.internal.S3ExecutionContext;
+import com.amazonaws.services.p061s3.internal.S3ExecutionContext;
 import com.amazonaws.util.AWSRequestMetrics;
 import com.amazonaws.util.DateUtils;
 import com.google.android.material.motion.MotionUtils;
@@ -27,52 +27,52 @@ import java.util.List;
 /* JADX INFO: loaded from: classes.dex */
 public class AmazonHttpClient {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final ClientConfiguration f180;
+    /* JADX INFO: renamed from: ֫ */
+    public final ClientConfiguration f1340;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final UrlHttpClient f181;
+    /* JADX INFO: renamed from: ۧ */
+    public final UrlHttpClient f1341;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final HttpRequestFactory f182 = new HttpRequestFactory();
+    /* JADX INFO: renamed from: ܽ */
+    public final HttpRequestFactory f1342 = new HttpRequestFactory();
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public static final Log f179 = LogFactory.m303("com.amazonaws.request");
+    /* JADX INFO: renamed from: ᩳ */
+    public static final Log f1339 = LogFactory.m1469("com.amazonaws.request");
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public static final Log f178 = LogFactory.m302(AmazonHttpClient.class);
+    /* JADX INFO: renamed from: ܿ */
+    public static final Log f1338 = LogFactory.m1468(AmazonHttpClient.class);
 
     public AmazonHttpClient(ClientConfiguration clientConfiguration, UrlHttpClient urlHttpClient) {
-        this.f180 = clientConfiguration;
-        this.f181 = urlHttpClient;
+        this.f1340 = clientConfiguration;
+        this.f1341 = urlHttpClient;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final Response m252(DefaultRequest defaultRequest, HttpResponseHandler httpResponseHandler, HttpResponseHandler httpResponseHandler2, S3ExecutionContext s3ExecutionContext) {
-        List<RequestHandler2> listM257 = s3ExecutionContext.m257();
-        if (listM257 == null) {
-            listM257 = Collections.EMPTY_LIST;
+    /* JADX INFO: renamed from: ֫ */
+    public final Response m1418(DefaultRequest defaultRequest, HttpResponseHandler httpResponseHandler, HttpResponseHandler httpResponseHandler2, S3ExecutionContext s3ExecutionContext) {
+        List<RequestHandler2> listM1423 = s3ExecutionContext.m1423();
+        if (listM1423 == null) {
+            listM1423 = Collections.EMPTY_LIST;
         } else {
-            for (RequestHandler2 requestHandler2 : listM257) {
+            for (RequestHandler2 requestHandler2 : listM1423) {
                 if (requestHandler2 instanceof CredentialsRequestHandler) {
-                    ((CredentialsRequestHandler) requestHandler2).m234(s3ExecutionContext.m256());
+                    ((CredentialsRequestHandler) requestHandler2).m1400(s3ExecutionContext.m1422());
                 }
-                requestHandler2.mo241(defaultRequest);
+                requestHandler2.mo1407(defaultRequest);
             }
         }
-        AWSRequestMetrics aWSRequestMetricsM254 = s3ExecutionContext.m254();
+        AWSRequestMetrics aWSRequestMetricsM1420 = s3ExecutionContext.m1420();
         try {
-            Response responseM253 = m253(defaultRequest, httpResponseHandler, httpResponseHandler2, s3ExecutionContext);
-            aWSRequestMetricsM254.m731().mo790();
-            Iterator it = listM257.iterator();
+            Response responseM1419 = m1419(defaultRequest, httpResponseHandler, httpResponseHandler2, s3ExecutionContext);
+            aWSRequestMetricsM1420.m1896().mo1955();
+            Iterator it = listM1423.iterator();
             while (it.hasNext()) {
-                ((RequestHandler2) it.next()).mo243(defaultRequest, responseM253);
+                ((RequestHandler2) it.next()).mo1409(defaultRequest, responseM1419);
             }
-            return responseM253;
+            return responseM1419;
         } catch (AmazonClientException e) {
-            Iterator it2 = listM257.iterator();
+            Iterator it2 = listM1423.iterator();
             while (it2.hasNext()) {
-                ((RequestHandler2) it2.next()).mo242(defaultRequest, e);
+                ((RequestHandler2) it2.next()).mo1408(defaultRequest, e);
             }
             throw e;
         }
@@ -85,32 +85,32 @@ public class AmazonHttpClient {
         	at jadx.core.dex.attributes.nodes.NotificationAttrNode.addError(NotificationAttrNode.java:19)
         	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:79)
         */
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final com.amazonaws.Response m253(com.amazonaws.DefaultRequest r29, com.amazonaws.http.HttpResponseHandler r30, com.amazonaws.http.HttpResponseHandler r31, com.amazonaws.services.s3.internal.S3ExecutionContext r32) {
+    /* JADX INFO: renamed from: ۧ */
+    public final com.amazonaws.Response m1419(com.amazonaws.DefaultRequest r29, com.amazonaws.http.HttpResponseHandler r30, com.amazonaws.http.HttpResponseHandler r31, com.amazonaws.services.p061s3.internal.S3ExecutionContext r32) {
         /*
             Method dump skipped, instruction units count: 1269
             To view this dump add '--comments-level debug' option
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.amazonaws.http.AmazonHttpClient.m253(com.amazonaws.DefaultRequest, com.amazonaws.http.HttpResponseHandler, com.amazonaws.http.HttpResponseHandler, com.amazonaws.services.s3.internal.S3ExecutionContext):com.amazonaws.Response");
+        throw new UnsupportedOperationException("Method not decompiled: com.amazonaws.http.AmazonHttpClient.m1419(com.amazonaws.DefaultRequest, com.amazonaws.http.HttpResponseHandler, com.amazonaws.http.HttpResponseHandler, com.amazonaws.services.s3.internal.S3ExecutionContext):com.amazonaws.Response");
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static void m249(DefaultRequest defaultRequest, Exception exc) {
-        if (defaultRequest.m177() == null) {
+    /* JADX INFO: renamed from: ֫ */
+    public static void m1415(DefaultRequest defaultRequest, Exception exc) {
+        if (defaultRequest.m1343() == null) {
             return;
         }
-        if (!defaultRequest.m177().markSupported()) {
+        if (!defaultRequest.m1343().markSupported()) {
             throw new AmazonClientException("Encountered an exception and stream is not resettable", exc);
         }
         try {
-            defaultRequest.m177().reset();
+            defaultRequest.m1343().reset();
         } catch (IOException unused) {
             throw new AmazonClientException("Encountered an exception and couldn't reset the stream to retry", exc);
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m248(String str, String str2) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1414(String str, String str2) {
         if (str.contains(str2)) {
             return str;
         }
@@ -118,107 +118,107 @@ public class AmazonHttpClient {
     }
 
     public final void finalize() throws Throwable {
-        this.f181.getClass();
+        this.f1341.getClass();
         super.finalize();
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    private boolean m250(AmazonWebServiceRequest amazonWebServiceRequest, InputStream inputStream, AmazonClientException amazonClientException, int i, RetryPolicy retryPolicy) {
+    /* JADX INFO: renamed from: ֫ */
+    private boolean m1416(AmazonWebServiceRequest amazonWebServiceRequest, InputStream inputStream, AmazonClientException amazonClientException, int i, RetryPolicy retryPolicy) {
         int i2 = i - 1;
-        this.f180.getClass();
-        if (i2 < retryPolicy.m430()) {
+        this.f1340.getClass();
+        if (i2 < retryPolicy.m1596()) {
             if (inputStream != null && !inputStream.markSupported()) {
-                Log log = f178;
-                if (log.mo293()) {
-                    log.mo294("Content not repeatable");
+                Log log = f1338;
+                if (log.mo1459()) {
+                    log.mo1460("Content not repeatable");
                 }
             } else {
-                return retryPolicy.m431().mo428(amazonClientException, i2);
+                return retryPolicy.m1597().mo1594(amazonClientException, i2);
             }
         }
         return false;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static boolean m251(HttpResponse httpResponse) {
-        int iM270 = httpResponse.m270();
-        String str = (String) httpResponse.m267().get("Location");
-        return (iM270 != 307 || str == null || str.isEmpty()) ? false : true;
+    /* JADX INFO: renamed from: ֫ */
+    public static boolean m1417(HttpResponse httpResponse) {
+        int iM1436 = httpResponse.m1436();
+        String str = (String) httpResponse.m1433().get("Location");
+        return (iM1436 != 307 || str == null || str.isEmpty()) ? false : true;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static Object m247(HttpResponseHandler httpResponseHandler, HttpResponse httpResponse, S3ExecutionContext s3ExecutionContext) throws IOException {
+    /* JADX INFO: renamed from: ֫ */
+    public static Object m1413(HttpResponseHandler httpResponseHandler, HttpResponse httpResponse, S3ExecutionContext s3ExecutionContext) throws IOException {
         try {
-            AWSRequestMetrics aWSRequestMetricsM254 = s3ExecutionContext.m254();
+            AWSRequestMetrics aWSRequestMetricsM1420 = s3ExecutionContext.m1420();
             AWSRequestMetrics.Field field = AWSRequestMetrics.Field.ResponseProcessingTime;
-            aWSRequestMetricsM254.mo736(field);
+            aWSRequestMetricsM1420.mo1901(field);
             try {
-                AmazonWebServiceResponse amazonWebServiceResponse = (AmazonWebServiceResponse) httpResponseHandler.mo276(httpResponse);
-                aWSRequestMetricsM254.mo732(field);
+                AmazonWebServiceResponse amazonWebServiceResponse = (AmazonWebServiceResponse) httpResponseHandler.mo1442(httpResponse);
+                aWSRequestMetricsM1420.mo1897(field);
                 if (amazonWebServiceResponse == null) {
-                    throw new RuntimeException("Unable to unmarshall response metadata. Response Code: " + httpResponse.m270() + ", Response Text: " + httpResponse.m269());
+                    throw new RuntimeException("Unable to unmarshall response metadata. Response Code: " + httpResponse.m1436() + ", Response Text: " + httpResponse.m1435());
                 }
-                Log log = f179;
-                if (log.mo293()) {
-                    log.mo294("Received successful response: " + httpResponse.m270() + ", AWS Request ID: " + amazonWebServiceResponse.m163());
+                Log log = f1339;
+                if (log.mo1459()) {
+                    log.mo1460("Received successful response: " + httpResponse.m1436() + ", AWS Request ID: " + amazonWebServiceResponse.m1329());
                 }
-                aWSRequestMetricsM254.mo734(AWSRequestMetrics.Field.AWSRequestID, amazonWebServiceResponse.m163());
-                return amazonWebServiceResponse.m166();
+                aWSRequestMetricsM1420.mo1899(AWSRequestMetrics.Field.AWSRequestID, amazonWebServiceResponse.m1329());
+                return amazonWebServiceResponse.m1332();
             } catch (Throwable th) {
-                aWSRequestMetricsM254.mo732(AWSRequestMetrics.Field.ResponseProcessingTime);
+                aWSRequestMetricsM1420.mo1897(AWSRequestMetrics.Field.ResponseProcessingTime);
                 throw th;
             }
         } catch (IOException e) {
             throw e;
         } catch (Exception e2) {
-            throw new AmazonClientException("Unable to unmarshall response (" + e2.getMessage() + "). Response Code: " + httpResponse.m270() + ", Response Text: " + httpResponse.m269(), e2);
+            throw new AmazonClientException("Unable to unmarshall response (" + e2.getMessage() + "). Response Code: " + httpResponse.m1436() + ", Response Text: " + httpResponse.m1435(), e2);
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static AmazonServiceException m246(DefaultRequest defaultRequest, HttpResponseHandler httpResponseHandler, HttpResponse httpResponse) throws IOException {
+    /* JADX INFO: renamed from: ֫ */
+    public static AmazonServiceException m1412(DefaultRequest defaultRequest, HttpResponseHandler httpResponseHandler, HttpResponse httpResponse) throws IOException {
         AmazonServiceException amazonServiceException;
-        int iM270 = httpResponse.m270();
+        int iM1436 = httpResponse.m1436();
         try {
-            amazonServiceException = (AmazonServiceException) httpResponseHandler.mo276(httpResponse);
-            f179.mo294("Received error response: " + amazonServiceException.toString());
+            amazonServiceException = (AmazonServiceException) httpResponseHandler.mo1442(httpResponse);
+            f1339.mo1460("Received error response: " + amazonServiceException.toString());
         } catch (Exception e) {
-            if (iM270 == 413) {
+            if (iM1436 == 413) {
                 amazonServiceException = new AmazonServiceException("Request entity too large");
-                amazonServiceException.m150(defaultRequest.m186());
-                amazonServiceException.m143(413);
+                amazonServiceException.m1317(defaultRequest.m1352());
+                amazonServiceException.m1310(413);
                 AmazonServiceException.ErrorType errorType = AmazonServiceException.ErrorType.Client;
-                amazonServiceException.m144("Request entity too large");
-            } else if (iM270 == 503 && "Service Unavailable".equalsIgnoreCase(httpResponse.m269())) {
+                amazonServiceException.m1311("Request entity too large");
+            } else if (iM1436 == 503 && "Service Unavailable".equalsIgnoreCase(httpResponse.m1435())) {
                 amazonServiceException = new AmazonServiceException("Service unavailable");
-                amazonServiceException.m150(defaultRequest.m186());
-                amazonServiceException.m143(503);
+                amazonServiceException.m1317(defaultRequest.m1352());
+                amazonServiceException.m1310(503);
                 AmazonServiceException.ErrorType errorType2 = AmazonServiceException.ErrorType.Client;
-                amazonServiceException.m144("Service unavailable");
+                amazonServiceException.m1311("Service unavailable");
             } else {
                 if (e instanceof IOException) {
                     throw ((IOException) e);
                 }
-                throw new AmazonClientException("Unable to unmarshall error response (" + e.getMessage() + "). Response Code: " + iM270 + ", Response Text: " + httpResponse.m269() + ", Response Headers: " + httpResponse.m267(), e);
+                throw new AmazonClientException("Unable to unmarshall error response (" + e.getMessage() + "). Response Code: " + iM1436 + ", Response Text: " + httpResponse.m1435() + ", Response Headers: " + httpResponse.m1433(), e);
             }
         }
-        amazonServiceException.m143(iM270);
-        amazonServiceException.m150(defaultRequest.m186());
+        amazonServiceException.m1310(iM1436);
+        amazonServiceException.m1317(defaultRequest.m1352());
         amazonServiceException.fillInStackTrace();
         return amazonServiceException;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static long m244(AmazonWebServiceRequest amazonWebServiceRequest, AmazonClientException amazonClientException, int i, RetryPolicy retryPolicy) {
+    /* JADX INFO: renamed from: ֫ */
+    public static long m1410(AmazonWebServiceRequest amazonWebServiceRequest, AmazonClientException amazonClientException, int i, RetryPolicy retryPolicy) {
         int i2 = i - 2;
-        long jMo427 = retryPolicy.m429().mo427(i2);
-        Log log = f178;
-        if (log.mo293()) {
-            log.mo294("Retriable error detected, will retry in " + jMo427 + "ms, attempt number: " + i2);
+        long jMo1593 = retryPolicy.m1595().mo1593(i2);
+        Log log = f1338;
+        if (log.mo1459()) {
+            log.mo1460("Retriable error detected, will retry in " + jMo1593 + "ms, attempt number: " + i2);
         }
         try {
-            Thread.sleep(jMo427);
-            return jMo427;
+            Thread.sleep(jMo1593);
+            return jMo1593;
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new AmazonClientException(e.getMessage(), e);
@@ -236,19 +236,19 @@ public class AmazonHttpClient {
     /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r4v4 */
     /* JADX WARN: Type inference failed for: r4v5, types: [java.lang.StringBuilder] */
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static long m245(HttpResponse httpResponse, AmazonServiceException amazonServiceException) {
-        Date dateM769;
+    /* JADX INFO: renamed from: ֫ */
+    public static long m1411(HttpResponse httpResponse, AmazonServiceException amazonServiceException) {
+        Date dateM1934;
         String message;
         int iIndexOf;
         Date date = new Date();
-        ?? r4 = (String) httpResponse.m267().get("Date");
+        ?? r4 = (String) httpResponse.m1433().get("Date");
         ?? r1 = 0;
         try {
             if (r4 != 0) {
                 try {
                     if (!r4.isEmpty()) {
-                        dateM769 = DateUtils.m769("EEE, dd MMM yyyy HH:mm:ss z", (String) r4);
+                        dateM1934 = DateUtils.m1934("EEE, dd MMM yyyy HH:mm:ss z", (String) r4);
                     } else {
                         message = amazonServiceException.getMessage();
                         int iIndexOf2 = message.indexOf(MotionUtils.EASING_TYPE_FORMAT_START);
@@ -257,11 +257,11 @@ public class AmazonHttpClient {
                         } else {
                             iIndexOf = message.indexOf(" - 15");
                         }
-                        dateM769 = DateUtils.m769(AWS4Signer.TIME_PATTERN, message.substring(iIndexOf2 + 1, iIndexOf));
+                        dateM1934 = DateUtils.m1934(AWS4Signer.TIME_PATTERN, message.substring(iIndexOf2 + 1, iIndexOf));
                     }
                 } catch (RuntimeException e) {
                     e = e;
-                    f178.mo298("Unable to parse clock skew offset from response: " + r1, e);
+                    f1338.mo1464("Unable to parse clock skew offset from response: " + r1, e);
                     return 0L;
                 }
             } else {
@@ -272,9 +272,9 @@ public class AmazonHttpClient {
                 } else {
                     iIndexOf = message.indexOf(" - 15");
                 }
-                dateM769 = DateUtils.m769(AWS4Signer.TIME_PATTERN, message.substring(iIndexOf3 + 1, iIndexOf));
+                dateM1934 = DateUtils.m1934(AWS4Signer.TIME_PATTERN, message.substring(iIndexOf3 + 1, iIndexOf));
             }
-            long time = date.getTime() - dateM769.getTime();
+            long time = date.getTime() - dateM1934.getTime();
             r4 = 1000;
             return time / 1000;
         } catch (RuntimeException e2) {

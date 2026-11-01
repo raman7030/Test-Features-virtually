@@ -110,7 +110,7 @@ public class ExpandCollapseAnimationHelper {
             valueAnimatorOfObject.addUpdateListener(animatorUpdateListener);
         }
         valueAnimatorOfObject.setDuration(this.duration);
-        valueAnimatorOfObject.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        valueAnimatorOfObject.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return valueAnimatorOfObject;
     }
 
@@ -124,7 +124,7 @@ public class ExpandCollapseAnimationHelper {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.alphaListener(children));
         valueAnimatorOfFloat.setDuration(this.duration);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.LINEAR_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.LINEAR_INTERPOLATOR));
         return valueAnimatorOfFloat;
     }
 
@@ -132,7 +132,7 @@ public class ExpandCollapseAnimationHelper {
         ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat((this.collapsedView.getRight() - this.expandedView.getRight()) + (this.expandedView.getLeft() - this.collapsedView.getLeft()), 0.0f);
         valueAnimatorOfFloat.addUpdateListener(MultiViewUpdateListener.translationXListener(this.endAnchoredViews));
         valueAnimatorOfFloat.setDuration(this.duration);
-        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        valueAnimatorOfFloat.setInterpolator(ReversableAnimatedValueInterpolator.m1978of(z, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return valueAnimatorOfFloat;
     }
 

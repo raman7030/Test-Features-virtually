@@ -5,14 +5,14 @@ import java.util.HashMap;
 /* JADX INFO: loaded from: classes.dex */
 public class ResponseMetadata {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final HashMap f117;
+    /* JADX INFO: renamed from: ֫ */
+    public final HashMap f1277;
 
     public ResponseMetadata(HashMap map) {
-        this.f117 = map;
+        this.f1277 = map;
     }
 
     public final String toString() {
-        return this.f117.toString();
+        return this.f1277.toString();
     }
 }

@@ -13,20 +13,28 @@ public class BIKEEngine {
     public int R2_BYTE;
     public int R_BYTE;
     public final BIKERing bikeRing;
-    public int hw;
+
+    /* JADX INFO: renamed from: hw */
+    public int f81567hw;
     public int nbIter;
-    public int r;
-    public int t;
+
+    /* JADX INFO: renamed from: r */
+    public int f81568r;
+
+    /* JADX INFO: renamed from: t */
+    public int f81569t;
     public int tau;
-    public int w;
+
+    /* JADX INFO: renamed from: w */
+    public int f81570w;
 
     public BIKEEngine(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.r = i;
-        this.w = i2;
-        this.t = i3;
+        this.f81568r = i;
+        this.f81570w = i2;
+        this.f81569t = i3;
         this.nbIter = i5;
         this.tau = i6;
-        this.hw = i2 / 2;
+        this.f81567hw = i2 / 2;
         this.L_BYTE = i4 / 8;
         this.R_BYTE = (i + 7) >>> 3;
         this.R2_BYTE = ((i * 2) + 7) >>> 3;
@@ -44,7 +52,7 @@ public class BIKEEngine {
         bArr4[0] = (byte) i4;
         int i5 = 1;
         while (true) {
-            int i6 = this.r;
+            int i6 = this.f81568r;
             if (i5 >= i6) {
                 break;
             }
@@ -62,14 +70,14 @@ public class BIKEEngine {
         int i11 = bArr5[0] & 255;
         int i12 = ((i11 - i) >> 31) + 1;
         int i13 = ((i11 - (i - this.tau)) >> 31) + 1;
-        int i14 = this.r;
+        int i14 = this.f81568r;
         byte b3 = (byte) i12;
         bArr2[i14] = (byte) (bArr2[i14] ^ b3);
         bArr3[i14] = b3;
         bArr4[i14] = (byte) i13;
         int i15 = 1;
         while (true) {
-            int i16 = this.r;
+            int i16 = this.f81568r;
             if (i15 >= i16) {
                 break;
             }
@@ -83,20 +91,20 @@ public class BIKEEngine {
             bArr4[i16 + i15] = (byte) i19;
             i15++;
         }
-        for (int i21 = 0; i21 < this.r * 2; i21++) {
+        for (int i21 = 0; i21 < this.f81568r * 2; i21++) {
             recomputeSyndrome(bArr, i21, iArr, iArr2, bArr3[i21] != 0);
         }
     }
 
     private void BFIter2(byte[] bArr, byte[] bArr2, int i, int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, byte[] bArr3) {
-        int[] iArr5 = new int[this.r * 2];
+        int[] iArr5 = new int[this.f81568r * 2];
         ctrAll(iArr3, bArr, bArr3);
         int i2 = (((bArr3[0] & 255) - i) >> 31) + 1;
         bArr2[0] = (byte) (bArr2[0] ^ ((byte) i2));
         iArr5[0] = i2;
         int i3 = 1;
         while (true) {
-            int i4 = this.r;
+            int i4 = this.f81568r;
             if (i3 >= i4) {
                 break;
             }
@@ -108,12 +116,12 @@ public class BIKEEngine {
         }
         ctrAll(iArr4, bArr, bArr3);
         int i7 = (((bArr3[0] & 255) - i) >> 31) + 1;
-        int i8 = this.r;
+        int i8 = this.f81568r;
         bArr2[i8] = (byte) (bArr2[i8] ^ ((byte) i7));
         iArr5[i8] = i7;
         int i9 = 1;
         while (true) {
-            int i10 = this.r;
+            int i10 = this.f81568r;
             if (i9 >= i10) {
                 break;
             }
@@ -123,7 +131,7 @@ public class BIKEEngine {
             iArr5[i10 + i9] = i11;
             i9++;
         }
-        for (int i13 = 0; i13 < this.r * 2; i13++) {
+        for (int i13 = 0; i13 < this.f81568r * 2; i13++) {
             recomputeSyndrome(bArr, i13, iArr, iArr2, iArr5[i13] == 1);
         }
     }
@@ -136,10 +144,10 @@ public class BIKEEngine {
     /* JADX WARN: Type inference failed for: r9v1, types: [boolean] */
     /* JADX WARN: Type inference failed for: r9v2 */
     private void BFMaskedIter(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
-        int[] iArr5 = new int[this.r * 2];
+        int[] iArr5 = new int[this.f81568r * 2];
         int i2 = 0;
         while (true) {
-            if (i2 >= this.r) {
+            if (i2 >= this.f81568r) {
                 break;
             }
             if (bArr3[i2] == 1) {
@@ -151,36 +159,36 @@ public class BIKEEngine {
         }
         int i3 = 0;
         while (true) {
-            int i4 = this.r;
+            int i4 = this.f81568r;
             if (i3 >= i4) {
                 break;
             }
             if (bArr3[i4 + i3] == 1) {
                 ?? r4 = ctr(iArr4, bArr, i3) >= i ? 1 : 0;
-                updateNewErrorIndex(bArr2, this.r + i3, r4);
-                iArr5[this.r + i3] = r4;
+                updateNewErrorIndex(bArr2, this.f81568r + i3, r4);
+                iArr5[this.f81568r + i3] = r4;
             }
             i3++;
         }
-        for (int i5 = 0; i5 < this.r * 2; i5++) {
+        for (int i5 = 0; i5 < this.f81568r * 2; i5++) {
             recomputeSyndrome(bArr, i5, iArr, iArr2, iArr5[i5] == 1);
         }
     }
 
     private byte[] BGFDecoder(byte[] bArr, int[] iArr, int[] iArr2) {
-        byte[] bArr2 = new byte[this.r * 2];
+        byte[] bArr2 = new byte[this.f81568r * 2];
         int[] columnFromCompactVersion = getColumnFromCompactVersion(iArr);
         int[] columnFromCompactVersion2 = getColumnFromCompactVersion(iArr2);
-        int i = this.r;
+        int i = this.f81568r;
         byte[] bArr3 = new byte[i * 2];
         byte[] bArr4 = new byte[i];
         byte[] bArr5 = new byte[i * 2];
-        BFIter(bArr, bArr2, threshold(BIKEUtils.getHammingWeight(bArr), this.r), iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2, bArr3, bArr5, bArr4);
-        BFMaskedIter(bArr, bArr2, bArr3, ((this.hw + 1) / 2) + 1, iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2);
-        BFMaskedIter(bArr, bArr2, bArr5, ((this.hw + 1) / 2) + 1, iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2);
+        BFIter(bArr, bArr2, threshold(BIKEUtils.getHammingWeight(bArr), this.f81568r), iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2, bArr3, bArr5, bArr4);
+        BFMaskedIter(bArr, bArr2, bArr3, ((this.f81567hw + 1) / 2) + 1, iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2);
+        BFMaskedIter(bArr, bArr2, bArr5, ((this.f81567hw + 1) / 2) + 1, iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2);
         for (int i2 = 1; i2 < this.nbIter; i2++) {
             Arrays.fill(bArr3, (byte) 0);
-            BFIter2(bArr, bArr2, threshold(BIKEUtils.getHammingWeight(bArr), this.r), iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2, bArr4);
+            BFIter2(bArr, bArr2, threshold(BIKEUtils.getHammingWeight(bArr), this.f81568r), iArr, iArr2, columnFromCompactVersion, columnFromCompactVersion2, bArr4);
         }
         if (BIKEUtils.getHammingWeight(bArr) == 0) {
             return bArr2;
@@ -201,22 +209,22 @@ public class BIKEEngine {
         int i;
         int i2 = 0;
         for (int i3 = 0; i3 < this.R_BYTE; i3++) {
-            for (int i4 = 0; i4 < 8 && (i = (i3 * 8) + i4) != this.r; i4++) {
+            for (int i4 = 0; i4 < 8 && (i = (i3 * 8) + i4) != this.f81568r; i4++) {
                 int i5 = (bArr[i3] >> i4) & 1;
                 int i6 = -i5;
                 iArr[i2] = (i & i6) | ((~i6) & iArr[i2]);
-                i2 = (i2 + i5) % this.hw;
+                i2 = (i2 + i5) % this.f81567hw;
             }
         }
     }
 
     private int ctr(int[] iArr, byte[] bArr, int i) {
-        int i2 = this.hw - 4;
+        int i2 = this.f81567hw - 4;
         int i3 = 0;
         int i4 = 0;
         while (i3 <= i2) {
             int i5 = iArr[i3] + i;
-            int i6 = this.r;
+            int i6 = this.f81568r;
             int i7 = i5 - i6;
             int i8 = (iArr[i3 + 1] + i) - i6;
             int i9 = (iArr[i3 + 2] + i) - i6;
@@ -224,9 +232,9 @@ public class BIKEEngine {
             i4 = i4 + (bArr[i7 + ((i7 >> 31) & i6)] & 255) + (bArr[i8 + ((i8 >> 31) & i6)] & 255) + (bArr[i9 + ((i9 >> 31) & i6)] & 255) + (bArr[i10 + (i6 & (i10 >> 31))] & 255);
             i3 += 4;
         }
-        while (i3 < this.hw) {
+        while (i3 < this.f81567hw) {
             int i11 = iArr[i3] + i;
-            int i12 = this.r;
+            int i12 = this.f81568r;
             int i13 = i11 - i12;
             i4 += bArr[i13 + (i12 & (i13 >> 31))] & 255;
             i3++;
@@ -236,12 +244,12 @@ public class BIKEEngine {
 
     private void ctrAll(int[] iArr, byte[] bArr, byte[] bArr2) {
         int i = iArr[0];
-        int i2 = this.r - i;
+        int i2 = this.f81568r - i;
         System.arraycopy(bArr, i, bArr2, 0, i2);
         System.arraycopy(bArr, 0, bArr2, i2, i);
-        for (int i3 = 1; i3 < this.hw; i3++) {
+        for (int i3 = 1; i3 < this.f81567hw; i3++) {
             int i4 = iArr[i3];
-            int i5 = this.r - i4;
+            int i5 = this.f81568r - i4;
             int i6 = i5 - 4;
             int i7 = 0;
             while (i7 <= i6) {
@@ -259,7 +267,7 @@ public class BIKEEngine {
                 bArr2[i7] = (byte) (bArr2[i7] + (bArr[i4 + i7] & 255));
                 i7++;
             }
-            int i12 = this.r - 4;
+            int i12 = this.f81568r - 4;
             int i13 = i5;
             while (i13 <= i12) {
                 bArr2[i13] = (byte) (bArr2[i13] + (bArr[i13 - i5] & 255));
@@ -271,7 +279,7 @@ public class BIKEEngine {
                 bArr2[i16] = (byte) (bArr2[i16] + (bArr[i16 - i5] & 255));
                 i13 += 4;
             }
-            while (i13 < this.r) {
+            while (i13 < this.f81568r) {
                 bArr2[i13] = (byte) (bArr2[i13] + (bArr[i13 - i5] & 255));
                 i13++;
             }
@@ -282,7 +290,7 @@ public class BIKEEngine {
         byte[] bArr2 = new byte[this.R_BYTE * 2];
         SHAKEDigest sHAKEDigest = new SHAKEDigest(256);
         sHAKEDigest.update(bArr, 0, bArr.length);
-        BIKEUtils.generateRandomByteArray(bArr2, this.r * 2, this.t, sHAKEDigest);
+        BIKEUtils.generateRandomByteArray(bArr2, this.f81568r * 2, this.f81569t, sHAKEDigest);
         return bArr2;
     }
 
@@ -306,26 +314,26 @@ public class BIKEEngine {
     }
 
     private int[] getColumnFromCompactVersion(int[] iArr) {
-        int[] iArr2 = new int[this.hw];
+        int[] iArr2 = new int[this.f81567hw];
         int i = 0;
         if (iArr[0] != 0) {
             while (true) {
-                int i2 = this.hw;
+                int i2 = this.f81567hw;
                 if (i >= i2) {
                     break;
                 }
-                iArr2[i] = this.r - iArr[(i2 - 1) - i];
+                iArr2[i] = this.f81568r - iArr[(i2 - 1) - i];
                 i++;
             }
         } else {
             iArr2[0] = 0;
             int i3 = 1;
             while (true) {
-                int i4 = this.hw;
+                int i4 = this.f81567hw;
                 if (i3 >= i4) {
                     break;
                 }
-                iArr2[i3] = this.r - iArr[i4 - i3];
+                iArr2[i3] = this.f81568r - iArr[i4 - i3];
                 i3++;
             }
         }
@@ -335,23 +343,23 @@ public class BIKEEngine {
     /* JADX WARN: Multi-variable type inference failed */
     private void recomputeSyndrome(byte[] bArr, int i, int[] iArr, int[] iArr2, boolean z) {
         int i2 = 0;
-        if (i < this.r) {
-            while (i2 < this.hw) {
+        if (i < this.f81568r) {
+            while (i2 < this.f81567hw) {
                 int i3 = iArr[i2];
                 if (i3 <= i) {
                     int i4 = i - i3;
                     bArr[i4] = bArr[i4] ^ (z ? 1 : 0) ? (byte) 1 : (byte) 0;
                 } else {
-                    int i5 = (this.r + i) - i3;
+                    int i5 = (this.f81568r + i) - i3;
                     bArr[i5] = bArr[i5] ^ (z ? 1 : 0) ? (byte) 1 : (byte) 0;
                 }
                 i2++;
             }
             return;
         }
-        while (i2 < this.hw) {
+        while (i2 < this.f81567hw) {
             int i6 = iArr2[i2];
-            int i7 = this.r;
+            int i7 = this.f81568r;
             if (i6 <= i - i7) {
                 int i8 = (i - i7) - i6;
                 bArr[i8] = bArr[i8] ^ (z ? 1 : 0) ? (byte) 1 : (byte) 0;
@@ -364,7 +372,7 @@ public class BIKEEngine {
     }
 
     private void splitEBytes(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        int i = this.r & 7;
+        int i = this.f81568r & 7;
         int i2 = 0;
         System.arraycopy(bArr, 0, bArr2, 0, this.R_BYTE - 1);
         int i3 = this.R_BYTE;
@@ -403,21 +411,21 @@ public class BIKEEngine {
 
     private void updateNewErrorIndex(byte[] bArr, int i, boolean z) {
         int i2;
-        if (i != 0 && i != (i2 = this.r)) {
+        if (i != 0 && i != (i2 = this.f81568r)) {
             i = i > i2 ? ((i2 * 2) - i) + i2 : i2 - i;
         }
         bArr[i] = (byte) ((z ? 1 : 0) ^ bArr[i]);
     }
 
     public void decaps(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5, byte[] bArr6) {
-        int i = this.hw;
+        int i = this.f81567hw;
         int[] iArr = new int[i];
         int[] iArr2 = new int[i];
         convertToCompact(iArr, bArr2);
         convertToCompact(iArr2, bArr3);
         byte[] bArrBGFDecoder = BGFDecoder(computeSyndrome(bArr5, bArr2), iArr, iArr2);
         byte[] bArr7 = new byte[this.R_BYTE * 2];
-        BIKEUtils.fromBitArrayToByteArray(bArr7, bArrBGFDecoder, 0, this.r * 2);
+        BIKEUtils.fromBitArrayToByteArray(bArr7, bArrBGFDecoder, 0, this.f81568r * 2);
         int i2 = this.R_BYTE;
         byte[] bArr8 = new byte[i2];
         byte[] bArr9 = new byte[i2];
@@ -461,8 +469,8 @@ public class BIKEEngine {
         secureRandom.nextBytes(bArr5);
         SHAKEDigest sHAKEDigest = new SHAKEDigest(256);
         sHAKEDigest.update(bArr5, 0, this.L_BYTE);
-        BIKEUtils.generateRandomByteArray(bArr, this.r, this.hw, sHAKEDigest);
-        BIKEUtils.generateRandomByteArray(bArr2, this.r, this.hw, sHAKEDigest);
+        BIKEUtils.generateRandomByteArray(bArr, this.f81568r, this.f81567hw, sHAKEDigest);
+        BIKEUtils.generateRandomByteArray(bArr2, this.f81568r, this.f81567hw, sHAKEDigest);
         long[] jArrCreate = this.bikeRing.create();
         long[] jArrCreate2 = this.bikeRing.create();
         this.bikeRing.decodeBytes(bArr, jArrCreate);

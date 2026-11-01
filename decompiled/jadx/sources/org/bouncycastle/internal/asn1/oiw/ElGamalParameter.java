@@ -10,18 +10,22 @@ import org.bouncycastle.asn1.DERSequence;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ElGamalParameter extends ASN1Object {
-    public ASN1Integer g;
-    public ASN1Integer p;
+
+    /* JADX INFO: renamed from: g */
+    public ASN1Integer f81330g;
+
+    /* JADX INFO: renamed from: p */
+    public ASN1Integer f81331p;
 
     public ElGamalParameter(BigInteger bigInteger, BigInteger bigInteger2) {
-        this.p = new ASN1Integer(bigInteger);
-        this.g = new ASN1Integer(bigInteger2);
+        this.f81331p = new ASN1Integer(bigInteger);
+        this.f81330g = new ASN1Integer(bigInteger2);
     }
 
     public ElGamalParameter(ASN1Sequence aSN1Sequence) {
         Enumeration objects = aSN1Sequence.getObjects();
-        this.p = (ASN1Integer) objects.nextElement();
-        this.g = (ASN1Integer) objects.nextElement();
+        this.f81331p = (ASN1Integer) objects.nextElement();
+        this.f81330g = (ASN1Integer) objects.nextElement();
     }
 
     public static ElGamalParameter getInstance(Object obj) {
@@ -35,15 +39,15 @@ public class ElGamalParameter extends ASN1Object {
     }
 
     public BigInteger getG() {
-        return this.g.getPositiveValue();
+        return this.f81330g.getPositiveValue();
     }
 
     public BigInteger getP() {
-        return this.p.getPositiveValue();
+        return this.f81331p.getPositiveValue();
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
-        return new DERSequence(this.p, this.g);
+        return new DERSequence(this.f81331p, this.f81330g);
     }
 }

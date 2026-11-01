@@ -3,74 +3,74 @@ package com.amazonaws.util.json;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.StringReader;
-import l.C17175;
-import l.EnumC14352;
+import p067l.C18691;
+import p067l.EnumC16008;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class GsonFactory implements AwsJsonFactory {
 
     public final class GsonReader {
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final C17175 f866;
+        /* JADX INFO: renamed from: ֫ */
+        public final C18691 f2026;
 
         public GsonReader(StringReader stringReader) {
-            this.f866 = new C17175(stringReader);
+            this.f2026 = new C18691(stringReader);
         }
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final void m802() throws IOException {
-            this.f866.m40402();
+        /* JADX INFO: renamed from: ֫ */
+        public final void m1967() throws IOException {
+            this.f2026.m42647();
         }
 
-        /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-        public final void m806() throws IOException {
-            this.f866.m40410();
+        /* JADX INFO: renamed from: ܽ */
+        public final void m1971() throws IOException {
+            this.f2026.m42655();
         }
 
-        /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-        public final boolean m807() throws IOException {
-            EnumC14352 enumC14352M40398 = this.f866.m40398();
-            return EnumC14352.BEGIN_ARRAY.equals(enumC14352M40398) || EnumC14352.BEGIN_OBJECT.equals(enumC14352M40398);
+        /* JADX INFO: renamed from: ܿ */
+        public final boolean m1972() throws IOException {
+            EnumC16008 enumC16008M42643 = this.f2026.m42643();
+            return EnumC16008.BEGIN_ARRAY.equals(enumC16008M42643) || EnumC16008.BEGIN_OBJECT.equals(enumC16008M42643);
         }
 
-        /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-        public final boolean m808() {
-            return this.f866.m40404();
+        /* JADX INFO: renamed from: ᩳ */
+        public final boolean m1973() {
+            return this.f2026.m42649();
         }
 
-        /* JADX INFO: renamed from: ܳ, reason: not valid java name and contains not printable characters */
-        public final String m805() {
-            return this.f866.m40396();
+        /* JADX INFO: renamed from: ܳ */
+        public final String m1970() {
+            return this.f2026.m42641();
         }
 
-        /* JADX INFO: renamed from: ᩻, reason: not valid java name and contains not printable characters */
-        public final String m810() throws IOException {
-            C17175 c17175 = this.f866;
-            EnumC14352 enumC14352M40398 = c17175.m40398();
-            if (EnumC14352.NULL.equals(enumC14352M40398)) {
-                c17175.m40394();
+        /* JADX INFO: renamed from: ᩻ */
+        public final String m1975() throws IOException {
+            C18691 c18691 = this.f2026;
+            EnumC16008 enumC16008M42643 = c18691.m42643();
+            if (EnumC16008.NULL.equals(enumC16008M42643)) {
+                c18691.m42639();
                 return null;
             }
-            if (EnumC14352.BOOLEAN.equals(enumC14352M40398)) {
-                return c17175.m40401() ? "true" : "false";
+            if (EnumC16008.BOOLEAN.equals(enumC16008M42643)) {
+                return c18691.m42646() ? "true" : "false";
             }
-            return c17175.m40399();
+            return c18691.m42644();
         }
 
-        /* JADX INFO: renamed from: ᩷, reason: not valid java name and contains not printable characters */
-        public final void m809() throws IOException {
-            this.f866.m40409();
+        /* JADX INFO: renamed from: ᩷ */
+        public final void m1974() throws IOException {
+            this.f2026.m42654();
         }
 
-        /* JADX INFO: renamed from: ۜ, reason: not valid java name and contains not printable characters */
-        public final AwsJsonToken m803() throws IOException {
+        /* JADX INFO: renamed from: ۜ */
+        public final AwsJsonToken m1968() throws IOException {
             try {
-                EnumC14352 enumC14352M40398 = this.f866.m40398();
-                if (enumC14352M40398 == null) {
+                EnumC16008 enumC16008M42643 = this.f2026.m42643();
+                if (enumC16008M42643 == null) {
                     return null;
                 }
-                switch (AnonymousClass1.f865[enumC14352M40398.ordinal()]) {
+                switch (C02791.f2025[enumC16008M42643.ordinal()]) {
                     case 1:
                         return AwsJsonToken.BEGIN_ARRAY;
                     case 2:
@@ -99,59 +99,59 @@ public final class GsonFactory implements AwsJsonFactory {
             }
         }
 
-        /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-        public final void m804() throws IOException {
-            this.f866.close();
+        /* JADX INFO: renamed from: ۧ */
+        public final void m1969() throws IOException {
+            this.f2026.close();
         }
     }
 
-    /* JADX INFO: renamed from: com.amazonaws.util.json.GsonFactory$1, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass1 {
+    /* JADX INFO: renamed from: com.amazonaws.util.json.GsonFactory$1 */
+    public /* synthetic */ class C02791 {
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public static final /* synthetic */ int[] f865;
+        /* JADX INFO: renamed from: ֫ */
+        public static final /* synthetic */ int[] f2025;
 
         static {
-            int[] iArr = new int[EnumC14352.values().length];
-            f865 = iArr;
+            int[] iArr = new int[EnumC16008.values().length];
+            f2025 = iArr;
             try {
-                iArr[EnumC14352.BEGIN_ARRAY.ordinal()] = 1;
+                iArr[EnumC16008.BEGIN_ARRAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f865[EnumC14352.END_ARRAY.ordinal()] = 2;
+                f2025[EnumC16008.END_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f865[EnumC14352.BEGIN_OBJECT.ordinal()] = 3;
+                f2025[EnumC16008.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f865[EnumC14352.END_OBJECT.ordinal()] = 4;
+                f2025[EnumC16008.END_OBJECT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f865[EnumC14352.NAME.ordinal()] = 5;
+                f2025[EnumC16008.NAME.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f865[EnumC14352.BOOLEAN.ordinal()] = 6;
+                f2025[EnumC16008.BOOLEAN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f865[EnumC14352.NUMBER.ordinal()] = 7;
+                f2025[EnumC16008.NUMBER.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f865[EnumC14352.NULL.ordinal()] = 8;
+                f2025[EnumC16008.NULL.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f865[EnumC14352.STRING.ordinal()] = 9;
+                f2025[EnumC16008.STRING.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f865[EnumC14352.END_DOCUMENT.ordinal()] = 10;
+                f2025[EnumC16008.END_DOCUMENT.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
         }

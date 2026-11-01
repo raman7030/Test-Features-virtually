@@ -3,10 +3,10 @@ package com.umeng.commonsdk.statistics.noise;
 import android.content.Context;
 import com.umeng.commonsdk.framework.UMEnvelopeBuild;
 import com.umeng.commonsdk.statistics.idtracking.ImprintHandler;
-import com.umeng.commonsdk.statistics.internal.d;
+import com.umeng.commonsdk.statistics.internal.InterfaceC0817d;
 
 /* JADX INFO: loaded from: classes.dex */
-public class Defcon implements d {
+public class Defcon implements InterfaceC0817d {
     public static final int LEVEL_0 = 0;
     public static final int LEVEL_1 = 1;
     public static final int LEVEL_2 = 2;
@@ -55,8 +55,8 @@ public class Defcon implements d {
         return this.mLevel != 0;
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.d
-    public void onImprintChanged(ImprintHandler.a aVar) {
-        setLevel(Integer.valueOf(aVar.a("defcon", String.valueOf(0))).intValue());
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0817d
+    public void onImprintChanged(ImprintHandler.C0801a c0801a) {
+        setLevel(Integer.valueOf(c0801a.m3053a("defcon", String.valueOf(0))).intValue());
     }
 }

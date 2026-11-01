@@ -22,20 +22,20 @@ import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialResources;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import l.C14615;
-import l.C15813;
-import l.C17648;
-import l.C19343;
-import l.C19370;
-import l.C20754;
-import l.C21311;
-import l.C22733;
-import l.C23020;
-import l.C23575;
-import l.C3820;
-import l.C4330;
-import l.C8184;
-import l.InterfaceC6087;
+import p067l.C1248;
+import p067l.C1567;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C1970;
+import p067l.C1984;
+import p067l.C20752;
+import p067l.C20778;
+import p067l.C22093;
+import p067l.C22622;
+import p067l.C24774;
+import p067l.C5999;
+import p067l.C6483;
+import p067l.InterfaceC1144;
 
 /* JADX INFO: loaded from: classes.dex */
 public class EndCompoundLayout extends LinearLayout {
@@ -61,9 +61,9 @@ public class EndCompoundLayout extends LinearLayout {
     public CharSequence suffixText;
     public final TextView suffixTextView;
     public final TextInputLayout textInputLayout;
-    public InterfaceC6087 touchExplorationStateChangeListener;
+    public InterfaceC1144 touchExplorationStateChangeListener;
 
-    public EndCompoundLayout(TextInputLayout textInputLayout, C22733 c22733) {
+    public EndCompoundLayout(TextInputLayout textInputLayout, C1970 c1970) {
         super(textInputLayout.getContext());
         this.endIconMode = 0;
         this.endIconChangedListeners = new LinkedHashSet();
@@ -110,18 +110,18 @@ public class EndCompoundLayout extends LinearLayout {
         frameLayout.setVisibility(8);
         frameLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         LayoutInflater layoutInflaterFrom = LayoutInflater.from(getContext());
-        CheckableImageButton checkableImageButtonCreateIconView = createIconView(this, layoutInflaterFrom, C20754.f67192);
+        CheckableImageButton checkableImageButtonCreateIconView = createIconView(this, layoutInflaterFrom, C22093.f69876);
         this.errorIconView = checkableImageButtonCreateIconView;
-        CheckableImageButton checkableImageButtonCreateIconView2 = createIconView(frameLayout, layoutInflaterFrom, C20754.f67084);
+        CheckableImageButton checkableImageButtonCreateIconView2 = createIconView(frameLayout, layoutInflaterFrom, C22093.f69768);
         this.endIconView = checkableImageButtonCreateIconView2;
-        this.endIconDelegates = new EndIconDelegates(this, c22733);
-        C14615 c14615 = new C14615(getContext());
-        this.suffixTextView = c14615;
-        initErrorIconView(c22733);
-        initEndIconView(c22733);
-        initSuffixTextView(c22733);
+        this.endIconDelegates = new EndIconDelegates(this, c1970);
+        C1567 c1567 = new C1567(getContext());
+        this.suffixTextView = c1567;
+        initErrorIconView(c1970);
+        initEndIconView(c1970);
+        initSuffixTextView(c1970);
         frameLayout.addView(checkableImageButtonCreateIconView2);
-        addView(c14615);
+        addView(c1567);
         addView(frameLayout);
         addView(checkableImageButtonCreateIconView);
         textInputLayout.addOnEditTextAttachedListener(onEditTextAttachedListener);
@@ -139,7 +139,7 @@ public class EndCompoundLayout extends LinearLayout {
     }
 
     private CheckableImageButton createIconView(ViewGroup viewGroup, LayoutInflater layoutInflater, int i) {
-        CheckableImageButton checkableImageButton = (CheckableImageButton) layoutInflater.inflate(C15813.f48879, viewGroup, false);
+        CheckableImageButton checkableImageButton = (CheckableImageButton) layoutInflater.inflate(C17397.f52017, viewGroup, false);
         checkableImageButton.setId(i);
         IconHelper.setCompatRippleBackgroundIfNeeded(checkableImageButton);
         if (MaterialResources.isFontScaleAtLeast1_3(getContext())) {
@@ -148,72 +148,72 @@ public class EndCompoundLayout extends LinearLayout {
         return checkableImageButton;
     }
 
-    private void initErrorIconView(C22733 c22733) {
-        if (c22733.m50802(C19343.f62312)) {
-            this.errorIconTintList = MaterialResources.getColorStateList(getContext(), c22733, C19343.f62312);
+    private void initErrorIconView(C1970 c1970) {
+        if (c1970.m53135(C20752.f82835)) {
+            this.errorIconTintList = MaterialResources.getColorStateList(getContext(), c1970, C20752.f82835);
         }
-        if (c22733.m50802(C19343.f60875)) {
-            this.errorIconTintMode = ViewUtils.parseTintMode(c22733.m50809(C19343.f60875, -1), null);
+        if (c1970.m53135(C20752.f82343)) {
+            this.errorIconTintMode = ViewUtils.parseTintMode(c1970.m53142(C20752.f82343, -1), null);
         }
-        if (c22733.m50802(C19343.f62259)) {
-            setErrorIconDrawable(c22733.m50815(C19343.f62259));
+        if (c1970.m53135(C20752.f82817)) {
+            setErrorIconDrawable(c1970.m53148(C20752.f82817));
         }
-        this.errorIconView.setContentDescription(getResources().getText(C3820.f12073));
+        this.errorIconView.setContentDescription(getResources().getText(C5999.f14880));
         CheckableImageButton checkableImageButton = this.errorIconView;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         checkableImageButton.setImportantForAccessibility(2);
         this.errorIconView.setClickable(false);
         this.errorIconView.setPressable(false);
         this.errorIconView.setFocusable(false);
     }
 
-    private void initEndIconView(C22733 c22733) {
-        if (!c22733.m50802(C19343.f61725)) {
-            if (c22733.m50802(C19343.f61565)) {
-                this.endIconTintList = MaterialResources.getColorStateList(getContext(), c22733, C19343.f61565);
+    private void initEndIconView(C1970 c1970) {
+        if (!c1970.m53135(C20752.f82633)) {
+            if (c1970.m53135(C20752.f82578)) {
+                this.endIconTintList = MaterialResources.getColorStateList(getContext(), c1970, C20752.f82578);
             }
-            if (c22733.m50802(C19343.f61512)) {
-                this.endIconTintMode = ViewUtils.parseTintMode(c22733.m50809(C19343.f61512, -1), null);
+            if (c1970.m53135(C20752.f82560)) {
+                this.endIconTintMode = ViewUtils.parseTintMode(c1970.m53142(C20752.f82560, -1), null);
             }
         }
-        if (c22733.m50802(C19343.f61353)) {
-            setEndIconMode(c22733.m50809(C19343.f61353, 0));
-            if (c22733.m50802(C19343.f62152)) {
-                setEndIconContentDescription(c22733.m50817(C19343.f62152));
+        if (c1970.m53135(C20752.f82506)) {
+            setEndIconMode(c1970.m53142(C20752.f82506, 0));
+            if (c1970.m53135(C20752.f82780)) {
+                setEndIconContentDescription(c1970.m53150(C20752.f82780));
             }
-            setEndIconCheckable(c22733.m50801(C19343.f62206, true));
-        } else if (c22733.m50802(C19343.f61725)) {
-            if (c22733.m50802(C19343.f62577)) {
-                this.endIconTintList = MaterialResources.getColorStateList(getContext(), c22733, C19343.f62577);
+            setEndIconCheckable(c1970.m53134(C20752.f82799, true));
+        } else if (c1970.m53135(C20752.f82633)) {
+            if (c1970.m53135(C20752.f82925)) {
+                this.endIconTintList = MaterialResources.getColorStateList(getContext(), c1970, C20752.f82925);
             }
-            if (c22733.m50802(C19343.f61884)) {
-                this.endIconTintMode = ViewUtils.parseTintMode(c22733.m50809(C19343.f61884, -1), null);
+            if (c1970.m53135(C20752.f82687)) {
+                this.endIconTintMode = ViewUtils.parseTintMode(c1970.m53142(C20752.f82687, -1), null);
             }
-            setEndIconMode(c22733.m50801(C19343.f61725, false) ? 1 : 0);
-            setEndIconContentDescription(c22733.m50817(C19343.f61618));
+            setEndIconMode(c1970.m53134(C20752.f82633, false) ? 1 : 0);
+            setEndIconContentDescription(c1970.m53150(C20752.f82596));
         }
-        setEndIconMinSize(c22733.m50803(C19343.f62630, getResources().getDimensionPixelSize(C23575.f76094)));
-        if (c22733.m50802(C19343.f62418)) {
-            setEndIconScaleType(IconHelper.convertScaleType(c22733.m50809(C19343.f62418, -1)));
+        setEndIconMinSize(c1970.m53136(C20752.f82943, getResources().getDimensionPixelSize(C24774.f78840)));
+        if (c1970.m53135(C20752.f82871)) {
+            setEndIconScaleType(IconHelper.convertScaleType(c1970.m53142(C20752.f82871, -1)));
         }
     }
 
-    private void initSuffixTextView(C22733 c22733) {
+    private void initSuffixTextView(C1970 c1970) {
         this.suffixTextView.setVisibility(8);
-        this.suffixTextView.setId(C20754.f67004);
+        this.suffixTextView.setId(C22093.f69688);
         this.suffixTextView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2, 80.0f));
         TextView textView = this.suffixTextView;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         textView.setAccessibilityLiveRegion(1);
-        setSuffixTextAppearance(c22733.m50806(C19343.f62314, 0));
-        if (c22733.m50802(C19343.f60877)) {
-            setSuffixTextColor(c22733.m50804(C19343.f60877));
+        setSuffixTextAppearance(c1970.m53139(C20752.f82836, 0));
+        if (c1970.m53135(C20752.f82344)) {
+            setSuffixTextColor(c1970.m53137(C20752.f82344));
         }
-        setSuffixText(c22733.m50817(C19343.f62261));
+        setSuffixText(c1970.m53150(C20752.f82818));
     }
 
     public void setErrorIconDrawable(int i) {
-        setErrorIconDrawable(i != 0 ? C21311.m48345(getContext(), i) : null);
+        setErrorIconDrawable(i != 0 ? C22622.m50680(getContext(), i) : null);
         refreshErrorIconDrawableState();
     }
 
@@ -324,20 +324,20 @@ public class EndCompoundLayout extends LinearLayout {
         if (this.touchExplorationStateChangeListener == null || this.accessibilityManager == null) {
             return;
         }
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         if (isAttachedToWindow()) {
-            C23020.m51159(this.accessibilityManager, this.touchExplorationStateChangeListener);
+            C1984.m53552(this.accessibilityManager, this.touchExplorationStateChangeListener);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void removeTouchExplorationStateChangeListenerIfNeeded() {
         AccessibilityManager accessibilityManager;
-        InterfaceC6087 interfaceC6087 = this.touchExplorationStateChangeListener;
-        if (interfaceC6087 == null || (accessibilityManager = this.accessibilityManager) == null) {
+        InterfaceC1144 interfaceC1144 = this.touchExplorationStateChangeListener;
+        if (interfaceC1144 == null || (accessibilityManager = this.accessibilityManager) == null) {
             return;
         }
-        C23020.m51160(accessibilityManager, interfaceC6087);
+        C1984.m53553(accessibilityManager, interfaceC1144);
     }
 
     private int getIconResId(EndIconDelegate endIconDelegate) {
@@ -415,7 +415,7 @@ public class EndCompoundLayout extends LinearLayout {
     }
 
     public void setEndIconDrawable(int i) {
-        setEndIconDrawable(i != 0 ? C21311.m48345(getContext(), i) : null);
+        setEndIconDrawable(i != 0 ? C22622.m50680(getContext(), i) : null);
     }
 
     public void setEndIconDrawable(Drawable drawable) {
@@ -514,7 +514,7 @@ public class EndCompoundLayout extends LinearLayout {
     }
 
     public void setSuffixTextAppearance(int i) {
-        C4330.m12997(this.suffixTextView, i);
+        C6483.m14861(this.suffixTextView, i);
     }
 
     public void setSuffixTextColor(ColorStateList colorStateList) {
@@ -526,7 +526,7 @@ public class EndCompoundLayout extends LinearLayout {
     }
 
     public void setPasswordVisibilityToggleDrawable(int i) {
-        setPasswordVisibilityToggleDrawable(i != 0 ? C21311.m48345(getContext(), i) : null);
+        setPasswordVisibilityToggleDrawable(i != 0 ? C22622.m50680(getContext(), i) : null);
     }
 
     public void setPasswordVisibilityToggleDrawable(Drawable drawable) {
@@ -617,20 +617,20 @@ public class EndCompoundLayout extends LinearLayout {
             paddingEnd = 0;
         } else {
             EditText editText = this.textInputLayout.editText;
-            int i = C17648.f53953;
+            int i = C1717.f57146;
             paddingEnd = editText.getPaddingEnd();
         }
         TextView textView = this.suffixTextView;
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(C23575.f76128);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(C24774.f78874);
         int paddingTop = this.textInputLayout.editText.getPaddingTop();
         int paddingBottom = this.textInputLayout.editText.getPaddingBottom();
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         textView.setPaddingRelative(dimensionPixelSize, paddingTop, paddingEnd, paddingBottom);
     }
 
     public int getSuffixTextEndOffset() {
         int measuredWidth = (isEndIconVisible() || isErrorIconVisible()) ? this.endIconView.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) this.endIconView.getLayoutParams()).getMarginStart() : 0;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         return this.suffixTextView.getPaddingEnd() + getPaddingEnd() + measuredWidth;
     }
 
@@ -672,8 +672,8 @@ public class EndCompoundLayout extends LinearLayout {
 
     private void tintEndIconOnError(boolean z) {
         if (z && getEndIconDrawable() != null) {
-            Drawable drawableMutate = C8184.m21684(getEndIconDrawable()).mutate();
-            C8184.m21683(drawableMutate, this.textInputLayout.getErrorCurrentTextColors());
+            Drawable drawableMutate = C1248.m23653(getEndIconDrawable()).mutate();
+            C1248.m23652(drawableMutate, this.textInputLayout.getErrorCurrentTextColors());
             this.endIconView.setImageDrawable(drawableMutate);
             return;
         }
@@ -686,10 +686,10 @@ public class EndCompoundLayout extends LinearLayout {
         public final EndCompoundLayout endLayout;
         public final int passwordIconDrawableId;
 
-        public EndIconDelegates(EndCompoundLayout endCompoundLayout, C22733 c22733) {
+        public EndIconDelegates(EndCompoundLayout endCompoundLayout, C1970 c1970) {
             this.endLayout = endCompoundLayout;
-            this.customEndIconDrawableId = c22733.m50806(C19343.f61938, 0);
-            this.passwordIconDrawableId = c22733.m50806(C19343.f61300, 0);
+            this.customEndIconDrawableId = c1970.m53139(C20752.f82706, 0);
+            this.passwordIconDrawableId = c1970.m53139(C20752.f82488, 0);
         }
 
         public EndIconDelegate get(int i) {
@@ -718,7 +718,7 @@ public class EndCompoundLayout extends LinearLayout {
             if (i == 3) {
                 return new DropdownMenuEndIconDelegate(this.endLayout);
             }
-            throw new IllegalArgumentException(C19370.m44628(i, "Invalid end icon mode: "));
+            throw new IllegalArgumentException(C20778.m46922(i, "Invalid end icon mode: "));
         }
     }
 }

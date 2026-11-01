@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import l.C19370;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -26,7 +25,8 @@ import org.bouncycastle.asn1.pkcs.SignedData;
 import org.bouncycastle.asn1.x509.CertificateList;
 import org.bouncycastle.jcajce.util.BCJcaJceHelper;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CertificateFactory extends CertificateFactorySpi {
@@ -251,7 +251,7 @@ public class CertificateFactory extends CertificateFactorySpi {
             inputStream.reset();
             return i != 48 ? readPEMCertificate(inputStream, z) : readDERCertificate(new ASN1InputStream(inputStream));
         } catch (Exception e) {
-            throw new ExCertificateException(C19370.m44629(e, new StringBuilder("parsing issue: ")), e);
+            throw new ExCertificateException(C20778.m46923(e, new StringBuilder("parsing issue: ")), e);
         }
     }
 }

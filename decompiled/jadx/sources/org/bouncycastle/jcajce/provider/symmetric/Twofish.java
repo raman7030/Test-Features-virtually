@@ -1,10 +1,5 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C12662;
-import l.C16014;
-import l.C20382;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.TwofishEngine;
@@ -19,6 +14,11 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C21740;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Twofish {
@@ -64,9 +64,9 @@ public final class Twofish {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$AlgParams", "AlgorithmParameters.Twofish", C5368.m15340(str, "$KeyGen", "KeyGenerator.Twofish", C5368.m15340(str, "$ECB", "Cipher.Twofish", sb, configurableProvider), configurableProvider), configurableProvider);
-            addGMacAlgorithm(configurableProvider, "Twofish", C9045.m23341(C5368.m15340(str, "$PBEWithSHAKeyFactory", "SecretKeyFactory.PBEWITHSHAANDTWOFISH-CBC", C5368.m15340(str, "$PBEWithSHA", "Cipher.PBEWITHSHAANDTWOFISH-CBC", C20382.m46696("Alg.Alias.AlgorithmParameters.PBEWITHSHAANDTWOFISH", "PKCS12PBE", "Alg.Alias.AlgorithmParameters.PBEWITHSHAANDTWOFISH-CBC", "PKCS12PBE", configurableProvider), configurableProvider), configurableProvider), str, "$GMAC"), C16014.m37867(str, "$KeyGen"));
-            addPoly1305Algorithm(configurableProvider, "Twofish", C16014.m37867(str, "$Poly1305"), C16014.m37867(str, "$Poly1305KeyGen"));
+            C14403.m33021(str, "$AlgParams", "AlgorithmParameters.Twofish", C7470.m17249(str, "$KeyGen", "KeyGenerator.Twofish", C7470.m17249(str, "$ECB", "Cipher.Twofish", sb, configurableProvider), configurableProvider), configurableProvider);
+            addGMacAlgorithm(configurableProvider, "Twofish", C10965.m25286(C7470.m17249(str, "$PBEWithSHAKeyFactory", "SecretKeyFactory.PBEWITHSHAANDTWOFISH-CBC", C7470.m17249(str, "$PBEWithSHA", "Cipher.PBEWITHSHAANDTWOFISH-CBC", C21740.m49019("Alg.Alias.AlgorithmParameters.PBEWITHSHAANDTWOFISH", "PKCS12PBE", "Alg.Alias.AlgorithmParameters.PBEWITHSHAANDTWOFISH-CBC", "PKCS12PBE", configurableProvider), configurableProvider), configurableProvider), str, "$GMAC"), C17588.m40053(str, "$KeyGen"));
+            addPoly1305Algorithm(configurableProvider, "Twofish", C17588.m40053(str, "$Poly1305"), C17588.m40053(str, "$Poly1305KeyGen"));
         }
     }
 

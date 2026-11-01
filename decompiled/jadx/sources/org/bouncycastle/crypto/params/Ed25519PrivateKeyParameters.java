@@ -3,9 +3,9 @@ package org.bouncycastle.crypto.params;
 import java.io.EOFException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.rfc8032.Ed25519;
+import org.bouncycastle.math.p080ec.rfc8032.Ed25519;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Ed25519PrivateKeyParameters extends AsymmetricKeyParameter {

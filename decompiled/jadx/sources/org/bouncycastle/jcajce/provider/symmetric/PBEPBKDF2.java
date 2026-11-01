@@ -10,18 +10,12 @@ import java.util.Map;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-import l.C12662;
-import l.C20382;
-import l.C3200;
-import l.C5368;
-import l.C9005;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p071gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PBKDF2Params;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.PasswordConverter;
@@ -35,6 +29,12 @@ import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.spec.PBKDF2KeySpec;
 import org.bouncycastle.util.Integers;
+import p067l.C10927;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C21740;
+import p067l.C5410;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PBEPBKDF2 {
@@ -108,14 +108,14 @@ public class PBEPBKDF2 {
             configurableProvider.addAlgorithm("AlgorithmParameters.PBKDF2", sb.toString());
             StringBuilder sb2 = new StringBuilder("Alg.Alias.AlgorithmParameters.");
             ASN1ObjectIdentifier aSN1ObjectIdentifier = PKCSObjectIdentifiers.id_PBKDF2;
-            C3200.m9836(C9045.m23342("PBKDF2", str, sb2, aSN1ObjectIdentifier, configurableProvider), "$PBKDF2withUTF8", configurableProvider, "SecretKeyFactory.PBKDF2");
+            C5410.m11881(C10965.m25287("PBKDF2", str, sb2, aSN1ObjectIdentifier, configurableProvider), "$PBKDF2withUTF8", configurableProvider, "SecretKeyFactory.PBKDF2");
             configurableProvider.addAlgorithm("Alg.Alias.SecretKeyFactory.PBKDF2WITHHMACSHA1", "PBKDF2");
             configurableProvider.addAlgorithm("Alg.Alias.SecretKeyFactory.PBKDF2WITHHMACSHA1ANDUTF8", "PBKDF2");
             configurableProvider.addAlgorithm("Alg.Alias.SecretKeyFactory." + aSN1ObjectIdentifier, "PBKDF2");
             StringBuilder sb3 = new StringBuilder();
             sb3.append(str);
-            C3200.m9836(sb3, "$PBKDF2with8BIT", configurableProvider, "SecretKeyFactory.PBKDF2WITHASCII");
-            C12662.m30943(str, "$PBKDF2withSM3", "SecretKeyFactory.PBKDF2WITHHMACSM3", C5368.m15340(str, "$PBKDF2withGOST3411", "SecretKeyFactory.PBKDF2WITHHMACGOST3411", C5368.m15340(str, "$PBKDF2withSHA3_512", "SecretKeyFactory.PBKDF2WITHHMACSHA3-512", C5368.m15340(str, "$PBKDF2withSHA3_384", "SecretKeyFactory.PBKDF2WITHHMACSHA3-384", C5368.m15340(str, "$PBKDF2withSHA3_256", "SecretKeyFactory.PBKDF2WITHHMACSHA3-256", C5368.m15340(str, "$PBKDF2withSHA3_224", "SecretKeyFactory.PBKDF2WITHHMACSHA3-224", C5368.m15340(str, "$PBKDF2withSHA512_256", "SecretKeyFactory.PBKDF2WITHHMACSHA512-256", C5368.m15340(str, "$PBKDF2withSHA512_224", "SecretKeyFactory.PBKDF2WITHHMACSHA512-224", C5368.m15340(str, "$PBKDF2withSHA512", "SecretKeyFactory.PBKDF2WITHHMACSHA512", C5368.m15340(str, "$PBKDF2withSHA384", "SecretKeyFactory.PBKDF2WITHHMACSHA384", C5368.m15340(str, "$PBKDF2withSHA256", "SecretKeyFactory.PBKDF2WITHHMACSHA256", C5368.m15340(str, "$PBKDF2withSHA224", "SecretKeyFactory.PBKDF2WITHHMACSHA224", C20382.m46696("Alg.Alias.SecretKeyFactory.PBKDF2WITH8BIT", "PBKDF2WITHASCII", "Alg.Alias.SecretKeyFactory.PBKDF2WITHHMACSHA1AND8BIT", "PBKDF2WITHASCII", configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            C5410.m11881(sb3, "$PBKDF2with8BIT", configurableProvider, "SecretKeyFactory.PBKDF2WITHASCII");
+            C14403.m33021(str, "$PBKDF2withSM3", "SecretKeyFactory.PBKDF2WITHHMACSM3", C7470.m17249(str, "$PBKDF2withGOST3411", "SecretKeyFactory.PBKDF2WITHHMACGOST3411", C7470.m17249(str, "$PBKDF2withSHA3_512", "SecretKeyFactory.PBKDF2WITHHMACSHA3-512", C7470.m17249(str, "$PBKDF2withSHA3_384", "SecretKeyFactory.PBKDF2WITHHMACSHA3-384", C7470.m17249(str, "$PBKDF2withSHA3_256", "SecretKeyFactory.PBKDF2WITHHMACSHA3-256", C7470.m17249(str, "$PBKDF2withSHA3_224", "SecretKeyFactory.PBKDF2WITHHMACSHA3-224", C7470.m17249(str, "$PBKDF2withSHA512_256", "SecretKeyFactory.PBKDF2WITHHMACSHA512-256", C7470.m17249(str, "$PBKDF2withSHA512_224", "SecretKeyFactory.PBKDF2WITHHMACSHA512-224", C7470.m17249(str, "$PBKDF2withSHA512", "SecretKeyFactory.PBKDF2WITHHMACSHA512", C7470.m17249(str, "$PBKDF2withSHA384", "SecretKeyFactory.PBKDF2WITHHMACSHA384", C7470.m17249(str, "$PBKDF2withSHA256", "SecretKeyFactory.PBKDF2WITHHMACSHA256", C7470.m17249(str, "$PBKDF2withSHA224", "SecretKeyFactory.PBKDF2WITHHMACSHA224", C21740.m49019("Alg.Alias.SecretKeyFactory.PBKDF2WITH8BIT", "PBKDF2WITHASCII", "Alg.Alias.SecretKeyFactory.PBKDF2WITHHMACSHA1AND8BIT", "PBKDF2WITHASCII", configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
         }
     }
 
@@ -284,7 +284,7 @@ public class PBEPBKDF2 {
             if (num != null) {
                 return num.intValue();
             }
-            throw new InvalidKeySpecException(C9005.m23242("Invalid KeySpec: unknown PRF algorithm ", aSN1ObjectIdentifier));
+            throw new InvalidKeySpecException(C10927.m25186("Invalid KeySpec: unknown PRF algorithm ", aSN1ObjectIdentifier));
         }
     }
 }

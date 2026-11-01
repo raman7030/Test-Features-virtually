@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import l.C20195;
 import net.engio.mbassy.bus.common.DeadMessage;
 import net.engio.mbassy.bus.common.PubSubSupport;
 import net.engio.mbassy.bus.config.ConfigurationError;
@@ -15,6 +14,7 @@ import net.engio.mbassy.bus.config.IBusConfiguration;
 import net.engio.mbassy.bus.error.IPublicationErrorHandler;
 import net.engio.mbassy.bus.error.PublicationError;
 import net.engio.mbassy.subscription.SubscriptionManager;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class AbstractPubSubSupport implements PubSubSupport {
@@ -47,7 +47,7 @@ public abstract class AbstractPubSubSupport implements PubSubSupport {
     }
 
     public Collection getRegisteredErrorHandlers() {
-        return C20195.unmodifiableCollection(this.errorHandlers);
+        return C21562.unmodifiableCollection(this.errorHandlers);
     }
 
     @Override // net.engio.mbassy.bus.common.PubSubSupport

@@ -2,10 +2,10 @@ package org.bouncycastle.jcajce;
 
 import java.util.HashMap;
 import java.util.Map;
-import l.C4860;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.internal.asn1.iana.IANAObjectIdentifiers;
 import org.bouncycastle.util.Strings;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CompositeUtil {
@@ -39,6 +39,6 @@ public class CompositeUtil {
         if (aSN1ObjectIdentifier != null) {
             return aSN1ObjectIdentifier;
         }
-        throw new IllegalArgumentException(C4860.m14172("name ", str, " not recognized"));
+        throw new IllegalArgumentException(C6988.m16053("name ", str, " not recognized"));
     }
 }

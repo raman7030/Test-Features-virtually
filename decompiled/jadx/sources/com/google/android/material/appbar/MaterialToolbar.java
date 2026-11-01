@@ -16,17 +16,17 @@ import com.google.android.material.internal.ToolbarUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-import l.C17648;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C3060;
-import l.C8184;
-import l.C9762;
+import p067l.C0994;
+import p067l.C1248;
+import p067l.C1326;
+import p067l.C1717;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
-public class MaterialToolbar extends C9762 {
-    public static final int DEF_STYLE_RES = C18637.f58483;
+public class MaterialToolbar extends C1326 {
+    public static final int DEF_STYLE_RES = C20081.f61706;
     public static final ImageView.ScaleType[] LOGO_SCALE_TYPE_ARRAY = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
     public Boolean logoAdjustViewBounds;
     public ImageView.ScaleType logoScaleType;
@@ -39,7 +39,7 @@ public class MaterialToolbar extends C9762 {
     }
 
     public MaterialToolbar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f54899);
+        this(context, attributeSet, C19410.f58096);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -47,40 +47,40 @@ public class MaterialToolbar extends C9762 {
         int i2 = DEF_STYLE_RES;
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, i2), attributeSet, i);
         Context context2 = getContext();
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C19343.f62401, i, i2, new int[0]);
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f62027)) {
-            setNavigationIconTint(typedArrayObtainStyledAttributes.getColor(C19343.f62027, -1));
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C20752.f82865, i, i2, new int[0]);
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f82736)) {
+            setNavigationIconTint(typedArrayObtainStyledAttributes.getColor(C20752.f82736, -1));
         }
-        this.titleCentered = typedArrayObtainStyledAttributes.getBoolean(C19343.f61124, false);
-        this.subtitleCentered = typedArrayObtainStyledAttributes.getBoolean(C19343.f61018, false);
-        int i3 = typedArrayObtainStyledAttributes.getInt(C19343.f61495, -1);
+        this.titleCentered = typedArrayObtainStyledAttributes.getBoolean(C20752.f82428, false);
+        this.subtitleCentered = typedArrayObtainStyledAttributes.getBoolean(C20752.f82392, false);
+        int i3 = typedArrayObtainStyledAttributes.getInt(C20752.f82554, -1);
         if (i3 >= 0) {
             ImageView.ScaleType[] scaleTypeArr = LOGO_SCALE_TYPE_ARRAY;
             if (i3 < scaleTypeArr.length) {
                 this.logoScaleType = scaleTypeArr[i3];
             }
         }
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f61548)) {
-            this.logoAdjustViewBounds = Boolean.valueOf(typedArrayObtainStyledAttributes.getBoolean(C19343.f61548, false));
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f82572)) {
+            this.logoAdjustViewBounds = Boolean.valueOf(typedArrayObtainStyledAttributes.getBoolean(C20752.f82572, false));
         }
         typedArrayObtainStyledAttributes.recycle();
         initBackground(context2);
     }
 
-    @Override // l.C9762
+    @Override // p067l.C1326
     public void inflateMenu(int i) {
         Menu menu = getMenu();
-        boolean z = menu instanceof C3060;
+        boolean z = menu instanceof C0994;
         if (z) {
-            ((C3060) menu).stopDispatchingItemsChanged();
+            ((C0994) menu).stopDispatchingItemsChanged();
         }
         super.inflateMenu(i);
         if (z) {
-            ((C3060) menu).startDispatchingItemsChanged();
+            ((C0994) menu).startDispatchingItemsChanged();
         }
     }
 
-    @Override // l.C9762, android.view.ViewGroup, android.view.View
+    @Override // p067l.C1326, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         maybeCenterTitleViews();
@@ -176,7 +176,7 @@ public class MaterialToolbar extends C9762 {
         }
     }
 
-    @Override // l.C9762, android.view.ViewGroup, android.view.View
+    @Override // p067l.C1326, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         MaterialShapeUtils.setParentAbsoluteElevation(this);
@@ -188,7 +188,7 @@ public class MaterialToolbar extends C9762 {
         MaterialShapeUtils.setElevation(this, f);
     }
 
-    @Override // l.C9762
+    @Override // p067l.C1326
     public void setNavigationIcon(Drawable drawable) {
         super.setNavigationIcon(maybeTintNavigationIcon(drawable));
     }
@@ -205,7 +205,7 @@ public class MaterialToolbar extends C9762 {
         this.navigationIconTint = null;
         Drawable navigationIcon = getNavigationIcon();
         if (navigationIcon != null) {
-            C8184.m21676(C8184.m21684(navigationIcon.mutate()), (ColorStateList) null);
+            C1248.m23645(C1248.m23653(navigationIcon.mutate()), (ColorStateList) null);
             setNavigationIcon(navigationIcon);
         }
     }
@@ -248,7 +248,7 @@ public class MaterialToolbar extends C9762 {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.setFillColor(colorStateListOrNull);
             materialShapeDrawable.initializeElevationOverlay(context);
-            materialShapeDrawable.setElevation(C17648.m41320(this));
+            materialShapeDrawable.setElevation(C1717.m43566(this));
             setBackground(materialShapeDrawable);
         }
     }
@@ -257,8 +257,8 @@ public class MaterialToolbar extends C9762 {
         if (drawable == null || this.navigationIconTint == null) {
             return drawable;
         }
-        Drawable drawableM21684 = C8184.m21684(drawable.mutate());
-        C8184.m21683(drawableM21684, this.navigationIconTint.intValue());
-        return drawableM21684;
+        Drawable drawableM23653 = C1248.m23653(drawable.mutate());
+        C1248.m23652(drawableM23653, this.navigationIconTint.intValue());
+        return drawableM23653;
     }
 }

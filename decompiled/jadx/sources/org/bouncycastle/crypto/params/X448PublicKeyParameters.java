@@ -3,7 +3,7 @@ package org.bouncycastle.crypto.params;
 import java.io.EOFException;
 import java.io.InputStream;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class X448PublicKeyParameters extends AsymmetricKeyParameter {

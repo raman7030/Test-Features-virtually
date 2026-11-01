@@ -1,11 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C12662;
-import l.C16014;
-import l.C21639;
-import l.C3200;
-import l.C8954;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
@@ -19,6 +13,12 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+import p067l.C10878;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C22934;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SHA1 {
@@ -64,22 +64,22 @@ public class SHA1 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest", "MessageDigest.SHA-1", sb, configurableProvider);
+            C14403.m33021(str, "$Digest", "MessageDigest.SHA-1", sb, configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA1", "SHA-1");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SHA", "SHA-1");
             StringBuilder sb2 = new StringBuilder("Alg.Alias.MessageDigest.");
             ASN1ObjectIdentifier aSN1ObjectIdentifier = OIWObjectIdentifiers.idSHA1;
-            StringBuilder sbM23342 = C9045.m23342("SHA-1", str, sb2, aSN1ObjectIdentifier, configurableProvider);
-            sbM23342.append("$HashMac");
-            addHMACAlgorithm(configurableProvider, "SHA1", sbM23342.toString(), C16014.m37867(str, "$KeyGenerator"));
+            StringBuilder sbM25287 = C10965.m25287("SHA-1", str, sb2, aSN1ObjectIdentifier, configurableProvider);
+            sbM25287.append("$HashMac");
+            addHMACAlgorithm(configurableProvider, "SHA1", sbM25287.toString(), C17588.m40053(str, "$KeyGenerator"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier2 = PKCSObjectIdentifiers.id_hmacWithSHA1;
             addHMACAlias(configurableProvider, "SHA1", aSN1ObjectIdentifier2);
             addHMACAlias(configurableProvider, "SHA1", IANAObjectIdentifiers.hmacSHA1);
             configurableProvider.addAlgorithm("Mac.PBEWITHHMACSHA", str + "$SHA1Mac");
             StringBuilder sb3 = new StringBuilder();
             sb3.append(str);
-            C3200.m9836(sb3, "$SHA1Mac", configurableProvider, "Mac.PBEWITHHMACSHA1");
-            configurableProvider.addAlgorithm(C21639.m48907(configurableProvider, "SecretKeyFactory.HMACSHA1", C8954.m23074("SecretKeyFactory.PBEWITHHMACSHA1", C8954.m23074(C21639.m48907(configurableProvider, C21639.m48907(configurableProvider, "Alg.Alias.SecretKeyFactory.PBEWITHHMACSHA", "PBEWITHHMACSHA1", "Alg.Alias.SecretKeyFactory.", aSN1ObjectIdentifier), "PBEWITHHMACSHA1", "Alg.Alias.Mac.", aSN1ObjectIdentifier), "PBEWITHHMACSHA", str, "$PBEWithMacKeyFactory", configurableProvider), str, "$KeyFactory", configurableProvider), "Alg.Alias.SecretKeyFactory.", aSN1ObjectIdentifier2), "HMACSHA1");
+            C5410.m11881(sb3, "$SHA1Mac", configurableProvider, "Mac.PBEWITHHMACSHA1");
+            configurableProvider.addAlgorithm(C22934.m51255(configurableProvider, "SecretKeyFactory.HMACSHA1", C10878.m25048("SecretKeyFactory.PBEWITHHMACSHA1", C10878.m25048(C22934.m51255(configurableProvider, C22934.m51255(configurableProvider, "Alg.Alias.SecretKeyFactory.PBEWITHHMACSHA", "PBEWITHHMACSHA1", "Alg.Alias.SecretKeyFactory.", aSN1ObjectIdentifier), "PBEWITHHMACSHA1", "Alg.Alias.Mac.", aSN1ObjectIdentifier), "PBEWITHHMACSHA", str, "$PBEWithMacKeyFactory", configurableProvider), str, "$KeyFactory", configurableProvider), "Alg.Alias.SecretKeyFactory.", aSN1ObjectIdentifier2), "HMACSHA1");
         }
     }
 

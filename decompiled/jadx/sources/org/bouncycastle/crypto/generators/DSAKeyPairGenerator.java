@@ -14,7 +14,7 @@ import org.bouncycastle.crypto.params.DSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.math.ec.WNafUtil;
+import org.bouncycastle.math.p080ec.WNafUtil;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */

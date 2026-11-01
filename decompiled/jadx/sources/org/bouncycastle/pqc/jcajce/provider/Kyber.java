@@ -1,13 +1,13 @@
 package org.bouncycastle.pqc.jcajce.provider;
 
-import l.C18515;
-import l.C19462;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.pqc.jcajce.provider.kyber.KyberKeyFactorySpi;
+import p067l.C19965;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Kyber {
@@ -42,9 +42,9 @@ public class Kyber {
             configurableProvider.addAlgorithm("Alg.Alias.KeyGenerator.KYBER768", "ML-KEM-768");
             configurableProvider.addAlgorithm("Alg.Alias.KeyGenerator.KYBER1024", "ML-KEM-1024");
             KyberKeyFactorySpi kyberKeyFactorySpi = new KyberKeyFactorySpi();
-            StringBuilder sbM43029 = C18515.m43029(configurableProvider, "Cipher.KYBER", "org.bouncycastle.pqc.jcajce.provider.kyber.KyberCipherSpi$Base", "Alg.Alias.Cipher.");
+            StringBuilder sbM45307 = C19965.m45307(configurableProvider, "Cipher.KYBER", "org.bouncycastle.pqc.jcajce.provider.kyber.KyberCipherSpi$Base", "Alg.Alias.Cipher.");
             ASN1ObjectIdentifier aSN1ObjectIdentifier4 = BCObjectIdentifiers.pqc_kem_kyber;
-            C19462.m44861(sbM43029, aSN1ObjectIdentifier4, configurableProvider, "KYBER");
+            C20865.m47157(sbM45307, aSN1ObjectIdentifier4, configurableProvider, "KYBER");
             addCipherAlgorithm(configurableProvider, "ML-KEM-512", "org.bouncycastle.pqc.jcajce.provider.kyber.KyberCipherSpi$Kyber512", aSN1ObjectIdentifier);
             addCipherAlgorithm(configurableProvider, "ML-KEM-768", "org.bouncycastle.pqc.jcajce.provider.kyber.KyberCipherSpi$Kyber768", aSN1ObjectIdentifier2);
             addCipherAlgorithm(configurableProvider, "ML-KEM-1024", "org.bouncycastle.pqc.jcajce.provider.kyber.KyberCipherSpi$Kyber1024", aSN1ObjectIdentifier3);

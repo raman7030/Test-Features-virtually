@@ -25,7 +25,9 @@ public class HPKE {
     public static final byte mode_auth_psk = 3;
     public static final byte mode_base = 0;
     public static final byte mode_psk = 1;
-    public short Nk;
+
+    /* JADX INFO: renamed from: Nk */
+    public short f81123Nk;
     public final short aeadId;
     public final byte[] default_psk = null;
     public final byte[] default_psk_id = null;
@@ -44,7 +46,7 @@ public class HPKE {
         this.hkdf = new HKDF(s2);
         DHKEM dhkem = new DHKEM(s);
         this.kem = dhkem;
-        this.Nk = s3 == 1 ? (short) 16 : (short) 32;
+        this.f81123Nk = s3 == 1 ? (short) 16 : (short) 32;
         this.encSize = dhkem.getEncryptionSize();
     }
 
@@ -55,7 +57,7 @@ public class HPKE {
         this.aeadId = s3;
         this.hkdf = new HKDF(s2);
         this.kem = kem;
-        this.Nk = s3 == 1 ? (short) 16 : (short) 32;
+        this.f81123Nk = s3 == 1 ? (short) 16 : (short) 32;
         this.encSize = i;
     }
 
@@ -77,7 +79,7 @@ public class HPKE {
         byte[] bArrConcatenate = Arrays.concatenate(Strings.toByteArray("HPKE"), Pack.shortToBigEndian(this.kemId), Pack.shortToBigEndian(this.kdfId), Pack.shortToBigEndian(this.aeadId));
         byte[] bArrConcatenate2 = Arrays.concatenate(new byte[]{b}, this.hkdf.LabeledExtract(null, bArrConcatenate, "psk_id_hash", bArr4), this.hkdf.LabeledExtract(null, bArrConcatenate, "info_hash", bArr2));
         byte[] bArrLabeledExtract = this.hkdf.LabeledExtract(bArr, bArrConcatenate, "secret", bArr3);
-        byte[] bArrLabeledExpand = this.hkdf.LabeledExpand(bArrLabeledExtract, bArrConcatenate, "key", bArrConcatenate2, this.Nk);
+        byte[] bArrLabeledExpand = this.hkdf.LabeledExpand(bArrLabeledExtract, bArrConcatenate, "key", bArrConcatenate2, this.f81123Nk);
         byte[] bArrLabeledExpand2 = this.hkdf.LabeledExpand(bArrLabeledExtract, bArrConcatenate, "base_nonce", bArrConcatenate2, 12);
         HKDF hkdf = this.hkdf;
         return new HPKEContext(new AEAD(this.aeadId, bArrLabeledExpand, bArrLabeledExpand2), this.hkdf, hkdf.LabeledExpand(bArrLabeledExtract, bArrConcatenate, "exp", bArrConcatenate2, hkdf.getHashSize()), bArrConcatenate);

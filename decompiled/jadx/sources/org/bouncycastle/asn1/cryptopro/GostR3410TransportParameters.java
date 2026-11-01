@@ -1,7 +1,5 @@
 package org.bouncycastle.asn1.cryptopro;
 
-import l.C18736;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
@@ -14,6 +12,8 @@ import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.util.Arrays;
+import p067l.C20175;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GostR3410TransportParameters extends ASN1Object {
@@ -30,15 +30,15 @@ public class GostR3410TransportParameters extends ASN1Object {
     public GostR3410TransportParameters(ASN1Sequence aSN1Sequence) {
         if (aSN1Sequence.size() == 2) {
             this.encryptionParamSet = ASN1ObjectIdentifier.getInstance(aSN1Sequence.getObjectAt(0));
-            this.ukm = C18736.m43391(aSN1Sequence, 1);
+            this.ukm = C20175.m45658(aSN1Sequence, 1);
             this.ephemeralPublicKey = null;
         } else {
             if (aSN1Sequence.size() != 3) {
-                throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("unknown sequence length: ")));
+                throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("unknown sequence length: ")));
             }
             this.encryptionParamSet = ASN1ObjectIdentifier.getInstance(aSN1Sequence.getObjectAt(0));
             this.ephemeralPublicKey = SubjectPublicKeyInfo.getInstance(ASN1TaggedObject.getInstance(aSN1Sequence.getObjectAt(1)), false);
-            this.ukm = C18736.m43391(aSN1Sequence, 2);
+            this.ukm = C20175.m45658(aSN1Sequence, 2);
         }
     }
 

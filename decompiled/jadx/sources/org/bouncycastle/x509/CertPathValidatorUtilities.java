@@ -34,7 +34,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C20094;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Enumerated;
 import org.bouncycastle.asn1.ASN1InputStream;
@@ -58,6 +57,7 @@ import org.bouncycastle.jce.provider.PKIXPolicyNode;
 import org.bouncycastle.util.Encodable;
 import org.bouncycastle.util.Store;
 import org.bouncycastle.util.StoreException;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CertPathValidatorUtilities {
@@ -421,7 +421,7 @@ public class CertPathValidatorUtilities {
         try {
             return new ASN1InputStream(((ASN1OctetString) new ASN1InputStream(bArr).readObject()).getOctets()).readObject();
         } catch (Exception e) {
-            throw new AnnotatedException(C20094.m46315("exception processing extension ", str), e);
+            throw new AnnotatedException(C21466.m48631("exception processing extension ", str), e);
         }
     }
 }

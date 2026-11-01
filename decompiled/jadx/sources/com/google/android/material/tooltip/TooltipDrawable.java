@@ -20,16 +20,16 @@ import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C23575;
-import l.C7191;
+import p067l.C1199;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
-    public static final int DEFAULT_STYLE = C18637.f58603;
-    public static final int DEFAULT_THEME_ATTR = C17931.f54796;
+    public static final int DEFAULT_STYLE = C20081.f61826;
+    public static final int DEFAULT_THEME_ATTR = C19410.f57993;
     public int arrowSize;
     public final View.OnLayoutChangeListener attachedViewLayoutChangeListener;
     public final Context context;
@@ -86,27 +86,27 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     }
 
     private void loadFromAttributes(AttributeSet attributeSet, int i, int i2) {
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, C19343.f60888, i, i2, new int[0]);
-        this.arrowSize = this.context.getResources().getDimensionPixelSize(C23575.f76107);
-        boolean z = typedArrayObtainStyledAttributes.getBoolean(C19343.f61738, true);
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, C20752.f82347, i, i2, new int[0]);
+        this.arrowSize = this.context.getResources().getDimensionPixelSize(C24774.f78853);
+        boolean z = typedArrayObtainStyledAttributes.getBoolean(C20752.f82637, true);
         this.showMarker = z;
         if (z) {
             setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
         } else {
             this.arrowSize = 0;
         }
-        setText(typedArrayObtainStyledAttributes.getText(C19343.f62325));
-        TextAppearance textAppearance = MaterialResources.getTextAppearance(this.context, typedArrayObtainStyledAttributes, C19343.f61154);
-        if (textAppearance != null && typedArrayObtainStyledAttributes.hasValue(C19343.f61048)) {
-            textAppearance.setTextColor(MaterialResources.getColorStateList(this.context, typedArrayObtainStyledAttributes, C19343.f61048));
+        setText(typedArrayObtainStyledAttributes.getText(C20752.f82839));
+        TextAppearance textAppearance = MaterialResources.getTextAppearance(this.context, typedArrayObtainStyledAttributes, C20752.f82438);
+        if (textAppearance != null && typedArrayObtainStyledAttributes.hasValue(C20752.f82402)) {
+            textAppearance.setTextColor(MaterialResources.getColorStateList(this.context, typedArrayObtainStyledAttributes, C20752.f82402));
         }
         setTextAppearance(textAppearance);
-        setFillColor(ColorStateList.valueOf(typedArrayObtainStyledAttributes.getColor(C19343.f61791, MaterialColors.layer(C7191.m19276(MaterialColors.getColor(this.context, R.attr.colorBackground, TooltipDrawable.class.getCanonicalName()), 229), C7191.m19276(MaterialColors.getColor(this.context, C17931.f54921, TooltipDrawable.class.getCanonicalName()), 153)))));
-        setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, C17931.f55377, TooltipDrawable.class.getCanonicalName())));
-        this.padding = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f62484, 0);
-        this.minWidth = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f62431, 0);
-        this.minHeight = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61951, 0);
-        this.layoutMargin = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61419, 0);
+        setFillColor(ColorStateList.valueOf(typedArrayObtainStyledAttributes.getColor(C20752.f82655, MaterialColors.layer(C1199.m21223(MaterialColors.getColor(this.context, R.attr.colorBackground, TooltipDrawable.class.getCanonicalName()), 229), C1199.m21223(MaterialColors.getColor(this.context, C19410.f58118, TooltipDrawable.class.getCanonicalName()), 153)))));
+        setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, C19410.f58574, TooltipDrawable.class.getCanonicalName())));
+        this.padding = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f82893, 0);
+        this.minWidth = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f82875, 0);
+        this.minHeight = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f82710, 0);
+        this.layoutMargin = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f82528, 0);
         typedArrayObtainStyledAttributes.recycle();
     }
 

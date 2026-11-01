@@ -3,31 +3,37 @@ package org.bouncycastle.pqc.crypto.lms;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.InputStream;
-import l.C5368;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Encodable;
 import org.bouncycastle.util.Objects;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMOtsPublicKey implements Encodable {
-    public final byte[] I;
-    public final byte[] K;
+
+    /* JADX INFO: renamed from: I */
+    public final byte[] f81642I;
+
+    /* JADX INFO: renamed from: K */
+    public final byte[] f81643K;
     public final LMOtsParameters parameter;
-    public final int q;
+
+    /* JADX INFO: renamed from: q */
+    public final int f81644q;
 
     public LMOtsPublicKey(LMOtsParameters lMOtsParameters, byte[] bArr, int i, byte[] bArr2) {
         this.parameter = lMOtsParameters;
-        this.I = bArr;
-        this.q = i;
-        this.K = bArr2;
+        this.f81642I = bArr;
+        this.f81644q = i;
+        this.f81643K = bArr2;
     }
 
     public LMSContext createOtsContext(LMOtsSignature lMOtsSignature) {
         Digest digest = DigestUtil.getDigest(this.parameter);
-        LmsUtils.byteArray(this.I, digest);
-        LmsUtils.u32str(this.q, digest);
+        LmsUtils.byteArray(this.f81642I, digest);
+        LmsUtils.u32str(this.f81644q, digest);
         LmsUtils.u16str(LM_OTS.D_MESG, digest);
         LmsUtils.byteArray(lMOtsSignature.getC(), digest);
         return new LMSContext(this, lMOtsSignature, digest);
@@ -35,8 +41,8 @@ public class LMOtsPublicKey implements Encodable {
 
     public LMSContext createOtsContext(LMSSignature lMSSignature) {
         Digest digest = DigestUtil.getDigest(this.parameter);
-        LmsUtils.byteArray(this.I, digest);
-        LmsUtils.u32str(this.q, digest);
+        LmsUtils.byteArray(this.f81642I, digest);
+        LmsUtils.u32str(this.f81644q, digest);
         LmsUtils.u16str(LM_OTS.D_MESG, digest);
         LmsUtils.byteArray(lMSSignature.getOtsSignature().getC(), digest);
         return new LMSContext(this, lMSSignature, digest);
@@ -48,7 +54,7 @@ public class LMOtsPublicKey implements Encodable {
         }
         if (obj != null && getClass() == obj.getClass()) {
             LMOtsPublicKey lMOtsPublicKey = (LMOtsPublicKey) obj;
-            if (this.q == lMOtsPublicKey.q && Objects.areEqual(this.parameter, lMOtsPublicKey.parameter) && Arrays.areEqual(this.I, lMOtsPublicKey.I) && Arrays.areEqual(this.K, lMOtsPublicKey.K)) {
+            if (this.f81644q == lMOtsPublicKey.f81644q && Objects.areEqual(this.parameter, lMOtsPublicKey.parameter) && Arrays.areEqual(this.f81642I, lMOtsPublicKey.f81642I) && Arrays.areEqual(this.f81643K, lMOtsPublicKey.f81643K)) {
                 return true;
             }
         }
@@ -57,15 +63,15 @@ public class LMOtsPublicKey implements Encodable {
 
     @Override // org.bouncycastle.util.Encodable
     public byte[] getEncoded() {
-        return Composer.compose().u32str(this.parameter.getType()).bytes(this.I).u32str(this.q).bytes(this.K).build();
+        return Composer.compose().u32str(this.parameter.getType()).bytes(this.f81642I).u32str(this.f81644q).bytes(this.f81643K).build();
     }
 
     public byte[] getI() {
-        return this.I;
+        return this.f81642I;
     }
 
     public byte[] getK() {
-        return this.K;
+        return this.f81643K;
     }
 
     public LMOtsParameters getParameter() {
@@ -73,11 +79,11 @@ public class LMOtsPublicKey implements Encodable {
     }
 
     public int getQ() {
-        return this.q;
+        return this.f81644q;
     }
 
     public int hashCode() {
-        return Arrays.hashCode(this.K) + ((Arrays.hashCode(this.I) + ((Objects.hashCode(this.parameter) + (this.q * 31)) * 31)) * 31);
+        return Arrays.hashCode(this.f81643K) + ((Arrays.hashCode(this.f81642I) + ((Objects.hashCode(this.parameter) + (this.f81644q * 31)) * 31)) * 31);
     }
 
     public static LMOtsPublicKey getInstance(Object obj) throws Throwable {
@@ -98,7 +104,7 @@ public class LMOtsPublicKey implements Encodable {
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj));
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream2 = null;
         try {

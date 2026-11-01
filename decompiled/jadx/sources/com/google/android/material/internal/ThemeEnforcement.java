@@ -5,17 +5,17 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import com.google.android.material.resources.MaterialAttributes;
-import l.C17931;
-import l.C19343;
-import l.C22733;
-import l.C4860;
+import p067l.C19410;
+import p067l.C1970;
+import p067l.C20752;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class ThemeEnforcement {
     public static final String APPCOMPAT_THEME_NAME = "Theme.AppCompat";
     public static final String MATERIAL_THEME_NAME = "Theme.MaterialComponents";
-    public static final int[] APPCOMPAT_CHECK_ATTRS = {C17931.f55686};
-    public static final int[] MATERIAL_CHECK_ATTRS = {C17931.f55822};
+    public static final int[] APPCOMPAT_CHECK_ATTRS = {C19410.f58883};
+    public static final int[] MATERIAL_CHECK_ATTRS = {C19410.f59019};
 
     public static TypedArray obtainStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
         checkCompatibleTheme(context, attributeSet, i, i2);
@@ -23,19 +23,19 @@ public final class ThemeEnforcement {
         return context.obtainStyledAttributes(attributeSet, iArr, i, i2);
     }
 
-    public static C22733 obtainTintedStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
+    public static C1970 obtainTintedStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
         checkCompatibleTheme(context, attributeSet, i, i2);
         checkTextAppearance(context, attributeSet, iArr, i, i2, iArr2);
-        return C22733.m50796(context, attributeSet, iArr, i, i2);
+        return C1970.m53129(context, attributeSet, iArr, i, i2);
     }
 
     public static void checkCompatibleTheme(Context context, AttributeSet attributeSet, int i, int i2) {
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C19343.f61249, i, i2);
-        boolean z = typedArrayObtainStyledAttributes.getBoolean(C19343.f61461, false);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C20752.f82471, i, i2);
+        boolean z = typedArrayObtainStyledAttributes.getBoolean(C20752.f82543, false);
         typedArrayObtainStyledAttributes.recycle();
         if (z) {
             TypedValue typedValue = new TypedValue();
-            if (!context.getTheme().resolveAttribute(C17931.f55303, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
+            if (!context.getTheme().resolveAttribute(C19410.f58500, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
                 checkMaterialTheme(context);
             }
         }
@@ -44,13 +44,13 @@ public final class ThemeEnforcement {
 
     public static void checkTextAppearance(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
         boolean zIsCustomTextAppearanceValid;
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C19343.f61249, i, i2);
-        if (!typedArrayObtainStyledAttributes.getBoolean(C19343.f61993, false)) {
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C20752.f82471, i, i2);
+        if (!typedArrayObtainStyledAttributes.getBoolean(C20752.f82725, false)) {
             typedArrayObtainStyledAttributes.recycle();
             return;
         }
         if (iArr2 == null || iArr2.length == 0) {
-            zIsCustomTextAppearanceValid = typedArrayObtainStyledAttributes.getResourceId(C19343.f60930, -1) != -1;
+            zIsCustomTextAppearanceValid = typedArrayObtainStyledAttributes.getResourceId(C20752.f82362, -1) != -1;
         } else {
             zIsCustomTextAppearanceValid = isCustomTextAppearanceValid(context, attributeSet, iArr, i, i2, iArr2);
         }
@@ -89,7 +89,7 @@ public final class ThemeEnforcement {
     }
 
     public static boolean isMaterial3Theme(Context context) {
-        return MaterialAttributes.resolveBoolean(context, C17931.f54860, false);
+        return MaterialAttributes.resolveBoolean(context, C19410.f58057, false);
     }
 
     public static boolean isTheme(Context context, int[] iArr) {
@@ -106,7 +106,7 @@ public final class ThemeEnforcement {
 
     public static void checkTheme(Context context, int[] iArr, String str) {
         if (!isTheme(context, iArr)) {
-            throw new IllegalArgumentException(C4860.m14172("The style on this component requires your app theme to be ", str, " (or a descendant)."));
+            throw new IllegalArgumentException(C6988.m16053("The style on this component requires your app theme to be ", str, " (or a descendant)."));
         }
     }
 }

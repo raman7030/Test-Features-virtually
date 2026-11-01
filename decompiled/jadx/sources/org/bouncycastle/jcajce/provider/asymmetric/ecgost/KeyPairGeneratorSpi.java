@@ -8,10 +8,9 @@ import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
 import org.bouncycastle.crypto.params.ECDomainParameters;
@@ -27,7 +26,8 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECCurve;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KeyPairGeneratorSpi extends KeyPairGenerator {
@@ -138,7 +138,7 @@ public class KeyPairGeneratorSpi extends KeyPairGenerator {
         ASN1ObjectIdentifier publicKeyParamSet = gOST3410ParameterSpec.getPublicKeyParamSet();
         X9ECParameters byOIDX9 = ECGOST3410NamedCurves.getByOIDX9(publicKeyParamSet);
         if (byOIDX9 == null) {
-            throw new InvalidAlgorithmParameterException(C9005.m23242("unknown curve: ", publicKeyParamSet));
+            throw new InvalidAlgorithmParameterException(C10927.m25186("unknown curve: ", publicKeyParamSet));
         }
         this.ecParams = new ECNamedCurveSpec(ECGOST3410NamedCurves.getName(publicKeyParamSet), byOIDX9.getCurve(), byOIDX9.getG(), byOIDX9.getN(), byOIDX9.getH(), byOIDX9.getSeed());
         ECKeyGenerationParameters eCKeyGenerationParameters = new ECKeyGenerationParameters(new ECGOST3410Parameters(new ECNamedDomainParameters(publicKeyParamSet, byOIDX9), publicKeyParamSet, gOST3410ParameterSpec.getDigestParamSet(), gOST3410ParameterSpec.getEncryptionParamSet()), secureRandom);

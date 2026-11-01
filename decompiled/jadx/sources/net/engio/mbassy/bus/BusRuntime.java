@@ -3,9 +3,9 @@ package net.engio.mbassy.bus;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import l.C4860;
 import net.engio.mbassy.bus.common.PubSubSupport;
 import net.engio.mbassy.bus.error.MissingPropertyException;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BusRuntime {
@@ -20,7 +20,7 @@ public class BusRuntime {
         if (contains(str)) {
             return this.properties.get(str);
         }
-        throw new MissingPropertyException(C4860.m14172("The property ", str, " is not available in this runtime"));
+        throw new MissingPropertyException(C6988.m16053("The property ", str, " is not available in this runtime"));
     }
 
     public PubSubSupport getProvider() {

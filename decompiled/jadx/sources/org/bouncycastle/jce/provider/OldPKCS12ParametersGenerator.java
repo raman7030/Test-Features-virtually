@@ -15,20 +15,24 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
     public static final int KEY_MATERIAL = 1;
     public static final int MAC_MATERIAL = 3;
     public Digest digest;
-    public int u;
-    public int v;
+
+    /* JADX INFO: renamed from: u */
+    public int f81380u;
+
+    /* JADX INFO: renamed from: v */
+    public int f81381v;
 
     public OldPKCS12ParametersGenerator(Digest digest) {
         this.digest = digest;
         if (digest instanceof MD5Digest) {
-            this.u = 16;
+            this.f81380u = 16;
         } else {
             if (!(digest instanceof SHA1Digest) && !(digest instanceof RIPEMD160Digest)) {
                 throw new IllegalArgumentException("Digest " + digest.getAlgorithmName() + " unsupported");
             }
-            this.u = 20;
+            this.f81380u = 20;
         }
-        this.v = 64;
+        this.f81381v = 64;
     }
 
     private void adjust(byte[] bArr, int i, byte[] bArr2) {
@@ -46,7 +50,7 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
     private byte[] generateDerivedKey(int i, int i2) {
         byte[] bArr;
         byte[] bArr2;
-        int i3 = this.v;
+        int i3 = this.f81381v;
         byte[] bArr3 = new byte[i3];
         byte[] bArr4 = new byte[i2];
         int i4 = 0;
@@ -57,7 +61,7 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
         if (bArr5 == null || bArr5.length == 0) {
             bArr = new byte[0];
         } else {
-            int i6 = this.v;
+            int i6 = this.f81381v;
             int length = (((bArr5.length + i6) - 1) / i6) * i6;
             bArr = new byte[length];
             for (int i7 = 0; i7 != length; i7++) {
@@ -69,7 +73,7 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
         if (bArr7 == null || bArr7.length == 0) {
             bArr2 = new byte[0];
         } else {
-            int i8 = this.v;
+            int i8 = this.f81381v;
             int length2 = (((bArr7.length + i8) - 1) / i8) * i8;
             bArr2 = new byte[length2];
             for (int i9 = 0; i9 != length2; i9++) {
@@ -81,13 +85,13 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
         byte[] bArr9 = new byte[length3];
         System.arraycopy(bArr, 0, bArr9, 0, bArr.length);
         System.arraycopy(bArr2, 0, bArr9, bArr.length, bArr2.length);
-        int i10 = this.v;
+        int i10 = this.f81381v;
         byte[] bArr10 = new byte[i10];
-        int i11 = this.u;
+        int i11 = this.f81380u;
         int i12 = ((i2 + i11) - 1) / i11;
         int i13 = 1;
         while (i13 <= i12) {
-            int i14 = this.u;
+            int i14 = this.f81380u;
             byte[] bArr11 = new byte[i14];
             this.digest.update(bArr3, i4, i3);
             this.digest.update(bArr9, i4, length3);
@@ -101,7 +105,7 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
             }
             int i17 = 0;
             while (true) {
-                int i18 = this.v;
+                int i18 = this.f81381v;
                 if (i17 == length3 / i18) {
                     break;
                 }
@@ -110,10 +114,10 @@ public class OldPKCS12ParametersGenerator extends PBEParametersGenerator {
             }
             if (i13 == i12) {
                 int i19 = i13 - 1;
-                int i20 = this.u;
+                int i20 = this.f81380u;
                 System.arraycopy(bArr11, 0, bArr4, i19 * i20, i2 - (i19 * i20));
             } else {
-                System.arraycopy(bArr11, 0, bArr4, (i13 - 1) * this.u, i14);
+                System.arraycopy(bArr11, 0, bArr4, (i13 - 1) * this.f81380u, i14);
             }
             i13++;
             i4 = 0;

@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import l.C20195;
-import l.C4331;
-import l.C8200;
+import p067l.C10162;
+import p067l.C21562;
+import p067l.C6484;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class TemperatureCache {
@@ -163,7 +163,7 @@ public final class TemperatureCache {
         for (double d = 0.0d; d <= 360.0d; d += 1.0d) {
             arrayList.add(Hct.from(d, this.input.getChroma(), this.input.getTone()));
         }
-        List listUnmodifiableList = C20195.unmodifiableList(arrayList);
+        List listUnmodifiableList = C21562.unmodifiableList(arrayList);
         this.precomputedHctsByHue = listUnmodifiableList;
         return listUnmodifiableList;
     }
@@ -175,7 +175,7 @@ public final class TemperatureCache {
         }
         ArrayList arrayList = new ArrayList(getHctsByHue());
         arrayList.add(this.input);
-        Collections.sort(arrayList, C8200.comparing(new C4331(2, this), new TemperatureCache$$ExternalSyntheticLambda1()));
+        Collections.sort(arrayList, C10162.comparing(new C6484(2, this), new TemperatureCache$$ExternalSyntheticLambda1()));
         this.precomputedHctsByTemp = arrayList;
         return arrayList;
     }

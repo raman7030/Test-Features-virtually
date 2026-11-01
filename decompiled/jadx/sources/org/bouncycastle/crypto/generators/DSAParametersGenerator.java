@@ -16,8 +16,12 @@ import org.bouncycastle.util.encoders.Hex;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DSAParametersGenerator {
-    public int L;
-    public int N;
+
+    /* JADX INFO: renamed from: L */
+    public int f81109L;
+
+    /* JADX INFO: renamed from: N */
+    public int f81110N;
     public int certainty;
     public Digest digest;
     public int iterations;
@@ -76,7 +80,7 @@ public class DSAParametersGenerator {
         byte[] bArr2 = new byte[20];
         byte[] bArr3 = new byte[20];
         byte[] bArr4 = new byte[20];
-        int i2 = this.L;
+        int i2 = this.f81109L;
         int i3 = (i2 - 1) / DHParameters.DEFAULT_MINIMUM_LENGTH;
         int i4 = i2 / 8;
         byte[] bArr5 = new byte[i4];
@@ -111,7 +115,7 @@ public class DSAParametersGenerator {
                     bArr5[0] = (byte) (bArr5[0] | GCMSIVBlockCipher.MASK);
                     BigInteger bigInteger2 = new BigInteger(1, bArr5);
                     BigInteger bigIntegerSubtract = bigInteger2.subtract(bigInteger2.mod(bigInteger.shiftLeft(1)).subtract(ONE));
-                    if (bigIntegerSubtract.bitLength() == this.L && isProbablePrime(bigIntegerSubtract)) {
+                    if (bigIntegerSubtract.bitLength() == this.f81109L && isProbablePrime(bigIntegerSubtract)) {
                         return new DSAParameters(bigIntegerSubtract, bigInteger, calculateGenerator_FIPS186_2(bigIntegerSubtract, bigInteger, this.random), new DSAValidationParameters(bArr, i6));
                     }
                     i6++;
@@ -128,8 +132,8 @@ public class DSAParametersGenerator {
         BigInteger bigIntegerCalculateGenerator_FIPS186_3_Verifiable;
         Digest digest = this.digest;
         int digestSize = digest.getDigestSize() * 8;
-        byte[] bArr = new byte[this.N / 8];
-        int i2 = this.L;
+        byte[] bArr = new byte[this.f81110N / 8];
+        int i2 = this.f81109L;
         int i3 = (i2 - 1) / digestSize;
         int i4 = (i2 - 1) % digestSize;
         int i5 = i2 / 8;
@@ -140,10 +144,10 @@ public class DSAParametersGenerator {
             this.random.nextBytes(bArr);
             int i6 = 0;
             hash(digest, bArr, bArr3, 0);
-            bit = new BigInteger(1, bArr3).mod(ONE.shiftLeft(this.N - 1)).setBit(0).setBit(this.N - 1);
+            bit = new BigInteger(1, bArr3).mod(ONE.shiftLeft(this.f81110N - 1)).setBit(0).setBit(this.f81110N - 1);
             if (isProbablePrime(bit)) {
                 byte[] bArrClone = Arrays.clone(bArr);
-                int i7 = this.L * 4;
+                int i7 = this.f81109L * 4;
                 i = 0;
                 while (i < i7) {
                     for (int i8 = 1; i8 <= i3; i8++) {
@@ -157,7 +161,7 @@ public class DSAParametersGenerator {
                     bArr2[i6] = (byte) (bArr2[i6] | GCMSIVBlockCipher.MASK);
                     BigInteger bigInteger = new BigInteger(1, bArr2);
                     bigIntegerSubtract = bigInteger.subtract(bigInteger.mod(bit.shiftLeft(1)).subtract(ONE));
-                    if (bigIntegerSubtract.bitLength() == this.L && isProbablePrime(bigIntegerSubtract)) {
+                    if (bigIntegerSubtract.bitLength() == this.f81109L && isProbablePrime(bigIntegerSubtract)) {
                         break loop0;
                     }
                     i++;
@@ -210,10 +214,10 @@ public class DSAParametersGenerator {
     }
 
     public void init(int i, int i2, SecureRandom secureRandom) {
-        this.L = i;
-        this.N = getDefaultN(i);
+        this.f81109L = i;
+        this.f81110N = getDefaultN(i);
         this.certainty = i2;
-        this.iterations = Math.max(getMinimumIterations(this.L), (i2 + 1) / 2);
+        this.iterations = Math.max(getMinimumIterations(this.f81109L), (i2 + 1) / 2);
         this.random = secureRandom;
         this.use186_3 = false;
         this.usageIndex = -1;
@@ -237,8 +241,8 @@ public class DSAParametersGenerator {
         if (this.digest.getDigestSize() * 8 < n) {
             throw new IllegalStateException("Digest output size too small for value of N");
         }
-        this.L = l2;
-        this.N = n;
+        this.f81109L = l2;
+        this.f81110N = n;
         this.certainty = dSAParameterGenerationParameters.getCertainty();
         this.iterations = Math.max(getMinimumIterations(l2), (this.certainty + 1) / 2);
         this.random = dSAParameterGenerationParameters.getRandom();

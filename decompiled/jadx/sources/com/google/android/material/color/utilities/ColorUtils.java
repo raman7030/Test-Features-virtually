@@ -1,6 +1,6 @@
 package com.google.android.material.color.utilities;
 
-import l.C4248;
+import p067l.C6406;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ColorUtils {
@@ -117,6 +117,6 @@ public class ColorUtils {
         if (d > 0.008856451679035631d) {
             return Math.pow(d, 0.3333333333333333d);
         }
-        return C4248.m12787(d, 903.2962962962963d, 16.0d, 116.0d);
+        return C6406.m14667(d, 903.2962962962963d, 16.0d, 116.0d);
     }
 }

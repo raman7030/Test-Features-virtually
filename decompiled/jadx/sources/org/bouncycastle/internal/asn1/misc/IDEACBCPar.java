@@ -11,14 +11,16 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class IDEACBCPar extends ASN1Object {
-    public ASN1OctetString iv;
+
+    /* JADX INFO: renamed from: iv */
+    public ASN1OctetString f81329iv;
 
     public IDEACBCPar(ASN1Sequence aSN1Sequence) {
-        this.iv = aSN1Sequence.size() == 1 ? (ASN1OctetString) aSN1Sequence.getObjectAt(0) : null;
+        this.f81329iv = aSN1Sequence.size() == 1 ? (ASN1OctetString) aSN1Sequence.getObjectAt(0) : null;
     }
 
     public IDEACBCPar(byte[] bArr) {
-        this.iv = new DEROctetString(Arrays.clone(bArr));
+        this.f81329iv = new DEROctetString(Arrays.clone(bArr));
     }
 
     public static IDEACBCPar getInstance(Object obj) {
@@ -32,7 +34,7 @@ public class IDEACBCPar extends ASN1Object {
     }
 
     public byte[] getIV() {
-        ASN1OctetString aSN1OctetString = this.iv;
+        ASN1OctetString aSN1OctetString = this.f81329iv;
         if (aSN1OctetString != null) {
             return Arrays.clone(aSN1OctetString.getOctets());
         }
@@ -42,7 +44,7 @@ public class IDEACBCPar extends ASN1Object {
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector(1);
-        ASN1OctetString aSN1OctetString = this.iv;
+        ASN1OctetString aSN1OctetString = this.f81329iv;
         if (aSN1OctetString != null) {
             aSN1EncodableVector.add(aSN1OctetString);
         }

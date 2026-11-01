@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import com.google.android.material.internal.ThemeEnforcement;
-import l.C17931;
-import l.C19343;
+import p067l.C19410;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class LinearProgressIndicatorSpec extends BaseProgressIndicatorSpec {
@@ -15,7 +15,7 @@ public final class LinearProgressIndicatorSpec extends BaseProgressIndicatorSpec
     public int trackStopIndicatorSize;
 
     public LinearProgressIndicatorSpec(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f54869);
+        this(context, attributeSet, C19410.f58066);
     }
 
     public LinearProgressIndicatorSpec(Context context, AttributeSet attributeSet, int i) {
@@ -24,10 +24,10 @@ public final class LinearProgressIndicatorSpec extends BaseProgressIndicatorSpec
 
     public LinearProgressIndicatorSpec(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, C19343.f62160, C17931.f54869, LinearProgressIndicator.DEF_STYLE_RES, new int[0]);
-        this.indeterminateAnimationType = typedArrayObtainStyledAttributes.getInt(C19343.f61946, 1);
-        this.indicatorDirection = typedArrayObtainStyledAttributes.getInt(C19343.f62638, 0);
-        this.trackStopIndicatorSize = Math.min(typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f61361, 0), this.trackThickness);
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, C20752.f64938, C19410.f58066, LinearProgressIndicator.DEF_STYLE_RES, new int[0]);
+        this.indeterminateAnimationType = typedArrayObtainStyledAttributes.getInt(C20752.f64798, 1);
+        this.indicatorDirection = typedArrayObtainStyledAttributes.getInt(C20752.f65253, 0);
+        this.trackStopIndicatorSize = Math.min(typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64413, 0), this.trackThickness);
         typedArrayObtainStyledAttributes.recycle();
         validateSpec();
         this.drawHorizontallyInverse = this.indicatorDirection == 1;

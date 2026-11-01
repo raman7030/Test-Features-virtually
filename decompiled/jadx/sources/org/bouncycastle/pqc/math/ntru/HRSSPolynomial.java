@@ -1,8 +1,8 @@
 package org.bouncycastle.pqc.math.ntru;
 
-import l.C20094;
 import org.bouncycastle.crypto.hpke.HPKE;
 import org.bouncycastle.pqc.math.ntru.parameters.NTRUHRSSParameterSet;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HRSSPolynomial extends Polynomial {
@@ -49,7 +49,7 @@ public class HRSSPolynomial extends Polynomial {
             short[] sArr7 = polynomialCreatePolynomial.coeffs;
             short s9 = sArr7[i7 - 3];
             short[] sArr8 = polynomial.coeffs;
-            sArr7[i7] = (short) C20094.m46314(sArr8[i7] + sArr8[i7 - 1], sArr8[i7 - 2], 2, s9);
+            sArr7[i7] = (short) C21466.m48630(sArr8[i7] + sArr8[i7 - 1], sArr8[i7 - 2], 2, s9);
         }
         polynomialCreatePolynomial.mod3PhiN();
         polynomialCreatePolynomial.z3ToZq();
@@ -117,7 +117,7 @@ public class HRSSPolynomial extends Polynomial {
             sArr3[i13 + 2] = (short) (i17 | ((((short) (b11 & 255)) & 127) << 6));
             sArr3[i13 + 3] = (short) (((((short) (bArr[i14 + 6] & 255)) & 15) << 9) | ((b11 & 255) >>> 7) | (((short) (bArr[i14 + 5] & 255)) << 1));
         }
-        this.coeffs[this.params.n() - 1] = 0;
+        this.coeffs[this.params.m55436n() - 1] = 0;
     }
 
     @Override // org.bouncycastle.pqc.math.ntru.Polynomial
@@ -127,7 +127,7 @@ public class HRSSPolynomial extends Polynomial {
         int i2 = 0;
         while (i2 < this.params.packDegree() / 8) {
             for (int i3 = 0; i3 < 8; i3++) {
-                sArr[i3] = (short) Polynomial.modQ(this.coeffs[(i2 * 8) + i3] & HPKE.aead_EXPORT_ONLY, this.params.q());
+                sArr[i3] = (short) Polynomial.modQ(this.coeffs[(i2 * 8) + i3] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             }
             int i4 = i2 * 13;
             short s = sArr[0];
@@ -159,7 +159,7 @@ public class HRSSPolynomial extends Polynomial {
             if (i5 >= this.params.packDegree() - i6) {
                 break;
             }
-            sArr[i5] = (short) Polynomial.modQ(this.coeffs[i6 + i5] & HPKE.aead_EXPORT_ONLY, this.params.q());
+            sArr[i5] = (short) Polynomial.modQ(this.coeffs[i6 + i5] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             i5++;
         }
         while (i5 < 8) {

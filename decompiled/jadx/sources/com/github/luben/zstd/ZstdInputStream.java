@@ -3,20 +3,20 @@ package com.github.luben.zstd;
 import java.io.FilterInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import l.C0794;
-import l.InterfaceC14905;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ZstdInputStream extends FilterInputStream implements InterfaceC14905 {
+public class ZstdInputStream extends FilterInputStream implements InterfaceC16534 {
     public ZstdInputStreamNoFinalizer inner;
 
     @Deprecated
     public void setFinalize(boolean z) {
     }
 
-    @Override // java.io.InputStream, l.InterfaceC14905
+    @Override // java.io.InputStream, p067l.InterfaceC16534
     public /* synthetic */ long transferTo(OutputStream outputStream) {
-        return C0794.transferTo(this, outputStream);
+        return C3123.transferTo(this, outputStream);
     }
 
     public ZstdInputStream(InputStream inputStream) {

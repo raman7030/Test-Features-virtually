@@ -1,0 +1,9 @@
+package p067l;
+
+/* JADX INFO: renamed from: l.ܶۚ֫, reason: contains not printable characters */
+/* JADX INFO: compiled from: L8SE */
+/* JADX INFO: loaded from: classes4.dex */
+public interface InterfaceC16638 {
+    /* JADX INFO: renamed from: ֫ */
+    void mo21136(Object obj, C7625 c7625);
+}

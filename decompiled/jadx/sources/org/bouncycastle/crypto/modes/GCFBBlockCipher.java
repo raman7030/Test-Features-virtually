@@ -10,7 +10,9 @@ import org.bouncycastle.crypto.params.ParametersWithSBox;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class GCFBBlockCipher extends StreamBlockCipher {
-    public static final byte[] C = {105, 0, 114, 34, 100, -55, 4, 35, -115, 58, -37, -106, 70, -23, 42, -60, 24, -2, -84, -108, 0, -19, 7, 18, -64, -122, -36, -62, -17, 76, -87, 43};
+
+    /* JADX INFO: renamed from: C */
+    public static final byte[] f81180C = {105, 0, 114, 34, 100, -55, 4, 35, -115, 58, -37, -106, 70, -23, 42, -60, 24, -2, -84, -108, 0, -19, 7, 18, -64, -122, -36, -62, -17, 76, -87, 43};
     public final CFBBlockCipher cfbEngine;
     public long counter;
     public boolean forEncryption;
@@ -32,7 +34,7 @@ public class GCFBBlockCipher extends StreamBlockCipher {
             byte[] bArr = new byte[32];
             int blockSize = underlyingCipher.getBlockSize();
             for (int i = 0; i < 32; i += blockSize) {
-                underlyingCipher.processBlock(C, i, bArr, i);
+                underlyingCipher.processBlock(f81180C, i, bArr, i);
             }
             KeyParameter keyParameter = new KeyParameter(bArr);
             this.key = keyParameter;

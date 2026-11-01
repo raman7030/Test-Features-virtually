@@ -2,8 +2,6 @@ package org.bouncycastle.asn1.x509.sigi;
 
 import java.math.BigInteger;
 import java.util.Enumeration;
-import l.C3200;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
@@ -17,6 +15,8 @@ import org.bouncycastle.asn1.DERPrintableString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.x500.DirectoryString;
+import p067l.C5410;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PersonalData extends ASN1Object {
@@ -29,7 +29,7 @@ public class PersonalData extends ASN1Object {
 
     public PersonalData(ASN1Sequence aSN1Sequence) {
         if (aSN1Sequence.size() < 1) {
-            throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+            throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
         }
         Enumeration objects = aSN1Sequence.getObjects();
         this.nameOrPseudonym = NameOrPseudonym.getInstance(objects.nextElement());
@@ -118,6 +118,6 @@ public class PersonalData extends ASN1Object {
         if (obj instanceof ASN1Sequence) {
             return new PersonalData((ASN1Sequence) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 }

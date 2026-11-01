@@ -7,11 +7,11 @@ import java.security.spec.ECFieldFp;
 import java.security.spec.ECPoint;
 import java.security.spec.EllipticCurve;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
 import org.bouncycastle.math.field.PolynomialExtensionField;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECCurve;
 import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */
@@ -28,17 +28,17 @@ public class ECNamedCurveSpec extends java.security.spec.ECParameterSpec {
         this.name = str;
     }
 
-    public ECNamedCurveSpec(String str, ECCurve eCCurve, org.bouncycastle.math.ec.ECPoint eCPoint, BigInteger bigInteger) {
+    public ECNamedCurveSpec(String str, ECCurve eCCurve, org.bouncycastle.math.p080ec.ECPoint eCPoint, BigInteger bigInteger) {
         super(convertCurve(eCCurve, null), EC5Util.convertPoint(eCPoint), bigInteger, 1);
         this.name = str;
     }
 
-    public ECNamedCurveSpec(String str, ECCurve eCCurve, org.bouncycastle.math.ec.ECPoint eCPoint, BigInteger bigInteger, BigInteger bigInteger2) {
+    public ECNamedCurveSpec(String str, ECCurve eCCurve, org.bouncycastle.math.p080ec.ECPoint eCPoint, BigInteger bigInteger, BigInteger bigInteger2) {
         super(convertCurve(eCCurve, null), EC5Util.convertPoint(eCPoint), bigInteger, bigInteger2.intValue());
         this.name = str;
     }
 
-    public ECNamedCurveSpec(String str, ECCurve eCCurve, org.bouncycastle.math.ec.ECPoint eCPoint, BigInteger bigInteger, BigInteger bigInteger2, byte[] bArr) {
+    public ECNamedCurveSpec(String str, ECCurve eCCurve, org.bouncycastle.math.p080ec.ECPoint eCPoint, BigInteger bigInteger, BigInteger bigInteger2, byte[] bArr) {
         super(convertCurve(eCCurve, bArr), EC5Util.convertPoint(eCPoint), bigInteger, bigInteger2.intValue());
         this.name = str;
     }

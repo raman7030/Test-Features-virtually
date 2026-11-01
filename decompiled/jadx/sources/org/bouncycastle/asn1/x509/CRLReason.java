@@ -2,11 +2,11 @@ package org.bouncycastle.asn1.x509;
 
 import java.math.BigInteger;
 import java.util.Hashtable;
-import l.C20094;
 import org.bouncycastle.asn1.ASN1Enumerated;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.util.Integers;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CRLReason extends ASN1Object {
@@ -71,6 +71,6 @@ public class CRLReason extends ASN1Object {
 
     public String toString() {
         int iIntValue = getValue().intValue();
-        return C20094.m46315("CRLReason: ", (iIntValue < 0 || iIntValue > 10) ? "invalid" : reasonString[iIntValue]);
+        return C21466.m48631("CRLReason: ", (iIntValue < 0 || iIntValue > 10) ? "invalid" : reasonString[iIntValue]);
     }
 }

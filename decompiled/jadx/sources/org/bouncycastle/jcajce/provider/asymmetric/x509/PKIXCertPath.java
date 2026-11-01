@@ -18,8 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import javax.security.auth.x500.X500Principal;
-import l.C16014;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
@@ -35,8 +33,10 @@ import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.SignedData;
 import org.bouncycastle.jcajce.util.BCJcaJceHelper;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
-import org.bouncycastle.util.io.pem.PemObject;
-import org.bouncycastle.util.io.pem.PemWriter;
+import org.bouncycastle.util.p082io.pem.PemObject;
+import org.bouncycastle.util.p082io.pem.PemWriter;
+import p067l.C17588;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PKIXCertPath extends CertPath {
@@ -49,7 +49,7 @@ public class PKIXCertPath extends CertPath {
         arrayList.add("PkiPath");
         arrayList.add("PEM");
         arrayList.add("PKCS7");
-        certPathEncodings = C20195.unmodifiableList(arrayList);
+        certPathEncodings = C21562.unmodifiableList(arrayList);
     }
 
     public PKIXCertPath(InputStream inputStream, String str) throws CertificateException {
@@ -147,7 +147,7 @@ public class PKIXCertPath extends CertPath {
 
     @Override // java.security.cert.CertPath
     public List getCertificates() {
-        return C20195.unmodifiableList(new ArrayList(this.certificates));
+        return C21562.unmodifiableList(new ArrayList(this.certificates));
     }
 
     @Override // java.security.cert.CertPath
@@ -210,7 +210,7 @@ public class PKIXCertPath extends CertPath {
         try {
             return new ASN1InputStream(x509Certificate.getEncoded()).readObject();
         } catch (Exception e) {
-            throw new CertificateEncodingException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("Exception while encoding certificate: ")));
+            throw new CertificateEncodingException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("Exception while encoding certificate: ")));
         }
     }
 
@@ -218,7 +218,7 @@ public class PKIXCertPath extends CertPath {
         try {
             return aSN1Encodable.toASN1Primitive().getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
-            throw new CertificateEncodingException(C16014.m37866("Exception thrown: ", e));
+            throw new CertificateEncodingException(C17588.m40052("Exception thrown: ", e));
         }
     }
 }

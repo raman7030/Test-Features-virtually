@@ -7,8 +7,8 @@ import java.security.cert.X509CertSelector;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import l.C20195;
 import org.bouncycastle.util.Selector;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ExtendedPKIXBuilderParameters extends ExtendedPKIXParameters {
@@ -44,7 +44,7 @@ public class ExtendedPKIXBuilderParameters extends ExtendedPKIXParameters {
     }
 
     public Set getExcludedCerts() {
-        return C20195.unmodifiableSet(this.excludedCerts);
+        return C21562.unmodifiableSet(this.excludedCerts);
     }
 
     public int getMaxPathLength() {

@@ -1,7 +1,7 @@
 package org.bouncycastle.crypto.generators;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECConstants;
+import org.bouncycastle.math.p080ec.ECConstants;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */

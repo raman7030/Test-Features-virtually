@@ -7,15 +7,19 @@ import org.bouncycastle.util.Arrays;
 public final class KDFDoublePipelineIterationParameters implements DerivationParameters {
     public static final int UNUSED_R = 32;
     public final byte[] fixedInputData;
-    public final byte[] ki;
-    public final int r;
+
+    /* JADX INFO: renamed from: ki */
+    public final byte[] f81268ki;
+
+    /* JADX INFO: renamed from: r */
+    public final int f81269r;
     public final boolean useCounter;
 
     public KDFDoublePipelineIterationParameters(byte[] bArr, byte[] bArr2, int i, boolean z) {
         if (bArr == null) {
             throw new IllegalArgumentException("A KDF requires Ki (a seed) as input");
         }
-        this.ki = Arrays.clone(bArr);
+        this.f81268ki = Arrays.clone(bArr);
         if (bArr2 == null) {
             this.fixedInputData = new byte[0];
         } else {
@@ -24,7 +28,7 @@ public final class KDFDoublePipelineIterationParameters implements DerivationPar
         if (i != 8 && i != 16 && i != 24 && i != 32) {
             throw new IllegalArgumentException("Length of counter should be 8, 16, 24 or 32");
         }
-        this.r = i;
+        this.f81269r = i;
         this.useCounter = z;
     }
 
@@ -41,11 +45,11 @@ public final class KDFDoublePipelineIterationParameters implements DerivationPar
     }
 
     public byte[] getKI() {
-        return this.ki;
+        return this.f81268ki;
     }
 
     public int getR() {
-        return this.r;
+        return this.f81269r;
     }
 
     public boolean useCounter() {

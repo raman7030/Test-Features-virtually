@@ -7,14 +7,24 @@ import org.bouncycastle.util.Properties;
 /* JADX INFO: loaded from: classes.dex */
 public class DHParameters implements CipherParameters {
     public static final int DEFAULT_MINIMUM_LENGTH = 160;
-    public BigInteger g;
-    public BigInteger j;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public int f77970l;
-    public int m;
-    public BigInteger p;
-    public BigInteger q;
+    /* JADX INFO: renamed from: g */
+    public BigInteger f81229g;
+
+    /* JADX INFO: renamed from: j */
+    public BigInteger f81230j;
+
+    /* JADX INFO: renamed from: l */
+    public int f81231l;
+
+    /* JADX INFO: renamed from: m */
+    public int f81232m;
+
+    /* JADX INFO: renamed from: p */
+    public BigInteger f81233p;
+
+    /* JADX INFO: renamed from: q */
+    public BigInteger f81234q;
     public DHValidationParameters validation;
 
     public DHParameters(BigInteger bigInteger, BigInteger bigInteger2) {
@@ -45,12 +55,12 @@ public class DHParameters implements CipherParameters {
         if (i > bigInteger.bitLength() && !Properties.isOverrideSet("org.bouncycastle.dh.allow_unsafe_p_value")) {
             throw new IllegalArgumentException("unsafe p value so small specific l required");
         }
-        this.g = bigInteger2;
-        this.p = bigInteger;
-        this.q = bigInteger3;
-        this.m = i;
-        this.f77970l = i2;
-        this.j = bigInteger4;
+        this.f81229g = bigInteger2;
+        this.f81233p = bigInteger;
+        this.f81234q = bigInteger3;
+        this.f81232m = i;
+        this.f81231l = i2;
+        this.f81230j = bigInteger4;
         this.validation = dHValidationParameters;
     }
 
@@ -74,31 +84,31 @@ public class DHParameters implements CipherParameters {
         } else if (dHParameters.getQ() != null) {
             return false;
         }
-        return dHParameters.getP().equals(this.p) && dHParameters.getG().equals(this.g);
+        return dHParameters.getP().equals(this.f81233p) && dHParameters.getG().equals(this.f81229g);
     }
 
     public BigInteger getG() {
-        return this.g;
+        return this.f81229g;
     }
 
     public BigInteger getJ() {
-        return this.j;
+        return this.f81230j;
     }
 
     public int getL() {
-        return this.f77970l;
+        return this.f81231l;
     }
 
     public int getM() {
-        return this.m;
+        return this.f81232m;
     }
 
     public BigInteger getP() {
-        return this.p;
+        return this.f81233p;
     }
 
     public BigInteger getQ() {
-        return this.q;
+        return this.f81234q;
     }
 
     public DHValidationParameters getValidationParameters() {

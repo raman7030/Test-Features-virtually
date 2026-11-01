@@ -1,15 +1,15 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C12662;
-import l.C16014;
-import l.C9045;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
+import org.bouncycastle.asn1.p071gm.GMObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.SM3Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SM3 {
@@ -48,12 +48,12 @@ public class SM3 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest", "MessageDigest.SM3", sb, configurableProvider);
+            C14403.m33021(str, "$Digest", "MessageDigest.SM3", sb, configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.SM3", "SM3");
             configurableProvider.addAlgorithm("Alg.Alias.MessageDigest.1.2.156.197.1.401", "SM3");
-            StringBuilder sbM23342 = C9045.m23342("SM3", str, new StringBuilder("Alg.Alias.MessageDigest."), GMObjectIdentifiers.sm3, configurableProvider);
-            sbM23342.append("$HashMac");
-            addHMACAlgorithm(configurableProvider, "SM3", sbM23342.toString(), C16014.m37867(str, "$KeyGenerator"));
+            StringBuilder sbM25287 = C10965.m25287("SM3", str, new StringBuilder("Alg.Alias.MessageDigest."), GMObjectIdentifiers.sm3, configurableProvider);
+            sbM25287.append("$HashMac");
+            addHMACAlgorithm(configurableProvider, "SM3", sbM25287.toString(), C17588.m40053(str, "$KeyGenerator"));
             addHMACAlias(configurableProvider, "SM3", GMObjectIdentifiers.hmac_sm3);
         }
     }

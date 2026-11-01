@@ -1,8 +1,8 @@
 package org.bouncycastle.crypto.engines;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -24,11 +24,15 @@ public class CamelliaLightEngine implements BlockCipher {
     public int _keySize;
     public boolean forEncryption;
     public static final int[] SIGMA = {-1600231809, 1003262091, -1233459112, 1286239154, -957401297, -380665154, 1426019237, -237801700, 283453434, -563598051, -1336506174, -1276722691};
-    public static final byte[] SBOX1 = {KeyFactorySpi.Ed25519_type, bo.h, 44, -20, -77, 39, -64, -27, -28, -123, 87, 53, -22, 12, -82, 65, 35, -17, 107, -109, 69, 25, -91, PublicSuffixDatabase.EXCEPTION_MARKER, -19, cb.f77931l, 79, 78, 29, 101, -110, -67, -122, -72, -81, -113, 124, -21, bo.j, -50, 62, UTF8.S_P3A, -36, 95, 94, -59, 11, 26, -90, GCMSIVBlockCipher.ADD, 57, -54, -43, 71, 93, Base32Encoder.DEFAULT_PADDING, -39, 1, 90, -42, 81, 86, 108, 77, -117, cb.k, -102, 102, -5, -52, -80, 45, 116, 18, 43, UTF8.S_CS3, -16, -79, -124, -103, -33, 76, -53, -62, 52, 126, 118, 5, 109, -73, -87, 49, -47, 23, 4, -41, 20, 88, 58, 97, -34, 27, 17, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 50, 15, -100, 22, 83, 24, -14, 34, -2, 68, -49, -78, -61, -75, 122, -111, 36, 8, -24, -88, UTF8.S_P4B, -4, 105, UTF8.S_P4A, -86, -48, -96, 125, -95, -119, 98, -105, 84, 91, 30, -107, bo.k, -1, 100, -46, 16, -60, 0, 72, -93, -9, 117, -37, -118, 3, -26, -38, 9, 63, -35, -108, -121, 92, -125, 2, -51, 74, -112, 51, 115, 103, -10, -13, -99, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -65, -30, 82, -101, -40, 38, -56, 55, -58, 59, -127, -106, KeyFactorySpi.x448_type, 75, 19, -66, 99, 46, -23, 121, -89, -116, -97, KeyFactorySpi.x25519_type, PSSSigner.TRAILER_IMPLICIT, -114, 41, -11, -7, -74, 47, -3, -76, 89, 120, -104, 6, 106, -25, 70, KeyFactorySpi.Ed448_type, -70, -44, 37, -85, 66, -120, -94, -115, -6, 114, 7, -71, 85, -8, -18, -84, 10, 54, 73, 42, 104, 60, 56, -15, -92, 64, 40, -45, 123, -69, -55, 67, -63, 21, -29, -83, -12, 119, -57, GCMSIVBlockCipher.MASK, -98};
+    public static final byte[] SBOX1 = {KeyFactorySpi.Ed25519_type, C0684bo.f2503h, 44, -20, -77, 39, -64, -27, -28, -123, 87, 53, -22, 12, -82, 65, 35, -17, 107, -109, 69, 25, -91, PublicSuffixDatabase.EXCEPTION_MARKER, -19, C0698cb.f2570l, 79, 78, 29, 101, -110, -67, -122, -72, -81, -113, 124, -21, C0684bo.f2505j, -50, 62, UTF8.S_P3A, -36, 95, 94, -59, 11, 26, -90, GCMSIVBlockCipher.ADD, 57, -54, -43, 71, 93, Base32Encoder.DEFAULT_PADDING, -39, 1, 90, -42, 81, 86, 108, 77, -117, C0698cb.f2569k, -102, 102, -5, -52, -80, 45, 116, 18, 43, UTF8.S_CS3, -16, -79, -124, -103, -33, 76, -53, -62, 52, 126, 118, 5, 109, -73, -87, 49, -47, 23, 4, -41, 20, 88, 58, 97, -34, 27, 17, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 50, 15, -100, 22, 83, 24, -14, 34, -2, 68, -49, -78, -61, -75, 122, -111, 36, 8, -24, -88, UTF8.S_P4B, -4, 105, UTF8.S_P4A, -86, -48, -96, 125, -95, -119, 98, -105, 84, 91, 30, -107, C0684bo.f2506k, -1, 100, -46, 16, -60, 0, 72, -93, -9, 117, -37, -118, 3, -26, -38, 9, 63, -35, -108, -121, 92, -125, 2, -51, 74, -112, 51, 115, 103, -10, -13, -99, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -65, -30, 82, -101, -40, 38, -56, 55, -58, 59, -127, -106, KeyFactorySpi.x448_type, 75, 19, -66, 99, 46, -23, 121, -89, -116, -97, KeyFactorySpi.x25519_type, PSSSigner.TRAILER_IMPLICIT, -114, 41, -11, -7, -74, 47, -3, -76, 89, 120, -104, 6, 106, -25, 70, KeyFactorySpi.Ed448_type, -70, -44, 37, -85, 66, -120, -94, -115, -6, 114, 7, -71, 85, -8, -18, -84, 10, 54, 73, 42, 104, 60, 56, -15, -92, 64, 40, -45, 123, -69, -55, 67, -63, 21, -29, -83, -12, 119, -57, GCMSIVBlockCipher.MASK, -98};
     public boolean initialized = false;
     public int[] subkey = new int[96];
-    public int[] kw = new int[8];
-    public int[] ke = new int[12];
+
+    /* JADX INFO: renamed from: kw */
+    public int[] f81005kw = new int[8];
+
+    /* JADX INFO: renamed from: ke */
+    public int[] f81004ke = new int[12];
 
     public CamelliaLightEngine() {
         CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(getAlgorithmName(), bitsOfSecurity()));
@@ -136,21 +140,21 @@ public class CamelliaLightEngine implements BlockCipher {
     private int processBlock128(byte[] bArr, int i, byte[] bArr2, int i2) {
         int[] iArr = new int[4];
         for (int i3 = 0; i3 < 4; i3++) {
-            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.kw[i3];
+            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.f81005kw[i3];
         }
         camelliaF2(iArr, this.subkey, 0);
         camelliaF2(iArr, this.subkey, 4);
         camelliaF2(iArr, this.subkey, 8);
-        camelliaFLs(iArr, this.ke, 0);
+        camelliaFLs(iArr, this.f81004ke, 0);
         camelliaF2(iArr, this.subkey, 12);
         camelliaF2(iArr, this.subkey, 16);
         camelliaF2(iArr, this.subkey, 20);
-        camelliaFLs(iArr, this.ke, 4);
+        camelliaFLs(iArr, this.f81004ke, 4);
         camelliaF2(iArr, this.subkey, 24);
         camelliaF2(iArr, this.subkey, 28);
         camelliaF2(iArr, this.subkey, 32);
         int i4 = iArr[2];
-        int[] iArr2 = this.kw;
+        int[] iArr2 = this.f81005kw;
         int i5 = iArr2[4] ^ i4;
         iArr[2] = i5;
         iArr[3] = iArr[3] ^ iArr2[5];
@@ -166,25 +170,25 @@ public class CamelliaLightEngine implements BlockCipher {
     private int processBlock192or256(byte[] bArr, int i, byte[] bArr2, int i2) {
         int[] iArr = new int[4];
         for (int i3 = 0; i3 < 4; i3++) {
-            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.kw[i3];
+            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.f81005kw[i3];
         }
         camelliaF2(iArr, this.subkey, 0);
         camelliaF2(iArr, this.subkey, 4);
         camelliaF2(iArr, this.subkey, 8);
-        camelliaFLs(iArr, this.ke, 0);
+        camelliaFLs(iArr, this.f81004ke, 0);
         camelliaF2(iArr, this.subkey, 12);
         camelliaF2(iArr, this.subkey, 16);
         camelliaF2(iArr, this.subkey, 20);
-        camelliaFLs(iArr, this.ke, 4);
+        camelliaFLs(iArr, this.f81004ke, 4);
         camelliaF2(iArr, this.subkey, 24);
         camelliaF2(iArr, this.subkey, 28);
         camelliaF2(iArr, this.subkey, 32);
-        camelliaFLs(iArr, this.ke, 8);
+        camelliaFLs(iArr, this.f81004ke, 8);
         camelliaF2(iArr, this.subkey, 36);
         camelliaF2(iArr, this.subkey, 40);
         camelliaF2(iArr, this.subkey, 44);
         int i4 = iArr[2];
-        int[] iArr2 = this.kw;
+        int[] iArr2 = this.f81005kw;
         int i5 = i4 ^ iArr2[4];
         iArr[2] = i5;
         iArr[3] = iArr[3] ^ iArr2[5];
@@ -300,7 +304,7 @@ public class CamelliaLightEngine implements BlockCipher {
         camelliaF2(iArr2, SIGMA, 4);
         if (this._keySize == 16) {
             if (z) {
-                int[] iArr5 = this.kw;
+                int[] iArr5 = this.f81005kw;
                 iArr5[0] = iArr[0];
                 iArr5[1] = iArr[1];
                 iArr5[2] = iArr[2];
@@ -311,7 +315,7 @@ public class CamelliaLightEngine implements BlockCipher {
                 int[] iArr6 = this.subkey;
                 iArr6[18] = iArr4[2];
                 iArr6[19] = iArr4[3];
-                roldq(17, iArr, 0, this.ke, 4);
+                roldq(17, iArr, 0, this.f81004ke, 4);
                 roldq(17, iArr, 0, this.subkey, 24);
                 roldq(17, iArr, 0, this.subkey, 32);
                 int[] iArr7 = this.subkey;
@@ -320,17 +324,17 @@ public class CamelliaLightEngine implements BlockCipher {
                 iArr7[2] = iArr2[2];
                 iArr7[3] = iArr2[3];
                 roldq(15, iArr2, 0, iArr7, 8);
-                roldq(15, iArr2, 0, this.ke, 0);
+                roldq(15, iArr2, 0, this.f81004ke, 0);
                 roldq(15, iArr2, 0, iArr4, 0);
                 int[] iArr8 = this.subkey;
                 iArr8[16] = iArr4[0];
                 iArr8[17] = iArr4[1];
                 roldq(15, iArr2, 0, iArr8, 20);
                 roldqo32(34, iArr2, 0, this.subkey, 28);
-                roldq(17, iArr2, 0, this.kw, 4);
+                roldq(17, iArr2, 0, this.f81005kw, 4);
                 return;
             }
-            int[] iArr9 = this.kw;
+            int[] iArr9 = this.f81005kw;
             iArr9[4] = iArr[0];
             iArr9[5] = iArr[1];
             iArr9[6] = iArr[2];
@@ -341,7 +345,7 @@ public class CamelliaLightEngine implements BlockCipher {
             int[] iArr10 = this.subkey;
             iArr10[16] = iArr4[0];
             iArr10[17] = iArr4[1];
-            decroldq(17, iArr, 0, this.ke, 0);
+            decroldq(17, iArr, 0, this.f81004ke, 0);
             decroldq(17, iArr, 0, this.subkey, 8);
             decroldq(17, iArr, 0, this.subkey, 0);
             int[] iArr11 = this.subkey;
@@ -350,14 +354,14 @@ public class CamelliaLightEngine implements BlockCipher {
             iArr11[32] = iArr2[2];
             iArr11[33] = iArr2[3];
             decroldq(15, iArr2, 0, iArr11, 24);
-            decroldq(15, iArr2, 0, this.ke, 4);
+            decroldq(15, iArr2, 0, this.f81004ke, 4);
             decroldq(15, iArr2, 0, iArr4, 0);
             int[] iArr12 = this.subkey;
             iArr12[18] = iArr4[2];
             iArr12[19] = iArr4[3];
             decroldq(15, iArr2, 0, iArr12, 12);
             decroldqo32(34, iArr2, 0, this.subkey, 4);
-            roldq(17, iArr2, 0, this.kw, 0);
+            roldq(17, iArr2, 0, this.f81005kw, 0);
             return;
         }
         for (int i3 = 0; i3 < 4; i3++) {
@@ -365,22 +369,22 @@ public class CamelliaLightEngine implements BlockCipher {
         }
         camelliaF2(iArr3, SIGMA, 8);
         if (z) {
-            int[] iArr13 = this.kw;
+            int[] iArr13 = this.f81005kw;
             iArr13[0] = iArr[0];
             iArr13[1] = iArr[1];
             iArr13[2] = iArr[2];
             iArr13[3] = iArr[3];
             roldqo32(45, iArr, 0, this.subkey, 16);
-            roldq(15, iArr, 0, this.ke, 4);
+            roldq(15, iArr, 0, this.f81004ke, 4);
             roldq(17, iArr, 0, this.subkey, 32);
             roldqo32(34, iArr, 0, this.subkey, 44);
             roldq(15, iArr, 4, this.subkey, 4);
-            roldq(15, iArr, 4, this.ke, 0);
+            roldq(15, iArr, 4, this.f81004ke, 0);
             roldq(30, iArr, 4, this.subkey, 24);
             roldqo32(34, iArr, 4, this.subkey, 36);
             roldq(15, iArr2, 0, this.subkey, 8);
             roldq(30, iArr2, 0, this.subkey, 20);
-            int[] iArr14 = this.ke;
+            int[] iArr14 = this.f81004ke;
             iArr14[8] = iArr2[1];
             iArr14[9] = iArr2[2];
             iArr14[10] = iArr2[3];
@@ -393,25 +397,25 @@ public class CamelliaLightEngine implements BlockCipher {
             iArr15[3] = iArr3[3];
             roldq(30, iArr3, 0, iArr15, 12);
             roldq(30, iArr3, 0, this.subkey, 28);
-            roldqo32(51, iArr3, 0, this.kw, 4);
+            roldqo32(51, iArr3, 0, this.f81005kw, 4);
             return;
         }
-        int[] iArr16 = this.kw;
+        int[] iArr16 = this.f81005kw;
         iArr16[4] = iArr[0];
         iArr16[5] = iArr[1];
         iArr16[6] = iArr[2];
         iArr16[7] = iArr[3];
         decroldqo32(45, iArr, 0, this.subkey, 28);
-        decroldq(15, iArr, 0, this.ke, 4);
+        decroldq(15, iArr, 0, this.f81004ke, 4);
         decroldq(17, iArr, 0, this.subkey, 12);
         decroldqo32(34, iArr, 0, this.subkey, 0);
         decroldq(15, iArr, 4, this.subkey, 40);
-        decroldq(15, iArr, 4, this.ke, 8);
+        decroldq(15, iArr, 4, this.f81004ke, 8);
         decroldq(30, iArr, 4, this.subkey, 20);
         decroldqo32(34, iArr, 4, this.subkey, 8);
         decroldq(15, iArr2, 0, this.subkey, 36);
         decroldq(30, iArr2, 0, this.subkey, 24);
-        int[] iArr17 = this.ke;
+        int[] iArr17 = this.f81004ke;
         iArr17[2] = iArr2[1];
         iArr17[3] = iArr2[2];
         iArr17[0] = iArr2[3];
@@ -424,7 +428,7 @@ public class CamelliaLightEngine implements BlockCipher {
         iArr18[45] = iArr3[3];
         decroldq(30, iArr3, 0, iArr18, 32);
         decroldq(30, iArr3, 0, this.subkey, 16);
-        roldqo32(51, iArr3, 0, this.kw, 0);
+        roldqo32(51, iArr3, 0, this.f81005kw, 0);
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher

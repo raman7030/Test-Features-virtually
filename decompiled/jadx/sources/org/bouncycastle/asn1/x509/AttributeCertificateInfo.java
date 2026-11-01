@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.x509;
 
-import l.C5688;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
@@ -10,6 +9,7 @@ import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class AttributeCertificateInfo extends ASN1Object {
@@ -98,7 +98,7 @@ public class AttributeCertificateInfo extends ASN1Object {
 
     public AttributeCertificateInfo(ASN1Sequence aSN1Sequence) {
         if (aSN1Sequence.size() < 6 || aSN1Sequence.size() > 9) {
-            throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+            throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
         }
         int i = 0;
         if (aSN1Sequence.getObjectAt(0) instanceof ASN1Integer) {

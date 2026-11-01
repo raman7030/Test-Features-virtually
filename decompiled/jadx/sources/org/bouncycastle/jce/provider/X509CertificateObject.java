@@ -26,7 +26,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -60,18 +59,21 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509CertificateObject extends X509Certificate implements PKCS12BagAttributeCarrier {
     public PKCS12BagAttributeCarrier attrCarrier = new PKCS12BagAttributeCarrierImpl();
     public BasicConstraints basicConstraints;
-    public Certificate c;
+
+    /* JADX INFO: renamed from: c */
+    public Certificate f81384c;
     public int hashValue;
     public boolean hashValueSet;
     public boolean[] keyUsage;
 
     public X509CertificateObject(Certificate certificate) throws CertificateParsingException {
-        this.c = certificate;
+        this.f81384c = certificate;
         try {
             byte[] extensionOctets = getExtensionOctets(certificate, Extension.basicConstraints);
             if (extensionOctets != null) {
@@ -116,10 +118,10 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     }
 
     private void checkSignature(PublicKey publicKey, Signature signature) throws SignatureException, InvalidKeyException, CertificateException {
-        if (!isAlgIdEqual(this.c.getSignatureAlgorithm(), this.c.getTBSCertificate().getSignature())) {
+        if (!isAlgIdEqual(this.f81384c.getSignatureAlgorithm(), this.f81384c.getTBSCertificate().getSignature())) {
             throw new CertificateException("signature algorithm in TBS cert not same as outer cert");
         }
-        X509SignatureUtil.setSignatureParameters(signature, this.c.getSignatureAlgorithm().getParameters());
+        X509SignatureUtil.setSignatureParameters(signature, this.f81384c.getSignatureAlgorithm().getParameters());
         signature.initVerify(publicKey);
         signature.update(getTBSCertificate());
         if (!signature.verify(getSignature())) {
@@ -146,32 +148,32 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
                     case 5:
                         encoded = generalName.getEncoded();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     case 1:
                     case 2:
                     case 6:
                         encoded = ((ASN1String) generalName.getName()).getString();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     case 4:
                         encoded = X500Name.getInstance(RFC4519Style.INSTANCE, generalName.getName()).toString();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     case 7:
                         try {
                             encoded = InetAddress.getByAddress(ASN1OctetString.getInstance(generalName.getName()).getOctets()).getHostAddress();
                             arrayList2.add(encoded);
-                            arrayList.add(C20195.unmodifiableList(arrayList2));
+                            arrayList.add(C21562.unmodifiableList(arrayList2));
                         } catch (UnknownHostException unused) {
                         }
                         break;
                     case 8:
                         encoded = ASN1ObjectIdentifier.getInstance(generalName.getName()).getId();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     default:
                         throw new IOException("Bad tag number: " + generalName.getTagNo());
@@ -180,7 +182,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
             if (arrayList.size() == 0) {
                 return null;
             }
-            return C20195.unmodifiableCollection(arrayList);
+            return C21562.unmodifiableCollection(arrayList);
         } catch (Exception e) {
             throw new CertificateParsingException(e.getMessage());
         }
@@ -215,12 +217,12 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.X509Certificate
     public void checkValidity(Date date) throws CertificateNotYetValidException, CertificateExpiredException {
         if (date.getTime() > getNotAfter().getTime()) {
-            throw new CertificateExpiredException("certificate expired on " + this.c.getEndDate().getTime());
+            throw new CertificateExpiredException("certificate expired on " + this.f81384c.getEndDate().getTime());
         }
         if (date.getTime() >= getNotBefore().getTime()) {
             return;
         }
-        throw new CertificateNotYetValidException("certificate not valid till " + this.c.getStartDate().getTime());
+        throw new CertificateNotYetValidException("certificate not valid till " + this.f81384c.getStartDate().getTime());
     }
 
     @Override // java.security.cert.Certificate
@@ -267,7 +269,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
             return null;
         }
         HashSet hashSet = new HashSet();
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81384c.getExtensions();
         if (extensions == null) {
             return null;
         }
@@ -284,7 +286,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.Certificate
     public byte[] getEncoded() throws CertificateEncodingException {
         try {
-            return this.c.getEncoded(ASN1Encoding.DER);
+            return this.f81384c.getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CertificateEncodingException(e.toString());
         }
@@ -292,7 +294,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Certificate
     public List getExtendedKeyUsage() throws CertificateParsingException {
-        byte[] extensionOctets = getExtensionOctets(this.c, Extension.extendedKeyUsage);
+        byte[] extensionOctets = getExtensionOctets(this.f81384c, Extension.extendedKeyUsage);
         if (extensionOctets == null) {
             return null;
         }
@@ -302,7 +304,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
             for (int i = 0; i != aSN1Sequence.size(); i++) {
                 arrayList.add(((ASN1ObjectIdentifier) aSN1Sequence.getObjectAt(i)).getId());
             }
-            return C20195.unmodifiableList(arrayList);
+            return C21562.unmodifiableList(arrayList);
         } catch (Exception unused) {
             throw new CertificateParsingException("error processing extended key usage extension");
         }
@@ -310,22 +312,22 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Extension
     public byte[] getExtensionValue(String str) {
-        return X509SignatureUtil.getExtensionValue(this.c.getExtensions(), str);
+        return X509SignatureUtil.getExtensionValue(this.f81384c.getExtensions(), str);
     }
 
     @Override // java.security.cert.X509Certificate
     public Collection getIssuerAlternativeNames() {
-        return getAlternativeNames(this.c, Extension.issuerAlternativeName);
+        return getAlternativeNames(this.f81384c, Extension.issuerAlternativeName);
     }
 
     @Override // java.security.cert.X509Certificate
     public Principal getIssuerDN() {
-        return new X509Principal(this.c.getIssuer());
+        return new X509Principal(this.f81384c.getIssuer());
     }
 
     @Override // java.security.cert.X509Certificate
     public boolean[] getIssuerUniqueID() {
-        ASN1BitString issuerUniqueId = this.c.getTBSCertificate().getIssuerUniqueId();
+        ASN1BitString issuerUniqueId = this.f81384c.getTBSCertificate().getIssuerUniqueId();
         if (issuerUniqueId == null) {
             return null;
         }
@@ -341,7 +343,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.X509Certificate
     public X500Principal getIssuerX500Principal() {
         try {
-            return new X500Principal(this.c.getIssuer().getEncoded());
+            return new X500Principal(this.f81384c.getIssuer().getEncoded());
         } catch (IOException unused) {
             throw new IllegalStateException("can't encode issuer DN");
         }
@@ -358,7 +360,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
             return null;
         }
         HashSet hashSet = new HashSet();
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81384c.getExtensions();
         if (extensions == null) {
             return null;
         }
@@ -374,18 +376,18 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Certificate
     public Date getNotAfter() {
-        return this.c.getEndDate().getDate();
+        return this.f81384c.getEndDate().getDate();
     }
 
     @Override // java.security.cert.X509Certificate
     public Date getNotBefore() {
-        return this.c.getStartDate().getDate();
+        return this.f81384c.getStartDate().getDate();
     }
 
     @Override // java.security.cert.Certificate
     public PublicKey getPublicKey() {
         try {
-            return BouncyCastleProvider.getPublicKey(this.c.getSubjectPublicKeyInfo());
+            return BouncyCastleProvider.getPublicKey(this.f81384c.getSubjectPublicKeyInfo());
         } catch (IOException unused) {
             return null;
         }
@@ -393,7 +395,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Certificate
     public BigInteger getSerialNumber() {
-        return this.c.getSerialNumber().getValue();
+        return this.f81384c.getSerialNumber().getValue();
     }
 
     @Override // java.security.cert.X509Certificate
@@ -417,14 +419,14 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Certificate
     public String getSigAlgOID() {
-        return this.c.getSignatureAlgorithm().getAlgorithm().getId();
+        return this.f81384c.getSignatureAlgorithm().getAlgorithm().getId();
     }
 
     @Override // java.security.cert.X509Certificate
     public byte[] getSigAlgParams() {
-        if (this.c.getSignatureAlgorithm().getParameters() != null) {
+        if (this.f81384c.getSignatureAlgorithm().getParameters() != null) {
             try {
-                return this.c.getSignatureAlgorithm().getParameters().toASN1Primitive().getEncoded(ASN1Encoding.DER);
+                return this.f81384c.getSignatureAlgorithm().getParameters().toASN1Primitive().getEncoded(ASN1Encoding.DER);
             } catch (IOException unused) {
             }
         }
@@ -433,22 +435,22 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Certificate
     public byte[] getSignature() {
-        return this.c.getSignature().getOctets();
+        return this.f81384c.getSignature().getOctets();
     }
 
     @Override // java.security.cert.X509Certificate
     public Collection getSubjectAlternativeNames() {
-        return getAlternativeNames(this.c, Extension.subjectAlternativeName);
+        return getAlternativeNames(this.f81384c, Extension.subjectAlternativeName);
     }
 
     @Override // java.security.cert.X509Certificate
     public Principal getSubjectDN() {
-        return new X509Principal(this.c.getSubject());
+        return new X509Principal(this.f81384c.getSubject());
     }
 
     @Override // java.security.cert.X509Certificate
     public boolean[] getSubjectUniqueID() {
-        ASN1BitString subjectUniqueId = this.c.getTBSCertificate().getSubjectUniqueId();
+        ASN1BitString subjectUniqueId = this.f81384c.getTBSCertificate().getSubjectUniqueId();
         if (subjectUniqueId == null) {
             return null;
         }
@@ -464,7 +466,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.X509Certificate
     public X500Principal getSubjectX500Principal() {
         try {
-            return new X500Principal(this.c.getSubject().getEncoded());
+            return new X500Principal(this.f81384c.getSubject().getEncoded());
         } catch (IOException unused) {
             throw new IllegalStateException("can't encode issuer DN");
         }
@@ -473,7 +475,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.X509Certificate
     public byte[] getTBSCertificate() throws CertificateEncodingException {
         try {
-            return this.c.getTBSCertificate().getEncoded(ASN1Encoding.DER);
+            return this.f81384c.getTBSCertificate().getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CertificateEncodingException(e.toString());
         }
@@ -481,7 +483,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.X509Certificate
     public int getVersion() {
-        return this.c.getVersionNumber();
+        return this.f81384c.getVersionNumber();
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier
@@ -492,7 +494,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.X509Extension
     public boolean hasUnsupportedCriticalExtension() {
         Extensions extensions;
-        if (getVersion() != 3 || (extensions = this.c.getExtensions()) == null) {
+        if (getVersion() != 3 || (extensions = this.f81384c.getExtensions()) == null) {
             return false;
         }
         Enumeration enumerationOids = extensions.oids();
@@ -564,7 +566,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
             sb.append(strLineSeparator);
             i += 20;
         }
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81384c.getExtensions();
         if (extensions != null) {
             Enumeration enumerationOids = extensions.oids();
             if (enumerationOids.hasMoreElements()) {
@@ -614,7 +616,7 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
     @Override // java.security.cert.Certificate
     public final void verify(PublicKey publicKey) throws SignatureException, NoSuchAlgorithmException, InvalidKeyException, CertificateException {
         Signature signature;
-        String signatureName = X509SignatureUtil.getSignatureName(this.c.getSignatureAlgorithm());
+        String signatureName = X509SignatureUtil.getSignatureName(this.f81384c.getSignatureAlgorithm());
         try {
             signature = Signature.getInstance(signatureName, BouncyCastleProvider.PROVIDER_NAME);
         } catch (Exception unused) {
@@ -625,13 +627,13 @@ public class X509CertificateObject extends X509Certificate implements PKCS12BagA
 
     @Override // java.security.cert.Certificate
     public final void verify(PublicKey publicKey, String str) throws SignatureException, InvalidKeyException, CertificateException {
-        String signatureName = X509SignatureUtil.getSignatureName(this.c.getSignatureAlgorithm());
+        String signatureName = X509SignatureUtil.getSignatureName(this.f81384c.getSignatureAlgorithm());
         checkSignature(publicKey, str != null ? Signature.getInstance(signatureName, str) : Signature.getInstance(signatureName));
     }
 
     @Override // java.security.cert.X509Certificate, java.security.cert.Certificate
     public final void verify(PublicKey publicKey, Provider provider) throws SignatureException, InvalidKeyException, CertificateException {
-        String signatureName = X509SignatureUtil.getSignatureName(this.c.getSignatureAlgorithm());
+        String signatureName = X509SignatureUtil.getSignatureName(this.f81384c.getSignatureAlgorithm());
         checkSignature(publicKey, provider != null ? Signature.getInstance(signatureName, provider) : Signature.getInstance(signatureName));
     }
 }

@@ -1,7 +1,5 @@
 package org.bouncycastle.jcajce.provider.symmetric;
 
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
@@ -16,6 +14,8 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST3412_2015 {
@@ -79,7 +79,7 @@ public class GOST3412_2015 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Mac", "Mac.GOST3412MAC", C5368.m15340(str, "$KeyGen", "KeyGenerator.GOST3412-2015", C5368.m15340(str, "$CTR", "Cipher.GOST3412-2015/CTR", C5368.m15340(str, "$CBC", "Cipher.GOST3412-2015/CBC", C5368.m15340(str, "$OFB", "Cipher.GOST3412-2015/OFB", C5368.m15340(str, "$GCFB8", "Cipher.GOST3412-2015/CFB8", C5368.m15340(str, "$GCFB", "Cipher.GOST3412-2015/CFB", C5368.m15340(str, "$ECB", "Cipher.GOST3412-2015", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$Mac", "Mac.GOST3412MAC", C7470.m17249(str, "$KeyGen", "KeyGenerator.GOST3412-2015", C7470.m17249(str, "$CTR", "Cipher.GOST3412-2015/CTR", C7470.m17249(str, "$CBC", "Cipher.GOST3412-2015/CBC", C7470.m17249(str, "$OFB", "Cipher.GOST3412-2015/OFB", C7470.m17249(str, "$GCFB8", "Cipher.GOST3412-2015/CFB8", C7470.m17249(str, "$GCFB", "Cipher.GOST3412-2015/CFB", C7470.m17249(str, "$ECB", "Cipher.GOST3412-2015", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.Mac.GOST3412-2015", "GOST3412MAC");
         }
     }

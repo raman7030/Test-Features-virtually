@@ -3,32 +3,32 @@ package com.amazonaws.logging;
 /* JADX INFO: loaded from: classes.dex */
 public interface Log {
     /* JADX INFO: renamed from: ֫ */
-    void mo291(String str);
+    void mo1457(String str);
 
     /* JADX INFO: renamed from: ֫ */
-    void mo292(String str, Exception exc);
+    void mo1458(String str, Exception exc);
 
     /* JADX INFO: renamed from: ֫ */
-    boolean mo293();
+    boolean mo1459();
 
     /* JADX INFO: renamed from: ۧ */
-    void mo294(String str);
+    void mo1460(String str);
 
     /* JADX INFO: renamed from: ۧ */
-    void mo295(String str, Exception exc);
+    void mo1461(String str, Exception exc);
 
     /* JADX INFO: renamed from: ۧ */
-    boolean mo296();
+    boolean mo1462();
 
     /* JADX INFO: renamed from: ܽ */
-    void mo297(String str);
+    void mo1463(String str);
 
     /* JADX INFO: renamed from: ܽ */
-    void mo298(String str, Exception exc);
+    void mo1464(String str, Exception exc);
 
     /* JADX INFO: renamed from: ܿ */
-    void mo299(String str);
+    void mo1465(String str);
 
     /* JADX INFO: renamed from: ᩳ */
-    void mo300(String str);
+    void mo1466(String str);
 }

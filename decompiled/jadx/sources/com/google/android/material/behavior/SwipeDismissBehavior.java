@@ -4,17 +4,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import l.AbstractC6317;
-import l.AbstractC8832;
-import l.AbstractC9432;
-import l.C13847;
-import l.C15886;
-import l.C17648;
-import l.C18333;
-import l.InterfaceC5198;
+import p067l.AbstractC10762;
+import p067l.AbstractC1155;
+import p067l.AbstractC1310;
+import p067l.C1529;
+import p067l.C1717;
+import p067l.C17466;
+import p067l.C1751;
+import p067l.InterfaceC1100;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SwipeDismissBehavior extends AbstractC6317 {
+public class SwipeDismissBehavior extends AbstractC1155 {
     public static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
     public static final float DEFAULT_ALPHA_START_DISTANCE = 0.0f;
     public static final float DEFAULT_DRAG_DISMISS_THRESHOLD = 0.5f;
@@ -28,24 +28,24 @@ public class SwipeDismissBehavior extends AbstractC6317 {
     public OnDismissListener listener;
     public boolean requestingDisallowInterceptTouchEvent;
     public boolean sensitivitySet;
-    public C15886 viewDragHelper;
+    public C17466 viewDragHelper;
     public float sensitivity = 0.0f;
     public int swipeDirection = 2;
     public float dragDismissThreshold = 0.5f;
     public float alphaStartSwipeDistance = 0.0f;
     public float alphaEndSwipeDistance = 0.5f;
-    public final AbstractC8832 dragCallback = new AbstractC8832() { // from class: com.google.android.material.behavior.SwipeDismissBehavior.1
+    public final AbstractC10762 dragCallback = new AbstractC10762() { // from class: com.google.android.material.behavior.SwipeDismissBehavior.1
         public static final int INVALID_POINTER_ID = -1;
         public int activePointerId = -1;
         public int originalCapturedViewLeft;
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public boolean tryCaptureView(View view, int i) {
             int i2 = this.activePointerId;
             return (i2 == -1 || i2 == i) && SwipeDismissBehavior.this.canSwipeDismissView(view);
         }
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public void onViewCaptured(View view, int i) {
             this.activePointerId = i;
             this.originalCapturedViewLeft = view.getLeft();
@@ -57,7 +57,7 @@ public class SwipeDismissBehavior extends AbstractC6317 {
             }
         }
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public void onViewDragStateChanged(int i) {
             OnDismissListener onDismissListener = SwipeDismissBehavior.this.listener;
             if (onDismissListener != null) {
@@ -66,7 +66,7 @@ public class SwipeDismissBehavior extends AbstractC6317 {
         }
 
         /* JADX WARN: Code duplicated, block: B:10:0x001d  */
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public void onViewReleased(View view, float f, float f2) {
             int i;
             boolean z;
@@ -90,9 +90,9 @@ public class SwipeDismissBehavior extends AbstractC6317 {
                 i = this.originalCapturedViewLeft;
                 z = false;
             }
-            if (SwipeDismissBehavior.this.viewDragHelper.m37643(i, view.getTop())) {
+            if (SwipeDismissBehavior.this.viewDragHelper.m39815(i, view.getTop())) {
                 SettleRunnable settleRunnable = SwipeDismissBehavior.this.new SettleRunnable(view, z);
-                int i3 = C17648.f53953;
+                int i3 = C1717.f57146;
                 view.postOnAnimation(settleRunnable);
             } else {
                 if (!z || (onDismissListener = SwipeDismissBehavior.this.listener) == null) {
@@ -106,7 +106,7 @@ public class SwipeDismissBehavior extends AbstractC6317 {
             if (f == 0.0f) {
                 return Math.abs(view.getLeft() - this.originalCapturedViewLeft) >= Math.round(((float) view.getWidth()) * SwipeDismissBehavior.this.dragDismissThreshold);
             }
-            int i = C17648.f53953;
+            int i = C1717.f57146;
             boolean z = view.getLayoutDirection() == 1;
             int i2 = SwipeDismissBehavior.this.swipeDirection;
             if (i2 == 2) {
@@ -129,17 +129,17 @@ public class SwipeDismissBehavior extends AbstractC6317 {
             return false;
         }
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public int getViewHorizontalDragRange(View view) {
             return view.getWidth();
         }
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public int clampViewPositionHorizontal(View view, int i, int i2) {
             int width;
             int width2;
             int width3;
-            int i3 = C17648.f53953;
+            int i3 = C1717.f57146;
             boolean z = view.getLayoutDirection() == 1;
             int i4 = SwipeDismissBehavior.this.swipeDirection;
             if (i4 == 0) {
@@ -165,12 +165,12 @@ public class SwipeDismissBehavior extends AbstractC6317 {
             return SwipeDismissBehavior.clamp(width, i, width2);
         }
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public int clampViewPositionVertical(View view, int i, int i2) {
             return view.getTop();
         }
 
-        @Override // l.AbstractC8832
+        @Override // p067l.AbstractC10762
         public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
             float width = view.getWidth() * SwipeDismissBehavior.this.alphaStartSwipeDistance;
             float width2 = view.getWidth() * SwipeDismissBehavior.this.alphaEndSwipeDistance;
@@ -228,10 +228,10 @@ public class SwipeDismissBehavior extends AbstractC6317 {
         this.sensitivitySet = true;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onLayoutChild(C18333 c18333, View view, int i) {
-        boolean zOnLayoutChild = super.onLayoutChild(c18333, view, i);
-        int i2 = C17648.f53953;
+    @Override // p067l.AbstractC1155
+    public boolean onLayoutChild(C1751 c1751, View view, int i) {
+        boolean zOnLayoutChild = super.onLayoutChild(c1751, view, i);
+        int i2 = C1717.f57146;
         if (view.getImportantForAccessibility() == 0) {
             view.setImportantForAccessibility(1);
             updateAccessibilityActions(view);
@@ -239,46 +239,46 @@ public class SwipeDismissBehavior extends AbstractC6317 {
         return zOnLayoutChild;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onInterceptTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
+    @Override // p067l.AbstractC1155
+    public boolean onInterceptTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
         boolean zIsPointInChildBounds = this.interceptingEvents;
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0) {
-            zIsPointInChildBounds = c18333.isPointInChildBounds(view, (int) motionEvent.getX(), (int) motionEvent.getY());
+            zIsPointInChildBounds = c1751.isPointInChildBounds(view, (int) motionEvent.getX(), (int) motionEvent.getY());
             this.interceptingEvents = zIsPointInChildBounds;
         } else if (actionMasked == 1 || actionMasked == 3) {
             this.interceptingEvents = false;
         }
         if (zIsPointInChildBounds) {
-            ensureViewDragHelper(c18333);
-            if (!this.requestingDisallowInterceptTouchEvent && this.viewDragHelper.m37645(motionEvent)) {
+            ensureViewDragHelper(c1751);
+            if (!this.requestingDisallowInterceptTouchEvent && this.viewDragHelper.m39817(motionEvent)) {
                 return true;
             }
         }
         return false;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
+    @Override // p067l.AbstractC1155
+    public boolean onTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
         if (this.viewDragHelper == null) {
             return false;
         }
         if (this.requestingDisallowInterceptTouchEvent && motionEvent.getActionMasked() == 3) {
             return true;
         }
-        this.viewDragHelper.m37638(motionEvent);
+        this.viewDragHelper.m39810(motionEvent);
         return true;
     }
 
     private void ensureViewDragHelper(ViewGroup viewGroup) {
-        C15886 c15886M37623;
+        C17466 c17466M39795;
         if (this.viewDragHelper == null) {
             if (this.sensitivitySet) {
-                c15886M37623 = C15886.m37622(viewGroup, this.sensitivity, this.dragCallback);
+                c17466M39795 = C17466.m39794(viewGroup, this.sensitivity, this.dragCallback);
             } else {
-                c15886M37623 = C15886.m37623(viewGroup, this.dragCallback);
+                c17466M39795 = C17466.m39795(viewGroup, this.dragCallback);
             }
-            this.viewDragHelper = c15886M37623;
+            this.viewDragHelper = c17466M39795;
         }
     }
 
@@ -294,10 +294,10 @@ public class SwipeDismissBehavior extends AbstractC6317 {
         @Override // java.lang.Runnable
         public void run() {
             OnDismissListener onDismissListener;
-            C15886 c15886 = SwipeDismissBehavior.this.viewDragHelper;
-            if (c15886 != null && c15886.m37650()) {
+            C17466 c17466 = SwipeDismissBehavior.this.viewDragHelper;
+            if (c17466 != null && c17466.m39822()) {
                 View view = this.view;
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 view.postOnAnimation(this);
             } else {
                 if (!this.dismiss || (onDismissListener = SwipeDismissBehavior.this.listener) == null) {
@@ -309,18 +309,18 @@ public class SwipeDismissBehavior extends AbstractC6317 {
     }
 
     private void updateAccessibilityActions(View view) {
-        C17648.m41337(1048576, view);
+        C1717.m43583(1048576, view);
         if (canSwipeDismissView(view)) {
-            C17648.m41308(view, C13847.f41298, null, new InterfaceC5198() { // from class: com.google.android.material.behavior.SwipeDismissBehavior.2
-                @Override // l.InterfaceC5198
-                public boolean perform(View view2, AbstractC9432 abstractC9432) {
+            C1717.m43554(view, C1529.f44377, null, new InterfaceC1100() { // from class: com.google.android.material.behavior.SwipeDismissBehavior.2
+                @Override // p067l.InterfaceC1100
+                public boolean perform(View view2, AbstractC1310 abstractC1310) {
                     if (!SwipeDismissBehavior.this.canSwipeDismissView(view2)) {
                         return false;
                     }
-                    int i = C17648.f53953;
+                    int i = C1717.f57146;
                     boolean z = view2.getLayoutDirection() == 1;
                     int i2 = SwipeDismissBehavior.this.swipeDirection;
-                    C17648.m41325((!(i2 == 0 && z) && (i2 != 1 || z)) ? view2.getWidth() : -view2.getWidth(), view2);
+                    C1717.m43571((!(i2 == 0 && z) && (i2 != 1 || z)) ? view2.getWidth() : -view2.getWidth(), view2);
                     view2.setAlpha(0.0f);
                     OnDismissListener onDismissListener = SwipeDismissBehavior.this.listener;
                     if (onDismissListener != null) {
@@ -341,9 +341,9 @@ public class SwipeDismissBehavior extends AbstractC6317 {
     }
 
     public int getDragState() {
-        C15886 c15886 = this.viewDragHelper;
-        if (c15886 != null) {
-            return c15886.m37651();
+        C17466 c17466 = this.viewDragHelper;
+        if (c17466 != null) {
+            return c17466.m39823();
         }
         return 0;
     }

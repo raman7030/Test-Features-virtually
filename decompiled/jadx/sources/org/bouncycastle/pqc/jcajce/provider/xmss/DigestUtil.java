@@ -1,6 +1,5 @@
 package org.bouncycastle.pqc.jcajce.provider.xmss;
 
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
@@ -9,6 +8,7 @@ import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class DigestUtil {
@@ -86,7 +86,7 @@ public class DigestUtil {
         if (aSN1ObjectIdentifier.equals((ASN1Primitive) NISTObjectIdentifiers.id_shake256)) {
             return new SHAKEDigest(256);
         }
-        throw new IllegalArgumentException(C9005.m23242("unrecognized digest OID: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unrecognized digest OID: ", aSN1ObjectIdentifier));
     }
 
     public static String getXMSSDigestName(ASN1ObjectIdentifier aSN1ObjectIdentifier) {
@@ -102,6 +102,6 @@ public class DigestUtil {
         if (aSN1ObjectIdentifier.equals((ASN1Primitive) NISTObjectIdentifiers.id_shake256)) {
             return "SHAKE256";
         }
-        throw new IllegalArgumentException(C9005.m23242("unrecognized digest OID: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unrecognized digest OID: ", aSN1ObjectIdentifier));
     }
 }

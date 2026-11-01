@@ -20,9 +20,6 @@ import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import l.C19370;
-import l.C20094;
-import l.C4860;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Wrapper;
@@ -30,10 +27,15 @@ import org.bouncycastle.jcajce.util.BCJcaJceHelper;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.Arrays;
+import p067l.C20778;
+import p067l.C21466;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class BaseCipherSpi extends CipherSpi {
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81351iv;
     public int ivSize;
     public Class[] availableSpecs = {IvParameterSpec.class, PBEParameterSpec.class, RC2ParameterSpec.class, RC5ParameterSpec.class};
     public final JcaJceHelper helper = new BCJcaJceHelper();
@@ -96,12 +98,12 @@ public abstract class BaseCipherSpi extends CipherSpi {
 
     @Override // javax.crypto.CipherSpi
     public void engineSetMode(String str) throws NoSuchAlgorithmException {
-        throw new NoSuchAlgorithmException(C20094.m46315("can't support mode ", str));
+        throw new NoSuchAlgorithmException(C21466.m48631("can't support mode ", str));
     }
 
     @Override // javax.crypto.CipherSpi
     public void engineSetPadding(String str) throws NoSuchPaddingException {
-        throw new NoSuchPaddingException(C4860.m14172("Padding ", str, " unknown."));
+        throw new NoSuchPaddingException(C6988.m16053("Padding ", str, " unknown."));
     }
 
     @Override // javax.crypto.CipherSpi
@@ -132,7 +134,7 @@ public abstract class BaseCipherSpi extends CipherSpi {
                 if (i == 2) {
                     return keyFactoryCreateKeyFactory.generatePrivate(new PKCS8EncodedKeySpec(bArrEngineDoFinal));
                 }
-                throw new InvalidKeyException(C19370.m44628(i, "Unknown key type "));
+                throw new InvalidKeyException(C20778.m46922(i, "Unknown key type "));
             } catch (NoSuchAlgorithmException e) {
                 throw new InvalidKeyException("Unknown key type " + e.getMessage());
             } catch (NoSuchProviderException e2) {

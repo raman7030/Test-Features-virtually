@@ -6,7 +6,9 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class Nat {
-    public static final long M = 4294967295L;
+
+    /* JADX INFO: renamed from: M */
+    public static final long f81546M = 4294967295L;
 
     public static int add(int i, int[] iArr, int[] iArr2, int[] iArr3) {
         long j = 0;
@@ -399,7 +401,8 @@ public abstract class Nat {
         return zGte;
     }
 
-    public static boolean eq(int i, int[] iArr, int[] iArr2) {
+    /* JADX INFO: renamed from: eq */
+    public static boolean m55413eq(int i, int[] iArr, int[] iArr2) {
         for (int i2 = i - 1; i2 >= 0; i2--) {
             if (iArr[i2] != iArr2[i2]) {
                 return false;

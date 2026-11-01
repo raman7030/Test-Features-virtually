@@ -14,9 +14,9 @@ import com.google.android.material.shape.CornerSize;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.shape.ShapeableDelegate;
-import l.C1814;
-import l.C20094;
-import l.C4736;
+import p067l.C0932;
+import p067l.C21466;
+import p067l.C6870;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaskableFrameLayout extends FrameLayout implements Maskable, Shapeable {
@@ -77,7 +77,7 @@ public class MaskableFrameLayout extends FrameLayout implements Maskable, Shapea
 
     @Override // com.google.android.material.shape.Shapeable
     public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
-        ShapeAppearanceModel shapeAppearanceModelWithTransformedCornerSizes = shapeAppearanceModel.withTransformedCornerSizes(new C20094(6));
+        ShapeAppearanceModel shapeAppearanceModelWithTransformedCornerSizes = shapeAppearanceModel.withTransformedCornerSizes(new C21466(6));
         this.shapeAppearanceModel = shapeAppearanceModelWithTransformedCornerSizes;
         this.shapeableDelegate.onShapeAppearanceChanged(this, shapeAppearanceModelWithTransformedCornerSizes);
     }
@@ -94,9 +94,9 @@ public class MaskableFrameLayout extends FrameLayout implements Maskable, Shapea
     @Override // com.google.android.material.carousel.Maskable
     @Deprecated
     public void setMaskXPercentage(float f) {
-        float fM6035 = C1814.m6035(f, 0.0f, 1.0f);
-        if (this.maskXPercentage != fM6035) {
-            this.maskXPercentage = fM6035;
+        float fM8233 = C0932.m8233(f, 0.0f, 1.0f);
+        if (this.maskXPercentage != fM8233) {
+            this.maskXPercentage = fM8233;
             updateMaskRectForMaskXPercentage();
         }
     }
@@ -159,6 +159,6 @@ public class MaskableFrameLayout extends FrameLayout implements Maskable, Shapea
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.shapeableDelegate.maybeClip(canvas, new C4736(2, this));
+        this.shapeableDelegate.maybeClip(canvas, new C6870(2, this));
     }
 }

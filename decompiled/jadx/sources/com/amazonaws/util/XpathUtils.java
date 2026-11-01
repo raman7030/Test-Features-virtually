@@ -14,22 +14,22 @@ import org.xml.sax.SAXException;
 /* JADX INFO: loaded from: classes.dex */
 public class XpathUtils {
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static Log f853 = LogFactory.m302(XpathUtils.class);
+    /* JADX INFO: renamed from: ۧ */
+    public static Log f2013 = LogFactory.m1468(XpathUtils.class);
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static DocumentBuilderFactory f852 = DocumentBuilderFactory.newInstance();
+    /* JADX INFO: renamed from: ֫ */
+    public static DocumentBuilderFactory f2012 = DocumentBuilderFactory.newInstance();
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static Document m801(String str) throws SAXException, IOException {
-        NamespaceRemovingInputStream namespaceRemovingInputStream = new NamespaceRemovingInputStream(new ByteArrayInputStream(str.getBytes(StringUtils.f844)));
-        Document document = f852.newDocumentBuilder().parse(namespaceRemovingInputStream);
+    /* JADX INFO: renamed from: ֫ */
+    public static Document m1966(String str) throws SAXException, IOException {
+        NamespaceRemovingInputStream namespaceRemovingInputStream = new NamespaceRemovingInputStream(new ByteArrayInputStream(str.getBytes(StringUtils.f2004)));
+        Document document = f2012.newDocumentBuilder().parse(namespaceRemovingInputStream);
         namespaceRemovingInputStream.close();
         return document;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m800(String str, Document document) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1965(String str, Document document) {
         if (document == null) {
             return null;
         }

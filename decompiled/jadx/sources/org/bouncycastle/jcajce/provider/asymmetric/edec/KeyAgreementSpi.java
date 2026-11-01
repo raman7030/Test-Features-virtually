@@ -7,7 +7,6 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import l.C9045;
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.RawAgreement;
 import org.bouncycastle.crypto.agreement.X25519Agreement;
@@ -27,6 +26,7 @@ import org.bouncycastle.jcajce.spec.DHUParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.jcajce.spec.XDHParameterSpec;
 import org.bouncycastle.util.Properties;
+import p067l.C10965;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KeyAgreementSpi extends BaseAgreementSpi {
@@ -230,10 +230,10 @@ public class KeyAgreementSpi extends BaseAgreementSpi {
             throw new InvalidKeyException("public XDH key required");
         }
         if (this.agreement == null) {
-            throw new IllegalStateException(C9045.m23341(new StringBuilder(), this.kaAlgorithm, " not initialised."));
+            throw new IllegalStateException(C10965.m25286(new StringBuilder(), this.kaAlgorithm, " not initialised."));
         }
         if (!z) {
-            throw new IllegalStateException(C9045.m23341(new StringBuilder(), this.kaAlgorithm, " can only be between two parties."));
+            throw new IllegalStateException(C10965.m25286(new StringBuilder(), this.kaAlgorithm, " can only be between two parties."));
         }
         AsymmetricKeyParameter asymmetricKeyParameterGeneratePublicKeyParameter = EdECUtil.generatePublicKeyParameter((PublicKey) key);
         byte[] bArr = new byte[this.agreement.getAgreementSize()];

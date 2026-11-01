@@ -1,6 +1,6 @@
 package org.simpleframework.xml.core;
 
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
@@ -47,7 +47,7 @@ public class MethodPartFactory {
         if (name.startsWith("get")) {
             return MethodType.GET;
         }
-        if (name.startsWith(am.ae)) {
+        if (name.startsWith(C0655am.f2303ae)) {
             return MethodType.IS;
         }
         if (name.startsWith("set")) {

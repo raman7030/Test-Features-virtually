@@ -11,14 +11,14 @@ import android.widget.Checkable;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.chip.Chip;
 import java.util.Locale;
-import l.C15813;
-import l.C16445;
-import l.C17606;
-import l.C17648;
-import l.C20754;
+import p067l.C1658;
+import p067l.C1715;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes.dex */
-public class TimePickerView extends C17606 implements TimePickerControls {
+public class TimePickerView extends C1715 implements TimePickerControls {
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public final ClockFaceView clockFace;
     public final ClockHandView clockHandView;
@@ -56,13 +56,13 @@ public class TimePickerView extends C17606 implements TimePickerControls {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (TimePickerView.this.onSelectionChangeListener != null) {
-                    TimePickerView.this.onSelectionChangeListener.onSelectionChanged(((Integer) view.getTag(C20754.f66999)).intValue());
+                    TimePickerView.this.onSelectionChangeListener.onSelectionChanged(((Integer) view.getTag(C22093.f69683)).intValue());
                 }
             }
         };
-        LayoutInflater.from(context).inflate(C15813.f48830, this);
-        this.clockFace = (ClockFaceView) findViewById(C20754.f67160);
-        MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup) findViewById(C20754.f67088);
+        LayoutInflater.from(context).inflate(C17397.f51968, this);
+        this.clockFace = (ClockFaceView) findViewById(C22093.f69844);
+        MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup) findViewById(C22093.f69772);
         this.toggle = materialButtonToggleGroup;
         materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() { // from class: com.google.android.material.timepicker.TimePickerView$$ExternalSyntheticLambda0
             @Override // com.google.android.material.button.MaterialButtonToggleGroup.OnButtonCheckedListener
@@ -70,9 +70,9 @@ public class TimePickerView extends C17606 implements TimePickerControls {
                 this.f$0.lambda$new$0(materialButtonToggleGroup2, i2, z);
             }
         });
-        this.minuteView = (Chip) findViewById(C20754.f66891);
-        this.hourView = (Chip) findViewById(C20754.f67208);
-        this.clockHandView = (ClockHandView) findViewById(C20754.f66843);
+        this.minuteView = (Chip) findViewById(C22093.f69575);
+        this.hourView = (Chip) findViewById(C22093.f69892);
+        this.clockHandView = (ClockHandView) findViewById(C22093.f69527);
         setupDoubleTap();
         setUpDisplay();
     }
@@ -81,7 +81,7 @@ public class TimePickerView extends C17606 implements TimePickerControls {
     public /* synthetic */ void lambda$new$0(MaterialButtonToggleGroup materialButtonToggleGroup, int i, boolean z) {
         OnPeriodChangeListener onPeriodChangeListener;
         if (z && (onPeriodChangeListener = this.onPeriodChangeListener) != null) {
-            onPeriodChangeListener.onPeriodChange(i == C20754.f66973 ? 1 : 0);
+            onPeriodChangeListener.onPeriodChange(i == C22093.f69657 ? 1 : 0);
         }
     }
 
@@ -111,17 +111,17 @@ public class TimePickerView extends C17606 implements TimePickerControls {
         this.hourView.setOnTouchListener(onTouchListener);
     }
 
-    public void setMinuteHourDelegate(C16445 c16445) {
-        C17648.m41309(this.hourView, c16445);
+    public void setMinuteHourDelegate(C1658 c1658) {
+        C1717.m43555(this.hourView, c1658);
     }
 
-    public void setHourClickDelegate(C16445 c16445) {
-        C17648.m41309(this.minuteView, c16445);
+    public void setHourClickDelegate(C1658 c1658) {
+        C1717.m43555(this.minuteView, c1658);
     }
 
     private void setUpDisplay() {
-        this.minuteView.setTag(C20754.f66999, 12);
-        this.hourView.setTag(C20754.f66999, 10);
+        this.minuteView.setTag(C22093.f69683, 12);
+        this.hourView.setTag(C22093.f69683, 10);
         this.minuteView.setOnClickListener(this.selectionListener);
         this.hourView.setOnClickListener(this.selectionListener);
         this.minuteView.setAccessibilityClassName("android.view.View");
@@ -150,9 +150,9 @@ public class TimePickerView extends C17606 implements TimePickerControls {
     public void updateTime(int i, int i2, int i3) {
         int i4;
         if (i == 1) {
-            i4 = C20754.f66973;
+            i4 = C22093.f69657;
         } else {
-            i4 = C20754.f66855;
+            i4 = C22093.f69539;
         }
         this.toggle.check(i4);
         Locale locale = getResources().getConfiguration().locale;
@@ -176,7 +176,7 @@ public class TimePickerView extends C17606 implements TimePickerControls {
     private void updateSelection(Chip chip, boolean z) {
         chip.setChecked(z);
         int i = z ? 2 : 0;
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         chip.setAccessibilityLiveRegion(i);
     }
 

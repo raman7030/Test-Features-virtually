@@ -29,8 +29,12 @@ public class LMSigParameters {
     public static final LMSigParameters lms_shake256_n32_h5;
     public static Map paramBuilders;
     public final ASN1ObjectIdentifier digestOid;
-    public final int h;
-    public final int m;
+
+    /* JADX INFO: renamed from: h */
+    public final int f81655h;
+
+    /* JADX INFO: renamed from: m */
+    public final int f81656m;
     public final int type;
 
     static {
@@ -104,8 +108,8 @@ public class LMSigParameters {
 
     public LMSigParameters(int i, int i2, int i3, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
         this.type = i;
-        this.m = i2;
-        this.h = i3;
+        this.f81656m = i2;
+        this.f81655h = i3;
         this.digestOid = aSN1ObjectIdentifier;
     }
 
@@ -118,11 +122,11 @@ public class LMSigParameters {
     }
 
     public int getH() {
-        return this.h;
+        return this.f81655h;
     }
 
     public int getM() {
-        return this.m;
+        return this.f81656m;
     }
 
     public int getType() {

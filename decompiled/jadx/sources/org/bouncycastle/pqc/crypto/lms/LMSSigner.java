@@ -1,9 +1,9 @@
 package org.bouncycastle.pqc.crypto.lms;
 
 import java.io.IOException;
-import l.C5127;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.pqc.crypto.MessageSigner;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMSSigner implements MessageSigner {
@@ -40,7 +40,7 @@ public class LMSSigner implements MessageSigner {
         try {
             return LMS.generateSign(this.privKey, bArr).getEncoded();
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to encode signature: ")));
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to encode signature: ")));
         }
     }
 
@@ -49,7 +49,7 @@ public class LMSSigner implements MessageSigner {
         try {
             return LMS.verifySignature(this.pubKey, LMSSignature.getInstance(bArr2), bArr);
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to decode signature: ")));
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to decode signature: ")));
         }
     }
 }

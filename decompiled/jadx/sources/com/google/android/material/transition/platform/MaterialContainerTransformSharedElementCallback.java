@@ -17,9 +17,9 @@ import com.google.android.material.shape.Shapeable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
-import l.C10014;
-import l.C20754;
-import l.EnumC5780;
+import p067l.C1339;
+import p067l.C22093;
+import p067l.EnumC1129;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
@@ -58,7 +58,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         ShapeAppearanceModel shapeAppearanceModelProvideShape;
         View viewOnCreateSnapshotView = super.onCreateSnapshotView(context, parcelable);
         if (viewOnCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view = (View) weakReference.get()) != null && (shapeAppearanceModelProvideShape = this.shapeProvider.provideShape(view)) != null) {
-            viewOnCreateSnapshotView.setTag(C20754.f67206, shapeAppearanceModelProvideShape);
+            viewOnCreateSnapshotView.setTag(C22093.f69890, shapeAppearanceModelProvideShape);
         }
         return viewOnCreateSnapshotView;
     }
@@ -81,7 +81,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     @Override // android.app.SharedElementCallback
     public void onSharedElementStart(List list, List list2, List list3) {
         if (!list2.isEmpty() && !list3.isEmpty()) {
-            ((View) list2.get(0)).setTag(C20754.f67206, list3.get(0));
+            ((View) list2.get(0)).setTag(C22093.f69890, list3.get(0));
         }
         if (this.entering || list2.isEmpty() || this.returnEndBounds == null) {
             return;
@@ -94,8 +94,8 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
     @Override // android.app.SharedElementCallback
     public void onSharedElementEnd(List list, List list2, List list3) {
-        if (!list2.isEmpty() && (((View) list2.get(0)).getTag(C20754.f67206) instanceof View)) {
-            ((View) list2.get(0)).setTag(C20754.f67206, null);
+        if (!list2.isEmpty() && (((View) list2.get(0)).getTag(C22093.f69890) instanceof View)) {
+            ((View) list2.get(0)).setTag(C22093.f69890, null);
         }
         if (!this.entering && !list2.isEmpty()) {
             this.returnEndBounds = TransitionUtils.getRelativeBoundsRect((View) list2.get(0));
@@ -185,7 +185,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         if (windowBackground == null) {
             return;
         }
-        windowBackground.mutate().setColorFilter(C10014.m25187(EnumC5780.CLEAR));
+        windowBackground.mutate().setColorFilter(C1339.m27204(EnumC1129.CLEAR));
     }
 
     public static void restoreWindowBackground(Window window) {

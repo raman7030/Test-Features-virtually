@@ -20,7 +20,6 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
@@ -35,10 +34,13 @@ import org.bouncycastle.asn1.x509.TBSCertList;
 import org.bouncycastle.asn1.x509.Time;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.util.Arrays;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509CRLObject extends X509CRL {
-    public CertificateList c;
+
+    /* JADX INFO: renamed from: c */
+    public CertificateList f81383c;
     public int hashCodeValue;
     public boolean isHashCodeSet = false;
     public boolean isIndirect;
@@ -46,7 +48,7 @@ public class X509CRLObject extends X509CRL {
     public byte[] sigAlgParams;
 
     public X509CRLObject(CertificateList certificateList) throws CRLException {
-        this.c = certificateList;
+        this.f81383c = certificateList;
         try {
             this.sigAlgName = X509SignatureUtil.getSignatureName(certificateList.getSignatureAlgorithm());
             if (certificateList.getSignatureAlgorithm().getParameters() != null) {
@@ -61,7 +63,7 @@ public class X509CRLObject extends X509CRL {
     }
 
     private void doVerify(PublicKey publicKey, Signature signature) throws SignatureException, InvalidKeyException, CRLException {
-        if (!this.c.getSignatureAlgorithm().equals(this.c.getTBSCertList().getSignature())) {
+        if (!this.f81383c.getSignatureAlgorithm().equals(this.f81383c.getTBSCertList().getSignature())) {
             throw new CRLException("Signature algorithm on CertificateList does not match TBSCertList.");
         }
         signature.initVerify(publicKey);
@@ -73,7 +75,7 @@ public class X509CRLObject extends X509CRL {
 
     private Set getExtensionOIDs(boolean z) {
         Extensions extensions;
-        if (getVersion() != 2 || (extensions = this.c.getExtensions()) == null) {
+        if (getVersion() != 2 || (extensions = this.f81383c.getExtensions()) == null) {
             return null;
         }
         HashSet hashSet = new HashSet();
@@ -99,7 +101,7 @@ public class X509CRLObject extends X509CRL {
     private Set loadCRLEntries() {
         Extension extension;
         HashSet hashSet = new HashSet();
-        Enumeration revokedCertificateEnumeration = this.c.getRevokedCertificateEnumeration();
+        Enumeration revokedCertificateEnumeration = this.f81383c.getRevokedCertificateEnumeration();
         X500Name x500Name = null;
         while (revokedCertificateEnumeration.hasMoreElements()) {
             TBSCertList.CRLEntry cRLEntry = (TBSCertList.CRLEntry) revokedCertificateEnumeration.nextElement();
@@ -126,7 +128,7 @@ public class X509CRLObject extends X509CRL {
         if (this.isHashCodeSet && x509CRLObject.isHashCodeSet && x509CRLObject.hashCodeValue != this.hashCodeValue) {
             return false;
         }
-        return this.c.equals(x509CRLObject.c);
+        return this.f81383c.equals(x509CRLObject.f81383c);
     }
 
     @Override // java.security.cert.X509Extension
@@ -137,7 +139,7 @@ public class X509CRLObject extends X509CRL {
     @Override // java.security.cert.X509CRL
     public byte[] getEncoded() throws CRLException {
         try {
-            return this.c.getEncoded(ASN1Encoding.DER);
+            return this.f81383c.getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CRLException(e.toString());
         }
@@ -145,18 +147,18 @@ public class X509CRLObject extends X509CRL {
 
     @Override // java.security.cert.X509Extension
     public byte[] getExtensionValue(String str) {
-        return X509SignatureUtil.getExtensionValue(this.c.getExtensions(), str);
+        return X509SignatureUtil.getExtensionValue(this.f81383c.getExtensions(), str);
     }
 
     @Override // java.security.cert.X509CRL
     public Principal getIssuerDN() {
-        return new X509Principal(X500Name.getInstance(this.c.getIssuer().toASN1Primitive()));
+        return new X509Principal(X500Name.getInstance(this.f81383c.getIssuer().toASN1Primitive()));
     }
 
     @Override // java.security.cert.X509CRL
     public X500Principal getIssuerX500Principal() {
         try {
-            return new X500Principal(this.c.getIssuer().getEncoded());
+            return new X500Principal(this.f81383c.getIssuer().getEncoded());
         } catch (IOException unused) {
             throw new IllegalStateException("can't encode issuer DN");
         }
@@ -164,7 +166,7 @@ public class X509CRLObject extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public Date getNextUpdate() {
-        Time nextUpdate = this.c.getNextUpdate();
+        Time nextUpdate = this.f81383c.getNextUpdate();
         if (nextUpdate == null) {
             return null;
         }
@@ -179,7 +181,7 @@ public class X509CRLObject extends X509CRL {
     @Override // java.security.cert.X509CRL
     public X509CRLEntry getRevokedCertificate(BigInteger bigInteger) {
         Extension extension;
-        Enumeration revokedCertificateEnumeration = this.c.getRevokedCertificateEnumeration();
+        Enumeration revokedCertificateEnumeration = this.f81383c.getRevokedCertificateEnumeration();
         X500Name x500Name = null;
         while (revokedCertificateEnumeration.hasMoreElements()) {
             TBSCertList.CRLEntry cRLEntry = (TBSCertList.CRLEntry) revokedCertificateEnumeration.nextElement();
@@ -199,7 +201,7 @@ public class X509CRLObject extends X509CRL {
         if (setLoadCRLEntries.isEmpty()) {
             return null;
         }
-        return C20195.unmodifiableSet(setLoadCRLEntries);
+        return C21562.unmodifiableSet(setLoadCRLEntries);
     }
 
     @Override // java.security.cert.X509CRL
@@ -209,7 +211,7 @@ public class X509CRLObject extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public String getSigAlgOID() {
-        return this.c.getSignatureAlgorithm().getAlgorithm().getId();
+        return this.f81383c.getSignatureAlgorithm().getAlgorithm().getId();
     }
 
     @Override // java.security.cert.X509CRL
@@ -219,13 +221,13 @@ public class X509CRLObject extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public byte[] getSignature() {
-        return this.c.getSignature().getOctets();
+        return this.f81383c.getSignature().getOctets();
     }
 
     @Override // java.security.cert.X509CRL
     public byte[] getTBSCertList() throws CRLException {
         try {
-            return this.c.getTBSCertList().getEncoded(ASN1Encoding.DER);
+            return this.f81383c.getTBSCertList().getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CRLException(e.toString());
         }
@@ -233,18 +235,18 @@ public class X509CRLObject extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public Date getThisUpdate() {
-        return this.c.getThisUpdate().getDate();
+        return this.f81383c.getThisUpdate().getDate();
     }
 
     @Override // java.security.cert.X509CRL
     public int getVersion() {
-        return this.c.getVersionNumber();
+        return this.f81383c.getVersionNumber();
     }
 
     @Override // java.security.cert.X509Extension
     public boolean hasUnsupportedCriticalExtension() {
         Extensions extensions;
-        if (getVersion() != 2 || (extensions = this.c.getExtensions()) == null) {
+        if (getVersion() != 2 || (extensions = this.f81383c.getExtensions()) == null) {
             return false;
         }
         Enumeration enumerationOids = extensions.oids();
@@ -273,8 +275,8 @@ public class X509CRLObject extends X509CRL {
         if (!certificate.getType().equals("X.509")) {
             throw new RuntimeException("X.509 CRL used with non X.509 Cert");
         }
-        Enumeration revokedCertificateEnumeration = this.c.getRevokedCertificateEnumeration();
-        X500Name issuer2 = this.c.getIssuer();
+        Enumeration revokedCertificateEnumeration = this.f81383c.getRevokedCertificateEnumeration();
+        X500Name issuer2 = this.f81383c.getIssuer();
         if (revokedCertificateEnumeration != null) {
             X509Certificate x509Certificate = (X509Certificate) certificate;
             BigInteger serialNumber = x509Certificate.getSerialNumber();

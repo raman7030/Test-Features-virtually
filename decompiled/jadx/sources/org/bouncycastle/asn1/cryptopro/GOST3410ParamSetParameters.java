@@ -2,7 +2,6 @@ package org.bouncycastle.asn1.cryptopro;
 
 import java.math.BigInteger;
 import java.util.Enumeration;
-import l.C3200;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -10,27 +9,34 @@ import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST3410ParamSetParameters extends ASN1Object {
-    public ASN1Integer a;
+
+    /* JADX INFO: renamed from: a */
+    public ASN1Integer f80669a;
     public int keySize;
-    public ASN1Integer p;
-    public ASN1Integer q;
+
+    /* JADX INFO: renamed from: p */
+    public ASN1Integer f80670p;
+
+    /* JADX INFO: renamed from: q */
+    public ASN1Integer f80671q;
 
     public GOST3410ParamSetParameters(int i, BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3) {
         this.keySize = i;
-        this.p = new ASN1Integer(bigInteger);
-        this.q = new ASN1Integer(bigInteger2);
-        this.a = new ASN1Integer(bigInteger3);
+        this.f80670p = new ASN1Integer(bigInteger);
+        this.f80671q = new ASN1Integer(bigInteger2);
+        this.f80669a = new ASN1Integer(bigInteger3);
     }
 
     public GOST3410ParamSetParameters(ASN1Sequence aSN1Sequence) {
         Enumeration objects = aSN1Sequence.getObjects();
         this.keySize = ((ASN1Integer) objects.nextElement()).intValueExact();
-        this.p = (ASN1Integer) objects.nextElement();
-        this.q = (ASN1Integer) objects.nextElement();
-        this.a = (ASN1Integer) objects.nextElement();
+        this.f80670p = (ASN1Integer) objects.nextElement();
+        this.f80671q = (ASN1Integer) objects.nextElement();
+        this.f80669a = (ASN1Integer) objects.nextElement();
     }
 
     public static GOST3410ParamSetParameters getInstance(Object obj) {
@@ -40,7 +46,7 @@ public class GOST3410ParamSetParameters extends ASN1Object {
         if (obj instanceof ASN1Sequence) {
             return new GOST3410ParamSetParameters((ASN1Sequence) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "Invalid GOST3410Parameter: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "Invalid GOST3410Parameter: "));
     }
 
     public static GOST3410ParamSetParameters getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {
@@ -48,7 +54,7 @@ public class GOST3410ParamSetParameters extends ASN1Object {
     }
 
     public BigInteger getA() {
-        return this.a.getPositiveValue();
+        return this.f80669a.getPositiveValue();
     }
 
     public int getKeySize() {
@@ -60,20 +66,20 @@ public class GOST3410ParamSetParameters extends ASN1Object {
     }
 
     public BigInteger getP() {
-        return this.p.getPositiveValue();
+        return this.f80670p.getPositiveValue();
     }
 
     public BigInteger getQ() {
-        return this.q.getPositiveValue();
+        return this.f80671q.getPositiveValue();
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector(4);
         aSN1EncodableVector.add(new ASN1Integer(this.keySize));
-        aSN1EncodableVector.add(this.p);
-        aSN1EncodableVector.add(this.q);
-        aSN1EncodableVector.add(this.a);
+        aSN1EncodableVector.add(this.f80670p);
+        aSN1EncodableVector.add(this.f80671q);
+        aSN1EncodableVector.add(this.f80669a);
         return new DERSequence(aSN1EncodableVector);
     }
 }

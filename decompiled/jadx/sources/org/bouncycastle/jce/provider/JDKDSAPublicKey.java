@@ -12,10 +12,10 @@ import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.DERNull;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.DSAParameter;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
 import org.bouncycastle.util.Strings;
 
@@ -23,26 +23,28 @@ import org.bouncycastle.util.Strings;
 public class JDKDSAPublicKey implements DSAPublicKey {
     public static final long serialVersionUID = 1752452449903495175L;
     public DSAParams dsaSpec;
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81379y;
 
     public JDKDSAPublicKey(BigInteger bigInteger, DSAParameterSpec dSAParameterSpec) {
-        this.y = bigInteger;
+        this.f81379y = bigInteger;
         this.dsaSpec = dSAParameterSpec;
     }
 
     public JDKDSAPublicKey(DSAPublicKey dSAPublicKey) {
-        this.y = dSAPublicKey.getY();
+        this.f81379y = dSAPublicKey.getY();
         this.dsaSpec = dSAPublicKey.getParams();
     }
 
     public JDKDSAPublicKey(DSAPublicKeySpec dSAPublicKeySpec) {
-        this.y = dSAPublicKeySpec.getY();
+        this.f81379y = dSAPublicKeySpec.getY();
         this.dsaSpec = new DSAParameterSpec(dSAPublicKeySpec.getP(), dSAPublicKeySpec.getQ(), dSAPublicKeySpec.getG());
     }
 
     public JDKDSAPublicKey(SubjectPublicKeyInfo subjectPublicKeyInfo) {
         try {
-            this.y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
+            this.f81379y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
             if (isNotNull(subjectPublicKeyInfo.getAlgorithm().getParameters())) {
                 DSAParameter dSAParameter = DSAParameter.getInstance(subjectPublicKeyInfo.getAlgorithm().getParameters());
                 this.dsaSpec = new DSAParameterSpec(dSAParameter.getP(), dSAParameter.getQ(), dSAParameter.getG());
@@ -53,7 +55,7 @@ public class JDKDSAPublicKey implements DSAPublicKey {
     }
 
     public JDKDSAPublicKey(DSAPublicKeyParameters dSAPublicKeyParameters) {
-        this.y = dSAPublicKeyParameters.getY();
+        this.f81379y = dSAPublicKeyParameters.getY();
         this.dsaSpec = new DSAParameterSpec(dSAPublicKeyParameters.getParameters().getP(), dSAPublicKeyParameters.getParameters().getQ(), dSAPublicKeyParameters.getParameters().getG());
     }
 
@@ -62,12 +64,12 @@ public class JDKDSAPublicKey implements DSAPublicKey {
     }
 
     private void readObject(ObjectInputStream objectInputStream) {
-        this.y = (BigInteger) objectInputStream.readObject();
+        this.f81379y = (BigInteger) objectInputStream.readObject();
         this.dsaSpec = new DSAParameterSpec((BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject());
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        objectOutputStream.writeObject(this.y);
+        objectOutputStream.writeObject(this.f81379y);
         objectOutputStream.writeObject(this.dsaSpec.getP());
         objectOutputStream.writeObject(this.dsaSpec.getQ());
         objectOutputStream.writeObject(this.dsaSpec.getG());
@@ -90,7 +92,7 @@ public class JDKDSAPublicKey implements DSAPublicKey {
     public byte[] getEncoded() {
         try {
             DSAParams dSAParams = this.dsaSpec;
-            return dSAParams == null ? new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa), new ASN1Integer(this.y)).getEncoded(ASN1Encoding.DER) : new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(dSAParams.getP(), this.dsaSpec.getQ(), this.dsaSpec.getG())), new ASN1Integer(this.y)).getEncoded(ASN1Encoding.DER);
+            return dSAParams == null ? new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa), new ASN1Integer(this.f81379y)).getEncoded(ASN1Encoding.DER) : new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(dSAParams.getP(), this.dsaSpec.getQ(), this.dsaSpec.getG())), new ASN1Integer(this.f81379y)).getEncoded(ASN1Encoding.DER);
         } catch (IOException unused) {
             return null;
         }
@@ -108,7 +110,7 @@ public class JDKDSAPublicKey implements DSAPublicKey {
 
     @Override // java.security.interfaces.DSAPublicKey
     public BigInteger getY() {
-        return this.y;
+        return this.f81379y;
     }
 
     public int hashCode() {

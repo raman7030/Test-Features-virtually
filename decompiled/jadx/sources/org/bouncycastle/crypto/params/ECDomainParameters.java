@@ -1,21 +1,27 @@
 package org.bouncycastle.crypto.params;
 
 import java.math.BigInteger;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECConstants;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECDomainParameters implements ECConstants {
-    public final ECPoint G;
+
+    /* JADX INFO: renamed from: G */
+    public final ECPoint f81248G;
     public final ECCurve curve;
-    public final BigInteger h;
+
+    /* JADX INFO: renamed from: h */
+    public final BigInteger f81249h;
     public BigInteger hInv;
-    public final BigInteger n;
+
+    /* JADX INFO: renamed from: n */
+    public final BigInteger f81250n;
     public final byte[] seed;
 
     public ECDomainParameters(X9ECParameters x9ECParameters) {
@@ -39,9 +45,9 @@ public class ECDomainParameters implements ECConstants {
             throw new NullPointerException("n");
         }
         this.curve = eCCurve;
-        this.G = validatePublicPoint(eCCurve, eCPoint);
-        this.n = bigInteger;
-        this.h = bigInteger2;
+        this.f81248G = validatePublicPoint(eCCurve, eCPoint);
+        this.f81250n = bigInteger;
+        this.f81249h = bigInteger2;
         this.seed = Arrays.clone(bArr);
     }
 
@@ -67,7 +73,7 @@ public class ECDomainParameters implements ECConstants {
             return false;
         }
         ECDomainParameters eCDomainParameters = (ECDomainParameters) obj;
-        return this.curve.equals(eCDomainParameters.curve) && this.G.equals(eCDomainParameters.G) && this.n.equals(eCDomainParameters.n);
+        return this.curve.equals(eCDomainParameters.curve) && this.f81248G.equals(eCDomainParameters.f81248G) && this.f81250n.equals(eCDomainParameters.f81250n);
     }
 
     public ECCurve getCurve() {
@@ -75,22 +81,22 @@ public class ECDomainParameters implements ECConstants {
     }
 
     public ECPoint getG() {
-        return this.G;
+        return this.f81248G;
     }
 
     public BigInteger getH() {
-        return this.h;
+        return this.f81249h;
     }
 
     public synchronized BigInteger getHInv() {
         if (this.hInv == null) {
-            this.hInv = BigIntegers.modOddInverseVar(this.n, this.h);
+            this.hInv = BigIntegers.modOddInverseVar(this.f81250n, this.f81249h);
         }
         return this.hInv;
     }
 
     public BigInteger getN() {
-        return this.n;
+        return this.f81250n;
     }
 
     public byte[] getSeed() {
@@ -98,7 +104,7 @@ public class ECDomainParameters implements ECConstants {
     }
 
     public int hashCode() {
-        return ((((this.curve.hashCode() ^ 1028) * 257) ^ this.G.hashCode()) * 257) ^ this.n.hashCode();
+        return ((((this.curve.hashCode() ^ 1028) * 257) ^ this.f81248G.hashCode()) * 257) ^ this.f81250n.hashCode();
     }
 
     public BigInteger validatePrivateScalar(BigInteger bigInteger) {

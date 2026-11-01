@@ -37,11 +37,11 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import l.C13746;
-import l.C17648;
-import l.C17931;
-import l.C8184;
-import l.C9465;
+import p067l.C11364;
+import p067l.C1248;
+import p067l.C1524;
+import p067l.C1717;
+import p067l.C19410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class FloatingActionButtonImpl {
@@ -82,10 +82,10 @@ public class FloatingActionButtonImpl {
     public ArrayList transformationCallbacks;
     public final FloatingActionButton view;
     public static final TimeInterpolator ELEVATION_ANIM_INTERPOLATOR = AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR;
-    public static final int SHOW_ANIM_DURATION_ATTR = C17931.f54897;
-    public static final int SHOW_ANIM_EASING_ATTR = C17931.f55271;
-    public static final int HIDE_ANIM_DURATION_ATTR = C17931.f55717;
-    public static final int HIDE_ANIM_EASING_ATTR = C17931.f55408;
+    public static final int SHOW_ANIM_DURATION_ATTR = C19410.f58094;
+    public static final int SHOW_ANIM_EASING_ATTR = C19410.f58468;
+    public static final int HIDE_ANIM_DURATION_ATTR = C19410.f58914;
+    public static final int HIDE_ANIM_EASING_ATTR = C19410.f58605;
     public static final int[] PRESSED_ENABLED_STATE_SET = {R.attr.state_pressed, R.attr.state_enabled};
     public static final int[] HOVERED_FOCUSED_ENABLED_STATE_SET = {R.attr.state_hovered, R.attr.state_focused, R.attr.state_enabled};
     public static final int[] FOCUSED_ENABLED_STATE_SET = {R.attr.state_focused, R.attr.state_enabled};
@@ -179,7 +179,7 @@ public class FloatingActionButtonImpl {
     public void setRippleColor(ColorStateList colorStateList) {
         Drawable drawable = this.rippleDrawable;
         if (drawable != null) {
-            C8184.m21676(drawable, RippleUtils.sanitizeRippleDrawableColor(colorStateList));
+            C1248.m23645(drawable, RippleUtils.sanitizeRippleDrawableColor(colorStateList));
         }
     }
 
@@ -531,7 +531,7 @@ public class FloatingActionButtonImpl {
         });
         arrayList.add(valueAnimatorOfFloat);
         AnimatorSetCompat.playTogether(animatorSet, arrayList);
-        animatorSet.setDuration(MotionUtils.resolveThemeDuration(this.view.getContext(), i, this.view.getContext().getResources().getInteger(C9465.f28751)));
+        animatorSet.setDuration(MotionUtils.resolveThemeDuration(this.view.getContext(), i, this.view.getContext().getResources().getInteger(C11364.f31700)));
         animatorSet.setInterpolator(MotionUtils.resolveThemeInterpolator(this.view.getContext(), i2, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
         return animatorSet;
     }
@@ -616,7 +616,7 @@ public class FloatingActionButtonImpl {
     }
 
     public void onPaddingUpdated(Rect rect) {
-        C13746.m33055(this.contentBackground, "Didn't initialize content background");
+        C1524.m35169(this.contentBackground, "Didn't initialize content background");
         if (shouldAddPadding()) {
             this.shadowViewDelegate.setBackgroundDrawable(new InsetDrawable(this.contentBackground, rect.left, rect.top, rect.right, rect.bottom));
         } else {
@@ -772,7 +772,7 @@ public class FloatingActionButtonImpl {
 
     private boolean shouldAnimateVisibilityChange() {
         FloatingActionButton floatingActionButton = this.view;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         return floatingActionButton.isLaidOut() && !this.view.isInEditMode();
     }
 

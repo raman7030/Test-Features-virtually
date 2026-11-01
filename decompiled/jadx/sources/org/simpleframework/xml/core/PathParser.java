@@ -3,13 +3,13 @@ package org.simpleframework.xml.core;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import l.C22870;
-import l.C23202;
 import org.simpleframework.xml.strategy.Type;
 import org.simpleframework.xml.stream.Format;
 import org.simpleframework.xml.stream.Style;
 import org.simpleframework.xml.util.Cache;
 import org.simpleframework.xml.util.ConcurrentCache;
+import p067l.C24104;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class PathParser implements Expression {
@@ -118,7 +118,7 @@ public class PathParser implements Expression {
 
     public String getAttributePath(String str, String str2) {
         String attribute = this.style.getAttribute(str2);
-        return isEmpty(str) ? attribute : C22870.m50967(str, "/@", attribute);
+        return isEmpty(str) ? attribute : C24104.m53357(str, "/@", attribute);
     }
 
     @Override // java.lang.Iterable
@@ -277,9 +277,9 @@ public class PathParser implements Expression {
     }
 
     private void index() throws PathException {
-        int iM51496;
+        int iM53892;
         if (this.data[this.off - 1] == '[') {
-            iM51496 = 0;
+            iM53892 = 0;
             while (true) {
                 int i = this.off;
                 if (i >= this.count) {
@@ -291,11 +291,11 @@ public class PathParser implements Expression {
                 if (!isDigit(c)) {
                     break;
                 } else {
-                    iM51496 = C23202.m51496(iM51496, 10, c, -48);
+                    iM53892 = C24420.m53892(iM53892, 10, c, -48);
                 }
             }
         } else {
-            iM51496 = 0;
+            iM53892 = 0;
         }
         char[] cArr2 = this.data;
         int i2 = this.off;
@@ -303,7 +303,7 @@ public class PathParser implements Expression {
         if (cArr2[i2 - 1] != ']') {
             throw new PathException("Invalid index for path '%s' in %s", this.path, this.type);
         }
-        this.indexes.add(Integer.valueOf(iM51496));
+        this.indexes.add(Integer.valueOf(iM53892));
     }
 
     private void truncate() {

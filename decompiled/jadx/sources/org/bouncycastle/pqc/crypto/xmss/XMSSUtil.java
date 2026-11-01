@@ -11,16 +11,16 @@ import java.io.ObjectStreamClass;
 import java.io.OutputStream;
 import java.util.HashSet;
 import java.util.Set;
-import l.C0794;
-import l.InterfaceC14905;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class XMSSUtil {
 
-    public class CheckingStream extends ObjectInputStream implements InterfaceC14905 {
+    public class CheckingStream extends ObjectInputStream implements InterfaceC16534 {
         public static final Set components;
         public boolean found;
         public final Class mainClass;
@@ -63,9 +63,9 @@ public class XMSSUtil {
             return super.resolveClass(objectStreamClass);
         }
 
-        @Override // java.io.InputStream, l.InterfaceC14905
+        @Override // java.io.InputStream, p067l.InterfaceC16534
         public /* synthetic */ long transferTo(OutputStream outputStream) {
-            return C0794.transferTo(this, outputStream);
+            return C3123.transferTo(this, outputStream);
         }
     }
 

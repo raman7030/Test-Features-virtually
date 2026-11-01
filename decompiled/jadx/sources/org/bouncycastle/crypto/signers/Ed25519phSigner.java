@@ -7,7 +7,7 @@ import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.jcajce.spec.EdDSAParameterSpec;
-import org.bouncycastle.math.ec.rfc8032.Ed25519;
+import org.bouncycastle.math.p080ec.rfc8032.Ed25519;
 import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */

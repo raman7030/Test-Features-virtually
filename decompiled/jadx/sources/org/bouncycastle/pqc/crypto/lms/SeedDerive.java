@@ -4,14 +4,20 @@ import org.bouncycastle.crypto.Digest;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SeedDerive {
-    public final byte[] I;
+
+    /* JADX INFO: renamed from: I */
+    public final byte[] f81657I;
     public final Digest digest;
-    public int j;
+
+    /* JADX INFO: renamed from: j */
+    public int f81658j;
     public final byte[] masterSeed;
-    public int q;
+
+    /* JADX INFO: renamed from: q */
+    public int f81659q;
 
     public SeedDerive(byte[] bArr, byte[] bArr2, Digest digest) {
-        this.I = bArr;
+        this.f81657I = bArr;
         this.masterSeed = bArr2;
         this.digest = digest;
     }
@@ -23,7 +29,7 @@ public class SeedDerive {
     public void deriveSeed(byte[] bArr, boolean z, int i) {
         deriveSeed(bArr, i);
         if (z) {
-            this.j++;
+            this.f81658j++;
         }
     }
 
@@ -32,14 +38,14 @@ public class SeedDerive {
             throw new IllegalArgumentException("target length is less than digest size.");
         }
         Digest digest = this.digest;
-        byte[] bArr2 = this.I;
+        byte[] bArr2 = this.f81657I;
         digest.update(bArr2, 0, bArr2.length);
-        this.digest.update((byte) (this.q >>> 24));
-        this.digest.update((byte) (this.q >>> 16));
-        this.digest.update((byte) (this.q >>> 8));
-        this.digest.update((byte) this.q);
-        this.digest.update((byte) (this.j >>> 8));
-        this.digest.update((byte) this.j);
+        this.digest.update((byte) (this.f81659q >>> 24));
+        this.digest.update((byte) (this.f81659q >>> 16));
+        this.digest.update((byte) (this.f81659q >>> 8));
+        this.digest.update((byte) this.f81659q);
+        this.digest.update((byte) (this.f81658j >>> 8));
+        this.digest.update((byte) this.f81658j);
         this.digest.update((byte) -1);
         Digest digest2 = this.digest;
         byte[] bArr3 = this.masterSeed;
@@ -49,11 +55,11 @@ public class SeedDerive {
     }
 
     public byte[] getI() {
-        return this.I;
+        return this.f81657I;
     }
 
     public int getJ() {
-        return this.j;
+        return this.f81658j;
     }
 
     public byte[] getMasterSeed() {
@@ -61,14 +67,14 @@ public class SeedDerive {
     }
 
     public int getQ() {
-        return this.q;
+        return this.f81659q;
     }
 
     public void setJ(int i) {
-        this.j = i;
+        this.f81658j = i;
     }
 
     public void setQ(int i) {
-        this.q = i;
+        this.f81659q = i;
     }
 }

@@ -1,12 +1,12 @@
 package org.bouncycastle.jcajce.provider.asymmetric;
 
-import l.C18473;
-import l.C19462;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
+import org.bouncycastle.asn1.p070bc.BCObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.pqc.jcajce.provider.falcon.FalconKeyFactorySpi;
+import p067l.C19925;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Falcon {
@@ -29,9 +29,9 @@ public class Falcon {
             addSignatureAlgorithm(configurableProvider, "FALCON-1024", "org.bouncycastle.pqc.jcajce.provider.falcon.SignatureSpi$Falcon1024", aSN1ObjectIdentifier2);
             StringBuilder sb = new StringBuilder("Alg.Alias.Signature.");
             ASN1ObjectIdentifier aSN1ObjectIdentifier3 = BCObjectIdentifiers.old_falcon_512;
-            StringBuilder sbM42951 = C18473.m42951("FALCON-512", "Alg.Alias.Signature.", C18473.m42951("FALCON-512", "Alg.Alias.Signature.OID.", sb, aSN1ObjectIdentifier3, configurableProvider), aSN1ObjectIdentifier3, configurableProvider);
+            StringBuilder sbM45227 = C19925.m45227("FALCON-512", "Alg.Alias.Signature.", C19925.m45227("FALCON-512", "Alg.Alias.Signature.OID.", sb, aSN1ObjectIdentifier3, configurableProvider), aSN1ObjectIdentifier3, configurableProvider);
             ASN1ObjectIdentifier aSN1ObjectIdentifier4 = BCObjectIdentifiers.old_falcon_1024;
-            C19462.m44861(C18473.m42951("FALCON-1024", "Alg.Alias.Signature.OID.", sbM42951, aSN1ObjectIdentifier4, configurableProvider), aSN1ObjectIdentifier4, configurableProvider, "FALCON-1024");
+            C20865.m47157(C19925.m45227("FALCON-1024", "Alg.Alias.Signature.OID.", sbM45227, aSN1ObjectIdentifier4, configurableProvider), aSN1ObjectIdentifier4, configurableProvider, "FALCON-1024");
         }
     }
 }

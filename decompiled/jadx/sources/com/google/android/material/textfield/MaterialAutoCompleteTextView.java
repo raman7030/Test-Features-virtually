@@ -25,23 +25,23 @@ import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.List;
-import l.C15813;
-import l.C17648;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C21488;
-import l.C23575;
-import l.C8184;
-import l.C9287;
+import p067l.C1248;
+import p067l.C1303;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C1908;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
-public class MaterialAutoCompleteTextView extends C21488 {
+public class MaterialAutoCompleteTextView extends C1908 {
     public static final int MAX_ITEMS_MEASURED = 15;
     public static final String SWITCH_ACCESS_ACTIVITY_NAME = "SwitchAccess";
     public final AccessibilityManager accessibilityManager;
     public ColorStateList dropDownBackgroundTint;
-    public final C9287 modalListPopup;
+    public final C1303 modalListPopup;
     public final float popupElevation;
     public final int simpleItemLayout;
     public int simpleItemSelectedColor;
@@ -53,50 +53,50 @@ public class MaterialAutoCompleteTextView extends C21488 {
     }
 
     public MaterialAutoCompleteTextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f54972);
+        this(context, attributeSet, C19410.f58169);
     }
 
     public MaterialAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         this.tempRect = new Rect();
         Context context2 = getContext();
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C19343.f61202, i, C18637.f58647, new int[0]);
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f61096) && typedArrayObtainStyledAttributes.getInt(C19343.f61096, 0) == 0) {
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C20752.f64308, i, C20081.f61870, new int[0]);
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f64238) && typedArrayObtainStyledAttributes.getInt(C20752.f64238, 0) == 0) {
             setKeyListener(null);
         }
-        this.simpleItemLayout = typedArrayObtainStyledAttributes.getResourceId(C19343.f61626, C15813.f48867);
-        this.popupElevation = typedArrayObtainStyledAttributes.getDimensionPixelOffset(C19343.f61839, C23575.f75853);
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f61786)) {
-            this.dropDownBackgroundTint = ColorStateList.valueOf(typedArrayObtainStyledAttributes.getColor(C19343.f61786, 0));
+        this.simpleItemLayout = typedArrayObtainStyledAttributes.getResourceId(C20752.f64588, C17397.f52005);
+        this.popupElevation = typedArrayObtainStyledAttributes.getDimensionPixelOffset(C20752.f64728, C24774.f78599);
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f64693)) {
+            this.dropDownBackgroundTint = ColorStateList.valueOf(typedArrayObtainStyledAttributes.getColor(C20752.f64693, 0));
         }
-        this.simpleItemSelectedColor = typedArrayObtainStyledAttributes.getColor(C19343.f61308, 0);
-        this.simpleItemSelectedRippleColor = MaterialResources.getColorStateList(context2, typedArrayObtainStyledAttributes, C19343.f61733);
+        this.simpleItemSelectedColor = typedArrayObtainStyledAttributes.getColor(C20752.f64378, 0);
+        this.simpleItemSelectedRippleColor = MaterialResources.getColorStateList(context2, typedArrayObtainStyledAttributes, C20752.f64658);
         this.accessibilityManager = (AccessibilityManager) context2.getSystemService("accessibility");
-        C9287 c9287 = new C9287(context2);
-        this.modalListPopup = c9287;
-        c9287.m23835();
-        c9287.m23831(this);
-        c9287.m23842();
-        c9287.mo1654(getAdapter());
-        c9287.m23832(new AdapterView.OnItemClickListener() { // from class: com.google.android.material.textfield.MaterialAutoCompleteTextView.1
+        C1303 c1303 = new C1303(context2);
+        this.modalListPopup = c1303;
+        c1303.m25844();
+        c1303.m25840(this);
+        c1303.m25851();
+        c1303.mo4052(getAdapter());
+        c1303.m25841(new AdapterView.OnItemClickListener() { // from class: com.google.android.material.textfield.MaterialAutoCompleteTextView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView adapterView, View view, int i2, long j) {
                 MaterialAutoCompleteTextView materialAutoCompleteTextView = MaterialAutoCompleteTextView.this;
-                MaterialAutoCompleteTextView.this.updateText(i2 < 0 ? materialAutoCompleteTextView.modalListPopup.m23844() : materialAutoCompleteTextView.getAdapter().getItem(i2));
+                MaterialAutoCompleteTextView.this.updateText(i2 < 0 ? materialAutoCompleteTextView.modalListPopup.m25853() : materialAutoCompleteTextView.getAdapter().getItem(i2));
                 AdapterView.OnItemClickListener onItemClickListener = MaterialAutoCompleteTextView.this.getOnItemClickListener();
                 if (onItemClickListener != null) {
                     if (view == null || i2 < 0) {
-                        view = MaterialAutoCompleteTextView.this.modalListPopup.m23837();
-                        i2 = MaterialAutoCompleteTextView.this.modalListPopup.m23848();
-                        j = MaterialAutoCompleteTextView.this.modalListPopup.m23841();
+                        view = MaterialAutoCompleteTextView.this.modalListPopup.m25846();
+                        i2 = MaterialAutoCompleteTextView.this.modalListPopup.m25857();
+                        j = MaterialAutoCompleteTextView.this.modalListPopup.m25850();
                     }
-                    onItemClickListener.onItemClick(MaterialAutoCompleteTextView.this.modalListPopup.mo8540(), view, i2, j);
+                    onItemClickListener.onItemClick(MaterialAutoCompleteTextView.this.modalListPopup.mo10603(), view, i2, j);
                 }
                 MaterialAutoCompleteTextView.this.modalListPopup.dismiss();
             }
         });
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f62585)) {
-            setSimpleItems(typedArrayObtainStyledAttributes.getResourceId(C19343.f62585, 0));
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f65218)) {
+            setSimpleItems(typedArrayObtainStyledAttributes.getResourceId(C20752.f65218, 0));
         }
         typedArrayObtainStyledAttributes.recycle();
     }
@@ -152,7 +152,7 @@ public class MaterialAutoCompleteTextView extends C21488 {
     @Override // android.widget.AutoCompleteTextView
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter(listAdapter);
-        this.modalListPopup.mo1654(getAdapter());
+        this.modalListPopup.mo4052(getAdapter());
     }
 
     @Override // android.widget.TextView
@@ -164,7 +164,7 @@ public class MaterialAutoCompleteTextView extends C21488 {
     @Override // android.widget.AutoCompleteTextView
     public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
         super.setOnItemSelectedListener(onItemSelectedListener);
-        this.modalListPopup.m23833(getOnItemSelectedListener());
+        this.modalListPopup.m25842(getOnItemSelectedListener());
     }
 
     public void setSimpleItems(int i) {
@@ -216,9 +216,9 @@ public class MaterialAutoCompleteTextView extends C21488 {
     @Override // android.widget.AutoCompleteTextView
     public void setDropDownBackgroundDrawable(Drawable drawable) {
         super.setDropDownBackgroundDrawable(drawable);
-        C9287 c9287 = this.modalListPopup;
-        if (c9287 != null) {
-            c9287.setBackgroundDrawable(drawable);
+        C1303 c1303 = this.modalListPopup;
+        if (c1303 != null) {
+            c1303.setBackgroundDrawable(drawable);
         }
     }
 
@@ -267,7 +267,7 @@ public class MaterialAutoCompleteTextView extends C21488 {
         }
         int iMakeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 0);
         int iMakeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 0);
-        int iMin = Math.min(adapter.getCount(), Math.max(0, this.modalListPopup.m23848()) + 15);
+        int iMin = Math.min(adapter.getCount(), Math.max(0, this.modalListPopup.m25857()) + 15);
         int iMax = 0;
         View view = null;
         for (int iMax2 = Math.max(0, iMin - 15); iMax2 < iMin; iMax2++) {
@@ -333,7 +333,7 @@ public class MaterialAutoCompleteTextView extends C21488 {
             if (view2 instanceof TextView) {
                 TextView textView = (TextView) view2;
                 Drawable selectedItemDrawable = MaterialAutoCompleteTextView.this.getText().toString().contentEquals(textView.getText()) ? getSelectedItemDrawable() : null;
-                int i2 = C17648.f53953;
+                int i2 = C1717.f57146;
                 textView.setBackground(selectedItemDrawable);
             }
             return view2;
@@ -347,7 +347,7 @@ public class MaterialAutoCompleteTextView extends C21488 {
             if (this.pressedRippleColor == null) {
                 return colorDrawable;
             }
-            C8184.m21676(colorDrawable, this.selectedItemRippleOverlaidColor);
+            C1248.m23645(colorDrawable, this.selectedItemRippleOverlaidColor);
             return new RippleDrawable(this.pressedRippleColor, colorDrawable, null);
         }
 

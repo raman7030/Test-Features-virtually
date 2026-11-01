@@ -2,7 +2,6 @@ package org.bouncycastle.crypto.modes;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import l.C19370;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -18,17 +17,22 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KGCMBlockCipher implements AEADBlockCipher {
     public static final int MIN_MAC_BITS = 64;
-    public long[] b;
+
+    /* JADX INFO: renamed from: b */
+    public long[] f81192b;
     public final int blockSize;
     public BufferedBlockCipher ctrEngine;
     public BlockCipher engine;
     public boolean forEncryption;
     public byte[] initialAssociatedText;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81193iv;
     public byte[] macBlock;
     public KGCMMultiplier multiplier;
     public ExposedByteArrayOutputStream associatedText = new ExposedByteArrayOutputStream();
@@ -47,20 +51,20 @@ public class KGCMBlockCipher implements AEADBlockCipher {
         int blockSize = this.engine.getBlockSize();
         this.blockSize = blockSize;
         this.initialAssociatedText = new byte[blockSize];
-        this.iv = new byte[blockSize];
+        this.f81193iv = new byte[blockSize];
         this.multiplier = createDefaultMultiplier(blockSize);
-        this.b = new long[blockSize >>> 3];
+        this.f81192b = new long[blockSize >>> 3];
         this.macBlock = null;
     }
 
     private void calculateMac(byte[] bArr, int i, int i2, int i3) {
         int i4 = i + i2;
         while (i < i4) {
-            xorWithInput(this.b, bArr, i);
-            this.multiplier.multiplyH(this.b);
+            xorWithInput(this.f81192b, bArr, i);
+            this.multiplier.multiplyH(this.f81192b);
             i += this.blockSize;
         }
-        long[] jArr = this.b;
+        long[] jArr = this.f81192b;
         jArr[0] = ((((long) i3) & 4294967295L) << 3) ^ jArr[0];
         int i5 = this.blockSize >>> 4;
         jArr[i5] = ((4294967295L & ((long) i2)) << 3) ^ jArr[i5];
@@ -85,8 +89,8 @@ public class KGCMBlockCipher implements AEADBlockCipher {
     private void processAAD(byte[] bArr, int i, int i2) {
         int i3 = i2 + i;
         while (i < i3) {
-            xorWithInput(this.b, bArr, i);
-            this.multiplier.multiplyH(this.b);
+            xorWithInput(this.f81192b, bArr, i);
+            this.multiplier.multiplyH(this.f81192b);
             i += this.blockSize;
         }
     }
@@ -218,7 +222,7 @@ public class KGCMBlockCipher implements AEADBlockCipher {
 
     @Override // org.bouncycastle.crypto.modes.AEADCipher
     public void reset() throws IOException {
-        Arrays.fill(this.b, 0L);
+        Arrays.fill(this.f81192b, 0L);
         this.engine.reset();
         this.data.reset();
         this.associatedText.reset();
@@ -235,14 +239,14 @@ public class KGCMBlockCipher implements AEADBlockCipher {
         if (cipherParameters instanceof AEADParameters) {
             AEADParameters aEADParameters = (AEADParameters) cipherParameters;
             byte[] nonce = aEADParameters.getNonce();
-            byte[] bArr = this.iv;
+            byte[] bArr = this.f81193iv;
             int length = bArr.length - nonce.length;
             Arrays.fill(bArr, (byte) 0);
-            System.arraycopy(nonce, 0, this.iv, length, nonce.length);
+            System.arraycopy(nonce, 0, this.f81193iv, length, nonce.length);
             this.initialAssociatedText = aEADParameters.getAssociatedText();
             int macSize = aEADParameters.getMacSize();
             if (macSize < 64 || macSize > (this.blockSize << 3) || (macSize & 7) != 0) {
-                throw new IllegalArgumentException(C19370.m44628(macSize, "Invalid value for MAC size: "));
+                throw new IllegalArgumentException(C20778.m46922(macSize, "Invalid value for MAC size: "));
             }
             this.macSize = macSize >>> 3;
             key = aEADParameters.getKey();
@@ -256,16 +260,16 @@ public class KGCMBlockCipher implements AEADBlockCipher {
             }
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();
-            byte[] bArr3 = this.iv;
+            byte[] bArr3 = this.f81193iv;
             int length2 = bArr3.length - iv.length;
             Arrays.fill(bArr3, (byte) 0);
-            System.arraycopy(iv, 0, this.iv, length2, iv.length);
+            System.arraycopy(iv, 0, this.f81193iv, length2, iv.length);
             this.initialAssociatedText = null;
             this.macSize = this.blockSize;
             key = (KeyParameter) parametersWithIV.getParameters();
         }
         this.macBlock = new byte[this.blockSize];
-        this.ctrEngine.init(true, new ParametersWithIV(key, this.iv));
+        this.ctrEngine.init(true, new ParametersWithIV(key, this.f81193iv));
         this.engine.init(true, key);
     }
 }

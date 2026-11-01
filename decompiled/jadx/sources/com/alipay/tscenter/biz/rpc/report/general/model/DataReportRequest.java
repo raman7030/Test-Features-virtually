@@ -9,6 +9,8 @@ public class DataReportRequest implements Serializable {
     public Map bizData;
     public String bizType;
     public Map deviceData;
-    public String os;
+
+    /* JADX INFO: renamed from: os */
+    public String f1227os;
     public String rpcVersion;
 }

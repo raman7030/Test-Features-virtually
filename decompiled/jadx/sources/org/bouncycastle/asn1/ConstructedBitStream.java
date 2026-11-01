@@ -3,11 +3,11 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import l.C0794;
-import l.InterfaceC14905;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ConstructedBitStream extends InputStream implements InterfaceC14905 {
+public class ConstructedBitStream extends InputStream implements InterfaceC16534 {
     public ASN1BitStringParser _currentParser;
     public InputStream _currentStream;
     public final boolean _octetAligned;
@@ -182,8 +182,8 @@ public class ConstructedBitStream extends InputStream implements InterfaceC14905
         throw new UnsupportedOperationException("Method not decompiled: org.bouncycastle.asn1.ConstructedBitStream.read(byte[], int, int):int");
     }
 
-    @Override // java.io.InputStream, l.InterfaceC14905
+    @Override // java.io.InputStream, p067l.InterfaceC16534
     public /* synthetic */ long transferTo(OutputStream outputStream) {
-        return C0794.transferTo(this, outputStream);
+        return C3123.transferTo(this, outputStream);
     }
 }

@@ -1,7 +1,7 @@
 package org.bouncycastle.crypto.digests;
 
 import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.io.LimitedBuffer;
+import org.bouncycastle.util.p082io.LimitedBuffer;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Prehash implements Digest {

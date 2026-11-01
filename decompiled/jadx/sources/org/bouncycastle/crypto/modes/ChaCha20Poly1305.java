@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.modes;
 
-import l.C19370;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.InvalidCipherTextException;
@@ -13,6 +12,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ChaCha20Poly1305 implements AEADCipher {
@@ -455,7 +455,7 @@ public class ChaCha20Poly1305 implements AEADCipher {
             AEADParameters aEADParameters = (AEADParameters) cipherParameters;
             int macSize = aEADParameters.getMacSize();
             if (128 != macSize) {
-                throw new IllegalArgumentException(C19370.m44628(macSize, "Invalid value for MAC size: "));
+                throw new IllegalArgumentException(C20778.m46922(macSize, "Invalid value for MAC size: "));
             }
             key = aEADParameters.getKey();
             iv = aEADParameters.getNonce();

@@ -8,10 +8,10 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import l.C19370;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class BaseKeyFactorySpi extends KeyFactorySpi implements AsymmetricKeyInfoConverter {
@@ -34,7 +34,7 @@ public abstract class BaseKeyFactorySpi extends KeyFactorySpi implements Asymmet
         try {
             return generatePrivate(PrivateKeyInfo.getInstance(((PKCS8EncodedKeySpec) keySpec).getEncoded()));
         } catch (Exception e) {
-            throw new InvalidKeySpecException(C19370.m44629(e, new StringBuilder("encoded key spec not recognized: ")));
+            throw new InvalidKeySpecException(C20778.m46923(e, new StringBuilder("encoded key spec not recognized: ")));
         }
     }
 
@@ -46,7 +46,7 @@ public abstract class BaseKeyFactorySpi extends KeyFactorySpi implements Asymmet
         try {
             return generatePublic(SubjectPublicKeyInfo.getInstance(((X509EncodedKeySpec) keySpec).getEncoded()));
         } catch (Exception e) {
-            throw new InvalidKeySpecException(C19370.m44629(e, new StringBuilder("encoded key spec not recognized: ")));
+            throw new InvalidKeySpecException(C20778.m46923(e, new StringBuilder("encoded key spec not recognized: ")));
         }
     }
 }

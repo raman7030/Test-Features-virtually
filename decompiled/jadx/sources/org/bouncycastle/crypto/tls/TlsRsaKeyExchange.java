@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.tls;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -68,7 +68,7 @@ public abstract class TlsRsaKeyExchange {
         if (iBitLength < 512) {
             throw new IllegalArgumentException("'privateKey' must be at least 512 bits");
         }
-        CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(d.a, ConstraintUtils.bitsOfSecurityFor(modulus), rSAKeyParameters, CryptoServicePurpose.DECRYPTION));
+        CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(C0187d.f883a, ConstraintUtils.bitsOfSecurityFor(modulus), rSAKeyParameters, CryptoServicePurpose.DECRYPTION));
         if ((i3 & 65535) != i3) {
             throw new IllegalArgumentException("'protocolVersion' must be a 16 bit value");
         }

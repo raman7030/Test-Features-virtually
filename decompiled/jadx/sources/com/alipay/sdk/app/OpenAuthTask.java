@@ -10,33 +10,55 @@ import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.alipay.sdk.m.y.c;
-import com.alipay.sdk.m.y.g;
-import com.alipay.sdk.m.y.q;
+import com.alipay.sdk.p010m.p033l.C0161a;
+import com.alipay.sdk.p010m.p035m.C0167a;
+import com.alipay.sdk.p010m.p035m.C0168b;
+import com.alipay.sdk.p010m.p039o.C0180b;
+import com.alipay.sdk.p010m.p055w.C0233a;
+import com.alipay.sdk.p010m.p055w.C0234b;
+import com.alipay.sdk.p010m.p058y.C0240c;
+import com.alipay.sdk.p010m.p058y.C0244g;
+import com.alipay.sdk.p010m.p058y.C0254q;
 import com.umeng.analytics.AnalyticsConfig;
-import com.umeng.analytics.pro.d;
+import com.umeng.analytics.pro.C0708d;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import l.ConcurrentMapC10942;
 import org.json.JSONException;
 import org.json.JSONObject;
+import p067l.ConcurrentMapC12768;
 
 /* JADX INFO: compiled from: N673 */
 /* JADX INFO: loaded from: classes.dex */
 public final class OpenAuthTask {
     public static final int Duplex = 5000;
     public static final int NOT_INSTALLED = 4001;
-    public static final int OK = 9000;
+
+    /* JADX INFO: renamed from: OK */
+    public static final int f239OK = 9000;
     public static final int SYS_ERR = 4000;
-    public static final Map e = new ConcurrentMapC10942();
-    public static long f = -1;
-    public static final int g = 122;
-    public final Activity b;
-    public Callback c;
-    public volatile boolean a = false;
-    public final Handler d = new Handler(Looper.getMainLooper());
+
+    /* JADX INFO: renamed from: e */
+    public static final Map f240e = new ConcurrentMapC12768();
+
+    /* JADX INFO: renamed from: f */
+    public static long f241f = -1;
+
+    /* JADX INFO: renamed from: g */
+    public static final int f242g = 122;
+
+    /* JADX INFO: renamed from: b */
+    public final Activity f244b;
+
+    /* JADX INFO: renamed from: c */
+    public Callback f245c;
+
+    /* JADX INFO: renamed from: a */
+    public volatile boolean f243a = false;
+
+    /* JADX INFO: renamed from: d */
+    public final Handler f246d = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: compiled from: N673 */
     public enum BizType {
@@ -56,145 +78,157 @@ public final class OpenAuthTask {
         void onResult(int i, String str, Bundle bundle);
     }
 
+    /* JADX INFO: renamed from: com.alipay.sdk.app.OpenAuthTask$a */
     /* JADX INFO: compiled from: N673 */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] a;
+    public /* synthetic */ class C0072a {
+
+        /* JADX INFO: renamed from: a */
+        public static final /* synthetic */ int[] f247a;
 
         static {
             int[] iArr = new int[BizType.values().length];
-            a = iArr;
+            f247a = iArr;
             try {
                 iArr[BizType.Deduct.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[BizType.AccountAuth.ordinal()] = 2;
+                f247a[BizType.AccountAuth.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[BizType.Invoice.ordinal()] = 3;
+                f247a[BizType.Invoice.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
+    /* JADX INFO: renamed from: com.alipay.sdk.app.OpenAuthTask$b */
     /* JADX INFO: compiled from: N673 */
-    public final class b implements Runnable {
-        public final int a;
-        public final String b;
-        public final Bundle c;
+    public final class RunnableC0073b implements Runnable {
 
-        public /* synthetic */ b(OpenAuthTask openAuthTask, int i, String str, Bundle bundle, a aVar) {
+        /* JADX INFO: renamed from: a */
+        public final int f248a;
+
+        /* JADX INFO: renamed from: b */
+        public final String f249b;
+
+        /* JADX INFO: renamed from: c */
+        public final Bundle f250c;
+
+        public /* synthetic */ RunnableC0073b(OpenAuthTask openAuthTask, int i, String str, Bundle bundle, C0072a c0072a) {
             this(i, str, bundle);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (OpenAuthTask.this.c != null) {
-                OpenAuthTask.this.c.onResult(this.a, this.b, this.c);
+            if (OpenAuthTask.this.f245c != null) {
+                OpenAuthTask.this.f245c.onResult(this.f248a, this.f249b, this.f250c);
             }
         }
 
-        public b(int i, String str, Bundle bundle) {
-            this.a = i;
-            this.b = str;
-            this.c = bundle;
+        public RunnableC0073b(int i, String str, Bundle bundle) {
+            this.f248a = i;
+            this.f249b = str;
+            this.f250c = bundle;
         }
     }
 
     public OpenAuthTask(Activity activity) {
-        this.b = activity;
-        com.alipay.sdk.m.w.b.c().a(activity);
+        this.f244b = activity;
+        C0234b.m1121c().m1124a(activity);
     }
 
     public void execute(String str, BizType bizType, Map map, Callback callback, boolean z) {
-        com.alipay.sdk.m.w.a aVar = new com.alipay.sdk.m.w.a(this.b, String.valueOf(map), "oa-" + bizType);
-        this.c = callback;
-        if (a(aVar, str, bizType, map, z)) {
-            com.alipay.sdk.m.m.a.b(this.b, aVar, "", aVar.d);
+        C0233a c0233a = new C0233a(this.f244b, String.valueOf(map), "oa-" + bizType);
+        this.f245c = callback;
+        if (m408a(c0233a, str, bizType, map, z)) {
+            C0167a.m754b(this.f244b, c0233a, "", c0233a.f1098d);
         }
     }
 
-    public final boolean a(com.alipay.sdk.m.w.a aVar, String str, BizType bizType, Map map, boolean z) {
+    /* JADX INFO: renamed from: a */
+    public final boolean m408a(C0233a c0233a, String str, BizType bizType, Map map, boolean z) {
         PackageInfo packageInfo;
-        String strA;
-        if (this.a) {
-            this.d.post(new b(this, SYS_ERR, "该 OpenAuthTask 已在执行", null, null));
+        String strM406a;
+        if (this.f243a) {
+            this.f246d.post(new RunnableC0073b(this, SYS_ERR, "该 OpenAuthTask 已在执行", null, null));
             return true;
         }
-        this.a = true;
+        this.f243a = true;
         long jElapsedRealtime = SystemClock.elapsedRealtime();
-        if (jElapsedRealtime - f <= c.a) {
-            this.d.post(new b(this, Duplex, "3s 内重复支付", null, null));
+        if (jElapsedRealtime - f241f <= C0240c.f1145a) {
+            this.f246d.post(new RunnableC0073b(this, Duplex, "3s 内重复支付", null, null));
             return true;
         }
-        f = jElapsedRealtime;
-        com.alipay.sdk.m.l.a.a("");
-        String strA2 = q.a(32);
+        f241f = jElapsedRealtime;
+        C0161a.m726a("");
+        String strM1253a = C0254q.m1253a(32);
         HashMap map2 = new HashMap(map);
-        map2.put("mqpPkgName", this.b.getPackageName());
+        map2.put("mqpPkgName", this.f244b.getPackageName());
         map2.put("mqpScene", "sdk");
-        List listM = com.alipay.sdk.m.o.b.i().m();
-        if (!com.alipay.sdk.m.o.b.i().g || listM == null) {
-            listM = com.alipay.sdk.m.l.a.d;
+        List listM862m = C0180b.m829i().m862m();
+        if (!C0180b.m829i().f825g || listM862m == null) {
+            listM862m = C0161a.f547d;
         }
-        q.c cVarA = q.a(aVar, this.b, listM);
-        if (cVarA == null || cVarA.a(aVar) || cVarA.a() || (packageInfo = cVarA.a) == null || packageInfo.versionCode < 122) {
+        C0254q.c cVarM1251a = C0254q.m1251a(c0233a, this.f244b, listM862m);
+        if (cVarM1251a == null || cVarM1251a.m1304a(c0233a) || cVarM1251a.m1303a() || (packageInfo = cVarM1251a.f1224a) == null || packageInfo.versionCode < 122) {
             if (!z) {
-                this.d.post(new b(this, NOT_INSTALLED, "支付宝未安装或签名错误", null, null));
+                this.f246d.post(new RunnableC0073b(this, NOT_INSTALLED, "支付宝未安装或签名错误", null, null));
                 return true;
             }
             map2.put("mqpScheme", String.valueOf(str));
-            map2.put("mqpNotifyName", strA2);
+            map2.put("mqpNotifyName", strM1253a);
             map2.put("mqpScene", "landing");
-            String strA3 = a(bizType, map2);
-            Intent intent = new Intent(this.b, (Class<?>) H5OpenAuthActivity.class);
-            intent.putExtra("url", "https://render.alipay.com/p/s/i?scheme=" + Uri.encode(strA3));
-            com.alipay.sdk.m.w.a.C0028a.a(aVar, intent);
-            this.b.startActivity(intent);
+            String strM407a = m407a(bizType, map2);
+            Intent intent = new Intent(this.f244b, (Class<?>) H5OpenAuthActivity.class);
+            intent.putExtra("url", "https://render.alipay.com/p/s/i?scheme=" + Uri.encode(strM407a));
+            C0233a.a.m1119a(c0233a, intent);
+            this.f244b.startActivity(intent);
             return false;
         }
         try {
             try {
-                HashMap mapA = com.alipay.sdk.m.w.a.a(aVar);
-                mapA.put("ts_scheme", String.valueOf(SystemClock.elapsedRealtime()));
-                map2.put("mqpLoc", new JSONObject(mapA).toString());
+                HashMap mapM1091a = C0233a.m1091a(c0233a);
+                mapM1091a.put("ts_scheme", String.valueOf(SystemClock.elapsedRealtime()));
+                map2.put("mqpLoc", new JSONObject(mapM1091a).toString());
             } catch (Throwable th) {
-                com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, "OpenAuthLocEx", th);
+                C0167a.m751a(c0233a, C0168b.f618l, "OpenAuthLocEx", th);
             }
-            String strA4 = a(bizType, map2);
-            e.put(strA2, this.c);
+            String strM407a2 = m407a(bizType, map2);
+            f240e.put(strM1253a, this.f245c);
             try {
-                strA = a(jElapsedRealtime, strA2, bizType, strA4);
-            } catch (JSONException e2) {
-                com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.q0, e2);
-                strA = null;
+                strM406a = m406a(jElapsedRealtime, strM1253a, bizType, strM407a2);
+            } catch (JSONException e) {
+                C0167a.m751a(c0233a, C0168b.f618l, C0168b.f629q0, e);
+                strM406a = null;
             }
-            if (TextUtils.isEmpty(strA)) {
-                this.d.post(new b(this, SYS_ERR, "参数错误", null, null));
+            if (TextUtils.isEmpty(strM406a)) {
+                this.f246d.post(new RunnableC0073b(this, SYS_ERR, "参数错误", null, null));
                 return true;
             }
-            Intent intent2 = new Intent("android.intent.action.VIEW", new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(AlipayApi.c, "20001129").appendQueryParameter("payload", strA).build());
+            Intent intent2 = new Intent("android.intent.action.VIEW", new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(AlipayApi.f219c, "20001129").appendQueryParameter("payload", strM406a).build());
             intent2.addFlags(268435456);
-            intent2.setPackage(cVarA.a.packageName);
+            intent2.setPackage(cVarM1251a.f1224a.packageName);
             try {
-                com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.Y, "" + jElapsedRealtime);
-                com.alipay.sdk.m.w.a.C0028a.a(aVar, strA2);
-                this.b.startActivity(intent2);
+                C0167a.m750a(c0233a, C0168b.f618l, C0168b.f604Y, "" + jElapsedRealtime);
+                C0233a.a.m1120a(c0233a, strM1253a);
+                this.f244b.startActivity(intent2);
             } catch (Throwable th2) {
-                com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, "StartWalletEx", th2);
+                C0167a.m751a(c0233a, C0168b.f618l, "StartWalletEx", th2);
             }
             return false;
         } catch (Throwable unused) {
-            this.d.post(new b(this, SYS_ERR, "业务参数错误", null, null));
+            this.f246d.post(new RunnableC0073b(this, SYS_ERR, "业务参数错误", null, null));
             return true;
         }
     }
 
-    public final String a(BizType bizType, Map map) {
+    /* JADX INFO: renamed from: a */
+    public final String m407a(BizType bizType, Map map) {
         if (bizType != null) {
-            Uri.Builder builderAppendQueryParameter = new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(AlipayApi.c, bizType.appId);
-            if (a.a[bizType.ordinal()] == 1) {
+            Uri.Builder builderAppendQueryParameter = new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(AlipayApi.f219c, bizType.appId);
+            if (C0072a.f247a[bizType.ordinal()] == 1) {
                 builderAppendQueryParameter.appendQueryParameter("appClearTop", "false").appendQueryParameter("startMultApp", "YES");
             }
             for (Map.Entry entry : map.entrySet()) {
@@ -205,26 +239,28 @@ public final class OpenAuthTask {
         throw new RuntimeException("missing bizType");
     }
 
-    public final String a(long j, String str, BizType bizType, String str2) throws JSONException {
+    /* JADX INFO: renamed from: a */
+    public final String m406a(long j, String str, BizType bizType, String str2) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put(AnalyticsConfig.RTD_START_TIME, String.valueOf(j));
-        jSONObject.put(d.aw, str);
-        jSONObject.put("package", this.b.getPackageName());
+        jSONObject.put(C0708d.f2642aw, str);
+        jSONObject.put("package", this.f244b.getPackageName());
         if (bizType != null) {
-            jSONObject.put(AlipayApi.c, bizType.appId);
+            jSONObject.put(AlipayApi.f219c, bizType.appId);
         }
         jSONObject.put("sdkVersion", "h.a.3.8.40");
         jSONObject.put("mqpURL", str2);
-        return Base64.encodeToString(jSONObject.toString().getBytes(Charset.forName(com.alipay.sdk.m.w.a.D)), 2);
+        return Base64.encodeToString(jSONObject.toString().getBytes(Charset.forName(C0233a.f1077D)), 2);
     }
 
-    public static void a(String str, int i, String str2, Bundle bundle) {
-        Callback callback = (Callback) e.remove(str);
+    /* JADX INFO: renamed from: a */
+    public static void m405a(String str, int i, String str2, Bundle bundle) {
+        Callback callback = (Callback) f240e.remove(str);
         if (callback != null) {
             try {
                 callback.onResult(i, str2, bundle);
             } catch (Throwable th) {
-                g.a(th);
+                C0244g.m1199a(th);
             }
         }
     }

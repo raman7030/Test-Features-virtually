@@ -1,10 +1,10 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.crypto.digests.Haraka256Digest;
 import org.bouncycastle.crypto.digests.Haraka512Digest;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Haraka {
@@ -43,7 +43,7 @@ public class Haraka {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest512", "MessageDigest.HARAKA-512", C5368.m15340(str, "$Digest256", "MessageDigest.HARAKA-256", sb, configurableProvider), configurableProvider);
+            C14403.m33021(str, "$Digest512", "MessageDigest.HARAKA-512", C7470.m17249(str, "$Digest256", "MessageDigest.HARAKA-256", sb, configurableProvider), configurableProvider);
         }
     }
 }

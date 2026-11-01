@@ -5,27 +5,31 @@ import java.io.IOException;
 /* JADX INFO: compiled from: N673 */
 /* JADX INFO: loaded from: classes.dex */
 public class FileSystemException extends IOException {
-    private final String a;
-    private final String b;
+
+    /* JADX INFO: renamed from: a */
+    private final String f3685a;
+
+    /* JADX INFO: renamed from: b */
+    private final String f3686b;
 
     public FileSystemException(String str) {
         super((String) null);
-        this.a = str;
-        this.b = null;
+        this.f3685a = str;
+        this.f3686b = null;
     }
 
     public FileSystemException(String str, String str2, String str3) {
         super(str3);
-        this.a = str;
-        this.b = str2;
+        this.f3685a = str;
+        this.f3686b = str2;
     }
 
     public String getFile() {
-        return this.a;
+        return this.f3685a;
     }
 
     public String getOtherFile() {
-        return this.b;
+        return this.f3686b;
     }
 
     public String getReason() {
@@ -34,16 +38,16 @@ public class FileSystemException extends IOException {
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        if (this.a == null && this.b == null) {
+        if (this.f3685a == null && this.f3686b == null) {
             return getReason();
         }
         StringBuilder sb = new StringBuilder();
-        if (this.a != null) {
-            sb.append(this.a);
+        if (this.f3685a != null) {
+            sb.append(this.f3685a);
         }
-        if (this.b != null) {
+        if (this.f3686b != null) {
             sb.append(" -> ");
-            sb.append(this.b);
+            sb.append(this.f3686b);
         }
         if (getReason() != null) {
             sb.append(": ");

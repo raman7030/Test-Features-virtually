@@ -6,12 +6,14 @@ import java.security.KeyStore;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BCLoadStoreParameter implements KeyStore.LoadStoreParameter {
-    public final InputStream in;
+
+    /* JADX INFO: renamed from: in */
+    public final InputStream f81333in;
     public final OutputStream out;
     public final KeyStore.ProtectionParameter protectionParameter;
 
     public BCLoadStoreParameter(InputStream inputStream, OutputStream outputStream, KeyStore.ProtectionParameter protectionParameter) {
-        this.in = inputStream;
+        this.f81333in = inputStream;
         this.out = outputStream;
         this.protectionParameter = protectionParameter;
     }
@@ -34,7 +36,7 @@ public class BCLoadStoreParameter implements KeyStore.LoadStoreParameter {
 
     public InputStream getInputStream() {
         if (this.out == null) {
-            return this.in;
+            return this.f81333in;
         }
         throw new UnsupportedOperationException("parameter configured for storage OutputStream present");
     }

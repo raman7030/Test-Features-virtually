@@ -1,9 +1,8 @@
 package org.bouncycastle.crypto.engines;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
-import l.C20177;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -18,11 +17,12 @@ import org.bouncycastle.crypto.signers.PSSSigner;
 import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
 import org.bouncycastle.util.encoders.Base32Encoder;
 import org.bouncycastle.util.encoders.UTF8;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RC2Engine implements BlockCipher {
     public static final int BLOCK_SIZE = 8;
-    public static byte[] piTable = {-39, 120, -7, -60, 25, -35, -75, -19, 40, -23, -3, 121, 74, -96, -40, -99, -58, 126, 55, -125, 43, 118, 83, -114, 98, 76, 100, -120, 68, -117, -5, -94, 23, -102, 89, -11, -121, -77, 79, 19, 97, 69, 109, -115, 9, -127, 125, 50, -67, -113, 64, -21, -122, -73, 123, 11, -16, -107, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 92, 107, 78, bo.h, 84, -42, 101, -109, -50, UTF8.S_P4B, -78, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 115, 86, -64, 20, -89, -116, -15, -36, 18, 117, -54, bo.j, 59, -66, -28, -47, 66, Base32Encoder.DEFAULT_PADDING, -44, UTF8.S_P3A, -93, 60, -74, 38, KeyFactorySpi.x448_type, -65, cb.f77931l, -38, 70, 105, 7, 87, 39, -14, 29, -101, PSSSigner.TRAILER_IMPLICIT, -108, 67, 3, -8, 17, -57, -10, -112, -17, 62, -25, 6, -61, -43, 47, -56, 102, 30, -41, 8, -24, -22, -34, GCMSIVBlockCipher.MASK, 82, -18, -9, -124, -86, 114, -84, 53, 77, 106, 42, -106, 26, -46, KeyFactorySpi.Ed448_type, 90, 21, 73, 116, 75, -97, -48, 94, 4, 24, -92, -20, -62, bo.k, 65, KeyFactorySpi.x25519_type, 15, 81, -53, -52, 36, -111, -81, UTF8.S_P4A, -95, -12, KeyFactorySpi.Ed25519_type, 57, -103, 124, 58, -123, 35, -72, -76, 122, -4, 2, 54, 91, 37, 85, -105, 49, 45, 93, -6, -104, -29, -118, -110, -82, 5, -33, 41, 16, 103, 108, -70, -55, -45, 0, -26, -49, GCMSIVBlockCipher.ADD, -98, -88, 44, 99, 22, 1, 63, 88, -30, -119, -87, cb.k, 56, 52, 27, -85, 51, -1, -80, -69, 72, 12, 95, -71, -79, -51, 46, -59, -13, -37, 71, -27, -91, -100, 119, 10, -90, UTF8.S_CS3, 104, -2, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -63, -83};
+    public static byte[] piTable = {-39, 120, -7, -60, 25, -35, -75, -19, 40, -23, -3, 121, 74, -96, -40, -99, -58, 126, 55, -125, 43, 118, 83, -114, 98, 76, 100, -120, 68, -117, -5, -94, 23, -102, 89, -11, -121, -77, 79, 19, 97, 69, 109, -115, 9, -127, 125, 50, -67, -113, 64, -21, -122, -73, 123, 11, -16, -107, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 92, 107, 78, C0684bo.f2503h, 84, -42, 101, -109, -50, UTF8.S_P4B, -78, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 115, 86, -64, 20, -89, -116, -15, -36, 18, 117, -54, C0684bo.f2505j, 59, -66, -28, -47, 66, Base32Encoder.DEFAULT_PADDING, -44, UTF8.S_P3A, -93, 60, -74, 38, KeyFactorySpi.x448_type, -65, C0698cb.f2570l, -38, 70, 105, 7, 87, 39, -14, 29, -101, PSSSigner.TRAILER_IMPLICIT, -108, 67, 3, -8, 17, -57, -10, -112, -17, 62, -25, 6, -61, -43, 47, -56, 102, 30, -41, 8, -24, -22, -34, GCMSIVBlockCipher.MASK, 82, -18, -9, -124, -86, 114, -84, 53, 77, 106, 42, -106, 26, -46, KeyFactorySpi.Ed448_type, 90, 21, 73, 116, 75, -97, -48, 94, 4, 24, -92, -20, -62, C0684bo.f2506k, 65, KeyFactorySpi.x25519_type, 15, 81, -53, -52, 36, -111, -81, UTF8.S_P4A, -95, -12, KeyFactorySpi.Ed25519_type, 57, -103, 124, 58, -123, 35, -72, -76, 122, -4, 2, 54, 91, 37, 85, -105, 49, 45, 93, -6, -104, -29, -118, -110, -82, 5, -33, 41, 16, 103, 108, -70, -55, -45, 0, -26, -49, GCMSIVBlockCipher.ADD, -98, -88, 44, 99, 22, 1, 63, 88, -30, -119, -87, C0698cb.f2569k, 56, 52, 27, -85, 51, -1, -80, -69, 72, 12, 95, -71, -79, -51, 46, -59, -13, -37, 71, -27, -91, -100, 119, 10, -90, UTF8.S_CS3, 104, -2, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -63, -83};
     public boolean encrypting;
     public int[] workingKey;
 
@@ -197,7 +197,7 @@ public class RC2Engine implements BlockCipher {
             key = rC2Parameters.getKey();
         } else {
             if (!(cipherParameters instanceof KeyParameter)) {
-                throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to RC2 init - ", cipherParameters));
+                throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to RC2 init - ", cipherParameters));
             }
             key = ((KeyParameter) cipherParameters).getKey();
             this.workingKey = generateWorkingKey(key, key.length * 8);

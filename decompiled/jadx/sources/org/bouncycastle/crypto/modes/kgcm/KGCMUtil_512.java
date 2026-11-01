@@ -178,7 +178,8 @@ public class KGCMUtil_512 {
         }
     }
 
-    public static void x(long[] jArr) {
+    /* JADX INFO: renamed from: x */
+    public static void m55409x(long[] jArr) {
         jArr[0] = 2;
         jArr[1] = 0;
         jArr[2] = 0;

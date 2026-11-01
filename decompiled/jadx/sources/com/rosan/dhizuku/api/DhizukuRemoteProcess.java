@@ -7,7 +7,7 @@ import com.rosan.dhizuku.aidl.IDhizukuRemoteProcess;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.concurrent.TimeUnit;
-import l.C11003;
+import p067l.C12826;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DhizukuRemoteProcess extends Process {
@@ -18,7 +18,7 @@ public class DhizukuRemoteProcess extends Process {
     public IDhizukuRemoteProcess remote;
 
     public DhizukuRemoteProcess(IDhizukuRemoteProcess iDhizukuRemoteProcess) {
-        C11003.requireNonNull(iDhizukuRemoteProcess);
+        C12826.requireNonNull(iDhizukuRemoteProcess);
         this.remote = iDhizukuRemoteProcess;
         try {
             iDhizukuRemoteProcess.asBinder().linkToDeath(new IBinder.DeathRecipient() { // from class: com.rosan.dhizuku.api.DhizukuRemoteProcess$$ExternalSyntheticLambda0

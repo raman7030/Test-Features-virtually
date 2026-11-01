@@ -3,8 +3,8 @@ package com.google.android.material.textfield;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
-import l.C3820;
-import l.C6642;
+import p067l.C5999;
+import p067l.C8681;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PasswordToggleEndIconDelegate extends EndIconDelegate {
@@ -37,7 +37,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
 
     public PasswordToggleEndIconDelegate(EndCompoundLayout endCompoundLayout, int i) {
         super(endCompoundLayout);
-        this.iconResId = C6642.f20460;
+        this.iconResId = C8681.f23336;
         this.onIconClickListener = new View.OnClickListener() { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate$$ExternalSyntheticLambda0
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -71,7 +71,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
 
     @Override // com.google.android.material.textfield.EndIconDelegate
     public int getIconContentDescriptionResId() {
-        return C3820.f12096;
+        return C5999.f14903;
     }
 
     @Override // com.google.android.material.textfield.EndIconDelegate

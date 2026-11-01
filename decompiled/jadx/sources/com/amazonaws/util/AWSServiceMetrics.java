@@ -8,15 +8,15 @@ public enum AWSServiceMetrics implements MetricType {
     HttpClientGetConnectionTime("HttpClient");
 
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public final String f821;
+    /* JADX INFO: renamed from: ᩸ */
+    public final String f1981;
 
     AWSServiceMetrics(String str) {
-        this.f821 = str;
+        this.f1981 = str;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public String m737() {
-        return this.f821;
+    /* JADX INFO: renamed from: ֫ */
+    public String m1902() {
+        return this.f1981;
     }
 }

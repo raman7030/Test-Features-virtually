@@ -1,6 +1,5 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -13,6 +12,7 @@ import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class XMSSPrivateKey extends ASN1Object {
@@ -59,10 +59,10 @@ public class XMSSPrivateKey extends ASN1Object {
         }
         ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(aSN1Sequence.getObjectAt(1));
         this.index = ASN1Integer.getInstance(aSN1Sequence2.getObjectAt(0)).intValueExact();
-        this.secretKeySeed = C16014.m37869(aSN1Sequence2, 1);
-        this.secretKeyPRF = C16014.m37869(aSN1Sequence2, 2);
-        this.publicSeed = C16014.m37869(aSN1Sequence2, 3);
-        this.root = C16014.m37869(aSN1Sequence2, 4);
+        this.secretKeySeed = C17588.m40055(aSN1Sequence2, 1);
+        this.secretKeyPRF = C17588.m40055(aSN1Sequence2, 2);
+        this.publicSeed = C17588.m40055(aSN1Sequence2, 3);
+        this.root = C17588.m40055(aSN1Sequence2, 4);
         if (aSN1Sequence2.size() == 6) {
             ASN1TaggedObject aSN1TaggedObject = ASN1TaggedObject.getInstance(aSN1Sequence2.getObjectAt(5));
             if (aSN1TaggedObject.getTagNo() != 0) {

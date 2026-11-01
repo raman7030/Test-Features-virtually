@@ -8,8 +8,8 @@ import java.security.NoSuchAlgorithmException;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Md5Utils {
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static byte[] m784(InputStream inputStream) {
+    /* JADX INFO: renamed from: ֫ */
+    public static byte[] m1949(InputStream inputStream) {
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
         try {
             try {
@@ -25,7 +25,7 @@ public class Md5Utils {
                             bufferedInputStream.close();
                             return bArrDigest;
                         } catch (Exception e) {
-                            LogFactory.m302(Md5Utils.class).mo294("Unable to close input stream of hash candidate: " + e);
+                            LogFactory.m1468(Md5Utils.class).mo1460("Unable to close input stream of hash candidate: " + e);
                             return bArrDigest;
                         }
                     }
@@ -37,7 +37,7 @@ public class Md5Utils {
             try {
                 bufferedInputStream.close();
             } catch (Exception e3) {
-                LogFactory.m302(Md5Utils.class).mo294("Unable to close input stream of hash candidate: " + e3);
+                LogFactory.m1468(Md5Utils.class).mo1460("Unable to close input stream of hash candidate: " + e3);
             }
             throw th;
         }

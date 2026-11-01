@@ -4,7 +4,9 @@ import org.bouncycastle.pqc.crypto.KEMParameters;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MLKEMParameters implements KEMParameters {
-    public final int k;
+
+    /* JADX INFO: renamed from: k */
+    public final int f81676k;
     public final String name;
     public final int sessionKeySize;
     public static final MLKEMParameters ml_kem_512 = new MLKEMParameters("ML-KEM-512", 2, 256);
@@ -13,12 +15,12 @@ public class MLKEMParameters implements KEMParameters {
 
     public MLKEMParameters(String str, int i, int i2) {
         this.name = str;
-        this.k = i;
+        this.f81676k = i;
         this.sessionKeySize = i2;
     }
 
     public MLKEMEngine getEngine() {
-        return new MLKEMEngine(this.k);
+        return new MLKEMEngine(this.f81676k);
     }
 
     public String getName() {

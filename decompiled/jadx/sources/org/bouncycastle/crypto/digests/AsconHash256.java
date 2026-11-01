@@ -47,7 +47,7 @@ public class AsconHash256 extends AsconBaseDigest {
     @Override // org.bouncycastle.crypto.digests.BufferBaseDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        this.p.set(-7269279749984954751L, 5459383224871899602L, -5880230600644446182L, 4359436768738168243L, 1899470422303676269L);
+        this.f80789p.set(-7269279749984954751L, 5459383224871899602L, -5880230600644446182L, 4359436768738168243L, 1899470422303676269L);
     }
 
     @Override // org.bouncycastle.crypto.digests.AsconBaseDigest

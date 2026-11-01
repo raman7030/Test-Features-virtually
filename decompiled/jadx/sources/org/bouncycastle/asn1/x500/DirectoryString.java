@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.x500;
 
-import l.C3200;
 import org.bouncycastle.asn1.ASN1BMPString;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Encodable;
@@ -13,6 +12,7 @@ import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.ASN1UTF8String;
 import org.bouncycastle.asn1.ASN1UniversalString;
 import org.bouncycastle.asn1.DERUTF8String;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DirectoryString extends ASN1Object implements ASN1Choice, ASN1String {
@@ -61,7 +61,7 @@ public class DirectoryString extends ASN1Object implements ASN1Choice, ASN1Strin
         if (obj instanceof ASN1BMPString) {
             return new DirectoryString((ASN1BMPString) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 
     public static DirectoryString getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {

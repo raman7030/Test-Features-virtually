@@ -17,9 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
-import l.C20195;
-import l.C5127;
-import l.C7416;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -43,13 +40,16 @@ import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C21562;
+import p067l.C7241;
+import p067l.C9417;
 
 /* JADX INFO: loaded from: classes.dex */
 public class OcspCache {
     public static final int DEFAULT_MAX_RESPONSE_SIZE = 32768;
     public static final int DEFAULT_TIMEOUT = 15000;
-    public static Map cache = C20195.synchronizedMap(new WeakHashMap());
+    public static Map cache = C21562.synchronizedMap(new WeakHashMap());
 
     public static boolean isCertIDFoundAndCurrent(BasicOCSPResponse basicOCSPResponse, Date date, CertID certID) {
         ASN1Sequence responses = ResponseData.getInstance(basicOCSPResponse.getTbsResponseData()).getResponses();
@@ -86,13 +86,13 @@ public class OcspCache {
             ASN1EncodableVector aSN1EncodableVector2 = new ASN1EncodableVector();
             byte[] bArrClone = null;
             for (int i = 0; i != list.size(); i++) {
-                Extension extensionM19940 = C7416.m19940(list.get(i));
-                ASN1ObjectIdentifier aSN1ObjectIdentifier = new ASN1ObjectIdentifier(extensionM19940.getId());
-                DEROctetString dEROctetString = new DEROctetString(extensionM19940.getValue());
+                Extension extensionM21914 = C9417.m21914(list.get(i));
+                ASN1ObjectIdentifier aSN1ObjectIdentifier = new ASN1ObjectIdentifier(extensionM21914.getId());
+                DEROctetString dEROctetString = new DEROctetString(extensionM21914.getValue());
                 if (OCSPObjectIdentifiers.id_pkix_ocsp_nonce.equals((ASN1Primitive) aSN1ObjectIdentifier)) {
                     bArrClone = Arrays.clone(dEROctetString.getOctets());
                 }
-                aSN1EncodableVector2.add(new org.bouncycastle.asn1.x509.Extension(aSN1ObjectIdentifier, extensionM19940.isCritical(), dEROctetString));
+                aSN1EncodableVector2.add(new org.bouncycastle.asn1.x509.Extension(aSN1ObjectIdentifier, extensionM21914.isCritical(), dEROctetString));
             }
             try {
                 byte[] encoded = new OCSPRequest(aSN1EncodableVector2.size() != 0 ? new TBSRequest((GeneralName) null, new DERSequence(aSN1EncodableVector), Extensions.getInstance(new DERSequence(aSN1EncodableVector2))) : new TBSRequest((GeneralName) null, new DERSequence(aSN1EncodableVector), (Extensions) null), null).getEncoded();
@@ -142,7 +142,7 @@ public class OcspCache {
             } catch (IOException e2) {
                 e = e2;
             }
-            throw new CertPathValidatorException(C5127.m14678(e, new StringBuilder("configuration error: ")), e, pKIXCertRevocationCheckerParameters.getCertPath(), pKIXCertRevocationCheckerParameters.getIndex());
+            throw new CertPathValidatorException(C7241.m16586(e, new StringBuilder("configuration error: ")), e, pKIXCertRevocationCheckerParameters.getCertPath(), pKIXCertRevocationCheckerParameters.getIndex());
         } catch (MalformedURLException e3) {
             throw new CertPathValidatorException("configuration error: " + e3.getMessage(), e3, pKIXCertRevocationCheckerParameters.getCertPath(), pKIXCertRevocationCheckerParameters.getIndex());
         }

@@ -1,13 +1,13 @@
 package org.bouncycastle.pqc.crypto.falcon;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import l.C13132;
-import l.C21639;
-import l.C4153;
-import l.C8083;
 import moe.shizuku.server.IShizukuService;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.util.Pack;
+import p067l.C10050;
+import p067l.C14849;
+import p067l.C22934;
+import p067l.C6316;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FalconKeyGen {
@@ -96,7 +96,7 @@ public class FalconKeyGen {
     public static void make_fg(int[] iArr, int i, byte[] bArr, byte[] bArr2, int i2, int i3, int i4) {
         int iMkn = mkn(i2);
         int i5 = i + iMkn;
-        int i6 = FalconSmallPrimeList.PRIMES[0].p;
+        int i6 = FalconSmallPrimeList.PRIMES[0].f81602p;
         for (int i7 = 0; i7 < iMkn; i7++) {
             iArr[i + i7] = modp_set(bArr[i7], i6);
             iArr[i5 + i7] = modp_set(bArr2[i7], i6);
@@ -111,10 +111,10 @@ public class FalconKeyGen {
             return;
         }
         FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-        int i10 = falconSmallPrimeArr[0].p;
+        int i10 = falconSmallPrimeArr[0].f81602p;
         int iModp_ninv31 = modp_ninv31(i10);
         int i11 = i5 + iMkn;
-        modp_mkgm2(iArr, i11, iArr, i11 + iMkn, i2, falconSmallPrimeArr[0].g, i10, iModp_ninv31);
+        modp_mkgm2(iArr, i11, iArr, i11 + iMkn, i2, falconSmallPrimeArr[0].f81601g, i10, iModp_ninv31);
         modp_NTT2(iArr, i, iArr, i11, i2, i10, iModp_ninv31);
         modp_NTT2(iArr, i5, iArr, i11, i2, i10, iModp_ninv31);
     }
@@ -139,12 +139,12 @@ public class FalconKeyGen {
         int i20 = 0;
         while (i20 < i10) {
             FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-            int i21 = falconSmallPrimeArr[i20].p;
+            int i21 = falconSmallPrimeArr[i20].f81602p;
             int iModp_ninv31 = modp_ninv31(i21);
             int iModp_R2 = modp_R2(i21, iModp_ninv31);
             int i22 = i13;
             int i23 = i20;
-            modp_mkgm2(iArr, i17, iArr, i18, i2, falconSmallPrimeArr[i20].g, i21, iModp_ninv31);
+            modp_mkgm2(iArr, i17, iArr, i18, i2, falconSmallPrimeArr[i20].f81601g, i21, iModp_ninv31);
             int i24 = i14 + i23;
             int i25 = 0;
             int i26 = i24;
@@ -213,11 +213,11 @@ public class FalconKeyGen {
         zint_rebuild_CRT(iArr, i16, i10, i10, i8, 1, iArr, i17);
         for (int i43 = i10; i43 < i11; i43++) {
             FalconSmallPrime[] falconSmallPrimeArr2 = FalconSmallPrimeList.PRIMES;
-            int i44 = falconSmallPrimeArr2[i43].p;
+            int i44 = falconSmallPrimeArr2[i43].f81602p;
             int iModp_ninv32 = modp_ninv31(i44);
             int iModp_R3 = modp_R2(i44, iModp_ninv32);
             int iModp_Rx = modp_Rx(i10, i44, iModp_ninv32, iModp_R3);
-            modp_mkgm2(iArr, i17, iArr, i18, i2, falconSmallPrimeArr2[i43].g, i44, iModp_ninv32);
+            modp_mkgm2(iArr, i17, iArr, i18, i2, falconSmallPrimeArr2[i43].f81601g, i44, iModp_ninv32);
             int i45 = i14;
             int i46 = 0;
             while (i46 < i8) {
@@ -276,8 +276,8 @@ public class FalconKeyGen {
         for (int i4 = 0; i4 < i2; i4++) {
             long j = get_rng_u64(sHAKEDigest);
             int i5 = (int) (j >>> 63);
-            int i6 = (int) (((j & C13132.FOREVER_NS) - gauss_1024_12289[0]) >>> 63);
-            long j2 = C13132.FOREVER_NS & get_rng_u64(sHAKEDigest);
+            int i6 = (int) (((j & C14849.FOREVER_NS) - gauss_1024_12289[0]) >>> 63);
+            long j2 = C14849.FOREVER_NS & get_rng_u64(sHAKEDigest);
             int i7 = 1;
             int i8 = 0;
             while (true) {
@@ -458,10 +458,10 @@ public class FalconKeyGen {
 
     public static int modp_ninv31(int i) {
         int i2 = 2 - i;
-        int iM48904 = C21639.m48904(i, i2, 2, i2);
-        int iM48905 = C21639.m48904(i, iM48904, 2, iM48904);
-        int iM48906 = C21639.m48904(i, iM48905, 2, iM48905);
-        return (-C21639.m48904(i, iM48906, 2, iM48906)) & Integer.MAX_VALUE;
+        int iM51252 = C22934.m51252(i, i2, 2, i2);
+        int iM51253 = C22934.m51252(i, iM51252, 2, iM51252);
+        int iM51254 = C22934.m51252(i, iM51253, 2, iM51253);
+        return (-C22934.m51252(i, iM51254, 2, iM51254)) & Integer.MAX_VALUE;
     }
 
     public static int modp_norm(int i, int i2) {
@@ -598,11 +598,11 @@ public class FalconKeyGen {
         int i13 = 0;
         while (i13 < i11) {
             FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-            int i14 = falconSmallPrimeArr[i13].p;
+            int i14 = falconSmallPrimeArr[i13].f81602p;
             int iModp_ninv31 = modp_ninv31(i14);
             int iModp_R2 = modp_R2(i14, iModp_ninv31);
             int iModp_Rx = modp_Rx(i5, i14, iModp_ninv31, iModp_R2);
-            modp_mkgm2(iArr4, i10, iArr4, iMkn2, i9, falconSmallPrimeArr[i13].g, i14, iModp_ninv31);
+            modp_mkgm2(iArr4, i10, iArr4, iMkn2, i9, falconSmallPrimeArr[i13].f81601g, i14, iModp_ninv31);
             for (int i15 = 0; i15 < iMkn; i15++) {
                 iArr4[i12 + i15] = modp_set(iArr3[i15], i14);
             }
@@ -687,9 +687,9 @@ public class FalconKeyGen {
         int i8 = i7 + iMkn;
         int i9 = i8 + iMkn;
         FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-        int i10 = falconSmallPrimeArr[0].p;
+        int i10 = falconSmallPrimeArr[0].f81602p;
         int iModp_ninv31 = modp_ninv31(i10);
-        modp_mkgm2(iArr, i9, iArr, 0, i, falconSmallPrimeArr[0].g, i10, iModp_ninv31);
+        modp_mkgm2(iArr, i9, iArr, 0, i, falconSmallPrimeArr[0].f81601g, i10, iModp_ninv31);
         for (int i11 = 0; i11 < iMkn; i11++) {
             iArr[i11] = modp_set(bArr4[i11], i10);
         }
@@ -715,14 +715,14 @@ public class FalconKeyGen {
         int i2 = 1 << i;
         int i3 = i2 >> 1;
         FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-        int i4 = falconSmallPrimeArr[0].p;
+        int i4 = falconSmallPrimeArr[0].f81602p;
         int iModp_ninv31 = modp_ninv31(i4);
         int iModp_R2 = modp_R2(i4, iModp_ninv31);
         int i5 = i3 + i3;
         int i6 = i5 + i2;
         int i7 = i6 + i2;
         int i8 = i7 + i2;
-        modp_mkgm2(iArr, i7, iArr, i8, i, falconSmallPrimeArr[0].g, i4, iModp_ninv31);
+        modp_mkgm2(iArr, i7, iArr, i8, i, falconSmallPrimeArr[0].f81601g, i4, iModp_ninv31);
         for (int i9 = 0; i9 < i3; i9++) {
             iArr[i9] = modp_set(zint_one_to_plain(iArr, i9), i4);
             int i10 = i3 + i9;
@@ -770,7 +770,7 @@ public class FalconKeyGen {
         int i29 = i28 + i25;
         int i30 = i29 + i25;
         int i31 = i30 + i25;
-        modp_mkgm2(iArr, i27, iArr, i28, i, FalconSmallPrimeList.PRIMES[0].g, i4, iModp_ninv31);
+        modp_mkgm2(iArr, i27, iArr, i28, i, FalconSmallPrimeList.PRIMES[0].f81601g, i4, iModp_ninv31);
         modp_NTT2(iArr, 0, iArr, i27, i, i4, iModp_ninv31);
         modp_NTT2(iArr, i25, iArr, i27, i, i4, iModp_ninv31);
         int iModp_set = modp_set(bArr[0], i4);
@@ -803,7 +803,7 @@ public class FalconKeyGen {
             int i37 = i29 + i35;
             iArr[i37] = modp_add(iArr[i37], modp_montymul(iModp_montymul4, iArr[i30 + i35], i4, iModp_ninv31), i4);
         }
-        modp_mkgm2(iArr, i27, iArr, i30, i, FalconSmallPrimeList.PRIMES[0].g, i4, iModp_ninv31);
+        modp_mkgm2(iArr, i27, iArr, i30, i, FalconSmallPrimeList.PRIMES[0].f81601g, i4, iModp_ninv31);
         modp_iNTT2(iArr, i28, iArr, i30, i, i4, iModp_ninv31);
         modp_iNTT2(iArr, i29, iArr, i30, i, i4, iModp_ninv31);
         for (int i38 = 0; i38 < i25; i38++) {
@@ -827,7 +827,7 @@ public class FalconKeyGen {
         for (int i43 = 0; i43 < i25; i43++) {
             iArr[i27 + i43] = modp_set((int) FPREngine.fpr_rint(dArr[i41 + i43]), i4);
         }
-        modp_mkgm2(iArr, i28, iArr, i29, i, FalconSmallPrimeList.PRIMES[0].g, i4, iModp_ninv31);
+        modp_mkgm2(iArr, i28, iArr, i29, i, FalconSmallPrimeList.PRIMES[0].f81601g, i4, iModp_ninv31);
         for (int i44 = 0; i44 < i25; i44++) {
             iArr[i30 + i44] = modp_set(bArr[i44], i4);
             iArr[i31 + i44] = modp_set(bArr2[i44], i4);
@@ -867,7 +867,7 @@ public class FalconKeyGen {
         int i13 = i11 + i12;
         int i14 = 0;
         while (i14 < i9) {
-            int i15 = FalconSmallPrimeList.PRIMES[i14].p;
+            int i15 = FalconSmallPrimeList.PRIMES[i14].f81602p;
             int iModp_ninv31 = modp_ninv31(i15);
             int iModp_R2 = modp_R2(i15, iModp_ninv31);
             int iModp_Rx = modp_Rx(i8, i15, iModp_ninv31, iModp_R2);
@@ -918,7 +918,7 @@ public class FalconKeyGen {
         int i33 = 0;
         while (i33 < i9) {
             FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-            int i34 = falconSmallPrimeArr[i33].p;
+            int i34 = falconSmallPrimeArr[i33].f81602p;
             int iModp_ninv32 = modp_ninv31(i34);
             int i35 = i32 + i25;
             int i36 = i35 + i5;
@@ -929,7 +929,7 @@ public class FalconKeyGen {
             int i40 = i34;
             int i41 = i29;
             int i42 = i33;
-            modp_mkgm2(iArr, i32, iArr, i35, i, falconSmallPrimeArr[i33].g, i34, i39);
+            modp_mkgm2(iArr, i32, iArr, i35, i, falconSmallPrimeArr[i33].f81601g, i34, i39);
             int i43 = i25;
             for (int i44 = 0; i44 < i43; i44++) {
                 iArr[i36 + i44] = modp_set(bArr[i44], i40);
@@ -1133,7 +1133,7 @@ public class FalconKeyGen {
         int i25 = i17 + i24;
         int i26 = 0;
         while (i26 < i16) {
-            int i27 = FalconSmallPrimeList.PRIMES[i26].p;
+            int i27 = FalconSmallPrimeList.PRIMES[i26].f81602p;
             int iModp_ninv31 = modp_ninv31(i27);
             int iModp_R2 = modp_R2(i27, iModp_ninv31);
             int iModp_Rx = modp_Rx(i15, i27, iModp_ninv31, iModp_R2);
@@ -1165,7 +1165,7 @@ public class FalconKeyGen {
         int i37 = 0;
         while (i37 < i16) {
             FalconSmallPrime[] falconSmallPrimeArr = FalconSmallPrimeList.PRIMES;
-            int i38 = falconSmallPrimeArr[i37].p;
+            int i38 = falconSmallPrimeArr[i37].f81602p;
             int iModp_ninv32 = modp_ninv31(i38);
             int iModp_R3 = modp_R2(i38, iModp_ninv32);
             if (i37 == i14) {
@@ -1183,7 +1183,7 @@ public class FalconKeyGen {
             int i40 = i4 + i5;
             int i41 = i40 + i5;
             int i42 = i41 + i5;
-            modp_mkgm2(iArr, i4, iArr, i40, i19, falconSmallPrimeArr[i37].g, i38, iModp_ninv32);
+            modp_mkgm2(iArr, i4, iArr, i40, i19, falconSmallPrimeArr[i37].f81601g, i38, iModp_ninv32);
             if (i37 < i3) {
                 int i43 = i36 + i37;
                 int i44 = i23 + i37;
@@ -1618,15 +1618,15 @@ public class FalconKeyGen {
             int i6 = i2 + i4;
             long j7 = iArr[i5];
             long j8 = iArr2[i6];
-            long jM21450 = C8083.m21450(j8, j2, j7 * j, j5);
+            long jM23418 = C10050.m23418(j8, j2, j7 * j, j5);
             int i7 = i4;
-            long jM21451 = C8083.m21450(j8, j4, j7 * j3, j6);
+            long jM23419 = C10050.m23418(j8, j4, j7 * j3, j6);
             if (i7 > 0) {
-                iArr[i5 - 1] = ((int) jM21450) & Integer.MAX_VALUE;
-                iArr2[i6 - 1] = ((int) jM21451) & Integer.MAX_VALUE;
+                iArr[i5 - 1] = ((int) jM23418) & Integer.MAX_VALUE;
+                iArr2[i6 - 1] = ((int) jM23419) & Integer.MAX_VALUE;
             }
-            j5 = jM21450 >> 31;
-            j6 = jM21451 >> 31;
+            j5 = jM23418 >> 31;
+            j6 = jM23419 >> 31;
             i4 = i7 + 1;
         }
         iArr[(i + i3) - 1] = (int) j5;
@@ -1642,8 +1642,8 @@ public class FalconKeyGen {
         long j5 = j;
         int i6 = iArr[i];
         int i7 = iArr2[i2];
-        int iM12551 = C4153.m12551(i7, (int) j2, ((int) j5) * i6, i5) & Integer.MAX_VALUE;
-        int iM12552 = C4153.m12551(i7, (int) j4, i6 * ((int) j3), i5) & Integer.MAX_VALUE;
+        int iM14441 = C6316.m14441(i7, (int) j2, ((int) j5) * i6, i5) & Integer.MAX_VALUE;
+        int iM14442 = C6316.m14441(i7, (int) j4, i6 * ((int) j3), i5) & Integer.MAX_VALUE;
         long j6 = 0;
         int i8 = 0;
         long j7 = 0;
@@ -1651,20 +1651,20 @@ public class FalconKeyGen {
             int i9 = i + i8;
             long j8 = j6;
             int i10 = i2 + i8;
-            int i11 = iM12552;
+            int i11 = iM14442;
             long j9 = iArr[i9];
             long j10 = iArr2[i10];
             int i12 = i3 + i8;
-            long jM21450 = C8083.m21450(iArr3[i12], toUnsignedLong(iM12551), (j10 * j2) + (j9 * j5), j7);
-            long jM21451 = C8083.m21450(iArr3[i12], toUnsignedLong(i11), (j9 * j3) + (j10 * j4), j8);
+            long jM23418 = C10050.m23418(iArr3[i12], toUnsignedLong(iM14441), (j10 * j2) + (j9 * j5), j7);
+            long jM23419 = C10050.m23418(iArr3[i12], toUnsignedLong(i11), (j9 * j3) + (j10 * j4), j8);
             if (i8 > 0) {
-                iArr[i9 - 1] = ((int) jM21450) & Integer.MAX_VALUE;
-                iArr2[i10 - 1] = ((int) jM21451) & Integer.MAX_VALUE;
+                iArr[i9 - 1] = ((int) jM23418) & Integer.MAX_VALUE;
+                iArr2[i10 - 1] = ((int) jM23419) & Integer.MAX_VALUE;
             }
-            j7 = jM21450 >> 31;
-            j6 = jM21451 >> 31;
+            j7 = jM23418 >> 31;
+            j6 = jM23419 >> 31;
             i8++;
-            iM12552 = i11;
+            iM14442 = i11;
             j5 = j;
         }
         long j11 = j7;
@@ -1756,11 +1756,11 @@ public class FalconKeyGen {
     }
 
     public static void zint_rebuild_CRT(int[] iArr, int i, int i2, int i3, int i4, int i5, int[] iArr2, int i6) {
-        iArr2[i6] = FalconSmallPrimeList.PRIMES[0].p;
+        iArr2[i6] = FalconSmallPrimeList.PRIMES[0].f81602p;
         for (int i7 = 1; i7 < i2; i7++) {
             FalconSmallPrime falconSmallPrime = FalconSmallPrimeList.PRIMES[i7];
-            int i8 = falconSmallPrime.p;
-            int i9 = falconSmallPrime.s;
+            int i8 = falconSmallPrime.f81602p;
+            int i9 = falconSmallPrime.f81603s;
             int iModp_ninv31 = modp_ninv31(i8);
             int iModp_R2 = modp_R2(i8, iModp_ninv31);
             int i10 = i;

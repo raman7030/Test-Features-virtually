@@ -8,18 +8,20 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import l.C19370;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.crypto.params.AEADParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.internal.asn1.cms.GCMParameters;
 import org.bouncycastle.util.Integers;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GcmSpecUtil {
     public static final Constructor constructor;
     public static final Class gcmSpecClass;
-    public static final Method iv;
+
+    /* JADX INFO: renamed from: iv */
+    public static final Method f81363iv;
     public static final Method tLen;
 
     static {
@@ -35,7 +37,7 @@ public class GcmSpecUtil {
             constructor = null;
             tLen = null;
         }
-        iv = methodExtractMethod;
+        f81363iv = methodExtractMethod;
     }
 
     public static AEADParameters extractAeadParameters(final KeyParameter keyParameter, final AlgorithmParameterSpec algorithmParameterSpec) throws InvalidAlgorithmParameterException {
@@ -43,7 +45,7 @@ public class GcmSpecUtil {
             return (AEADParameters) AccessController.doPrivileged(new PrivilegedExceptionAction() { // from class: org.bouncycastle.jcajce.provider.symmetric.util.GcmSpecUtil.3
                 @Override // java.security.PrivilegedExceptionAction
                 public Object run() {
-                    return new AEADParameters(keyParameter, ((Integer) GcmSpecUtil.tLen.invoke(algorithmParameterSpec, null)).intValue(), (byte[]) GcmSpecUtil.iv.invoke(algorithmParameterSpec, null));
+                    return new AEADParameters(keyParameter, ((Integer) GcmSpecUtil.tLen.invoke(algorithmParameterSpec, null)).intValue(), (byte[]) GcmSpecUtil.f81363iv.invoke(algorithmParameterSpec, null));
                 }
             });
         } catch (Exception unused) {
@@ -69,7 +71,7 @@ public class GcmSpecUtil {
             return (GCMParameters) AccessController.doPrivileged(new PrivilegedExceptionAction() { // from class: org.bouncycastle.jcajce.provider.symmetric.util.GcmSpecUtil.4
                 @Override // java.security.PrivilegedExceptionAction
                 public Object run() {
-                    return new GCMParameters((byte[]) GcmSpecUtil.iv.invoke(algorithmParameterSpec, null), ((Integer) GcmSpecUtil.tLen.invoke(algorithmParameterSpec, null)).intValue() / 8);
+                    return new GCMParameters((byte[]) GcmSpecUtil.f81363iv.invoke(algorithmParameterSpec, null), ((Integer) GcmSpecUtil.tLen.invoke(algorithmParameterSpec, null)).intValue() / 8);
                 }
             });
         } catch (Exception unused) {
@@ -112,7 +114,7 @@ public class GcmSpecUtil {
             GCMParameters gCMParameters = GCMParameters.getInstance(aSN1Primitive);
             return (AlgorithmParameterSpec) constructor.newInstance(Integers.valueOf(gCMParameters.getIcvLen() * 8), gCMParameters.getNonce());
         } catch (Exception e) {
-            throw new InvalidParameterSpecException(C19370.m44629(e, new StringBuilder("Construction failed: ")));
+            throw new InvalidParameterSpecException(C20778.m46923(e, new StringBuilder("Construction failed: ")));
         }
     }
 }

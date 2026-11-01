@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import l.C16701;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.jcajce.util.SpecUtil;
@@ -18,6 +17,7 @@ import org.bouncycastle.pqc.crypto.mlkem.MLKEMPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMPublicKeyParameters;
 import org.bouncycastle.pqc.jcajce.spec.KyberParameterSpec;
 import org.bouncycastle.util.Strings;
+import p067l.C18241;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KyberKeyPairGeneratorSpi extends KeyPairGenerator {
@@ -99,7 +99,7 @@ public class KyberKeyPairGeneratorSpi extends KeyPairGenerator {
     public void initialize(AlgorithmParameterSpec algorithmParameterSpec, SecureRandom secureRandom) throws InvalidAlgorithmParameterException {
         String nameFromParams = getNameFromParams(algorithmParameterSpec);
         if (nameFromParams == null || !parameters.containsKey(nameFromParams)) {
-            throw new InvalidAlgorithmParameterException(C16701.m39266("invalid ParameterSpec: ", algorithmParameterSpec));
+            throw new InvalidAlgorithmParameterException(C18241.m41502("invalid ParameterSpec: ", algorithmParameterSpec));
         }
         MLKEMParameters mLKEMParameters = (MLKEMParameters) parameters.get(nameFromParams);
         this.param = new MLKEMKeyGenerationParameters(secureRandom, mLKEMParameters);

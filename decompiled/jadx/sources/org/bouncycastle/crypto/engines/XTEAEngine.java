@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -8,6 +7,7 @@ import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class XTEAEngine implements BlockCipher {
@@ -15,7 +15,9 @@ public class XTEAEngine implements BlockCipher {
     public static final int delta = -1640531527;
     public static final int rounds = 32;
     public boolean _forEncryption;
-    public int[] _S = new int[4];
+
+    /* JADX INFO: renamed from: _S */
+    public int[] f81094_S = new int[4];
     public int[] _sum0 = new int[32];
     public int[] _sum1 = new int[32];
     public boolean _initialised = false;
@@ -56,14 +58,14 @@ public class XTEAEngine implements BlockCipher {
         int i = 0;
         int i2 = 0;
         while (i < 4) {
-            this._S[i] = bytesToInt(bArr, i2);
+            this.f81094_S[i] = bytesToInt(bArr, i2);
             i++;
             i2 += 4;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < 32; i4++) {
             int[] iArr = this._sum0;
-            int[] iArr2 = this._S;
+            int[] iArr2 = this.f81094_S;
             iArr[i4] = iArr2[i3 & 3] + i3;
             i3 -= 1640531527;
             this._sum1[i4] = iArr2[(i3 >>> 11) & 3] + i3;
@@ -108,7 +110,7 @@ public class XTEAEngine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to TEA init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to TEA init - ", cipherParameters));
         }
         this._forEncryption = z;
         this._initialised = true;

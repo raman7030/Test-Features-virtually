@@ -1,8 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C16014;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.TigerDigest;
 import org.bouncycastle.crypto.macs.HMac;
@@ -11,6 +8,9 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+import p067l.C10965;
+import p067l.C17588;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Tiger {
@@ -49,7 +49,7 @@ public class Tiger {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            addHMACAlgorithm(configurableProvider, "TIGER", C9045.m23341(C5368.m15340(str, "$Digest", "MessageDigest.Tiger", C5368.m15340(str, "$Digest", "MessageDigest.TIGER", sb, configurableProvider), configurableProvider), str, "$HashMac"), C16014.m37867(str, "$KeyGenerator"));
+            addHMACAlgorithm(configurableProvider, "TIGER", C10965.m25286(C7470.m17249(str, "$Digest", "MessageDigest.Tiger", C7470.m17249(str, "$Digest", "MessageDigest.TIGER", sb, configurableProvider), configurableProvider), str, "$HashMac"), C17588.m40053(str, "$KeyGenerator"));
             addHMACAlias(configurableProvider, "TIGER", IANAObjectIdentifiers.hmacTIGER);
             configurableProvider.addAlgorithm("SecretKeyFactory.PBEWITHHMACTIGER", str + "$PBEWithMacKeyFactory");
         }

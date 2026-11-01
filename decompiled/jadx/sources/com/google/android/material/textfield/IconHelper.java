@@ -10,8 +10,8 @@ import com.google.android.material.internal.CheckableImageButton;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.ripple.RippleUtils;
 import java.util.Arrays;
-import l.C17648;
-import l.C8184;
+import p067l.C1248;
+import p067l.C1717;
 
 /* JADX INFO: loaded from: classes.dex */
 public class IconHelper {
@@ -26,7 +26,7 @@ public class IconHelper {
     }
 
     public static void setIconClickable(CheckableImageButton checkableImageButton, View.OnLongClickListener onLongClickListener) {
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         boolean zHasOnClickListeners = checkableImageButton.hasOnClickListeners();
         boolean z = onLongClickListener != null;
         boolean z2 = zHasOnClickListeners || z;
@@ -40,14 +40,14 @@ public class IconHelper {
     public static void applyIconTint(TextInputLayout textInputLayout, CheckableImageButton checkableImageButton, ColorStateList colorStateList, PorterDuff.Mode mode) {
         Drawable drawable = checkableImageButton.getDrawable();
         if (drawable != null) {
-            drawable = C8184.m21684(drawable).mutate();
+            drawable = C1248.m23653(drawable).mutate();
             if (colorStateList != null && colorStateList.isStateful()) {
-                C8184.m21676(drawable, ColorStateList.valueOf(colorStateList.getColorForState(mergeIconState(textInputLayout, checkableImageButton), colorStateList.getDefaultColor())));
+                C1248.m23645(drawable, ColorStateList.valueOf(colorStateList.getColorForState(mergeIconState(textInputLayout, checkableImageButton), colorStateList.getDefaultColor())));
             } else {
-                C8184.m21676(drawable, colorStateList);
+                C1248.m23645(drawable, colorStateList);
             }
             if (mode != null) {
-                C8184.m21679(drawable, mode);
+                C1248.m23648(drawable, mode);
             }
         }
         if (checkableImageButton.getDrawable() != drawable) {
@@ -61,8 +61,8 @@ public class IconHelper {
             return;
         }
         int colorForState = colorStateList.getColorForState(mergeIconState(textInputLayout, checkableImageButton), colorStateList.getDefaultColor());
-        Drawable drawableMutate = C8184.m21684(drawable).mutate();
-        C8184.m21676(drawableMutate, ColorStateList.valueOf(colorForState));
+        Drawable drawableMutate = C1248.m23653(drawable).mutate();
+        C1248.m23645(drawableMutate, ColorStateList.valueOf(colorForState));
         checkableImageButton.setImageDrawable(drawableMutate);
     }
 

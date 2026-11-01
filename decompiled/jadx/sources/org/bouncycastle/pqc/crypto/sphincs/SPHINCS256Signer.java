@@ -1,10 +1,10 @@
 package org.bouncycastle.pqc.crypto.sphincs;
 
-import com.tencent.mm.opensdk.constants.ConstantsAPI;
+import com.tencent.p062mm.opensdk.constants.ConstantsAPI;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.custom.sec.SecT239Field;
+import org.bouncycastle.math.p080ec.custom.sec.SecT239Field;
 import org.bouncycastle.pqc.crypto.MessageSigner;
 import org.bouncycastle.util.Pack;
 

@@ -1,9 +1,9 @@
 package org.bouncycastle.jcajce.provider.keystore;
 
-import l.C20382;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.util.Properties;
+import p067l.C21740;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PKCS12 {
@@ -15,11 +15,11 @@ public class PKCS12 {
         public void configure(ConfigurableProvider configurableProvider) {
             String propertyValue = Properties.getPropertyValue("org.bouncycastle.pkcs12.default");
             if (propertyValue != null) {
-                StringBuilder sbM46696 = C20382.m46696("Alg.Alias.KeyStore.PKCS12", propertyValue, "Alg.Alias.KeyStore.BCPKCS12", propertyValue, configurableProvider);
-                sbM46696.append(propertyValue.substring(0, 5));
-                sbM46696.append("-DEF");
-                sbM46696.append(propertyValue.substring(6));
-                configurableProvider.addAlgorithm("Alg.Alias.KeyStore.PKCS12-DEF", sbM46696.toString());
+                StringBuilder sbM49019 = C21740.m49019("Alg.Alias.KeyStore.PKCS12", propertyValue, "Alg.Alias.KeyStore.BCPKCS12", propertyValue, configurableProvider);
+                sbM49019.append(propertyValue.substring(0, 5));
+                sbM49019.append("-DEF");
+                sbM49019.append(propertyValue.substring(6));
+                configurableProvider.addAlgorithm("Alg.Alias.KeyStore.PKCS12-DEF", sbM49019.toString());
             } else {
                 configurableProvider.addAlgorithm("KeyStore.PKCS12", "org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi$BCPKCS12KeyStore");
                 configurableProvider.addAlgorithm("KeyStore.BCPKCS12", "org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi$BCPKCS12KeyStore");

@@ -1,6 +1,6 @@
 package com.google.android.material.color.utilities;
 
-import l.C4248;
+import p067l.C6406;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Cam16 {
@@ -8,11 +8,19 @@ public final class Cam16 {
     public final double bstar;
     public final double chroma;
     public final double hue;
-    public final double j;
+
+    /* JADX INFO: renamed from: j */
+    public final double f2029j;
     public final double jstar;
-    public final double m;
-    public final double q;
-    public final double s;
+
+    /* JADX INFO: renamed from: m */
+    public final double f2030m;
+
+    /* JADX INFO: renamed from: q */
+    public final double f2031q;
+
+    /* JADX INFO: renamed from: s */
+    public final double f2032s;
     public final double[] tempArray = {0.0d, 0.0d, 0.0d};
     public static final double[][] XYZ_TO_CAM16RGB = {new double[]{0.401288d, 0.650173d, -0.051461d}, new double[]{-0.250268d, 1.204414d, 0.045854d}, new double[]{-0.002079d, 0.048952d, 0.953127d}};
     public static final double[][] CAM16RGB_TO_XYZ = {new double[]{1.8620678d, -1.0112547d, 0.14918678d}, new double[]{0.38752654d, 0.62144744d, -0.00897398d}, new double[]{-0.0158415d, -0.03412294d, 1.0499644d}};
@@ -33,19 +41,19 @@ public final class Cam16 {
     }
 
     public double getJ() {
-        return this.j;
+        return this.f2029j;
     }
 
     public double getQ() {
-        return this.q;
+        return this.f2031q;
     }
 
     public double getM() {
-        return this.m;
+        return this.f2030m;
     }
 
     public double getS() {
-        return this.s;
+        return this.f2032s;
     }
 
     public double getJstar() {
@@ -63,10 +71,10 @@ public final class Cam16 {
     public Cam16(double d, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9) {
         this.hue = d;
         this.chroma = d2;
-        this.j = d3;
-        this.q = d4;
-        this.m = d5;
-        this.s = d6;
+        this.f2029j = d3;
+        this.f2031q = d4;
+        this.f2030m = d5;
+        this.f2032s = d6;
         this.jstar = d7;
         this.astar = d8;
         this.bstar = d9;
@@ -103,7 +111,7 @@ public final class Cam16 {
         double d10 = ((((-12.0d) * dSignum2) + (dSignum * 11.0d)) + dSignum3) / 11.0d;
         double d11 = ((dSignum + dSignum2) - (dSignum3 * 2.0d)) / 9.0d;
         double d12 = dSignum2 * 20.0d;
-        double dM12787 = C4248.m12787(dSignum3, 21.0d, (dSignum * 20.0d) + d12, 20.0d);
+        double dM14667 = C6406.m14667(dSignum3, 21.0d, (dSignum * 20.0d) + d12, 20.0d);
         double d13 = (((dSignum * 40.0d) + d12) + dSignum3) / 20.0d;
         double degrees = Math.toDegrees(Math.atan2(d11, d10));
         if (degrees < 0.0d) {
@@ -116,7 +124,7 @@ public final class Cam16 {
         double dPow4 = Math.pow((viewingConditions.getNbb() * d13) / viewingConditions.getAw(), viewingConditions.getC() * viewingConditions.getZ()) * 100.0d;
         double d15 = dPow4 / 100.0d;
         double flRoot = viewingConditions.getFlRoot() * (viewingConditions.getAw() + 4.0d) * Math.sqrt(d15) * (4.0d / viewingConditions.getC());
-        double dPow5 = Math.pow((Math.hypot(d10, d11) * (((((Math.cos(Math.toRadians(d14 < 20.14d ? d14 + 360.0d : d14) + 2.0d) + 3.8d) * 0.25d) * 3846.153846153846d) * viewingConditions.getNc()) * viewingConditions.getNcb())) / (dM12787 + 0.305d), 0.9d) * Math.pow(1.64d - Math.pow(0.29d, viewingConditions.getN()), 0.73d);
+        double dPow5 = Math.pow((Math.hypot(d10, d11) * (((((Math.cos(Math.toRadians(d14 < 20.14d ? d14 + 360.0d : d14) + 2.0d) + 3.8d) * 0.25d) * 3846.153846153846d) * viewingConditions.getNc()) * viewingConditions.getNcb())) / (dM14667 + 0.305d), 0.9d) * Math.pow(1.64d - Math.pow(0.29d, viewingConditions.getN()), 0.73d);
         double dSqrt = Math.sqrt(d15) * dPow5;
         double flRoot2 = viewingConditions.getFlRoot() * dSqrt;
         double dSqrt2 = Math.sqrt((dPow5 * viewingConditions.getC()) / (viewingConditions.getAw() + 4.0d)) * 50.0d;
@@ -175,10 +183,10 @@ public final class Cam16 {
         double d2 = dCos2 * d;
         double d3 = d * dSin;
         double d4 = nbb * 460.0d;
-        double dM12787 = C4248.m12787(d3, 288.0d, (451.0d * d2) + d4, 1403.0d);
+        double dM14667 = C6406.m14667(d3, 288.0d, (451.0d * d2) + d4, 1403.0d);
         double d5 = ((d4 - (891.0d * d2)) - (261.0d * d3)) / 1403.0d;
         double d6 = ((d4 - (d2 * 220.0d)) - (d3 * 6300.0d)) / 1403.0d;
-        double dPow3 = Math.pow(Math.max(0.0d, (Math.abs(dM12787) * 27.13d) / (400.0d - Math.abs(dM12787))), 2.380952380952381d) * (100.0d / viewingConditions.getFl()) * Math.signum(dM12787);
+        double dPow3 = Math.pow(Math.max(0.0d, (Math.abs(dM14667) * 27.13d) / (400.0d - Math.abs(dM14667))), 2.380952380952381d) * (100.0d / viewingConditions.getFl()) * Math.signum(dM14667);
         double dPow4 = Math.pow(Math.max(0.0d, (Math.abs(d5) * 27.13d) / (400.0d - Math.abs(d5))), 2.380952380952381d) * (100.0d / viewingConditions.getFl()) * Math.signum(d5);
         double dPow5 = Math.pow(Math.max(0.0d, (Math.abs(d6) * 27.13d) / (400.0d - Math.abs(d6))), 2.380952380952381d) * (100.0d / viewingConditions.getFl()) * Math.signum(d6);
         double d7 = dPow3 / viewingConditions.getRgbD()[0];

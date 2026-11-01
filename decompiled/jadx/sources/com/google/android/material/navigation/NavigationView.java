@@ -45,32 +45,32 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeableDelegate;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-import l.AbstractC20121;
-import l.AbstractC7152;
-import l.C0881;
-import l.C11003;
-import l.C13064;
-import l.C15180;
-import l.C17648;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C20118;
-import l.C21610;
-import l.C22733;
-import l.C23575;
-import l.C3060;
-import l.C4736;
-import l.C5882;
-import l.C7790;
-import l.InterfaceC19994;
-import l.InterfaceC8126;
-import l.RunnableC7994;
+import p067l.AbstractC21491;
+import p067l.AbstractC9165;
+import p067l.C0886;
+import p067l.C0994;
+import p067l.C1134;
+import p067l.C1228;
+import p067l.C12826;
+import p067l.C14784;
+import p067l.C16795;
+import p067l.C1717;
+import p067l.C1840;
+import p067l.C1914;
+import p067l.C19410;
+import p067l.C1970;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C24774;
+import p067l.C6870;
+import p067l.InterfaceC10091;
+import p067l.InterfaceC1834;
+import p067l.RunnableC9966;
 
 /* JADX INFO: loaded from: classes.dex */
 public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBackHandler {
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
-    public final InterfaceC8126 backDrawerListener;
+    public final InterfaceC10091 backDrawerListener;
     public final MaterialBackOrchestrator backOrchestrator;
     public boolean bottomInsetScrimEnabled;
     public int drawerLayoutCornerSize;
@@ -88,7 +88,7 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     public boolean topInsetScrimEnabled;
     public static final int[] CHECKED_STATE_SET = {R.attr.state_checked};
     public static final int[] DISABLED_STATE_SET = {-16842910};
-    public static final int DEF_STYLE_RES = C18637.f58943;
+    public static final int DEF_STYLE_RES = C20081.f62166;
 
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(MenuItem menuItem);
@@ -99,7 +99,7 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     }
 
     public NavigationView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f54795);
+        this(context, attributeSet, C19410.f57992);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -118,18 +118,18 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         this.shapeableDelegate = ShapeableDelegate.create(this);
         this.sideContainerBackHelper = new MaterialSideContainerBackHelper(this);
         this.backOrchestrator = new MaterialBackOrchestrator(this);
-        this.backDrawerListener = new AbstractC20121() { // from class: com.google.android.material.navigation.NavigationView.1
-            @Override // l.AbstractC20121, l.InterfaceC8126
+        this.backDrawerListener = new AbstractC21491() { // from class: com.google.android.material.navigation.NavigationView.1
+            @Override // p067l.AbstractC21491, p067l.InterfaceC10091
             public void onDrawerOpened(View view) {
                 NavigationView navigationView = NavigationView.this;
                 if (view == navigationView) {
                     MaterialBackOrchestrator materialBackOrchestrator = navigationView.backOrchestrator;
-                    C11003.requireNonNull(materialBackOrchestrator);
-                    view.post(new RunnableC7994(3, materialBackOrchestrator));
+                    C12826.requireNonNull(materialBackOrchestrator);
+                    view.post(new RunnableC9966(3, materialBackOrchestrator));
                 }
             }
 
-            @Override // l.AbstractC20121, l.InterfaceC8126
+            @Override // p067l.AbstractC21491, p067l.InterfaceC10091
             public void onDrawerClosed(View view) {
                 NavigationView navigationView = NavigationView.this;
                 if (view == navigationView) {
@@ -141,16 +141,16 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         Context context2 = getContext();
         NavigationMenu navigationMenu = new NavigationMenu(context2);
         this.menu = navigationMenu;
-        C22733 c22733ObtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, C19343.f60871, i, i4, new int[0]);
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f61243)) {
-            Drawable drawableM50815 = c22733ObtainTintedStyledAttributes.m50815(C19343.f61243);
-            int i5 = C17648.f53953;
-            setBackground(drawableM50815);
+        C1970 c1970ObtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, C20752.f82341, i, i4, new int[0]);
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82468)) {
+            Drawable drawableM53148 = c1970ObtainTintedStyledAttributes.m53148(C20752.f82468);
+            int i5 = C1717.f57146;
+            setBackground(drawableM53148);
         }
-        int iM50803 = c22733ObtainTintedStyledAttributes.m50803(C19343.f61190, 0);
-        this.drawerLayoutCornerSize = iM50803;
-        this.drawerLayoutCornerSizeBackAnimationEnabled = iM50803 == 0;
-        this.drawerLayoutCornerSizeBackAnimationMax = getResources().getDimensionPixelSize(C23575.f76232);
+        int iM53136 = c1970ObtainTintedStyledAttributes.m53136(C20752.f82450, 0);
+        this.drawerLayoutCornerSize = iM53136;
+        this.drawerLayoutCornerSizeBackAnimationEnabled = iM53136 == 0;
+        this.drawerLayoutCornerSizeBackAnimationMax = getResources().getDimensionPixelSize(C24774.f78978);
         Drawable background = getBackground();
         ColorStateList colorStateListOrNull = DrawableUtils.getColorStateListOrNull(background);
         if (background == null || colorStateListOrNull != null) {
@@ -159,96 +159,96 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
                 materialShapeDrawable.setFillColor(colorStateListOrNull);
             }
             materialShapeDrawable.initializeElevationOverlay(context2);
-            int i6 = C17648.f53953;
+            int i6 = C1717.f57146;
             setBackground(materialShapeDrawable);
         }
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f61084)) {
-            setElevation(c22733ObtainTintedStyledAttributes.m50803(C19343.f61084, 0));
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82414)) {
+            setElevation(c1970ObtainTintedStyledAttributes.m53136(C20752.f82414, 0));
         }
-        setFitsSystemWindows(c22733ObtainTintedStyledAttributes.m50801(C19343.f60924, false));
-        this.maxWidth = c22733ObtainTintedStyledAttributes.m50803(C19343.f61987, 0);
-        ColorStateList colorStateListM50804 = c22733ObtainTintedStyledAttributes.m50802(C19343.f62248) ? c22733ObtainTintedStyledAttributes.m50804(C19343.f62248) : null;
-        int iM50806 = c22733ObtainTintedStyledAttributes.m50802(C19343.f61236) ? c22733ObtainTintedStyledAttributes.m50806(C19343.f61236, 0) : 0;
-        if (iM50806 == 0 && colorStateListM50804 == null) {
-            colorStateListM50804 = createDefaultColorStateList(R.attr.textColorSecondary);
+        setFitsSystemWindows(c1970ObtainTintedStyledAttributes.m53134(C20752.f82359, false));
+        this.maxWidth = c1970ObtainTintedStyledAttributes.m53136(C20752.f82722, 0);
+        ColorStateList colorStateListM53137 = c1970ObtainTintedStyledAttributes.m53135(C20752.f82812) ? c1970ObtainTintedStyledAttributes.m53137(C20752.f82812) : null;
+        int iM53139 = c1970ObtainTintedStyledAttributes.m53135(C20752.f82465) ? c1970ObtainTintedStyledAttributes.m53139(C20752.f82465, 0) : 0;
+        if (iM53139 == 0 && colorStateListM53137 == null) {
+            colorStateListM53137 = createDefaultColorStateList(R.attr.textColorSecondary);
         }
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f62573)) {
-            colorStateListCreateDefaultColorStateList = c22733ObtainTintedStyledAttributes.m50804(C19343.f62573);
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82923)) {
+            colorStateListCreateDefaultColorStateList = c1970ObtainTintedStyledAttributes.m53137(C20752.f82923);
         } else {
             colorStateListCreateDefaultColorStateList = createDefaultColorStateList(R.attr.textColorSecondary);
         }
-        int iM50807 = c22733ObtainTintedStyledAttributes.m50802(C19343.f61342) ? c22733ObtainTintedStyledAttributes.m50806(C19343.f61342, 0) : 0;
-        boolean zM50801 = c22733ObtainTintedStyledAttributes.m50801(C19343.f62407, true);
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f61721)) {
-            setItemIconSize(c22733ObtainTintedStyledAttributes.m50803(C19343.f61721, 0));
+        int iM531310 = c1970ObtainTintedStyledAttributes.m53135(C20752.f82501) ? c1970ObtainTintedStyledAttributes.m53139(C20752.f82501, 0) : 0;
+        boolean zM53134 = c1970ObtainTintedStyledAttributes.m53134(C20752.f82866, true);
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82631)) {
+            setItemIconSize(c1970ObtainTintedStyledAttributes.m53136(C20752.f82631, 0));
         }
-        ColorStateList colorStateListM50805 = c22733ObtainTintedStyledAttributes.m50802(C19343.f61554) ? c22733ObtainTintedStyledAttributes.m50804(C19343.f61554) : null;
-        if (iM50807 == 0 && colorStateListM50805 == null) {
-            colorStateListM50805 = createDefaultColorStateList(R.attr.textColorPrimary);
+        ColorStateList colorStateListM53138 = c1970ObtainTintedStyledAttributes.m53135(C20752.f82573) ? c1970ObtainTintedStyledAttributes.m53137(C20752.f82573) : null;
+        if (iM531310 == 0 && colorStateListM53138 == null) {
+            colorStateListM53138 = createDefaultColorStateList(R.attr.textColorPrimary);
         }
-        Drawable drawableM50816 = c22733ObtainTintedStyledAttributes.m50815(C19343.f61774);
-        if (drawableM50816 == null && hasShapeAppearance(c22733ObtainTintedStyledAttributes)) {
-            drawableM50816 = createDefaultItemBackground(c22733ObtainTintedStyledAttributes);
-            ColorStateList colorStateList = MaterialResources.getColorStateList(context2, c22733ObtainTintedStyledAttributes, C19343.f61402);
+        Drawable drawableM53149 = c1970ObtainTintedStyledAttributes.m53148(C20752.f82649);
+        if (drawableM53149 == null && hasShapeAppearance(c1970ObtainTintedStyledAttributes)) {
+            drawableM53149 = createDefaultItemBackground(c1970ObtainTintedStyledAttributes);
+            ColorStateList colorStateList = MaterialResources.getColorStateList(context2, c1970ObtainTintedStyledAttributes, C20752.f82522);
             if (colorStateList != null) {
-                navigationMenuPresenter.setItemForeground(new RippleDrawable(RippleUtils.sanitizeRippleDrawableColor(colorStateList), null, createDefaultItemDrawable(c22733ObtainTintedStyledAttributes, null)));
+                navigationMenuPresenter.setItemForeground(new RippleDrawable(RippleUtils.sanitizeRippleDrawableColor(colorStateList), null, createDefaultItemDrawable(c1970ObtainTintedStyledAttributes, null)));
             }
         }
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f61614)) {
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82594)) {
             i2 = 0;
-            setItemHorizontalPadding(c22733ObtainTintedStyledAttributes.m50803(C19343.f61614, 0));
+            setItemHorizontalPadding(c1970ObtainTintedStyledAttributes.m53136(C20752.f82594, 0));
         } else {
             i2 = 0;
         }
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f61501)) {
-            setItemVerticalPadding(c22733ObtainTintedStyledAttributes.m50803(C19343.f61501, i2));
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82555)) {
+            setItemVerticalPadding(c1970ObtainTintedStyledAttributes.m53136(C20752.f82555, i2));
         }
-        setDividerInsetStart(c22733ObtainTintedStyledAttributes.m50803(C19343.f62361, i2));
-        setDividerInsetEnd(c22733ObtainTintedStyledAttributes.m50803(C19343.f62520, i2));
-        setSubheaderInsetStart(c22733ObtainTintedStyledAttributes.m50803(C19343.f60864, i2));
-        setSubheaderInsetEnd(c22733ObtainTintedStyledAttributes.m50803(C19343.f62301, i2));
-        setTopInsetScrimEnabled(c22733ObtainTintedStyledAttributes.m50801(C19343.f60917, this.topInsetScrimEnabled));
-        setBottomInsetScrimEnabled(c22733ObtainTintedStyledAttributes.m50801(C19343.f62467, this.bottomInsetScrimEnabled));
-        int iM50804 = c22733ObtainTintedStyledAttributes.m50803(C19343.f61296, i2);
-        setItemMaxLines(c22733ObtainTintedStyledAttributes.m50809(C19343.f61880, 1));
-        navigationMenu.setCallback(new InterfaceC19994() { // from class: com.google.android.material.navigation.NavigationView.2
-            @Override // l.InterfaceC19994
-            public void onMenuModeChange(C3060 c3060) {
+        setDividerInsetStart(c1970ObtainTintedStyledAttributes.m53136(C20752.f82851, i2));
+        setDividerInsetEnd(c1970ObtainTintedStyledAttributes.m53136(C20752.f82905, i2));
+        setSubheaderInsetStart(c1970ObtainTintedStyledAttributes.m53136(C20752.f82338, i2));
+        setSubheaderInsetEnd(c1970ObtainTintedStyledAttributes.m53136(C20752.f82830, i2));
+        setTopInsetScrimEnabled(c1970ObtainTintedStyledAttributes.m53134(C20752.f82356, this.topInsetScrimEnabled));
+        setBottomInsetScrimEnabled(c1970ObtainTintedStyledAttributes.m53134(C20752.f82887, this.bottomInsetScrimEnabled));
+        int iM53137 = c1970ObtainTintedStyledAttributes.m53136(C20752.f82486, i2);
+        setItemMaxLines(c1970ObtainTintedStyledAttributes.m53142(C20752.f82685, 1));
+        navigationMenu.setCallback(new InterfaceC1834() { // from class: com.google.android.material.navigation.NavigationView.2
+            @Override // p067l.InterfaceC1834
+            public void onMenuModeChange(C0994 c0994) {
             }
 
-            @Override // l.InterfaceC19994
-            public boolean onMenuItemSelected(C3060 c3060, MenuItem menuItem) {
+            @Override // p067l.InterfaceC1834
+            public boolean onMenuItemSelected(C0994 c0994, MenuItem menuItem) {
                 OnNavigationItemSelectedListener onNavigationItemSelectedListener = NavigationView.this.listener;
                 return onNavigationItemSelectedListener != null && onNavigationItemSelectedListener.onNavigationItemSelected(menuItem);
             }
         });
         navigationMenuPresenter.setId(1);
         navigationMenuPresenter.initForMenu(context2, navigationMenu);
-        if (iM50806 != 0) {
-            navigationMenuPresenter.setSubheaderTextAppearance(iM50806);
+        if (iM53139 != 0) {
+            navigationMenuPresenter.setSubheaderTextAppearance(iM53139);
         }
-        navigationMenuPresenter.setSubheaderColor(colorStateListM50804);
+        navigationMenuPresenter.setSubheaderColor(colorStateListM53137);
         navigationMenuPresenter.setItemIconTintList(colorStateListCreateDefaultColorStateList);
         navigationMenuPresenter.setOverScrollMode(getOverScrollMode());
-        if (iM50807 != 0) {
-            navigationMenuPresenter.setItemTextAppearance(iM50807);
+        if (iM531310 != 0) {
+            navigationMenuPresenter.setItemTextAppearance(iM531310);
         }
-        navigationMenuPresenter.setItemTextAppearanceActiveBoldEnabled(zM50801);
-        navigationMenuPresenter.setItemTextColor(colorStateListM50805);
-        navigationMenuPresenter.setItemBackground(drawableM50816);
-        navigationMenuPresenter.setItemIconPadding(iM50804);
+        navigationMenuPresenter.setItemTextAppearanceActiveBoldEnabled(zM53134);
+        navigationMenuPresenter.setItemTextColor(colorStateListM53138);
+        navigationMenuPresenter.setItemBackground(drawableM53149);
+        navigationMenuPresenter.setItemIconPadding(iM53137);
         navigationMenu.addMenuPresenter(navigationMenuPresenter);
         addView((View) navigationMenuPresenter.getMenuView(this));
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f62033)) {
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82737)) {
             i3 = 0;
-            inflateMenu(c22733ObtainTintedStyledAttributes.m50806(C19343.f62033, 0));
+            inflateMenu(c1970ObtainTintedStyledAttributes.m53139(C20752.f82737, 0));
         } else {
             i3 = 0;
         }
-        if (c22733ObtainTintedStyledAttributes.m50802(C19343.f61827)) {
-            inflateHeaderView(c22733ObtainTintedStyledAttributes.m50806(C19343.f61827, i3));
+        if (c1970ObtainTintedStyledAttributes.m53135(C20752.f82667)) {
+            inflateHeaderView(c1970ObtainTintedStyledAttributes.m53139(C20752.f82667, i3));
         }
-        c22733ObtainTintedStyledAttributes.m50813();
+        c1970ObtainTintedStyledAttributes.m53146();
         setupInsetScrimsListener();
     }
 
@@ -266,10 +266,10 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     }
 
     private void maybeUpdateCornerSizeForDrawerLayout(int i, int i2) {
-        if ((getParent() instanceof C13064) && (getLayoutParams() instanceof C15180)) {
+        if ((getParent() instanceof C14784) && (getLayoutParams() instanceof C16795)) {
             if ((this.drawerLayoutCornerSize > 0 || this.drawerLayoutCornerSizeBackAnimationEnabled) && (getBackground() instanceof MaterialShapeDrawable)) {
-                int i3 = ((C15180) getLayoutParams()).f46371;
-                int i4 = C17648.f53953;
+                int i3 = ((C16795) getLayoutParams()).f49496;
+                int i4 = C1717.f57146;
                 boolean z = Gravity.getAbsoluteGravity(i3, getLayoutDirection()) == 3;
                 MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable) getBackground();
                 ShapeAppearanceModel.Builder allCornerSizes = materialShapeDrawable.getShapeAppearanceModel().toBuilder().setAllCornerSizes(this.drawerLayoutCornerSize);
@@ -298,8 +298,8 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         maybeUpdateCornerSizeForDrawerLayout(getWidth(), getHeight());
     }
 
-    private boolean hasShapeAppearance(C22733 c22733) {
-        return c22733.m50802(C19343.f60971) || c22733.m50802(C19343.f61661);
+    private boolean hasShapeAppearance(C1970 c1970) {
+        return c1970.m53135(C20752.f82375) || c1970.m53135(C20752.f82610);
     }
 
     @Override // com.google.android.material.internal.ScrimInsetsFrameLayout, android.view.ViewGroup, android.view.View
@@ -307,11 +307,11 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         super.onAttachedToWindow();
         MaterialShapeUtils.setParentAbsoluteElevation(this);
         ViewParent parent = getParent();
-        if ((parent instanceof C13064) && this.backOrchestrator.shouldListenForBackCallbacks()) {
-            C13064 c13064 = (C13064) parent;
-            c13064.m31659(this.backDrawerListener);
-            c13064.m31651(this.backDrawerListener);
-            if (C13064.m31638(this)) {
+        if ((parent instanceof C14784) && this.backOrchestrator.shouldListenForBackCallbacks()) {
+            C14784 c14784 = (C14784) parent;
+            c14784.m33746(this.backDrawerListener);
+            c14784.m33738(this.backDrawerListener);
+            if (C14784.m33725(this)) {
                 this.backOrchestrator.startListeningForBackCallbacksWithPriorityOverlay();
             }
         }
@@ -322,8 +322,8 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         super.onDetachedFromWindow();
         getViewTreeObserver().removeOnGlobalLayoutListener(this.onGlobalLayoutListener);
         ViewParent parent = getParent();
-        if (parent instanceof C13064) {
-            ((C13064) parent).m31659(this.backDrawerListener);
+        if (parent instanceof C14784) {
+            ((C14784) parent).m33746(this.backDrawerListener);
         }
     }
 
@@ -339,14 +339,14 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         MaterialShapeUtils.setElevation(this, f);
     }
 
-    private Drawable createDefaultItemBackground(C22733 c22733) {
-        return createDefaultItemDrawable(c22733, MaterialResources.getColorStateList(getContext(), c22733, C19343.f62087));
+    private Drawable createDefaultItemBackground(C1970 c1970) {
+        return createDefaultItemDrawable(c1970, MaterialResources.getColorStateList(getContext(), c1970, C20752.f82756));
     }
 
-    private Drawable createDefaultItemDrawable(C22733 c22733, ColorStateList colorStateList) {
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(ShapeAppearanceModel.builder(getContext(), c22733.m50806(C19343.f60971, 0), c22733.m50806(C19343.f61661, 0)).build());
+    private Drawable createDefaultItemDrawable(C1970 c1970, ColorStateList colorStateList) {
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(ShapeAppearanceModel.builder(getContext(), c1970.m53139(C20752.f82375, 0), c1970.m53139(C20752.f82610, 0)).build());
         materialShapeDrawable.setFillColor(colorStateList);
-        return new InsetDrawable((Drawable) materialShapeDrawable, c22733.m50803(C19343.f61927, 0), c22733.m50803(C19343.f62619, 0), c22733.m50803(C19343.f62141, 0), c22733.m50803(C19343.f62195, 0));
+        return new InsetDrawable((Drawable) materialShapeDrawable, c1970.m53136(C20752.f82701, 0), c1970.m53136(C20752.f82938, 0), c1970.m53136(C20752.f82775, 0), c1970.m53136(C20752.f82794, 0));
     }
 
     @Override // android.view.View
@@ -391,12 +391,12 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.shapeableDelegate.maybeClip(canvas, new C4736(3, this));
+        this.shapeableDelegate.maybeClip(canvas, new C6870(3, this));
     }
 
     @Override // com.google.android.material.internal.ScrimInsetsFrameLayout
-    public void onInsetsChanged(C21610 c21610) {
-        this.presenter.dispatchApplyWindowInsets(c21610);
+    public void onInsetsChanged(C1914 c1914) {
+        this.presenter.dispatchApplyWindowInsets(c1914);
     }
 
     public void inflateMenu(int i) {
@@ -451,7 +451,7 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     }
 
     public void setItemBackgroundResource(int i) {
-        setItemBackground(C0881.m3234(getContext(), i));
+        setItemBackground(C0886.m5548(getContext(), i));
     }
 
     public void setItemBackground(Drawable drawable) {
@@ -497,14 +497,14 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     public void setCheckedItem(int i) {
         MenuItem menuItemFindItem = this.menu.findItem(i);
         if (menuItemFindItem != null) {
-            this.presenter.setCheckedItem((C5882) menuItemFindItem);
+            this.presenter.setCheckedItem((C1134) menuItemFindItem);
         }
     }
 
     public void setCheckedItem(MenuItem menuItem) {
         MenuItem menuItemFindItem = this.menu.findItem(menuItem.getItemId());
         if (menuItemFindItem != null) {
-            this.presenter.setCheckedItem((C5882) menuItemFindItem);
+            this.presenter.setCheckedItem((C1134) menuItemFindItem);
             return;
         }
         throw new IllegalArgumentException("Called setCheckedItem(MenuItem) with an item that is not in the current menu.");
@@ -583,16 +583,16 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
-    public void startBackProgress(C20118 c20118) {
+    public void startBackProgress(C1840 c1840) {
         requireDrawerLayoutParent();
-        this.sideContainerBackHelper.startBackProgress(c20118);
+        this.sideContainerBackHelper.startBackProgress(c1840);
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
-    public void updateBackProgress(C20118 c20118) {
-        this.sideContainerBackHelper.updateBackProgress(c20118, ((C15180) requireDrawerLayoutParent().second).f46371);
+    public void updateBackProgress(C1840 c1840) {
+        this.sideContainerBackHelper.updateBackProgress(c1840, ((C16795) requireDrawerLayoutParent().second).f49496);
         if (this.drawerLayoutCornerSizeBackAnimationEnabled) {
-            this.drawerLayoutCornerSize = AnimationUtils.lerp(0, this.drawerLayoutCornerSizeBackAnimationMax, this.sideContainerBackHelper.interpolateProgress(c20118.m46371()));
+            this.drawerLayoutCornerSize = AnimationUtils.lerp(0, this.drawerLayoutCornerSizeBackAnimationMax, this.sideContainerBackHelper.interpolateProgress(c1840.m48687()));
             maybeUpdateCornerSizeForDrawerLayout(getWidth(), getHeight());
         }
     }
@@ -600,13 +600,13 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     @Override // com.google.android.material.motion.MaterialBackHandler
     public void handleBackInvoked() {
         Pair pairRequireDrawerLayoutParent = requireDrawerLayoutParent();
-        C13064 c13064 = (C13064) pairRequireDrawerLayoutParent.first;
-        C20118 c20118OnHandleBackInvoked = this.sideContainerBackHelper.onHandleBackInvoked();
-        if (c20118OnHandleBackInvoked != null && Build.VERSION.SDK_INT >= 34) {
-            this.sideContainerBackHelper.finishBackProgress(c20118OnHandleBackInvoked, ((C15180) pairRequireDrawerLayoutParent.second).f46371, DrawerLayoutUtils.getScrimCloseAnimatorListener(c13064, this), DrawerLayoutUtils.getScrimCloseAnimatorUpdateListener(c13064));
+        C14784 c14784 = (C14784) pairRequireDrawerLayoutParent.first;
+        C1840 c1840OnHandleBackInvoked = this.sideContainerBackHelper.onHandleBackInvoked();
+        if (c1840OnHandleBackInvoked != null && Build.VERSION.SDK_INT >= 34) {
+            this.sideContainerBackHelper.finishBackProgress(c1840OnHandleBackInvoked, ((C16795) pairRequireDrawerLayoutParent.second).f49496, DrawerLayoutUtils.getScrimCloseAnimatorListener(c14784, this), DrawerLayoutUtils.getScrimCloseAnimatorUpdateListener(c14784));
             return;
         }
-        c13064.m31649((View) this, true);
+        c14784.m33736((View) this, true);
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
@@ -619,8 +619,8 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
     private Pair requireDrawerLayoutParent() {
         ViewParent parent = getParent();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if ((parent instanceof C13064) && (layoutParams instanceof C15180)) {
-            return new Pair((C13064) parent, (C15180) layoutParams);
+        if ((parent instanceof C14784) && (layoutParams instanceof C16795)) {
+            return new Pair((C14784) parent, (C16795) layoutParams);
         }
         throw new IllegalStateException("NavigationView back progress requires the direct parent view to be a DrawerLayout.");
     }
@@ -631,7 +631,7 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
 
     private MenuInflater getMenuInflater() {
         if (this.menuInflater == null) {
-            this.menuInflater = new C7790(getContext());
+            this.menuInflater = new C1228(getContext());
         }
         return this.menuInflater;
     }
@@ -641,14 +641,14 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         if (!getContext().getTheme().resolveAttribute(i, typedValue, true)) {
             return null;
         }
-        ColorStateList colorStateListM3233 = C0881.m3233(getContext(), typedValue.resourceId);
-        if (!getContext().getTheme().resolveAttribute(bin.mt.plus.R.attr.MT_Protector, typedValue, true)) {
+        ColorStateList colorStateListM5547 = C0886.m5547(getContext(), typedValue.resourceId);
+        if (!getContext().getTheme().resolveAttribute(bin.p000mt.plus.R.attr.MT_Protector, typedValue, true)) {
             return null;
         }
         int i2 = typedValue.data;
-        int defaultColor = colorStateListM3233.getDefaultColor();
+        int defaultColor = colorStateListM5547.getDefaultColor();
         int[] iArr = DISABLED_STATE_SET;
-        return new ColorStateList(new int[][]{iArr, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateListM3233.getColorForState(iArr, defaultColor), i2, defaultColor});
+        return new ColorStateList(new int[][]{iArr, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateListM5547.getColorForState(iArr, defaultColor), i2, defaultColor});
     }
 
     private void setupInsetScrimsListener() {
@@ -691,7 +691,7 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
         getViewTreeObserver().addOnGlobalLayoutListener(this.onGlobalLayoutListener);
     }
 
-    public class SavedState extends AbstractC7152 {
+    public class SavedState extends AbstractC9165 {
         public static final Parcelable.Creator CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.navigation.NavigationView.SavedState.1
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
@@ -719,7 +719,7 @@ public class NavigationView extends ScrimInsetsFrameLayout implements MaterialBa
             super(parcelable);
         }
 
-        @Override // l.AbstractC7152, android.os.Parcelable
+        @Override // p067l.AbstractC9165, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
             parcel.writeBundle(this.menuState);

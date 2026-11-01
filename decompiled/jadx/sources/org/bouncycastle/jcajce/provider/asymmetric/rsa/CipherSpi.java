@@ -18,9 +18,6 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import l.C16014;
-import l.C18307;
-import l.C20094;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -41,6 +38,9 @@ import org.bouncycastle.jcajce.util.BCJcaJceHelper;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
 import org.bouncycastle.util.Strings;
+import p067l.C17588;
+import p067l.C19768;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CipherSpi extends BaseCipherSpi {
@@ -330,7 +330,7 @@ public class CipherSpi extends BaseCipherSpi {
             if (i != 2) {
                 if (i != 3) {
                     if (i != 4) {
-                        throw new InvalidParameterException(C18307.m42645(i, "unknown opmode ", " passed to RSA"));
+                        throw new InvalidParameterException(C19768.m44906(i, "unknown opmode ", " passed to RSA"));
                     }
                 }
             }
@@ -366,7 +366,7 @@ public class CipherSpi extends BaseCipherSpi {
             this.publicKeyOnly = false;
         } else {
             if (!upperCase.equals("2")) {
-                throw new NoSuchAlgorithmException(C20094.m46315("can't support mode ", str));
+                throw new NoSuchAlgorithmException(C21466.m48631("can't support mode ", str));
             }
             this.privateKeyOnly = false;
             this.publicKeyOnly = true;
@@ -426,7 +426,7 @@ public class CipherSpi extends BaseCipherSpi {
             initFromSpec(new OAEPParameterSpec("SHA3-384", "MGF1", new MGF1ParameterSpec("SHA3-384"), PSource.PSpecified.DEFAULT));
         } else {
             if (!upperCase.equals("OAEPWITHSHA3-512ANDMGF1PADDING")) {
-                throw new NoSuchPaddingException(C16014.m37867(str, " unavailable with RSA."));
+                throw new NoSuchPaddingException(C17588.m40053(str, " unavailable with RSA."));
             }
             initFromSpec(new OAEPParameterSpec("SHA3-512", "MGF1", new MGF1ParameterSpec("SHA3-512"), PSource.PSpecified.DEFAULT));
         }

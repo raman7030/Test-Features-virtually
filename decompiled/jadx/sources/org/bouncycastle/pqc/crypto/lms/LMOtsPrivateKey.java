@@ -4,26 +4,30 @@ import org.bouncycastle.crypto.Digest;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMOtsPrivateKey {
-    public final byte[] I;
+
+    /* JADX INFO: renamed from: I */
+    public final byte[] f81640I;
     public final byte[] masterSecret;
     public final LMOtsParameters parameter;
-    public final int q;
+
+    /* JADX INFO: renamed from: q */
+    public final int f81641q;
 
     public LMOtsPrivateKey(LMOtsParameters lMOtsParameters, byte[] bArr, int i, byte[] bArr2) {
         this.parameter = lMOtsParameters;
-        this.I = bArr;
-        this.q = i;
+        this.f81640I = bArr;
+        this.f81641q = i;
         this.masterSecret = bArr2;
     }
 
     public SeedDerive getDerivationFunction() {
-        SeedDerive seedDerive = new SeedDerive(this.I, this.masterSecret, DigestUtil.getDigest(this.parameter));
-        seedDerive.setQ(this.q);
+        SeedDerive seedDerive = new SeedDerive(this.f81640I, this.masterSecret, DigestUtil.getDigest(this.parameter));
+        seedDerive.setQ(this.f81641q);
         return seedDerive;
     }
 
     public byte[] getI() {
-        return this.I;
+        return this.f81640I;
     }
 
     public byte[] getMasterSecret() {
@@ -35,7 +39,7 @@ public class LMOtsPrivateKey {
     }
 
     public int getQ() {
-        return this.q;
+        return this.f81641q;
     }
 
     public LMSContext getSignatureContext(LMSigParameters lMSigParameters, byte[][] bArr) {

@@ -2,13 +2,15 @@ package org.bouncycastle.pqc.crypto.slhdsa;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SIG {
-    public final byte[] r;
+
+    /* JADX INFO: renamed from: r */
+    public final byte[] f81724r;
     public final SIG_FORS[] sig_fors;
     public final SIG_XMSS[] sig_ht;
 
     public SIG(int i, int i2, int i3, int i4, int i5, int i6, byte[] bArr) {
         byte[] bArr2 = new byte[i];
-        this.r = bArr2;
+        this.f81724r = bArr2;
         System.arraycopy(bArr, 0, bArr2, 0, i);
         this.sig_fors = new SIG_FORS[i2];
         int i7 = i;
@@ -46,7 +48,7 @@ public class SIG {
     }
 
     public byte[] getR() {
-        return this.r;
+        return this.f81724r;
     }
 
     public SIG_FORS[] getSIG_FORS() {

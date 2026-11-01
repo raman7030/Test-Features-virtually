@@ -2,20 +2,20 @@ package com.google.android.material.internal;
 
 import android.content.Context;
 import android.view.SubMenu;
-import l.C3060;
-import l.C5882;
+import p067l.C0994;
+import p067l.C1134;
 
 /* JADX INFO: loaded from: classes.dex */
-public class NavigationMenu extends C3060 {
+public class NavigationMenu extends C0994 {
     public NavigationMenu(Context context) {
         super(context);
     }
 
-    @Override // l.C3060, android.view.Menu
+    @Override // p067l.C0994, android.view.Menu
     public SubMenu addSubMenu(int i, int i2, int i3, CharSequence charSequence) {
-        C5882 c5882 = (C5882) addInternal(i, i2, i3, charSequence);
-        NavigationSubMenu navigationSubMenu = new NavigationSubMenu(getContext(), this, c5882);
-        c5882.m16451(navigationSubMenu);
+        C1134 c1134 = (C1134) addInternal(i, i2, i3, charSequence);
+        NavigationSubMenu navigationSubMenu = new NavigationSubMenu(getContext(), this, c1134);
+        c1134.m18377(navigationSubMenu);
         return navigationSubMenu;
     }
 }

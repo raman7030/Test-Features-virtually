@@ -1,9 +1,6 @@
 package org.bouncycastle.asn1.util;
 
 import com.google.android.material.motion.MotionUtils;
-import l.C16014;
-import l.C7166;
-import l.EnumC0121;
 import org.bouncycastle.asn1.ASN1BMPString;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Boolean;
@@ -42,6 +39,9 @@ import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.asn1.DLBitString;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C17588;
+import p067l.C9179;
+import p067l.EnumC2483;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ASN1Dump {
@@ -81,13 +81,13 @@ public class ASN1Dump {
             return;
         }
         String strLineSeparator = Strings.lineSeparator();
-        String strM37867 = C16014.m37867(str, TAB);
+        String strM40053 = C17588.m40053(str, TAB);
         for (int i = 0; i < bArr.length; i += 32) {
             int iMin = Math.min(bArr.length - i, 32);
-            sb.append(strM37867);
+            sb.append(strM40053);
             sb.append(Hex.toHexString(bArr, i, iMin));
             for (int i2 = iMin; i2 < 32; i2++) {
-                sb.append(EnumC0121.f1143);
+                sb.append(EnumC2483.f3919);
             }
             sb.append(TAB);
             appendAscString(sb, bArr, i, iMin);
@@ -117,10 +117,10 @@ public class ASN1Dump {
             sb.append(str5);
             sb.append(strLineSeparator);
             ASN1Sequence aSN1Sequence = (ASN1Sequence) aSN1Primitive;
-            String strM37867 = C16014.m37867(str, TAB);
+            String strM40053 = C17588.m40053(str, TAB);
             int size = aSN1Sequence.size();
             while (i < size) {
-                _dumpAsString(strM37867, z, aSN1Sequence.getObjectAt(i).toASN1Primitive(), sb);
+                _dumpAsString(strM40053, z, aSN1Sequence.getObjectAt(i).toASN1Primitive(), sb);
                 i++;
             }
             return;
@@ -134,10 +134,10 @@ public class ASN1Dump {
             sb.append(str4);
             sb.append(strLineSeparator);
             ASN1Set aSN1Set = (ASN1Set) aSN1Primitive;
-            String strM37868 = C16014.m37867(str, TAB);
+            String strM40054 = C17588.m40053(str, TAB);
             int size2 = aSN1Set.size();
             while (i < size2) {
-                _dumpAsString(strM37868, z, aSN1Set.getObjectAt(i).toASN1Primitive(), sb);
+                _dumpAsString(strM40054, z, aSN1Set.getObjectAt(i).toASN1Primitive(), sb);
                 i++;
             }
             return;
@@ -259,24 +259,24 @@ public class ASN1Dump {
         sb.append("External " + strLineSeparator);
         String str6 = str + TAB;
         if (aSN1External.getDirectReference() != null) {
-            StringBuilder sbM19190 = C7166.m19190(str6, "Direct Reference: ");
-            sbM19190.append(aSN1External.getDirectReference().getId());
-            sbM19190.append(strLineSeparator);
-            sb.append(sbM19190.toString());
+            StringBuilder sbM21133 = C9179.m21133(str6, "Direct Reference: ");
+            sbM21133.append(aSN1External.getDirectReference().getId());
+            sbM21133.append(strLineSeparator);
+            sb.append(sbM21133.toString());
         }
         if (aSN1External.getIndirectReference() != null) {
-            StringBuilder sbM19191 = C7166.m19190(str6, "Indirect Reference: ");
-            sbM19191.append(aSN1External.getIndirectReference().toString());
-            sbM19191.append(strLineSeparator);
-            sb.append(sbM19191.toString());
+            StringBuilder sbM21134 = C9179.m21133(str6, "Indirect Reference: ");
+            sbM21134.append(aSN1External.getIndirectReference().toString());
+            sbM21134.append(strLineSeparator);
+            sb.append(sbM21134.toString());
         }
         if (aSN1External.getDataValueDescriptor() != null) {
             _dumpAsString(str6, z, aSN1External.getDataValueDescriptor(), sb);
         }
-        StringBuilder sbM19192 = C7166.m19190(str6, "Encoding: ");
-        sbM19192.append(aSN1External.getEncoding());
-        sbM19192.append(strLineSeparator);
-        sb.append(sbM19192.toString());
+        StringBuilder sbM21135 = C9179.m21133(str6, "Encoding: ");
+        sbM21135.append(aSN1External.getEncoding());
+        sbM21135.append(strLineSeparator);
+        sb.append(sbM21135.toString());
         _dumpAsString(str6, z, aSN1External.getExternalContent(), sb);
     }
 }

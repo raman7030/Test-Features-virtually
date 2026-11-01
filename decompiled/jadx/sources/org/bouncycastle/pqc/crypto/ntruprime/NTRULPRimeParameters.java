@@ -1,24 +1,30 @@
 package org.bouncycastle.pqc.crypto.ntruprime;
 
 import com.umeng.commonsdk.statistics.UMErrorCode;
-import org.bouncycastle.math.ec.rfc8032.Ed448;
+import org.bouncycastle.math.p080ec.rfc8032.Ed448;
 import org.bouncycastle.pqc.crypto.KEMParameters;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class NTRULPRimeParameters implements KEMParameters {
     public final int delta;
     public final String name;
-    public final int p;
+
+    /* JADX INFO: renamed from: p */
+    public final int f81686p;
     public final int privateKeyBytes;
     public final int publicKeyBytes;
-    public final int q;
+
+    /* JADX INFO: renamed from: q */
+    public final int f81687q;
     public final int roundedPolynomialBytes;
     public final int sharedKeyBytes;
     public final int tau0;
     public final int tau1;
     public final int tau2;
     public final int tau3;
-    public final int w;
+
+    /* JADX INFO: renamed from: w */
+    public final int f81688w;
     public static final NTRULPRimeParameters ntrulpr653 = new NTRULPRimeParameters("ntrulpr653", 653, 4621, 252, 289, 2175, UMErrorCode.E_UM_BE_RAW_OVERSIZE, 2031, 290, 865, 897, 1125, 32);
     public static final NTRULPRimeParameters ntrulpr761 = new NTRULPRimeParameters("ntrulpr761", 761, 4591, 250, 292, 2156, 114, 2007, 287, 1007, 1039, 1294, 32);
     public static final NTRULPRimeParameters ntrulpr857 = new NTRULPRimeParameters("ntrulpr857", 857, 5167, 281, 329, 2433, 101, 2265, 324, 1152, 1184, 1463, 32);
@@ -28,9 +34,9 @@ public class NTRULPRimeParameters implements KEMParameters {
 
     public NTRULPRimeParameters(String str, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12) {
         this.name = str;
-        this.p = i;
-        this.q = i2;
-        this.w = i3;
+        this.f81686p = i;
+        this.f81687q = i2;
+        this.f81688w = i3;
         this.delta = i4;
         this.tau0 = i5;
         this.tau1 = i6;
@@ -51,7 +57,7 @@ public class NTRULPRimeParameters implements KEMParameters {
     }
 
     public int getP() {
-        return this.p;
+        return this.f81686p;
     }
 
     public int getPrivateKeyBytes() {
@@ -63,7 +69,7 @@ public class NTRULPRimeParameters implements KEMParameters {
     }
 
     public int getQ() {
-        return this.q;
+        return this.f81687q;
     }
 
     public int getRoundedPolynomialBytes() {
@@ -91,6 +97,6 @@ public class NTRULPRimeParameters implements KEMParameters {
     }
 
     public int getW() {
-        return this.w;
+        return this.f81688w;
     }
 }

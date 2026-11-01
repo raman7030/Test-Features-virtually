@@ -2,17 +2,19 @@ package org.bouncycastle.pqc.crypto.xmss;
 
 import java.util.HashMap;
 import java.util.Map;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.Integers;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class XMSSParameters {
     public static final Map paramsLookupTable;
     public final int height;
-    public final int k;
+
+    /* JADX INFO: renamed from: k */
+    public final int f81791k;
     public final XMSSOid oid;
     public final String treeDigest;
     public final ASN1ObjectIdentifier treeDigestOID;
@@ -42,7 +44,7 @@ public final class XMSSParameters {
         map.put(numValueOf4, new XMSSParameters(10, aSN1ObjectIdentifier4));
         map.put(Integers.valueOf(11), new XMSSParameters(16, aSN1ObjectIdentifier4));
         map.put(Integers.valueOf(12), new XMSSParameters(20, aSN1ObjectIdentifier4));
-        paramsLookupTable = C20195.unmodifiableMap(map);
+        paramsLookupTable = C21562.unmodifiableMap(map);
     }
 
     public XMSSParameters(int i, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
@@ -53,7 +55,7 @@ public final class XMSSParameters {
             throw new NullPointerException("digest == null");
         }
         this.height = i;
-        this.k = determineMinK();
+        this.f81791k = determineMinK();
         String digestName = DigestUtil.getDigestName(aSN1ObjectIdentifier);
         this.treeDigest = digestName;
         this.treeDigestOID = aSN1ObjectIdentifier;
@@ -93,7 +95,7 @@ public final class XMSSParameters {
     }
 
     public int getK() {
-        return this.k;
+        return this.f81791k;
     }
 
     public int getLen() {

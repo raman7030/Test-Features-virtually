@@ -1,11 +1,11 @@
 package org.bouncycastle.jcajce.provider.asymmetric;
 
-import l.C18473;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.slhdsa.SLHDSAKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import p067l.C19925;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SLHDSA {
@@ -106,15 +106,15 @@ public class SLHDSA {
             }
             ASN1ObjectIdentifier[] aSN1ObjectIdentifierArr = {NISTObjectIdentifiers.id_slh_dsa_sha2_128s, NISTObjectIdentifiers.id_slh_dsa_sha2_128f, NISTObjectIdentifiers.id_slh_dsa_sha2_192s, NISTObjectIdentifiers.id_slh_dsa_sha2_192f, NISTObjectIdentifiers.id_slh_dsa_sha2_256s, NISTObjectIdentifiers.id_slh_dsa_sha2_256f, NISTObjectIdentifiers.id_slh_dsa_shake_128s, NISTObjectIdentifiers.id_slh_dsa_shake_128f, NISTObjectIdentifiers.id_slh_dsa_shake_192s, NISTObjectIdentifiers.id_slh_dsa_shake_192f, NISTObjectIdentifiers.id_slh_dsa_shake_256s, NISTObjectIdentifiers.id_slh_dsa_shake_256f};
             for (int i3 = 0; i3 != 12; i3++) {
-                StringBuilder sbM42951 = C18473.m42951("SLH-DSA", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr[i3], configurableProvider);
-                sbM42951.append(aSN1ObjectIdentifierArr[i3]);
-                configurableProvider.addAlgorithm(sbM42951.toString(), "SLH-DSA");
+                StringBuilder sbM45227 = C19925.m45227("SLH-DSA", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr[i3], configurableProvider);
+                sbM45227.append(aSN1ObjectIdentifierArr[i3]);
+                configurableProvider.addAlgorithm(sbM45227.toString(), "SLH-DSA");
             }
             ASN1ObjectIdentifier[] aSN1ObjectIdentifierArr2 = {NISTObjectIdentifiers.id_hash_slh_dsa_sha2_128s_with_sha256, NISTObjectIdentifiers.id_hash_slh_dsa_sha2_128f_with_sha256, NISTObjectIdentifiers.id_hash_slh_dsa_shake_128s_with_shake128, NISTObjectIdentifiers.id_hash_slh_dsa_shake_128f_with_shake128, NISTObjectIdentifiers.id_hash_slh_dsa_sha2_192s_with_sha512, NISTObjectIdentifiers.id_hash_slh_dsa_sha2_192f_with_sha512, NISTObjectIdentifiers.id_hash_slh_dsa_shake_192s_with_shake256, NISTObjectIdentifiers.id_hash_slh_dsa_shake_192f_with_shake256, NISTObjectIdentifiers.id_hash_slh_dsa_sha2_256s_with_sha512, NISTObjectIdentifiers.id_hash_slh_dsa_sha2_256f_with_sha512, NISTObjectIdentifiers.id_hash_slh_dsa_shake_256s_with_shake256, NISTObjectIdentifiers.id_hash_slh_dsa_shake_256f_with_shake256};
             for (int i4 = 0; i4 != 12; i4++) {
-                StringBuilder sbM42952 = C18473.m42951("HASH-SLH-DSA", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr2[i4], configurableProvider);
-                sbM42952.append(aSN1ObjectIdentifierArr2[i4]);
-                configurableProvider.addAlgorithm(sbM42952.toString(), "HASH-SLH-DSA");
+                StringBuilder sbM45228 = C19925.m45227("HASH-SLH-DSA", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifierArr2[i4], configurableProvider);
+                sbM45228.append(aSN1ObjectIdentifierArr2[i4]);
+                configurableProvider.addAlgorithm(sbM45228.toString(), "HASH-SLH-DSA");
             }
         }
     }

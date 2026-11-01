@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.generators;
 
-import l.C3200;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.DerivationParameters;
 import org.bouncycastle.crypto.Mac;
@@ -8,27 +7,32 @@ import org.bouncycastle.crypto.MacDerivationFunction;
 import org.bouncycastle.crypto.params.KDFCounterParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.Integers;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class KDFCounterBytesGenerator implements MacDerivationFunction {
     public byte[] fixedInputDataCtrPrefix;
     public byte[] fixedInputData_afterCtr;
     public int generatedBytes;
-    public final int h;
+
+    /* JADX INFO: renamed from: h */
+    public final int f81113h;
     public byte[] ios;
-    public byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public byte[] f81114k;
     public int maxSizeExcl;
     public final Mac prf;
 
     public KDFCounterBytesGenerator(Mac mac) {
         this.prf = mac;
         int macSize = mac.getMacSize();
-        this.h = macSize;
-        this.k = new byte[macSize];
+        this.f81113h = macSize;
+        this.f81114k = new byte[macSize];
     }
 
     private void generateNext() {
-        int i = (this.generatedBytes / this.h) + 1;
+        int i = (this.generatedBytes / this.f81113h) + 1;
         byte[] bArr = this.ios;
         int length = bArr.length;
         if (length != 1) {
@@ -53,7 +57,7 @@ public class KDFCounterBytesGenerator implements MacDerivationFunction {
         Mac mac3 = this.prf;
         byte[] bArr4 = this.fixedInputData_afterCtr;
         mac3.update(bArr4, 0, bArr4.length);
-        this.prf.doFinal(this.k, 0);
+        this.prf.doFinal(this.f81114k, 0);
     }
 
     @Override // org.bouncycastle.crypto.MacDerivationFunction
@@ -72,7 +76,7 @@ public class KDFCounterBytesGenerator implements MacDerivationFunction {
         this.fixedInputData_afterCtr = kDFCounterParameters.getFixedInputDataCounterSuffix();
         int r = kDFCounterParameters.getR();
         this.ios = new byte[r / 8];
-        this.maxSizeExcl = r >= Integers.numberOfLeadingZeros(this.h) ? Integer.MAX_VALUE : this.h << r;
+        this.maxSizeExcl = r >= Integers.numberOfLeadingZeros(this.f81113h) ? Integer.MAX_VALUE : this.f81113h << r;
         this.generatedBytes = 0;
     }
 
@@ -81,16 +85,16 @@ public class KDFCounterBytesGenerator implements MacDerivationFunction {
         int i3 = this.generatedBytes;
         int i4 = i3 + i2;
         if (i4 < 0 || i4 >= this.maxSizeExcl) {
-            throw new DataLengthException(C3200.m9831(this.maxSizeExcl, " bytes", new StringBuilder("Current KDFCTR may only be used for ")));
+            throw new DataLengthException(C5410.m11876(this.maxSizeExcl, " bytes", new StringBuilder("Current KDFCTR may only be used for ")));
         }
-        if (i3 % this.h == 0) {
+        if (i3 % this.f81113h == 0) {
             generateNext();
         }
         int i5 = this.generatedBytes;
-        int i6 = this.h;
+        int i6 = this.f81113h;
         int i7 = i5 % i6;
         int iMin = Math.min(i6 - (i5 % i6), i2);
-        System.arraycopy(this.k, i7, bArr, i, iMin);
+        System.arraycopy(this.f81114k, i7, bArr, i, iMin);
         this.generatedBytes += iMin;
         int i8 = i2 - iMin;
         while (true) {
@@ -99,8 +103,8 @@ public class KDFCounterBytesGenerator implements MacDerivationFunction {
                 return i2;
             }
             generateNext();
-            iMin = Math.min(this.h, i8);
-            System.arraycopy(this.k, 0, bArr, i, iMin);
+            iMin = Math.min(this.f81113h, i8);
+            System.arraycopy(this.f81114k, 0, bArr, i, iMin);
             this.generatedBytes += iMin;
             i8 -= iMin;
         }

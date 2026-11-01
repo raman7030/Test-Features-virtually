@@ -2,8 +2,8 @@ package org.bouncycastle.pqc.crypto.xmss;
 
 import java.util.ArrayList;
 import java.util.List;
-import l.C18307;
 import org.bouncycastle.util.Arrays;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class WOTSPlus {
@@ -168,7 +168,7 @@ public final class WOTSPlus {
             throw new NullPointerException("startHash == null");
         }
         if (bArr.length != treeDigestSize) {
-            throw new IllegalArgumentException(C18307.m42645(treeDigestSize, "startHash needs to be ", "bytes"));
+            throw new IllegalArgumentException(C19768.m44906(treeDigestSize, "startHash needs to be ", "bytes"));
         }
         if (oTSHashAddress == null) {
             throw new NullPointerException("otsHashAddress == null");
@@ -191,6 +191,6 @@ public final class WOTSPlus {
         for (int i4 = 0; i4 < treeDigestSize; i4++) {
             bArr2[i4] = (byte) (bArrChain[i4] ^ bArrPRF2[i4]);
         }
-        return this.khf.F(bArrPRF, bArr2);
+        return this.khf.m55434F(bArrPRF, bArr2);
     }
 }

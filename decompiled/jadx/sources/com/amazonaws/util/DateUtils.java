@@ -6,21 +6,21 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.TimeZone;
-import l.C3261;
+import p067l.C5468;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DateUtils {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static final TimeZone f830 = C3261.getTimeZone("GMT");
+    /* JADX INFO: renamed from: ֫ */
+    public static final TimeZone f1990 = C5468.getTimeZone("GMT");
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static final HashMap f831 = new HashMap();
+    /* JADX INFO: renamed from: ۧ */
+    public static final HashMap f1991 = new HashMap();
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static ThreadLocal m768(final String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public static ThreadLocal m1933(final String str) {
         ThreadLocal threadLocal;
-        HashMap map = f831;
+        HashMap map = f1991;
         ThreadLocal threadLocal2 = (ThreadLocal) map.get(str);
         if (threadLocal2 != null) {
             return threadLocal2;
@@ -32,7 +32,7 @@ public class DateUtils {
                     @Override // java.lang.ThreadLocal
                     public final Object initialValue() {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(str, Locale.US);
-                        simpleDateFormat.setTimeZone(DateUtils.f830);
+                        simpleDateFormat.setTimeZone(DateUtils.f1990);
                         simpleDateFormat.setLenient(false);
                         return simpleDateFormat;
                     }
@@ -43,31 +43,31 @@ public class DateUtils {
         return threadLocal;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static Date m769(String str, String str2) {
+    /* JADX INFO: renamed from: ֫ */
+    public static Date m1934(String str, String str2) {
         try {
-            return ((SimpleDateFormat) m768(str).get()).parse(str2);
+            return ((SimpleDateFormat) m1933(str).get()).parse(str2);
         } catch (ParseException e) {
             throw new IllegalArgumentException(e);
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m767(String str, Date date) {
-        return ((SimpleDateFormat) m768(str).get()).format(date);
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1932(String str, Date date) {
+        return ((SimpleDateFormat) m1933(str).get()).format(date);
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static Date m772(String str) {
+    /* JADX INFO: renamed from: ۧ */
+    public static Date m1937(String str) {
         try {
-            return m769("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", str);
+            return m1934("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", str);
         } catch (IllegalArgumentException unused) {
-            return m769("yyyy-MM-dd'T'HH:mm:ss'Z'", str);
+            return m1934("yyyy-MM-dd'T'HH:mm:ss'Z'", str);
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static Date m770(Date date) {
+    /* JADX INFO: renamed from: ֫ */
+    public static Date m1935(Date date) {
         if (date == null) {
             return null;
         }

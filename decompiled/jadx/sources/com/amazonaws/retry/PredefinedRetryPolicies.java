@@ -1,6 +1,6 @@
 package com.amazonaws.retry;
 
-import com.alipay.sdk.m.o.b;
+import com.alipay.sdk.p010m.p039o.C0180b;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import java.io.IOException;
@@ -10,31 +10,31 @@ import java.util.Random;
 /* JADX INFO: loaded from: classes.dex */
 public class PredefinedRetryPolicies {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static final RetryPolicy f450;
+    /* JADX INFO: renamed from: ֫ */
+    public static final RetryPolicy f1610;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static final RetryPolicy.BackoffStrategy f451;
+    /* JADX INFO: renamed from: ۧ */
+    public static final RetryPolicy.BackoffStrategy f1611;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public static final SDKDefaultRetryCondition f452;
+    /* JADX INFO: renamed from: ܽ */
+    public static final SDKDefaultRetryCondition f1612;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public static final RetryPolicy f453 = new RetryPolicy(RetryPolicy.RetryCondition.f461, RetryPolicy.BackoffStrategy.f460, 0, false);
+    /* JADX INFO: renamed from: ᩳ */
+    public static final RetryPolicy f1613 = new RetryPolicy(RetryPolicy.RetryCondition.f1621, RetryPolicy.BackoffStrategy.f1620, 0, false);
 
     static {
         SDKDefaultRetryCondition sDKDefaultRetryCondition = new SDKDefaultRetryCondition();
-        f452 = sDKDefaultRetryCondition;
+        f1612 = sDKDefaultRetryCondition;
         SDKDefaultBackoffStrategy sDKDefaultBackoffStrategy = new SDKDefaultBackoffStrategy();
-        f451 = sDKDefaultBackoffStrategy;
-        f450 = new RetryPolicy(sDKDefaultRetryCondition, sDKDefaultBackoffStrategy, 3, true);
+        f1611 = sDKDefaultBackoffStrategy;
+        f1610 = new RetryPolicy(sDKDefaultRetryCondition, sDKDefaultBackoffStrategy, 3, true);
         new RetryPolicy(sDKDefaultRetryCondition, sDKDefaultBackoffStrategy, 10, true);
     }
 
     public class SDKDefaultRetryCondition implements RetryPolicy.RetryCondition {
         @Override // com.amazonaws.retry.RetryPolicy.RetryCondition
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final boolean mo428(AmazonClientException amazonClientException, int i) {
+        /* JADX INFO: renamed from: ֫ */
+        public final boolean mo1594(AmazonClientException amazonClientException, int i) {
             if ((amazonClientException.getCause() instanceof IOException) && !(amazonClientException.getCause() instanceof InterruptedIOException)) {
                 return true;
             }
@@ -42,33 +42,33 @@ public class PredefinedRetryPolicies {
                 return false;
             }
             AmazonServiceException amazonServiceException = (AmazonServiceException) amazonClientException;
-            int iM149 = amazonServiceException.m149();
-            if (iM149 == 500 || iM149 == 503 || iM149 == 502 || iM149 == 504) {
+            int iM1316 = amazonServiceException.m1316();
+            if (iM1316 == 500 || iM1316 == 503 || iM1316 == 502 || iM1316 == 504) {
                 return true;
             }
-            String strM142 = amazonServiceException.m142();
-            return "Throttling".equals(strM142) || "ThrottlingException".equals(strM142) || "ProvisionedThroughputExceededException".equals(strM142) || RetryUtils.m432(amazonServiceException);
+            String strM1309 = amazonServiceException.m1309();
+            return "Throttling".equals(strM1309) || "ThrottlingException".equals(strM1309) || "ProvisionedThroughputExceededException".equals(strM1309) || RetryUtils.m1598(amazonServiceException);
         }
     }
 
     public final class SDKDefaultBackoffStrategy implements RetryPolicy.BackoffStrategy {
 
-        /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-        public final Random f456 = new Random();
+        /* JADX INFO: renamed from: ᩳ */
+        public final Random f1616 = new Random();
 
-        /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-        public final int f454 = 100;
+        /* JADX INFO: renamed from: ۧ */
+        public final int f1614 = 100;
 
-        /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-        public final int f455 = b.j0;
+        /* JADX INFO: renamed from: ܽ */
+        public final int f1615 = C0180b.f790j0;
 
         @Override // com.amazonaws.retry.RetryPolicy.BackoffStrategy
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final long mo427(int i) {
+        /* JADX INFO: renamed from: ֫ */
+        public final long mo1593(int i) {
             if (i <= 0) {
                 return 0L;
             }
-            return this.f456.nextInt(Math.min(this.f455, (1 << i) * this.f454));
+            return this.f1616.nextInt(Math.min(this.f1615, (1 << i) * this.f1614));
         }
     }
 }

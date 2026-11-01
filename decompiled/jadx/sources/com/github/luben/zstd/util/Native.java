@@ -1,6 +1,6 @@
 package com.github.luben.zstd.util;
 
-import com.umeng.commonsdk.statistics.idtracking.g;
+import com.umeng.commonsdk.statistics.idtracking.C0808g;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.concurrent.atomic.AtomicBoolean;
-import l.C3435;
-import l.C9045;
+import p067l.C10965;
+import p067l.C5633;
 
 /* JADX INFO: loaded from: classes.dex */
 public enum Native {
@@ -19,7 +19,7 @@ public enum Native {
     public static final String libnameShort = "zstd-jni-1.5.7-7";
     public static final String nativePathOverride = "ZstdNativePath";
     public static final String tempFolderOverride = "ZstdTempFolder";
-    public static final String errorMsg = C9045.m23341(new StringBuilder("Unsupported OS/arch, cannot find "), resourceName(), " or load zstd-jni-1.5.7-7 from system libraries. Please try building from source the jar or providing libzstd-jni-1.5.7-7 in your system.");
+    public static final String errorMsg = C10965.m25286(new StringBuilder("Unsupported OS/arch, cannot find "), resourceName(), " or load zstd-jni-1.5.7-7 from system libraries. Please try building from source the jar or providing libzstd-jni-1.5.7-7 in your system.");
     public static AtomicBoolean loaded = new AtomicBoolean(false);
 
     public static synchronized void assumeLoaded() {
@@ -35,7 +35,7 @@ public enum Native {
         if (strReplace.startsWith("win")) {
             return "win";
         }
-        return strReplace.startsWith(g.a) ? "darwin" : strReplace;
+        return strReplace.startsWith(C0808g.f3432a) ? "darwin" : strReplace;
     }
 
     public static String libExtension() {
@@ -51,9 +51,9 @@ public enum Native {
         if (strOsName.equals("darwin") && property.equals("amd64")) {
             property = "x86_64";
         }
-        StringBuilder sbM10501 = C3435.m10501("/", strOsName, "/", property, "/libzstd-jni-1.5.7-7.");
-        sbM10501.append(libExtension());
-        return sbM10501.toString();
+        StringBuilder sbM12525 = C5633.m12525("/", strOsName, "/", property, "/libzstd-jni-1.5.7-7.");
+        sbM12525.append(libExtension());
+        return sbM12525.toString();
     }
 
     public static void loadLibrary(final String str) {

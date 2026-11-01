@@ -27,7 +27,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -56,7 +55,7 @@ import org.bouncycastle.internal.asn1.misc.NetscapeRevocationURL;
 import org.bouncycastle.internal.asn1.misc.VerisignCzagExtension;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
-import org.bouncycastle.jcajce.io.OutputStreamFactory;
+import org.bouncycastle.jcajce.p076io.OutputStreamFactory;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -64,19 +63,22 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Exceptions;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Strings;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class X509CertificateImpl extends X509Certificate implements BCX509Certificate {
     public BasicConstraints basicConstraints;
     public JcaJceHelper bcHelper;
-    public Certificate c;
+
+    /* JADX INFO: renamed from: c */
+    public Certificate f81354c;
     public boolean[] keyUsage;
     public String sigAlgName;
     public byte[] sigAlgParams;
 
     public X509CertificateImpl(JcaJceHelper jcaJceHelper, Certificate certificate, BasicConstraints basicConstraints, boolean[] zArr, String str, byte[] bArr) {
         this.bcHelper = jcaJceHelper;
-        this.c = certificate;
+        this.f81354c = certificate;
         this.basicConstraints = basicConstraints;
         this.keyUsage = zArr;
         this.sigAlgName = str;
@@ -84,14 +86,14 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
     }
 
     private void checkSignature(PublicKey publicKey, Signature signature, ASN1Encodable aSN1Encodable, byte[] bArr) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, CertificateException {
-        if (!X509SignatureUtil.areEquivalentAlgorithms(this.c.getSignatureAlgorithm(), this.c.getTBSCertificate().getSignature())) {
+        if (!X509SignatureUtil.areEquivalentAlgorithms(this.f81354c.getSignatureAlgorithm(), this.f81354c.getTBSCertificate().getSignature())) {
             throw new CertificateException("signature algorithm in TBS cert not same as outer cert");
         }
         X509SignatureUtil.setSignatureParameters(signature, aSN1Encodable);
         signature.initVerify(publicKey);
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(OutputStreamFactory.createStream(signature), 512);
-            this.c.getTBSCertificate().encodeTo(bufferedOutputStream, ASN1Encoding.DER);
+            this.f81354c.getTBSCertificate().encodeTo(bufferedOutputStream, ASN1Encoding.DER);
             bufferedOutputStream.close();
             if (!signature.verify(bArr)) {
                 throw new SignatureException("certificate does not verify with supplied key");
@@ -104,10 +106,10 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
     private void doVerify(PublicKey publicKey, SignatureCreator signatureCreator) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, CertificateException {
         boolean z = publicKey instanceof CompositePublicKey;
         int i = 0;
-        if (z && X509SignatureUtil.isCompositeAlgorithm(this.c.getSignatureAlgorithm())) {
+        if (z && X509SignatureUtil.isCompositeAlgorithm(this.f81354c.getSignatureAlgorithm())) {
             List publicKeys = ((CompositePublicKey) publicKey).getPublicKeys();
-            ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(this.c.getSignatureAlgorithm().getParameters());
-            ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(this.c.getSignature().getOctets());
+            ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(this.f81354c.getSignatureAlgorithm().getParameters());
+            ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(this.f81354c.getSignature().getOctets());
             boolean z2 = false;
             while (i != publicKeys.size()) {
                 if (publicKeys.get(i) != null) {
@@ -130,7 +132,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
             }
             return;
         }
-        if (!X509SignatureUtil.isCompositeAlgorithm(this.c.getSignatureAlgorithm())) {
+        if (!X509SignatureUtil.isCompositeAlgorithm(this.f81354c.getSignatureAlgorithm())) {
             Signature signatureCreateSignature = signatureCreator.createSignature(getSigAlgName());
             if (z) {
                 CompositePublicKey compositePublicKey = (CompositePublicKey) publicKey;
@@ -138,7 +140,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
                     List publicKeys2 = compositePublicKey.getPublicKeys();
                     while (i != publicKeys2.size()) {
                         try {
-                            checkSignature((PublicKey) publicKeys2.get(i), signatureCreateSignature, this.c.getSignatureAlgorithm().getParameters(), getSignature());
+                            checkSignature((PublicKey) publicKeys2.get(i), signatureCreateSignature, this.f81354c.getSignatureAlgorithm().getParameters(), getSignature());
                             return;
                         } catch (InvalidKeyException unused) {
                             i++;
@@ -147,11 +149,11 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
                     throw new InvalidKeyException("no matching signature found");
                 }
             }
-            checkSignature(publicKey, signatureCreateSignature, this.c.getSignatureAlgorithm().getParameters(), getSignature());
+            checkSignature(publicKey, signatureCreateSignature, this.f81354c.getSignatureAlgorithm().getParameters(), getSignature());
             return;
         }
-        ASN1Sequence aSN1Sequence3 = ASN1Sequence.getInstance(this.c.getSignatureAlgorithm().getParameters());
-        ASN1Sequence aSN1Sequence4 = ASN1Sequence.getInstance(this.c.getSignature().getOctets());
+        ASN1Sequence aSN1Sequence3 = ASN1Sequence.getInstance(this.f81354c.getSignatureAlgorithm().getParameters());
+        ASN1Sequence aSN1Sequence4 = ASN1Sequence.getInstance(this.f81354c.getSignature().getOctets());
         boolean z3 = false;
         while (i != aSN1Sequence4.size()) {
             AlgorithmIdentifier algorithmIdentifier2 = AlgorithmIdentifier.getInstance(aSN1Sequence3.getObjectAt(i));
@@ -192,32 +194,32 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
                     case 5:
                         encoded = generalName.getEncoded();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     case 1:
                     case 2:
                     case 6:
                         encoded = ((ASN1String) generalName.getName()).getString();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     case 4:
                         encoded = X500Name.getInstance(RFC4519Style.INSTANCE, generalName.getName()).toString();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     case 7:
                         try {
                             encoded = InetAddress.getByAddress(ASN1OctetString.getInstance(generalName.getName()).getOctets()).getHostAddress();
                             arrayList2.add(encoded);
-                            arrayList.add(C20195.unmodifiableList(arrayList2));
+                            arrayList.add(C21562.unmodifiableList(arrayList2));
                         } catch (UnknownHostException unused) {
                         }
                         break;
                     case 8:
                         encoded = ASN1ObjectIdentifier.getInstance(generalName.getName()).getId();
                         arrayList2.add(encoded);
-                        arrayList.add(C20195.unmodifiableList(arrayList2));
+                        arrayList.add(C21562.unmodifiableList(arrayList2));
                         break;
                     default:
                         throw new IOException("Bad tag number: " + generalName.getTagNo());
@@ -226,7 +228,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
             if (arrayList.size() == 0) {
                 return null;
             }
-            return C20195.unmodifiableCollection(arrayList);
+            return C21562.unmodifiableCollection(arrayList);
         } catch (Exception e) {
             throw new CertificateParsingException(e.getMessage());
         }
@@ -248,12 +250,12 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
     @Override // java.security.cert.X509Certificate
     public void checkValidity(Date date) throws CertificateNotYetValidException, CertificateExpiredException {
         if (date.getTime() > getNotAfter().getTime()) {
-            throw new CertificateExpiredException("certificate expired on " + this.c.getEndDate().getTime());
+            throw new CertificateExpiredException("certificate expired on " + this.f81354c.getEndDate().getTime());
         }
         if (date.getTime() >= getNotBefore().getTime()) {
             return;
         }
-        throw new CertificateNotYetValidException("certificate not valid till " + this.c.getStartDate().getTime());
+        throw new CertificateNotYetValidException("certificate not valid till " + this.f81354c.getStartDate().getTime());
     }
 
     @Override // java.security.cert.X509Certificate
@@ -275,7 +277,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
             return null;
         }
         HashSet hashSet = new HashSet();
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81354c.getExtensions();
         if (extensions == null) {
             return null;
         }
@@ -291,7 +293,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // java.security.cert.X509Certificate
     public List getExtendedKeyUsage() throws CertificateParsingException {
-        byte[] extensionOctets = getExtensionOctets(this.c, Extension.extendedKeyUsage);
+        byte[] extensionOctets = getExtensionOctets(this.f81354c, Extension.extendedKeyUsage);
         if (extensionOctets == null) {
             return null;
         }
@@ -301,7 +303,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
             for (int i = 0; i != aSN1Sequence.size(); i++) {
                 arrayList.add(((ASN1ObjectIdentifier) aSN1Sequence.getObjectAt(i)).getId());
             }
-            return C20195.unmodifiableList(arrayList);
+            return C21562.unmodifiableList(arrayList);
         } catch (Exception unused) {
             throw new CertificateParsingException("error processing extended key usage extension");
         }
@@ -309,22 +311,22 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // java.security.cert.X509Extension
     public byte[] getExtensionValue(String str) {
-        return X509SignatureUtil.getExtensionValue(this.c.getExtensions(), str);
+        return X509SignatureUtil.getExtensionValue(this.f81354c.getExtensions(), str);
     }
 
     @Override // java.security.cert.X509Certificate
     public Collection getIssuerAlternativeNames() {
-        return getAlternativeNames(this.c, Extension.issuerAlternativeName);
+        return getAlternativeNames(this.f81354c, Extension.issuerAlternativeName);
     }
 
     @Override // java.security.cert.X509Certificate
     public Principal getIssuerDN() {
-        return new X509Principal(this.c.getIssuer());
+        return new X509Principal(this.f81354c.getIssuer());
     }
 
     @Override // java.security.cert.X509Certificate
     public boolean[] getIssuerUniqueID() {
-        ASN1BitString issuerUniqueId = this.c.getTBSCertificate().getIssuerUniqueId();
+        ASN1BitString issuerUniqueId = this.f81354c.getTBSCertificate().getIssuerUniqueId();
         if (issuerUniqueId == null) {
             return null;
         }
@@ -339,13 +341,13 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // org.bouncycastle.jcajce.interfaces.BCX509Certificate
     public X500Name getIssuerX500Name() {
-        return this.c.getIssuer();
+        return this.f81354c.getIssuer();
     }
 
     @Override // java.security.cert.X509Certificate
     public X500Principal getIssuerX500Principal() {
         try {
-            return new X500Principal(this.c.getIssuer().getEncoded(ASN1Encoding.DER));
+            return new X500Principal(this.f81354c.getIssuer().getEncoded(ASN1Encoding.DER));
         } catch (IOException unused) {
             throw new IllegalStateException("can't encode issuer DN");
         }
@@ -362,7 +364,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
             return null;
         }
         HashSet hashSet = new HashSet();
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81354c.getExtensions();
         if (extensions == null) {
             return null;
         }
@@ -378,18 +380,18 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // java.security.cert.X509Certificate
     public Date getNotAfter() {
-        return this.c.getEndDate().getDate();
+        return this.f81354c.getEndDate().getDate();
     }
 
     @Override // java.security.cert.X509Certificate
     public Date getNotBefore() {
-        return this.c.getStartDate().getDate();
+        return this.f81354c.getStartDate().getDate();
     }
 
     @Override // java.security.cert.Certificate
     public PublicKey getPublicKey() {
         try {
-            return BouncyCastleProvider.getPublicKey(this.c.getSubjectPublicKeyInfo());
+            return BouncyCastleProvider.getPublicKey(this.f81354c.getSubjectPublicKeyInfo());
         } catch (IOException e) {
             throw Exceptions.illegalStateException("failed to recover public key: " + e.getMessage(), e);
         }
@@ -397,7 +399,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // java.security.cert.X509Certificate
     public BigInteger getSerialNumber() {
-        return this.c.getSerialNumber().getValue();
+        return this.f81354c.getSerialNumber().getValue();
     }
 
     @Override // java.security.cert.X509Certificate
@@ -407,7 +409,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // java.security.cert.X509Certificate
     public String getSigAlgOID() {
-        return this.c.getSignatureAlgorithm().getAlgorithm().getId();
+        return this.f81354c.getSignatureAlgorithm().getAlgorithm().getId();
     }
 
     @Override // java.security.cert.X509Certificate
@@ -417,22 +419,22 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // java.security.cert.X509Certificate
     public byte[] getSignature() {
-        return this.c.getSignature().getOctets();
+        return this.f81354c.getSignature().getOctets();
     }
 
     @Override // java.security.cert.X509Certificate
     public Collection getSubjectAlternativeNames() {
-        return getAlternativeNames(this.c, Extension.subjectAlternativeName);
+        return getAlternativeNames(this.f81354c, Extension.subjectAlternativeName);
     }
 
     @Override // java.security.cert.X509Certificate
     public Principal getSubjectDN() {
-        return new X509Principal(this.c.getSubject());
+        return new X509Principal(this.f81354c.getSubject());
     }
 
     @Override // java.security.cert.X509Certificate
     public boolean[] getSubjectUniqueID() {
-        ASN1BitString subjectUniqueId = this.c.getTBSCertificate().getSubjectUniqueId();
+        ASN1BitString subjectUniqueId = this.f81354c.getTBSCertificate().getSubjectUniqueId();
         if (subjectUniqueId == null) {
             return null;
         }
@@ -447,13 +449,13 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // org.bouncycastle.jcajce.interfaces.BCX509Certificate
     public X500Name getSubjectX500Name() {
-        return this.c.getSubject();
+        return this.f81354c.getSubject();
     }
 
     @Override // java.security.cert.X509Certificate
     public X500Principal getSubjectX500Principal() {
         try {
-            return new X500Principal(this.c.getSubject().getEncoded(ASN1Encoding.DER));
+            return new X500Principal(this.f81354c.getSubject().getEncoded(ASN1Encoding.DER));
         } catch (IOException unused) {
             throw new IllegalStateException("can't encode subject DN");
         }
@@ -462,7 +464,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
     @Override // java.security.cert.X509Certificate
     public byte[] getTBSCertificate() throws CertificateEncodingException {
         try {
-            return this.c.getTBSCertificate().getEncoded(ASN1Encoding.DER);
+            return this.f81354c.getTBSCertificate().getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CertificateEncodingException(e.toString());
         }
@@ -470,18 +472,18 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
 
     @Override // org.bouncycastle.jcajce.interfaces.BCX509Certificate
     public TBSCertificate getTBSCertificateNative() {
-        return this.c.getTBSCertificate();
+        return this.f81354c.getTBSCertificate();
     }
 
     @Override // java.security.cert.X509Certificate
     public int getVersion() {
-        return this.c.getVersionNumber();
+        return this.f81354c.getVersionNumber();
     }
 
     @Override // java.security.cert.X509Extension
     public boolean hasUnsupportedCriticalExtension() {
         Extensions extensions;
-        if (getVersion() != 3 || (extensions = this.c.getExtensions()) == null) {
+        if (getVersion() != 3 || (extensions = this.f81354c.getExtensions()) == null) {
             return false;
         }
         Enumeration enumerationOids = extensions.oids();
@@ -524,7 +526,7 @@ public abstract class X509CertificateImpl extends X509Certificate implements BCX
         sb.append(getSigAlgName());
         sb.append(strLineSeparator);
         X509SignatureUtil.prettyPrintSignature(getSignature(), sb, strLineSeparator);
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81354c.getExtensions();
         if (extensions != null) {
             Enumeration enumerationOids = extensions.oids();
             if (enumerationOids.hasMoreElements()) {

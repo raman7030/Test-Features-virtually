@@ -9,13 +9,17 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes2.dex */
 public class G3413CTRBlockCipher extends StreamBlockCipher {
     public byte[] CTR;
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81175IV;
     public final int blockSize;
     public byte[] buf;
     public int byteCount;
     public final BlockCipher cipher;
     public boolean initialized;
-    public final int s;
+
+    /* JADX INFO: renamed from: s */
+    public final int f81176s;
 
     public G3413CTRBlockCipher(BlockCipher blockCipher) {
         this(blockCipher, blockCipher.getBlockSize() * 8);
@@ -30,7 +34,7 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
         this.cipher = blockCipher;
         int blockSize = blockCipher.getBlockSize();
         this.blockSize = blockSize;
-        this.s = i / 8;
+        this.f81176s = i / 8;
         this.CTR = new byte[blockSize];
     }
 
@@ -38,7 +42,7 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
         byte[] bArr = this.CTR;
         byte[] bArr2 = new byte[bArr.length];
         this.cipher.processBlock(bArr, 0, bArr2, 0);
-        return GOST3413CipherUtil.MSB(bArr2, this.s);
+        return GOST3413CipherUtil.MSB(bArr2, this.f81176s);
     }
 
     private void generateCRT() {
@@ -49,9 +53,9 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
 
     private void initArrays() {
         int i = this.blockSize;
-        this.IV = new byte[i / 2];
+        this.f81175IV = new byte[i / 2];
         this.CTR = new byte[i];
-        this.buf = new byte[this.s];
+        this.buf = new byte[this.f81176s];
     }
 
     @Override // org.bouncycastle.crypto.StreamBlockCipher
@@ -64,7 +68,7 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
         byte b2 = (byte) (b ^ bArr[i]);
         int i2 = i + 1;
         this.byteCount = i2;
-        if (i2 == this.s) {
+        if (i2 == this.f81176s) {
             this.byteCount = 0;
             generateCRT();
         }
@@ -78,7 +82,7 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public int getBlockSize() {
-        return this.s;
+        return this.f81176s;
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher
@@ -88,12 +92,12 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             initArrays();
             byte[] bArrClone = Arrays.clone(parametersWithIV.getIV());
-            this.IV = bArrClone;
+            this.f81175IV = bArrClone;
             if (bArrClone.length != this.blockSize / 2) {
                 throw new IllegalArgumentException("Parameter IV length must be == blockSize/2");
             }
             System.arraycopy(bArrClone, 0, this.CTR, 0, bArrClone.length);
-            for (int length = this.IV.length; length < this.blockSize; length++) {
+            for (int length = this.f81175IV.length; length < this.blockSize; length++) {
                 this.CTR[length] = 0;
             }
             if (parametersWithIV.getParameters() != null) {
@@ -113,16 +117,16 @@ public class G3413CTRBlockCipher extends StreamBlockCipher {
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public int processBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
-        processBytes(bArr, i, this.s, bArr2, i2);
-        return this.s;
+        processBytes(bArr, i, this.f81176s, bArr2, i2);
+        return this.f81176s;
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
         if (this.initialized) {
-            byte[] bArr = this.IV;
+            byte[] bArr = this.f81175IV;
             System.arraycopy(bArr, 0, this.CTR, 0, bArr.length);
-            for (int length = this.IV.length; length < this.blockSize; length++) {
+            for (int length = this.f81175IV.length; length < this.blockSize; length++) {
                 this.CTR[length] = 0;
             }
             this.byteCount = 0;

@@ -11,19 +11,16 @@ import java.security.SignatureException;
 import java.security.spec.PSSParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import l.C20087;
-import l.C5127;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.DERNull;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.internal.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.internal.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
@@ -34,6 +31,9 @@ import org.bouncycastle.util.Exceptions;
 import org.bouncycastle.util.Objects;
 import org.bouncycastle.util.Properties;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C10965;
+import p067l.C21459;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509SignatureUtil {
@@ -136,7 +136,7 @@ public class X509SignatureUtil {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(digestName.substring(0, iIndexOf));
-        return C20087.m46305(iIndexOf + 1, digestName, sb);
+        return C21459.m48621(iIndexOf + 1, digestName, sb);
     }
 
     public static String getSignatureName(AlgorithmIdentifier algorithmIdentifier) {
@@ -157,7 +157,7 @@ public class X509SignatureUtil {
                 digestAlgName = getDigestAlgName(algorithmIdentifier2.getAlgorithm());
                 str = "withECDSA";
             }
-            return C9045.m23341(sb, digestAlgName, str);
+            return C10965.m25286(sb, digestAlgName, str);
         }
         String str2 = (String) algNames.get(algorithm);
         return str2 != null ? str2 : findAlgName(algorithm);
@@ -179,7 +179,7 @@ public class X509SignatureUtil {
                 }
             }
         } catch (IOException e2) {
-            throw new SignatureException(C5127.m14678(e2, new StringBuilder("IOException decoding parameters: ")));
+            throw new SignatureException(C7241.m16586(e2, new StringBuilder("IOException decoding parameters: ")));
         }
     }
 }

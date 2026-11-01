@@ -17,8 +17,8 @@ public class RegionMetadataParser {
     }
 
     @Deprecated
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static ArrayList m422(FileInputStream fileInputStream) {
+    /* JADX INFO: renamed from: ֫ */
+    public static ArrayList m1588(FileInputStream fileInputStream) {
         try {
             try {
                 Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(fileInputStream);
@@ -32,19 +32,19 @@ public class RegionMetadataParser {
                     Node nodeItem = elementsByTagName.item(i);
                     if (nodeItem.getNodeType() == 1) {
                         Element element = (Element) nodeItem;
-                        String strM421 = m421("Name", element);
-                        m421("Domain", element);
-                        Region region = new Region(strM421);
+                        String strM1587 = m1587("Name", element);
+                        m1587("Domain", element);
+                        Region region = new Region(strM1587);
                         NodeList elementsByTagName2 = element.getElementsByTagName("Endpoint");
                         for (int i2 = 0; i2 < elementsByTagName2.getLength(); i2++) {
                             Element element2 = (Element) elementsByTagName2.item(i2);
-                            String strM422 = m421("ServiceName", element2);
-                            String strM423 = m421("Hostname", element2);
-                            String strM424 = m421("Http", element2);
-                            String strM425 = m421("Https", element2);
-                            region.m417().put(strM422, strM423);
-                            region.m414().put(strM422, Boolean.valueOf("true".equals(strM424)));
-                            region.m415().put(strM422, Boolean.valueOf("true".equals(strM425)));
+                            String strM1588 = m1587("ServiceName", element2);
+                            String strM1589 = m1587("Hostname", element2);
+                            String strM15810 = m1587("Http", element2);
+                            String strM15811 = m1587("Https", element2);
+                            region.m1583().put(strM1588, strM1589);
+                            region.m1580().put(strM1588, Boolean.valueOf("true".equals(strM15810)));
+                            region.m1581().put(strM1588, Boolean.valueOf("true".equals(strM15811)));
                         }
                         arrayList.add(region);
                     }
@@ -64,8 +64,8 @@ public class RegionMetadataParser {
         }
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m421(String str, Element element) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1587(String str, Element element) {
         Node nodeItem = element.getElementsByTagName(str).item(0);
         if (nodeItem == null) {
             return null;

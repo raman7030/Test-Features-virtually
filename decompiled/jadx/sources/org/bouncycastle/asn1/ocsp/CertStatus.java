@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.ocsp;
 
-import l.C3200;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Null;
@@ -10,6 +9,7 @@ import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.ASN1Util;
 import org.bouncycastle.asn1.DERNull;
 import org.bouncycastle.asn1.DERTaggedObject;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CertStatus extends ASN1Object implements ASN1Choice {
@@ -55,7 +55,7 @@ public class CertStatus extends ASN1Object implements ASN1Choice {
         if (obj instanceof ASN1TaggedObject) {
             return new CertStatus((ASN1TaggedObject) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "unknown object in factory: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "unknown object in factory: "));
     }
 
     public static CertStatus getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {

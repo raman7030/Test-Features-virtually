@@ -15,25 +15,25 @@ import android.view.ViewStub;
 import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import l.C14369;
-import l.C15813;
-import l.C16445;
-import l.C17648;
-import l.C18934;
-import l.C20754;
-import l.C23575;
-import l.C4330;
-import l.C4369;
-import l.C5882;
-import l.C6642;
-import l.C7560;
-import l.C8184;
-import l.InterfaceC23935;
+import p067l.C1059;
+import p067l.C1134;
+import p067l.C1217;
+import p067l.C1248;
+import p067l.C1555;
+import p067l.C1658;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C1781;
+import p067l.C22093;
+import p067l.C24774;
+import p067l.C6483;
+import p067l.C8681;
+import p067l.InterfaceC2029;
 
 /* JADX INFO: loaded from: classes.dex */
-public class NavigationMenuItemView extends ForegroundLinearLayout implements InterfaceC23935 {
+public class NavigationMenuItemView extends ForegroundLinearLayout implements InterfaceC2029 {
     public static final int[] CHECKED_STATE_SET = {R.attr.state_checked};
-    public final C16445 accessibilityDelegate;
+    public final C1658 accessibilityDelegate;
     public FrameLayout actionArea;
     public boolean checkable;
     public Drawable emptyDrawable;
@@ -41,11 +41,11 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
     public int iconSize;
     public ColorStateList iconTintList;
     public boolean isBold;
-    public C5882 itemData;
+    public C1134 itemData;
     public boolean needsEmptyIcon;
     public final CheckedTextView textView;
 
-    @Override // l.InterfaceC23935
+    @Override // p067l.InterfaceC2029
     public boolean prefersCondensedTitle() {
         return false;
     }
@@ -68,49 +68,49 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
     public NavigationMenuItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isBold = true;
-        C16445 c16445 = new C16445() { // from class: com.google.android.material.internal.NavigationMenuItemView.1
-            @Override // l.C16445
-            public void onInitializeAccessibilityNodeInfo(View view, C14369 c14369) {
-                super.onInitializeAccessibilityNodeInfo(view, c14369);
-                c14369.m34308(NavigationMenuItemView.this.checkable);
+        C1658 c1658 = new C1658() { // from class: com.google.android.material.internal.NavigationMenuItemView.1
+            @Override // p067l.C1658
+            public void onInitializeAccessibilityNodeInfo(View view, C1555 c1555) {
+                super.onInitializeAccessibilityNodeInfo(view, c1555);
+                c1555.m36441(NavigationMenuItemView.this.checkable);
             }
         };
-        this.accessibilityDelegate = c16445;
+        this.accessibilityDelegate = c1658;
         setOrientation(0);
-        LayoutInflater.from(context).inflate(C15813.f48815, (ViewGroup) this, true);
-        setIconSize(context.getResources().getDimensionPixelSize(C23575.f75842));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(C20754.f66996);
+        LayoutInflater.from(context).inflate(C17397.f51953, (ViewGroup) this, true);
+        setIconSize(context.getResources().getDimensionPixelSize(C24774.f78588));
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(C22093.f69680);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
-        C17648.m41309(checkedTextView, c16445);
+        C1717.m43555(checkedTextView, c1658);
     }
 
-    @Override // l.InterfaceC23935
-    public void initialize(C5882 c5882, int i) {
-        this.itemData = c5882;
-        if (c5882.getItemId() > 0) {
-            setId(c5882.getItemId());
+    @Override // p067l.InterfaceC2029
+    public void initialize(C1134 c1134, int i) {
+        this.itemData = c1134;
+        if (c1134.getItemId() > 0) {
+            setId(c1134.getItemId());
         }
-        setVisibility(c5882.isVisible() ? 0 : 8);
+        setVisibility(c1134.isVisible() ? 0 : 8);
         if (getBackground() == null) {
             StateListDrawable stateListDrawableCreateDefaultBackground = createDefaultBackground();
-            int i2 = C17648.f53953;
+            int i2 = C1717.f57146;
             setBackground(stateListDrawableCreateDefaultBackground);
         }
-        setCheckable(c5882.isCheckable());
-        setChecked(c5882.isChecked());
-        setEnabled(c5882.isEnabled());
-        setTitle(c5882.getTitle());
-        setIcon(c5882.getIcon());
-        setActionView(c5882.getActionView());
-        setContentDescription(c5882.getContentDescription());
-        C18934.m43699(this, c5882.getTooltipText());
+        setCheckable(c1134.isCheckable());
+        setChecked(c1134.isChecked());
+        setEnabled(c1134.isEnabled());
+        setTitle(c1134.getTitle());
+        setIcon(c1134.getIcon());
+        setActionView(c1134.getActionView());
+        setContentDescription(c1134.getContentDescription());
+        C1781.m45965(this, c1134.getTooltipText());
         adjustAppearance();
     }
 
-    public void initialize(C5882 c5882, boolean z) {
+    public void initialize(C1134 c1134, boolean z) {
         this.isBold = z;
-        initialize(c5882, 0);
+        initialize(c1134, 0);
     }
 
     private boolean shouldExpandActionArea() {
@@ -122,9 +122,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
             this.textView.setVisibility(8);
             FrameLayout frameLayout = this.actionArea;
             if (frameLayout != null) {
-                C7560 c7560 = (C7560) frameLayout.getLayoutParams();
-                ((LinearLayout.LayoutParams) c7560).width = -1;
-                this.actionArea.setLayoutParams(c7560);
+                C1217 c1217 = (C1217) frameLayout.getLayoutParams();
+                ((LinearLayout.LayoutParams) c1217).width = -1;
+                this.actionArea.setLayoutParams(c1217);
                 return;
             }
             return;
@@ -132,9 +132,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
         this.textView.setVisibility(0);
         FrameLayout frameLayout2 = this.actionArea;
         if (frameLayout2 != null) {
-            C7560 c7561 = (C7560) frameLayout2.getLayoutParams();
-            ((LinearLayout.LayoutParams) c7561).width = -2;
-            this.actionArea.setLayoutParams(c7561);
+            C1217 c1218 = (C1217) frameLayout2.getLayoutParams();
+            ((LinearLayout.LayoutParams) c1218).width = -2;
+            this.actionArea.setLayoutParams(c1218);
         }
     }
 
@@ -149,7 +149,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
     private void setActionView(View view) {
         if (view != null) {
             if (this.actionArea == null) {
-                this.actionArea = (FrameLayout) ((ViewStub) findViewById(C20754.f67183)).inflate();
+                this.actionArea = (FrameLayout) ((ViewStub) findViewById(C22093.f69867)).inflate();
             }
             if (view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
@@ -161,7 +161,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
 
     private StateListDrawable createDefaultBackground() {
         TypedValue typedValue = new TypedValue();
-        if (!getContext().getTheme().resolveAttribute(bin.mt.plus.R.attr.MT_Protector, typedValue, true)) {
+        if (!getContext().getTheme().resolveAttribute(bin.p000mt.plus.R.attr.MT_Protector, typedValue, true)) {
             return null;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
@@ -170,8 +170,8 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
         return stateListDrawable;
     }
 
-    @Override // l.InterfaceC23935
-    public C5882 getItemData() {
+    @Override // p067l.InterfaceC2029
+    public C1134 getItemData() {
         return this.itemData;
     }
 
@@ -201,18 +201,18 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
                 if (constantState != null) {
                     drawable = constantState.newDrawable();
                 }
-                drawable = C8184.m21684(drawable).mutate();
-                C8184.m21676(drawable, this.iconTintList);
+                drawable = C1248.m23653(drawable).mutate();
+                C1248.m23645(drawable, this.iconTintList);
             }
             int i = this.iconSize;
             drawable.setBounds(0, 0, i, i);
         } else if (this.needsEmptyIcon) {
             if (this.emptyDrawable == null) {
-                Drawable drawableM13097 = C4369.m13097(getResources(), C6642.f20511, getContext().getTheme());
-                this.emptyDrawable = drawableM13097;
-                if (drawableM13097 != null) {
+                Drawable drawableM14961 = C1059.m14961(getResources(), C8681.f23387, getContext().getTheme());
+                this.emptyDrawable = drawableM14961;
+                if (drawableM14961 != null) {
                     int i2 = this.iconSize;
-                    drawableM13097.setBounds(0, 0, i2, i2);
+                    drawableM14961.setBounds(0, 0, i2, i2);
                 }
             }
             drawable = this.emptyDrawable;
@@ -227,8 +227,8 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
     @Override // android.view.ViewGroup, android.view.View
     public int[] onCreateDrawableState(int i) {
         int[] iArrOnCreateDrawableState = super.onCreateDrawableState(i + 1);
-        C5882 c5882 = this.itemData;
-        if (c5882 != null && c5882.isCheckable() && this.itemData.isChecked()) {
+        C1134 c1134 = this.itemData;
+        if (c1134 != null && c1134.isCheckable() && this.itemData.isChecked()) {
             View.mergeDrawableStates(iArrOnCreateDrawableState, CHECKED_STATE_SET);
         }
         return iArrOnCreateDrawableState;
@@ -237,14 +237,14 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements In
     public void setIconTintList(ColorStateList colorStateList) {
         this.iconTintList = colorStateList;
         this.hasIconTintList = colorStateList != null;
-        C5882 c5882 = this.itemData;
-        if (c5882 != null) {
-            setIcon(c5882.getIcon());
+        C1134 c1134 = this.itemData;
+        if (c1134 != null) {
+            setIcon(c1134.getIcon());
         }
     }
 
     public void setTextAppearance(int i) {
-        C4330.m12997(this.textView, i);
+        C6483.m14861(this.textView, i);
     }
 
     public void setTextColor(ColorStateList colorStateList) {

@@ -1,8 +1,7 @@
 package org.bouncycastle.crypto.util;
 
-import l.C19462;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
@@ -10,7 +9,8 @@ import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECCurve;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class OpenSSHPublicKeyUtil {
@@ -80,7 +80,7 @@ public class OpenSSHPublicKeyUtil {
             ASN1ObjectIdentifier byName = SSHNamedCurves.getByName(string2);
             X9ECParameters parameters = SSHNamedCurves.getParameters(byName);
             if (parameters == null) {
-                throw new IllegalStateException(C19462.m44858("unable to find curve for ", string, " using curve name ", string2));
+                throw new IllegalStateException(C20865.m47154("unable to find curve for ", string, " using curve name ", string2));
             }
             ed25519PublicKeyParameters = new ECPublicKeyParameters(parameters.getCurve().decodePoint(sSHBuffer.readBlock()), new ECNamedDomainParameters(byName, parameters));
         } else if (string.equals(FIDO2_EC_P256)) {
@@ -88,7 +88,7 @@ public class OpenSSHPublicKeyUtil {
             ASN1ObjectIdentifier byName2 = SSHNamedCurves.getByName(string3);
             X9ECParameters parameters2 = SSHNamedCurves.getParameters(byName2);
             if (parameters2 == null) {
-                throw new IllegalStateException(C19462.m44858("unable to find curve for ", string, " using curve name ", string3));
+                throw new IllegalStateException(C20865.m47154("unable to find curve for ", string, " using curve name ", string3));
             }
             ECCurve curve = parameters2.getCurve();
             byte[] block = sSHBuffer.readBlock();

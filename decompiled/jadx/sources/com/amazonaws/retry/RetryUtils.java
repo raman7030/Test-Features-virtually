@@ -7,14 +7,14 @@ import java.net.SocketTimeoutException;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RetryUtils {
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static boolean m432(AmazonServiceException amazonServiceException) {
-        String strM142 = amazonServiceException.m142();
-        return "RequestTimeTooSkewed".equals(strM142) || "RequestExpired".equals(strM142) || "InvalidSignatureException".equals(strM142) || "SignatureDoesNotMatch".equals(strM142);
+    /* JADX INFO: renamed from: ֫ */
+    public static boolean m1598(AmazonServiceException amazonServiceException) {
+        String strM1309 = amazonServiceException.m1309();
+        return "RequestTimeTooSkewed".equals(strM1309) || "RequestExpired".equals(strM1309) || "InvalidSignatureException".equals(strM1309) || "SignatureDoesNotMatch".equals(strM1309);
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static boolean m433(Exception exc) {
+    /* JADX INFO: renamed from: ֫ */
+    public static boolean m1599(Exception exc) {
         if (exc instanceof AbortedException) {
             return true;
         }

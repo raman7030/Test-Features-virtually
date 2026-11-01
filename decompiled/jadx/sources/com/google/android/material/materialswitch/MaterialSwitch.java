@@ -11,19 +11,19 @@ import com.google.android.material.drawable.DrawableUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C21311;
-import l.C22733;
-import l.C2978;
-import l.C7191;
-import l.C8184;
+import p067l.C0990;
+import p067l.C1199;
+import p067l.C1248;
+import p067l.C19410;
+import p067l.C1970;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C22622;
 
 /* JADX INFO: loaded from: classes.dex */
-public class MaterialSwitch extends C2978 {
-    public static final int DEF_STYLE_RES = C18637.f58789;
-    public static final int[] STATE_SET_WITH_ICON = {C17931.f55396};
+public class MaterialSwitch extends C0990 {
+    public static final int DEF_STYLE_RES = C20081.f62012;
+    public static final int[] STATE_SET_WITH_ICON = {C19410.f58593};
     public int[] currentStateChecked;
     public int[] currentStateUnchecked;
     public Drawable thumbDrawable;
@@ -43,7 +43,7 @@ public class MaterialSwitch extends C2978 {
     }
 
     public MaterialSwitch(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55194);
+        this(context, attributeSet, C19410.f58391);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -58,17 +58,17 @@ public class MaterialSwitch extends C2978 {
         this.trackDrawable = super.getTrackDrawable();
         this.trackTintList = super.getTrackTintList();
         super.setTrackTintList(null);
-        C22733 c22733ObtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, C19343.f62487, i, i2, new int[0]);
-        this.thumbIconDrawable = c22733ObtainTintedStyledAttributes.m50815(C19343.f62328);
-        this.thumbIconSize = c22733ObtainTintedStyledAttributes.m50803(C19343.f61157, -1);
-        this.thumbIconTintList = c22733ObtainTintedStyledAttributes.m50804(C19343.f61051);
-        int iM50809 = c22733ObtainTintedStyledAttributes.m50809(C19343.f61794, -1);
+        C1970 c1970ObtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, C20752.f82894, i, i2, new int[0]);
+        this.thumbIconDrawable = c1970ObtainTintedStyledAttributes.m53148(C20752.f82840);
+        this.thumbIconSize = c1970ObtainTintedStyledAttributes.m53136(C20752.f82439, -1);
+        this.thumbIconTintList = c1970ObtainTintedStyledAttributes.m53137(C20752.f82403);
+        int iM53142 = c1970ObtainTintedStyledAttributes.m53142(C20752.f82656, -1);
         PorterDuff.Mode mode = PorterDuff.Mode.SRC_IN;
-        this.thumbIconTintMode = ViewUtils.parseTintMode(iM50809, mode);
-        this.trackDecorationDrawable = c22733ObtainTintedStyledAttributes.m50815(C19343.f61741);
-        this.trackDecorationTintList = c22733ObtainTintedStyledAttributes.m50804(C19343.f61581);
-        this.trackDecorationTintMode = ViewUtils.parseTintMode(c22733ObtainTintedStyledAttributes.m50809(C19343.f61263, -1), mode);
-        c22733ObtainTintedStyledAttributes.m50813();
+        this.thumbIconTintMode = ViewUtils.parseTintMode(iM53142, mode);
+        this.trackDecorationDrawable = c1970ObtainTintedStyledAttributes.m53148(C20752.f82638);
+        this.trackDecorationTintList = c1970ObtainTintedStyledAttributes.m53137(C20752.f82583);
+        this.trackDecorationTintMode = ViewUtils.parseTintMode(c1970ObtainTintedStyledAttributes.m53142(C20752.f82475, -1), mode);
+        c1970ObtainTintedStyledAttributes.m53146();
         setEnforceSwitchWidth(false);
         refreshThumbDrawable();
         refreshTrackDrawable();
@@ -80,7 +80,7 @@ public class MaterialSwitch extends C2978 {
         super.invalidate();
     }
 
-    @Override // l.C2978, android.widget.CompoundButton, android.widget.TextView, android.view.View
+    @Override // p067l.C0990, android.widget.CompoundButton, android.widget.TextView, android.view.View
     public int[] onCreateDrawableState(int i) {
         int[] iArrOnCreateDrawableState = super.onCreateDrawableState(i + 1);
         if (this.thumbIconDrawable != null) {
@@ -91,36 +91,36 @@ public class MaterialSwitch extends C2978 {
         return iArrOnCreateDrawableState;
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public void setThumbDrawable(Drawable drawable) {
         this.thumbDrawable = drawable;
         refreshThumbDrawable();
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public Drawable getThumbDrawable() {
         return this.thumbDrawable;
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public void setThumbTintList(ColorStateList colorStateList) {
         this.thumbTintList = colorStateList;
         refreshThumbDrawable();
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public ColorStateList getThumbTintList() {
         return this.thumbTintList;
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public void setThumbTintMode(PorterDuff.Mode mode) {
         super.setThumbTintMode(mode);
         refreshThumbDrawable();
     }
 
     public void setThumbIconResource(int i) {
-        setThumbIconDrawable(C21311.m48345(getContext(), i));
+        setThumbIconDrawable(C22622.m50680(getContext(), i));
     }
 
     public void setThumbIconDrawable(Drawable drawable) {
@@ -161,36 +161,36 @@ public class MaterialSwitch extends C2978 {
         return this.thumbIconTintMode;
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public void setTrackDrawable(Drawable drawable) {
         this.trackDrawable = drawable;
         refreshTrackDrawable();
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public Drawable getTrackDrawable() {
         return this.trackDrawable;
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public void setTrackTintList(ColorStateList colorStateList) {
         this.trackTintList = colorStateList;
         refreshTrackDrawable();
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public ColorStateList getTrackTintList() {
         return this.trackTintList;
     }
 
-    @Override // l.C2978
+    @Override // p067l.C0990
     public void setTrackTintMode(PorterDuff.Mode mode) {
         super.setTrackTintMode(mode);
         refreshTrackDrawable();
     }
 
     public void setTrackDecorationResource(int i) {
-        setTrackDecorationDrawable(C21311.m48345(getContext(), i));
+        setTrackDecorationDrawable(C22622.m50680(getContext(), i));
     }
 
     public void setTrackDecorationDrawable(Drawable drawable) {
@@ -274,6 +274,6 @@ public class MaterialSwitch extends C2978 {
         if (drawable == null || colorStateList == null) {
             return;
         }
-        C8184.m21683(drawable, C7191.m19267(colorStateList.getColorForState(iArr, 0), colorStateList.getColorForState(iArr2, 0), f));
+        C1248.m23652(drawable, C1199.m21214(colorStateList.getColorForState(iArr, 0), colorStateList.getColorForState(iArr2, 0), f));
     }
 }

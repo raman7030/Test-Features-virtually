@@ -53,7 +53,7 @@ public class AuthorityKeyIdentifierStructure extends AuthorityKeyIdentifier {
             BigInteger serialNumber = x509Certificate.getSerialNumber();
             return (ASN1Sequence) ((x509Certificate.getVersion() != 3 || (extensionValue = x509Certificate.getExtensionValue(Extension.subjectKeyIdentifier.getId())) == null) ? new AuthorityKeyIdentifier(SubjectPublicKeyInfo.getInstance(x509Certificate.getPublicKey().getEncoded()), generalNames, serialNumber) : new AuthorityKeyIdentifier(((ASN1OctetString) X509ExtensionUtil.fromExtensionValue(extensionValue)).getOctets(), generalNames, serialNumber)).toASN1Primitive();
         } catch (Exception e) {
-            throw new CertificateParsingException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("Exception extracting certificate details: ")));
+            throw new CertificateParsingException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("Exception extracting certificate details: ")));
         }
     }
 }

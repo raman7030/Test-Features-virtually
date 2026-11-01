@@ -8,30 +8,30 @@ import java.net.URL;
 public enum ClassLoaderHelper {
     ;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static URL m753(String str, Class... clsArr) {
-        return m752(str, false, clsArr);
+    /* JADX INFO: renamed from: ֫ */
+    public static URL m1918(String str, Class... clsArr) {
+        return m1917(str, false, clsArr);
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static URL m752(String str, boolean z, Class... clsArr) {
-        URL urlM751;
+    /* JADX INFO: renamed from: ֫ */
+    public static URL m1917(String str, boolean z, Class... clsArr) {
+        URL urlM1916;
         if (z) {
-            urlM751 = m758(str, clsArr);
-            if (urlM751 == null) {
-                urlM751 = m751(str);
+            urlM1916 = m1923(str, clsArr);
+            if (urlM1916 == null) {
+                urlM1916 = m1916(str);
             }
         } else {
-            urlM751 = m751(str);
-            if (urlM751 == null) {
-                urlM751 = m758(str, clsArr);
+            urlM1916 = m1916(str);
+            if (urlM1916 == null) {
+                urlM1916 = m1923(str, clsArr);
             }
         }
-        return urlM751 == null ? ClassLoaderHelper.class.getResource(str) : urlM751;
+        return urlM1916 == null ? ClassLoaderHelper.class.getResource(str) : urlM1916;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public static URL m758(String str, Class[] clsArr) {
+    /* JADX INFO: renamed from: ܽ */
+    public static URL m1923(String str, Class[] clsArr) {
         if (clsArr == null) {
             return null;
         }
@@ -44,8 +44,8 @@ public enum ClassLoaderHelper {
         return null;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static URL m751(String str) {
+    /* JADX INFO: renamed from: ֫ */
+    public static URL m1916(String str) {
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         if (contextClassLoader == null) {
             return null;
@@ -53,8 +53,8 @@ public enum ClassLoaderHelper {
         return contextClassLoader.getResource(str);
     }
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public static Class m759(String str, Class[] clsArr) {
+    /* JADX INFO: renamed from: ܿ */
+    public static Class m1924(String str, Class[] clsArr) {
         if (clsArr == null) {
             return null;
         }
@@ -71,8 +71,8 @@ public enum ClassLoaderHelper {
         return null;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static Class m756(String str) {
+    /* JADX INFO: renamed from: ۧ */
+    public static Class m1921(String str) {
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         if (contextClassLoader == null) {
             return null;
@@ -84,39 +84,39 @@ public enum ClassLoaderHelper {
         }
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public static Class m760(String str, Class... clsArr) {
-        return m757(str, true, clsArr);
+    /* JADX INFO: renamed from: ᩳ */
+    public static Class m1925(String str, Class... clsArr) {
+        return m1922(str, true, clsArr);
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public static Class m757(String str, boolean z, Class... clsArr) {
-        Class clsM756;
+    /* JADX INFO: renamed from: ܽ */
+    public static Class m1922(String str, boolean z, Class... clsArr) {
+        Class clsM1921;
         if (z) {
-            clsM756 = m759(str, clsArr);
-            if (clsM756 == null) {
-                clsM756 = m756(str);
+            clsM1921 = m1924(str, clsArr);
+            if (clsM1921 == null) {
+                clsM1921 = m1921(str);
             }
         } else {
-            clsM756 = m756(str);
-            if (clsM756 == null) {
-                clsM756 = m759(str, clsArr);
+            clsM1921 = m1921(str);
+            if (clsM1921 == null) {
+                clsM1921 = m1924(str, clsArr);
             }
         }
-        return clsM756 == null ? Class.forName(str) : clsM756;
+        return clsM1921 == null ? Class.forName(str) : clsM1921;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static InputStream m755(String str, Class... clsArr) {
-        return m754(str, false, clsArr);
+    /* JADX INFO: renamed from: ۧ */
+    public static InputStream m1920(String str, Class... clsArr) {
+        return m1919(str, false, clsArr);
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static InputStream m754(String str, boolean z, Class... clsArr) {
-        URL urlM752 = m752(str, z, clsArr);
-        if (urlM752 != null) {
+    /* JADX INFO: renamed from: ۧ */
+    public static InputStream m1919(String str, boolean z, Class... clsArr) {
+        URL urlM1917 = m1917(str, z, clsArr);
+        if (urlM1917 != null) {
             try {
-                return urlM752.openStream();
+                return urlM1917.openStream();
             } catch (IOException unused) {
             }
         }

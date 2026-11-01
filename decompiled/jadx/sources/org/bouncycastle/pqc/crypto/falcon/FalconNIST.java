@@ -1,10 +1,10 @@
 package org.bouncycastle.pqc.crypto.falcon;
 
 import java.security.SecureRandom;
-import l.C23202;
-import l.C23868;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.util.Arrays;
+import p067l.C24420;
+import p067l.C25053;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FalconNIST {
@@ -12,7 +12,9 @@ public class FalconNIST {
     public final int CRYPTO_PUBLICKEYBYTES;
     public final int CRYPTO_SECRETKEYBYTES;
     public final int LOGN;
-    public final int N;
+
+    /* JADX INFO: renamed from: N */
+    public final int f81593N;
     public final int NONCELEN;
     public final SecureRandom rand;
 
@@ -21,8 +23,8 @@ public class FalconNIST {
         this.LOGN = i;
         this.NONCELEN = i2;
         int i3 = 1 << i;
-        this.N = i3;
-        this.CRYPTO_PUBLICKEYBYTES = C23868.m52580(i3, 14, 8, 1);
+        this.f81593N = i3;
+        this.CRYPTO_PUBLICKEYBYTES = C25053.m54989(i3, 14, 8, 1);
         if (i == 10) {
             this.CRYPTO_SECRETKEYBYTES = 2305;
             this.CRYPTO_BYTES = 1330;
@@ -35,13 +37,13 @@ public class FalconNIST {
             this.CRYPTO_SECRETKEYBYTES = ((i3 * 14) / 8) + 1 + i3;
             this.CRYPTO_BYTES = 690;
         } else {
-            this.CRYPTO_SECRETKEYBYTES = C23202.m51496(i3, 2, 1, i3);
+            this.CRYPTO_SECRETKEYBYTES = C24420.m53892(i3, 2, 1, i3);
             this.CRYPTO_BYTES = 690;
         }
     }
 
     public byte[] crypto_sign(byte[] bArr, byte[] bArr2, int i, byte[] bArr3) {
-        int i2 = this.N;
+        int i2 = this.f81593N;
         byte[] bArr4 = new byte[i2];
         byte[] bArr5 = new byte[i2];
         byte[] bArr6 = new byte[i2];
@@ -72,7 +74,7 @@ public class FalconNIST {
         if (iTrim_i8_decode3 + i5 != this.CRYPTO_SECRETKEYBYTES - 1) {
             throw new IllegalStateException("full key not used");
         }
-        if (!FalconVrfy.complete_private(bArr7, bArr4, bArr5, bArr6, this.LOGN, new short[this.N * 2])) {
+        if (!FalconVrfy.complete_private(bArr7, bArr4, bArr5, bArr6, this.LOGN, new short[this.f81593N * 2])) {
             throw new IllegalStateException("complete_private failed");
         }
         this.rand.nextBytes(bArr9);
@@ -82,7 +84,7 @@ public class FalconNIST {
         this.rand.nextBytes(bArr8);
         sHAKEDigest.reset();
         sHAKEDigest.update(bArr8, 0, 48);
-        falconSign.sign_dyn(sArr, sHAKEDigest, bArr4, bArr5, bArr6, bArr7, sArr2, this.LOGN, new double[this.N * 10]);
+        falconSign.sign_dyn(sArr, sHAKEDigest, bArr4, bArr5, bArr6, bArr7, sArr2, this.LOGN, new double[this.f81593N * 10]);
         int i7 = (this.CRYPTO_BYTES - 2) - this.NONCELEN;
         byte[] bArr11 = new byte[i7];
         int iComp_encode = FalconCodec.comp_encode(bArr11, i7, sArr, this.LOGN);
@@ -96,7 +98,7 @@ public class FalconNIST {
     }
 
     public byte[][] crypto_sign_keypair(byte[] bArr, byte[] bArr2) {
-        int i = this.N;
+        int i = this.f81593N;
         byte[] bArr3 = new byte[i];
         byte[] bArr4 = new byte[i];
         byte[] bArr5 = new byte[i];
@@ -144,7 +146,7 @@ public class FalconNIST {
     }
 
     public int crypto_sign_open(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4) {
-        int i = this.N;
+        int i = this.f81593N;
         short[] sArr = new short[i];
         short[] sArr2 = new short[i];
         short[] sArr3 = new short[i];
@@ -161,6 +163,6 @@ public class FalconNIST {
         sHAKEDigest.update(bArr2, 0, this.NONCELEN);
         sHAKEDigest.update(bArr3, 0, length2);
         FalconCommon.hash_to_point_vartime(sHAKEDigest, sArr2, this.LOGN);
-        return FalconVrfy.verify_raw(sArr2, sArr3, sArr, this.LOGN, new short[this.N]) == 0 ? -1 : 0;
+        return FalconVrfy.verify_raw(sArr2, sArr3, sArr, this.LOGN, new short[this.f81593N]) == 0 ? -1 : 0;
     }
 }

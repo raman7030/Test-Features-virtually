@@ -8,22 +8,22 @@ import java.util.Enumeration;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPrivateKeySpec;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.p073x9.DomainParameters;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.DHParameter;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.DomainParameters;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes.dex */
 public class JCEDHPrivateKey implements DHPrivateKey, PKCS12BagAttributeCarrier {
@@ -31,18 +31,20 @@ public class JCEDHPrivateKey implements DHPrivateKey, PKCS12BagAttributeCarrier 
     public PKCS12BagAttributeCarrier attrCarrier = new PKCS12BagAttributeCarrierImpl();
     public DHParameterSpec dhSpec;
     public PrivateKeyInfo info;
-    public BigInteger x;
+
+    /* JADX INFO: renamed from: x */
+    public BigInteger f81372x;
 
     public JCEDHPrivateKey() {
     }
 
     public JCEDHPrivateKey(DHPrivateKey dHPrivateKey) {
-        this.x = dHPrivateKey.getX();
+        this.f81372x = dHPrivateKey.getX();
         this.dhSpec = dHPrivateKey.getParams();
     }
 
     public JCEDHPrivateKey(DHPrivateKeySpec dHPrivateKeySpec) {
-        this.x = dHPrivateKeySpec.getX();
+        this.f81372x = dHPrivateKeySpec.getX();
         this.dhSpec = new DHParameterSpec(dHPrivateKeySpec.getP(), dHPrivateKeySpec.getG());
     }
 
@@ -52,13 +54,13 @@ public class JCEDHPrivateKey implements DHPrivateKey, PKCS12BagAttributeCarrier 
         ASN1Integer aSN1Integer = ASN1Integer.getInstance(privateKeyInfo.parsePrivateKey());
         ASN1ObjectIdentifier algorithm = privateKeyInfo.getPrivateKeyAlgorithm().getAlgorithm();
         this.info = privateKeyInfo;
-        this.x = aSN1Integer.getValue();
+        this.f81372x = aSN1Integer.getValue();
         if (algorithm.equals((ASN1Primitive) PKCSObjectIdentifiers.dhKeyAgreement)) {
             DHParameter dHParameter = DHParameter.getInstance(aSN1Sequence);
             dHParameterSpec = dHParameter.getL() != null ? new DHParameterSpec(dHParameter.getP(), dHParameter.getG(), dHParameter.getL().intValue()) : new DHParameterSpec(dHParameter.getP(), dHParameter.getG());
         } else {
             if (!algorithm.equals((ASN1Primitive) X9ObjectIdentifiers.dhpublicnumber)) {
-                throw new IllegalArgumentException(C9005.m23242("unknown algorithm type: ", algorithm));
+                throw new IllegalArgumentException(C10927.m25186("unknown algorithm type: ", algorithm));
             }
             DomainParameters domainParameters = DomainParameters.getInstance(aSN1Sequence);
             dHParameterSpec = new DHParameterSpec(domainParameters.getP(), domainParameters.getG());
@@ -67,12 +69,12 @@ public class JCEDHPrivateKey implements DHPrivateKey, PKCS12BagAttributeCarrier 
     }
 
     public JCEDHPrivateKey(DHPrivateKeyParameters dHPrivateKeyParameters) {
-        this.x = dHPrivateKeyParameters.getX();
+        this.f81372x = dHPrivateKeyParameters.getX();
         this.dhSpec = new DHParameterSpec(dHPrivateKeyParameters.getParameters().getP(), dHPrivateKeyParameters.getParameters().getG(), dHPrivateKeyParameters.getParameters().getL());
     }
 
     private void readObject(ObjectInputStream objectInputStream) {
-        this.x = (BigInteger) objectInputStream.readObject();
+        this.f81372x = (BigInteger) objectInputStream.readObject();
         this.dhSpec = new DHParameterSpec((BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject(), objectInputStream.readInt());
     }
 
@@ -123,7 +125,7 @@ public class JCEDHPrivateKey implements DHPrivateKey, PKCS12BagAttributeCarrier 
 
     @Override // javax.crypto.interfaces.DHPrivateKey
     public BigInteger getX() {
-        return this.x;
+        return this.f81372x;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier

@@ -6,13 +6,13 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import l.C0794;
-import l.C18307;
-import l.InterfaceC14905;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C19768;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ASN1InputStream extends FilterInputStream implements BERTags, InterfaceC14905 {
+public class ASN1InputStream extends FilterInputStream implements BERTags, InterfaceC16534 {
     public final boolean lazyEvaluate;
     public final int limit;
     public final byte[][] tmpBuffers;
@@ -207,7 +207,7 @@ public class ASN1InputStream extends FilterInputStream implements BERTags, Inter
         if (i4 < i || z) {
             return i4;
         }
-        throw new IOException(C18307.m42646("corrupted stream - out of bounds length found: ", i4, i, " >= "));
+        throw new IOException(C19768.m44907("corrupted stream - out of bounds length found: ", i4, i, " >= "));
     }
 
     public static int readTagNumber(InputStream inputStream, int i) throws IOException {
@@ -346,9 +346,9 @@ public class ASN1InputStream extends FilterInputStream implements BERTags, Inter
         return remaining < 1 ? new ASN1EncodableVector(0) : new ASN1InputStream(definiteLengthInputStream, remaining, this.lazyEvaluate, this.tmpBuffers).readVector();
     }
 
-    @Override // java.io.InputStream, l.InterfaceC14905
+    @Override // java.io.InputStream, p067l.InterfaceC16534
     public /* synthetic */ long transferTo(OutputStream outputStream) {
-        return C0794.transferTo(this, outputStream);
+        return C3123.transferTo(this, outputStream);
     }
 
     public ASN1Primitive buildObject(int i, int i2, int i3) throws IOException {
@@ -373,7 +373,7 @@ public class ASN1InputStream extends FilterInputStream implements BERTags, Inter
             if (i2 == 17) {
                 return DLFactory.createSet(readVector(definiteLengthInputStream));
             }
-            throw new IOException(C18307.m42645(i2, "unknown tag ", " encountered"));
+            throw new IOException(C19768.m44906(i2, "unknown tag ", " encountered"));
         }
         if (definiteLengthInputStream.getRemaining() < 1) {
             return DLFactory.EMPTY_SEQUENCE;

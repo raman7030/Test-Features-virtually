@@ -17,13 +17,25 @@ public class RainbowParameters implements CipherParameters {
     public static final RainbowParameters rainbowVclassic;
     public static final RainbowParameters rainbowVcompressed;
     public final Digest hash_algo;
-    public final int m;
-    public final int n;
+
+    /* JADX INFO: renamed from: m */
+    public final int f81706m;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81707n;
     public final String name;
-    public final int o1;
-    public final int o2;
-    public final int v1;
-    public final int v2;
+
+    /* JADX INFO: renamed from: o1 */
+    public final int f81708o1;
+
+    /* JADX INFO: renamed from: o2 */
+    public final int f81709o2;
+
+    /* JADX INFO: renamed from: v1 */
+    public final int f81710v1;
+
+    /* JADX INFO: renamed from: v2 */
+    public final int f81711v2;
     public final Version version;
 
     static {
@@ -42,26 +54,26 @@ public class RainbowParameters implements CipherParameters {
         Digest sHA384Digest;
         this.name = str;
         if (i == 3) {
-            this.v1 = 68;
-            this.o1 = 32;
-            this.o2 = 48;
+            this.f81710v1 = 68;
+            this.f81708o1 = 32;
+            this.f81709o2 = 48;
             sHA384Digest = new SHA384Digest();
         } else {
             if (i != 5) {
                 throw new IllegalArgumentException("No valid version. Please choose one of the following: 3, 5");
             }
-            this.v1 = 96;
-            this.o1 = 36;
-            this.o2 = 64;
+            this.f81710v1 = 96;
+            this.f81708o1 = 36;
+            this.f81709o2 = 64;
             sHA384Digest = new SHA512Digest();
         }
         this.hash_algo = sHA384Digest;
-        int i2 = this.v1;
-        int i3 = this.o1;
-        this.v2 = i2 + i3;
-        int i4 = this.o2;
-        this.n = i2 + i3 + i4;
-        this.m = i3 + i4;
+        int i2 = this.f81710v1;
+        int i3 = this.f81708o1;
+        this.f81711v2 = i2 + i3;
+        int i4 = this.f81709o2;
+        this.f81707n = i2 + i3 + i4;
+        this.f81706m = i3 + i4;
         this.version = version;
     }
 
@@ -82,11 +94,11 @@ public class RainbowParameters implements CipherParameters {
     }
 
     public int getM() {
-        return this.m;
+        return this.f81706m;
     }
 
     public int getN() {
-        return this.n;
+        return this.f81707n;
     }
 
     public String getName() {
@@ -94,19 +106,19 @@ public class RainbowParameters implements CipherParameters {
     }
 
     public int getO1() {
-        return this.o1;
+        return this.f81708o1;
     }
 
     public int getO2() {
-        return this.o2;
+        return this.f81709o2;
     }
 
     public int getV1() {
-        return this.v1;
+        return this.f81710v1;
     }
 
     public int getV2() {
-        return this.v2;
+        return this.f81711v2;
     }
 
     public Version getVersion() {

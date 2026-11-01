@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.DataLengthException;
@@ -9,15 +8,22 @@ import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.math.ec.custom.sec.SecP521R1Field;
+import org.bouncycastle.math.p080ec.custom.sec.SecP521R1Field;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HC128Engine implements StreamCipher {
     public boolean initialised;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81028iv;
     public byte[] key;
-    public int[] p = new int[512];
-    public int[] q = new int[512];
+
+    /* JADX INFO: renamed from: p */
+    public int[] f81029p = new int[512];
+
+    /* JADX INFO: renamed from: q */
+    public int[] f81030q = new int[512];
     public int cnt = 0;
     public byte[] buf = new byte[4];
     public int idx = 0;
@@ -26,19 +32,23 @@ public class HC128Engine implements StreamCipher {
         return mod512(i - i2);
     }
 
-    public static int f1(int i) {
+    /* JADX INFO: renamed from: f1 */
+    public static int m55378f1(int i) {
         return (i >>> 3) ^ (rotateRight(i, 7) ^ rotateRight(i, 18));
     }
 
-    public static int f2(int i) {
+    /* JADX INFO: renamed from: f2 */
+    public static int m55379f2(int i) {
         return (i >>> 10) ^ (rotateRight(i, 17) ^ rotateRight(i, 19));
     }
 
-    private int g1(int i, int i2, int i3) {
+    /* JADX INFO: renamed from: g1 */
+    private int m55380g1(int i, int i2, int i3) {
         return (rotateRight(i, 10) ^ rotateRight(i3, 23)) + rotateRight(i2, 8);
     }
 
-    private int g2(int i, int i2, int i3) {
+    /* JADX INFO: renamed from: g2 */
+    private int m55381g2(int i, int i2, int i3) {
         return (rotateLeft(i, 10) ^ rotateLeft(i3, 23)) + rotateLeft(i2, 8);
     }
 
@@ -58,13 +68,15 @@ public class HC128Engine implements StreamCipher {
         return b;
     }
 
-    private int h1(int i) {
-        int[] iArr = this.q;
+    /* JADX INFO: renamed from: h1 */
+    private int m55382h1(int i) {
+        int[] iArr = this.f81030q;
         return iArr[i & 255] + iArr[((i >> 16) & 255) + 256];
     }
 
-    private int h2(int i) {
-        int[] iArr = this.p;
+    /* JADX INFO: renamed from: h2 */
+    private int m55383h2(int i) {
+        int[] iArr = this.f81029p;
         return iArr[i & 255] + iArr[((i >> 16) & 255) + 256];
     }
 
@@ -72,7 +84,7 @@ public class HC128Engine implements StreamCipher {
         if (this.key.length != 16) {
             throw new IllegalArgumentException("The key must be 128 bits long");
         }
-        if (this.iv.length != 16) {
+        if (this.f81028iv.length != 16) {
             throw new IllegalArgumentException("The IV must be 128 bits long");
         }
         this.idx = 0;
@@ -85,7 +97,7 @@ public class HC128Engine implements StreamCipher {
         System.arraycopy(iArr, 0, iArr, 4, 4);
         int i3 = 0;
         while (true) {
-            byte[] bArr = this.iv;
+            byte[] bArr = this.f81028iv;
             if (i3 >= bArr.length || i3 >= 16) {
                 break;
             }
@@ -95,15 +107,15 @@ public class HC128Engine implements StreamCipher {
         }
         System.arraycopy(iArr, 8, iArr, 12, 4);
         for (int i5 = 16; i5 < 1280; i5++) {
-            iArr[i5] = f2(iArr[i5 - 2]) + iArr[i5 - 7] + f1(iArr[i5 - 15]) + iArr[i5 - 16] + i5;
+            iArr[i5] = m55379f2(iArr[i5 - 2]) + iArr[i5 - 7] + m55378f1(iArr[i5 - 15]) + iArr[i5 - 16] + i5;
         }
-        System.arraycopy(iArr, 256, this.p, 0, 512);
-        System.arraycopy(iArr, 768, this.q, 0, 512);
+        System.arraycopy(iArr, 256, this.f81029p, 0, 512);
+        System.arraycopy(iArr, 768, this.f81030q, 0, 512);
         for (int i6 = 0; i6 < 512; i6++) {
-            this.p[i6] = step();
+            this.f81029p[i6] = step();
         }
         for (int i7 = 0; i7 < 512; i7++) {
-            this.q[i7] = step();
+            this.f81030q[i7] = step();
         }
         this.cnt = 0;
     }
@@ -125,21 +137,21 @@ public class HC128Engine implements StreamCipher {
     }
 
     private int step() {
-        int iH2;
+        int iM55383h2;
         int i;
         int iMod512 = mod512(this.cnt);
         if (this.cnt < 512) {
-            int[] iArr = this.p;
-            iArr[iMod512] = iArr[iMod512] + g1(iArr[dim(iMod512, 3)], this.p[dim(iMod512, 10)], this.p[dim(iMod512, SecP521R1Field.P16)]);
-            iH2 = h1(this.p[dim(iMod512, 12)]);
-            i = this.p[iMod512];
+            int[] iArr = this.f81029p;
+            iArr[iMod512] = iArr[iMod512] + m55380g1(iArr[dim(iMod512, 3)], this.f81029p[dim(iMod512, 10)], this.f81029p[dim(iMod512, SecP521R1Field.P16)]);
+            iM55383h2 = m55382h1(this.f81029p[dim(iMod512, 12)]);
+            i = this.f81029p[iMod512];
         } else {
-            int[] iArr2 = this.q;
-            iArr2[iMod512] = iArr2[iMod512] + g2(iArr2[dim(iMod512, 3)], this.q[dim(iMod512, 10)], this.q[dim(iMod512, SecP521R1Field.P16)]);
-            iH2 = h2(this.q[dim(iMod512, 12)]);
-            i = this.q[iMod512];
+            int[] iArr2 = this.f81030q;
+            iArr2[iMod512] = iArr2[iMod512] + m55381g2(iArr2[dim(iMod512, 3)], this.f81030q[dim(iMod512, 10)], this.f81030q[dim(iMod512, SecP521R1Field.P16)]);
+            iM55383h2 = m55383h2(this.f81030q[dim(iMod512, 12)]);
+            i = this.f81030q[iMod512];
         }
-        int i2 = i ^ iH2;
+        int i2 = i ^ iM55383h2;
         this.cnt = mod1024(this.cnt + 1);
         return i2;
     }
@@ -155,10 +167,10 @@ public class HC128Engine implements StreamCipher {
             throw new IllegalArgumentException("no IV passed");
         }
         ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
-        this.iv = parametersWithIV.getIV();
+        this.f81028iv = parametersWithIV.getIV();
         CipherParameters parameters = parametersWithIV.getParameters();
         if (!(parameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("Invalid parameter passed to HC128 init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("Invalid parameter passed to HC128 init - ", cipherParameters));
         }
         this.key = ((KeyParameter) parameters).getKey();
         init();

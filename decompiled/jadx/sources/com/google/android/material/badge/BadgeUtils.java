@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.google.android.material.internal.ParcelableSparseArray;
 import com.google.android.material.internal.ToolbarUtils;
-import l.C14369;
-import l.C16445;
-import l.C17648;
-import l.C23575;
-import l.C9762;
-import l.ViewOnClickListenerC9411;
+import p067l.C1326;
+import p067l.C1555;
+import p067l.C1658;
+import p067l.C1717;
+import p067l.C24774;
+import p067l.ViewOnClickListenerC1309;
 
 /* JADX INFO: loaded from: classes.dex */
 @ExperimentalBadgeUtils
@@ -42,17 +42,17 @@ public class BadgeUtils {
         }
     }
 
-    public static void attachBadgeDrawable(BadgeDrawable badgeDrawable, C9762 c9762, int i) {
-        attachBadgeDrawable(badgeDrawable, c9762, i, null);
+    public static void attachBadgeDrawable(BadgeDrawable badgeDrawable, C1326 c1326, int i) {
+        attachBadgeDrawable(badgeDrawable, c1326, i, null);
     }
 
-    public static void attachBadgeDrawable(final BadgeDrawable badgeDrawable, final C9762 c9762, final int i, final FrameLayout frameLayout) {
-        c9762.post(new Runnable() { // from class: com.google.android.material.badge.BadgeUtils.1
+    public static void attachBadgeDrawable(final BadgeDrawable badgeDrawable, final C1326 c1326, final int i, final FrameLayout frameLayout) {
+        c1326.post(new Runnable() { // from class: com.google.android.material.badge.BadgeUtils.1
             @Override // java.lang.Runnable
             public void run() {
-                ViewOnClickListenerC9411 actionMenuItemView = ToolbarUtils.getActionMenuItemView(c9762, i);
+                ViewOnClickListenerC1309 actionMenuItemView = ToolbarUtils.getActionMenuItemView(c1326, i);
                 if (actionMenuItemView != null) {
-                    BadgeUtils.setToolbarOffset(badgeDrawable, c9762.getResources());
+                    BadgeUtils.setToolbarOffset(badgeDrawable, c1326.getResources());
                     BadgeUtils.attachBadgeDrawable(badgeDrawable, actionMenuItemView, frameLayout);
                     BadgeUtils.attachBadgeContentDescription(badgeDrawable, actionMenuItemView);
                 }
@@ -61,20 +61,20 @@ public class BadgeUtils {
     }
 
     public static void attachBadgeContentDescription(final BadgeDrawable badgeDrawable, View view) {
-        if (Build.VERSION.SDK_INT >= 29 && C17648.m41319(view)) {
-            C17648.m41309(view, new C16445(view.getAccessibilityDelegate()) { // from class: com.google.android.material.badge.BadgeUtils.2
-                @Override // l.C16445
-                public void onInitializeAccessibilityNodeInfo(View view2, C14369 c14369) {
-                    super.onInitializeAccessibilityNodeInfo(view2, c14369);
-                    c14369.m34305(badgeDrawable.getContentDescription());
+        if (Build.VERSION.SDK_INT >= 29 && C1717.m43565(view)) {
+            C1717.m43555(view, new C1658(view.getAccessibilityDelegate()) { // from class: com.google.android.material.badge.BadgeUtils.2
+                @Override // p067l.C1658
+                public void onInitializeAccessibilityNodeInfo(View view2, C1555 c1555) {
+                    super.onInitializeAccessibilityNodeInfo(view2, c1555);
+                    c1555.m36438(badgeDrawable.getContentDescription());
                 }
             });
         } else {
-            C17648.m41309(view, new C16445() { // from class: com.google.android.material.badge.BadgeUtils.3
-                @Override // l.C16445
-                public void onInitializeAccessibilityNodeInfo(View view2, C14369 c14369) {
-                    super.onInitializeAccessibilityNodeInfo(view2, c14369);
-                    c14369.m34305(badgeDrawable.getContentDescription());
+            C1717.m43555(view, new C1658() { // from class: com.google.android.material.badge.BadgeUtils.3
+                @Override // p067l.C1658
+                public void onInitializeAccessibilityNodeInfo(View view2, C1555 c1555) {
+                    super.onInitializeAccessibilityNodeInfo(view2, c1555);
+                    c1555.m36438(badgeDrawable.getContentDescription());
                 }
             });
         }
@@ -91,9 +91,9 @@ public class BadgeUtils {
         }
     }
 
-    public static void detachBadgeDrawable(BadgeDrawable badgeDrawable, C9762 c9762, int i) {
-        ViewOnClickListenerC9411 actionMenuItemView;
-        if (badgeDrawable == null || (actionMenuItemView = ToolbarUtils.getActionMenuItemView(c9762, i)) == null) {
+    public static void detachBadgeDrawable(BadgeDrawable badgeDrawable, C1326 c1326, int i) {
+        ViewOnClickListenerC1309 actionMenuItemView;
+        if (badgeDrawable == null || (actionMenuItemView = ToolbarUtils.getActionMenuItemView(c1326, i)) == null) {
             return;
         }
         removeToolbarOffset(badgeDrawable);
@@ -102,22 +102,22 @@ public class BadgeUtils {
     }
 
     public static void detachBadgeContentDescription(View view) {
-        if (Build.VERSION.SDK_INT >= 29 && C17648.m41319(view)) {
-            C17648.m41309(view, new C16445(view.getAccessibilityDelegate()) { // from class: com.google.android.material.badge.BadgeUtils.4
-                @Override // l.C16445
-                public void onInitializeAccessibilityNodeInfo(View view2, C14369 c14369) {
-                    super.onInitializeAccessibilityNodeInfo(view2, c14369);
-                    c14369.m34305((CharSequence) null);
+        if (Build.VERSION.SDK_INT >= 29 && C1717.m43565(view)) {
+            C1717.m43555(view, new C1658(view.getAccessibilityDelegate()) { // from class: com.google.android.material.badge.BadgeUtils.4
+                @Override // p067l.C1658
+                public void onInitializeAccessibilityNodeInfo(View view2, C1555 c1555) {
+                    super.onInitializeAccessibilityNodeInfo(view2, c1555);
+                    c1555.m36438((CharSequence) null);
                 }
             });
         } else {
-            C17648.m41309(view, (C16445) null);
+            C1717.m43555(view, (C1658) null);
         }
     }
 
     public static void setToolbarOffset(BadgeDrawable badgeDrawable, Resources resources) {
-        badgeDrawable.setAdditionalHorizontalOffset(resources.getDimensionPixelOffset(C23575.f76277));
-        badgeDrawable.setAdditionalVerticalOffset(resources.getDimensionPixelOffset(C23575.f76301));
+        badgeDrawable.setAdditionalHorizontalOffset(resources.getDimensionPixelOffset(C24774.f79023));
+        badgeDrawable.setAdditionalVerticalOffset(resources.getDimensionPixelOffset(C24774.f79047));
     }
 
     public static void removeToolbarOffset(BadgeDrawable badgeDrawable) {

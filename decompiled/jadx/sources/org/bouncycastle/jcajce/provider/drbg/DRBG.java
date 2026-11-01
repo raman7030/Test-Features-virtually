@@ -12,8 +12,6 @@ import java.security.Security;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.prng.EntropySource;
@@ -27,6 +25,8 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Pack;
 import org.bouncycastle.util.Properties;
 import org.bouncycastle.util.Strings;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DRBG {
@@ -169,7 +169,7 @@ public class DRBG {
     public class Mappings extends AsymmetricAlgorithmProvider {
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
         public void configure(ConfigurableProvider configurableProvider) {
-            C12662.m30943(DRBG.PREFIX, "$NonceAndIV", "SecureRandom.NONCEANDIV", C5368.m15340(DRBG.PREFIX, "$Default", "SecureRandom.DEFAULT", new StringBuilder(), configurableProvider), configurableProvider);
+            C14403.m33021(DRBG.PREFIX, "$NonceAndIV", "SecureRandom.NONCEANDIV", C7470.m17249(DRBG.PREFIX, "$Default", "SecureRandom.DEFAULT", new StringBuilder(), configurableProvider), configurableProvider);
         }
     }
 

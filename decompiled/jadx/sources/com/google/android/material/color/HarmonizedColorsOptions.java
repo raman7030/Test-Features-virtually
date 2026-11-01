@@ -1,6 +1,6 @@
 package com.google.android.material.color;
 
-import l.C17931;
+import p067l.C19410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HarmonizedColorsOptions {
@@ -33,7 +33,7 @@ public class HarmonizedColorsOptions {
     public class Builder {
         public HarmonizedColorAttributes colorAttributes;
         public int[] colorResourceIds = new int[0];
-        public int colorAttributeToHarmonizeWith = C17931.f55686;
+        public int colorAttributeToHarmonizeWith = C19410.f58883;
 
         public Builder setColorResourceIds(int[] iArr) {
             this.colorResourceIds = iArr;

@@ -1,6 +1,5 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
@@ -9,6 +8,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class XMSSPublicKey extends ASN1Object {
@@ -19,8 +19,8 @@ public class XMSSPublicKey extends ASN1Object {
         if (!ASN1Integer.getInstance(aSN1Sequence.getObjectAt(0)).hasValue(0)) {
             throw new IllegalArgumentException("unknown version of sequence");
         }
-        this.publicSeed = C16014.m37869(aSN1Sequence, 1);
-        this.root = C16014.m37869(aSN1Sequence, 2);
+        this.publicSeed = C17588.m40055(aSN1Sequence, 1);
+        this.root = C17588.m40055(aSN1Sequence, 2);
     }
 
     public XMSSPublicKey(byte[] bArr, byte[] bArr2) {

@@ -2,9 +2,9 @@ package org.bouncycastle.pqc.crypto.rainbow;
 
 import java.lang.reflect.Array;
 import java.security.SecureRandom;
-import l.C23202;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.Arrays;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class RainbowUtil {
@@ -208,7 +208,7 @@ public class RainbowUtil {
         int length2 = sArr[0].length;
         for (int i2 = 0; i2 < length2; i2++) {
             for (int i3 = 0; i3 < length; i3++) {
-                sArr[i3][i2] = (short) (bArr[C23202.m51496(i2, length, i, i3)] & 255);
+                sArr[i3][i2] = (short) (bArr[C24420.m53892(i2, length, i, i3)] & 255);
             }
         }
         return length * length2;

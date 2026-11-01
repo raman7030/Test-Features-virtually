@@ -6,8 +6,8 @@ import android.view.View;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-import l.C17931;
-import l.C7191;
+import p067l.C1199;
+import p067l.C19410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ElevationOverlayProvider {
@@ -21,7 +21,7 @@ public class ElevationOverlayProvider {
     public final boolean elevationOverlayEnabled;
 
     public ElevationOverlayProvider(Context context) {
-        this(MaterialAttributes.resolveBoolean(context, C17931.f55699, false), MaterialColors.getColor(context, C17931.f55665, 0), MaterialColors.getColor(context, C17931.f54947, 0), MaterialColors.getColor(context, C17931.f55377, 0), context.getResources().getDisplayMetrics().density);
+        this(MaterialAttributes.resolveBoolean(context, C19410.f58896, false), MaterialColors.getColor(context, C19410.f58862, 0), MaterialColors.getColor(context, C19410.f58144, 0), MaterialColors.getColor(context, C19410.f58574, 0), context.getResources().getDisplayMetrics().density);
     }
 
     public ElevationOverlayProvider(boolean z, int i, int i2, int i3, float f) {
@@ -56,11 +56,11 @@ public class ElevationOverlayProvider {
         int i2;
         float fCalculateOverlayAlphaFraction = calculateOverlayAlphaFraction(f);
         int iAlpha = Color.alpha(i);
-        int iLayer = MaterialColors.layer(C7191.m19276(i, 255), this.elevationOverlayColor, fCalculateOverlayAlphaFraction);
+        int iLayer = MaterialColors.layer(C1199.m21223(i, 255), this.elevationOverlayColor, fCalculateOverlayAlphaFraction);
         if (fCalculateOverlayAlphaFraction > 0.0f && (i2 = this.elevationOverlayAccentColor) != 0) {
-            iLayer = MaterialColors.layer(iLayer, C7191.m19276(i2, OVERLAY_ACCENT_COLOR_ALPHA));
+            iLayer = MaterialColors.layer(iLayer, C1199.m21223(i2, OVERLAY_ACCENT_COLOR_ALPHA));
         }
-        return C7191.m19276(iLayer, iAlpha);
+        return C1199.m21223(iLayer, iAlpha);
     }
 
     public int calculateOverlayAlpha(float f) {
@@ -92,6 +92,6 @@ public class ElevationOverlayProvider {
     }
 
     private boolean isThemeSurfaceColor(int i) {
-        return C7191.m19276(i, 255) == this.colorSurface;
+        return C1199.m21223(i, 255) == this.colorSurface;
     }
 }

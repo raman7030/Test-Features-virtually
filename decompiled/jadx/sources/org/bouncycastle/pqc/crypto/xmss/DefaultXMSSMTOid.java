@@ -2,7 +2,7 @@ package org.bouncycastle.pqc.crypto.xmss;
 
 import java.util.HashMap;
 import java.util.Map;
-import l.C20195;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class DefaultXMSSMTOid implements XMSSOid {
@@ -44,7 +44,7 @@ public final class DefaultXMSSMTOid implements XMSSOid {
         map.put(createKey("SHAKE256", 64, 16, 131, 60, 3), new DefaultXMSSMTOid(30, "XMSSMT_SHAKE_60/3_512"));
         map.put(createKey("SHAKE256", 64, 16, 131, 60, 6), new DefaultXMSSMTOid(31, "XMSSMT_SHAKE_60/6_512"));
         map.put(createKey("SHAKE256", 64, 16, 131, 60, 12), new DefaultXMSSMTOid(32, "XMSSMT_SHAKE_60/12_512"));
-        oidLookupTable = C20195.unmodifiableMap(map);
+        oidLookupTable = C21562.unmodifiableMap(map);
     }
 
     public DefaultXMSSMTOid(int i, String str) {

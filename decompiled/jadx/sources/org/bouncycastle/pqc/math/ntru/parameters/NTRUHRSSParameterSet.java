@@ -12,7 +12,7 @@ public abstract class NTRUHRSSParameterSet extends NTRUParameterSet {
 
     @Override // org.bouncycastle.pqc.math.ntru.parameters.NTRUParameterSet
     public Polynomial createPolynomial() {
-        return n() == 1373 ? new HRSS1373Polynomial(this) : new HRSSPolynomial(this);
+        return m55436n() == 1373 ? new HRSS1373Polynomial(this) : new HRSSPolynomial(this);
     }
 
     @Override // org.bouncycastle.pqc.math.ntru.parameters.NTRUParameterSet

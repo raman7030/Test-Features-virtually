@@ -11,9 +11,13 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
     public final byte[] nonce;
     public final int prefFormat;
     public final byte[] rho;
-    public final byte[] s;
+
+    /* JADX INFO: renamed from: s */
+    public final byte[] f81677s;
     public final byte[] seed;
-    public final byte[] t;
+
+    /* JADX INFO: renamed from: t */
+    public final byte[] f81678t;
 
     public MLKEMPrivateKeyParameters(MLKEMParameters mLKEMParameters, byte[] bArr) {
         this(mLKEMParameters, bArr, null);
@@ -24,16 +28,16 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
         MLKEMEngine engine = mLKEMParameters.getEngine();
         if (bArr.length == 64) {
             byte[][] bArrGenerateKemKeyPairInternal = engine.generateKemKeyPairInternal(Arrays.copyOfRange(bArr, 0, 32), Arrays.copyOfRange(bArr, 32, bArr.length));
-            this.s = bArrGenerateKemKeyPairInternal[2];
+            this.f81677s = bArrGenerateKemKeyPairInternal[2];
             this.hpk = bArrGenerateKemKeyPairInternal[3];
             this.nonce = bArrGenerateKemKeyPairInternal[4];
-            this.t = bArrGenerateKemKeyPairInternal[0];
+            this.f81678t = bArrGenerateKemKeyPairInternal[0];
             this.rho = bArrGenerateKemKeyPairInternal[1];
             this.seed = bArrGenerateKemKeyPairInternal[5];
         } else {
-            this.s = Arrays.copyOfRange(bArr, 0, engine.getKyberIndCpaSecretKeyBytes());
+            this.f81677s = Arrays.copyOfRange(bArr, 0, engine.getKyberIndCpaSecretKeyBytes());
             int kyberIndCpaSecretKeyBytes = engine.getKyberIndCpaSecretKeyBytes();
-            this.t = Arrays.copyOfRange(bArr, kyberIndCpaSecretKeyBytes, (engine.getKyberIndCpaPublicKeyBytes() + kyberIndCpaSecretKeyBytes) - 32);
+            this.f81678t = Arrays.copyOfRange(bArr, kyberIndCpaSecretKeyBytes, (engine.getKyberIndCpaPublicKeyBytes() + kyberIndCpaSecretKeyBytes) - 32);
             int kyberIndCpaPublicKeyBytes = (engine.getKyberIndCpaPublicKeyBytes() - 32) + kyberIndCpaSecretKeyBytes;
             int i = kyberIndCpaPublicKeyBytes + 32;
             this.rho = Arrays.copyOfRange(bArr, kyberIndCpaPublicKeyBytes, i);
@@ -42,7 +46,7 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
             this.nonce = Arrays.copyOfRange(bArr, i2, kyberIndCpaPublicKeyBytes + 96);
             this.seed = null;
         }
-        if (mLKEMPublicKeyParameters != null && (!Arrays.constantTimeAreEqual(this.t, mLKEMPublicKeyParameters.t) || !Arrays.constantTimeAreEqual(this.rho, mLKEMPublicKeyParameters.rho))) {
+        if (mLKEMPublicKeyParameters != null && (!Arrays.constantTimeAreEqual(this.f81678t, mLKEMPublicKeyParameters.f81679t) || !Arrays.constantTimeAreEqual(this.rho, mLKEMPublicKeyParameters.rho))) {
             throw new IllegalArgumentException("passed in public key does not match private values");
         }
         this.prefFormat = this.seed != null ? 0 : 2;
@@ -54,10 +58,10 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
 
     public MLKEMPrivateKeyParameters(MLKEMParameters mLKEMParameters, byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5, byte[] bArr6) {
         super(true, mLKEMParameters);
-        this.s = Arrays.clone(bArr);
+        this.f81677s = Arrays.clone(bArr);
         this.hpk = Arrays.clone(bArr2);
         this.nonce = Arrays.clone(bArr3);
-        this.t = Arrays.clone(bArr4);
+        this.f81678t = Arrays.clone(bArr4);
         this.rho = Arrays.clone(bArr5);
         this.seed = Arrays.clone(bArr6);
         this.prefFormat = 0;
@@ -65,8 +69,8 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
 
     public MLKEMPrivateKeyParameters(MLKEMPrivateKeyParameters mLKEMPrivateKeyParameters, int i) {
         super(true, mLKEMPrivateKeyParameters.getParameters());
-        this.s = mLKEMPrivateKeyParameters.s;
-        this.t = mLKEMPrivateKeyParameters.t;
+        this.f81677s = mLKEMPrivateKeyParameters.f81677s;
+        this.f81678t = mLKEMPrivateKeyParameters.f81678t;
         this.rho = mLKEMPrivateKeyParameters.rho;
         this.hpk = mLKEMPrivateKeyParameters.hpk;
         this.nonce = mLKEMPrivateKeyParameters.nonce;
@@ -75,7 +79,7 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
     }
 
     public byte[] getEncoded() {
-        return Arrays.concatenate(new byte[][]{this.s, this.t, this.rho, this.hpk, this.nonce});
+        return Arrays.concatenate(new byte[][]{this.f81677s, this.f81678t, this.rho, this.hpk, this.nonce});
     }
 
     public byte[] getHPK() {
@@ -105,11 +109,11 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
     }
 
     public byte[] getPublicKey() {
-        return MLKEMPublicKeyParameters.getEncoded(this.t, this.rho);
+        return MLKEMPublicKeyParameters.getEncoded(this.f81678t, this.rho);
     }
 
     public MLKEMPublicKeyParameters getPublicKeyParameters() {
-        return new MLKEMPublicKeyParameters(getParameters(), this.t, this.rho);
+        return new MLKEMPublicKeyParameters(getParameters(), this.f81678t, this.rho);
     }
 
     public byte[] getRho() {
@@ -117,7 +121,7 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
     }
 
     public byte[] getS() {
-        return Arrays.clone(this.s);
+        return Arrays.clone(this.f81677s);
     }
 
     public byte[] getSeed() {
@@ -125,6 +129,6 @@ public class MLKEMPrivateKeyParameters extends MLKEMKeyParameters {
     }
 
     public byte[] getT() {
-        return Arrays.clone(this.t);
+        return Arrays.clone(this.f81678t);
     }
 }

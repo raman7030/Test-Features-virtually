@@ -22,27 +22,29 @@ import org.bouncycastle.jce.spec.ElGamalPublicKeySpec;
 public class BCElGamalPublicKey implements ElGamalPublicKey, DHPublicKey {
     public static final long serialVersionUID = 8712728417091216948L;
     public transient ElGamalParameterSpec elSpec;
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81348y;
 
     public BCElGamalPublicKey(BigInteger bigInteger, ElGamalParameterSpec elGamalParameterSpec) {
-        this.y = bigInteger;
+        this.f81348y = bigInteger;
         this.elSpec = elGamalParameterSpec;
     }
 
     public BCElGamalPublicKey(DHPublicKey dHPublicKey) {
-        this.y = dHPublicKey.getY();
+        this.f81348y = dHPublicKey.getY();
         this.elSpec = new ElGamalParameterSpec(dHPublicKey.getParams().getP(), dHPublicKey.getParams().getG());
     }
 
     public BCElGamalPublicKey(DHPublicKeySpec dHPublicKeySpec) {
-        this.y = dHPublicKeySpec.getY();
+        this.f81348y = dHPublicKeySpec.getY();
         this.elSpec = new ElGamalParameterSpec(dHPublicKeySpec.getP(), dHPublicKeySpec.getG());
     }
 
     public BCElGamalPublicKey(SubjectPublicKeyInfo subjectPublicKeyInfo) {
         ElGamalParameter elGamalParameter = ElGamalParameter.getInstance(subjectPublicKeyInfo.getAlgorithm().getParameters());
         try {
-            this.y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
+            this.f81348y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
             this.elSpec = new ElGamalParameterSpec(elGamalParameter.getP(), elGamalParameter.getG());
         } catch (IOException unused) {
             throw new IllegalArgumentException("invalid info structure in DSA public key");
@@ -50,17 +52,17 @@ public class BCElGamalPublicKey implements ElGamalPublicKey, DHPublicKey {
     }
 
     public BCElGamalPublicKey(ElGamalPublicKeyParameters elGamalPublicKeyParameters) {
-        this.y = elGamalPublicKeyParameters.getY();
+        this.f81348y = elGamalPublicKeyParameters.getY();
         this.elSpec = new ElGamalParameterSpec(elGamalPublicKeyParameters.getParameters().getP(), elGamalPublicKeyParameters.getParameters().getG());
     }
 
     public BCElGamalPublicKey(ElGamalPublicKey elGamalPublicKey) {
-        this.y = elGamalPublicKey.getY();
+        this.f81348y = elGamalPublicKey.getY();
         this.elSpec = elGamalPublicKey.getParameters();
     }
 
     public BCElGamalPublicKey(ElGamalPublicKeySpec elGamalPublicKeySpec) {
-        this.y = elGamalPublicKeySpec.getY();
+        this.f81348y = elGamalPublicKeySpec.getY();
         this.elSpec = new ElGamalParameterSpec(elGamalPublicKeySpec.getParams().getP(), elGamalPublicKeySpec.getParams().getG());
     }
 
@@ -91,7 +93,7 @@ public class BCElGamalPublicKey implements ElGamalPublicKey, DHPublicKey {
     @Override // java.security.Key
     public byte[] getEncoded() {
         try {
-            return new SubjectPublicKeyInfo(new AlgorithmIdentifier(OIWObjectIdentifiers.elGamalAlgorithm, new ElGamalParameter(this.elSpec.getP(), this.elSpec.getG())), new ASN1Integer(this.y)).getEncoded(ASN1Encoding.DER);
+            return new SubjectPublicKeyInfo(new AlgorithmIdentifier(OIWObjectIdentifiers.elGamalAlgorithm, new ElGamalParameter(this.elSpec.getP(), this.elSpec.getG())), new ASN1Integer(this.f81348y)).getEncoded(ASN1Encoding.DER);
         } catch (IOException unused) {
             return null;
         }
@@ -114,7 +116,7 @@ public class BCElGamalPublicKey implements ElGamalPublicKey, DHPublicKey {
 
     @Override // org.bouncycastle.jce.interfaces.ElGamalPublicKey, javax.crypto.interfaces.DHPublicKey
     public BigInteger getY() {
-        return this.y;
+        return this.f81348y;
     }
 
     public int hashCode() {

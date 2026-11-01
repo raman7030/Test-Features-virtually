@@ -13,15 +13,19 @@ import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ECCSIKeyGenerationParameters;
 import org.bouncycastle.crypto.params.ECCSIPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECCSIPublicKeyParameters;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECCSIKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
-    public ECPoint G;
+
+    /* JADX INFO: renamed from: G */
+    public ECPoint f81111G;
     public Digest digest;
     public ECCSIKeyGenerationParameters parameters;
-    public BigInteger q;
+
+    /* JADX INFO: renamed from: q */
+    public BigInteger f81112q;
 
     @Override // org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator
     public AsymmetricCipherKeyPair generateKeyPair() {
@@ -29,9 +33,9 @@ public class ECCSIKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
         this.digest.reset();
         byte[] id = this.parameters.getId();
         ECPoint kpak = this.parameters.getKPAK();
-        BigInteger bigIntegerMod = BigIntegers.createRandomBigInteger(256, random).mod(this.q);
-        ECPoint eCPointNormalize = this.G.multiply(bigIntegerMod).normalize();
-        byte[] encoded = this.G.getEncoded(false);
+        BigInteger bigIntegerMod = BigIntegers.createRandomBigInteger(256, random).mod(this.f81112q);
+        ECPoint eCPointNormalize = this.f81111G.multiply(bigIntegerMod).normalize();
+        byte[] encoded = this.f81111G.getEncoded(false);
         this.digest.update(encoded, 0, encoded.length);
         byte[] encoded2 = kpak.getEncoded(false);
         this.digest.update(encoded2, 0, encoded2.length);
@@ -40,15 +44,15 @@ public class ECCSIKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
         this.digest.update(encoded3, 0, encoded3.length);
         byte[] bArr = new byte[this.digest.getDigestSize()];
         this.digest.doFinal(bArr, 0);
-        return new AsymmetricCipherKeyPair((AsymmetricKeyParameter) new ECCSIPublicKeyParameters(eCPointNormalize), (AsymmetricKeyParameter) new ECCSIPrivateKeyParameters(this.parameters.computeSSK(new BigInteger(1, bArr).mod(this.q).multiply(bigIntegerMod)), new ECCSIPublicKeyParameters(eCPointNormalize)));
+        return new AsymmetricCipherKeyPair((AsymmetricKeyParameter) new ECCSIPublicKeyParameters(eCPointNormalize), (AsymmetricKeyParameter) new ECCSIPrivateKeyParameters(this.parameters.computeSSK(new BigInteger(1, bArr).mod(this.f81112q).multiply(bigIntegerMod)), new ECCSIPublicKeyParameters(eCPointNormalize)));
     }
 
     @Override // org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator
     public void init(KeyGenerationParameters keyGenerationParameters) {
         ECCSIKeyGenerationParameters eCCSIKeyGenerationParameters = (ECCSIKeyGenerationParameters) keyGenerationParameters;
         this.parameters = eCCSIKeyGenerationParameters;
-        this.q = eCCSIKeyGenerationParameters.getQ();
-        this.G = this.parameters.getG();
+        this.f81112q = eCCSIKeyGenerationParameters.getQ();
+        this.f81111G = this.parameters.getG();
         this.digest = this.parameters.getDigest();
         CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties("ECCSI", this.parameters.getN(), null, CryptoServicePurpose.KEYGEN));
     }

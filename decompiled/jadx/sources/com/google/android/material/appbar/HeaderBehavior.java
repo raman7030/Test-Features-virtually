@@ -7,9 +7,9 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.OverScroller;
-import l.C17648;
-import l.C1814;
-import l.C18333;
+import p067l.C0932;
+import p067l.C1717;
+import p067l.C1751;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class HeaderBehavior extends ViewOffsetBehavior {
@@ -26,7 +26,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
         return false;
     }
 
-    public void onFlingFinished(C18333 c18333, View view) {
+    public void onFlingFinished(C1751 c1751, View view) {
     }
 
     public HeaderBehavior() {
@@ -40,11 +40,11 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
         this.touchSlop = -1;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onInterceptTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
+    @Override // p067l.AbstractC1155
+    public boolean onInterceptTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
         int iFindPointerIndex;
         if (this.touchSlop < 0) {
-            this.touchSlop = ViewConfiguration.get(c18333.getContext()).getScaledTouchSlop();
+            this.touchSlop = ViewConfiguration.get(c1751.getContext()).getScaledTouchSlop();
         }
         if (motionEvent.getActionMasked() == 2 && this.isBeingDragged) {
             int i = this.activePointerId;
@@ -61,7 +61,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
             this.activePointerId = -1;
             int x = (int) motionEvent.getX();
             int y2 = (int) motionEvent.getY();
-            boolean z = canDragView(view) && c18333.isPointInChildBounds(view, x, y2);
+            boolean z = canDragView(view) && c1751.isPointInChildBounds(view, x, y2);
             this.isBeingDragged = z;
             if (z) {
                 this.lastMotionY = y2;
@@ -84,8 +84,8 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
     /* JADX WARN: Code duplicated, block: B:27:0x007b  */
     /* JADX WARN: Code duplicated, block: B:30:0x0085  */
     /* JADX WARN: Code duplicated, block: B:33:0x008c A[ADDED_TO_REGION] */
-    @Override // l.AbstractC6317
-    public boolean onTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
+    @Override // p067l.AbstractC1155
+    public boolean onTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
         boolean z;
         VelocityTracker velocityTracker;
         VelocityTracker velocityTracker2;
@@ -95,7 +95,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
             if (velocityTracker3 != null) {
                 velocityTracker3.addMovement(motionEvent);
                 this.velocityTracker.computeCurrentVelocity(1000);
-                fling(c18333, view, -getScrollRangeForDragFling(view), 0, this.velocityTracker.getYVelocity(this.activePointerId));
+                fling(c1751, view, -getScrollRangeForDragFling(view), 0, this.velocityTracker.getYVelocity(this.activePointerId));
                 z = true;
             }
             this.isBeingDragged = false;
@@ -120,7 +120,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
             int y = (int) motionEvent.getY(iFindPointerIndex);
             int i = this.lastMotionY - y;
             this.lastMotionY = y;
-            scroll(c18333, view, i, getMaxDragOffset(view), 0);
+            scroll(c1751, view, i, getMaxDragOffset(view), 0);
         } else if (actionMasked != 3) {
             if (actionMasked == 6) {
                 int i2 = motionEvent.getActionIndex() == 0 ? 1 : 0;
@@ -150,29 +150,29 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
         }
     }
 
-    public int setHeaderTopBottomOffset(C18333 c18333, View view, int i) {
-        return setHeaderTopBottomOffset(c18333, view, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    public int setHeaderTopBottomOffset(C1751 c1751, View view, int i) {
+        return setHeaderTopBottomOffset(c1751, view, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    public int setHeaderTopBottomOffset(C18333 c18333, View view, int i, int i2, int i3) {
-        int iM6036;
+    public int setHeaderTopBottomOffset(C1751 c1751, View view, int i, int i2, int i3) {
+        int iM8234;
         int topAndBottomOffset = getTopAndBottomOffset();
-        if (i2 == 0 || topAndBottomOffset < i2 || topAndBottomOffset > i3 || topAndBottomOffset == (iM6036 = C1814.m6036(i, i2, i3))) {
+        if (i2 == 0 || topAndBottomOffset < i2 || topAndBottomOffset > i3 || topAndBottomOffset == (iM8234 = C0932.m8234(i, i2, i3))) {
             return 0;
         }
-        setTopAndBottomOffset(iM6036);
-        return topAndBottomOffset - iM6036;
+        setTopAndBottomOffset(iM8234);
+        return topAndBottomOffset - iM8234;
     }
 
     public int getTopBottomOffsetForScrollingSibling() {
         return getTopAndBottomOffset();
     }
 
-    public final int scroll(C18333 c18333, View view, int i, int i2, int i3) {
-        return setHeaderTopBottomOffset(c18333, view, getTopBottomOffsetForScrollingSibling() - i, i2, i3);
+    public final int scroll(C1751 c1751, View view, int i, int i2, int i3) {
+        return setHeaderTopBottomOffset(c1751, view, getTopBottomOffsetForScrollingSibling() - i, i2, i3);
     }
 
-    public final boolean fling(C18333 c18333, View view, int i, int i2, float f) {
+    public final boolean fling(C1751 c1751, View view, int i, int i2, float f) {
         Runnable runnable = this.flingRunnable;
         if (runnable != null) {
             view.removeCallbacks(runnable);
@@ -183,13 +183,13 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
         }
         this.scroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f), 0, 0, i, i2);
         if (this.scroller.computeScrollOffset()) {
-            FlingRunnable flingRunnable = new FlingRunnable(c18333, view);
+            FlingRunnable flingRunnable = new FlingRunnable(c1751, view);
             this.flingRunnable = flingRunnable;
-            int i3 = C17648.f53953;
+            int i3 = C1717.f57146;
             view.postOnAnimation(flingRunnable);
             return true;
         }
-        onFlingFinished(c18333, view);
+        onFlingFinished(c1751, view);
         return false;
     }
 
@@ -209,10 +209,10 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
 
     public class FlingRunnable implements Runnable {
         public final View layout;
-        public final C18333 parent;
+        public final C1751 parent;
 
-        public FlingRunnable(C18333 c18333, View view) {
-            this.parent = c18333;
+        public FlingRunnable(C1751 c1751, View view) {
+            this.parent = c1751;
             this.layout = view;
         }
 
@@ -226,7 +226,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
                 HeaderBehavior headerBehavior = HeaderBehavior.this;
                 headerBehavior.setHeaderTopBottomOffset(this.parent, this.layout, headerBehavior.scroller.getCurrY());
                 View view = this.layout;
-                int i = C17648.f53953;
+                int i = C1717.f57146;
                 view.postOnAnimation(this);
                 return;
             }

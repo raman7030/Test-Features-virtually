@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.params;
 
-import com.alipay.sdk.m.w.a;
+import com.alipay.sdk.p010m.p055w.C0233a;
 import com.amazonaws.auth.AWS4Signer;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,9 +10,9 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
-import l.C16014;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.util.Integers;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SkeinParameters implements CipherParameters {
@@ -81,7 +81,7 @@ public class SkeinParameters implements CipherParameters {
         public Builder setPersonalisation(Date date, String str, String str2) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(byteArrayOutputStream, a.D);
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(byteArrayOutputStream, C0233a.f1077D);
                 outputStreamWriter.write(new SimpleDateFormat(AWS4Signer.DATE_PATTERN).format(date));
                 outputStreamWriter.write(" ");
                 outputStreamWriter.write(str);
@@ -90,14 +90,14 @@ public class SkeinParameters implements CipherParameters {
                 outputStreamWriter.close();
                 return set(8, byteArrayOutputStream.toByteArray());
             } catch (IOException e) {
-                throw new IllegalStateException(C16014.m37866("Byte I/O failed: ", e));
+                throw new IllegalStateException(C17588.m40052("Byte I/O failed: ", e));
             }
         }
 
         public Builder setPersonalisation(Date date, Locale locale, String str, String str2) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(byteArrayOutputStream, a.D);
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(byteArrayOutputStream, C0233a.f1077D);
                 outputStreamWriter.write(new SimpleDateFormat(AWS4Signer.DATE_PATTERN, locale).format(date));
                 outputStreamWriter.write(" ");
                 outputStreamWriter.write(str);
@@ -106,7 +106,7 @@ public class SkeinParameters implements CipherParameters {
                 outputStreamWriter.close();
                 return set(8, byteArrayOutputStream.toByteArray());
             } catch (IOException e) {
-                throw new IllegalStateException(C16014.m37866("Byte I/O failed: ", e));
+                throw new IllegalStateException(C17588.m40052("Byte I/O failed: ", e));
             }
         }
 

@@ -10,13 +10,13 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
-import l.C0734;
-import l.C0881;
-import l.C14402;
+import p067l.C0878;
+import p067l.C0886;
+import p067l.C16056;
 
 /* JADX INFO: loaded from: classes.dex */
 @Deprecated
-public class ShadowDrawableWrapper extends C0734 {
+public class ShadowDrawableWrapper extends C0878 {
     public static final double COS_45 = Math.cos(Math.toRadians(45.0d));
     public static final float SHADOW_BOTTOM_SCALE = 1.0f;
     public static final float SHADOW_HORIZ_SCALE = 0.5f;
@@ -39,7 +39,7 @@ public class ShadowDrawableWrapper extends C0734 {
     public float shadowSize;
     public final int shadowStartColor;
 
-    @Override // l.C0734, android.graphics.drawable.Drawable
+    @Override // p067l.C0878, android.graphics.drawable.Drawable
     public int getOpacity() {
         return -3;
     }
@@ -49,9 +49,9 @@ public class ShadowDrawableWrapper extends C0734 {
         this.dirty = true;
         this.addPaddingForCorners = true;
         this.printedShadowClipWarning = false;
-        this.shadowStartColor = C0881.m3228(context, C14402.f43674);
-        this.shadowMiddleColor = C0881.m3228(context, C14402.f43697);
-        this.shadowEndColor = C0881.m3228(context, C14402.f44060);
+        this.shadowStartColor = C0886.m5542(context, C16056.f46767);
+        this.shadowMiddleColor = C0886.m5542(context, C16056.f46790);
+        this.shadowEndColor = C0886.m5542(context, C16056.f47153);
         Paint paint = new Paint(5);
         this.cornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);
@@ -73,14 +73,14 @@ public class ShadowDrawableWrapper extends C0734 {
         invalidateSelf();
     }
 
-    @Override // l.C0734, android.graphics.drawable.Drawable
+    @Override // p067l.C0878, android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         super.setAlpha(i);
         this.cornerShadowPaint.setAlpha(i);
         this.edgeShadowPaint.setAlpha(i);
     }
 
-    @Override // l.C0734, android.graphics.drawable.Drawable
+    @Override // p067l.C0878, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         this.dirty = true;
     }
@@ -116,7 +116,7 @@ public class ShadowDrawableWrapper extends C0734 {
         return this.rawShadowSize;
     }
 
-    @Override // l.C0734, android.graphics.drawable.Drawable
+    @Override // p067l.C0878, android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
         int iCeil = (int) Math.ceil(calculateVerticalPadding(this.rawMaxShadowSize, this.cornerRadius, this.addPaddingForCorners));
         int iCeil2 = (int) Math.ceil(calculateHorizontalPadding(this.rawMaxShadowSize, this.cornerRadius, this.addPaddingForCorners));
@@ -148,7 +148,7 @@ public class ShadowDrawableWrapper extends C0734 {
         invalidateSelf();
     }
 
-    @Override // l.C0734, android.graphics.drawable.Drawable
+    @Override // p067l.C0878, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         if (this.dirty) {
             buildComponents(getBounds());

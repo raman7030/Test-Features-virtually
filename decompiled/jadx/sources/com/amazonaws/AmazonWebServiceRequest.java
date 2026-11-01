@@ -1,40 +1,40 @@
 package com.amazonaws;
 
 import com.amazonaws.event.ProgressListener;
-import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.p061s3.model.PutObjectRequest;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class AmazonWebServiceRequest implements Cloneable {
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public ProgressListener f86;
+    /* JADX INFO: renamed from: ᩸ */
+    public ProgressListener f1246;
 
-    /* JADX INFO: renamed from: ᩹, reason: not valid java name and contains not printable characters */
-    public final RequestClientOptions f87 = new RequestClientOptions();
+    /* JADX INFO: renamed from: ᩹ */
+    public final RequestClientOptions f1247 = new RequestClientOptions();
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final RequestClientOptions m161() {
-        return this.f87;
+    /* JADX INFO: renamed from: ܽ */
+    public final RequestClientOptions m1328() {
+        return this.f1247;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo159(ProgressListener progressListener) {
-        this.f86 = progressListener;
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1326(ProgressListener progressListener) {
+        this.f1246 = progressListener;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public ProgressListener mo158() {
-        return this.f86;
+    /* JADX INFO: renamed from: ֫ */
+    public ProgressListener mo1325() {
+        return this.f1246;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m160(PutObjectRequest putObjectRequest) {
-        putObjectRequest.f86 = this.f86;
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1327(PutObjectRequest putObjectRequest) {
+        putObjectRequest.f1246 = this.f1246;
     }
 
     @Override // 
     /* JADX INFO: renamed from: clone, reason: merged with bridge method [inline-methods] */
-    public AmazonWebServiceRequest mo162clone() {
+    public AmazonWebServiceRequest mo55493clone() {
         try {
             AmazonWebServiceRequest amazonWebServiceRequest = (AmazonWebServiceRequest) super.clone();
             amazonWebServiceRequest.getClass();

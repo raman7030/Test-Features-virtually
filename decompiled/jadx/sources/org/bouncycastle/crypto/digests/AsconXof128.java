@@ -57,7 +57,7 @@ public class AsconXof128 extends AsconXofBase {
     @Override // org.bouncycastle.crypto.digests.AsconXofBase, org.bouncycastle.crypto.digests.BufferBaseDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        this.p.set(-2701369817892108309L, -3711838248891385495L, -1778763697082575311L, 1072114354614917324L, -2282070310009238562L);
+        this.f80789p.set(-2701369817892108309L, -3711838248891385495L, -1778763697082575311L, 1072114354614917324L, -2282070310009238562L);
     }
 
     @Override // org.bouncycastle.crypto.digests.AsconBaseDigest

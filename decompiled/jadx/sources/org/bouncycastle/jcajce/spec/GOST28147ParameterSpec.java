@@ -3,17 +3,19 @@ package org.bouncycastle.jcajce.spec;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import l.C9005;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
 import org.bouncycastle.crypto.engines.GOST28147Engine;
 import org.bouncycastle.internal.asn1.rosstandart.RosstandartObjectIdentifiers;
 import org.bouncycastle.util.Arrays;
+import p067l.C10927;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST28147ParameterSpec implements AlgorithmParameterSpec {
     public static Map oidMappings;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81368iv;
     public byte[] sBox;
 
     static {
@@ -27,7 +29,7 @@ public class GOST28147ParameterSpec implements AlgorithmParameterSpec {
     }
 
     public GOST28147ParameterSpec(String str) {
-        this.iv = null;
+        this.f81368iv = null;
         this.sBox = null;
         this.sBox = GOST28147Engine.getSBox(str);
     }
@@ -35,17 +37,17 @@ public class GOST28147ParameterSpec implements AlgorithmParameterSpec {
     public GOST28147ParameterSpec(String str, byte[] bArr) {
         this(str);
         byte[] bArr2 = new byte[bArr.length];
-        this.iv = bArr2;
+        this.f81368iv = bArr2;
         System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
     }
 
     public GOST28147ParameterSpec(ASN1ObjectIdentifier aSN1ObjectIdentifier, byte[] bArr) {
         this(getName(aSN1ObjectIdentifier));
-        this.iv = Arrays.clone(bArr);
+        this.f81368iv = Arrays.clone(bArr);
     }
 
     public GOST28147ParameterSpec(byte[] bArr) {
-        this.iv = null;
+        this.f81368iv = null;
         this.sBox = null;
         byte[] bArr2 = new byte[bArr.length];
         this.sBox = bArr2;
@@ -55,12 +57,12 @@ public class GOST28147ParameterSpec implements AlgorithmParameterSpec {
     public GOST28147ParameterSpec(byte[] bArr, byte[] bArr2) {
         this(bArr);
         byte[] bArr3 = new byte[bArr2.length];
-        this.iv = bArr3;
+        this.f81368iv = bArr3;
         System.arraycopy(bArr2, 0, bArr3, 0, bArr2.length);
     }
 
     public byte[] getIV() {
-        return Arrays.clone(this.iv);
+        return Arrays.clone(this.f81368iv);
     }
 
     public byte[] getSBox() {
@@ -76,6 +78,6 @@ public class GOST28147ParameterSpec implements AlgorithmParameterSpec {
         if (str != null) {
             return str;
         }
-        throw new IllegalArgumentException(C9005.m23242("unknown OID: ", aSN1ObjectIdentifier));
+        throw new IllegalArgumentException(C10927.m25186("unknown OID: ", aSN1ObjectIdentifier));
     }
 }

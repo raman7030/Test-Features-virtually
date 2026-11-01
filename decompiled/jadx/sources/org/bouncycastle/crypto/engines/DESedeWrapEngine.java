@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
 import java.security.SecureRandom;
-import l.C19370;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -14,13 +13,16 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.util.DigestFactory;
 import org.bouncycastle.util.Arrays;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DESedeWrapEngine implements Wrapper {
     public static final byte[] IV2 = {74, -35, -94, 44, 121, -24, PublicSuffixDatabase.EXCEPTION_MARKER, 5};
     public CBCBlockCipher engine;
     public boolean forWrapping;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81010iv;
     public KeyParameter param;
     public ParametersWithIV paramPlusIV;
     public Digest sha1 = DigestFactory.createSHA1();
@@ -61,9 +63,9 @@ public class DESedeWrapEngine implements Wrapper {
             this.param = (KeyParameter) cipherParameters;
             if (this.forWrapping) {
                 byte[] bArr = new byte[8];
-                this.iv = bArr;
+                this.f81010iv = bArr;
                 secureRandom.nextBytes(bArr);
-                this.paramPlusIV = new ParametersWithIV(this.param, this.iv);
+                this.paramPlusIV = new ParametersWithIV(this.param, this.f81010iv);
                 return;
             }
             return;
@@ -71,12 +73,12 @@ public class DESedeWrapEngine implements Wrapper {
         if (cipherParameters instanceof ParametersWithIV) {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             this.paramPlusIV = parametersWithIV;
-            this.iv = parametersWithIV.getIV();
+            this.f81010iv = parametersWithIV.getIV();
             this.param = (KeyParameter) this.paramPlusIV.getParameters();
             if (!this.forWrapping) {
                 throw new IllegalArgumentException("You should not supply an IV for unwrapping");
             }
-            byte[] bArr2 = this.iv;
+            byte[] bArr2 = this.f81010iv;
             if (bArr2 == null || bArr2.length != 8) {
                 throw new IllegalArgumentException("IV is not 8 octets");
             }
@@ -104,11 +106,11 @@ public class DESedeWrapEngine implements Wrapper {
         for (int i3 = 0; i3 != length; i3 += blockSize) {
             this.engine.processBlock(bArr3, i3, bArr4, i3);
         }
-        byte[] bArr5 = this.iv;
+        byte[] bArr5 = this.f81010iv;
         int length2 = bArr5.length + length;
         byte[] bArr6 = new byte[length2];
         System.arraycopy(bArr5, 0, bArr6, 0, bArr5.length);
-        System.arraycopy(bArr4, 0, bArr6, this.iv.length, length);
+        System.arraycopy(bArr4, 0, bArr6, this.f81010iv.length, length);
         Arrays.reverseInPlace(bArr6);
         this.engine.init(true, new ParametersWithIV(this.param, IV2));
         for (int i4 = 0; i4 != length2; i4 += blockSize) {
@@ -127,7 +129,7 @@ public class DESedeWrapEngine implements Wrapper {
         }
         int blockSize = this.engine.getBlockSize();
         if (i2 % blockSize != 0) {
-            throw new InvalidCipherTextException(C19370.m44628(blockSize, "Ciphertext not multiple of "));
+            throw new InvalidCipherTextException(C20778.m46922(blockSize, "Ciphertext not multiple of "));
         }
         this.engine.init(false, new ParametersWithIV(this.param, IV2));
         byte[] bArr2 = new byte[i2];
@@ -136,12 +138,12 @@ public class DESedeWrapEngine implements Wrapper {
         }
         Arrays.reverseInPlace(bArr2);
         byte[] bArr3 = new byte[8];
-        this.iv = bArr3;
+        this.f81010iv = bArr3;
         int i4 = i2 - 8;
         byte[] bArr4 = new byte[i4];
         System.arraycopy(bArr2, 0, bArr3, 0, 8);
         System.arraycopy(bArr2, 8, bArr4, 0, i4);
-        ParametersWithIV parametersWithIV = new ParametersWithIV(this.param, this.iv);
+        ParametersWithIV parametersWithIV = new ParametersWithIV(this.param, this.f81010iv);
         this.paramPlusIV = parametersWithIV;
         this.engine.init(false, parametersWithIV);
         byte[] bArr5 = new byte[i4];

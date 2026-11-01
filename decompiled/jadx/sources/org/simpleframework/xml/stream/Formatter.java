@@ -1,6 +1,6 @@
 package org.simpleframework.xml.stream;
 
-import com.alipay.sdk.m.p.a;
+import com.alipay.sdk.p010m.p041p.C0184a;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -87,7 +87,7 @@ public class Formatter {
         }
         write(' ');
         write(str, str3);
-        write(a.h);
+        write(C0184a.f880h);
         write('\"');
         escape(str2);
         write('\"');
@@ -103,7 +103,7 @@ public class Formatter {
             write(':');
             write(str2);
         }
-        write(a.h);
+        write(C0184a.f880h);
         write('\"');
         escape(str);
         write('\"');

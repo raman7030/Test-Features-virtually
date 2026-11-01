@@ -3,35 +3,41 @@ package com.alipay.sdk.tid;
 import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.alipay.sdk.m.u.c;
-import com.alipay.sdk.m.w.a;
-import com.alipay.sdk.m.w.b;
-import com.alipay.sdk.m.y.d;
-import com.alipay.sdk.m.y.g;
+import com.alipay.sdk.p010m.p037n.C0170a;
+import com.alipay.sdk.p010m.p039o.C0181c;
+import com.alipay.sdk.p010m.p049t.C0210b;
+import com.alipay.sdk.p010m.p051u.C0219c;
+import com.alipay.sdk.p010m.p055w.C0233a;
+import com.alipay.sdk.p010m.p055w.C0234b;
+import com.alipay.sdk.p010m.p057x.C0237a;
+import com.alipay.sdk.p010m.p058y.C0241d;
+import com.alipay.sdk.p010m.p058y.C0244g;
 import org.json.JSONObject;
 
 /* JADX INFO: compiled from: N673 */
 /* JADX INFO: loaded from: classes.dex */
 public class TidHelper {
-    public static void a(Context context) {
+    /* JADX INFO: renamed from: a */
+    public static void m1307a(Context context) {
         if (context == null) {
             return;
         }
-        b.c().a(context);
+        C0234b.m1121c().m1124a(context);
     }
 
-    public static Tid b(Context context) {
+    /* JADX INFO: renamed from: b */
+    public static Tid m1308b(Context context) {
         try {
-            com.alipay.sdk.m.t.b bVarA = new c().a(a.f(), context);
-            if (bVarA != null) {
-                JSONObject jSONObject = new JSONObject(bVarA.a());
-                com.alipay.sdk.m.x.a aVarA = com.alipay.sdk.m.x.a.a(context);
+            C0210b c0210bM1037a = new C0219c().m1037a(C0233a.m1094f(), context);
+            if (c0210bM1037a != null) {
+                JSONObject jSONObject = new JSONObject(c0210bM1037a.m1020a());
+                C0237a c0237aM1142a = C0237a.m1142a(context);
                 String strOptString = jSONObject.optString("tid");
-                String string = jSONObject.getString(com.alipay.sdk.m.x.a.j);
+                String string = jSONObject.getString(C0237a.f1130j);
                 if (!TextUtils.isEmpty(strOptString) && !TextUtils.isEmpty(string)) {
-                    aVarA.a(strOptString, string);
+                    c0237aM1142a.m1143a(strOptString, string);
                 }
-                return a(context, aVarA);
+                return m1306a(context, c0237aM1142a);
             }
         } catch (Throwable unused) {
         }
@@ -39,69 +45,70 @@ public class TidHelper {
     }
 
     public static void clearTID(Context context) {
-        com.alipay.sdk.m.x.a.a(context).b();
+        C0237a.m1142a(context).m1146b();
     }
 
     public static String getIMEI(Context context) {
-        a(context);
-        return d.b(context).b();
+        m1307a(context);
+        return C0241d.m1180b(context).m1184b();
     }
 
     public static String getIMSI(Context context) {
-        a(context);
-        return d.b(context).c();
+        m1307a(context);
+        return C0241d.m1180b(context).m1185c();
     }
 
     public static String getVirtualImei(Context context) {
-        a(context);
-        com.alipay.sdk.m.o.c.a();
-        return com.alipay.sdk.m.o.c.f();
+        m1307a(context);
+        C0181c.m880a();
+        return C0181c.m887f();
     }
 
     public static String getVirtualImsi(Context context) {
-        a(context);
-        com.alipay.sdk.m.o.c.a();
-        return com.alipay.sdk.m.o.c.g();
+        m1307a(context);
+        C0181c.m880a();
+        return C0181c.m888g();
     }
 
     public static Tid loadLocalTid(Context context) {
-        com.alipay.sdk.m.x.a aVarA = com.alipay.sdk.m.x.a.a(context);
-        if (aVarA.j()) {
+        C0237a c0237aM1142a = C0237a.m1142a(context);
+        if (c0237aM1142a.m1155j()) {
             return null;
         }
-        return new Tid(aVarA.f(), aVarA.e(), aVarA.g().longValue());
+        return new Tid(c0237aM1142a.m1151f(), c0237aM1142a.m1150e(), c0237aM1142a.m1152g().longValue());
     }
 
     public static Tid loadTID(Context context) {
-        a(context);
-        Tid tidA = a(context, com.alipay.sdk.m.x.a.a(context));
-        if (tidA == null) {
-            g.b(com.alipay.sdk.m.n.a.B, "load_tid null");
+        m1307a(context);
+        Tid tidM1306a = m1306a(context, C0237a.m1142a(context));
+        if (tidM1306a == null) {
+            C0244g.m1201b(C0170a.f659B, "load_tid null");
         }
-        return tidA;
+        return tidM1306a;
     }
 
     public static boolean resetTID(Context context) throws Exception {
-        Tid tidB;
-        g.b(com.alipay.sdk.m.n.a.B, "reset_tid");
+        Tid tidM1308b;
+        C0244g.m1201b(C0170a.f659B, "reset_tid");
         if (Looper.myLooper() == Looper.getMainLooper()) {
             throw new Exception("Must be called on worker thread");
         }
-        a(context);
+        m1307a(context);
         clearTID(context);
         try {
-            tidB = b(context);
+            tidM1308b = m1308b(context);
         } catch (Throwable unused) {
-            tidB = null;
+            tidM1308b = null;
         }
-        return !Tid.isEmpty(tidB);
+        return !Tid.isEmpty(tidM1308b);
     }
 
-    public static Tid a(Context context, com.alipay.sdk.m.x.a aVar) {
-        if (aVar == null || aVar.k()) {
+    /* JADX INFO: renamed from: a */
+    public static Tid m1306a(Context context, C0237a c0237a) {
+        if (c0237a == null || c0237a.m1156k()) {
             return null;
         }
-        return new Tid(aVar.f(), aVar.e(), aVar.g().longValue());
+        return new Tid(c0237a.m1151f(), c0237a.m1150e(), c0237a.m1152g().longValue());
     }
 
     public static synchronized String getTIDValue(Context context) {
@@ -111,15 +118,15 @@ public class TidHelper {
     }
 
     public static synchronized Tid loadOrCreateTID(Context context) {
-        g.b(com.alipay.sdk.m.n.a.B, "load_create_tid");
-        a(context);
+        C0244g.m1201b(C0170a.f659B, "load_create_tid");
+        m1307a(context);
         Tid tidLoadTID = loadTID(context);
         if (Tid.isEmpty(tidLoadTID)) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 return null;
             }
             try {
-                tidLoadTID = b(context);
+                tidLoadTID = m1308b(context);
             } catch (Throwable unused) {
             }
         }

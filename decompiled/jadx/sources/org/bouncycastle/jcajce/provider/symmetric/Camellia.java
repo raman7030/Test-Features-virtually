@@ -5,15 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import l.C11010;
-import l.C12662;
-import l.C13325;
-import l.C16014;
-import l.C3200;
-import l.C3435;
-import l.C4153;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
@@ -35,6 +26,15 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C10965;
+import p067l.C12832;
+import p067l.C14403;
+import p067l.C15033;
+import p067l.C17588;
+import p067l.C5410;
+import p067l.C5633;
+import p067l.C6316;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Camellia {
@@ -163,29 +163,29 @@ public final class Camellia {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$AlgParams", "AlgorithmParameters.CAMELLIA", sb, configurableProvider);
+            C14403.m33021(str, "$AlgParams", "AlgorithmParameters.CAMELLIA", sb, configurableProvider);
             ASN1ObjectIdentifier aSN1ObjectIdentifier = NTTObjectIdentifiers.id_camellia128_cbc;
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameters", aSN1ObjectIdentifier, "CAMELLIA");
             ASN1ObjectIdentifier aSN1ObjectIdentifier2 = NTTObjectIdentifiers.id_camellia192_cbc;
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameters", aSN1ObjectIdentifier2, "CAMELLIA");
             ASN1ObjectIdentifier aSN1ObjectIdentifier3 = NTTObjectIdentifiers.id_camellia256_cbc;
-            C3200.m9836(C13325.m32309(configurableProvider, "Alg.Alias.AlgorithmParameters", "CAMELLIA", str, aSN1ObjectIdentifier3), "$AlgParamGen", configurableProvider, "AlgorithmParameterGenerator.CAMELLIA");
+            C5410.m11881(C15033.m34409(configurableProvider, "Alg.Alias.AlgorithmParameters", "CAMELLIA", str, aSN1ObjectIdentifier3), "$AlgParamGen", configurableProvider, "AlgorithmParameterGenerator.CAMELLIA");
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameterGenerator", aSN1ObjectIdentifier, "CAMELLIA");
             configurableProvider.addAlgorithm("Alg.Alias.AlgorithmParameterGenerator", aSN1ObjectIdentifier2, "CAMELLIA");
-            C12662.m30943(str, "$Wrap", "Cipher.CAMELLIAWRAP", C5368.m15340(str, "$RFC3211Wrap", "Cipher.CAMELLIARFC3211WRAP", C4153.m12553("$CBC256", "Cipher", C13325.m32309(configurableProvider, "Cipher", C9045.m23341(C4153.m12553("$CBC128", "Cipher", C3435.m10502("$ECB", "Cipher.CAMELLIA", str, C13325.m32309(configurableProvider, "Alg.Alias.AlgorithmParameterGenerator", "CAMELLIA", str, aSN1ObjectIdentifier3), configurableProvider), aSN1ObjectIdentifier, configurableProvider), str, "$CBC192"), str, aSN1ObjectIdentifier2), aSN1ObjectIdentifier3, configurableProvider), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$Wrap", "Cipher.CAMELLIAWRAP", C7470.m17249(str, "$RFC3211Wrap", "Cipher.CAMELLIARFC3211WRAP", C6316.m14443("$CBC256", "Cipher", C15033.m34409(configurableProvider, "Cipher", C10965.m25286(C6316.m14443("$CBC128", "Cipher", C5633.m12526("$ECB", "Cipher.CAMELLIA", str, C15033.m34409(configurableProvider, "Alg.Alias.AlgorithmParameterGenerator", "CAMELLIA", str, aSN1ObjectIdentifier3), configurableProvider), aSN1ObjectIdentifier, configurableProvider), str, "$CBC192"), str, aSN1ObjectIdentifier2), aSN1ObjectIdentifier3, configurableProvider), configurableProvider), configurableProvider);
             ASN1ObjectIdentifier aSN1ObjectIdentifier4 = NTTObjectIdentifiers.id_camellia128_wrap;
-            C11010.m27351(configurableProvider, str, "$Wrap128", "Cipher", aSN1ObjectIdentifier4);
+            C12832.m29413(configurableProvider, str, "$Wrap128", "Cipher", aSN1ObjectIdentifier4);
             ASN1ObjectIdentifier aSN1ObjectIdentifier5 = NTTObjectIdentifiers.id_camellia192_wrap;
-            C11010.m27351(configurableProvider, str, "$Wrap192", "Cipher", aSN1ObjectIdentifier5);
+            C12832.m29413(configurableProvider, str, "$Wrap192", "Cipher", aSN1ObjectIdentifier5);
             ASN1ObjectIdentifier aSN1ObjectIdentifier6 = NTTObjectIdentifiers.id_camellia256_wrap;
             configurableProvider.addAlgorithm("Cipher", aSN1ObjectIdentifier6, str + "$Wrap256");
-            C12662.m30943(str, "$KeyFactory", "SecretKeyFactory.CAMELLIA", new StringBuilder(), configurableProvider);
+            C14403.m33021(str, "$KeyFactory", "SecretKeyFactory.CAMELLIA", new StringBuilder(), configurableProvider);
             configurableProvider.addAlgorithm("Alg.Alias.SecretKeyFactory", aSN1ObjectIdentifier, "CAMELLIA");
             configurableProvider.addAlgorithm("Alg.Alias.SecretKeyFactory", aSN1ObjectIdentifier2, "CAMELLIA");
-            StringBuilder sbM32309 = C13325.m32309(configurableProvider, "KeyGenerator", C9045.m23341(C4153.m12553("$KeyGen192", "KeyGenerator", C13325.m32309(configurableProvider, "KeyGenerator", C9045.m23341(C4153.m12553("$KeyGen256", "KeyGenerator", C13325.m32309(configurableProvider, "KeyGenerator", C9045.m23341(C4153.m12553("$KeyGen128", "KeyGenerator", C3435.m10502("$KeyGen", "KeyGenerator.CAMELLIA", str, C13325.m32309(configurableProvider, "Alg.Alias.SecretKeyFactory", "CAMELLIA", str, aSN1ObjectIdentifier3), configurableProvider), aSN1ObjectIdentifier4, configurableProvider), str, "$KeyGen192"), str, aSN1ObjectIdentifier5), aSN1ObjectIdentifier6, configurableProvider), str, "$KeyGen128"), str, aSN1ObjectIdentifier), aSN1ObjectIdentifier2, configurableProvider), str, "$KeyGen256"), str, aSN1ObjectIdentifier3);
-            sbM32309.append("$GMAC");
-            addGMacAlgorithm(configurableProvider, "CAMELLIA", sbM32309.toString(), C16014.m37867(str, "$KeyGen"));
-            addPoly1305Algorithm(configurableProvider, "CAMELLIA", C16014.m37867(str, "$Poly1305"), C16014.m37867(str, "$Poly1305KeyGen"));
+            StringBuilder sbM34409 = C15033.m34409(configurableProvider, "KeyGenerator", C10965.m25286(C6316.m14443("$KeyGen192", "KeyGenerator", C15033.m34409(configurableProvider, "KeyGenerator", C10965.m25286(C6316.m14443("$KeyGen256", "KeyGenerator", C15033.m34409(configurableProvider, "KeyGenerator", C10965.m25286(C6316.m14443("$KeyGen128", "KeyGenerator", C5633.m12526("$KeyGen", "KeyGenerator.CAMELLIA", str, C15033.m34409(configurableProvider, "Alg.Alias.SecretKeyFactory", "CAMELLIA", str, aSN1ObjectIdentifier3), configurableProvider), aSN1ObjectIdentifier4, configurableProvider), str, "$KeyGen192"), str, aSN1ObjectIdentifier5), aSN1ObjectIdentifier6, configurableProvider), str, "$KeyGen128"), str, aSN1ObjectIdentifier), aSN1ObjectIdentifier2, configurableProvider), str, "$KeyGen256"), str, aSN1ObjectIdentifier3);
+            sbM34409.append("$GMAC");
+            addGMacAlgorithm(configurableProvider, "CAMELLIA", sbM34409.toString(), C17588.m40053(str, "$KeyGen"));
+            addPoly1305Algorithm(configurableProvider, "CAMELLIA", C17588.m40053(str, "$Poly1305"), C17588.m40053(str, "$Poly1305KeyGen"));
         }
     }
 

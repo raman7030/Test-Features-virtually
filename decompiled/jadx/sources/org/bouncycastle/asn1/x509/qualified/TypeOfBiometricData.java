@@ -1,12 +1,12 @@
 package org.bouncycastle.asn1.x509.qualified;
 
-import l.C19370;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TypeOfBiometricData extends ASN1Object implements ASN1Choice {
@@ -16,7 +16,7 @@ public class TypeOfBiometricData extends ASN1Object implements ASN1Choice {
 
     public TypeOfBiometricData(int i) {
         if (i != 0 && i != 1) {
-            throw new IllegalArgumentException(C19370.m44628(i, "unknow PredefinedBiometricType : "));
+            throw new IllegalArgumentException(C20778.m46922(i, "unknow PredefinedBiometricType : "));
         }
         this.obj = new ASN1Integer(i);
     }

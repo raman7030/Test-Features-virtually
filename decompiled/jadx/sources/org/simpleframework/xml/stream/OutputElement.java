@@ -1,7 +1,7 @@
 package org.simpleframework.xml.stream;
 
 import java.io.IOException;
-import l.C20094;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class OutputElement implements OutputNode {
@@ -138,6 +138,6 @@ public class OutputElement implements OutputNode {
     }
 
     public String toString() {
-        return C20094.m46315("element ", this.name);
+        return C21466.m48631("element ", this.name);
     }
 }

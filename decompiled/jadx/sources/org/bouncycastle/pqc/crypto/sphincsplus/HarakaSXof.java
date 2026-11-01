@@ -1,6 +1,6 @@
 package org.bouncycastle.pqc.crypto.sphincsplus;
 
-import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.C0684bo;
 import java.lang.reflect.Array;
 import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
 
@@ -21,7 +21,7 @@ public class HarakaSXof extends HarakaSBase {
     public int doFinal(byte[] bArr, int i, int i2) {
         byte[] bArr2 = this.buffer;
         int i3 = this.off;
-        bArr2[i3] = (byte) (bArr2[i3] ^ bo.j);
+        bArr2[i3] = (byte) (bArr2[i3] ^ C0684bo.f2505j);
         bArr2[31] = (byte) (bArr2[31] ^ GCMSIVBlockCipher.MASK);
         int i4 = i2;
         while (i4 >= 32) {

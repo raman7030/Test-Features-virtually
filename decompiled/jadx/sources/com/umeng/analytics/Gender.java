@@ -1,7 +1,7 @@
 package com.umeng.analytics;
 
 import java.util.Locale;
-import l.C19370;
+import p067l.C20778;
 
 /* JADX WARN: Enum visitor error
 jadx.core.utils.exceptions.JadxRuntimeException: Init of enum field 'Male' uses external variables
@@ -18,7 +18,9 @@ public class Gender {
     public static final Gender Female;
     public static final Gender Male;
     public static final Gender Unknown;
-    public static final /* synthetic */ Gender[] a;
+
+    /* JADX INFO: renamed from: a */
+    public static final /* synthetic */ Gender[] f2154a;
     public int value;
 
     public static Gender valueOf(String str) {
@@ -26,7 +28,7 @@ public class Gender {
     }
 
     public static Gender[] values() {
-        return (Gender[]) a.clone();
+        return (Gender[]) f2154a.clone();
     }
 
     static {
@@ -36,7 +38,7 @@ public class Gender {
             @Override // java.lang.Enum
             public String toString() {
                 Locale locale = Locale.US;
-                return C19370.m44628(this.value, "Male:");
+                return C20778.m46922(this.value, "Male:");
             }
         };
         Male = gender;
@@ -45,7 +47,7 @@ public class Gender {
             @Override // java.lang.Enum
             public String toString() {
                 Locale locale = Locale.US;
-                return C19370.m44628(this.value, "Female:");
+                return C20778.m46922(this.value, "Female:");
             }
         };
         Female = gender2;
@@ -53,11 +55,11 @@ public class Gender {
             @Override // java.lang.Enum
             public String toString() {
                 Locale locale = Locale.US;
-                return C19370.m44628(this.value, "Unknown:");
+                return C20778.m46922(this.value, "Unknown:");
             }
         };
         Unknown = gender3;
-        a = new Gender[]{gender, gender2, gender3};
+        f2154a = new Gender[]{gender, gender2, gender3};
     }
 
     public Gender(String str, int i, int i2) {
@@ -79,30 +81,32 @@ public class Gender {
         return Unknown;
     }
 
-    /* JADX INFO: renamed from: com.umeng.analytics.Gender$4, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass4 {
-        public static final /* synthetic */ int[] a;
+    /* JADX INFO: renamed from: com.umeng.analytics.Gender$4 */
+    public /* synthetic */ class C06344 {
+
+        /* JADX INFO: renamed from: a */
+        public static final /* synthetic */ int[] f2155a;
 
         static {
             int[] iArr = new int[Gender.values().length];
-            a = iArr;
+            f2155a = iArr;
             try {
                 iArr[Gender.Male.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[Gender.Female.ordinal()] = 2;
+                f2155a[Gender.Female.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[Gender.Unknown.ordinal()] = 3;
+                f2155a[Gender.Unknown.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
     public static com.umeng.commonsdk.statistics.proto.Gender transGender(Gender gender) {
-        int i = AnonymousClass4.a[gender.ordinal()];
+        int i = C06344.f2155a[gender.ordinal()];
         if (i == 1) {
             return com.umeng.commonsdk.statistics.proto.Gender.MALE;
         }

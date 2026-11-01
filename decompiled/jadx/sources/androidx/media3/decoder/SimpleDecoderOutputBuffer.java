@@ -2,25 +2,25 @@ package androidx.media3.decoder;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import l.AbstractC20432;
-import l.InterfaceC22548;
+import p067l.AbstractC21787;
+import p067l.InterfaceC23798;
 
 /* JADX INFO: loaded from: classes.dex */
-public final class SimpleDecoderOutputBuffer extends AbstractC20432 {
+public final class SimpleDecoderOutputBuffer extends AbstractC21787 {
 
-    /* JADX INFO: renamed from: ۗ, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ۗ */
     public ByteBuffer f0;
 
-    /* JADX INFO: renamed from: ۬, reason: not valid java name and contains not printable characters */
-    public final InterfaceC22548 f1;
+    /* JADX INFO: renamed from: ۬ */
+    public final InterfaceC23798 f1;
 
-    public SimpleDecoderOutputBuffer(InterfaceC22548 interfaceC22548) {
-        this.f1 = interfaceC22548;
+    public SimpleDecoderOutputBuffer(InterfaceC23798 interfaceC23798) {
+        this.f1 = interfaceC23798;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ۧ */
     public final ByteBuffer m6(int i, long j) {
-        this.f65926 = j;
+        this.f68601 = j;
         ByteBuffer byteBuffer = this.f0;
         if (byteBuffer == null || byteBuffer.capacity() < i) {
             this.f0 = ByteBuffer.allocateDirect(i).order(ByteOrder.nativeOrder());
@@ -30,8 +30,8 @@ public final class SimpleDecoderOutputBuffer extends AbstractC20432 {
         return this.f0;
     }
 
-    @Override // l.AbstractC20432, l.AbstractC4204
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
+    @Override // p067l.AbstractC21787, p067l.AbstractC6364
+    /* JADX INFO: renamed from: ۧ */
     public final void mo7() {
         super.mo7();
         ByteBuffer byteBuffer = this.f0;
@@ -40,9 +40,9 @@ public final class SimpleDecoderOutputBuffer extends AbstractC20432 {
         }
     }
 
-    @Override // l.AbstractC20432
-    /* JADX INFO: renamed from: ᩴ, reason: not valid java name and contains not printable characters */
+    @Override // p067l.AbstractC21787
+    /* JADX INFO: renamed from: ᩴ */
     public final void mo8() {
-        this.f1.mo6995(this);
+        this.f1.mo9106(this);
     }
 }

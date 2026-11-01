@@ -16,7 +16,7 @@ public class DilithiumSigner implements MessageSigner {
         DilithiumEngine engine = this.privKey.getParameters().getEngine(this.random);
         int length = bArr.length;
         DilithiumPrivateKeyParameters dilithiumPrivateKeyParameters = this.privKey;
-        return engine.sign(bArr, length, dilithiumPrivateKeyParameters.rho, dilithiumPrivateKeyParameters.k, dilithiumPrivateKeyParameters.tr, dilithiumPrivateKeyParameters.t0, dilithiumPrivateKeyParameters.s1, dilithiumPrivateKeyParameters.s2);
+        return engine.sign(bArr, length, dilithiumPrivateKeyParameters.rho, dilithiumPrivateKeyParameters.f81586k, dilithiumPrivateKeyParameters.f81591tr, dilithiumPrivateKeyParameters.f81589t0, dilithiumPrivateKeyParameters.f81587s1, dilithiumPrivateKeyParameters.f81588s2);
     }
 
     @Override // org.bouncycastle.pqc.crypto.MessageSigner
@@ -39,7 +39,7 @@ public class DilithiumSigner implements MessageSigner {
         DilithiumEngine engine = this.privKey.getParameters().getEngine(this.random);
         int length = bArr.length;
         DilithiumPrivateKeyParameters dilithiumPrivateKeyParameters = this.privKey;
-        return engine.signSignatureInternal(bArr, length, dilithiumPrivateKeyParameters.rho, dilithiumPrivateKeyParameters.k, dilithiumPrivateKeyParameters.tr, dilithiumPrivateKeyParameters.t0, dilithiumPrivateKeyParameters.s1, dilithiumPrivateKeyParameters.s2, bArr2);
+        return engine.signSignatureInternal(bArr, length, dilithiumPrivateKeyParameters.rho, dilithiumPrivateKeyParameters.f81586k, dilithiumPrivateKeyParameters.f81591tr, dilithiumPrivateKeyParameters.f81589t0, dilithiumPrivateKeyParameters.f81587s1, dilithiumPrivateKeyParameters.f81588s2, bArr2);
     }
 
     @Override // org.bouncycastle.pqc.crypto.MessageSigner
@@ -47,6 +47,6 @@ public class DilithiumSigner implements MessageSigner {
         DilithiumEngine engine = this.pubKey.getParameters().getEngine(this.random);
         int length = bArr2.length;
         DilithiumPublicKeyParameters dilithiumPublicKeyParameters = this.pubKey;
-        return engine.signOpen(bArr, bArr2, length, dilithiumPublicKeyParameters.rho, dilithiumPublicKeyParameters.t1);
+        return engine.signOpen(bArr, bArr2, length, dilithiumPublicKeyParameters.rho, dilithiumPublicKeyParameters.f81592t1);
     }
 }

@@ -4,8 +4,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA384Digest;
@@ -19,6 +17,8 @@ import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.spec.TLSKeyMaterialSpec;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Strings;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TLSKDF {
@@ -30,7 +30,7 @@ public class TLSKDF {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$TLS12withSHA512", "SecretKeyFactory.TLS12WITHSHA512KDF", C5368.m15340(str, "$TLS12withSHA384", "SecretKeyFactory.TLS12WITHSHA384KDF", C5368.m15340(str, "$TLS12withSHA256", "SecretKeyFactory.TLS12WITHSHA256KDF", C5368.m15340(str, "$TLS11", "SecretKeyFactory.TLS11KDF", C5368.m15340(str, "$TLS10", "SecretKeyFactory.TLS10KDF", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$TLS12withSHA512", "SecretKeyFactory.TLS12WITHSHA512KDF", C7470.m17249(str, "$TLS12withSHA384", "SecretKeyFactory.TLS12WITHSHA384KDF", C7470.m17249(str, "$TLS12withSHA256", "SecretKeyFactory.TLS12WITHSHA256KDF", C7470.m17249(str, "$TLS11", "SecretKeyFactory.TLS11KDF", C7470.m17249(str, "$TLS10", "SecretKeyFactory.TLS10KDF", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
         }
     }
 

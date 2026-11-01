@@ -13,10 +13,10 @@ import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.DSAParameter;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
@@ -26,34 +26,36 @@ public class JDKDSAPrivateKey implements DSAPrivateKey, PKCS12BagAttributeCarrie
     public static final long serialVersionUID = -4677259546958385734L;
     public PKCS12BagAttributeCarrierImpl attrCarrier = new PKCS12BagAttributeCarrierImpl();
     public DSAParams dsaSpec;
-    public BigInteger x;
+
+    /* JADX INFO: renamed from: x */
+    public BigInteger f81378x;
 
     public JDKDSAPrivateKey() {
     }
 
     public JDKDSAPrivateKey(DSAPrivateKey dSAPrivateKey) {
-        this.x = dSAPrivateKey.getX();
+        this.f81378x = dSAPrivateKey.getX();
         this.dsaSpec = dSAPrivateKey.getParams();
     }
 
     public JDKDSAPrivateKey(DSAPrivateKeySpec dSAPrivateKeySpec) {
-        this.x = dSAPrivateKeySpec.getX();
+        this.f81378x = dSAPrivateKeySpec.getX();
         this.dsaSpec = new DSAParameterSpec(dSAPrivateKeySpec.getP(), dSAPrivateKeySpec.getQ(), dSAPrivateKeySpec.getG());
     }
 
     public JDKDSAPrivateKey(PrivateKeyInfo privateKeyInfo) {
         DSAParameter dSAParameter = DSAParameter.getInstance(privateKeyInfo.getPrivateKeyAlgorithm().getParameters());
-        this.x = ASN1Integer.getInstance(privateKeyInfo.parsePrivateKey()).getValue();
+        this.f81378x = ASN1Integer.getInstance(privateKeyInfo.parsePrivateKey()).getValue();
         this.dsaSpec = new DSAParameterSpec(dSAParameter.getP(), dSAParameter.getQ(), dSAParameter.getG());
     }
 
     public JDKDSAPrivateKey(DSAPrivateKeyParameters dSAPrivateKeyParameters) {
-        this.x = dSAPrivateKeyParameters.getX();
+        this.f81378x = dSAPrivateKeyParameters.getX();
         this.dsaSpec = new DSAParameterSpec(dSAPrivateKeyParameters.getParameters().getP(), dSAPrivateKeyParameters.getParameters().getQ(), dSAPrivateKeyParameters.getParameters().getG());
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws ClassNotFoundException, IOException {
-        this.x = (BigInteger) objectInputStream.readObject();
+        this.f81378x = (BigInteger) objectInputStream.readObject();
         this.dsaSpec = new DSAParameterSpec((BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject());
         PKCS12BagAttributeCarrierImpl pKCS12BagAttributeCarrierImpl = new PKCS12BagAttributeCarrierImpl();
         this.attrCarrier = pKCS12BagAttributeCarrierImpl;
@@ -61,7 +63,7 @@ public class JDKDSAPrivateKey implements DSAPrivateKey, PKCS12BagAttributeCarrie
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        objectOutputStream.writeObject(this.x);
+        objectOutputStream.writeObject(this.f81378x);
         objectOutputStream.writeObject(this.dsaSpec.getP());
         objectOutputStream.writeObject(this.dsaSpec.getQ());
         objectOutputStream.writeObject(this.dsaSpec.getG());
@@ -112,7 +114,7 @@ public class JDKDSAPrivateKey implements DSAPrivateKey, PKCS12BagAttributeCarrie
 
     @Override // java.security.interfaces.DSAPrivateKey
     public BigInteger getX() {
-        return this.x;
+        return this.f81378x;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier

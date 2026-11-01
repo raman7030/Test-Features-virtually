@@ -1,12 +1,14 @@
 package org.bouncycastle.math.raw;
 
 import java.math.BigInteger;
-import l.C8083;
 import org.bouncycastle.util.Pack;
+import p067l.C10050;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class Nat160 {
-    public static final long M = 4294967295L;
+
+    /* JADX INFO: renamed from: M */
+    public static final long f81548M = 4294967295L;
 
     public static int add(int[] iArr, int[] iArr2, int[] iArr3) {
         long j = (((long) iArr[0]) & 4294967295L) + (((long) iArr2[0]) & 4294967295L);
@@ -134,7 +136,8 @@ public abstract class Nat160 {
         return zGte;
     }
 
-    public static boolean eq(int[] iArr, int[] iArr2) {
+    /* JADX INFO: renamed from: eq */
+    public static boolean m55415eq(int[] iArr, int[] iArr2) {
         for (int i = 4; i >= 0; i--) {
             if (iArr[i] != iArr2[i]) {
                 return false;
@@ -553,40 +556,40 @@ public abstract class Nat160 {
                 long j12 = (j9 * j) + j7 + (j8 >>> 32);
                 int i12 = (int) j12;
                 iArr2[i8] = (i9 >>> 31) | (i12 << 1);
-                long jM21450 = C8083.m21450(j9, j6, j12 >>> 32, j10);
-                long j13 = j11 + (jM21450 >>> 32);
+                long jM23418 = C10050.m23418(j9, j6, j12 >>> 32, j10);
+                long j13 = j11 + (jM23418 >>> 32);
                 long j14 = ((long) iArr[i + 3]) & 4294967295L;
                 int i13 = i2 + 5;
                 long j15 = (((long) iArr2[i13]) & 4294967295L) + (j13 >>> 32);
                 int i14 = i2 + 6;
                 long j16 = (((long) iArr2[i14]) & 4294967295L) + (j15 >>> 32);
                 long j17 = j15 & 4294967295L;
-                long j18 = (j14 * j) + (jM21450 & 4294967295L);
+                long j18 = (j14 * j) + (jM23418 & 4294967295L);
                 int i15 = (int) j18;
                 iArr2[i10] = (i12 >>> 31) | (i15 << 1);
-                long jM21451 = C8083.m21450(j14, j6, j18 >>> 32, j13 & 4294967295L);
-                long jM21452 = C8083.m21450(j14, j9, jM21451 >>> 32, j17);
-                long j19 = j16 + (jM21452 >>> 32);
-                long j20 = jM21452 & 4294967295L;
+                long jM23419 = C10050.m23418(j14, j6, j18 >>> 32, j13 & 4294967295L);
+                long jM234110 = C10050.m23418(j14, j9, jM23419 >>> 32, j17);
+                long j19 = j16 + (jM234110 >>> 32);
+                long j20 = jM234110 & 4294967295L;
                 long j21 = ((long) iArr[i + 4]) & 4294967295L;
                 int i16 = i2 + 7;
                 long j22 = (((long) iArr2[i16]) & 4294967295L) + (j19 >>> 32);
                 int i17 = i2 + 8;
                 long j23 = (((long) iArr2[i17]) & 4294967295L) + (j22 >>> 32);
-                long j24 = (j * j21) + (jM21451 & 4294967295L);
+                long j24 = (j * j21) + (jM23419 & 4294967295L);
                 int i18 = (int) j24;
                 iArr2[i11] = (i18 << 1) | (i15 >>> 31);
-                long jM21453 = C8083.m21450(j21, j6, j24 >>> 32, j20);
-                long jM21454 = C8083.m21450(j21, j9, jM21453 >>> 32, j19 & 4294967295L);
-                long jM21455 = C8083.m21450(j21, j14, jM21454 >>> 32, j22 & 4294967295L);
-                long j25 = j23 + (jM21455 >>> 32);
-                int i19 = (int) jM21453;
+                long jM234111 = C10050.m23418(j21, j6, j24 >>> 32, j20);
+                long jM234112 = C10050.m23418(j21, j9, jM234111 >>> 32, j19 & 4294967295L);
+                long jM234113 = C10050.m23418(j21, j14, jM234112 >>> 32, j22 & 4294967295L);
+                long j25 = j23 + (jM234113 >>> 32);
+                int i19 = (int) jM234111;
                 iArr2[i13] = (i19 << 1) | (i18 >>> 31);
                 int i20 = i19 >>> 31;
-                int i21 = (int) jM21454;
+                int i21 = (int) jM234112;
                 iArr2[i14] = i20 | (i21 << 1);
                 int i22 = i21 >>> 31;
-                int i23 = (int) jM21455;
+                int i23 = (int) jM234113;
                 iArr2[i16] = i22 | (i23 << 1);
                 int i24 = i23 >>> 31;
                 int i25 = (int) j25;
@@ -630,39 +633,39 @@ public abstract class Nat160 {
                 int i6 = (int) j13;
                 iArr2[2] = (i5 >>> 31) | (i6 << 1);
                 int i7 = i6 >>> 31;
-                long jM21450 = C8083.m21450(j10, j6, j13 >>> 32, j11);
-                long j14 = j12 + (jM21450 >>> 32);
+                long jM23418 = C10050.m23418(j10, j6, j13 >>> 32, j11);
+                long j14 = j12 + (jM23418 >>> 32);
                 long j15 = ((long) iArr[3]) & 4294967295L;
                 long j16 = (((long) iArr2[5]) & 4294967295L) + (j14 >>> 32);
                 long j17 = j14 & 4294967295L;
                 long j18 = (((long) iArr2[6]) & 4294967295L) + (j16 >>> 32);
                 long j19 = j16 & 4294967295L;
-                long j20 = (j15 * j) + (jM21450 & 4294967295L);
+                long j20 = (j15 * j) + (jM23418 & 4294967295L);
                 int i8 = (int) j20;
                 iArr2[3] = (i8 << 1) | i7;
                 int i9 = i8 >>> 31;
-                long jM21451 = C8083.m21450(j15, j6, j20 >>> 32, j17);
-                long jM21452 = C8083.m21450(j15, j10, jM21451 >>> 32, j19);
-                long j21 = j18 + (jM21452 >>> 32);
-                long j22 = jM21452 & 4294967295L;
+                long jM23419 = C10050.m23418(j15, j6, j20 >>> 32, j17);
+                long jM234110 = C10050.m23418(j15, j10, jM23419 >>> 32, j19);
+                long j21 = j18 + (jM234110 >>> 32);
+                long j22 = jM234110 & 4294967295L;
                 long j23 = ((long) iArr[4]) & 4294967295L;
                 long j24 = (((long) iArr2[7]) & 4294967295L) + (j21 >>> 32);
                 long j25 = j21 & 4294967295L;
                 long j26 = (((long) iArr2[8]) & 4294967295L) + (j24 >>> 32);
-                long j27 = (j23 * j) + (jM21451 & 4294967295L);
+                long j27 = (j23 * j) + (jM23419 & 4294967295L);
                 int i10 = (int) j27;
                 iArr2[4] = (i10 << 1) | i9;
-                long jM21453 = C8083.m21450(j23, j6, j27 >>> 32, j22);
-                long jM21454 = C8083.m21450(j23, j10, jM21453 >>> 32, j25);
-                long jM21455 = C8083.m21450(j23, j15, jM21454 >>> 32, j24 & 4294967295L);
-                long j28 = j26 + (jM21455 >>> 32);
-                int i11 = (int) jM21453;
+                long jM234111 = C10050.m23418(j23, j6, j27 >>> 32, j22);
+                long jM234112 = C10050.m23418(j23, j10, jM234111 >>> 32, j25);
+                long jM234113 = C10050.m23418(j23, j15, jM234112 >>> 32, j24 & 4294967295L);
+                long j28 = j26 + (jM234113 >>> 32);
+                int i11 = (int) jM234111;
                 iArr2[5] = (i11 << 1) | (i10 >>> 31);
                 int i12 = i11 >>> 31;
-                int i13 = (int) jM21454;
+                int i13 = (int) jM234112;
                 iArr2[6] = i12 | (i13 << 1);
                 int i14 = i13 >>> 31;
-                int i15 = (int) jM21455;
+                int i15 = (int) jM234113;
                 iArr2[7] = i14 | (i15 << 1);
                 int i16 = i15 >>> 31;
                 int i17 = (int) j28;

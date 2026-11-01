@@ -15,7 +15,9 @@ public class Blake2xsDigest implements Xof {
     public int bufPos;
     public int digestLength;
     public int digestPos;
-    public byte[] h0;
+
+    /* JADX INFO: renamed from: h0 */
+    public byte[] f80805h0;
     public Blake2sDigest hash;
     public long nodeOffset;
     public final CryptoServicePurpose purpose;
@@ -37,7 +39,7 @@ public class Blake2xsDigest implements Xof {
     }
 
     public Blake2xsDigest(int i, byte[] bArr, byte[] bArr2, byte[] bArr3, CryptoServicePurpose cryptoServicePurpose) {
-        this.h0 = null;
+        this.f80805h0 = null;
         this.buf = new byte[32];
         this.bufPos = 32;
         this.digestPos = 0;
@@ -53,14 +55,14 @@ public class Blake2xsDigest implements Xof {
     }
 
     public Blake2xsDigest(Blake2xsDigest blake2xsDigest) {
-        this.h0 = null;
+        this.f80805h0 = null;
         this.buf = new byte[32];
         this.bufPos = 32;
         this.digestPos = 0;
         this.blockPos = 0L;
         this.digestLength = blake2xsDigest.digestLength;
         this.hash = new Blake2sDigest(blake2xsDigest.hash);
-        this.h0 = Arrays.clone(blake2xsDigest.h0);
+        this.f80805h0 = Arrays.clone(blake2xsDigest.f80805h0);
         this.buf = Arrays.clone(blake2xsDigest.buf);
         this.bufPos = blake2xsDigest.bufPos;
         this.digestPos = blake2xsDigest.digestPos;
@@ -98,9 +100,9 @@ public class Blake2xsDigest implements Xof {
         if (i > bArr.length - i2) {
             throw new OutputLengthException("output buffer too short");
         }
-        if (this.h0 == null) {
+        if (this.f80805h0 == null) {
             byte[] bArr2 = new byte[this.hash.getDigestSize()];
-            this.h0 = bArr2;
+            this.f80805h0 = bArr2;
             this.hash.doFinal(bArr2, 0);
         }
         int i3 = this.digestLength;
@@ -114,7 +116,7 @@ public class Blake2xsDigest implements Xof {
         for (int i4 = 0; i4 < i2; i4++) {
             if (this.bufPos >= 32) {
                 Blake2sDigest blake2sDigest = new Blake2sDigest(computeStepLength(), 32, this.nodeOffset);
-                byte[] bArr3 = this.h0;
+                byte[] bArr3 = this.f80805h0;
                 blake2sDigest.update(bArr3, 0, bArr3.length);
                 Arrays.fill(this.buf, (byte) 0);
                 blake2sDigest.doFinal(this.buf, 0);
@@ -153,7 +155,7 @@ public class Blake2xsDigest implements Xof {
     @Override // org.bouncycastle.crypto.Digest
     public void reset() {
         this.hash.reset();
-        this.h0 = null;
+        this.f80805h0 = null;
         this.bufPos = 32;
         this.digestPos = 0;
         this.blockPos = 0L;

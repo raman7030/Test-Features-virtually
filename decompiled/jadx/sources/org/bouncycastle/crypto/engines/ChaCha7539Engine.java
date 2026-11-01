@@ -31,8 +31,8 @@ public class ChaCha7539Engine extends Salsa20Engine {
 
     @Override // org.bouncycastle.crypto.engines.Salsa20Engine
     public void generateKeyStream(byte[] bArr) {
-        ChaChaEngine.chachaCore(this.rounds, this.engineState, this.x);
-        Pack.intToLittleEndian(this.x, bArr, 0);
+        ChaChaEngine.chachaCore(this.rounds, this.engineState, this.f81079x);
+        Pack.intToLittleEndian(this.f81079x, bArr, 0);
     }
 
     @Override // org.bouncycastle.crypto.engines.Salsa20Engine, org.bouncycastle.crypto.StreamCipher

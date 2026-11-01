@@ -13,32 +13,34 @@ import org.bouncycastle.asn1.DERSequence;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BasicConstraints extends ASN1Object {
-    public ASN1Boolean cA;
+
+    /* JADX INFO: renamed from: cA */
+    public ASN1Boolean f80706cA;
     public ASN1Integer pathLenConstraint;
 
     public BasicConstraints(int i) {
-        this.cA = ASN1Boolean.getInstance(false);
+        this.f80706cA = ASN1Boolean.getInstance(false);
         this.pathLenConstraint = null;
-        this.cA = ASN1Boolean.getInstance(true);
+        this.f80706cA = ASN1Boolean.getInstance(true);
         this.pathLenConstraint = new ASN1Integer(i);
     }
 
     public BasicConstraints(ASN1Sequence aSN1Sequence) {
-        this.cA = ASN1Boolean.getInstance(false);
+        this.f80706cA = ASN1Boolean.getInstance(false);
         this.pathLenConstraint = null;
         if (aSN1Sequence.size() == 0) {
-            this.cA = null;
+            this.f80706cA = null;
             this.pathLenConstraint = null;
             return;
         }
         if (aSN1Sequence.getObjectAt(0) instanceof ASN1Boolean) {
-            this.cA = ASN1Boolean.getInstance(aSN1Sequence.getObjectAt(0));
+            this.f80706cA = ASN1Boolean.getInstance(aSN1Sequence.getObjectAt(0));
         } else {
-            this.cA = null;
+            this.f80706cA = null;
             this.pathLenConstraint = ASN1Integer.getInstance(aSN1Sequence.getObjectAt(0));
         }
         if (aSN1Sequence.size() > 1) {
-            if (this.cA == null) {
+            if (this.f80706cA == null) {
                 throw new IllegalArgumentException("wrong sequence in constructor");
             }
             this.pathLenConstraint = ASN1Integer.getInstance(aSN1Sequence.getObjectAt(1));
@@ -46,12 +48,12 @@ public class BasicConstraints extends ASN1Object {
     }
 
     public BasicConstraints(boolean z) {
-        this.cA = ASN1Boolean.getInstance(false);
+        this.f80706cA = ASN1Boolean.getInstance(false);
         this.pathLenConstraint = null;
         if (z) {
-            this.cA = ASN1Boolean.getInstance(true);
+            this.f80706cA = ASN1Boolean.getInstance(true);
         } else {
-            this.cA = null;
+            this.f80706cA = null;
         }
         this.pathLenConstraint = null;
     }
@@ -90,14 +92,14 @@ public class BasicConstraints extends ASN1Object {
     }
 
     public boolean isCA() {
-        ASN1Boolean aSN1Boolean = this.cA;
+        ASN1Boolean aSN1Boolean = this.f80706cA;
         return aSN1Boolean != null && aSN1Boolean.isTrue();
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector(2);
-        ASN1Boolean aSN1Boolean = this.cA;
+        ASN1Boolean aSN1Boolean = this.f80706cA;
         if (aSN1Boolean != null) {
             aSN1EncodableVector.add(aSN1Boolean);
         }

@@ -4,11 +4,13 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SLHDSAPublicKeyParameters extends SLHDSAKeyParameters {
-    public final PK pk;
 
-    public SLHDSAPublicKeyParameters(SLHDSAParameters sLHDSAParameters, PK pk) {
+    /* JADX INFO: renamed from: pk */
+    public final C2371PK f81746pk;
+
+    public SLHDSAPublicKeyParameters(SLHDSAParameters sLHDSAParameters, C2371PK c2371pk) {
         super(false, sLHDSAParameters);
-        this.pk = pk;
+        this.f81746pk = c2371pk;
     }
 
     public SLHDSAPublicKeyParameters(SLHDSAParameters sLHDSAParameters, byte[] bArr) {
@@ -18,19 +20,19 @@ public class SLHDSAPublicKeyParameters extends SLHDSAKeyParameters {
         if (bArr.length != i) {
             throw new IllegalArgumentException("public key encoding does not match parameters");
         }
-        this.pk = new PK(Arrays.copyOfRange(bArr, 0, n), Arrays.copyOfRange(bArr, n, i));
+        this.f81746pk = new C2371PK(Arrays.copyOfRange(bArr, 0, n), Arrays.copyOfRange(bArr, n, i));
     }
 
     public byte[] getEncoded() {
-        PK pk = this.pk;
-        return Arrays.concatenate(pk.seed, pk.root);
+        C2371PK c2371pk = this.f81746pk;
+        return Arrays.concatenate(c2371pk.seed, c2371pk.root);
     }
 
     public byte[] getRoot() {
-        return Arrays.clone(this.pk.root);
+        return Arrays.clone(this.f81746pk.root);
     }
 
     public byte[] getSeed() {
-        return Arrays.clone(this.pk.seed);
+        return Arrays.clone(this.f81746pk.seed);
     }
 }

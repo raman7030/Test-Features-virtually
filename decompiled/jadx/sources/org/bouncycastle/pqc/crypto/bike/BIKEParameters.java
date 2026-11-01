@@ -10,21 +10,27 @@ public class BIKEParameters implements KEMParameters {
     public BIKEEngine bikeEngine;
     public final int defaultKeySize;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public int f77977l;
+    /* JADX INFO: renamed from: l */
+    public int f81574l;
     public String name;
     public int nbIter;
-    public int r;
-    public int t;
+
+    /* JADX INFO: renamed from: r */
+    public int f81575r;
+
+    /* JADX INFO: renamed from: t */
+    public int f81576t;
     public int tau;
-    public int w;
+
+    /* JADX INFO: renamed from: w */
+    public int f81577w;
 
     public BIKEParameters(String str, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         this.name = str;
-        this.r = i;
-        this.w = i2;
-        this.t = i3;
-        this.f77977l = i4;
+        this.f81575r = i;
+        this.f81577w = i2;
+        this.f81576t = i3;
+        this.f81574l = i4;
         this.nbIter = i5;
         this.tau = i6;
         this.defaultKeySize = i7;
@@ -36,11 +42,11 @@ public class BIKEParameters implements KEMParameters {
     }
 
     public int getL() {
-        return this.f77977l;
+        return this.f81574l;
     }
 
     public int getLByte() {
-        return this.f77977l / 8;
+        return this.f81574l / 8;
     }
 
     public String getName() {
@@ -52,11 +58,11 @@ public class BIKEParameters implements KEMParameters {
     }
 
     public int getR() {
-        return this.r;
+        return this.f81575r;
     }
 
     public int getRByte() {
-        return (this.r + 7) / 8;
+        return (this.f81575r + 7) / 8;
     }
 
     public int getSessionKeySize() {
@@ -64,7 +70,7 @@ public class BIKEParameters implements KEMParameters {
     }
 
     public int getT() {
-        return this.t;
+        return this.f81576t;
     }
 
     public int getTau() {
@@ -72,6 +78,6 @@ public class BIKEParameters implements KEMParameters {
     }
 
     public int getW() {
-        return this.w;
+        return this.f81577w;
     }
 }

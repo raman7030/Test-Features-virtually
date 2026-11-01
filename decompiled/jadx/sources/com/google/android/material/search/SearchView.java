@@ -40,39 +40,39 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import l.AbstractC6317;
-import l.AbstractC7152;
-import l.C15813;
-import l.C16648;
-import l.C17648;
-import l.C17887;
-import l.C17931;
-import l.C18333;
-import l.C18637;
-import l.C19343;
-import l.C20118;
-import l.C20754;
-import l.C21311;
-import l.C21610;
-import l.C23575;
-import l.C4330;
-import l.C5674;
-import l.C6642;
-import l.C8184;
-import l.C9762;
-import l.InterfaceC10551;
-import l.InterfaceC16610;
-import l.InterfaceC23872;
-import l.RunnableC20699;
-import l.RunnableC20760;
-import l.RunnableC3505;
-import l.ViewOnClickListenerC10893;
-import l.ViewOnClickListenerC14054;
-import l.ViewOnClickListenerC3658;
+import p067l.AbstractC1155;
+import p067l.AbstractC9165;
+import p067l.C1123;
+import p067l.C1248;
+import p067l.C1326;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C1751;
+import p067l.C18191;
+import p067l.C1840;
+import p067l.C1914;
+import p067l.C19368;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C22093;
+import p067l.C22622;
+import p067l.C24774;
+import p067l.C6483;
+import p067l.C8681;
+import p067l.InterfaceC1365;
+import p067l.InterfaceC1666;
+import p067l.InterfaceC2026;
+import p067l.RunnableC22041;
+import p067l.RunnableC22099;
+import p067l.RunnableC5700;
+import p067l.ViewOnClickListenerC12721;
+import p067l.ViewOnClickListenerC15726;
+import p067l.ViewOnClickListenerC5845;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SearchView extends FrameLayout implements InterfaceC10551, MaterialBackHandler {
-    public static final int DEF_STYLE_RES = C18637.f57940;
+public class SearchView extends FrameLayout implements InterfaceC1365, MaterialBackHandler {
+    public static final int DEF_STYLE_RES = C20081.f61163;
     public static final long TALKBACK_FOCUS_CHANGE_DELAY_MS = 100;
     public boolean animatedMenuItems;
     public boolean animatedNavigationIcon;
@@ -86,7 +86,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     public final TouchObserverFrameLayout contentContainer;
     public TransitionState currentTransitionState;
     public final View divider;
-    public final C9762 dummyToolbar;
+    public final C1326 dummyToolbar;
     public final EditText editText;
     public final ElevationOverlayProvider elevationOverlayProvider;
     public final FrameLayout headerContainer;
@@ -124,7 +124,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     }
 
     public SearchView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55092);
+        this(context, attributeSet, C19410.f58289);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -136,35 +136,35 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         this.softInputMode = 16;
         this.currentTransitionState = TransitionState.HIDDEN;
         Context context2 = getContext();
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C19343.f60902, i, i2, new int[0]);
-        this.backgroundColor = typedArrayObtainStyledAttributes.getColor(C19343.f61699, 0);
-        int resourceId = typedArrayObtainStyledAttributes.getResourceId(C19343.f61677, -1);
-        int resourceId2 = typedArrayObtainStyledAttributes.getResourceId(C19343.f61062, -1);
-        String string = typedArrayObtainStyledAttributes.getString(C19343.f61168);
-        String string2 = typedArrayObtainStyledAttributes.getString(C19343.f61965);
-        String string3 = typedArrayObtainStyledAttributes.getString(C19343.f61570);
-        boolean z = typedArrayObtainStyledAttributes.getBoolean(C19343.f61040, false);
-        this.animatedNavigationIcon = typedArrayObtainStyledAttributes.getBoolean(C19343.f61752, true);
-        this.animatedMenuItems = typedArrayObtainStyledAttributes.getBoolean(C19343.f61805, true);
-        boolean z2 = typedArrayObtainStyledAttributes.getBoolean(C19343.f62103, false);
-        this.autoShowKeyboard = typedArrayObtainStyledAttributes.getBoolean(C19343.f61592, true);
-        this.backHandlingEnabled = typedArrayObtainStyledAttributes.getBoolean(C19343.f61274, true);
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C20752.f82352, i, i2, new int[0]);
+        this.backgroundColor = typedArrayObtainStyledAttributes.getColor(C20752.f82624, 0);
+        int resourceId = typedArrayObtainStyledAttributes.getResourceId(C20752.f82617, -1);
+        int resourceId2 = typedArrayObtainStyledAttributes.getResourceId(C20752.f82407, -1);
+        String string = typedArrayObtainStyledAttributes.getString(C20752.f82443);
+        String string2 = typedArrayObtainStyledAttributes.getString(C20752.f82715);
+        String string3 = typedArrayObtainStyledAttributes.getString(C20752.f82580);
+        boolean z = typedArrayObtainStyledAttributes.getBoolean(C20752.f82400, false);
+        this.animatedNavigationIcon = typedArrayObtainStyledAttributes.getBoolean(C20752.f82642, true);
+        this.animatedMenuItems = typedArrayObtainStyledAttributes.getBoolean(C20752.f82660, true);
+        boolean z2 = typedArrayObtainStyledAttributes.getBoolean(C20752.f82763, false);
+        this.autoShowKeyboard = typedArrayObtainStyledAttributes.getBoolean(C20752.f82587, true);
+        this.backHandlingEnabled = typedArrayObtainStyledAttributes.getBoolean(C20752.f82479, true);
         typedArrayObtainStyledAttributes.recycle();
-        LayoutInflater.from(context2).inflate(C15813.f48831, this);
+        LayoutInflater.from(context2).inflate(C17397.f51969, this);
         this.layoutInflated = true;
-        this.scrim = findViewById(C20754.f67175);
-        this.rootView = (ClippableRoundedCornerLayout) findViewById(C20754.f67211);
-        this.backgroundView = findViewById(C20754.f67163);
-        this.statusBarSpacer = findViewById(C20754.f66894);
-        this.headerContainer = (FrameLayout) findViewById(C20754.f67199);
-        this.toolbarContainer = (FrameLayout) findViewById(C20754.f67045);
-        this.toolbar = (MaterialToolbar) findViewById(C20754.f67056);
-        this.dummyToolbar = (C9762) findViewById(C20754.f66976);
-        this.searchPrefix = (TextView) findViewById(C20754.f66918);
-        this.editText = (EditText) findViewById(C20754.f67091);
-        this.clearButton = (ImageButton) findViewById(C20754.f66846);
-        this.divider = findViewById(C20754.f66858);
-        this.contentContainer = (TouchObserverFrameLayout) findViewById(C20754.f66930);
+        this.scrim = findViewById(C22093.f69859);
+        this.rootView = (ClippableRoundedCornerLayout) findViewById(C22093.f69895);
+        this.backgroundView = findViewById(C22093.f69847);
+        this.statusBarSpacer = findViewById(C22093.f69578);
+        this.headerContainer = (FrameLayout) findViewById(C22093.f69883);
+        this.toolbarContainer = (FrameLayout) findViewById(C22093.f69729);
+        this.toolbar = (MaterialToolbar) findViewById(C22093.f69740);
+        this.dummyToolbar = (C1326) findViewById(C22093.f69660);
+        this.searchPrefix = (TextView) findViewById(C22093.f69602);
+        this.editText = (EditText) findViewById(C22093.f69775);
+        this.clearButton = (ImageButton) findViewById(C22093.f69530);
+        this.divider = findViewById(C22093.f69542);
+        this.contentContainer = (TouchObserverFrameLayout) findViewById(C22093.f69614);
         this.searchViewAnimationHelper = new SearchViewAnimationHelper(this);
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
         setUpRootView();
@@ -205,25 +205,25 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         MaterialShapeUtils.setParentAbsoluteElevation(this);
     }
 
-    @Override // l.InterfaceC10551
-    public AbstractC6317 getBehavior() {
+    @Override // p067l.InterfaceC1365
+    public AbstractC1155 getBehavior() {
         return new Behavior();
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
-    public void startBackProgress(C20118 c20118) {
+    public void startBackProgress(C1840 c1840) {
         if (isHiddenOrHiding() || this.searchBar == null) {
             return;
         }
-        this.searchViewAnimationHelper.startBackProgress(c20118);
+        this.searchViewAnimationHelper.startBackProgress(c1840);
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
-    public void updateBackProgress(C20118 c20118) {
+    public void updateBackProgress(C1840 c1840) {
         if (isHiddenOrHiding() || this.searchBar == null || Build.VERSION.SDK_INT < 34) {
             return;
         }
-        this.searchViewAnimationHelper.updateBackProgress(c20118);
+        this.searchViewAnimationHelper.updateBackProgress(c1840);
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
@@ -231,8 +231,8 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         if (isHiddenOrHiding()) {
             return;
         }
-        C20118 c20118OnHandleBackInvoked = this.searchViewAnimationHelper.onHandleBackInvoked();
-        if (Build.VERSION.SDK_INT >= 34 && this.searchBar != null && c20118OnHandleBackInvoked != null) {
+        C1840 c1840OnHandleBackInvoked = this.searchViewAnimationHelper.onHandleBackInvoked();
+        if (Build.VERSION.SDK_INT >= 34 && this.searchBar != null && c1840OnHandleBackInvoked != null) {
             this.searchViewAnimationHelper.finishBackProgress();
         } else {
             hide();
@@ -284,7 +284,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         if (searchBar != null) {
             return searchBar.getCompatElevation();
         }
-        return getResources().getDimension(C23575.f75879);
+        return getResources().getDimension(C24774.f78625);
     }
 
     private void setUpHeaderLayout(int i) {
@@ -295,7 +295,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
 
     private void setUpEditText(int i, String str, String str2) {
         if (i != -1) {
-            C4330.m12997(this.editText, i);
+            C6483.m14861(this.editText, i);
         }
         this.editText.setText(str);
         this.editText.setHint(str2);
@@ -306,11 +306,11 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
             this.toolbar.setNavigationIcon((Drawable) null);
             return;
         }
-        this.toolbar.setNavigationOnClickListener(new ViewOnClickListenerC10893(7, this));
+        this.toolbar.setNavigationOnClickListener(new ViewOnClickListenerC12721(7, this));
         if (z) {
-            C5674 c5674 = new C5674(getContext());
-            c5674.m15982(MaterialColors.getColor(this, C17931.f55479));
-            this.toolbar.setNavigationIcon(c5674);
+            C1123 c1123 = new C1123(getContext());
+            c1123.m17917(MaterialColors.getColor(this, C19410.f58676));
+            this.toolbar.setNavigationIcon(c1123);
         }
     }
 
@@ -320,7 +320,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     }
 
     private void setUpClearButton() {
-        this.clearButton.setOnClickListener(new ViewOnClickListenerC14054(3, this));
+        this.clearButton.setOnClickListener(new ViewOnClickListenerC15726(3, this));
         this.editText.addTextChangedListener(new TextWatcher() { // from class: com.google.android.material.search.SearchView.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
@@ -386,16 +386,16 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
             this.toolbar.setNavigationIcon(defaultNavigationIconResource);
             return;
         }
-        Drawable drawableM21684 = C8184.m21684(C21311.m48345(getContext(), defaultNavigationIconResource).mutate());
+        Drawable drawableM23653 = C1248.m23653(C22622.m50680(getContext(), defaultNavigationIconResource).mutate());
         if (this.toolbar.getNavigationIconTint() != null) {
-            C8184.m21683(drawableM21684, this.toolbar.getNavigationIconTint().intValue());
+            C1248.m23652(drawableM23653, this.toolbar.getNavigationIconTint().intValue());
         }
-        this.toolbar.setNavigationIcon(new FadeThroughDrawable(this.searchBar.getNavigationIcon(), drawableM21684));
+        this.toolbar.setNavigationIcon(new FadeThroughDrawable(this.searchBar.getNavigationIcon(), drawableM23653));
         updateNavigationIconProgressIfNeeded();
     }
 
-    private boolean isNavigationIconDrawerArrowDrawable(C9762 c9762) {
-        return C8184.m21686(c9762.getNavigationIcon()) instanceof C5674;
+    private boolean isNavigationIconDrawerArrowDrawable(C1326 c1326) {
+        return C1248.m23655(c1326.getNavigationIcon()) instanceof C1123;
     }
 
     private void setUpInsetListeners() {
@@ -405,47 +405,47 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     }
 
     private void setUpToolbarInsetListener() {
-        ViewUtils.doOnApplyWindowInsets(this.toolbar, new C17887(this));
+        ViewUtils.doOnApplyWindowInsets(this.toolbar, new C19368(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ C21610 lambda$setUpToolbarInsetListener$4(View view, C21610 c21610, ViewUtils.RelativePadding relativePadding) {
+    public /* synthetic */ C1914 lambda$setUpToolbarInsetListener$4(View view, C1914 c1914, ViewUtils.RelativePadding relativePadding) {
         boolean zIsLayoutRtl = ViewUtils.isLayoutRtl(this.toolbar);
-        this.toolbar.setPadding(c21610.m48824() + (zIsLayoutRtl ? relativePadding.end : relativePadding.start), relativePadding.top, c21610.m48834() + (zIsLayoutRtl ? relativePadding.start : relativePadding.end), relativePadding.bottom);
-        return c21610;
+        this.toolbar.setPadding(c1914.m51172() + (zIsLayoutRtl ? relativePadding.end : relativePadding.start), relativePadding.top, c1914.m51182() + (zIsLayoutRtl ? relativePadding.start : relativePadding.end), relativePadding.bottom);
+        return c1914;
     }
 
     private void setUpStatusBarSpacerInsetListener() {
         setUpStatusBarSpacer(getStatusBarHeight());
-        C17648.m41310(this.statusBarSpacer, new C16648(8, this));
+        C1717.m43556(this.statusBarSpacer, new C18191(8, this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ C21610 lambda$setUpStatusBarSpacerInsetListener$5(View view, C21610 c21610) {
-        int iM48826 = c21610.m48826();
-        setUpStatusBarSpacer(iM48826);
+    public /* synthetic */ C1914 lambda$setUpStatusBarSpacerInsetListener$5(View view, C1914 c1914) {
+        int iM51174 = c1914.m51174();
+        setUpStatusBarSpacer(iM51174);
         if (!this.statusBarSpacerEnabledOverride) {
-            setStatusBarSpacerEnabledInternal(iM48826 > 0);
+            setStatusBarSpacerEnabledInternal(iM51174 > 0);
         }
-        return c21610;
+        return c1914;
     }
 
     private void setUpDividerInsetListener() {
         final ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.divider.getLayoutParams();
         final int i = marginLayoutParams.leftMargin;
         final int i2 = marginLayoutParams.rightMargin;
-        C17648.m41310(this.divider, new InterfaceC16610() { // from class: com.google.android.material.search.SearchView$$ExternalSyntheticLambda0
-            @Override // l.InterfaceC16610
-            public final C21610 onApplyWindowInsets(View view, C21610 c21610) {
-                return SearchView.lambda$setUpDividerInsetListener$6(marginLayoutParams, i, i2, view, c21610);
+        C1717.m43556(this.divider, new InterfaceC1666() { // from class: com.google.android.material.search.SearchView$$ExternalSyntheticLambda0
+            @Override // p067l.InterfaceC1666
+            public final C1914 onApplyWindowInsets(View view, C1914 c1914) {
+                return SearchView.lambda$setUpDividerInsetListener$6(marginLayoutParams, i, i2, view, c1914);
             }
         });
     }
 
-    public static /* synthetic */ C21610 lambda$setUpDividerInsetListener$6(ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, View view, C21610 c21610) {
-        marginLayoutParams.leftMargin = c21610.m48824() + i;
-        marginLayoutParams.rightMargin = c21610.m48834() + i2;
-        return c21610;
+    public static /* synthetic */ C1914 lambda$setUpDividerInsetListener$6(ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, View view, C1914 c1914) {
+        marginLayoutParams.leftMargin = c1914.m51172() + i;
+        marginLayoutParams.rightMargin = c1914.m51182() + i2;
+        return c1914;
     }
 
     public boolean isSetupWithSearchBar() {
@@ -456,10 +456,10 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         this.searchBar = searchBar;
         this.searchViewAnimationHelper.setSearchBar(searchBar);
         if (searchBar != null) {
-            searchBar.setOnClickListener(new ViewOnClickListenerC3658(this, 1));
+            searchBar.setOnClickListener(new ViewOnClickListenerC5845(this, 1));
             if (Build.VERSION.SDK_INT >= 34) {
                 try {
-                    searchBar.setHandwritingDelegatorCallback(new RunnableC3505(3, this));
+                    searchBar.setHandwritingDelegatorCallback(new RunnableC5700(3, this));
                     this.editText.setIsHandwritingDelegate(true);
                 } catch (LinkageError unused) {
                 }
@@ -536,8 +536,8 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         this.toolbar.inflateMenu(i);
     }
 
-    public void setOnMenuItemClickListener(InterfaceC23872 interfaceC23872) {
-        this.toolbar.setOnMenuItemClickListener(interfaceC23872);
+    public void setOnMenuItemClickListener(InterfaceC2026 interfaceC2026) {
+        this.toolbar.setOnMenuItemClickListener(interfaceC2026);
     }
 
     public TextView getSearchPrefix() {
@@ -553,7 +553,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         return this.searchPrefix.getText();
     }
 
-    public C9762 getToolbar() {
+    public C1326 getToolbar() {
         return this.toolbar;
     }
 
@@ -679,12 +679,12 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
             return;
         }
         int i = this.rootView.getVisibility() == 0 ? 1 : 0;
-        Drawable drawableM21686 = C8184.m21686(navigationIconButton.getDrawable());
-        if (drawableM21686 instanceof C5674) {
-            ((C5674) drawableM21686).m15981(i);
+        Drawable drawableM23655 = C1248.m23655(navigationIconButton.getDrawable());
+        if (drawableM23655 instanceof C1123) {
+            ((C1123) drawableM23655).m17916(i);
         }
-        if (drawableM21686 instanceof FadeThroughDrawable) {
-            ((FadeThroughDrawable) drawableM21686).setProgress(i);
+        if (drawableM23655 instanceof FadeThroughDrawable) {
+            ((FadeThroughDrawable) drawableM23655).setProgress(i);
         }
     }
 
@@ -695,7 +695,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     }
 
     public void requestFocusAndShowKeyboard() {
-        this.editText.postDelayed(new RunnableC20760(7, this), 100L);
+        this.editText.postDelayed(new RunnableC22099(7, this), 100L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -707,7 +707,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     }
 
     public void clearFocusAndHideKeyboard() {
-        this.editText.post(new RunnableC20699(10, this));
+        this.editText.post(new RunnableC22041(10, this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -752,11 +752,11 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
                         Map map = this.childImportantForAccessibilityMap;
                         if (map != null && map.containsKey(childAt)) {
                             iIntValue = ((Integer) this.childImportantForAccessibilityMap.get(childAt)).intValue();
-                            int i2 = C17648.f53953;
+                            int i2 = C1717.f57146;
                         }
                     } else {
                         this.childImportantForAccessibilityMap.put(childAt, Integer.valueOf(childAt.getImportantForAccessibility()));
-                        int i3 = C17648.f53953;
+                        int i3 = C1717.f57146;
                         iIntValue = 4;
                     }
                     childAt.setImportantForAccessibility(iIntValue);
@@ -766,10 +766,10 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
     }
 
     public int getDefaultNavigationIconResource() {
-        return C6642.f20525;
+        return C8681.f23401;
     }
 
-    public class Behavior extends AbstractC6317 {
+    public class Behavior extends AbstractC1155 {
         public Behavior() {
         }
 
@@ -777,8 +777,8 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
             super(context, attributeSet);
         }
 
-        @Override // l.AbstractC6317
-        public boolean onDependentViewChanged(C18333 c18333, SearchView searchView, View view) {
+        @Override // p067l.AbstractC1155
+        public boolean onDependentViewChanged(C1751 c1751, SearchView searchView, View view) {
             if (searchView.isSetupWithSearchBar() || !(view instanceof SearchBar)) {
                 return false;
             }
@@ -808,7 +808,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
         setVisible(savedState.visibility == 0);
     }
 
-    public class SavedState extends AbstractC7152 {
+    public class SavedState extends AbstractC9165 {
         public static final Parcelable.Creator CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.search.SearchView.SavedState.1
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
@@ -842,7 +842,7 @@ public class SearchView extends FrameLayout implements InterfaceC10551, Material
             super(parcelable);
         }
 
-        @Override // l.AbstractC7152, android.os.Parcelable
+        @Override // p067l.AbstractC9165, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.text);

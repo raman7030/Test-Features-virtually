@@ -9,9 +9,9 @@ import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
 import com.google.android.material.animation.AnimationUtils;
-import l.C20118;
-import l.C23575;
-import l.C8791;
+import p067l.C10723;
+import p067l.C1840;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaterialBottomContainerBackHelper extends MaterialBackAnimationHelper {
@@ -21,19 +21,19 @@ public class MaterialBottomContainerBackHelper extends MaterialBackAnimationHelp
     public MaterialBottomContainerBackHelper(View view) {
         super(view);
         Resources resources = view.getResources();
-        this.maxScaleXDistance = resources.getDimension(C23575.f76220);
-        this.maxScaleYDistance = resources.getDimension(C23575.f76268);
+        this.maxScaleXDistance = resources.getDimension(C24774.f78966);
+        this.maxScaleYDistance = resources.getDimension(C24774.f79014);
     }
 
-    public void startBackProgress(C20118 c20118) {
-        super.onStartBackProgress(c20118);
+    public void startBackProgress(C1840 c1840) {
+        super.onStartBackProgress(c1840);
     }
 
-    public void updateBackProgress(C20118 c20118) {
-        if (super.onUpdateBackProgress(c20118) == null) {
+    public void updateBackProgress(C1840 c1840) {
+        if (super.onUpdateBackProgress(c1840) == null) {
             return;
         }
-        updateBackProgress(c20118.m46371());
+        updateBackProgress(c1840.m48687());
     }
 
     public void updateBackProgress(float f) {
@@ -61,19 +61,19 @@ public class MaterialBottomContainerBackHelper extends MaterialBackAnimationHelp
         }
     }
 
-    public void finishBackProgressPersistent(C20118 c20118, Animator.AnimatorListener animatorListener) {
+    public void finishBackProgressPersistent(C1840 c1840, Animator.AnimatorListener animatorListener) {
         Animator animatorCreateResetScaleAnimator = createResetScaleAnimator();
-        animatorCreateResetScaleAnimator.setDuration(AnimationUtils.lerp(this.hideDurationMax, this.hideDurationMin, c20118.m46371()));
+        animatorCreateResetScaleAnimator.setDuration(AnimationUtils.lerp(this.hideDurationMax, this.hideDurationMin, c1840.m48687()));
         if (animatorListener != null) {
             animatorCreateResetScaleAnimator.addListener(animatorListener);
         }
         animatorCreateResetScaleAnimator.start();
     }
 
-    public void finishBackProgressNotPersistent(C20118 c20118, Animator.AnimatorListener animatorListener) {
+    public void finishBackProgressNotPersistent(C1840 c1840, Animator.AnimatorListener animatorListener) {
         ObjectAnimator objectAnimatorOfFloat = ObjectAnimator.ofFloat(this.view, (Property<View, Float>) View.TRANSLATION_Y, this.view.getScaleY() * this.view.getHeight());
-        objectAnimatorOfFloat.setInterpolator(new C8791());
-        objectAnimatorOfFloat.setDuration(AnimationUtils.lerp(this.hideDurationMax, this.hideDurationMin, c20118.m46371()));
+        objectAnimatorOfFloat.setInterpolator(new C10723());
+        objectAnimatorOfFloat.setDuration(AnimationUtils.lerp(this.hideDurationMax, this.hideDurationMin, c1840.m48687()));
         objectAnimatorOfFloat.addListener(new AnimatorListenerAdapter() { // from class: com.google.android.material.motion.MaterialBottomContainerBackHelper.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
@@ -106,7 +106,7 @@ public class MaterialBottomContainerBackHelper extends MaterialBackAnimationHelp
                 animatorSet.playTogether(ObjectAnimator.ofFloat(viewGroup.getChildAt(i), (Property<View, Float>) View.SCALE_Y, 1.0f));
             }
         }
-        animatorSet.setInterpolator(new C8791());
+        animatorSet.setInterpolator(new C10723());
         return animatorSet;
     }
 }

@@ -2,7 +2,7 @@ package org.bouncycastle.util;
 
 import java.math.BigInteger;
 import java.util.NoSuchElementException;
-import l.C5834;
+import p067l.C7913;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class Arrays {
@@ -1013,7 +1013,7 @@ public final class Arrays {
             return;
         }
         StringBuilder sb = new StringBuilder("buf.length: ");
-        C5834.m16344(sb, bArr.length, ", from: ", i, ", to: ");
+        C7913.m18269(sb, bArr.length, ", from: ", i, ", to: ");
         sb.append(i2);
         throw new IndexOutOfBoundsException(sb.toString());
     }
@@ -1027,7 +1027,7 @@ public final class Arrays {
             return;
         }
         StringBuilder sb = new StringBuilder("buf.length: ");
-        C5834.m16344(sb, bArr.length, ", off: ", i, ", len: ");
+        C7913.m18269(sb, bArr.length, ", off: ", i, ", len: ");
         sb.append(i2);
         throw new IndexOutOfBoundsException(sb.toString());
     }

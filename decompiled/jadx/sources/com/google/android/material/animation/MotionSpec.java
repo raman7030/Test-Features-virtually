@@ -10,13 +10,13 @@ import android.content.res.TypedArray;
 import android.util.Property;
 import java.util.ArrayList;
 import java.util.List;
-import l.C3432;
+import p067l.C1012;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MotionSpec {
     public static final String TAG = "MotionSpec";
-    public final C3432 timings = new C3432();
-    public final C3432 propertyValues = new C3432();
+    public final C1012 timings = new C1012();
+    public final C1012 propertyValues = new C1012();
 
     public boolean hasTiming(String str) {
         return this.timings.getOrDefault(str, null) != null;
@@ -67,7 +67,7 @@ public class MotionSpec {
         int size = this.timings.size();
         long jMax = 0;
         for (int i = 0; i < size; i++) {
-            MotionTiming motionTiming = (MotionTiming) this.timings.m10498(i);
+            MotionTiming motionTiming = (MotionTiming) this.timings.m12521(i);
             jMax = Math.max(jMax, motionTiming.getDuration() + motionTiming.getDelay());
         }
         return jMax;

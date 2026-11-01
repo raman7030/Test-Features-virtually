@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Logger;
-import l.C20195;
 import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DHValidationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
@@ -32,7 +31,7 @@ public final class CryptoServicesRegistrar {
     public static final Permission CanSetDefaultRandom = new CryptoServicesPermission(CryptoServicesPermission.DEFAULT_RANDOM);
     public static final Permission CanSetConstraints = new CryptoServicesPermission(CryptoServicesPermission.CONSTRAINTS);
     public static final ThreadLocal threadProperties = new ThreadLocal();
-    public static final Map globalProperties = C20195.synchronizedMap(new HashMap());
+    public static final Map globalProperties = p067l.C21562.synchronizedMap(new HashMap());
     public static final SecureRandomProvider defaultRandomProviderImpl = new ThreadLocalSecureRandomProvider();
 
     public final class Property {

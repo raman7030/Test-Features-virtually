@@ -13,12 +13,12 @@ import java.util.Map;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DhizukuServiceConnections {
-    public static final IDhizukuUserServiceConnection iDhizukuUserServiceConnection = new AnonymousClass1();
+    public static final IDhizukuUserServiceConnection iDhizukuUserServiceConnection = new BinderC06001();
     public static final Map map = new HashMap();
     public static final Map services = new HashMap();
 
-    /* JADX INFO: renamed from: com.rosan.dhizuku.api.DhizukuServiceConnections$1, reason: invalid class name */
-    public class AnonymousClass1 extends IDhizukuUserServiceConnection.Stub {
+    /* JADX INFO: renamed from: com.rosan.dhizuku.api.DhizukuServiceConnections$1 */
+    public class BinderC06001 extends IDhizukuUserServiceConnection.Stub {
         @Override // com.rosan.dhizuku.aidl.IDhizukuUserServiceConnection
         public void connected(final Bundle bundle, IBinder iBinder) {
             onServiceConnected(bundle, iBinder);

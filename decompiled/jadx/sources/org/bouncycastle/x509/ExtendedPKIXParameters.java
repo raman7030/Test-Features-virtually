@@ -10,9 +10,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import l.C20195;
 import org.bouncycastle.util.Selector;
 import org.bouncycastle.util.Store;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class ExtendedPKIXParameters extends PKIXParameters {
@@ -79,23 +79,23 @@ public class ExtendedPKIXParameters extends PKIXParameters {
     }
 
     public List getAdditionalStores() {
-        return C20195.unmodifiableList(this.additionalStores);
+        return C21562.unmodifiableList(this.additionalStores);
     }
 
     public Set getAttrCertCheckers() {
-        return C20195.unmodifiableSet(this.attrCertCheckers);
+        return C21562.unmodifiableSet(this.attrCertCheckers);
     }
 
     public Set getNecessaryACAttributes() {
-        return C20195.unmodifiableSet(this.necessaryACAttributes);
+        return C21562.unmodifiableSet(this.necessaryACAttributes);
     }
 
     public Set getProhibitedACAttributes() {
-        return C20195.unmodifiableSet(this.prohibitedACAttributes);
+        return C21562.unmodifiableSet(this.prohibitedACAttributes);
     }
 
     public List getStores() {
-        return C20195.unmodifiableList(new ArrayList(this.stores));
+        return C21562.unmodifiableList(new ArrayList(this.stores));
     }
 
     public Selector getTargetConstraints() {
@@ -107,7 +107,7 @@ public class ExtendedPKIXParameters extends PKIXParameters {
     }
 
     public Set getTrustedACIssuers() {
-        return C20195.unmodifiableSet(this.trustedACIssuers);
+        return C21562.unmodifiableSet(this.trustedACIssuers);
     }
 
     public int getValidityModel() {

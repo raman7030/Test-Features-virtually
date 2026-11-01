@@ -1,0 +1,7 @@
+package com.amazonaws.services.p061s3.model;
+
+import java.io.Serializable;
+
+/* JADX INFO: loaded from: classes.dex */
+public class BucketVersioningConfiguration implements Serializable {
+}

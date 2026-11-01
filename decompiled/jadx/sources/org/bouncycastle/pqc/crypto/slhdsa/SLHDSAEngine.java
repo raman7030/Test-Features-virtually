@@ -16,12 +16,22 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes2.dex */
 public abstract class SLHDSAEngine {
-    public final int A;
-    public final int D;
-    public final int H;
+
+    /* JADX INFO: renamed from: A */
+    public final int f81726A;
+
+    /* JADX INFO: renamed from: D */
+    public final int f81727D;
+
+    /* JADX INFO: renamed from: H */
+    public final int f81728H;
     public final int H_PRIME;
-    public final int K;
-    public final int N;
+
+    /* JADX INFO: renamed from: K */
+    public final int f81729K;
+
+    /* JADX INFO: renamed from: N */
+    public final int f81730N;
     public final int WOTS_LEN;
     public final int WOTS_LEN1;
     public final int WOTS_LEN2;
@@ -29,7 +39,9 @@ public abstract class SLHDSAEngine {
     public final int WOTS_W;
 
     public class Sha2Engine extends SLHDSAEngine {
-        public final int bl;
+
+        /* JADX INFO: renamed from: bl */
+        public final int f81731bl;
         public final byte[] hmacBuf;
         public final MGF1BytesGenerator mgf1;
         public final Digest msgDigest;
@@ -57,7 +69,7 @@ public abstract class SLHDSAEngine {
                 this.mgf1 = new MGF1BytesGenerator(new SHA512Digest());
                 i7 = 128;
             }
-            this.bl = i7;
+            this.f81731bl = i7;
             this.hmacBuf = new byte[this.treeHMac.getMacSize()];
             this.msgDigestBuf = new byte[this.msgDigest.getDigestSize()];
         }
@@ -72,31 +84,33 @@ public abstract class SLHDSAEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
-        public byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2) {
+        /* JADX INFO: renamed from: F */
+        public byte[] mo55430F(byte[] bArr, ADRS adrs, byte[] bArr2) {
             byte[] bArrCompressedADRS = compressedADRS(adrs);
             ((Memoable) this.sha256).reset(this.sha256Memo);
             this.sha256.update(bArrCompressedADRS, 0, bArrCompressedADRS.length);
             this.sha256.update(bArr2, 0, bArr2.length);
             this.sha256.doFinal(this.sha256Buf, 0);
-            return Arrays.copyOfRange(this.sha256Buf, 0, this.N);
+            return Arrays.copyOfRange(this.sha256Buf, 0, this.f81730N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
-        public byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
+        /* JADX INFO: renamed from: H */
+        public byte[] mo55431H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
             byte[] bArrCompressedADRS = compressedADRS(adrs);
             ((Memoable) this.msgDigest).reset(this.msgMemo);
             this.msgDigest.update(bArrCompressedADRS, 0, bArrCompressedADRS.length);
             this.msgDigest.update(bArr2, 0, bArr2.length);
             this.msgDigest.update(bArr3, 0, bArr3.length);
             this.msgDigest.doFinal(this.msgDigestBuf, 0);
-            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.N);
+            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.f81730N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
         public IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5) {
-            int i = ((this.A * this.K) + 7) / 8;
-            int i2 = this.H;
-            int i3 = i2 / this.D;
+            int i = ((this.f81726A * this.f81729K) + 7) / 8;
+            int i2 = this.f81728H;
+            int i3 = i2 / this.f81727D;
             int i4 = i2 - i3;
             int i5 = (i3 + 7) / 8;
             int i6 = (i4 + 7) / 8;
@@ -139,7 +153,7 @@ public abstract class SLHDSAEngine {
             }
             this.treeHMac.update(bArr4, 0, bArr4.length);
             this.treeHMac.doFinal(this.hmacBuf, 0);
-            return Arrays.copyOfRange(this.hmacBuf, 0, this.N);
+            return Arrays.copyOfRange(this.hmacBuf, 0, this.f81730N);
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
@@ -149,7 +163,7 @@ public abstract class SLHDSAEngine {
             this.msgDigest.update(bArrCompressedADRS, 0, bArrCompressedADRS.length);
             this.msgDigest.update(bArr2, 0, bArr2.length);
             this.msgDigest.doFinal(this.msgDigestBuf, 0);
-            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.N);
+            return Arrays.copyOfRange(this.msgDigestBuf, 0, this.f81730N);
         }
 
         public byte[] bitmask(byte[] bArr, byte[] bArr2) {
@@ -183,9 +197,9 @@ public abstract class SLHDSAEngine {
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
         public void init(byte[] bArr) {
-            byte[] bArr2 = new byte[this.bl];
+            byte[] bArr2 = new byte[this.f81731bl];
             this.msgDigest.update(bArr, 0, bArr.length);
-            this.msgDigest.update(bArr2, 0, this.bl - this.N);
+            this.msgDigest.update(bArr2, 0, this.f81731bl - this.f81730N);
             this.msgMemo = ((Memoable) this.msgDigest).copy();
             this.msgDigest.reset();
             this.sha256.update(bArr, 0, bArr.length);
@@ -206,8 +220,9 @@ public abstract class SLHDSAEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
-        public byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2) {
-            int i = this.N;
+        /* JADX INFO: renamed from: F */
+        public byte[] mo55430F(byte[] bArr, ADRS adrs, byte[] bArr2) {
+            int i = this.f81730N;
             byte[] bArr3 = new byte[i];
             this.treeDigest.update(bArr, 0, bArr.length);
             Xof xof = this.treeDigest;
@@ -219,8 +234,9 @@ public abstract class SLHDSAEngine {
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
-        public byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
-            int i = this.N;
+        /* JADX INFO: renamed from: H */
+        public byte[] mo55431H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3) {
+            int i = this.f81730N;
             byte[] bArr4 = new byte[i];
             this.treeDigest.update(bArr, 0, bArr.length);
             Xof xof = this.treeDigest;
@@ -234,9 +250,9 @@ public abstract class SLHDSAEngine {
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
         public IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5) {
-            int i = ((this.A * this.K) + 7) / 8;
-            int i2 = this.H;
-            int i3 = i2 / this.D;
+            int i = ((this.f81726A * this.f81729K) + 7) / 8;
+            int i2 = this.f81728H;
+            int i3 = i2 / this.f81727D;
             int i4 = i2 - i3;
             int i5 = (i3 + 7) / 8;
             int i6 = (i4 + 7) / 8;
@@ -265,7 +281,7 @@ public abstract class SLHDSAEngine {
             byte[] bArr3 = adrs.value;
             xof.update(bArr3, 0, bArr3.length);
             this.treeDigest.update(bArr2, 0, bArr2.length);
-            int i = this.N;
+            int i = this.f81730N;
             byte[] bArr4 = new byte[i];
             this.treeDigest.doFinal(bArr4, 0, i);
             return bArr4;
@@ -279,7 +295,7 @@ public abstract class SLHDSAEngine {
                 this.treeDigest.update(bArr3, 0, bArr3.length);
             }
             this.treeDigest.update(bArr4, 0, bArr4.length);
-            int i = this.N;
+            int i = this.f81730N;
             byte[] bArr5 = new byte[i];
             this.treeDigest.doFinal(bArr5, 0, i);
             return bArr5;
@@ -287,7 +303,7 @@ public abstract class SLHDSAEngine {
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngine
         public byte[] T_l(byte[] bArr, ADRS adrs, byte[] bArr2) {
-            int i = this.N;
+            int i = this.f81730N;
             byte[] bArr3 = new byte[i];
             this.treeDigest.update(bArr, 0, bArr.length);
             Xof xof = this.treeDigest;
@@ -330,7 +346,7 @@ public abstract class SLHDSAEngine {
 
     public SLHDSAEngine(int i, int i2, int i3, int i4, int i5, int i6) {
         int i7;
-        this.N = i;
+        this.f81730N = i;
         if (i2 == 16) {
             i7 = 4;
             this.WOTS_LOGW = 4;
@@ -363,16 +379,18 @@ public abstract class SLHDSAEngine {
         }
         this.WOTS_W = i2;
         this.WOTS_LEN = this.WOTS_LEN1 + this.WOTS_LEN2;
-        this.D = i3;
-        this.A = i4;
-        this.K = i5;
-        this.H = i6;
+        this.f81727D = i3;
+        this.f81726A = i4;
+        this.f81729K = i5;
+        this.f81728H = i6;
         this.H_PRIME = i6 / i3;
     }
 
-    public abstract byte[] F(byte[] bArr, ADRS adrs, byte[] bArr2);
+    /* JADX INFO: renamed from: F */
+    public abstract byte[] mo55430F(byte[] bArr, ADRS adrs, byte[] bArr2);
 
-    public abstract byte[] H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3);
+    /* JADX INFO: renamed from: H */
+    public abstract byte[] mo55431H(byte[] bArr, ADRS adrs, byte[] bArr2, byte[] bArr3);
 
     public abstract IndexedDigest H_msg(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5);
 

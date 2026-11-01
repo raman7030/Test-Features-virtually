@@ -5,37 +5,45 @@ import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.EncapsulatedSecretExtractor;
 import org.bouncycastle.crypto.params.SAKKEPrivateKeyParameters;
 import org.bouncycastle.crypto.params.SAKKEPublicKeyParameters;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.BigIntegers;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SAKKEKEMExtractor implements EncapsulatedSecretExtractor {
     public final ECPoint K_bs;
-    public final ECPoint P;
+
+    /* JADX INFO: renamed from: P */
+    public final ECPoint f81124P;
     public final ECPoint Z_S;
     public final ECCurve curve;
     public final Digest digest;
     public final BigInteger identifier;
-    public final int n;
-    public final BigInteger p;
-    public final BigInteger q;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81125n;
+
+    /* JADX INFO: renamed from: p */
+    public final BigInteger f81126p;
+
+    /* JADX INFO: renamed from: q */
+    public final BigInteger f81127q;
 
     public SAKKEKEMExtractor(SAKKEPrivateKeyParameters sAKKEPrivateKeyParameters) {
         SAKKEPublicKeyParameters publicParams = sAKKEPrivateKeyParameters.getPublicParams();
         this.curve = publicParams.getCurve();
         BigInteger q = publicParams.getQ();
-        this.q = q;
+        this.f81127q = q;
         ECPoint point = publicParams.getPoint();
-        this.P = point;
-        this.p = publicParams.getPrime();
+        this.f81124P = point;
+        this.f81126p = publicParams.getPrime();
         this.Z_S = publicParams.getZ();
         BigInteger identifier = publicParams.getIdentifier();
         this.identifier = identifier;
         this.K_bs = point.multiply(identifier.add(sAKKEPrivateKeyParameters.getMasterSecret()).modInverse(q)).normalize();
-        this.n = publicParams.getN();
+        this.f81125n = publicParams.getN();
         this.digest = publicParams.getDigest();
     }
 
@@ -86,18 +94,18 @@ public class SAKKEKEMExtractor implements EncapsulatedSecretExtractor {
         ECPoint eCPointSumOfTwoMultiplies;
         ECPoint eCPointDecodePoint = this.curve.decodePoint(Arrays.copyOfRange(bArr, 0, 257));
         BigInteger bigIntegerFromUnsignedByteArray = BigIntegers.fromUnsignedByteArray(bArr, 257, 16);
-        BigInteger bigIntegerComputePairing = computePairing(eCPointDecodePoint, this.K_bs, this.p, this.q);
-        BigInteger bigIntegerMod = bigIntegerFromUnsignedByteArray.xor(SAKKEKEMSGenerator.hashToIntegerRange(bigIntegerComputePairing.toByteArray(), BigInteger.ONE.shiftLeft(this.n), this.digest)).mod(this.p);
+        BigInteger bigIntegerComputePairing = computePairing(eCPointDecodePoint, this.K_bs, this.f81126p, this.f81127q);
+        BigInteger bigIntegerMod = bigIntegerFromUnsignedByteArray.xor(SAKKEKEMSGenerator.hashToIntegerRange(bigIntegerComputePairing.toByteArray(), BigInteger.ONE.shiftLeft(this.f81125n), this.digest)).mod(this.f81126p);
         BigInteger bigInteger = this.identifier;
-        BigInteger bigIntegerHashToIntegerRange = SAKKEKEMSGenerator.hashToIntegerRange(Arrays.concatenate(bigIntegerMod.toByteArray(), bigInteger.toByteArray()), this.q, this.digest);
+        BigInteger bigIntegerHashToIntegerRange = SAKKEKEMSGenerator.hashToIntegerRange(Arrays.concatenate(bigIntegerMod.toByteArray(), bigInteger.toByteArray()), this.f81127q, this.digest);
         BigInteger order = this.curve.getOrder();
         if (order == null) {
-            eCPointSumOfTwoMultiplies = this.P.multiply(bigInteger).add(this.Z_S).multiply(bigIntegerHashToIntegerRange);
+            eCPointSumOfTwoMultiplies = this.f81124P.multiply(bigInteger).add(this.Z_S).multiply(bigIntegerHashToIntegerRange);
         } else {
-            eCPointSumOfTwoMultiplies = ECAlgorithms.sumOfTwoMultiplies(this.P, bigInteger.multiply(bigIntegerHashToIntegerRange).mod(order), this.Z_S, bigIntegerHashToIntegerRange);
+            eCPointSumOfTwoMultiplies = ECAlgorithms.sumOfTwoMultiplies(this.f81124P, bigInteger.multiply(bigIntegerHashToIntegerRange).mod(order), this.Z_S, bigIntegerHashToIntegerRange);
         }
         if (eCPointSumOfTwoMultiplies.subtract(eCPointDecodePoint).isInfinity()) {
-            return BigIntegers.asUnsignedByteArray(this.n / 8, bigIntegerMod);
+            return BigIntegers.asUnsignedByteArray(this.f81125n / 8, bigIntegerMod);
         }
         throw new IllegalStateException("Validation of R_bS failed");
     }

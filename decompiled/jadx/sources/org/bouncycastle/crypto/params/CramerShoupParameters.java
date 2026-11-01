@@ -7,17 +7,25 @@ import org.bouncycastle.util.Memoable;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CramerShoupParameters implements CipherParameters {
-    public Digest H;
-    public BigInteger g1;
-    public BigInteger g2;
-    public BigInteger p;
+
+    /* JADX INFO: renamed from: H */
+    public Digest f81216H;
+
+    /* JADX INFO: renamed from: g1 */
+    public BigInteger f81217g1;
+
+    /* JADX INFO: renamed from: g2 */
+    public BigInteger f81218g2;
+
+    /* JADX INFO: renamed from: p */
+    public BigInteger f81219p;
 
     public CramerShoupParameters(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, Digest digest) {
-        this.p = bigInteger;
-        this.g1 = bigInteger2;
-        this.g2 = bigInteger3;
+        this.f81219p = bigInteger;
+        this.f81217g1 = bigInteger2;
+        this.f81218g2 = bigInteger3;
         Digest digest2 = (Digest) ((Memoable) digest).copy();
-        this.H = digest2;
+        this.f81216H = digest2;
         digest2.reset();
     }
 
@@ -26,23 +34,23 @@ public class CramerShoupParameters implements CipherParameters {
             return false;
         }
         CramerShoupParameters cramerShoupParameters = (CramerShoupParameters) obj;
-        return cramerShoupParameters.getP().equals(this.p) && cramerShoupParameters.getG1().equals(this.g1) && cramerShoupParameters.getG2().equals(this.g2);
+        return cramerShoupParameters.getP().equals(this.f81219p) && cramerShoupParameters.getG1().equals(this.f81217g1) && cramerShoupParameters.getG2().equals(this.f81218g2);
     }
 
     public BigInteger getG1() {
-        return this.g1;
+        return this.f81217g1;
     }
 
     public BigInteger getG2() {
-        return this.g2;
+        return this.f81218g2;
     }
 
     public Digest getH() {
-        return (Digest) ((Memoable) this.H).copy();
+        return (Digest) ((Memoable) this.f81216H).copy();
     }
 
     public BigInteger getP() {
-        return this.p;
+        return this.f81219p;
     }
 
     public int hashCode() {

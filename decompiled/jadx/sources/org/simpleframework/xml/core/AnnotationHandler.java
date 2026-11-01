@@ -1,6 +1,6 @@
 package org.simpleframework.xml.core;
 
-import com.alipay.sdk.m.p.a;
+import com.alipay.sdk.p010m.p041p.C0184a;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -88,7 +88,7 @@ public class AnnotationHandler implements InvocationHandler {
                 sb.append(' ');
             }
             sb.append(name);
-            sb.append(a.h);
+            sb.append(C0184a.f880h);
             sb.append(objValue);
         }
         sb.append(')');

@@ -2,38 +2,44 @@ package org.bouncycastle.jce.spec;
 
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECParameterSpec implements AlgorithmParameterSpec {
-    public ECPoint G;
+
+    /* JADX INFO: renamed from: G */
+    public ECPoint f81385G;
     public ECCurve curve;
-    public BigInteger h;
-    public BigInteger n;
+
+    /* JADX INFO: renamed from: h */
+    public BigInteger f81386h;
+
+    /* JADX INFO: renamed from: n */
+    public BigInteger f81387n;
     public byte[] seed;
 
     public ECParameterSpec(ECCurve eCCurve, ECPoint eCPoint, BigInteger bigInteger) {
         this.curve = eCCurve;
-        this.G = eCPoint.normalize();
-        this.n = bigInteger;
-        this.h = BigInteger.valueOf(1L);
+        this.f81385G = eCPoint.normalize();
+        this.f81387n = bigInteger;
+        this.f81386h = BigInteger.valueOf(1L);
         this.seed = null;
     }
 
     public ECParameterSpec(ECCurve eCCurve, ECPoint eCPoint, BigInteger bigInteger, BigInteger bigInteger2) {
         this.curve = eCCurve;
-        this.G = eCPoint.normalize();
-        this.n = bigInteger;
-        this.h = bigInteger2;
+        this.f81385G = eCPoint.normalize();
+        this.f81387n = bigInteger;
+        this.f81386h = bigInteger2;
         this.seed = null;
     }
 
     public ECParameterSpec(ECCurve eCCurve, ECPoint eCPoint, BigInteger bigInteger, BigInteger bigInteger2, byte[] bArr) {
         this.curve = eCCurve;
-        this.G = eCPoint.normalize();
-        this.n = bigInteger;
-        this.h = bigInteger2;
+        this.f81385G = eCPoint.normalize();
+        this.f81387n = bigInteger;
+        this.f81386h = bigInteger2;
         this.seed = bArr;
     }
 
@@ -50,15 +56,15 @@ public class ECParameterSpec implements AlgorithmParameterSpec {
     }
 
     public ECPoint getG() {
-        return this.G;
+        return this.f81385G;
     }
 
     public BigInteger getH() {
-        return this.h;
+        return this.f81386h;
     }
 
     public BigInteger getN() {
-        return this.n;
+        return this.f81387n;
     }
 
     public byte[] getSeed() {

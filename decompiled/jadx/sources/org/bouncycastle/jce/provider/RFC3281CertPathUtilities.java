@@ -26,8 +26,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C4860;
-import l.C7166;
 import org.bouncycastle.asn1.x509.CRLDistPoint;
 import org.bouncycastle.asn1.x509.DistributionPoint;
 import org.bouncycastle.asn1.x509.DistributionPointName;
@@ -46,6 +44,8 @@ import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
 import org.bouncycastle.x509.PKIXAttrCertChecker;
 import org.bouncycastle.x509.X509AttributeCertificate;
 import org.bouncycastle.x509.X509CertStoreSelector;
+import p067l.C6988;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RFC3281CertPathUtilities {
@@ -258,14 +258,14 @@ public class RFC3281CertPathUtilities {
         while (it.hasNext()) {
             String str = (String) it.next();
             if (x509AttributeCertificate.getAttributes(str) != null) {
-                throw new CertPathValidatorException(C4860.m14172("Attribute certificate contains prohibited attribute: ", str, "."));
+                throw new CertPathValidatorException(C6988.m16053("Attribute certificate contains prohibited attribute: ", str, "."));
             }
         }
         Iterator it2 = set2.iterator();
         while (it2.hasNext()) {
             String str2 = (String) it2.next();
             if (x509AttributeCertificate.getAttributes(str2) == null) {
-                throw new CertPathValidatorException(C4860.m14172("Attribute certificate does not contain necessary attribute: ", str2, "."));
+                throw new CertPathValidatorException(C6988.m16053("Attribute certificate does not contain necessary attribute: ", str2, "."));
             }
         }
     }
@@ -357,9 +357,9 @@ public class RFC3281CertPathUtilities {
                                                 throw new CertPathValidatorException("Attribute certificate status could not be determined.");
                                             }
                                         }
-                                        StringBuilder sbM19190 = C7166.m19190("Attribute certificate revocation after " + certStatus.getRevocationDate(), ", reason: ");
-                                        sbM19190.append(RFC3280CertPathUtilities.crlReasons[certStatus.getCertStatus()]);
-                                        throw new CertPathValidatorException(sbM19190.toString());
+                                        StringBuilder sbM21133 = C9179.m21133("Attribute certificate revocation after " + certStatus.getRevocationDate(), ", reason: ");
+                                        sbM21133.append(RFC3280CertPathUtilities.crlReasons[certStatus.getCertStatus()]);
+                                        throw new CertPathValidatorException(sbM21133.toString());
                                     }
                                 } catch (AnnotatedException e4) {
                                     e = e4;
@@ -386,9 +386,9 @@ public class RFC3281CertPathUtilities {
                         throw new ExtCertPathValidatorException("No valid CRL found.", annotatedException);
                     }
                     if (certStatus.getCertStatus() != 11) {
-                        StringBuilder sbM19191 = C7166.m19190("Attribute certificate revocation after " + certStatus.getRevocationDate(), ", reason: ");
-                        sbM19191.append(RFC3280CertPathUtilities.crlReasons[certStatus.getCertStatus()]);
-                        throw new CertPathValidatorException(sbM19191.toString());
+                        StringBuilder sbM21134 = C9179.m21133("Attribute certificate revocation after " + certStatus.getRevocationDate(), ", reason: ");
+                        sbM21134.append(RFC3280CertPathUtilities.crlReasons[certStatus.getCertStatus()]);
+                        throw new CertPathValidatorException(sbM21134.toString());
                     }
                     if (!reasonsMask.isAllReasons() && certStatus.getCertStatus() == 11) {
                         certStatus.setCertStatus(12);

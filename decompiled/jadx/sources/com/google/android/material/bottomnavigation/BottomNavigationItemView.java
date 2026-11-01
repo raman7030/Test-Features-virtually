@@ -2,8 +2,8 @@ package com.google.android.material.bottomnavigation;
 
 import android.content.Context;
 import com.google.android.material.navigation.NavigationBarItemView;
-import l.C15813;
-import l.C23575;
+import p067l.C17397;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BottomNavigationItemView extends NavigationBarItemView {
@@ -13,11 +13,11 @@ public class BottomNavigationItemView extends NavigationBarItemView {
 
     @Override // com.google.android.material.navigation.NavigationBarItemView
     public int getItemLayoutResId() {
-        return C15813.f48811;
+        return C17397.f51949;
     }
 
     @Override // com.google.android.material.navigation.NavigationBarItemView
     public int getItemDefaultMarginResId() {
-        return C23575.f76219;
+        return C24774.f78965;
     }
 }

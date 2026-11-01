@@ -1,9 +1,8 @@
 package org.bouncycastle.crypto.engines;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
-import l.C20177;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -19,6 +18,7 @@ import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Pack;
 import org.bouncycastle.util.encoders.Base32Encoder;
 import org.bouncycastle.util.encoders.UTF8;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class TwofishEngine implements BlockCipher {
@@ -30,7 +30,9 @@ public final class TwofishEngine implements BlockCipher {
     public static final int MAX_KEY_BITS = 256;
     public static final int MAX_ROUNDS = 16;
     public static final int OUTPUT_WHITEN = 4;
-    public static final byte[][] P = {new byte[]{-87, 103, -77, -24, 4, -3, -93, 118, -102, -110, GCMSIVBlockCipher.MASK, 120, -28, -35, -47, 56, cb.k, -58, 53, -104, 24, -9, -20, 108, 67, 117, 55, 38, -6, 19, -108, 72, -14, -48, -117, UTF8.S_P3A, -124, 84, -33, 35, 25, 91, Base32Encoder.DEFAULT_PADDING, 89, -13, -82, -94, bo.h, 99, 1, -125, 46, -39, 81, -101, 124, -90, -21, -91, -66, 22, 12, -29, 97, -64, -116, 58, -11, 115, 44, 37, 11, -69, 78, -119, 107, 83, 106, -76, -15, GCMSIVBlockCipher.ADD, -26, -67, 69, -30, -12, -74, 102, -52, -107, 3, 86, -44, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 30, -41, -5, -61, -114, -75, -23, -49, -65, -70, -22, 119, 57, -81, 51, -55, 98, KeyFactorySpi.Ed448_type, -127, 121, 9, -83, 36, -51, -7, -40, -27, -59, -71, 77, 68, 8, -122, -25, -95, 29, -86, -19, 6, KeyFactorySpi.Ed25519_type, -78, -46, 65, 123, -96, 17, 49, -62, 39, -112, UTF8.S_CS3, -10, UTF8.S_P4B, -1, -106, 92, -79, -85, -98, -100, 82, 27, 95, -109, 10, -17, -111, -123, 73, -18, 45, 79, -113, 59, 71, -121, 109, 70, -42, 62, 105, 100, 42, -50, -53, 47, -4, -105, 5, 122, -84, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -43, 26, 75, cb.f77931l, -89, 90, 40, 20, 63, 41, -120, 60, 76, 2, -72, -38, -80, 23, 85, bo.j, -118, 125, 87, -57, -115, 116, -73, -60, -97, 114, 126, 21, 34, 18, 88, 7, -103, 52, KeyFactorySpi.x25519_type, UTF8.S_P4A, -34, 104, 101, PSSSigner.TRAILER_IMPLICIT, -37, -8, -56, -88, 43, 64, -36, -2, 50, -92, -54, 16, PublicSuffixDatabase.EXCEPTION_MARKER, -16, -45, 93, 15, 0, KeyFactorySpi.x448_type, -99, 54, 66, 74, 94, -63, bo.k}, new byte[]{117, -13, -58, -12, -37, 123, -5, -56, 74, -45, -26, 107, 69, 125, -24, 75, -42, 50, -40, -3, 55, KeyFactorySpi.Ed448_type, -15, GCMSIVBlockCipher.ADD, UTF8.S_P3A, 15, -8, 27, -121, -6, 6, 63, 94, -70, -82, 91, -118, 0, PSSSigner.TRAILER_IMPLICIT, -99, 109, -63, -79, cb.f77931l, GCMSIVBlockCipher.MASK, 93, -46, -43, -96, -124, 7, 20, -75, -112, 44, -93, -78, 115, 76, 84, -110, 116, 54, 81, 56, -80, -67, 90, -4, UTF8.S_P4B, 98, -106, 108, 66, -9, 16, 124, 40, 39, -116, 19, -107, -100, -57, 36, 70, 59, KeyFactorySpi.Ed25519_type, -54, -29, -123, -53, 17, -48, -109, -72, -90, -125, UTF8.S_CS3, -1, -97, 119, -61, -52, 3, KeyFactorySpi.x448_type, 8, -65, 64, -25, 43, -30, 121, 12, -86, bo.h, 65, 58, -22, -71, -28, -102, -92, -105, 126, -38, 122, 23, 102, -108, -95, 29, Base32Encoder.DEFAULT_PADDING, -16, -34, -77, 11, 114, -89, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, -17, -47, 83, 62, -113, 51, 38, 95, -20, 118, 42, 73, -127, -120, -18, PublicSuffixDatabase.EXCEPTION_MARKER, -60, 26, -21, -39, -59, 57, -103, -51, -83, 49, -117, 1, 24, 35, -35, bo.j, 78, 45, -7, 72, 79, -14, 101, -114, 120, 92, 88, 25, -115, -27, -104, 87, 103, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, 5, 100, -81, 99, -74, -2, -11, -73, 60, -91, -50, -23, 104, 68, bo.k, 77, 67, 105, 41, 46, -84, 21, 89, -88, 10, -98, KeyFactorySpi.x25519_type, 71, -33, 52, 53, 106, -49, -36, 34, -55, -64, -101, -119, -44, -19, -85, 18, -94, cb.k, 82, -69, 2, 47, -87, -41, 97, 30, -76, UTF8.S_P4A, 4, -10, -62, 22, 37, -122, 86, 85, 9, -66, -111}};
+
+    /* JADX INFO: renamed from: P */
+    public static final byte[][] f81090P = {new byte[]{-87, 103, -77, -24, 4, -3, -93, 118, -102, -110, GCMSIVBlockCipher.MASK, 120, -28, -35, -47, 56, C0698cb.f2569k, -58, 53, -104, 24, -9, -20, 108, 67, 117, 55, 38, -6, 19, -108, 72, -14, -48, -117, UTF8.S_P3A, -124, 84, -33, 35, 25, 91, Base32Encoder.DEFAULT_PADDING, 89, -13, -82, -94, C0684bo.f2503h, 99, 1, -125, 46, -39, 81, -101, 124, -90, -21, -91, -66, 22, 12, -29, 97, -64, -116, 58, -11, 115, 44, 37, 11, -69, 78, -119, 107, 83, 106, -76, -15, GCMSIVBlockCipher.ADD, -26, -67, 69, -30, -12, -74, 102, -52, -107, 3, 86, -44, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 30, -41, -5, -61, -114, -75, -23, -49, -65, -70, -22, 119, 57, -81, 51, -55, 98, KeyFactorySpi.Ed448_type, -127, 121, 9, -83, 36, -51, -7, -40, -27, -59, -71, 77, 68, 8, -122, -25, -95, 29, -86, -19, 6, KeyFactorySpi.Ed25519_type, -78, -46, 65, 123, -96, 17, 49, -62, 39, -112, UTF8.S_CS3, -10, UTF8.S_P4B, -1, -106, 92, -79, -85, -98, -100, 82, 27, 95, -109, 10, -17, -111, -123, 73, -18, 45, 79, -113, 59, 71, -121, 109, 70, -42, 62, 105, 100, 42, -50, -53, 47, -4, -105, 5, 122, -84, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -43, 26, 75, C0698cb.f2570l, -89, 90, 40, 20, 63, 41, -120, 60, 76, 2, -72, -38, -80, 23, 85, C0684bo.f2505j, -118, 125, 87, -57, -115, 116, -73, -60, -97, 114, 126, 21, 34, 18, 88, 7, -103, 52, KeyFactorySpi.x25519_type, UTF8.S_P4A, -34, 104, 101, PSSSigner.TRAILER_IMPLICIT, -37, -8, -56, -88, 43, 64, -36, -2, 50, -92, -54, 16, PublicSuffixDatabase.EXCEPTION_MARKER, -16, -45, 93, 15, 0, KeyFactorySpi.x448_type, -99, 54, 66, 74, 94, -63, C0684bo.f2506k}, new byte[]{117, -13, -58, -12, -37, 123, -5, -56, 74, -45, -26, 107, 69, 125, -24, 75, -42, 50, -40, -3, 55, KeyFactorySpi.Ed448_type, -15, GCMSIVBlockCipher.ADD, UTF8.S_P3A, 15, -8, 27, -121, -6, 6, 63, 94, -70, -82, 91, -118, 0, PSSSigner.TRAILER_IMPLICIT, -99, 109, -63, -79, C0698cb.f2570l, GCMSIVBlockCipher.MASK, 93, -46, -43, -96, -124, 7, 20, -75, -112, 44, -93, -78, 115, 76, 84, -110, 116, 54, 81, 56, -80, -67, 90, -4, UTF8.S_P4B, 98, -106, 108, 66, -9, 16, 124, 40, 39, -116, 19, -107, -100, -57, 36, 70, 59, KeyFactorySpi.Ed25519_type, -54, -29, -123, -53, 17, -48, -109, -72, -90, -125, UTF8.S_CS3, -1, -97, 119, -61, -52, 3, KeyFactorySpi.x448_type, 8, -65, 64, -25, 43, -30, 121, 12, -86, C0684bo.f2503h, 65, 58, -22, -71, -28, -102, -92, -105, 126, -38, 122, 23, 102, -108, -95, 29, Base32Encoder.DEFAULT_PADDING, -16, -34, -77, 11, 114, -89, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, -17, -47, 83, 62, -113, 51, 38, 95, -20, 118, 42, 73, -127, -120, -18, PublicSuffixDatabase.EXCEPTION_MARKER, -60, 26, -21, -39, -59, 57, -103, -51, -83, 49, -117, 1, 24, 35, -35, C0684bo.f2505j, 78, 45, -7, 72, 79, -14, 101, -114, 120, 92, 88, 25, -115, -27, -104, 87, 103, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, 5, 100, -81, 99, -74, -2, -11, -73, 60, -91, -50, -23, 104, 68, C0684bo.f2506k, 77, 67, 105, 41, 46, -84, 21, 89, -88, 10, -98, KeyFactorySpi.x25519_type, 71, -33, 52, 53, 106, -49, -36, 34, -55, -64, -101, -119, -44, -19, -85, 18, -94, C0698cb.f2569k, 82, -69, 2, 47, -87, -41, 97, 30, -76, UTF8.S_P4A, 4, -10, -62, 22, 37, -122, 86, 85, 9, -66, -111}};
     public static final int P_00 = 1;
     public static final int P_01 = 0;
     public static final int P_02 = 0;
@@ -71,7 +73,7 @@ public final class TwofishEngine implements BlockCipher {
     public TwofishEngine() {
         CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(getAlgorithmName(), 256));
         for (int i = 0; i < 256; i++) {
-            byte[][] bArr = P;
+            byte[][] bArr = f81090P;
             int i2 = bArr[0][i] & 255;
             int iMx_X = Mx_X(i2) & 255;
             int iMx_Y = Mx_Y(i2) & 255;
@@ -99,10 +101,10 @@ public final class TwofishEngine implements BlockCipher {
     private int F32(int i, int[] iArr) {
         int i2;
         int i3;
-        int iB0 = b0(i);
-        int iB1 = b1(i);
-        int iB2 = b2(i);
-        int iB3 = b3(i);
+        int iM55395b0 = m55395b0(i);
+        int iM55396b1 = m55396b1(i);
+        int iM55397b2 = m55397b2(i);
+        int iM55398b3 = m55398b3(i);
         int i4 = iArr[0];
         int i5 = iArr[1];
         int i6 = iArr[2];
@@ -116,37 +118,37 @@ public final class TwofishEngine implements BlockCipher {
                     }
                 }
                 int[] iArr2 = this.gMDS0;
-                byte[][] bArr = P;
+                byte[][] bArr = f81090P;
                 byte[] bArr2 = bArr[0];
-                i2 = (iArr2[(bArr2[(bArr2[iB0] & 255) ^ b0(i5)] & 255) ^ b0(i4)] ^ this.gMDS1[(bArr[0][(bArr[1][iB1] & 255) ^ b1(i5)] & 255) ^ b1(i4)]) ^ this.gMDS2[(bArr[1][(bArr[0][iB2] & 255) ^ b2(i5)] & 255) ^ b2(i4)];
+                i2 = (iArr2[(bArr2[(bArr2[iM55395b0] & 255) ^ m55395b0(i5)] & 255) ^ m55395b0(i4)] ^ this.gMDS1[(bArr[0][(bArr[1][iM55396b1] & 255) ^ m55396b1(i5)] & 255) ^ m55396b1(i4)]) ^ this.gMDS2[(bArr[1][(bArr[0][iM55397b2] & 255) ^ m55397b2(i5)] & 255) ^ m55397b2(i4)];
                 int[] iArr3 = this.gMDS3;
                 byte[] bArr3 = bArr[1];
-                i3 = iArr3[(bArr3[(bArr3[iB3] & 255) ^ b3(i5)] & 255) ^ b3(i4)];
+                i3 = iArr3[(bArr3[(bArr3[iM55398b3] & 255) ^ m55398b3(i5)] & 255) ^ m55398b3(i4)];
             } else {
                 int[] iArr4 = this.gMDS0;
-                byte[][] bArr4 = P;
-                i2 = (iArr4[(bArr4[0][iB0] & 255) ^ b0(i4)] ^ this.gMDS1[(bArr4[0][iB1] & 255) ^ b1(i4)]) ^ this.gMDS2[(bArr4[1][iB2] & 255) ^ b2(i4)];
-                i3 = this.gMDS3[(bArr4[1][iB3] & 255) ^ b3(i4)];
+                byte[][] bArr4 = f81090P;
+                i2 = (iArr4[(bArr4[0][iM55395b0] & 255) ^ m55395b0(i4)] ^ this.gMDS1[(bArr4[0][iM55396b1] & 255) ^ m55396b1(i4)]) ^ this.gMDS2[(bArr4[1][iM55397b2] & 255) ^ m55397b2(i4)];
+                i3 = this.gMDS3[(bArr4[1][iM55398b3] & 255) ^ m55398b3(i4)];
             }
             return i3 ^ i2;
         }
-        byte[][] bArr5 = P;
-        iB0 = (bArr5[1][iB0] & 255) ^ b0(i7);
-        iB1 = (bArr5[0][iB1] & 255) ^ b1(i7);
-        iB2 = (bArr5[0][iB2] & 255) ^ b2(i7);
-        iB3 = (bArr5[1][iB3] & 255) ^ b3(i7);
-        byte[][] bArr6 = P;
-        iB0 = (bArr6[1][iB0] & 255) ^ b0(i6);
-        iB1 = (bArr6[1][iB1] & 255) ^ b1(i6);
-        iB2 = (bArr6[0][iB2] & 255) ^ b2(i6);
-        iB3 = (bArr6[0][iB3] & 255) ^ b3(i6);
+        byte[][] bArr5 = f81090P;
+        iM55395b0 = (bArr5[1][iM55395b0] & 255) ^ m55395b0(i7);
+        iM55396b1 = (bArr5[0][iM55396b1] & 255) ^ m55396b1(i7);
+        iM55397b2 = (bArr5[0][iM55397b2] & 255) ^ m55397b2(i7);
+        iM55398b3 = (bArr5[1][iM55398b3] & 255) ^ m55398b3(i7);
+        byte[][] bArr6 = f81090P;
+        iM55395b0 = (bArr6[1][iM55395b0] & 255) ^ m55395b0(i6);
+        iM55396b1 = (bArr6[1][iM55396b1] & 255) ^ m55396b1(i6);
+        iM55397b2 = (bArr6[0][iM55397b2] & 255) ^ m55397b2(i6);
+        iM55398b3 = (bArr6[0][iM55398b3] & 255) ^ m55398b3(i6);
         int[] iArr5 = this.gMDS0;
-        byte[][] bArr7 = P;
+        byte[][] bArr7 = f81090P;
         byte[] bArr8 = bArr7[0];
-        i2 = (iArr5[(bArr8[(bArr8[iB0] & 255) ^ b0(i5)] & 255) ^ b0(i4)] ^ this.gMDS1[(bArr7[0][(bArr7[1][iB1] & 255) ^ b1(i5)] & 255) ^ b1(i4)]) ^ this.gMDS2[(bArr7[1][(bArr7[0][iB2] & 255) ^ b2(i5)] & 255) ^ b2(i4)];
+        i2 = (iArr5[(bArr8[(bArr8[iM55395b0] & 255) ^ m55395b0(i5)] & 255) ^ m55395b0(i4)] ^ this.gMDS1[(bArr7[0][(bArr7[1][iM55396b1] & 255) ^ m55396b1(i5)] & 255) ^ m55396b1(i4)]) ^ this.gMDS2[(bArr7[1][(bArr7[0][iM55397b2] & 255) ^ m55397b2(i5)] & 255) ^ m55397b2(i4)];
         int[] iArr6 = this.gMDS3;
         byte[] bArr9 = bArr7[1];
-        i3 = iArr6[(bArr9[(bArr9[iB3] & 255) ^ b3(i5)] & 255) ^ b3(i4)];
+        i3 = iArr6[(bArr9[(bArr9[iM55398b3] & 255) ^ m55398b3(i5)] & 255) ^ m55398b3(i4)];
         return i3 ^ i2;
     }
 
@@ -195,19 +197,23 @@ public final class TwofishEngine implements BlockCipher {
         return ((((i << 8) ^ (i5 << 24)) ^ (i4 << 16)) ^ (i5 << 8)) ^ i3;
     }
 
-    private int b0(int i) {
+    /* JADX INFO: renamed from: b0 */
+    private int m55395b0(int i) {
         return i & 255;
     }
 
-    private int b1(int i) {
+    /* JADX INFO: renamed from: b1 */
+    private int m55396b1(int i) {
         return (i >>> 8) & 255;
     }
 
-    private int b2(int i) {
+    /* JADX INFO: renamed from: b2 */
+    private int m55397b2(int i) {
         return (i >>> 16) & 255;
     }
 
-    private int b3(int i) {
+    /* JADX INFO: renamed from: b3 */
+    private int m55398b3(int i) {
         return (i >>> 24) & 255;
     }
 
@@ -262,14 +268,14 @@ public final class TwofishEngine implements BlockCipher {
     }
 
     private void setKey(byte[] bArr) {
-        int iB0;
-        int iB1;
-        int iB2;
-        int iB3;
-        int iB4;
-        int iB5;
-        int iB6;
-        int iB7;
+        int iM55395b0;
+        int iM55396b1;
+        int iM55397b2;
+        int iM55398b3;
+        int iM55397b3;
+        int iM55396b2;
+        int iM55395b1;
+        int iM55398b4;
         int[] iArr = new int[4];
         int[] iArr2 = new int[4];
         int[] iArr3 = new int[4];
@@ -306,58 +312,58 @@ public final class TwofishEngine implements BlockCipher {
                     int[] iArr5 = this.gSBox;
                     int i15 = i13 * 2;
                     int[] iArr6 = this.gMDS0;
-                    byte[][] bArr2 = P;
-                    iArr5[i15] = iArr6[(bArr2[0][i13] & 255) ^ b0(i8)];
-                    this.gSBox[i15 + 1] = this.gMDS1[(bArr2[0][i13] & 255) ^ b1(i8)];
-                    this.gSBox[i15 + 512] = this.gMDS2[(bArr2[1][i13] & 255) ^ b2(i8)];
-                    this.gSBox[i15 + 513] = this.gMDS3[(bArr2[1][i13] & 255) ^ b3(i8)];
+                    byte[][] bArr2 = f81090P;
+                    iArr5[i15] = iArr6[(bArr2[0][i13] & 255) ^ m55395b0(i8)];
+                    this.gSBox[i15 + 1] = this.gMDS1[(bArr2[0][i13] & 255) ^ m55396b1(i8)];
+                    this.gSBox[i15 + 512] = this.gMDS2[(bArr2[1][i13] & 255) ^ m55397b2(i8)];
+                    this.gSBox[i15 + 513] = this.gMDS3[(bArr2[1][i13] & 255) ^ m55398b3(i8)];
                 } else if (i14 == i10) {
-                    iB7 = i13;
-                    iB6 = iB7;
-                    iB5 = iB6;
-                    iB4 = iB5;
+                    iM55398b4 = i13;
+                    iM55395b1 = iM55398b4;
+                    iM55396b2 = iM55395b1;
+                    iM55397b3 = iM55396b2;
                     int[] iArr7 = this.gSBox;
                     int i16 = i13 * 2;
                     int[] iArr8 = this.gMDS0;
-                    byte[][] bArr3 = P;
+                    byte[][] bArr3 = f81090P;
                     byte[] bArr4 = bArr3[0];
-                    iArr7[i16] = iArr8[(bArr4[(bArr4[iB6] & 255) ^ b0(i9)] & 255) ^ b0(i8)];
-                    this.gSBox[i16 + 1] = this.gMDS1[(bArr3[0][(bArr3[1][iB5] & 255) ^ b1(i9)] & 255) ^ b1(i8)];
-                    this.gSBox[i16 + 512] = this.gMDS2[(bArr3[1][(bArr3[0][iB4] & 255) ^ b2(i9)] & 255) ^ b2(i8)];
+                    iArr7[i16] = iArr8[(bArr4[(bArr4[iM55395b1] & 255) ^ m55395b0(i9)] & 255) ^ m55395b0(i8)];
+                    this.gSBox[i16 + 1] = this.gMDS1[(bArr3[0][(bArr3[1][iM55396b2] & 255) ^ m55396b1(i9)] & 255) ^ m55396b1(i8)];
+                    this.gSBox[i16 + 512] = this.gMDS2[(bArr3[1][(bArr3[0][iM55397b3] & 255) ^ m55397b2(i9)] & 255) ^ m55397b2(i8)];
                     int[] iArr9 = this.gMDS3;
                     byte[] bArr5 = bArr3[1];
-                    this.gSBox[i16 + 513] = iArr9[(bArr5[(bArr5[iB7] & 255) ^ b3(i9)] & 255) ^ b3(i8)];
+                    this.gSBox[i16 + 513] = iArr9[(bArr5[(bArr5[iM55398b4] & 255) ^ m55398b3(i9)] & 255) ^ m55398b3(i8)];
                 } else if (i14 == 3) {
-                    iB3 = i13;
-                    iB0 = iB3;
-                    iB1 = iB0;
-                    iB2 = iB1;
+                    iM55398b3 = i13;
+                    iM55395b0 = iM55398b3;
+                    iM55396b1 = iM55395b0;
+                    iM55397b2 = iM55396b1;
                 }
                 i13++;
                 i10 = 2;
             } else {
-                byte[][] bArr6 = P;
-                iB0 = (bArr6[1][i13] & 255) ^ b0(i12);
-                iB1 = (bArr6[0][i13] & 255) ^ b1(i12);
-                iB2 = (bArr6[0][i13] & 255) ^ b2(i12);
-                iB3 = (bArr6[1][i13] & 255) ^ b3(i12);
+                byte[][] bArr6 = f81090P;
+                iM55395b0 = (bArr6[1][i13] & 255) ^ m55395b0(i12);
+                iM55396b1 = (bArr6[0][i13] & 255) ^ m55396b1(i12);
+                iM55397b2 = (bArr6[0][i13] & 255) ^ m55397b2(i12);
+                iM55398b3 = (bArr6[1][i13] & 255) ^ m55398b3(i12);
             }
-            byte[][] bArr7 = P;
-            iB6 = (bArr7[1][iB0] & 255) ^ b0(i11);
-            iB5 = (bArr7[1][iB1] & 255) ^ b1(i11);
-            iB4 = (bArr7[0][iB2] & 255) ^ b2(i11);
-            iB7 = (bArr7[0][iB3] & 255) ^ b3(i11);
+            byte[][] bArr7 = f81090P;
+            iM55395b1 = (bArr7[1][iM55395b0] & 255) ^ m55395b0(i11);
+            iM55396b2 = (bArr7[1][iM55396b1] & 255) ^ m55396b1(i11);
+            iM55397b3 = (bArr7[0][iM55397b2] & 255) ^ m55397b2(i11);
+            iM55398b4 = (bArr7[0][iM55398b3] & 255) ^ m55398b3(i11);
             int[] iArr10 = this.gSBox;
             int i17 = i13 * 2;
             int[] iArr11 = this.gMDS0;
-            byte[][] bArr8 = P;
+            byte[][] bArr8 = f81090P;
             byte[] bArr9 = bArr8[0];
-            iArr10[i17] = iArr11[(bArr9[(bArr9[iB6] & 255) ^ b0(i9)] & 255) ^ b0(i8)];
-            this.gSBox[i17 + 1] = this.gMDS1[(bArr8[0][(bArr8[1][iB5] & 255) ^ b1(i9)] & 255) ^ b1(i8)];
-            this.gSBox[i17 + 512] = this.gMDS2[(bArr8[1][(bArr8[0][iB4] & 255) ^ b2(i9)] & 255) ^ b2(i8)];
+            iArr10[i17] = iArr11[(bArr9[(bArr9[iM55395b1] & 255) ^ m55395b0(i9)] & 255) ^ m55395b0(i8)];
+            this.gSBox[i17 + 1] = this.gMDS1[(bArr8[0][(bArr8[1][iM55396b2] & 255) ^ m55396b1(i9)] & 255) ^ m55396b1(i8)];
+            this.gSBox[i17 + 512] = this.gMDS2[(bArr8[1][(bArr8[0][iM55397b3] & 255) ^ m55397b2(i9)] & 255) ^ m55397b2(i8)];
             int[] iArr12 = this.gMDS3;
             byte[] bArr10 = bArr8[1];
-            this.gSBox[i17 + 513] = iArr12[(bArr10[(bArr10[iB7] & 255) ^ b3(i9)] & 255) ^ b3(i8)];
+            this.gSBox[i17 + 513] = iArr12[(bArr10[(bArr10[iM55398b4] & 255) ^ m55398b3(i9)] & 255) ^ m55398b3(i8)];
             i13++;
             i10 = 2;
         }
@@ -403,7 +409,7 @@ public final class TwofishEngine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to Twofish init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to Twofish init - ", cipherParameters));
         }
         this.encrypting = z;
         byte[] key = ((KeyParameter) cipherParameters).getKey();

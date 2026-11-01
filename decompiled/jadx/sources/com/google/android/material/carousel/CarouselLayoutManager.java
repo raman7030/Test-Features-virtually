@@ -16,26 +16,26 @@ import com.google.android.material.animation.AnimationUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import l.AbstractC17366;
-import l.AbstractC7201;
-import l.C13132;
-import l.C14543;
-import l.C1814;
-import l.C19343;
-import l.C19370;
-import l.C20195;
-import l.C20361;
-import l.C20607;
-import l.C21600;
-import l.C23575;
-import l.C2550;
-import l.C7191;
-import l.InterfaceC8194;
-import l.RunnableC4196;
-import l.ViewOnLayoutChangeListenerC18974;
+import p067l.AbstractC18873;
+import p067l.AbstractC9212;
+import p067l.C0932;
+import p067l.C1199;
+import p067l.C14849;
+import p067l.C16190;
+import p067l.C20752;
+import p067l.C20778;
+import p067l.C21562;
+import p067l.C21720;
+import p067l.C21953;
+import p067l.C22897;
+import p067l.C24774;
+import p067l.C4792;
+import p067l.InterfaceC10156;
+import p067l.RunnableC6357;
+import p067l.ViewOnLayoutChangeListenerC20402;
 
 /* JADX INFO: loaded from: classes.dex */
-public class CarouselLayoutManager extends AbstractC17366 implements Carousel, InterfaceC8194 {
+public class CarouselLayoutManager extends AbstractC18873 implements Carousel, InterfaceC10156 {
     public static final int ALIGNMENT_CENTER = 1;
     public static final int ALIGNMENT_START = 0;
     public static final int HORIZONTAL = 0;
@@ -71,7 +71,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return i5 > i4 ? i4 - i2 : i;
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public boolean isAutoMeasureEnabled() {
         return true;
     }
@@ -81,7 +81,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         if (i == i5 && i2 == i6 && i3 == i7 && i4 == i8) {
             return;
         }
-        view.post(new RunnableC4196(7, this));
+        view.post(new RunnableC6357(7, this));
     }
 
     public final class ChildCalculations {
@@ -110,7 +110,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         this.isDebuggingEnabled = false;
         this.debugItemDecoration = new DebugItemDecoration();
         this.currentFillStartPosition = 0;
-        this.recyclerViewSizeChangeListener = new ViewOnLayoutChangeListenerC18974(1, this);
+        this.recyclerViewSizeChangeListener = new ViewOnLayoutChangeListenerC20402(1, this);
         this.currentEstimatedPosition = -1;
         this.carouselAlignment = 0;
         setCarouselStrategy(carouselStrategy);
@@ -121,7 +121,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         this.isDebuggingEnabled = false;
         this.debugItemDecoration = new DebugItemDecoration();
         this.currentFillStartPosition = 0;
-        this.recyclerViewSizeChangeListener = new ViewOnLayoutChangeListenerC18974(1, this);
+        this.recyclerViewSizeChangeListener = new ViewOnLayoutChangeListenerC20402(1, this);
         this.currentEstimatedPosition = -1;
         this.carouselAlignment = 0;
         setCarouselStrategy(new MultiBrowseCarouselStrategy());
@@ -130,9 +130,9 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
 
     private void setCarouselAttributes(Context context, AttributeSet attributeSet) {
         if (attributeSet != null) {
-            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C19343.f61067);
-            setCarouselAlignment(typedArrayObtainStyledAttributes.getInt(C19343.f61810, 0));
-            setOrientation(typedArrayObtainStyledAttributes.getInt(C19343.f61204, 0));
+            TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C20752.f64219);
+            setCarouselAlignment(typedArrayObtainStyledAttributes.getInt(C20752.f64709, 0));
+            setOrientation(typedArrayObtainStyledAttributes.getInt(C20752.f82455, 0));
             typedArrayObtainStyledAttributes.recycle();
         }
     }
@@ -167,9 +167,9 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return getPaddingRight();
     }
 
-    @Override // l.AbstractC17366
-    public C14543 generateDefaultLayoutParams() {
-        return new C14543(-2, -2);
+    @Override // p067l.AbstractC18873
+    public C16190 generateDefaultLayoutParams() {
+        return new C16190(-2, -2);
     }
 
     public void setCarouselStrategy(CarouselStrategy carouselStrategy) {
@@ -177,34 +177,34 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         refreshKeylineState();
     }
 
-    @Override // l.AbstractC17366
-    public void onAttachedToWindow(C13132 c13132) {
-        super.onAttachedToWindow(c13132);
-        this.carouselStrategy.initialize(c13132.getContext());
+    @Override // p067l.AbstractC18873
+    public void onAttachedToWindow(C14849 c14849) {
+        super.onAttachedToWindow(c14849);
+        this.carouselStrategy.initialize(c14849.getContext());
         refreshKeylineState();
-        c13132.addOnLayoutChangeListener(this.recyclerViewSizeChangeListener);
+        c14849.addOnLayoutChangeListener(this.recyclerViewSizeChangeListener);
     }
 
-    @Override // l.AbstractC17366
-    public void onDetachedFromWindow(C13132 c13132, C2550 c2550) {
-        super.onDetachedFromWindow(c13132, c2550);
-        c13132.removeOnLayoutChangeListener(this.recyclerViewSizeChangeListener);
+    @Override // p067l.AbstractC18873
+    public void onDetachedFromWindow(C14849 c14849, C4792 c4792) {
+        super.onDetachedFromWindow(c14849, c4792);
+        c14849.removeOnLayoutChangeListener(this.recyclerViewSizeChangeListener);
     }
 
-    @Override // l.AbstractC17366
-    public void onLayoutChildren(C2550 c2550, C21600 c21600) {
-        if (c21600.m48777() <= 0 || getContainerSize() <= 0.0f) {
-            removeAndRecycleAllViews(c2550);
+    @Override // p067l.AbstractC18873
+    public void onLayoutChildren(C4792 c4792, C22897 c22897) {
+        if (c22897.m51124() <= 0 || getContainerSize() <= 0.0f) {
+            removeAndRecycleAllViews(c4792);
             this.currentFillStartPosition = 0;
             return;
         }
         boolean zIsLayoutRtl = isLayoutRtl();
         boolean z = this.keylineStateList == null;
         if (z) {
-            recalculateKeylineStateList(c2550);
+            recalculateKeylineStateList(c4792);
         }
         int iCalculateStartScroll = calculateStartScroll(this.keylineStateList);
-        int iCalculateEndScroll = calculateEndScroll(c21600, this.keylineStateList);
+        int iCalculateEndScroll = calculateEndScroll(c22897, this.keylineStateList);
         this.minScroll = zIsLayoutRtl ? iCalculateEndScroll : iCalculateStartScroll;
         if (zIsLayoutRtl) {
             iCalculateEndScroll = iCalculateStartScroll;
@@ -220,17 +220,17 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         }
         int i2 = this.scrollOffset;
         this.scrollOffset = i2 + calculateShouldScrollBy(0, i2, this.minScroll, this.maxScroll);
-        this.currentFillStartPosition = C1814.m6036(this.currentFillStartPosition, 0, c21600.m48777());
+        this.currentFillStartPosition = C0932.m8234(this.currentFillStartPosition, 0, c22897.m51124());
         updateCurrentKeylineStateForScrollOffset(this.keylineStateList);
-        detachAndScrapAttachedViews(c2550);
-        fill(c2550, c21600);
+        detachAndScrapAttachedViews(c4792);
+        fill(c4792, c22897);
         this.lastItemCount = getItemCount();
     }
 
-    private void recalculateKeylineStateList(C2550 c2550) {
-        View viewM8075 = c2550.m8075(0);
-        measureChildWithMargins(viewM8075, 0, 0);
-        KeylineState keylineStateOnFirstChildMeasuredWithMargins = this.carouselStrategy.onFirstChildMeasuredWithMargins(this, viewM8075);
+    private void recalculateKeylineStateList(C4792 c4792) {
+        View viewM10106 = c4792.m10106(0);
+        measureChildWithMargins(viewM10106, 0, 0);
+        KeylineState keylineStateOnFirstChildMeasuredWithMargins = this.carouselStrategy.onFirstChildMeasuredWithMargins(this, viewM10106);
         if (isLayoutRtl()) {
             keylineStateOnFirstChildMeasuredWithMargins = KeylineState.reverse(keylineStateOnFirstChildMeasuredWithMargins, getContainerSize());
         }
@@ -243,13 +243,13 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         if (getChildCount() <= 0) {
             return 0;
         }
-        C14543 c14543 = (C14543) getChildAt(0).getLayoutParams();
+        C16190 c16190 = (C16190) getChildAt(0).getLayoutParams();
         if (this.orientationHelper.orientation == 0) {
-            i = ((ViewGroup.MarginLayoutParams) c14543).leftMargin;
-            i2 = ((ViewGroup.MarginLayoutParams) c14543).rightMargin;
+            i = ((ViewGroup.MarginLayoutParams) c16190).leftMargin;
+            i2 = ((ViewGroup.MarginLayoutParams) c16190).rightMargin;
         } else {
-            i = ((ViewGroup.MarginLayoutParams) c14543).topMargin;
-            i2 = ((ViewGroup.MarginLayoutParams) c14543).bottomMargin;
+            i = ((ViewGroup.MarginLayoutParams) c16190).topMargin;
+            i2 = ((ViewGroup.MarginLayoutParams) c16190).bottomMargin;
         }
         return i + i2;
     }
@@ -260,23 +260,23 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         requestLayout();
     }
 
-    private void fill(C2550 c2550, C21600 c21600) {
-        removeAndRecycleOutOfBoundsViews(c2550);
+    private void fill(C4792 c4792, C22897 c22897) {
+        removeAndRecycleOutOfBoundsViews(c4792);
         if (getChildCount() == 0) {
-            addViewsStart(c2550, this.currentFillStartPosition - 1);
-            addViewsEnd(c2550, c21600, this.currentFillStartPosition);
+            addViewsStart(c4792, this.currentFillStartPosition - 1);
+            addViewsEnd(c4792, c22897, this.currentFillStartPosition);
         } else {
             int position = getPosition(getChildAt(0));
             int position2 = getPosition(getChildAt(getChildCount() - 1));
-            addViewsStart(c2550, position - 1);
-            addViewsEnd(c2550, c21600, position2 + 1);
+            addViewsStart(c4792, position - 1);
+            addViewsEnd(c4792, c22897, position2 + 1);
         }
         validateChildOrderIfDebugging();
     }
 
-    @Override // l.AbstractC17366
-    public void onLayoutCompleted(C21600 c21600) {
-        super.onLayoutCompleted(c21600);
+    @Override // p067l.AbstractC18873
+    public void onLayoutCompleted(C22897 c22897) {
+        super.onLayoutCompleted(c22897);
         if (getChildCount() == 0) {
             this.currentFillStartPosition = 0;
         } else {
@@ -285,10 +285,10 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         validateChildOrderIfDebugging();
     }
 
-    private void addViewsStart(C2550 c2550, int i) {
+    private void addViewsStart(C4792 c4792, int i) {
         float fCalculateChildStartForFill = calculateChildStartForFill(i);
         while (i >= 0) {
-            ChildCalculations childCalculationsMakeChildCalculations = makeChildCalculations(c2550, fCalculateChildStartForFill, i);
+            ChildCalculations childCalculationsMakeChildCalculations = makeChildCalculations(c4792, fCalculateChildStartForFill, i);
             if (isLocOffsetOutOfFillBoundsStart(childCalculationsMakeChildCalculations.offsetCenter, childCalculationsMakeChildCalculations.range)) {
                 return;
             }
@@ -300,18 +300,18 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         }
     }
 
-    private void addViewAtPosition(C2550 c2550, int i, int i2) {
+    private void addViewAtPosition(C4792 c4792, int i, int i2) {
         if (i < 0 || i >= getItemCount()) {
             return;
         }
-        ChildCalculations childCalculationsMakeChildCalculations = makeChildCalculations(c2550, calculateChildStartForFill(i), i);
+        ChildCalculations childCalculationsMakeChildCalculations = makeChildCalculations(c4792, calculateChildStartForFill(i), i);
         addAndLayoutView(childCalculationsMakeChildCalculations.child, i2, childCalculationsMakeChildCalculations);
     }
 
-    private void addViewsEnd(C2550 c2550, C21600 c21600, int i) {
+    private void addViewsEnd(C4792 c4792, C22897 c22897, int i) {
         float fCalculateChildStartForFill = calculateChildStartForFill(i);
-        while (i < c21600.m48777()) {
-            ChildCalculations childCalculationsMakeChildCalculations = makeChildCalculations(c2550, fCalculateChildStartForFill, i);
+        while (i < c22897.m51124()) {
+            ChildCalculations childCalculationsMakeChildCalculations = makeChildCalculations(c4792, fCalculateChildStartForFill, i);
             if (isLocOffsetOutOfFillBoundsEnd(childCalculationsMakeChildCalculations.offsetCenter, childCalculationsMakeChildCalculations.range)) {
                 return;
             }
@@ -344,23 +344,23 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
             int position2 = getPosition(getChildAt(i2));
             if (position > position2) {
                 logChildrenIfDebugging();
-                StringBuilder sbM46682 = C20361.m46682("Detected invalid child order. Child at index [", i, "] had adapter position [", "] and child at index [", position);
-                sbM46682.append(i2);
-                sbM46682.append("] had adapter position [");
-                sbM46682.append(position2);
-                sbM46682.append("].");
-                throw new IllegalStateException(sbM46682.toString());
+                StringBuilder sbM49005 = C21720.m49005("Detected invalid child order. Child at index [", i, "] had adapter position [", "] and child at index [", position);
+                sbM49005.append(i2);
+                sbM49005.append("] had adapter position [");
+                sbM49005.append(position2);
+                sbM49005.append("].");
+                throw new IllegalStateException(sbM49005.toString());
             }
             i = i2;
         }
     }
 
-    private ChildCalculations makeChildCalculations(C2550 c2550, float f, int i) {
-        View viewM8075 = c2550.m8075(i);
-        measureChildWithMargins(viewM8075, 0, 0);
+    private ChildCalculations makeChildCalculations(C4792 c4792, float f, int i) {
+        View viewM10106 = c4792.m10106(i);
+        measureChildWithMargins(viewM10106, 0, 0);
         float fAddEnd = addEnd(f, this.currentKeylineState.getItemSize() / 2.0f);
         KeylineRange surroundingKeylineRange = getSurroundingKeylineRange(this.currentKeylineState.getKeylines(), fAddEnd, false);
-        return new ChildCalculations(viewM8075, fAddEnd, calculateChildOffsetCenterForLocation(viewM8075, fAddEnd, surroundingKeylineRange), surroundingKeylineRange);
+        return new ChildCalculations(viewM10106, fAddEnd, calculateChildOffsetCenterForLocation(viewM10106, fAddEnd, surroundingKeylineRange), surroundingKeylineRange);
     }
 
     private void addAndLayoutView(View view, int i, ChildCalculations childCalculations) {
@@ -392,7 +392,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return fAddStart > ((float) getContainerSize());
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public void getDecoratedBoundsWithMargins(View view, Rect rect) {
         super.getDecoratedBoundsWithMargins(view, rect);
         float fCenterY = rect.centerY();
@@ -417,14 +417,14 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return iCenterY;
     }
 
-    private void removeAndRecycleOutOfBoundsViews(C2550 c2550) {
+    private void removeAndRecycleOutOfBoundsViews(C4792 c4792) {
         while (getChildCount() > 0) {
             View childAt = getChildAt(0);
             float decoratedCenterWithMargins = getDecoratedCenterWithMargins(childAt);
             if (!isLocOffsetOutOfFillBoundsStart(decoratedCenterWithMargins, getSurroundingKeylineRange(this.currentKeylineState.getKeylines(), decoratedCenterWithMargins, true))) {
                 break;
             } else {
-                removeAndRecycleView(childAt, c2550);
+                removeAndRecycleView(childAt, c4792);
             }
         }
         while (getChildCount() - 1 >= 0) {
@@ -433,7 +433,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
             if (!isLocOffsetOutOfFillBoundsEnd(decoratedCenterWithMargins2, getSurroundingKeylineRange(this.currentKeylineState.getKeylines(), decoratedCenterWithMargins2, true))) {
                 return;
             } else {
-                removeAndRecycleView(childAt2, c2550);
+                removeAndRecycleView(childAt2, c4792);
             }
         }
     }
@@ -494,12 +494,12 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return (int) (getParentStart() - addStart((zIsLayoutRtl ? endState.getLastFocalKeyline() : endState.getFirstFocalKeyline()).loc, endState.getItemSize() / 2.0f));
     }
 
-    private int calculateEndScroll(C21600 c21600, KeylineStateList keylineStateList) {
+    private int calculateEndScroll(C22897 c22897, KeylineStateList keylineStateList) {
         boolean zIsLayoutRtl = isLayoutRtl();
         KeylineState startState = zIsLayoutRtl ? keylineStateList.getStartState() : keylineStateList.getEndState();
         KeylineState.Keyline firstFocalKeyline = zIsLayoutRtl ? startState.getFirstFocalKeyline() : startState.getLastFocalKeyline();
-        int iM48777 = (int) (((((c21600.m48777() - 1) * startState.getItemSize()) * (zIsLayoutRtl ? -1.0f : 1.0f)) - (firstFocalKeyline.loc - getParentStart())) + (getParentEnd() - firstFocalKeyline.loc) + (zIsLayoutRtl ? -firstFocalKeyline.leftOrTopPaddingShift : firstFocalKeyline.rightOrBottomPaddingShift));
-        return zIsLayoutRtl ? Math.min(0, iM48777) : Math.max(0, iM48777);
+        int iM51124 = (int) (((((c22897.m51124() - 1) * startState.getItemSize()) * (zIsLayoutRtl ? -1.0f : 1.0f)) - (firstFocalKeyline.loc - getParentStart())) + (getParentEnd() - firstFocalKeyline.loc) + (zIsLayoutRtl ? -firstFocalKeyline.leftOrTopPaddingShift : firstFocalKeyline.rightOrBottomPaddingShift));
+        return zIsLayoutRtl ? Math.min(0, iM51124) : Math.max(0, iM51124);
     }
 
     private float calculateChildStartForFill(int i) {
@@ -514,7 +514,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         if (keylineRange.rightOrBottom != this.currentKeylineState.getFirstKeyline() && keylineRange.leftOrTop != this.currentKeylineState.getLastKeyline()) {
             return fLerp;
         }
-        float maskMargins = this.orientationHelper.getMaskMargins((C14543) view.getLayoutParams()) / this.currentKeylineState.getItemSize();
+        float maskMargins = this.orientationHelper.getMaskMargins((C16190) view.getLayoutParams()) / this.currentKeylineState.getItemSize();
         KeylineState.Keyline keyline3 = keylineRange.rightOrBottom;
         return (((1.0f - keyline3.mask) + maskMargins) * (f - keyline3.loc)) + fLerp;
     }
@@ -547,14 +547,14 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         }
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public void measureChildWithMargins(View view, int i, int i2) {
         float itemSize;
         float itemSize2;
         if (!(view instanceof Maskable)) {
             throw new IllegalStateException("All children of a RecyclerView using CarouselLayoutManager must use MaskableFrameLayout as their root ViewGroup.");
         }
-        C14543 c14543 = (C14543) view.getLayoutParams();
+        C16190 c16190 = (C16190) view.getLayoutParams();
         Rect rect = new Rect();
         calculateItemDecorationsForChild(view, rect);
         int i3 = rect.left + rect.right + i;
@@ -563,15 +563,15 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         if (keylineStateList != null && this.orientationHelper.orientation == 0) {
             itemSize = keylineStateList.getDefaultState().getItemSize();
         } else {
-            itemSize = ((ViewGroup.MarginLayoutParams) c14543).width;
+            itemSize = ((ViewGroup.MarginLayoutParams) c16190).width;
         }
         KeylineStateList keylineStateList2 = this.keylineStateList;
         if (keylineStateList2 != null && this.orientationHelper.orientation == 1) {
             itemSize2 = keylineStateList2.getDefaultState().getItemSize();
         } else {
-            itemSize2 = ((ViewGroup.MarginLayoutParams) c14543).height;
+            itemSize2 = ((ViewGroup.MarginLayoutParams) c16190).height;
         }
-        view.measure(AbstractC17366.m40692(getWidth(), getWidthMode(), getPaddingRight() + getPaddingLeft() + ((ViewGroup.MarginLayoutParams) c14543).leftMargin + ((ViewGroup.MarginLayoutParams) c14543).rightMargin + i3, (int) itemSize, canScrollHorizontally()), AbstractC17366.m40692(getHeight(), getHeightMode(), getPaddingBottom() + getPaddingTop() + ((ViewGroup.MarginLayoutParams) c14543).topMargin + ((ViewGroup.MarginLayoutParams) c14543).bottomMargin + i4, (int) itemSize2, canScrollVertically()));
+        view.measure(AbstractC18873.m42943(getWidth(), getWidthMode(), getPaddingRight() + getPaddingLeft() + ((ViewGroup.MarginLayoutParams) c16190).leftMargin + ((ViewGroup.MarginLayoutParams) c16190).rightMargin + i3, (int) itemSize, canScrollHorizontally()), AbstractC18873.m42943(getHeight(), getHeightMode(), getPaddingBottom() + getPaddingTop() + ((ViewGroup.MarginLayoutParams) c16190).topMargin + ((ViewGroup.MarginLayoutParams) c16190).bottomMargin + i4, (int) itemSize2, canScrollVertically()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -631,7 +631,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return isLayoutRtl() ? f - f2 : f + f2;
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         super.onInitializeAccessibilityEvent(accessibilityEvent);
         if (getChildCount() > 0) {
@@ -665,7 +665,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return i2;
     }
 
-    @Override // l.InterfaceC8194
+    @Override // p067l.InterfaceC10156
     public PointF computeScrollVectorForPosition(int i) {
         if (this.keylineStateList == null) {
             return null;
@@ -690,30 +690,30 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
     private KeylineState getKeylineStateForPosition(int i) {
         KeylineState keylineState;
         Map map = this.keylineStatePositionMap;
-        return (map == null || (keylineState = (KeylineState) map.get(Integer.valueOf(C1814.m6036(i, 0, Math.max(0, getItemCount() + (-1)))))) == null) ? this.keylineStateList.getDefaultState() : keylineState;
+        return (map == null || (keylineState = (KeylineState) map.get(Integer.valueOf(C0932.m8234(i, 0, Math.max(0, getItemCount() + (-1)))))) == null) ? this.keylineStateList.getDefaultState() : keylineState;
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public void scrollToPosition(int i) {
         this.currentEstimatedPosition = i;
         if (this.keylineStateList == null) {
             return;
         }
         this.scrollOffset = getScrollOffsetForPosition(i, getKeylineStateForPosition(i));
-        this.currentFillStartPosition = C1814.m6036(i, 0, Math.max(0, getItemCount() - 1));
+        this.currentFillStartPosition = C0932.m8234(i, 0, Math.max(0, getItemCount() - 1));
         updateCurrentKeylineStateForScrollOffset(this.keylineStateList);
         requestLayout();
     }
 
-    @Override // l.AbstractC17366
-    public void smoothScrollToPosition(C13132 c13132, C21600 c21600, int i) {
-        C20607 c20607 = new C20607(c13132.getContext()) { // from class: com.google.android.material.carousel.CarouselLayoutManager.1
-            @Override // l.AbstractC15248
+    @Override // p067l.AbstractC18873
+    public void smoothScrollToPosition(C14849 c14849, C22897 c22897, int i) {
+        C21953 c21953 = new C21953(c14849.getContext()) { // from class: com.google.android.material.carousel.CarouselLayoutManager.1
+            @Override // p067l.AbstractC16860
             public PointF computeScrollVectorForPosition(int i2) {
                 return CarouselLayoutManager.this.computeScrollVectorForPosition(i2);
             }
 
-            @Override // l.C20607
+            @Override // p067l.C21953
             public int calculateDxToMakeVisible(View view, int i2) {
                 if (CarouselLayoutManager.this.keylineStateList == null || !CarouselLayoutManager.this.isHorizontal()) {
                     return 0;
@@ -722,7 +722,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
                 return carouselLayoutManager.calculateScrollDeltaToMakePositionVisible(carouselLayoutManager.getPosition(view));
             }
 
-            @Override // l.C20607
+            @Override // p067l.C21953
             public int calculateDyToMakeVisible(View view, int i2) {
                 if (CarouselLayoutManager.this.keylineStateList == null || CarouselLayoutManager.this.isHorizontal()) {
                     return 0;
@@ -731,36 +731,36 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
                 return carouselLayoutManager.calculateScrollDeltaToMakePositionVisible(carouselLayoutManager.getPosition(view));
             }
         };
-        c20607.setTargetPosition(i);
-        startSmoothScroll(c20607);
+        c21953.setTargetPosition(i);
+        startSmoothScroll(c21953);
     }
 
     public int calculateScrollDeltaToMakePositionVisible(int i) {
         return (int) (this.scrollOffset - getScrollOffsetForPosition(i, getKeylineStateForPosition(i)));
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public boolean canScrollHorizontally() {
         return isHorizontal();
     }
 
-    @Override // l.AbstractC17366
-    public int scrollHorizontallyBy(int i, C2550 c2550, C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int scrollHorizontallyBy(int i, C4792 c4792, C22897 c22897) {
         if (canScrollHorizontally()) {
-            return scrollBy(i, c2550, c21600);
+            return scrollBy(i, c4792, c22897);
         }
         return 0;
     }
 
-    @Override // l.AbstractC17366
+    @Override // p067l.AbstractC18873
     public boolean canScrollVertically() {
         return !isHorizontal();
     }
 
-    @Override // l.AbstractC17366
-    public int scrollVerticallyBy(int i, C2550 c2550, C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int scrollVerticallyBy(int i, C4792 c4792, C22897 c22897) {
         if (canScrollVertically()) {
-            return scrollBy(i, c2550, c21600);
+            return scrollBy(i, c4792, c22897);
         }
         return 0;
     }
@@ -791,8 +791,8 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return Integer.MIN_VALUE;
     }
 
-    @Override // l.AbstractC17366
-    public View onFocusSearchFailed(View view, int i, C2550 c2550, C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public View onFocusSearchFailed(View view, int i, C4792 c4792, C22897 c22897) {
         int iConvertFocusDirectionToLayoutDirection;
         if (getChildCount() == 0 || (iConvertFocusDirectionToLayoutDirection = convertFocusDirectionToLayoutDirection(i)) == Integer.MIN_VALUE) {
             return null;
@@ -801,13 +801,13 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
             if (getPosition(view) == 0) {
                 return null;
             }
-            addViewAtPosition(c2550, getPosition(getChildAt(0)) - 1, 0);
+            addViewAtPosition(c4792, getPosition(getChildAt(0)) - 1, 0);
             return getChildClosestToStart();
         }
         if (getPosition(view) == getItemCount() - 1) {
             return null;
         }
-        addViewAtPosition(c2550, getPosition(getChildAt(getChildCount() - 1)) + 1, -1);
+        addViewAtPosition(c4792, getPosition(getChildAt(getChildCount() - 1)) + 1, -1);
         return getChildClosestToEnd();
     }
 
@@ -819,31 +819,31 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return getChildAt(isLayoutRtl() ? 0 : getChildCount() - 1);
     }
 
-    @Override // l.AbstractC17366
-    public boolean requestChildRectangleOnScreen(C13132 c13132, View view, Rect rect, boolean z, boolean z2) {
+    @Override // p067l.AbstractC18873
+    public boolean requestChildRectangleOnScreen(C14849 c14849, View view, Rect rect, boolean z, boolean z2) {
         int smallestScrollOffsetToFocalKeyline;
         if (this.keylineStateList == null || (smallestScrollOffsetToFocalKeyline = getSmallestScrollOffsetToFocalKeyline(getPosition(view), getKeylineStateForPosition(getPosition(view)))) == 0) {
             return false;
         }
-        scrollBy(c13132, getSmallestScrollOffsetToFocalKeyline(getPosition(view), this.keylineStateList.getShiftedState(this.scrollOffset + calculateShouldScrollBy(smallestScrollOffsetToFocalKeyline, this.scrollOffset, this.minScroll, this.maxScroll), this.minScroll, this.maxScroll)));
+        scrollBy(c14849, getSmallestScrollOffsetToFocalKeyline(getPosition(view), this.keylineStateList.getShiftedState(this.scrollOffset + calculateShouldScrollBy(smallestScrollOffsetToFocalKeyline, this.scrollOffset, this.minScroll, this.maxScroll), this.minScroll, this.maxScroll)));
         return true;
     }
 
-    private void scrollBy(C13132 c13132, int i) {
+    private void scrollBy(C14849 c14849, int i) {
         if (isHorizontal()) {
-            c13132.scrollBy(i, 0);
+            c14849.scrollBy(i, 0);
         } else {
-            c13132.scrollBy(0, i);
+            c14849.scrollBy(0, i);
         }
     }
 
-    private int scrollBy(int i, C2550 c2550, C21600 c21600) {
+    private int scrollBy(int i, C4792 c4792, C22897 c22897) {
         float f;
         if (getChildCount() == 0 || i == 0) {
             return 0;
         }
         if (this.keylineStateList == null) {
-            recalculateKeylineStateList(c2550);
+            recalculateKeylineStateList(c4792);
         }
         int iCalculateShouldScrollBy = calculateShouldScrollBy(i, this.scrollOffset, this.minScroll, this.maxScroll);
         this.scrollOffset += iCalculateShouldScrollBy;
@@ -866,7 +866,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
             }
             fCalculateChildStartForFill = addEnd(fCalculateChildStartForFill, this.currentKeylineState.getItemSize());
         }
-        fill(c2550, c21600);
+        fill(c4792, c22897);
         return iCalculateShouldScrollBy;
     }
 
@@ -880,39 +880,39 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         return fCalculateChildOffsetCenterForLocation;
     }
 
-    @Override // l.AbstractC17366
-    public int computeHorizontalScrollOffset(C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int computeHorizontalScrollOffset(C22897 c22897) {
         return this.scrollOffset;
     }
 
-    @Override // l.AbstractC17366
-    public int computeHorizontalScrollExtent(C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int computeHorizontalScrollExtent(C22897 c22897) {
         if (getChildCount() == 0 || this.keylineStateList == null || getItemCount() <= 1) {
             return 0;
         }
-        return (int) (getWidth() * (this.keylineStateList.getDefaultState().getItemSize() / computeHorizontalScrollRange(c21600)));
+        return (int) (getWidth() * (this.keylineStateList.getDefaultState().getItemSize() / computeHorizontalScrollRange(c22897)));
     }
 
-    @Override // l.AbstractC17366
-    public int computeHorizontalScrollRange(C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int computeHorizontalScrollRange(C22897 c22897) {
         return this.maxScroll - this.minScroll;
     }
 
-    @Override // l.AbstractC17366
-    public int computeVerticalScrollOffset(C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int computeVerticalScrollOffset(C22897 c22897) {
         return this.scrollOffset;
     }
 
-    @Override // l.AbstractC17366
-    public int computeVerticalScrollExtent(C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int computeVerticalScrollExtent(C22897 c22897) {
         if (getChildCount() == 0 || this.keylineStateList == null || getItemCount() <= 1) {
             return 0;
         }
-        return (int) (getHeight() * (this.keylineStateList.getDefaultState().getItemSize() / computeVerticalScrollRange(c21600)));
+        return (int) (getHeight() * (this.keylineStateList.getDefaultState().getItemSize() / computeVerticalScrollRange(c22897)));
     }
 
-    @Override // l.AbstractC17366
-    public int computeVerticalScrollRange(C21600 c21600) {
+    @Override // p067l.AbstractC18873
+    public int computeVerticalScrollRange(C22897 c22897) {
         return this.maxScroll - this.minScroll;
     }
 
@@ -922,7 +922,7 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
 
     public void setOrientation(int i) {
         if (i != 0 && i != 1) {
-            throw new IllegalArgumentException(C19370.m44628(i, "invalid orientation:"));
+            throw new IllegalArgumentException(C20778.m46922(i, "invalid orientation:"));
         }
         assertNotInLayoutOrScroll(null);
         CarouselOrientationHelper carouselOrientationHelper = this.orientationHelper;
@@ -932,15 +932,15 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         }
     }
 
-    @Override // l.AbstractC17366
-    public void onItemsAdded(C13132 c13132, int i, int i2) {
-        super.onItemsAdded(c13132, i, i2);
+    @Override // p067l.AbstractC18873
+    public void onItemsAdded(C14849 c14849, int i, int i2) {
+        super.onItemsAdded(c14849, i, i2);
         updateItemCount();
     }
 
-    @Override // l.AbstractC17366
-    public void onItemsRemoved(C13132 c13132, int i, int i2) {
-        super.onItemsRemoved(c13132, i, i2);
+    @Override // p067l.AbstractC18873
+    public void onItemsRemoved(C14849 c14849, int i, int i2) {
+        super.onItemsRemoved(c14849, i, i2);
         updateItemCount();
     }
 
@@ -956,13 +956,13 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         this.lastItemCount = itemCount;
     }
 
-    public void setDebuggingEnabled(C13132 c13132, boolean z) {
+    public void setDebuggingEnabled(C14849 c14849, boolean z) {
         this.isDebuggingEnabled = z;
-        c13132.removeItemDecoration(this.debugItemDecoration);
+        c14849.removeItemDecoration(this.debugItemDecoration);
         if (z) {
-            c13132.addItemDecoration(this.debugItemDecoration);
+            c14849.addItemDecoration(this.debugItemDecoration);
         }
-        c13132.invalidateItemDecorations();
+        c14849.invalidateItemDecorations();
     }
 
     public class KeylineRange {
@@ -978,32 +978,32 @@ public class CarouselLayoutManager extends AbstractC17366 implements Carousel, I
         }
     }
 
-    public class DebugItemDecoration extends AbstractC7201 {
+    public class DebugItemDecoration extends AbstractC9212 {
         public List keylines;
         public final Paint linePaint;
 
         public DebugItemDecoration() {
             Paint paint = new Paint();
             this.linePaint = paint;
-            this.keylines = C20195.unmodifiableList(new ArrayList());
+            this.keylines = C21562.unmodifiableList(new ArrayList());
             paint.setStrokeWidth(5.0f);
             paint.setColor(-65281);
         }
 
         public void setKeylines(List list) {
-            this.keylines = C20195.unmodifiableList(list);
+            this.keylines = C21562.unmodifiableList(list);
         }
 
-        @Override // l.AbstractC7201
-        public void onDrawOver(Canvas canvas, C13132 c13132, C21600 c21600) {
-            super.onDrawOver(canvas, c13132, c21600);
-            this.linePaint.setStrokeWidth(c13132.getResources().getDimension(C23575.f75910));
+        @Override // p067l.AbstractC9212
+        public void onDrawOver(Canvas canvas, C14849 c14849, C22897 c22897) {
+            super.onDrawOver(canvas, c14849, c22897);
+            this.linePaint.setStrokeWidth(c14849.getResources().getDimension(C24774.f78656));
             for (KeylineState.Keyline keyline : this.keylines) {
-                this.linePaint.setColor(C7191.m19267(-65281, -16776961, keyline.mask));
-                if (((CarouselLayoutManager) c13132.getLayoutManager()).isHorizontal()) {
-                    canvas.drawLine(keyline.locOffset, ((CarouselLayoutManager) c13132.getLayoutManager()).getParentTop(), keyline.locOffset, ((CarouselLayoutManager) c13132.getLayoutManager()).getParentBottom(), this.linePaint);
+                this.linePaint.setColor(C1199.m21214(-65281, -16776961, keyline.mask));
+                if (((CarouselLayoutManager) c14849.getLayoutManager()).isHorizontal()) {
+                    canvas.drawLine(keyline.locOffset, ((CarouselLayoutManager) c14849.getLayoutManager()).getParentTop(), keyline.locOffset, ((CarouselLayoutManager) c14849.getLayoutManager()).getParentBottom(), this.linePaint);
                 } else {
-                    canvas.drawLine(((CarouselLayoutManager) c13132.getLayoutManager()).getParentLeft(), keyline.locOffset, ((CarouselLayoutManager) c13132.getLayoutManager()).getParentRight(), keyline.locOffset, this.linePaint);
+                    canvas.drawLine(((CarouselLayoutManager) c14849.getLayoutManager()).getParentLeft(), keyline.locOffset, ((CarouselLayoutManager) c14849.getLayoutManager()).getParentRight(), keyline.locOffset, this.linePaint);
                 }
             }
         }

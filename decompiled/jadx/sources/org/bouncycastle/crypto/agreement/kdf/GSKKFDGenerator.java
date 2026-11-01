@@ -12,8 +12,12 @@ public class GSKKFDGenerator implements DigestDerivationFunction {
     public byte[] buf;
     public int counter;
     public final Digest digest;
-    public byte[] r;
-    public byte[] z;
+
+    /* JADX INFO: renamed from: r */
+    public byte[] f80765r;
+
+    /* JADX INFO: renamed from: z */
+    public byte[] f80766z;
 
     public GSKKFDGenerator(Digest digest) {
         this.digest = digest;
@@ -26,13 +30,13 @@ public class GSKKFDGenerator implements DigestDerivationFunction {
             throw new DataLengthException("output buffer too small");
         }
         Digest digest = this.digest;
-        byte[] bArr2 = this.z;
+        byte[] bArr2 = this.f80766z;
         digest.update(bArr2, 0, bArr2.length);
         int i3 = this.counter;
         this.counter = i3 + 1;
         byte[] bArrIntToBigEndian = Pack.intToBigEndian(i3);
         this.digest.update(bArrIntToBigEndian, 0, bArrIntToBigEndian.length);
-        byte[] bArr3 = this.r;
+        byte[] bArr3 = this.f80765r;
         if (bArr3 != null) {
             this.digest.update(bArr3, 0, bArr3.length);
         }
@@ -53,8 +57,8 @@ public class GSKKFDGenerator implements DigestDerivationFunction {
             throw new IllegalArgumentException("unkown parameters type");
         }
         GSKKDFParameters gSKKDFParameters = (GSKKDFParameters) derivationParameters;
-        this.z = gSKKDFParameters.getZ();
+        this.f80766z = gSKKDFParameters.getZ();
         this.counter = gSKKDFParameters.getStartCounter();
-        this.r = gSKKDFParameters.getNonce();
+        this.f80765r = gSKKDFParameters.getNonce();
     }
 }

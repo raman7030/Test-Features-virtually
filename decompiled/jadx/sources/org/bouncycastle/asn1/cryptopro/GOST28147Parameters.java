@@ -13,17 +13,19 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GOST28147Parameters extends ASN1Object {
-    public ASN1OctetString iv;
+
+    /* JADX INFO: renamed from: iv */
+    public ASN1OctetString f80668iv;
     public ASN1ObjectIdentifier paramSet;
 
     public GOST28147Parameters(ASN1Sequence aSN1Sequence) {
         Enumeration objects = aSN1Sequence.getObjects();
-        this.iv = (ASN1OctetString) objects.nextElement();
+        this.f80668iv = (ASN1OctetString) objects.nextElement();
         this.paramSet = (ASN1ObjectIdentifier) objects.nextElement();
     }
 
     public GOST28147Parameters(byte[] bArr, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-        this.iv = new DEROctetString(Arrays.clone(bArr));
+        this.f80668iv = new DEROctetString(Arrays.clone(bArr));
         this.paramSet = aSN1ObjectIdentifier;
     }
 
@@ -46,11 +48,11 @@ public class GOST28147Parameters extends ASN1Object {
     }
 
     public byte[] getIV() {
-        return Arrays.clone(this.iv.getOctets());
+        return Arrays.clone(this.f80668iv.getOctets());
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
-        return new DERSequence(this.iv, this.paramSet);
+        return new DERSequence(this.f80668iv, this.paramSet);
     }
 }

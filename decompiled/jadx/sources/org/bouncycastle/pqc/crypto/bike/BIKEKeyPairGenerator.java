@@ -12,9 +12,11 @@ public class BIKEKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
     public int R_BYTE;
     public BIKEKeyGenerationParameters bikeKeyGenerationParameters;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public int f77976l;
-    public int r;
+    /* JADX INFO: renamed from: l */
+    public int f81572l;
+
+    /* JADX INFO: renamed from: r */
+    public int f81573r;
     public SecureRandom random;
 
     private AsymmetricCipherKeyPair genKeyPair() {
@@ -37,10 +39,10 @@ public class BIKEKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
     public void init(KeyGenerationParameters keyGenerationParameters) {
         this.bikeKeyGenerationParameters = (BIKEKeyGenerationParameters) keyGenerationParameters;
         this.random = keyGenerationParameters.getRandom();
-        this.r = this.bikeKeyGenerationParameters.getParameters().getR();
+        this.f81573r = this.bikeKeyGenerationParameters.getParameters().getR();
         int l2 = this.bikeKeyGenerationParameters.getParameters().getL();
-        this.f77976l = l2;
+        this.f81572l = l2;
         this.L_BYTE = l2 / 8;
-        this.R_BYTE = (this.r + 7) / 8;
+        this.R_BYTE = (this.f81573r + 7) / 8;
     }
 }

@@ -6,8 +6,8 @@ import java.security.cert.CertStore;
 import java.security.cert.Certificate;
 import java.security.cert.X509CertSelector;
 import java.util.Collection;
-import l.C5127;
 import org.bouncycastle.util.Selector;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PKIXCertStoreSelector implements Selector {
@@ -87,7 +87,7 @@ public class PKIXCertStoreSelector implements Selector {
                     setSubjectAlternativeNames(x509CertSelector.getSubjectAlternativeNames());
                     setSubjectPublicKeyAlgID(x509CertSelector.getSubjectPublicKeyAlgID());
                 } catch (IOException e) {
-                    throw new IllegalStateException(C5127.m14678(e, new StringBuilder("base selector invalid: ")), e);
+                    throw new IllegalStateException(C7241.m16586(e, new StringBuilder("base selector invalid: ")), e);
                 }
             }
         }

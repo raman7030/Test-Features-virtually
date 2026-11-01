@@ -6,8 +6,8 @@ import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactorySpi;
 import javax.crypto.spec.SecretKeySpec;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import p067l.C10965;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BaseSecretKeyFactory extends SecretKeyFactorySpi implements PBE {
@@ -53,6 +53,6 @@ public class BaseSecretKeyFactory extends SecretKeyFactorySpi implements PBE {
         if (secretKey.getAlgorithm().equalsIgnoreCase(this.algName)) {
             return new SecretKeySpec(secretKey.getEncoded(), this.algName);
         }
-        throw new InvalidKeyException(C9045.m23341(new StringBuilder("Key not of type "), this.algName, "."));
+        throw new InvalidKeyException(C10965.m25286(new StringBuilder("Key not of type "), this.algName, "."));
     }
 }

@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.agreement.kdf;
 
 import java.io.IOException;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -14,6 +13,7 @@ import org.bouncycastle.crypto.DerivationParameters;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.util.Pack;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DHKEKGenerator implements DerivationFunction {
@@ -21,7 +21,9 @@ public class DHKEKGenerator implements DerivationFunction {
     public final Digest digest;
     public int keySize;
     public byte[] partyAInfo;
-    public byte[] z;
+
+    /* JADX INFO: renamed from: z */
+    public byte[] f80762z;
 
     public DHKEKGenerator(Digest digest) {
         this.digest = digest;
@@ -36,7 +38,7 @@ public class DHKEKGenerator implements DerivationFunction {
         DHKDFParameters dHKDFParameters = (DHKDFParameters) derivationParameters;
         this.algorithm = dHKDFParameters.getAlgorithm();
         this.keySize = dHKDFParameters.getKeySize();
-        this.z = dHKDFParameters.getZ();
+        this.f80762z = dHKDFParameters.getZ();
         this.partyAInfo = dHKDFParameters.getExtraInfo();
     }
 
@@ -59,7 +61,7 @@ public class DHKEKGenerator implements DerivationFunction {
         int i6 = 1;
         while (i5 < i3) {
             Digest digest = this.digest;
-            byte[] bArr3 = this.z;
+            byte[] bArr3 = this.f80762z;
             digest.update(bArr3, i4, bArr3.length);
             ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
             ASN1EncodableVector aSN1EncodableVector2 = new ASN1EncodableVector();
@@ -88,7 +90,7 @@ public class DHKEKGenerator implements DerivationFunction {
                 i5++;
                 i4 = 0;
             } catch (IOException e) {
-                throw new IllegalArgumentException(C5127.m14678(e, new StringBuilder("unable to encode parameter info: ")));
+                throw new IllegalArgumentException(C7241.m16586(e, new StringBuilder("unable to encode parameter info: ")));
             }
         }
         this.digest.reset();

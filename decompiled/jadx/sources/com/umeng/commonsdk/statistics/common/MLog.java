@@ -17,191 +17,221 @@ public class MLog {
     public static int LOG_MAXLENGTH = 2000;
     public static String TAG = "MobclickAgent";
 
-    public static void i(Locale locale, String str, Object... objArr) {
+    /* JADX INFO: renamed from: i */
+    public static void m2958i(Locale locale, String str, Object... objArr) {
         try {
-            i(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
+            m2954i(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void d(Locale locale, String str, Object... objArr) {
+    /* JADX INFO: renamed from: d */
+    public static void m2946d(Locale locale, String str, Object... objArr) {
         try {
-            d(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
+            m2942d(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void e(Locale locale, String str, Object... objArr) {
+    /* JADX INFO: renamed from: e */
+    public static void m2952e(Locale locale, String str, Object... objArr) {
         try {
-            e(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
+            m2948e(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void v(Locale locale, String str, Object... objArr) {
+    /* JADX INFO: renamed from: v */
+    public static void m2964v(Locale locale, String str, Object... objArr) {
         try {
-            v(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
+            m2960v(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void w(Locale locale, String str, Object... objArr) {
+    /* JADX INFO: renamed from: w */
+    public static void m2970w(Locale locale, String str, Object... objArr) {
         try {
-            w(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
+            m2966w(TAG, new Formatter(locale).format(str, objArr).toString(), (Throwable) null);
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void i(String str, Object... objArr) {
-        try {
-            if (str.contains("%")) {
-                i(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
-            } else {
-                i(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
-            }
-        } catch (Throwable th) {
-            e(th);
-        }
-    }
-
-    public static void d(String str, Object... objArr) {
+    /* JADX INFO: renamed from: i */
+    public static void m2956i(String str, Object... objArr) {
         try {
             if (str.contains("%")) {
-                d(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
+                m2954i(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
             } else {
-                d(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
+                m2954i(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
             }
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void e(String str, Object... objArr) {
+    /* JADX INFO: renamed from: d */
+    public static void m2944d(String str, Object... objArr) {
         try {
             if (str.contains("%")) {
-                e(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
+                m2942d(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
             } else {
-                e(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
+                m2942d(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
             }
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void v(String str, Object... objArr) {
+    /* JADX INFO: renamed from: e */
+    public static void m2950e(String str, Object... objArr) {
         try {
             if (str.contains("%")) {
-                v(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
+                m2948e(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
             } else {
-                v(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
+                m2948e(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
             }
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void w(String str, Object... objArr) {
+    /* JADX INFO: renamed from: v */
+    public static void m2962v(String str, Object... objArr) {
         try {
             if (str.contains("%")) {
-                w(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
+                m2960v(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
             } else {
-                w(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
+                m2960v(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
             }
         } catch (Throwable th) {
-            e(th);
+            m2951e(th);
         }
     }
 
-    public static void i(Throwable th) {
-        i(TAG, (String) null, th);
+    /* JADX INFO: renamed from: w */
+    public static void m2968w(String str, Object... objArr) {
+        try {
+            if (str.contains("%")) {
+                m2966w(TAG, new Formatter().format(str, objArr).toString(), (Throwable) null);
+            } else {
+                m2966w(str, objArr != null ? (String) objArr[0] : "", (Throwable) null);
+            }
+        } catch (Throwable th) {
+            m2951e(th);
+        }
     }
 
-    public static void v(Throwable th) {
-        v(TAG, (String) null, th);
+    /* JADX INFO: renamed from: i */
+    public static void m2957i(Throwable th) {
+        m2954i(TAG, (String) null, th);
     }
 
-    public static void w(Throwable th) {
-        w(TAG, (String) null, th);
+    /* JADX INFO: renamed from: v */
+    public static void m2963v(Throwable th) {
+        m2960v(TAG, (String) null, th);
     }
 
-    public static void d(Throwable th) {
-        d(TAG, (String) null, th);
+    /* JADX INFO: renamed from: w */
+    public static void m2969w(Throwable th) {
+        m2966w(TAG, (String) null, th);
     }
 
-    public static void e(Throwable th) {
-        e(TAG, (String) null, th);
+    /* JADX INFO: renamed from: d */
+    public static void m2945d(Throwable th) {
+        m2942d(TAG, (String) null, th);
     }
 
-    public static void i(String str, Throwable th) {
-        i(TAG, str, th);
+    /* JADX INFO: renamed from: e */
+    public static void m2951e(Throwable th) {
+        m2948e(TAG, (String) null, th);
     }
 
-    public static void v(String str, Throwable th) {
-        v(TAG, str, th);
+    /* JADX INFO: renamed from: i */
+    public static void m2955i(String str, Throwable th) {
+        m2954i(TAG, str, th);
     }
 
-    public static void w(String str, Throwable th) {
-        w(TAG, str, th);
+    /* JADX INFO: renamed from: v */
+    public static void m2961v(String str, Throwable th) {
+        m2960v(TAG, str, th);
     }
 
-    public static void d(String str, Throwable th) {
-        d(TAG, str, th);
+    /* JADX INFO: renamed from: w */
+    public static void m2967w(String str, Throwable th) {
+        m2966w(TAG, str, th);
     }
 
-    public static void e(String str, Throwable th) {
-        e(TAG, str, th);
+    /* JADX INFO: renamed from: d */
+    public static void m2943d(String str, Throwable th) {
+        m2942d(TAG, str, th);
     }
 
-    public static void v(String str) {
-        v(TAG, str, (Throwable) null);
+    /* JADX INFO: renamed from: e */
+    public static void m2949e(String str, Throwable th) {
+        m2948e(TAG, str, th);
     }
 
-    public static void d(String str) {
-        d(TAG, str, (Throwable) null);
+    /* JADX INFO: renamed from: v */
+    public static void m2959v(String str) {
+        m2960v(TAG, str, (Throwable) null);
     }
 
-    public static void i(String str) {
-        i(TAG, str, (Throwable) null);
+    /* JADX INFO: renamed from: d */
+    public static void m2941d(String str) {
+        m2942d(TAG, str, (Throwable) null);
     }
 
-    public static void w(String str) {
-        w(TAG, str, (Throwable) null);
+    /* JADX INFO: renamed from: i */
+    public static void m2953i(String str) {
+        m2954i(TAG, str, (Throwable) null);
     }
 
-    public static void e(String str) {
-        e(TAG, str, (Throwable) null);
+    /* JADX INFO: renamed from: w */
+    public static void m2965w(String str) {
+        m2966w(TAG, str, (Throwable) null);
     }
 
-    public static void v(String str, String str2, Throwable th) {
+    /* JADX INFO: renamed from: e */
+    public static void m2947e(String str) {
+        m2948e(TAG, str, (Throwable) null);
+    }
+
+    /* JADX INFO: renamed from: v */
+    public static void m2960v(String str, String str2, Throwable th) {
         if (DEBUG) {
             print(1, str, str2, th);
         }
     }
 
-    public static void d(String str, String str2, Throwable th) {
+    /* JADX INFO: renamed from: d */
+    public static void m2942d(String str, String str2, Throwable th) {
         if (DEBUG) {
             print(2, str, str2, th);
         }
     }
 
-    public static void i(String str, String str2, Throwable th) {
+    /* JADX INFO: renamed from: i */
+    public static void m2954i(String str, String str2, Throwable th) {
         if (DEBUG) {
             print(3, str, str2, th);
         }
     }
 
-    public static void w(String str, String str2, Throwable th) {
+    /* JADX INFO: renamed from: w */
+    public static void m2966w(String str, String str2, Throwable th) {
         if (DEBUG) {
             print(4, str, str2, th);
         }
     }
 
-    public static void e(String str, String str2, Throwable th) {
+    /* JADX INFO: renamed from: e */
+    public static void m2948e(String str, String str2, Throwable th) {
         if (DEBUG) {
             print(5, str, str2, th);
         }

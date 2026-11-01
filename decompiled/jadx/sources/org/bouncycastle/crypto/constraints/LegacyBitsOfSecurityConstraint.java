@@ -13,8 +13,8 @@ public class LegacyBitsOfSecurityConstraint extends ServicesConstraint {
     public final int legacyRequiredBitsOfSecurity;
     public final int requiredBitsOfSecurity;
 
-    /* JADX INFO: renamed from: org.bouncycastle.crypto.constraints.LegacyBitsOfSecurityConstraint$1, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass1 {
+    /* JADX INFO: renamed from: org.bouncycastle.crypto.constraints.LegacyBitsOfSecurityConstraint$1 */
+    public /* synthetic */ class C21611 {
         public static final /* synthetic */ int[] $SwitchMap$org$bouncycastle$crypto$CryptoServicePurpose;
 
         static {
@@ -65,7 +65,7 @@ public class LegacyBitsOfSecurityConstraint extends ServicesConstraint {
             return;
         }
         CryptoServicePurpose purpose = cryptoServiceProperties.getPurpose();
-        int i = AnonymousClass1.$SwitchMap$org$bouncycastle$crypto$CryptoServicePurpose[purpose.ordinal()];
+        int i = C21611.$SwitchMap$org$bouncycastle$crypto$CryptoServicePurpose[purpose.ordinal()];
         if (i != 1 && i != 2 && i != 3 && i != 4) {
             if (cryptoServiceProperties.bitsOfSecurity() >= this.requiredBitsOfSecurity) {
                 return;

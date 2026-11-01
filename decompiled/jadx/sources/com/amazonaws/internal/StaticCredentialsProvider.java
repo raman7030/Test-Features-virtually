@@ -7,16 +7,16 @@ import com.amazonaws.auth.BasicAWSCredentials;
 /* JADX INFO: loaded from: classes.dex */
 public class StaticCredentialsProvider implements AWSCredentialsProvider {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final BasicAWSCredentials f211;
+    /* JADX INFO: renamed from: ֫ */
+    public final BasicAWSCredentials f1371;
 
     public StaticCredentialsProvider(BasicAWSCredentials basicAWSCredentials) {
-        this.f211 = basicAWSCredentials;
+        this.f1371 = basicAWSCredentials;
     }
 
     @Override // com.amazonaws.auth.AWSCredentialsProvider
     /* JADX INFO: renamed from: ֫ */
-    public final AWSCredentials mo208() {
-        return this.f211;
+    public final AWSCredentials mo1374() {
+        return this.f1371;
     }
 }

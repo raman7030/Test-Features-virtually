@@ -3,10 +3,10 @@ package org.bouncycastle.asn1.nist;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECParametersHolder;
 import org.bouncycastle.asn1.sec.SECNamedCurves;
 import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECParametersHolder;
 import org.bouncycastle.util.Strings;
 
 /* JADX INFO: loaded from: classes.dex */

@@ -3,9 +3,9 @@ package org.bouncycastle.crypto.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.SecureRandom;
-import l.C5127;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.util.Arrays;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class JournalingSecureRandom extends SecureRandom {
@@ -91,7 +91,7 @@ public class JournalingSecureRandom extends SecureRandom {
         try {
             this.tOut.write(bArr);
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to record transcript: ")));
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to record transcript: ")));
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.portaudio;
 
-import l.C16429;
+import p067l.C17982;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BlockingStream {
-    private native void getInfo(C16429 c16429);
+    private native void getInfo(C17982 c17982);
 
     private native boolean readFloats(float[] fArr, int i);
 

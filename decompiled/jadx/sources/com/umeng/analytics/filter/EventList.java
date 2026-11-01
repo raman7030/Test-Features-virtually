@@ -17,7 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /* JADX INFO: loaded from: classes.dex */
-public class EventList extends c implements FileLockCallback {
+public class EventList extends C0640c implements FileLockCallback {
     public static final int DELETE_LIST_DATA = 2;
     public static final int LOAD_LIST_DATA = 1;
     public static final int SAVE_LIST_DATA = 0;
@@ -81,7 +81,7 @@ public class EventList extends c implements FileLockCallback {
                         String strImprintProperty = UMEnvelopeBuild.imprintProperty(context, this.mEventListVersionKey, "");
                         this.mEventList = string;
                         eventListChange();
-                        UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> loadEventListFromFile: mEventList = " + this.mEventList);
+                        UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> loadEventListFromFile: mEventList = " + this.mEventList);
                         if (!UMUtils.isMainProgress(context)) {
                             if (md5.equalsIgnoreCase(strImprintProperty)) {
                                 this.mEventList = string;
@@ -173,25 +173,25 @@ public class EventList extends c implements FileLockCallback {
         }
     }
 
-    @Override // com.umeng.analytics.filter.c, com.umeng.commonsdk.statistics.internal.UMImprintChangeCallback
+    @Override // com.umeng.analytics.filter.C0640c, com.umeng.commonsdk.statistics.internal.UMImprintChangeCallback
     public void onImprintValueChanged(String str, String str2) {
         if ("ekv_bl_ver".equals(str) && str2 == null) {
-            UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> disable black list for ekv.");
+            UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> disable black list for ekv.");
             this.mFileLock.doFileOperateion(new File(this.mAppContext.getFilesDir(), this.mEventListName), this, 2);
         }
         if ("ekv_wl_ver".equals(str) && str2 == null) {
-            UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> disable white list for ekv.");
+            UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> disable white list for ekv.");
             this.mFileLock.doFileOperateion(new File(this.mAppContext.getFilesDir(), this.mEventListName), this, 2);
         }
     }
 
-    @Override // com.umeng.analytics.filter.c, com.umeng.commonsdk.statistics.internal.UMImprintPreProcessCallback
+    @Override // com.umeng.analytics.filter.C0640c, com.umeng.commonsdk.statistics.internal.UMImprintPreProcessCallback
     public boolean onPreProcessImprintKey(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return true;
         }
-        UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> onPreProcessImprintKey: key = " + str + "; len of value=" + str2.length());
-        UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> onPreProcessImprintKey: value = ".concat(str2));
+        UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> onPreProcessImprintKey: key = " + str + "; len of value=" + str2.length());
+        UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> onPreProcessImprintKey: value = ".concat(str2));
         this.mEventList = str2;
         eventListChange();
         File file = new File(this.mAppContext.getFilesDir(), this.mEventListName);
@@ -240,9 +240,9 @@ public class EventList extends c implements FileLockCallback {
         } else if (i == 1) {
             synchronized (this) {
                 if (loadEventListFromFile(this.mAppContext, file)) {
-                    UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> find event list data file, load it.");
+                    UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> find event list data file, load it.");
                 } else {
-                    UMRTLog.i(UMRTLog.RTLOG_TAG, "--->>> can't find event list file.");
+                    UMRTLog.m2757i(UMRTLog.RTLOG_TAG, "--->>> can't find event list file.");
                 }
             }
         } else if (i == 2) {

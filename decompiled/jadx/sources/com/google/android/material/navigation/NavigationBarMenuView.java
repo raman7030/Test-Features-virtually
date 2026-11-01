@@ -17,23 +17,23 @@ import com.google.android.material.motion.MotionUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.HashSet;
-import l.C0881;
-import l.C11641;
-import l.C14369;
-import l.C16486;
-import l.C17648;
-import l.C17931;
-import l.C22919;
-import l.C23676;
-import l.C2510;
-import l.C3060;
-import l.C5882;
-import l.C9465;
-import l.InterfaceC5986;
-import l.InterfaceC7002;
+import p067l.C0886;
+import p067l.C0994;
+import p067l.C1134;
+import p067l.C11364;
+import p067l.C13432;
+import p067l.C1555;
+import p067l.C1660;
+import p067l.C1717;
+import p067l.C19410;
+import p067l.C1979;
+import p067l.C24870;
+import p067l.C4754;
+import p067l.InterfaceC1139;
+import p067l.InterfaceC1189;
 
 /* JADX INFO: loaded from: classes.dex */
-public abstract class NavigationBarMenuView extends ViewGroup implements InterfaceC7002 {
+public abstract class NavigationBarMenuView extends ViewGroup implements InterfaceC1189 {
     public static final int[] CHECKED_STATE_SET = {R.attr.state_checked};
     public static final int[] DISABLED_STATE_SET = {-16842910};
     public static final int ITEM_POOL_SIZE = 5;
@@ -54,7 +54,7 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
     public ColorStateList itemIconTint;
     public int itemPaddingBottom;
     public int itemPaddingTop;
-    public final InterfaceC5986 itemPool;
+    public final InterfaceC1139 itemPool;
     public ColorStateList itemRippleColor;
     public int itemTextAppearanceActive;
     public boolean itemTextAppearanceActiveBoldEnabled;
@@ -62,13 +62,13 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
     public final ColorStateList itemTextColorDefault;
     public ColorStateList itemTextColorFromUser;
     public int labelVisibilityMode;
-    public C3060 menu;
+    public C0994 menu;
     public final View.OnClickListener onClickListener;
     public final SparseArray onTouchListeners;
     public NavigationBarPresenter presenter;
     public int selectedItemId;
     public int selectedItemPosition;
-    public final C2510 set;
+    public final C4754 set;
 
     private boolean isValidId(int i) {
         return i != -1;
@@ -89,7 +89,7 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
 
     public NavigationBarMenuView(Context context) {
         super(context);
-        this.itemPool = new C22919(5);
+        this.itemPool = new C1979(5);
         this.onTouchListeners = new SparseArray(5);
         this.selectedItemId = 0;
         this.selectedItemPosition = 0;
@@ -102,36 +102,36 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
         if (isInEditMode()) {
             this.set = null;
         } else {
-            C11641 c11641 = new C11641();
-            this.set = c11641;
-            c11641.m8007(0);
-            c11641.m8010setDuration(MotionUtils.resolveThemeDuration(getContext(), C17931.f54828, getResources().getInteger(C9465.f28751)));
-            c11641.setInterpolator(MotionUtils.resolveThemeInterpolator(getContext(), C17931.f55887, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
-            c11641.m8006(new TextScale());
+            C13432 c13432 = new C13432();
+            this.set = c13432;
+            c13432.m10055(0);
+            c13432.m56064setDuration(MotionUtils.resolveThemeDuration(getContext(), C19410.f58025, getResources().getInteger(C11364.f31700)));
+            c13432.setInterpolator(MotionUtils.resolveThemeInterpolator(getContext(), C19410.f59084, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+            c13432.m10054(new TextScale());
         }
         this.onClickListener = new View.OnClickListener() { // from class: com.google.android.material.navigation.NavigationBarMenuView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                C5882 itemData = ((NavigationBarItemView) view).getItemData();
+                C1134 itemData = ((NavigationBarItemView) view).getItemData();
                 if (NavigationBarMenuView.this.menu.performItemAction(itemData, NavigationBarMenuView.this.presenter, 0)) {
                     return;
                 }
                 itemData.setChecked(true);
             }
         };
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         setImportantForAccessibility(1);
     }
 
-    @Override // l.InterfaceC7002
-    public void initialize(C3060 c3060) {
-        this.menu = c3060;
+    @Override // p067l.InterfaceC1189
+    public void initialize(C0994 c0994) {
+        this.menu = c0994;
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-        C14369.m34264(accessibilityNodeInfo).m34284(C16486.m38850(1, this.menu.getVisibleItems().size(), 1, false));
+        C1555.m36397(accessibilityNodeInfo).m36417(C1660.m41076(1, this.menu.getVisibleItems().size(), 1, false));
     }
 
     public void setIconTintList(ColorStateList colorStateList) {
@@ -447,14 +447,14 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
         if (!getContext().getTheme().resolveAttribute(i, typedValue, true)) {
             return null;
         }
-        ColorStateList colorStateListM3233 = C0881.m3233(getContext(), typedValue.resourceId);
-        if (!getContext().getTheme().resolveAttribute(bin.mt.plus.R.attr.MT_Protector, typedValue, true)) {
+        ColorStateList colorStateListM5547 = C0886.m5547(getContext(), typedValue.resourceId);
+        if (!getContext().getTheme().resolveAttribute(bin.p000mt.plus.R.attr.MT_Protector, typedValue, true)) {
             return null;
         }
         int i2 = typedValue.data;
-        int defaultColor = colorStateListM3233.getDefaultColor();
+        int defaultColor = colorStateListM5547.getDefaultColor();
         int[] iArr = DISABLED_STATE_SET;
-        return new ColorStateList(new int[][]{iArr, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateListM3233.getColorForState(iArr, defaultColor), i2, defaultColor});
+        return new ColorStateList(new int[][]{iArr, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateListM5547.getColorForState(iArr, defaultColor), i2, defaultColor});
     }
 
     public void setPresenter(NavigationBarPresenter navigationBarPresenter) {
@@ -467,7 +467,7 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
         if (navigationBarItemViewArr != null) {
             for (NavigationBarItemView navigationBarItemView : navigationBarItemViewArr) {
                 if (navigationBarItemView != null) {
-                    this.itemPool.mo16807(navigationBarItemView);
+                    this.itemPool.mo18733(navigationBarItemView);
                     navigationBarItemView.clear();
                 }
             }
@@ -521,10 +521,10 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
             newItem.setItemRippleColor(this.itemRippleColor);
             newItem.setShifting(zIsShifting);
             newItem.setLabelVisibilityMode(this.labelVisibilityMode);
-            C5882 c5882 = (C5882) this.menu.getItem(i);
-            newItem.initialize(c5882, 0);
+            C1134 c1134 = (C1134) this.menu.getItem(i);
+            newItem.initialize(c1134, 0);
             newItem.setItemPosition(i);
-            int itemId = c5882.getItemId();
+            int itemId = c1134.getItemId();
             newItem.setOnTouchListener((View.OnTouchListener) this.onTouchListeners.get(itemId));
             newItem.setOnClickListener(this.onClickListener);
             int i5 = this.selectedItemId;
@@ -540,12 +540,12 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
     }
 
     public void updateMenuView() {
-        C2510 c2510;
-        C3060 c3060 = this.menu;
-        if (c3060 == null || this.buttons == null) {
+        C4754 c4754;
+        C0994 c0994 = this.menu;
+        if (c0994 == null || this.buttons == null) {
             return;
         }
-        int size = c3060.size();
+        int size = c0994.size();
         if (size != this.buttons.length) {
             buildMenuView();
             return;
@@ -558,21 +558,21 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
                 this.selectedItemPosition = i2;
             }
         }
-        if (i != this.selectedItemId && (c2510 = this.set) != null) {
-            C23676.m52224(this, c2510);
+        if (i != this.selectedItemId && (c4754 = this.set) != null) {
+            C24870.m54627(this, c4754);
         }
         boolean zIsShifting = isShifting(this.labelVisibilityMode, this.menu.getVisibleItems().size());
         for (int i3 = 0; i3 < size; i3++) {
             this.presenter.setUpdateSuspended(true);
             this.buttons[i3].setLabelVisibilityMode(this.labelVisibilityMode);
             this.buttons[i3].setShifting(zIsShifting);
-            this.buttons[i3].initialize((C5882) this.menu.getItem(i3), 0);
+            this.buttons[i3].initialize((C1134) this.menu.getItem(i3), 0);
             this.presenter.setUpdateSuspended(false);
         }
     }
 
     private NavigationBarItemView getNewItem() {
-        NavigationBarItemView navigationBarItemView = (NavigationBarItemView) this.itemPool.mo16806();
+        NavigationBarItemView navigationBarItemView = (NavigationBarItemView) this.itemPool.mo18732();
         return navigationBarItemView == null ? createNavigationBarItemView(getContext()) : navigationBarItemView;
     }
 
@@ -681,7 +681,7 @@ public abstract class NavigationBarMenuView extends ViewGroup implements Interfa
         return this.selectedItemPosition;
     }
 
-    public C3060 getMenu() {
+    public C0994 getMenu() {
         return this.menu;
     }
 

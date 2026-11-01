@@ -7,8 +7,8 @@ import java.io.Serializable;
 @Deprecated
 public class AWSRequestMetrics {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final TimingInfo f794;
+    /* JADX INFO: renamed from: ֫ */
+    public final TimingInfo f1954;
 
     public enum Field implements MetricType {
         AWSErrorCode,
@@ -33,37 +33,37 @@ public class AWSRequestMetrics {
         StatusCode
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo732(Field field) {
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1897(Field field) {
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo733(Field field, long j) {
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1898(Field field, long j) {
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public void mo734(Field field, Serializable serializable) {
+    /* JADX INFO: renamed from: ֫ */
+    public void mo1899(Field field, Serializable serializable) {
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public void mo735(Field field) {
+    /* JADX INFO: renamed from: ۧ */
+    public void mo1900(Field field) {
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public void mo736(Field field) {
+    /* JADX INFO: renamed from: ܽ */
+    public void mo1901(Field field) {
     }
 
     public AWSRequestMetrics() {
         System.currentTimeMillis();
-        this.f794 = new TimingInfo(System.nanoTime(), null);
+        this.f1954 = new TimingInfo(System.nanoTime(), null);
     }
 
     public AWSRequestMetrics(TimingInfo timingInfo) {
-        this.f794 = timingInfo;
+        this.f1954 = timingInfo;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final TimingInfo m731() {
-        return this.f794;
+    /* JADX INFO: renamed from: ֫ */
+    public final TimingInfo m1896() {
+        return this.f1954;
     }
 }

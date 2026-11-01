@@ -5,13 +5,15 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes2.dex */
 public class MLDSAPublicKeyParameters extends MLDSAKeyParameters {
     public final byte[] rho;
-    public final byte[] t1;
+
+    /* JADX INFO: renamed from: t1 */
+    public final byte[] f81674t1;
 
     public MLDSAPublicKeyParameters(MLDSAParameters mLDSAParameters, byte[] bArr) {
         super(false, mLDSAParameters);
         this.rho = Arrays.copyOfRange(bArr, 0, 32);
         byte[] bArrCopyOfRange = Arrays.copyOfRange(bArr, 32, bArr.length);
-        this.t1 = bArrCopyOfRange;
+        this.f81674t1 = bArrCopyOfRange;
         if (bArrCopyOfRange.length == 0) {
             throw new IllegalArgumentException("encoding too short");
         }
@@ -26,7 +28,7 @@ public class MLDSAPublicKeyParameters extends MLDSAKeyParameters {
             throw new NullPointerException("t1 cannot be null");
         }
         this.rho = Arrays.clone(bArr);
-        this.t1 = Arrays.clone(bArr2);
+        this.f81674t1 = Arrays.clone(bArr2);
     }
 
     public static byte[] getEncoded(byte[] bArr, byte[] bArr2) {
@@ -34,7 +36,7 @@ public class MLDSAPublicKeyParameters extends MLDSAKeyParameters {
     }
 
     public byte[] getEncoded() {
-        return getEncoded(this.rho, this.t1);
+        return getEncoded(this.rho, this.f81674t1);
     }
 
     public byte[] getRho() {
@@ -42,6 +44,6 @@ public class MLDSAPublicKeyParameters extends MLDSAKeyParameters {
     }
 
     public byte[] getT1() {
-        return Arrays.clone(this.t1);
+        return Arrays.clone(this.f81674t1);
     }
 }

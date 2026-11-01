@@ -5,9 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import l.C16014;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
@@ -26,6 +23,9 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C10965;
+import p067l.C17588;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class RC6 {
@@ -108,8 +108,8 @@ public final class RC6 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            addGMacAlgorithm(configurableProvider, "RC6", C9045.m23341(C5368.m15340(str, "$AlgParams", "AlgorithmParameters.RC6", C5368.m15340(str, "$KeyGen", "KeyGenerator.RC6", C5368.m15340(str, "$ECB", "Cipher.RC6", sb, configurableProvider), configurableProvider), configurableProvider), str, "$GMAC"), C16014.m37867(str, "$KeyGen"));
-            addPoly1305Algorithm(configurableProvider, "RC6", C16014.m37867(str, "$Poly1305"), C16014.m37867(str, "$Poly1305KeyGen"));
+            addGMacAlgorithm(configurableProvider, "RC6", C10965.m25286(C7470.m17249(str, "$AlgParams", "AlgorithmParameters.RC6", C7470.m17249(str, "$KeyGen", "KeyGenerator.RC6", C7470.m17249(str, "$ECB", "Cipher.RC6", sb, configurableProvider), configurableProvider), configurableProvider), str, "$GMAC"), C17588.m40053(str, "$KeyGen"));
+            addPoly1305Algorithm(configurableProvider, "RC6", C17588.m40053(str, "$Poly1305"), C17588.m40053(str, "$Poly1305KeyGen"));
         }
     }
 

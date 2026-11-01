@@ -9,13 +9,13 @@ public class RpcException extends RuntimeException {
     public String mOperationType;
 
     public RpcException(Integer num, String str) {
-        super(a(num, str));
+        super(m143a(num, str));
         this.mCode = num.intValue();
         this.mMsg = str;
     }
 
     public RpcException(Integer num, String str, Throwable th) {
-        super(a(num, str), th);
+        super(m143a(num, str), th);
         this.mCode = num.intValue();
         this.mMsg = str;
     }
@@ -31,7 +31,8 @@ public class RpcException extends RuntimeException {
         this.mMsg = str;
     }
 
-    public static String a(Integer num, String str) {
+    /* JADX INFO: renamed from: a */
+    public static String m143a(Integer num, String str) {
         StringBuilder sb = new StringBuilder("RPCException: ");
         if (num != null) {
             sb.append("[");

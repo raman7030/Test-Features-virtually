@@ -9,8 +9,12 @@ import org.bouncycastle.util.Arrays;
 public class HMacSP800DRBG implements SP80090DRBG {
     public static final int MAX_BITS_REQUEST = 262144;
     public static final long RESEED_MAX = 140737488355328L;
-    public byte[] _K;
-    public byte[] _V;
+
+    /* JADX INFO: renamed from: _K */
+    public byte[] f81307_K;
+
+    /* JADX INFO: renamed from: _V */
+    public byte[] f81308_V;
     public EntropySource _entropySource;
     public Mac _hMac;
     public long _reseedCounter;
@@ -28,9 +32,9 @@ public class HMacSP800DRBG implements SP80090DRBG {
         this._hMac = mac;
         byte[] bArrConcatenate = Arrays.concatenate(getEntropy(), bArr2, bArr);
         byte[] bArr3 = new byte[mac.getMacSize()];
-        this._K = bArr3;
+        this.f81307_K = bArr3;
         byte[] bArr4 = new byte[bArr3.length];
-        this._V = bArr4;
+        this.f81308_V = bArr4;
         Arrays.fill(bArr4, (byte) 1);
         hmac_DRBG_Update(bArrConcatenate);
         this._reseedCounter = 1L;
@@ -52,20 +56,20 @@ public class HMacSP800DRBG implements SP80090DRBG {
     }
 
     private void hmac_DRBG_Update_Func(byte[] bArr, byte b) {
-        this._hMac.init(new KeyParameter(this._K));
+        this._hMac.init(new KeyParameter(this.f81307_K));
         Mac mac = this._hMac;
-        byte[] bArr2 = this._V;
+        byte[] bArr2 = this.f81308_V;
         mac.update(bArr2, 0, bArr2.length);
         this._hMac.update(b);
         if (bArr != null) {
             this._hMac.update(bArr, 0, bArr.length);
         }
-        this._hMac.doFinal(this._K, 0);
-        this._hMac.init(new KeyParameter(this._K));
+        this._hMac.doFinal(this.f81307_K, 0);
+        this._hMac.init(new KeyParameter(this.f81307_K));
         Mac mac2 = this._hMac;
-        byte[] bArr3 = this._V;
+        byte[] bArr3 = this.f81308_V;
         mac2.update(bArr3, 0, bArr3.length);
-        this._hMac.doFinal(this._V, 0);
+        this._hMac.doFinal(this.f81308_V, 0);
     }
 
     @Override // org.bouncycastle.crypto.prng.drbg.SP80090DRBG
@@ -86,21 +90,21 @@ public class HMacSP800DRBG implements SP80090DRBG {
         }
         int length2 = bArr.length;
         byte[] bArr3 = new byte[length2];
-        int length3 = bArr.length / this._V.length;
-        this._hMac.init(new KeyParameter(this._K));
+        int length3 = bArr.length / this.f81308_V.length;
+        this._hMac.init(new KeyParameter(this.f81307_K));
         for (int i = 0; i < length3; i++) {
             Mac mac = this._hMac;
-            byte[] bArr4 = this._V;
+            byte[] bArr4 = this.f81308_V;
             mac.update(bArr4, 0, bArr4.length);
-            this._hMac.doFinal(this._V, 0);
-            byte[] bArr5 = this._V;
+            this._hMac.doFinal(this.f81308_V, 0);
+            byte[] bArr5 = this.f81308_V;
             System.arraycopy(bArr5, 0, bArr3, bArr5.length * i, bArr5.length);
         }
-        byte[] bArr6 = this._V;
+        byte[] bArr6 = this.f81308_V;
         if (bArr6.length * length3 < length2) {
             this._hMac.update(bArr6, 0, bArr6.length);
-            this._hMac.doFinal(this._V, 0);
-            byte[] bArr7 = this._V;
+            this._hMac.doFinal(this.f81308_V, 0);
+            byte[] bArr7 = this.f81308_V;
             System.arraycopy(bArr7, 0, bArr3, bArr7.length * length3, length2 - (length3 * bArr7.length));
         }
         hmac_DRBG_Update(bArr2);
@@ -111,7 +115,7 @@ public class HMacSP800DRBG implements SP80090DRBG {
 
     @Override // org.bouncycastle.crypto.prng.drbg.SP80090DRBG
     public int getBlockSize() {
-        return this._V.length * 8;
+        return this.f81308_V.length * 8;
     }
 
     @Override // org.bouncycastle.crypto.prng.drbg.SP80090DRBG

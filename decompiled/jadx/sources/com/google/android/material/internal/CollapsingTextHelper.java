@@ -23,12 +23,12 @@ import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.resources.TypefaceUtils;
 import com.umeng.commonsdk.statistics.UMErrorCode;
-import l.C15472;
-import l.C17648;
-import l.C1814;
-import l.C20382;
-import l.C3164;
-import l.InterfaceC15157;
+import p067l.C0932;
+import p067l.C0999;
+import p067l.C17073;
+import p067l.C1717;
+import p067l.C21740;
+import p067l.InterfaceC1594;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class CollapsingTextHelper {
@@ -259,7 +259,7 @@ public final class CollapsingTextHelper {
 
     private float calculateFadeModeThresholdFraction() {
         float f = this.fadeModeStartFraction;
-        return C20382.m46695(1.0f, f, 0.5f, f);
+        return C21740.m49018(1.0f, f, 0.5f, f);
     }
 
     public void setFadeModeEnabled(boolean z) {
@@ -460,9 +460,9 @@ public final class CollapsingTextHelper {
     }
 
     public void setExpansionFraction(float f) {
-        float fM6035 = C1814.m6035(f, 0.0f, 1.0f);
-        if (fM6035 != this.expandedFraction) {
-            this.expandedFraction = fM6035;
+        float fM8233 = C0932.m8233(f, 0.0f, 1.0f);
+        if (fM8233 != this.expandedFraction) {
+            this.expandedFraction = fM8233;
             calculateCurrentOffsets();
         }
     }
@@ -562,7 +562,7 @@ public final class CollapsingTextHelper {
             }
         }
         View view = this.view;
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         view.postInvalidateOnAnimation();
     }
 
@@ -677,14 +677,14 @@ public final class CollapsingTextHelper {
     private void setCollapsedTextBlend(float f) {
         this.collapsedTextBlend = f;
         View view = this.view;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         view.postInvalidateOnAnimation();
     }
 
     private void setExpandedTextBlend(float f) {
         this.expandedTextBlend = f;
         View view = this.view;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         view.postInvalidateOnAnimation();
     }
 
@@ -753,7 +753,7 @@ public final class CollapsingTextHelper {
         }
         String strTrim = this.textToDrawCollapsed.toString().trim();
         if (strTrim.endsWith("…")) {
-            strTrim = C15472.m36561(1, 0, strTrim);
+            strTrim = C17073.m38720(1, 0, strTrim);
         }
         String str = strTrim;
         this.textPaint.setAlpha(alpha);
@@ -767,18 +767,18 @@ public final class CollapsingTextHelper {
 
     private boolean isDefaultIsRtl() {
         View view = this.view;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         return view.getLayoutDirection() == 1;
     }
 
     private boolean isTextDirectionHeuristicsIsRtl(CharSequence charSequence, boolean z) {
-        InterfaceC15157 interfaceC15157;
+        InterfaceC1594 interfaceC1594;
         if (z) {
-            interfaceC15157 = C3164.f9957;
+            interfaceC1594 = C0999.f12760;
         } else {
-            interfaceC15157 = C3164.f9956;
+            interfaceC1594 = C0999.f12759;
         }
-        return interfaceC15157.mo35861(charSequence.length(), charSequence);
+        return interfaceC1594.mo38019(charSequence.length(), charSequence);
     }
 
     private void setInterpolatedTextSize(float f) {
@@ -789,7 +789,7 @@ public final class CollapsingTextHelper {
             ensureExpandedTexture();
         }
         View view = this.view;
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         view.postInvalidateOnAnimation();
     }
 

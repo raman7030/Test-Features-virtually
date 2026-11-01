@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.PBEParameterSpec;
-import l.C18473;
-import l.C19462;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.pkcs.PBEParameter;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C19925;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PBEPBKDF1 {
@@ -78,7 +78,7 @@ public class PBEPBKDF1 {
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
         public void configure(ConfigurableProvider configurableProvider) {
             configurableProvider.addAlgorithm("AlgorithmParameters.PBKDF1", PREFIX + "$AlgParams");
-            C19462.m44861(C18473.m42951("PBKDF1", "Alg.Alias.AlgorithmParameters.", C18473.m42951("PBKDF1", "Alg.Alias.AlgorithmParameters.", C18473.m42951("PBKDF1", "Alg.Alias.AlgorithmParameters.", C18473.m42951("PBKDF1", "Alg.Alias.AlgorithmParameters.", new StringBuilder("Alg.Alias.AlgorithmParameters."), PKCSObjectIdentifiers.pbeWithMD2AndDES_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithMD5AndDES_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithMD5AndRC2_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithSHA1AndDES_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithSHA1AndRC2_CBC, configurableProvider, "PBKDF1");
+            C20865.m47157(C19925.m45227("PBKDF1", "Alg.Alias.AlgorithmParameters.", C19925.m45227("PBKDF1", "Alg.Alias.AlgorithmParameters.", C19925.m45227("PBKDF1", "Alg.Alias.AlgorithmParameters.", C19925.m45227("PBKDF1", "Alg.Alias.AlgorithmParameters.", new StringBuilder("Alg.Alias.AlgorithmParameters."), PKCSObjectIdentifiers.pbeWithMD2AndDES_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithMD5AndDES_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithMD5AndRC2_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithSHA1AndDES_CBC, configurableProvider), PKCSObjectIdentifiers.pbeWithSHA1AndRC2_CBC, configurableProvider, "PBKDF1");
         }
     }
 }

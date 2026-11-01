@@ -15,8 +15,8 @@ import android.view.WindowInsets;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.ClippableRoundedCornerLayout;
 import com.google.android.material.internal.ViewUtils;
-import l.C20118;
-import l.C23575;
+import p067l.C1840;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MaterialMainContainerBackHelper extends MaterialBackAnimationHelper {
@@ -31,8 +31,8 @@ public class MaterialMainContainerBackHelper extends MaterialBackAnimationHelper
     public MaterialMainContainerBackHelper(View view) {
         super(view);
         Resources resources = view.getResources();
-        this.minEdgeGap = resources.getDimension(C23575.f76148);
-        this.maxTranslationY = resources.getDimension(C23575.f76244);
+        this.minEdgeGap = resources.getDimension(C24774.f78894);
+        this.maxTranslationY = resources.getDimension(C24774.f78990);
     }
 
     public Rect getInitialHideToClipBounds() {
@@ -43,9 +43,9 @@ public class MaterialMainContainerBackHelper extends MaterialBackAnimationHelper
         return this.initialHideFromClipBounds;
     }
 
-    public void startBackProgress(C20118 c20118, View view) {
-        super.onStartBackProgress(c20118);
-        startBackProgress(c20118.m46373(), view);
+    public void startBackProgress(C1840 c1840, View view) {
+        super.onStartBackProgress(c1840);
+        startBackProgress(c1840.m48689(), view);
     }
 
     public void startBackProgress(float f, View view) {
@@ -56,14 +56,14 @@ public class MaterialMainContainerBackHelper extends MaterialBackAnimationHelper
         this.initialTouchY = f;
     }
 
-    public void updateBackProgress(C20118 c20118, View view, float f) {
-        if (super.onUpdateBackProgress(c20118) == null) {
+    public void updateBackProgress(C1840 c1840, View view, float f) {
+        if (super.onUpdateBackProgress(c1840) == null) {
             return;
         }
         if (view != null && view.getVisibility() != 4) {
             view.setVisibility(4);
         }
-        updateBackProgress(c20118.m46371(), c20118.m46372() == 0, c20118.m46373(), f);
+        updateBackProgress(c1840.m48687(), c1840.m48688() == 0, c1840.m48689(), f);
     }
 
     public void updateBackProgress(float f, boolean z, float f2, float f3) {

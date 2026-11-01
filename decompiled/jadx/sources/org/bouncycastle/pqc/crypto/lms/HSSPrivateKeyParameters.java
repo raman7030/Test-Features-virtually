@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import l.C20195;
-import l.C5127;
-import l.C5368;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C21562;
+import p067l.C7241;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSContextBasedSigner {
@@ -21,17 +21,17 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     public final boolean isShard;
     public List keys;
 
-    /* JADX INFO: renamed from: l, reason: collision with root package name */
-    public final int f77978l;
+    /* JADX INFO: renamed from: l */
+    public final int f81634l;
     public HSSPublicKeyParameters publicKey;
     public List sig;
 
     public HSSPrivateKeyParameters(int i, List list, List list2, long j, long j2) {
         super(true);
         this.index = 0L;
-        this.f77978l = i;
-        this.keys = C20195.unmodifiableList(list);
-        this.sig = C20195.unmodifiableList(list2);
+        this.f81634l = i;
+        this.keys = C21562.unmodifiableList(list);
+        this.sig = C21562.unmodifiableList(list2);
         this.index = j;
         this.indexLimit = j2;
         this.isShard = false;
@@ -41,9 +41,9 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     public HSSPrivateKeyParameters(int i, List list, List list2, long j, long j2, boolean z) {
         super(true);
         this.index = 0L;
-        this.f77978l = i;
-        this.keys = C20195.unmodifiableList(list);
-        this.sig = C20195.unmodifiableList(list2);
+        this.f81634l = i;
+        this.keys = C21562.unmodifiableList(list);
+        this.sig = C21562.unmodifiableList(list2);
         this.index = j;
         this.indexLimit = j2;
         this.isShard = z;
@@ -52,7 +52,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     public HSSPrivateKeyParameters(LMSPrivateKeyParameters lMSPrivateKeyParameters, long j, long j2) {
         super(true);
         this.index = 0L;
-        this.f77978l = 1;
+        this.f81634l = 1;
         this.keys = Collections.singletonList(lMSPrivateKeyParameters);
         this.sig = Collections.EMPTY_LIST;
         this.index = j;
@@ -88,7 +88,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj));
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream2 = null;
         try {
@@ -143,7 +143,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
             return false;
         }
         HSSPrivateKeyParameters hSSPrivateKeyParameters = (HSSPrivateKeyParameters) obj;
-        if (this.f77978l == hSSPrivateKeyParameters.f77978l && this.isShard == hSSPrivateKeyParameters.isShard && this.indexLimit == hSSPrivateKeyParameters.indexLimit && this.index == hSSPrivateKeyParameters.index && this.keys.equals(hSSPrivateKeyParameters.keys)) {
+        if (this.f81634l == hSSPrivateKeyParameters.f81634l && this.isShard == hSSPrivateKeyParameters.isShard && this.indexLimit == hSSPrivateKeyParameters.indexLimit && this.index == hSSPrivateKeyParameters.index && this.keys.equals(hSSPrivateKeyParameters.keys)) {
             return this.sig.equals(hSSPrivateKeyParameters.sig);
         }
         return false;
@@ -164,7 +164,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
                 }
                 long j4 = j3 + j;
                 this.index = j4;
-                hSSPrivateKeyParametersMakeCopy = makeCopy(new HSSPrivateKeyParameters(this.f77978l, new ArrayList(getKeys()), new ArrayList(getSig()), j3, j4, true));
+                hSSPrivateKeyParametersMakeCopy = makeCopy(new HSSPrivateKeyParameters(this.f81634l, new ArrayList(getKeys()), new ArrayList(getSig()), j3, j4, true));
                 resetKeyToIndex();
             } catch (Throwable th) {
                 throw th;
@@ -199,7 +199,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     @Override // org.bouncycastle.pqc.crypto.lms.LMSKeyParameters, org.bouncycastle.util.Encodable
     public synchronized byte[] getEncoded() {
         Composer composerBool;
-        composerBool = Composer.compose().u32str(0).u32str(this.f77978l).u64str(this.index).u64str(this.indexLimit).bool(this.isShard);
+        composerBool = Composer.compose().u32str(0).u32str(this.f81634l).u64str(this.index).u64str(this.indexLimit).bool(this.isShard);
         Iterator it = this.keys.iterator();
         while (it.hasNext()) {
             composerBool.bytes((LMSPrivateKeyParameters) it.next());
@@ -224,7 +224,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     }
 
     public int getL() {
-        return this.f77978l;
+        return this.f81634l;
     }
 
     public synchronized LMSParameters[] getLMSParameters() {
@@ -239,7 +239,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     }
 
     public synchronized HSSPublicKeyParameters getPublicKey() {
-        return new HSSPublicKeyParameters(this.f77978l, getRootKey().getPublicKey());
+        return new HSSPublicKeyParameters(this.f81634l, getRootKey().getPublicKey());
     }
 
     public LMSPrivateKeyParameters getRootKey() {
@@ -256,7 +256,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     }
 
     public int hashCode() {
-        int iHashCode = (this.sig.hashCode() + ((this.keys.hashCode() + (((this.f77978l * 31) + (this.isShard ? 1 : 0)) * 31)) * 31)) * 31;
+        int iHashCode = (this.sig.hashCode() + ((this.keys.hashCode() + (((this.f81634l * 31) + (this.isShard ? 1 : 0)) * 31)) * 31)) * 31;
         long j = this.indexLimit;
         int i = (iHashCode + ((int) (j ^ (j >>> 32)))) * 31;
         long j2 = this.index;
@@ -288,8 +288,8 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
         arrayList.set(i, LMS.generateKeys(lMSPrivateKeyParameters.getSigParameters(), lMSPrivateKeyParameters.getOtsParameters(), 0, bArr3, bArr));
         ArrayList arrayList2 = new ArrayList(this.sig);
         arrayList2.set(i2, LMS.generateSign((LMSPrivateKeyParameters) arrayList.get(i2), ((LMSPrivateKeyParameters) arrayList.get(i)).getPublicKey().toByteArray()));
-        this.keys = C20195.unmodifiableList(arrayList);
-        this.sig = C20195.unmodifiableList(arrayList2);
+        this.keys = C21562.unmodifiableList(arrayList);
+        this.sig = C21562.unmodifiableList(arrayList2);
     }
 
     public void resetKeyToIndex() {
@@ -348,8 +348,8 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
 
     public void updateHierarchy(LMSPrivateKeyParameters[] lMSPrivateKeyParametersArr, LMSSignature[] lMSSignatureArr) {
         synchronized (this) {
-            this.keys = C20195.unmodifiableList(java.util.Arrays.asList(lMSPrivateKeyParametersArr));
-            this.sig = C20195.unmodifiableList(java.util.Arrays.asList(lMSSignatureArr));
+            this.keys = C21562.unmodifiableList(java.util.Arrays.asList(lMSPrivateKeyParametersArr));
+            this.sig = C21562.unmodifiableList(java.util.Arrays.asList(lMSSignatureArr));
         }
     }
 
@@ -358,7 +358,7 @@ public class HSSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
         try {
             return HSS.generateSignature(getL(), lMSContext).getEncoded();
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to encode signature: ")), e);
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to encode signature: ")), e);
         }
     }
 }

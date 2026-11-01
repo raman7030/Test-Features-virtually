@@ -1,0 +1,152 @@
+package p067l;
+
+/* JADX INFO: renamed from: l.ۘᩳܿ, reason: contains not printable characters */
+/* JADX INFO: compiled from: 068W */
+/* JADX INFO: loaded from: classes2.dex */
+public final class C6276 {
+
+    /* JADX INFO: renamed from: ֫ */
+    public int f15876 = 0;
+
+    /* JADX INFO: renamed from: ۧ */
+    public int f15877;
+
+    /* JADX INFO: renamed from: ܽ */
+    public final char[] f15878;
+
+    public C6276(char[] cArr, int i) {
+        this.f15878 = cArr;
+        this.f15877 = i;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [char] */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0039 -> B:21:0x003b). Please report as a decompilation issue!!! */
+    /*  JADX ERROR: JadxRuntimeException in pass: RegionMakerVisitor
+        jadx.core.utils.exceptions.JadxRuntimeException: Not found exit edge by exit block: B:6:0x0012
+        	at jadx.core.dex.visitors.regions.maker.LoopRegionMaker.checkLoopExits(LoopRegionMaker.java:272)
+        	at jadx.core.dex.visitors.regions.maker.LoopRegionMaker.makeLoopRegion(LoopRegionMaker.java:237)
+        	at jadx.core.dex.visitors.regions.maker.LoopRegionMaker.process(LoopRegionMaker.java:80)
+        	at jadx.core.dex.visitors.regions.maker.RegionMaker.traverse(RegionMaker.java:92)
+        	at jadx.core.dex.visitors.regions.maker.RegionMaker.makeRegion(RegionMaker.java:69)
+        	at jadx.core.dex.visitors.regions.maker.RegionMaker.makeMthRegion(RegionMaker.java:49)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:25)
+        */
+    /* JADX INFO: renamed from: ܽ */
+    public final java.lang.String m14247() {
+        /*
+            r6 = this;
+            java.lang.StringBuilder r0 = new java.lang.StringBuilder
+            r0.<init>()
+            int r1 = r6.f15876
+            char[] r2 = r6.f15878
+            int r3 = r2.length
+            r4 = -1
+            if (r1 < r3) goto Lf
+            r3 = r6
+            goto L3b
+        Lf:
+            char r1 = r2[r1]
+            r3 = r6
+        L12:
+            if (r1 == r4) goto L40
+            r5 = 60
+            if (r1 == r5) goto L40
+            r5 = 62
+            if (r1 == r5) goto L40
+            r5 = 61
+            if (r1 == r5) goto L40
+            r5 = 34
+            if (r1 == r5) goto L40
+            r5 = 39
+            if (r1 == r5) goto L40
+            boolean r5 = java.lang.Character.isWhitespace(r1)
+            if (r5 != 0) goto L40
+            char r1 = (char) r1
+            r0.append(r1)
+            int r1 = r3.f15876
+            int r1 = r1 + 1
+            r3.f15876 = r1
+            int r5 = r2.length
+            if (r1 < r5) goto L3d
+        L3b:
+            r1 = -1
+            goto L12
+        L3d:
+            char r1 = r2[r1]
+            goto L12
+        L40:
+            java.lang.String r0 = r0.toString()
+            return r0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: p067l.C6276.m14247():java.lang.String");
+    }
+
+    /* JADX WARN: Code duplicated, block: B:11:0x001d A[LOOP:0: B:6:0x000c->B:11:0x001d, LOOP_END] */
+    /* JADX WARN: Code duplicated, block: B:14:0x001b A[SYNTHETIC] */
+    /* JADX WARN: Code duplicated, block: B:8:0x0012  */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v7, types: [char] */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:9:0x0019 -> B:10:0x001b). Please report as a decompilation issue!!! */
+    /*  JADX ERROR: StackOverflowError in pass: RegionMakerVisitor
+        java.lang.StackOverflowError
+        	at jadx.core.utils.BlockUtils.traverseSuccessorsUntil(BlockUtils.java:731)
+        	at jadx.core.utils.BlockUtils.traverseSuccessorsUntil(BlockUtils.java:749)
+        */
+    /* JADX INFO: renamed from: ᩳ */
+    public final void m14248() {
+        /*
+            r4 = this;
+            int r0 = r4.f15876
+            char[] r1 = r4.f15878
+            int r2 = r1.length
+            if (r0 < r2) goto L9
+            r2 = r4
+            goto L1b
+        L9:
+            char r0 = r1[r0]
+            r2 = r4
+        Lc:
+            boolean r0 = java.lang.Character.isWhitespace(r0)
+            if (r0 == 0) goto L20
+            int r0 = r2.f15876
+            int r0 = r0 + 1
+            r2.f15876 = r0
+            int r3 = r1.length
+            if (r0 < r3) goto L1d
+        L1b:
+            r0 = -1
+            goto Lc
+        L1d:
+            char r0 = r1[r0]
+            goto Lc
+        L20:
+            return
+        */
+        throw new UnsupportedOperationException("Method not decompiled: p067l.C6276.m14248():void");
+    }
+
+    /* JADX INFO: renamed from: ۧ */
+    public final int m14246() {
+        int i = this.f15876;
+        char[] cArr = this.f15878;
+        if (i >= cArr.length) {
+            return -1;
+        }
+        this.f15876 = i + 1;
+        return cArr[i];
+    }
+
+    /* JADX INFO: renamed from: ֫ */
+    public final int m14245() {
+        return this.f15876 + this.f15877;
+    }
+}

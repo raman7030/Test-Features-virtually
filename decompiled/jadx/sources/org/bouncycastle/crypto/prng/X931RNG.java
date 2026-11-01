@@ -8,10 +8,18 @@ public class X931RNG {
     public static final long BLOCK128_RESEED_MAX = 8388608;
     public static final int BLOCK64_MAX_BITS_REQUEST = 4096;
     public static final long BLOCK64_RESEED_MAX = 32768;
-    public final byte[] DT;
-    public final byte[] I;
-    public final byte[] R;
-    public byte[] V;
+
+    /* JADX INFO: renamed from: DT */
+    public final byte[] f81297DT;
+
+    /* JADX INFO: renamed from: I */
+    public final byte[] f81298I;
+
+    /* JADX INFO: renamed from: R */
+    public final byte[] f81299R;
+
+    /* JADX INFO: renamed from: V */
+    public byte[] f81300V;
     public final BlockCipher engine;
     public final EntropySource entropySource;
     public long reseedCounter = 1;
@@ -20,10 +28,10 @@ public class X931RNG {
         this.engine = blockCipher;
         this.entropySource = entropySource;
         byte[] bArr2 = new byte[blockCipher.getBlockSize()];
-        this.DT = bArr2;
+        this.f81297DT = bArr2;
         System.arraycopy(bArr, 0, bArr2, 0, bArr2.length);
-        this.I = new byte[blockCipher.getBlockSize()];
-        this.R = new byte[blockCipher.getBlockSize()];
+        this.f81298I = new byte[blockCipher.getBlockSize()];
+        this.f81299R = new byte[blockCipher.getBlockSize()];
     }
 
     private void increment(byte[] bArr) {
@@ -51,7 +59,7 @@ public class X931RNG {
     }
 
     public int generate(byte[] bArr, boolean z) {
-        int length = this.R.length;
+        int length = this.f81299R.length;
         long j = this.reseedCounter;
         if (length == 8) {
             if (j > BLOCK64_RESEED_MAX) {
@@ -68,30 +76,30 @@ public class X931RNG {
                 throw new IllegalArgumentException("Number of bits per request limited to 262144");
             }
         }
-        if (z || this.V == null) {
+        if (z || this.f81300V == null) {
             byte[] entropy = this.entropySource.getEntropy();
-            this.V = entropy;
+            this.f81300V = entropy;
             if (entropy.length != this.engine.getBlockSize()) {
                 throw new IllegalStateException("Insufficient entropy returned");
             }
         }
-        int length2 = bArr.length / this.R.length;
+        int length2 = bArr.length / this.f81299R.length;
         for (int i = 0; i < length2; i++) {
-            this.engine.processBlock(this.DT, 0, this.I, 0);
-            process(this.R, this.I, this.V);
-            process(this.V, this.R, this.I);
-            byte[] bArr2 = this.R;
+            this.engine.processBlock(this.f81297DT, 0, this.f81298I, 0);
+            process(this.f81299R, this.f81298I, this.f81300V);
+            process(this.f81300V, this.f81299R, this.f81298I);
+            byte[] bArr2 = this.f81299R;
             System.arraycopy(bArr2, 0, bArr, bArr2.length * i, bArr2.length);
-            increment(this.DT);
+            increment(this.f81297DT);
         }
-        int length3 = bArr.length - (this.R.length * length2);
+        int length3 = bArr.length - (this.f81299R.length * length2);
         if (length3 > 0) {
-            this.engine.processBlock(this.DT, 0, this.I, 0);
-            process(this.R, this.I, this.V);
-            process(this.V, this.R, this.I);
-            byte[] bArr3 = this.R;
+            this.engine.processBlock(this.f81297DT, 0, this.f81298I, 0);
+            process(this.f81299R, this.f81298I, this.f81300V);
+            process(this.f81300V, this.f81299R, this.f81298I);
+            byte[] bArr3 = this.f81299R;
             System.arraycopy(bArr3, 0, bArr, length2 * bArr3.length, length3);
-            increment(this.DT);
+            increment(this.f81297DT);
         }
         this.reseedCounter++;
         return bArr.length * 8;
@@ -103,7 +111,7 @@ public class X931RNG {
 
     public void reseed() {
         byte[] entropy = this.entropySource.getEntropy();
-        this.V = entropy;
+        this.f81300V = entropy;
         if (entropy.length != this.engine.getBlockSize()) {
             throw new IllegalStateException("Insufficient entropy returned");
         }

@@ -1,39 +1,39 @@
 package com.google.android.material.tabs;
 
 import java.lang.ref.WeakReference;
-import l.AbstractC16496;
-import l.AbstractC19902;
-import l.AbstractC2968;
-import l.C2386;
+import p067l.AbstractC18046;
+import p067l.AbstractC21283;
+import p067l.AbstractC5189;
+import p067l.C4636;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class TabLayoutMediator {
-    public AbstractC19902 adapter;
+    public AbstractC21283 adapter;
     public boolean attached;
     public final boolean autoRefresh;
     public TabLayoutOnPageChangeCallback onPageChangeCallback;
     public TabLayout.OnTabSelectedListener onTabSelectedListener;
-    public AbstractC2968 pagerAdapterObserver;
+    public AbstractC5189 pagerAdapterObserver;
     public final boolean smoothScroll;
     public final TabConfigurationStrategy tabConfigurationStrategy;
     public final TabLayout tabLayout;
-    public final C2386 viewPager;
+    public final C4636 viewPager;
 
     public interface TabConfigurationStrategy {
         void onConfigureTab(TabLayout.Tab tab, int i);
     }
 
-    public TabLayoutMediator(TabLayout tabLayout, C2386 c2386, TabConfigurationStrategy tabConfigurationStrategy) {
-        this(tabLayout, c2386, true, tabConfigurationStrategy);
+    public TabLayoutMediator(TabLayout tabLayout, C4636 c4636, TabConfigurationStrategy tabConfigurationStrategy) {
+        this(tabLayout, c4636, true, tabConfigurationStrategy);
     }
 
-    public TabLayoutMediator(TabLayout tabLayout, C2386 c2386, boolean z, TabConfigurationStrategy tabConfigurationStrategy) {
-        this(tabLayout, c2386, z, true, tabConfigurationStrategy);
+    public TabLayoutMediator(TabLayout tabLayout, C4636 c4636, boolean z, TabConfigurationStrategy tabConfigurationStrategy) {
+        this(tabLayout, c4636, z, true, tabConfigurationStrategy);
     }
 
-    public TabLayoutMediator(TabLayout tabLayout, C2386 c2386, boolean z, boolean z2, TabConfigurationStrategy tabConfigurationStrategy) {
+    public TabLayoutMediator(TabLayout tabLayout, C4636 c4636, boolean z, boolean z2, TabConfigurationStrategy tabConfigurationStrategy) {
         this.tabLayout = tabLayout;
-        this.viewPager = c2386;
+        this.viewPager = c4636;
         this.autoRefresh = z;
         this.smoothScroll = z2;
         this.tabConfigurationStrategy = tabConfigurationStrategy;
@@ -43,15 +43,15 @@ public final class TabLayoutMediator {
         if (this.attached) {
             throw new IllegalStateException("TabLayoutMediator is already attached");
         }
-        AbstractC19902 abstractC19902M7715 = this.viewPager.m7715();
-        this.adapter = abstractC19902M7715;
-        if (abstractC19902M7715 == null) {
+        AbstractC21283 abstractC21283M9776 = this.viewPager.m9776();
+        this.adapter = abstractC21283M9776;
+        if (abstractC21283M9776 == null) {
             throw new IllegalStateException("TabLayoutMediator attached before ViewPager2 has an adapter");
         }
         this.attached = true;
         TabLayoutOnPageChangeCallback tabLayoutOnPageChangeCallback = new TabLayoutOnPageChangeCallback(this.tabLayout);
         this.onPageChangeCallback = tabLayoutOnPageChangeCallback;
-        this.viewPager.m7717(tabLayoutOnPageChangeCallback);
+        this.viewPager.m9778(tabLayoutOnPageChangeCallback);
         ViewPagerOnTabSelectedListener viewPagerOnTabSelectedListener = new ViewPagerOnTabSelectedListener(this.viewPager, this.smoothScroll);
         this.onTabSelectedListener = viewPagerOnTabSelectedListener;
         this.tabLayout.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) viewPagerOnTabSelectedListener);
@@ -61,17 +61,17 @@ public final class TabLayoutMediator {
             this.adapter.registerAdapterDataObserver(pagerAdapterObserver);
         }
         populateTabsFromPagerAdapter();
-        this.tabLayout.setScrollPosition(this.viewPager.m7718(), 0.0f, true);
+        this.tabLayout.setScrollPosition(this.viewPager.m9779(), 0.0f, true);
     }
 
     public void detach() {
-        AbstractC19902 abstractC19902;
-        if (this.autoRefresh && (abstractC19902 = this.adapter) != null) {
-            abstractC19902.unregisterAdapterDataObserver(this.pagerAdapterObserver);
+        AbstractC21283 abstractC21283;
+        if (this.autoRefresh && (abstractC21283 = this.adapter) != null) {
+            abstractC21283.unregisterAdapterDataObserver(this.pagerAdapterObserver);
             this.pagerAdapterObserver = null;
         }
         this.tabLayout.removeOnTabSelectedListener(this.onTabSelectedListener);
-        this.viewPager.m7720(this.onPageChangeCallback);
+        this.viewPager.m9781(this.onPageChangeCallback);
         this.onTabSelectedListener = null;
         this.onPageChangeCallback = null;
         this.adapter = null;
@@ -84,16 +84,16 @@ public final class TabLayoutMediator {
 
     public void populateTabsFromPagerAdapter() {
         this.tabLayout.removeAllTabs();
-        AbstractC19902 abstractC19902 = this.adapter;
-        if (abstractC19902 != null) {
-            int itemCount = abstractC19902.getItemCount();
+        AbstractC21283 abstractC21283 = this.adapter;
+        if (abstractC21283 != null) {
+            int itemCount = abstractC21283.getItemCount();
             for (int i = 0; i < itemCount; i++) {
                 TabLayout.Tab tabNewTab = this.tabLayout.newTab();
                 this.tabConfigurationStrategy.onConfigureTab(tabNewTab, i);
                 this.tabLayout.addTab(tabNewTab, false);
             }
             if (itemCount > 0) {
-                int iMin = Math.min(this.viewPager.m7718(), this.tabLayout.getTabCount() - 1);
+                int iMin = Math.min(this.viewPager.m9779(), this.tabLayout.getTabCount() - 1);
                 if (iMin != this.tabLayout.getSelectedTabPosition()) {
                     TabLayout tabLayout = this.tabLayout;
                     tabLayout.selectTab(tabLayout.getTabAt(iMin));
@@ -102,7 +102,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    public class TabLayoutOnPageChangeCallback extends AbstractC16496 {
+    public class TabLayoutOnPageChangeCallback extends AbstractC18046 {
         public int previousScrollState;
         public int scrollState;
         public final WeakReference tabLayoutRef;
@@ -112,7 +112,7 @@ public final class TabLayoutMediator {
             reset();
         }
 
-        @Override // l.AbstractC16496
+        @Override // p067l.AbstractC18046
         public void onPageScrollStateChanged(int i) {
             this.previousScrollState = this.scrollState;
             this.scrollState = i;
@@ -122,7 +122,7 @@ public final class TabLayoutMediator {
             }
         }
 
-        @Override // l.AbstractC16496
+        @Override // p067l.AbstractC18046
         public void onPageScrolled(int i, float f, int i2) {
             TabLayout tabLayout = (TabLayout) this.tabLayoutRef.get();
             if (tabLayout != null) {
@@ -131,7 +131,7 @@ public final class TabLayoutMediator {
             }
         }
 
-        @Override // l.AbstractC16496
+        @Override // p067l.AbstractC18046
         public void onPageSelected(int i) {
             TabLayout tabLayout = (TabLayout) this.tabLayoutRef.get();
             if (tabLayout == null || tabLayout.getSelectedTabPosition() == i || i >= tabLayout.getTabCount()) {
@@ -149,7 +149,7 @@ public final class TabLayoutMediator {
 
     public class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
         public final boolean smoothScroll;
-        public final C2386 viewPager;
+        public final C4636 viewPager;
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
         public void onTabReselected(TabLayout.Tab tab) {
@@ -159,47 +159,47 @@ public final class TabLayoutMediator {
         public void onTabUnselected(TabLayout.Tab tab) {
         }
 
-        public ViewPagerOnTabSelectedListener(C2386 c2386, boolean z) {
-            this.viewPager = c2386;
+        public ViewPagerOnTabSelectedListener(C4636 c4636, boolean z) {
+            this.viewPager = c4636;
             this.smoothScroll = z;
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
         public void onTabSelected(TabLayout.Tab tab) {
-            this.viewPager.m7716(tab.getPosition(), this.smoothScroll);
+            this.viewPager.m9777(tab.getPosition(), this.smoothScroll);
         }
     }
 
-    public class PagerAdapterObserver extends AbstractC2968 {
+    public class PagerAdapterObserver extends AbstractC5189 {
         public PagerAdapterObserver() {
         }
 
-        @Override // l.AbstractC2968
+        @Override // p067l.AbstractC5189
         public void onChanged() {
             TabLayoutMediator.this.populateTabsFromPagerAdapter();
         }
 
-        @Override // l.AbstractC2968
+        @Override // p067l.AbstractC5189
         public void onItemRangeChanged(int i, int i2) {
             TabLayoutMediator.this.populateTabsFromPagerAdapter();
         }
 
-        @Override // l.AbstractC2968
+        @Override // p067l.AbstractC5189
         public void onItemRangeChanged(int i, int i2, Object obj) {
             TabLayoutMediator.this.populateTabsFromPagerAdapter();
         }
 
-        @Override // l.AbstractC2968
+        @Override // p067l.AbstractC5189
         public void onItemRangeInserted(int i, int i2) {
             TabLayoutMediator.this.populateTabsFromPagerAdapter();
         }
 
-        @Override // l.AbstractC2968
+        @Override // p067l.AbstractC5189
         public void onItemRangeRemoved(int i, int i2) {
             TabLayoutMediator.this.populateTabsFromPagerAdapter();
         }
 
-        @Override // l.AbstractC2968
+        @Override // p067l.AbstractC5189
         public void onItemRangeMoved(int i, int i2, int i3) {
             TabLayoutMediator.this.populateTabsFromPagerAdapter();
         }

@@ -1,8 +1,8 @@
 package org.bouncycastle.crypto.engines;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.hpke.HPKE;
@@ -13,10 +13,14 @@ import org.bouncycastle.util.encoders.UTF8;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GiftCofbEngine extends AEADBaseEngine {
-    public static final byte[] GIFT_RC = {1, 3, 7, 15, bo.j, 62, Base32Encoder.DEFAULT_PADDING, 59, 55, 47, 30, 60, 57, 51, 39, cb.f77931l, 29, 58, 53, 43, 22, 44, 24, UTF8.S_P3A, PublicSuffixDatabase.EXCEPTION_MARKER, 2, 5, 11, 23, 46, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 56, 49, 35, 6, cb.k, 27, 54, 45, 26};
-    public byte[] Y;
+    public static final byte[] GIFT_RC = {1, 3, 7, 15, C0684bo.f2505j, 62, Base32Encoder.DEFAULT_PADDING, 59, 55, 47, 30, 60, 57, 51, 39, C0698cb.f2570l, 29, 58, 53, 43, 22, 44, 24, UTF8.S_P3A, PublicSuffixDatabase.EXCEPTION_MARKER, 2, 5, 11, 23, 46, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 56, 49, 35, 6, C0698cb.f2569k, 27, 54, 45, 26};
+
+    /* JADX INFO: renamed from: Y */
+    public byte[] f81026Y;
     public byte[] input;
-    public byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public byte[] f81027k;
     public byte[] npub;
     public byte[] offset;
 
@@ -210,8 +214,8 @@ public class GiftCofbEngine extends AEADBaseEngine {
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void init(byte[] bArr, byte[] bArr2) {
         this.npub = bArr2;
-        this.k = bArr;
-        this.Y = new byte[this.BlockSize];
+        this.f81027k = bArr;
+        this.f81026Y = new byte[this.BlockSize];
         this.input = new byte[16];
         this.offset = new byte[8];
     }
@@ -228,28 +232,28 @@ public class GiftCofbEngine extends AEADBaseEngine {
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processBufferAAD(byte[] bArr, int i) {
-        pho1(this.input, this.Y, bArr, i, 16);
+        pho1(this.input, this.f81026Y, bArr, i, 16);
         double_half_block(this.offset);
         Bytes.xorTo(8, this.offset, this.input);
-        giftb128(this.input, this.k, this.Y);
+        giftb128(this.input, this.f81027k, this.f81026Y);
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processBufferDecrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
         double_half_block(this.offset);
-        Bytes.xor(this.BlockSize, this.Y, bArr, i, bArr2, i2);
-        pho1(this.input, this.Y, bArr2, i2, this.BlockSize);
+        Bytes.xor(this.BlockSize, this.f81026Y, bArr, i, bArr2, i2);
+        pho1(this.input, this.f81026Y, bArr2, i2, this.BlockSize);
         Bytes.xorTo(8, this.offset, this.input);
-        giftb128(this.input, this.k, this.Y);
+        giftb128(this.input, this.f81027k, this.f81026Y);
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
     public void processBufferEncrypt(byte[] bArr, int i, byte[] bArr2, int i2) {
         double_half_block(this.offset);
-        Bytes.xor(this.BlockSize, this.Y, bArr, i, bArr2, i2);
-        pho1(this.input, this.Y, bArr, i, this.BlockSize);
+        Bytes.xor(this.BlockSize, this.f81026Y, bArr, i, bArr2, i2);
+        pho1(this.input, this.f81026Y, bArr, i, this.BlockSize);
         Bytes.xorTo(8, this.offset, this.input);
-        giftb128(this.input, this.k, this.Y);
+        giftb128(this.input, this.f81027k, this.f81026Y);
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -274,9 +278,9 @@ public class GiftCofbEngine extends AEADBaseEngine {
             triple_half_block(this.offset);
             triple_half_block(this.offset);
         }
-        pho1(this.input, this.Y, this.m_aad, 0, this.m_aadPos);
+        pho1(this.input, this.f81026Y, this.m_aad, 0, this.m_aadPos);
         Bytes.xorTo(8, this.offset, this.input);
-        giftb128(this.input, this.k, this.Y);
+        giftb128(this.input, this.f81027k, this.f81026Y);
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine
@@ -287,19 +291,19 @@ public class GiftCofbEngine extends AEADBaseEngine {
             if ((len & 15) != 0) {
                 triple_half_block(this.offset);
             }
-            Bytes.xor(this.m_bufPos, this.Y, this.m_buf, 0, bArr, i);
+            Bytes.xor(this.m_bufPos, this.f81026Y, this.m_buf, 0, bArr, i);
             boolean z = this.forEncryption;
             byte[] bArr2 = this.input;
-            byte[] bArr3 = this.Y;
+            byte[] bArr3 = this.f81026Y;
             if (z) {
                 pho1(bArr2, bArr3, this.m_buf, 0, this.m_bufPos);
             } else {
                 pho1(bArr2, bArr3, bArr, i, this.m_bufPos);
             }
             Bytes.xorTo(8, this.offset, this.input);
-            giftb128(this.input, this.k, this.Y);
+            giftb128(this.input, this.f81027k, this.f81026Y);
         }
-        System.arraycopy(this.Y, 0, this.mac, 0, this.BlockSize);
+        System.arraycopy(this.f81026Y, 0, this.mac, 0, this.BlockSize);
     }
 
     @Override // org.bouncycastle.crypto.engines.AEADBaseEngine, org.bouncycastle.crypto.modes.AEADCipher
@@ -311,7 +315,7 @@ public class GiftCofbEngine extends AEADBaseEngine {
     public void reset(boolean z) {
         super.reset(z);
         System.arraycopy(this.npub, 0, this.input, 0, this.IV_SIZE);
-        giftb128(this.input, this.k, this.Y);
-        System.arraycopy(this.Y, 0, this.offset, 0, 8);
+        giftb128(this.input, this.f81027k, this.f81026Y);
+        System.arraycopy(this.f81026Y, 0, this.offset, 0, 8);
     }
 }

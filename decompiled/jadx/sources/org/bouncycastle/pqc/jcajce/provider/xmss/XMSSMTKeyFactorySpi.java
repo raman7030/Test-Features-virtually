@@ -9,12 +9,12 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import l.C21639;
-import l.C7166;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+import p067l.C22934;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class XMSSMTKeyFactorySpi extends KeyFactorySpi implements AsymmetricKeyInfoConverter {
@@ -68,12 +68,12 @@ public class XMSSMTKeyFactorySpi extends KeyFactorySpi implements AsymmetricKeyI
             }
         } else {
             if (!(key instanceof BCXMSSMTPublicKey)) {
-                throw new InvalidKeySpecException(C7166.m19189(key, new StringBuilder("unsupported key type: "), "."));
+                throw new InvalidKeySpecException(C9179.m21132(key, new StringBuilder("unsupported key type: "), "."));
             }
             if (X509EncodedKeySpec.class.isAssignableFrom(cls)) {
                 return new X509EncodedKeySpec(key.getEncoded());
             }
         }
-        throw new InvalidKeySpecException(C21639.m48905(cls, "unknown key specification: ", "."));
+        throw new InvalidKeySpecException(C22934.m51253(cls, "unknown key specification: ", "."));
     }
 }

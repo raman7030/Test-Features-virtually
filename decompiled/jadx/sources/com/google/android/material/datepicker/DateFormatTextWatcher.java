@@ -10,7 +10,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Locale;
-import l.C3820;
+import p067l.C5999;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class DateFormatTextWatcher extends TextWatcherAdapter {
@@ -33,7 +33,7 @@ public abstract class DateFormatTextWatcher extends TextWatcherAdapter {
         this.dateFormat = dateFormat;
         this.textInputLayout = textInputLayout;
         this.constraints = calendarConstraints;
-        this.outOfRange = textInputLayout.getContext().getString(C3820.f12211);
+        this.outOfRange = textInputLayout.getContext().getString(C5999.f15018);
         this.setErrorCallback = new Runnable() { // from class: com.google.android.material.datepicker.DateFormatTextWatcher$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
@@ -47,7 +47,7 @@ public abstract class DateFormatTextWatcher extends TextWatcherAdapter {
         TextInputLayout textInputLayout = this.textInputLayout;
         DateFormat dateFormat = this.dateFormat;
         Context context = textInputLayout.getContext();
-        textInputLayout.setError(context.getString(C3820.f12060) + "\n" + String.format(context.getString(C3820.f12065), sanitizeDateString(str)) + "\n" + String.format(context.getString(C3820.f12095), sanitizeDateString(dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())))));
+        textInputLayout.setError(context.getString(C5999.f14867) + "\n" + String.format(context.getString(C5999.f14872), sanitizeDateString(str)) + "\n" + String.format(context.getString(C5999.f14902), sanitizeDateString(dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())))));
         onInvalidDate();
     }
 

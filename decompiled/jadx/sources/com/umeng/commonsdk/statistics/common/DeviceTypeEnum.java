@@ -1,17 +1,19 @@
 package com.umeng.commonsdk.statistics.common;
 
-import com.umeng.commonsdk.statistics.idtracking.f;
-import com.umeng.commonsdk.statistics.idtracking.g;
-import com.umeng.commonsdk.statistics.idtracking.h;
+import com.umeng.commonsdk.statistics.idtracking.C0803b;
+import com.umeng.commonsdk.statistics.idtracking.C0804c;
+import com.umeng.commonsdk.statistics.idtracking.C0807f;
+import com.umeng.commonsdk.statistics.idtracking.C0808g;
+import com.umeng.commonsdk.statistics.idtracking.C0809h;
 
 /* JADX INFO: loaded from: classes.dex */
 public enum DeviceTypeEnum {
-    IMEI(f.a, f.a),
-    OAID(h.d, h.d),
-    ANDROIDID(com.umeng.commonsdk.statistics.idtracking.b.a, com.umeng.commonsdk.statistics.idtracking.b.a),
-    MAC(g.a, g.a),
+    IMEI(C0807f.f3430a, C0807f.f3430a),
+    OAID(C0809h.f3437d, C0809h.f3437d),
+    ANDROIDID(C0803b.f3412a, C0803b.f3412a),
+    MAC(C0808g.f3432a, C0808g.f3432a),
     SERIALNO("serial_no", "serial_no"),
-    IDFA(com.umeng.commonsdk.statistics.idtracking.c.a, com.umeng.commonsdk.statistics.idtracking.c.a),
+    IDFA(C0804c.f3414a, C0804c.f3414a),
     DEFAULT("null", "null");
 
     public String description;

@@ -1,14 +1,12 @@
 package org.bouncycastle.asn1.x509;
 
-import com.alipay.sdk.m.p.a;
+import com.alipay.sdk.p010m.p041p.C0184a;
 import com.rosan.dhizuku.shared.DhizukuVariables;
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import l.C16014;
-import l.C4860;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -27,34 +25,50 @@ import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.crypto.engines.ThreefishEngine;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C17588;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509Name extends ASN1Object {
     public static final ASN1ObjectIdentifier BUSINESS_CATEGORY;
-    public static final ASN1ObjectIdentifier C;
-    public static final ASN1ObjectIdentifier CN;
+
+    /* JADX INFO: renamed from: C */
+    public static final ASN1ObjectIdentifier f80713C;
+
+    /* JADX INFO: renamed from: CN */
+    public static final ASN1ObjectIdentifier f80714CN;
     public static final ASN1ObjectIdentifier COUNTRY_OF_CITIZENSHIP;
     public static final ASN1ObjectIdentifier COUNTRY_OF_RESIDENCE;
     public static final ASN1ObjectIdentifier DATE_OF_BIRTH;
-    public static final ASN1ObjectIdentifier DC;
+
+    /* JADX INFO: renamed from: DC */
+    public static final ASN1ObjectIdentifier f80715DC;
     public static final ASN1ObjectIdentifier DMD_NAME;
     public static final ASN1ObjectIdentifier DN_QUALIFIER;
     public static final Hashtable DefaultLookUp;
     public static boolean DefaultReverse;
     public static final Hashtable DefaultSymbols;
-    public static final ASN1ObjectIdentifier E;
+
+    /* JADX INFO: renamed from: E */
+    public static final ASN1ObjectIdentifier f80716E;
     public static final ASN1ObjectIdentifier EmailAddress;
     public static final Boolean FALSE;
     public static final ASN1ObjectIdentifier GENDER;
     public static final ASN1ObjectIdentifier GENERATION;
     public static final ASN1ObjectIdentifier GIVENNAME;
     public static final ASN1ObjectIdentifier INITIALS;
-    public static final ASN1ObjectIdentifier L;
+
+    /* JADX INFO: renamed from: L */
+    public static final ASN1ObjectIdentifier f80717L;
     public static final ASN1ObjectIdentifier NAME;
     public static final ASN1ObjectIdentifier NAME_AT_BIRTH;
-    public static final ASN1ObjectIdentifier O;
+
+    /* JADX INFO: renamed from: O */
+    public static final ASN1ObjectIdentifier f80718O;
     public static final Hashtable OIDLookUp;
-    public static final ASN1ObjectIdentifier OU;
+
+    /* JADX INFO: renamed from: OU */
+    public static final ASN1ObjectIdentifier f80719OU;
     public static final ASN1ObjectIdentifier PLACE_OF_BIRTH;
     public static final ASN1ObjectIdentifier POSTAL_ADDRESS;
     public static final ASN1ObjectIdentifier POSTAL_CODE;
@@ -62,12 +76,18 @@ public class X509Name extends ASN1Object {
     public static final Hashtable RFC1779Symbols;
     public static final Hashtable RFC2253Symbols;
     public static final ASN1ObjectIdentifier SERIALNUMBER;
-    public static final ASN1ObjectIdentifier SN;
-    public static final ASN1ObjectIdentifier ST;
+
+    /* JADX INFO: renamed from: SN */
+    public static final ASN1ObjectIdentifier f80720SN;
+
+    /* JADX INFO: renamed from: ST */
+    public static final ASN1ObjectIdentifier f80721ST;
     public static final ASN1ObjectIdentifier STREET;
     public static final ASN1ObjectIdentifier SURNAME;
     public static final Hashtable SymbolLookUp;
-    public static final ASN1ObjectIdentifier T;
+
+    /* JADX INFO: renamed from: T */
+    public static final ASN1ObjectIdentifier f80722T;
     public static final ASN1ObjectIdentifier TELEPHONE_NUMBER;
     public static final Boolean TRUE;
     public static final ASN1ObjectIdentifier UID;
@@ -84,24 +104,24 @@ public class X509Name extends ASN1Object {
 
     static {
         ASN1ObjectIdentifier aSN1ObjectIdentifier = new ASN1ObjectIdentifier("2.5.4.6");
-        C = aSN1ObjectIdentifier;
+        f80713C = aSN1ObjectIdentifier;
         ASN1ObjectIdentifier aSN1ObjectIdentifier2 = new ASN1ObjectIdentifier("2.5.4.10");
-        O = aSN1ObjectIdentifier2;
+        f80718O = aSN1ObjectIdentifier2;
         ASN1ObjectIdentifier aSN1ObjectIdentifier3 = new ASN1ObjectIdentifier("2.5.4.11");
-        OU = aSN1ObjectIdentifier3;
+        f80719OU = aSN1ObjectIdentifier3;
         ASN1ObjectIdentifier aSN1ObjectIdentifier4 = new ASN1ObjectIdentifier("2.5.4.12");
-        T = aSN1ObjectIdentifier4;
+        f80722T = aSN1ObjectIdentifier4;
         ASN1ObjectIdentifier aSN1ObjectIdentifier5 = new ASN1ObjectIdentifier("2.5.4.3");
-        CN = aSN1ObjectIdentifier5;
+        f80714CN = aSN1ObjectIdentifier5;
         ASN1ObjectIdentifier aSN1ObjectIdentifier6 = new ASN1ObjectIdentifier("2.5.4.5");
-        SN = aSN1ObjectIdentifier6;
+        f80720SN = aSN1ObjectIdentifier6;
         ASN1ObjectIdentifier aSN1ObjectIdentifier7 = new ASN1ObjectIdentifier("2.5.4.9");
         STREET = aSN1ObjectIdentifier7;
         SERIALNUMBER = aSN1ObjectIdentifier6;
         ASN1ObjectIdentifier aSN1ObjectIdentifier8 = new ASN1ObjectIdentifier("2.5.4.7");
-        L = aSN1ObjectIdentifier8;
+        f80717L = aSN1ObjectIdentifier8;
         ASN1ObjectIdentifier aSN1ObjectIdentifier9 = new ASN1ObjectIdentifier("2.5.4.8");
-        ST = aSN1ObjectIdentifier9;
+        f80721ST = aSN1ObjectIdentifier9;
         ASN1ObjectIdentifier aSN1ObjectIdentifier10 = new ASN1ObjectIdentifier("2.5.4.4");
         SURNAME = aSN1ObjectIdentifier10;
         ASN1ObjectIdentifier aSN1ObjectIdentifier11 = new ASN1ObjectIdentifier("2.5.4.42");
@@ -145,9 +165,9 @@ public class X509Name extends ASN1Object {
         UnstructuredName = aSN1ObjectIdentifier29;
         ASN1ObjectIdentifier aSN1ObjectIdentifier30 = PKCSObjectIdentifiers.pkcs_9_at_unstructuredAddress;
         UnstructuredAddress = aSN1ObjectIdentifier30;
-        E = aSN1ObjectIdentifier28;
+        f80716E = aSN1ObjectIdentifier28;
         ASN1ObjectIdentifier aSN1ObjectIdentifier31 = new ASN1ObjectIdentifier("0.9.2342.19200300.100.1.25");
-        DC = aSN1ObjectIdentifier31;
+        f80715DC = aSN1ObjectIdentifier31;
         ASN1ObjectIdentifier aSN1ObjectIdentifier32 = new ASN1ObjectIdentifier("0.9.2342.19200300.100.1.1");
         UID = aSN1ObjectIdentifier32;
         DefaultReverse = false;
@@ -211,9 +231,9 @@ public class X509Name extends ASN1Object {
         hashtable3.put(aSN1ObjectIdentifier8, "L");
         hashtable3.put(aSN1ObjectIdentifier9, "ST");
         hashtable3.put(aSN1ObjectIdentifier7, "STREET");
-        hashtable4.put(am.aF, aSN1ObjectIdentifier);
+        hashtable4.put(C0655am.f2278aF, aSN1ObjectIdentifier);
         hashtable4.put("o", aSN1ObjectIdentifier2);
-        hashtable4.put(am.aI, aSN1ObjectIdentifier4);
+        hashtable4.put(C0655am.f2281aI, aSN1ObjectIdentifier4);
         hashtable4.put("ou", aSN1ObjectIdentifier3);
         hashtable4.put("cn", aSN1ObjectIdentifier5);
         hashtable4.put("l", aSN1ObjectIdentifier8);
@@ -418,7 +438,7 @@ public class X509Name extends ASN1Object {
     }
 
     private void addEntry(Hashtable hashtable, String str, Boolean bool) {
-        X509NameTokenizer x509NameTokenizer = new X509NameTokenizer(str, a.h);
+        X509NameTokenizer x509NameTokenizer = new X509NameTokenizer(str, C0184a.f880h);
         String strNextToken = x509NameTokenizer.nextToken();
         if (!x509NameTokenizer.hasMoreTokens()) {
             throw new IllegalArgumentException("badly formatted directory string");
@@ -435,7 +455,7 @@ public class X509Name extends ASN1Object {
             id = aSN1ObjectIdentifier.getId();
         }
         stringBuffer.append(id);
-        stringBuffer.append(a.h);
+        stringBuffer.append(C0184a.f880h);
         int length = stringBuffer.length();
         stringBuffer.append(str);
         int length2 = stringBuffer.length();
@@ -781,14 +801,14 @@ public class X509Name extends ASN1Object {
         if (aSN1ObjectIdentifier != null) {
             return aSN1ObjectIdentifier;
         }
-        throw new IllegalArgumentException(C4860.m14172("Unknown object id - ", strTrim, " - passed to distinguished name"));
+        throw new IllegalArgumentException(C6988.m16053("Unknown object id - ", strTrim, " - passed to distinguished name"));
     }
 
     private ASN1Primitive decodeObject(String str) {
         try {
             return ASN1Primitive.fromByteArray(Hex.decodeStrict(str, 1, str.length() - 1));
         } catch (IOException e) {
-            throw new IllegalStateException(C16014.m37866("unknown encoding in name: ", e));
+            throw new IllegalStateException(C17588.m40052("unknown encoding in name: ", e));
         }
     }
 }

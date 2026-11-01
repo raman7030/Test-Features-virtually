@@ -15,7 +15,7 @@ import android.graphics.drawable.Drawable;
 import com.google.android.material.drawable.DrawableUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
-import l.C7191;
+import p067l.C1199;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BorderDrawable extends Drawable {
@@ -168,7 +168,7 @@ public class BorderDrawable extends Drawable {
         Rect rect = this.rect;
         copyBounds(rect);
         float fHeight = this.borderWidth / rect.height();
-        return new LinearGradient(0.0f, rect.top, 0.0f, rect.bottom, new int[]{C7191.m19274(this.topOuterStrokeColor, this.currentBorderTintColor), C7191.m19274(this.topInnerStrokeColor, this.currentBorderTintColor), C7191.m19274(C7191.m19276(this.topInnerStrokeColor, 0), this.currentBorderTintColor), C7191.m19274(C7191.m19276(this.bottomInnerStrokeColor, 0), this.currentBorderTintColor), C7191.m19274(this.bottomInnerStrokeColor, this.currentBorderTintColor), C7191.m19274(this.bottomOuterStrokeColor, this.currentBorderTintColor)}, new float[]{0.0f, fHeight, 0.5f, 0.5f, 1.0f - fHeight, 1.0f}, Shader.TileMode.CLAMP);
+        return new LinearGradient(0.0f, rect.top, 0.0f, rect.bottom, new int[]{C1199.m21221(this.topOuterStrokeColor, this.currentBorderTintColor), C1199.m21221(this.topInnerStrokeColor, this.currentBorderTintColor), C1199.m21221(C1199.m21223(this.topInnerStrokeColor, 0), this.currentBorderTintColor), C1199.m21221(C1199.m21223(this.bottomInnerStrokeColor, 0), this.currentBorderTintColor), C1199.m21221(this.bottomInnerStrokeColor, this.currentBorderTintColor), C1199.m21221(this.bottomOuterStrokeColor, this.currentBorderTintColor)}, new float[]{0.0f, fHeight, 0.5f, 0.5f, 1.0f - fHeight, 1.0f}, Shader.TileMode.CLAMP);
     }
 
     @Override // android.graphics.drawable.Drawable

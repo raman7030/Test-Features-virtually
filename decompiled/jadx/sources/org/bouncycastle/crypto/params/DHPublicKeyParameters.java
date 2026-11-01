@@ -8,11 +8,13 @@ import org.bouncycastle.util.Integers;
 public class DHPublicKeyParameters extends DHKeyParameters {
     public static final BigInteger ONE = BigInteger.valueOf(1);
     public static final BigInteger TWO = BigInteger.valueOf(2);
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81236y;
 
     public DHPublicKeyParameters(BigInteger bigInteger, DHParameters dHParameters) {
         super(false, dHParameters);
-        this.y = validate(bigInteger, dHParameters);
+        this.f81236y = validate(bigInteger, dHParameters);
     }
 
     public static int legendre(BigInteger bigInteger, BigInteger bigInteger2) {
@@ -76,15 +78,15 @@ public class DHPublicKeyParameters extends DHKeyParameters {
 
     @Override // org.bouncycastle.crypto.params.DHKeyParameters
     public boolean equals(Object obj) {
-        return (obj instanceof DHPublicKeyParameters) && ((DHPublicKeyParameters) obj).getY().equals(this.y) && super.equals(obj);
+        return (obj instanceof DHPublicKeyParameters) && ((DHPublicKeyParameters) obj).getY().equals(this.f81236y) && super.equals(obj);
     }
 
     public BigInteger getY() {
-        return this.y;
+        return this.f81236y;
     }
 
     @Override // org.bouncycastle.crypto.params.DHKeyParameters
     public int hashCode() {
-        return this.y.hashCode() ^ super.hashCode();
+        return this.f81236y.hashCode() ^ super.hashCode();
     }
 }

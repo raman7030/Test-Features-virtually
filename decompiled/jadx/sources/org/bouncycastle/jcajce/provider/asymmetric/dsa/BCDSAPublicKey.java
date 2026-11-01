@@ -12,10 +12,10 @@ import org.bouncycastle.asn1.ASN1BMPString$$ExternalSyntheticOutline0;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.DERNull;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.DSAParameter;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.util.Strings;
@@ -26,37 +26,39 @@ public class BCDSAPublicKey implements DSAPublicKey {
     public static final long serialVersionUID = 1752452449903495175L;
     public transient DSAParams dsaSpec;
     public transient DSAPublicKeyParameters lwKeyParams;
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81341y;
 
     public BCDSAPublicKey(DSAPublicKey dSAPublicKey) {
-        this.y = dSAPublicKey.getY();
+        this.f81341y = dSAPublicKey.getY();
         this.dsaSpec = dSAPublicKey.getParams();
-        this.lwKeyParams = new DSAPublicKeyParameters(this.y, DSAUtil.toDSAParameters(this.dsaSpec));
+        this.lwKeyParams = new DSAPublicKeyParameters(this.f81341y, DSAUtil.toDSAParameters(this.dsaSpec));
     }
 
     public BCDSAPublicKey(DSAPublicKeySpec dSAPublicKeySpec) {
-        this.y = dSAPublicKeySpec.getY();
+        this.f81341y = dSAPublicKeySpec.getY();
         this.dsaSpec = new DSAParameterSpec(dSAPublicKeySpec.getP(), dSAPublicKeySpec.getQ(), dSAPublicKeySpec.getG());
-        this.lwKeyParams = new DSAPublicKeyParameters(this.y, DSAUtil.toDSAParameters(this.dsaSpec));
+        this.lwKeyParams = new DSAPublicKeyParameters(this.f81341y, DSAUtil.toDSAParameters(this.dsaSpec));
     }
 
     public BCDSAPublicKey(SubjectPublicKeyInfo subjectPublicKeyInfo) {
         try {
-            this.y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
+            this.f81341y = ((ASN1Integer) subjectPublicKeyInfo.parsePublicKey()).getValue();
             if (isNotNull(subjectPublicKeyInfo.getAlgorithm().getParameters())) {
                 DSAParameter dSAParameter = DSAParameter.getInstance(subjectPublicKeyInfo.getAlgorithm().getParameters());
                 this.dsaSpec = new DSAParameterSpec(dSAParameter.getP(), dSAParameter.getQ(), dSAParameter.getG());
             } else {
                 this.dsaSpec = null;
             }
-            this.lwKeyParams = new DSAPublicKeyParameters(this.y, DSAUtil.toDSAParameters(this.dsaSpec));
+            this.lwKeyParams = new DSAPublicKeyParameters(this.f81341y, DSAUtil.toDSAParameters(this.dsaSpec));
         } catch (IOException unused) {
             throw new IllegalArgumentException("invalid info structure in DSA public key");
         }
     }
 
     public BCDSAPublicKey(DSAPublicKeyParameters dSAPublicKeyParameters) {
-        this.y = dSAPublicKeyParameters.getY();
+        this.f81341y = dSAPublicKeyParameters.getY();
         this.dsaSpec = dSAPublicKeyParameters.getParameters() != null ? new DSAParameterSpec(dSAPublicKeyParameters.getParameters().getP(), dSAPublicKeyParameters.getParameters().getQ(), dSAPublicKeyParameters.getParameters().getG()) : null;
         this.lwKeyParams = dSAPublicKeyParameters;
     }
@@ -73,7 +75,7 @@ public class BCDSAPublicKey implements DSAPublicKey {
         } else {
             this.dsaSpec = new DSAParameterSpec(bigInteger, (BigInteger) objectInputStream.readObject(), (BigInteger) objectInputStream.readObject());
         }
-        this.lwKeyParams = new DSAPublicKeyParameters(this.y, DSAUtil.toDSAParameters(this.dsaSpec));
+        this.lwKeyParams = new DSAPublicKeyParameters(this.f81341y, DSAUtil.toDSAParameters(this.dsaSpec));
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
@@ -113,7 +115,7 @@ public class BCDSAPublicKey implements DSAPublicKey {
     @Override // java.security.Key
     public byte[] getEncoded() {
         DSAParams dSAParams = this.dsaSpec;
-        return dSAParams == null ? KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa), new ASN1Integer(this.y)) : KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(dSAParams.getP(), this.dsaSpec.getQ(), this.dsaSpec.getG()).toASN1Primitive()), new ASN1Integer(this.y));
+        return dSAParams == null ? KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa), new ASN1Integer(this.f81341y)) : KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(dSAParams.getP(), this.dsaSpec.getQ(), this.dsaSpec.getG()).toASN1Primitive()), new ASN1Integer(this.f81341y));
     }
 
     @Override // java.security.Key
@@ -128,7 +130,7 @@ public class BCDSAPublicKey implements DSAPublicKey {
 
     @Override // java.security.interfaces.DSAPublicKey
     public BigInteger getY() {
-        return this.y;
+        return this.f81341y;
     }
 
     public int hashCode() {
@@ -138,7 +140,7 @@ public class BCDSAPublicKey implements DSAPublicKey {
     public String toString() {
         StringBuilder sb = new StringBuilder("DSA Public Key [");
         String strLineSeparator = Strings.lineSeparator();
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, DSAUtil.generateKeyFingerprint(this.y, getParams()), "]", strLineSeparator, "            Y: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, DSAUtil.generateKeyFingerprint(this.f81341y, getParams()), "]", strLineSeparator, "            Y: ");
         sb.append(getY().toString(16));
         sb.append(strLineSeparator);
         return sb.toString();

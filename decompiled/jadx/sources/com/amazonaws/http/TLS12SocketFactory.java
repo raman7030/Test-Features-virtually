@@ -5,9 +5,9 @@ import javax.net.ssl.SSLSocketFactory;
 /* JADX INFO: loaded from: classes.dex */
 public class TLS12SocketFactory extends SSLSocketFactory {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static final /* synthetic */ int f207 = 0;
+    /* JADX INFO: renamed from: ֫ */
+    public static final /* synthetic */ int f1367 = 0;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static final Object f208 = null;
+    /* JADX INFO: renamed from: ۧ */
+    public static final Object f1368 = null;
 }

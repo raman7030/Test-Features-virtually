@@ -4,14 +4,16 @@ import java.math.BigInteger;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECPrivateKeySpec extends ECKeySpec {
-    public BigInteger d;
+
+    /* JADX INFO: renamed from: d */
+    public BigInteger f81388d;
 
     public ECPrivateKeySpec(BigInteger bigInteger, ECParameterSpec eCParameterSpec) {
         super(eCParameterSpec);
-        this.d = bigInteger;
+        this.f81388d = bigInteger;
     }
 
     public BigInteger getD() {
-        return this.d;
+        return this.f81388d;
     }
 }

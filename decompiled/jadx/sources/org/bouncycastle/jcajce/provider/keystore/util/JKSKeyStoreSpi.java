@@ -17,17 +17,17 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Map;
-import l.C0794;
-import l.C20195;
-import l.InterfaceC0088;
-import l.InterfaceC14905;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.jcajce.BCLoadStoreParameter;
 import org.bouncycastle.jcajce.provider.util.DigestFactory;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C21562;
+import p067l.C3123;
+import p067l.InterfaceC16534;
+import p067l.InterfaceC2452;
 
 /* JADX INFO: loaded from: classes.dex */
 public class JKSKeyStoreSpi extends KeyStoreSpi {
@@ -45,7 +45,7 @@ public class JKSKeyStoreSpi extends KeyStoreSpi {
         }
     }
 
-    public final class ErasableByteStream extends ByteArrayInputStream implements InterfaceC14905, InterfaceC0088 {
+    public final class ErasableByteStream extends ByteArrayInputStream implements InterfaceC16534, InterfaceC2452 {
         public ErasableByteStream(byte[] bArr, int i, int i2) {
             super(bArr, i, i2);
         }
@@ -54,9 +54,9 @@ public class JKSKeyStoreSpi extends KeyStoreSpi {
             Arrays.fill(((ByteArrayInputStream) this).buf, (byte) 0);
         }
 
-        @Override // java.io.ByteArrayInputStream, java.io.InputStream, l.InterfaceC14905
+        @Override // java.io.ByteArrayInputStream, java.io.InputStream, p067l.InterfaceC16534
         public /* synthetic */ long transferTo(OutputStream outputStream) {
-            return C0794.transferTo(this, outputStream);
+            return C3123.transferTo(this, outputStream);
         }
     }
 
@@ -145,7 +145,7 @@ public class JKSKeyStoreSpi extends KeyStoreSpi {
     public String engineGetCertificateAlias(Certificate certificate) {
         synchronized (this.certificateEntries) {
             Hashtable hashtable = this.certificateEntries;
-            for (Map.Entry entry : C20195.bridge_synchronizedSet(hashtable.entrySet(), hashtable)) {
+            for (Map.Entry entry : C21562.bridge_synchronizedSet(hashtable.entrySet(), hashtable)) {
                 if (((BCJKSTrustedCertEntry) entry.getValue()).cert.equals(certificate)) {
                     return (String) entry.getKey();
                 }

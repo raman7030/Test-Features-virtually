@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
-import l.C13746;
-import l.C17648;
-import l.C19343;
+import p067l.C1524;
+import p067l.C1717;
+import p067l.C20752;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class CalendarItemStyle {
@@ -25,10 +25,10 @@ public final class CalendarItemStyle {
     public final ColorStateList textColor;
 
     public CalendarItemStyle(ColorStateList colorStateList, ColorStateList colorStateList2, ColorStateList colorStateList3, int i, ShapeAppearanceModel shapeAppearanceModel, Rect rect) {
-        C13746.m33054(rect.left);
-        C13746.m33054(rect.top);
-        C13746.m33054(rect.right);
-        C13746.m33054(rect.bottom);
+        C1524.m35168(rect.left);
+        C1524.m35168(rect.top);
+        C1524.m35168(rect.right);
+        C1524.m35168(rect.bottom);
         this.insets = rect;
         this.textColor = colorStateList2;
         this.backgroundColor = colorStateList;
@@ -38,14 +38,14 @@ public final class CalendarItemStyle {
     }
 
     public static CalendarItemStyle create(Context context, int i) {
-        C13746.m33056("Cannot create a CalendarItemStyle with a styleResId of 0", i != 0);
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(i, C19343.f61765);
-        Rect rect = new Rect(typedArrayObtainStyledAttributes.getDimensionPixelOffset(C19343.f61287, 0), typedArrayObtainStyledAttributes.getDimensionPixelOffset(C19343.f62564, 0), typedArrayObtainStyledAttributes.getDimensionPixelOffset(C19343.f61712, 0), typedArrayObtainStyledAttributes.getDimensionPixelOffset(C19343.f61605, 0));
-        ColorStateList colorStateList = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f61871);
-        ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f62181);
-        ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f61647);
-        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C19343.f62073, 0);
-        ShapeAppearanceModel shapeAppearanceModelBuild = ShapeAppearanceModel.builder(context, typedArrayObtainStyledAttributes.getResourceId(C19343.f61393, 0), typedArrayObtainStyledAttributes.getResourceId(C19343.f60957, 0)).build();
+        C1524.m35170("Cannot create a CalendarItemStyle with a styleResId of 0", i != 0);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(i, C20752.f64680);
+        Rect rect = new Rect(typedArrayObtainStyledAttributes.getDimensionPixelOffset(C20752.f64365, 0), typedArrayObtainStyledAttributes.getDimensionPixelOffset(C20752.f65205, 0), typedArrayObtainStyledAttributes.getDimensionPixelOffset(C20752.f64645, 0), typedArrayObtainStyledAttributes.getDimensionPixelOffset(C20752.f64575, 0));
+        ColorStateList colorStateList = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f64750);
+        ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f64951);
+        ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f64601);
+        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(C20752.f64881, 0);
+        ShapeAppearanceModel shapeAppearanceModelBuild = ShapeAppearanceModel.builder(context, typedArrayObtainStyledAttributes.getResourceId(C20752.f64435, 0), typedArrayObtainStyledAttributes.getResourceId(C20752.f64146, 0)).build();
         typedArrayObtainStyledAttributes.recycle();
         return new CalendarItemStyle(colorStateList, colorStateList2, colorStateList3, dimensionPixelSize, shapeAppearanceModelBuild, rect);
     }
@@ -71,7 +71,7 @@ public final class CalendarItemStyle {
         RippleDrawable rippleDrawable = new RippleDrawable(this.textColor.withAlpha(30), materialShapeDrawable, materialShapeDrawable2);
         Rect rect = this.insets;
         InsetDrawable insetDrawable = new InsetDrawable((Drawable) rippleDrawable, rect.left, rect.top, rect.right, rect.bottom);
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         textView.setBackground(insetDrawable);
     }
 

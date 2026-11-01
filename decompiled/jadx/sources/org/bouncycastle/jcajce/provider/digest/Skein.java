@@ -1,9 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C16014;
-import l.C18307;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.SkeinDigest;
@@ -14,6 +10,10 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
+import p067l.C10965;
+import p067l.C17588;
+import p067l.C19768;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Skein {
@@ -322,7 +322,7 @@ public class Skein {
         public static final String PREFIX = Skein.class.getName();
 
         private void addSkeinMacAlgorithm(ConfigurableProvider configurableProvider, int i, int i2) {
-            String strM42646 = C18307.m42646("Skein-MAC-", i, i2, "-");
+            String strM44907 = C19768.m44907("Skein-MAC-", i, i2, "-");
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
             sb.append(str);
@@ -330,31 +330,31 @@ public class Skein {
             sb.append(i);
             sb.append("_");
             sb.append(i2);
-            configurableProvider.addAlgorithm("Mac." + strM42646, sb.toString());
-            configurableProvider.addAlgorithm("Alg.Alias.Mac.Skein-MAC" + i + "/" + i2, strM42646);
+            configurableProvider.addAlgorithm("Mac." + strM44907, sb.toString());
+            configurableProvider.addAlgorithm("Alg.Alias.Mac.Skein-MAC" + i + "/" + i2, strM44907);
             StringBuilder sb2 = new StringBuilder("KeyGenerator.");
-            sb2.append(strM42646);
+            sb2.append(strM44907);
             configurableProvider.addAlgorithm(sb2.toString(), str + "$SkeinMacKeyGenerator_" + i + "_" + i2);
-            configurableProvider.addAlgorithm("Alg.Alias.KeyGenerator.Skein-MAC" + i + "/" + i2, strM42646);
+            configurableProvider.addAlgorithm("Alg.Alias.KeyGenerator.Skein-MAC" + i + "/" + i2, strM44907);
         }
 
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            addHMACAlgorithm(configurableProvider, "Skein-256-128", C9045.m23341(C5368.m15340(str, "$Digest_1024_1024", "MessageDigest.Skein-1024-1024", C5368.m15340(str, "$Digest_1024_512", "MessageDigest.Skein-1024-512", C5368.m15340(str, "$Digest_1024_384", "MessageDigest.Skein-1024-384", C5368.m15340(str, "$Digest_512_512", "MessageDigest.Skein-512-512", C5368.m15340(str, "$Digest_512_384", "MessageDigest.Skein-512-384", C5368.m15340(str, "$Digest_512_256", "MessageDigest.Skein-512-256", C5368.m15340(str, "$Digest_512_224", "MessageDigest.Skein-512-224", C5368.m15340(str, "$Digest_512_160", "MessageDigest.Skein-512-160", C5368.m15340(str, "$Digest_512_128", "MessageDigest.Skein-512-128", C5368.m15340(str, "$Digest_256_256", "MessageDigest.Skein-256-256", C5368.m15340(str, "$Digest_256_224", "MessageDigest.Skein-256-224", C5368.m15340(str, "$Digest_256_160", "MessageDigest.Skein-256-160", C5368.m15340(str, "$Digest_256_128", "MessageDigest.Skein-256-128", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), str, "$HashMac_256_128"), C16014.m37867(str, "$HMacKeyGenerator_256_128"));
-            addHMACAlgorithm(configurableProvider, "Skein-256-160", C16014.m37867(str, "$HashMac_256_160"), C16014.m37867(str, "$HMacKeyGenerator_256_160"));
-            addHMACAlgorithm(configurableProvider, "Skein-256-224", C16014.m37867(str, "$HashMac_256_224"), C16014.m37867(str, "$HMacKeyGenerator_256_224"));
-            addHMACAlgorithm(configurableProvider, "Skein-256-256", C16014.m37867(str, "$HashMac_256_256"), C16014.m37867(str, "$HMacKeyGenerator_256_256"));
-            addHMACAlgorithm(configurableProvider, "Skein-512-128", C16014.m37867(str, "$HashMac_512_128"), C16014.m37867(str, "$HMacKeyGenerator_512_128"));
-            addHMACAlgorithm(configurableProvider, "Skein-512-160", C16014.m37867(str, "$HashMac_512_160"), C16014.m37867(str, "$HMacKeyGenerator_512_160"));
-            addHMACAlgorithm(configurableProvider, "Skein-512-224", C16014.m37867(str, "$HashMac_512_224"), C16014.m37867(str, "$HMacKeyGenerator_512_224"));
-            addHMACAlgorithm(configurableProvider, "Skein-512-256", C16014.m37867(str, "$HashMac_512_256"), C16014.m37867(str, "$HMacKeyGenerator_512_256"));
-            addHMACAlgorithm(configurableProvider, "Skein-512-384", C16014.m37867(str, "$HashMac_512_384"), C16014.m37867(str, "$HMacKeyGenerator_512_384"));
-            addHMACAlgorithm(configurableProvider, "Skein-512-512", C16014.m37867(str, "$HashMac_512_512"), C16014.m37867(str, "$HMacKeyGenerator_512_512"));
-            addHMACAlgorithm(configurableProvider, "Skein-1024-384", C16014.m37867(str, "$HashMac_1024_384"), C16014.m37867(str, "$HMacKeyGenerator_1024_384"));
-            addHMACAlgorithm(configurableProvider, "Skein-1024-512", C16014.m37867(str, "$HashMac_1024_512"), C16014.m37867(str, "$HMacKeyGenerator_1024_512"));
-            addHMACAlgorithm(configurableProvider, "Skein-1024-1024", C16014.m37867(str, "$HashMac_1024_1024"), C16014.m37867(str, "$HMacKeyGenerator_1024_1024"));
+            addHMACAlgorithm(configurableProvider, "Skein-256-128", C10965.m25286(C7470.m17249(str, "$Digest_1024_1024", "MessageDigest.Skein-1024-1024", C7470.m17249(str, "$Digest_1024_512", "MessageDigest.Skein-1024-512", C7470.m17249(str, "$Digest_1024_384", "MessageDigest.Skein-1024-384", C7470.m17249(str, "$Digest_512_512", "MessageDigest.Skein-512-512", C7470.m17249(str, "$Digest_512_384", "MessageDigest.Skein-512-384", C7470.m17249(str, "$Digest_512_256", "MessageDigest.Skein-512-256", C7470.m17249(str, "$Digest_512_224", "MessageDigest.Skein-512-224", C7470.m17249(str, "$Digest_512_160", "MessageDigest.Skein-512-160", C7470.m17249(str, "$Digest_512_128", "MessageDigest.Skein-512-128", C7470.m17249(str, "$Digest_256_256", "MessageDigest.Skein-256-256", C7470.m17249(str, "$Digest_256_224", "MessageDigest.Skein-256-224", C7470.m17249(str, "$Digest_256_160", "MessageDigest.Skein-256-160", C7470.m17249(str, "$Digest_256_128", "MessageDigest.Skein-256-128", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), str, "$HashMac_256_128"), C17588.m40053(str, "$HMacKeyGenerator_256_128"));
+            addHMACAlgorithm(configurableProvider, "Skein-256-160", C17588.m40053(str, "$HashMac_256_160"), C17588.m40053(str, "$HMacKeyGenerator_256_160"));
+            addHMACAlgorithm(configurableProvider, "Skein-256-224", C17588.m40053(str, "$HashMac_256_224"), C17588.m40053(str, "$HMacKeyGenerator_256_224"));
+            addHMACAlgorithm(configurableProvider, "Skein-256-256", C17588.m40053(str, "$HashMac_256_256"), C17588.m40053(str, "$HMacKeyGenerator_256_256"));
+            addHMACAlgorithm(configurableProvider, "Skein-512-128", C17588.m40053(str, "$HashMac_512_128"), C17588.m40053(str, "$HMacKeyGenerator_512_128"));
+            addHMACAlgorithm(configurableProvider, "Skein-512-160", C17588.m40053(str, "$HashMac_512_160"), C17588.m40053(str, "$HMacKeyGenerator_512_160"));
+            addHMACAlgorithm(configurableProvider, "Skein-512-224", C17588.m40053(str, "$HashMac_512_224"), C17588.m40053(str, "$HMacKeyGenerator_512_224"));
+            addHMACAlgorithm(configurableProvider, "Skein-512-256", C17588.m40053(str, "$HashMac_512_256"), C17588.m40053(str, "$HMacKeyGenerator_512_256"));
+            addHMACAlgorithm(configurableProvider, "Skein-512-384", C17588.m40053(str, "$HashMac_512_384"), C17588.m40053(str, "$HMacKeyGenerator_512_384"));
+            addHMACAlgorithm(configurableProvider, "Skein-512-512", C17588.m40053(str, "$HashMac_512_512"), C17588.m40053(str, "$HMacKeyGenerator_512_512"));
+            addHMACAlgorithm(configurableProvider, "Skein-1024-384", C17588.m40053(str, "$HashMac_1024_384"), C17588.m40053(str, "$HMacKeyGenerator_1024_384"));
+            addHMACAlgorithm(configurableProvider, "Skein-1024-512", C17588.m40053(str, "$HashMac_1024_512"), C17588.m40053(str, "$HMacKeyGenerator_1024_512"));
+            addHMACAlgorithm(configurableProvider, "Skein-1024-1024", C17588.m40053(str, "$HashMac_1024_1024"), C17588.m40053(str, "$HMacKeyGenerator_1024_1024"));
             addSkeinMacAlgorithm(configurableProvider, 256, 128);
             addSkeinMacAlgorithm(configurableProvider, 256, DHParameters.DEFAULT_MINIMUM_LENGTH);
             addSkeinMacAlgorithm(configurableProvider, 256, BERTags.FLAGS);

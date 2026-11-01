@@ -6,25 +6,31 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.WeakHashMap;
-import l.C5127;
-import l.C5368;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C7241;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSContextBasedSigner {
-    public static CacheKey T1;
+
+    /* JADX INFO: renamed from: T1 */
+    public static CacheKey f81648T1;
     public static CacheKey[] internedKeys;
-    public final byte[] I;
+
+    /* JADX INFO: renamed from: I */
+    public final byte[] f81649I;
     public final byte[] masterSecret;
     public final int maxCacheR;
     public final int maxQ;
     public final LMOtsParameters otsParameters;
     public final LMSigParameters parameters;
     public LMSPublicKeyParameters publicKey;
-    public int q;
+
+    /* JADX INFO: renamed from: q */
+    public int f81650q;
     public final Map tCache;
     public final Digest tDigest;
 
@@ -46,7 +52,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
 
     static {
         CacheKey cacheKey = new CacheKey(1);
-        T1 = cacheKey;
+        f81648T1 = cacheKey;
         CacheKey[] cacheKeyArr = new CacheKey[129];
         internedKeys = cacheKeyArr;
         cacheKeyArr[1] = cacheKey;
@@ -66,8 +72,8 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
         LMSigParameters lMSigParameters = lMSPrivateKeyParameters.parameters;
         this.parameters = lMSigParameters;
         this.otsParameters = lMSPrivateKeyParameters.otsParameters;
-        this.q = i;
-        this.I = lMSPrivateKeyParameters.I;
+        this.f81650q = i;
+        this.f81649I = lMSPrivateKeyParameters.f81649I;
         this.maxQ = i2;
         this.masterSecret = lMSPrivateKeyParameters.masterSecret;
         this.maxCacheR = 1 << lMSigParameters.getH();
@@ -80,8 +86,8 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
         super(true);
         this.parameters = lMSigParameters;
         this.otsParameters = lMOtsParameters;
-        this.q = i;
-        this.I = Arrays.clone(bArr);
+        this.f81650q = i;
+        this.f81649I = Arrays.clone(bArr);
         this.maxQ = i2;
         this.masterSecret = Arrays.clone(bArr2);
         this.maxCacheR = 1 << (lMSigParameters.getH() + 1);
@@ -155,7 +161,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj));
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream2 = null;
         try {
@@ -191,7 +197,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
             return false;
         }
         LMSPrivateKeyParameters lMSPrivateKeyParameters = (LMSPrivateKeyParameters) obj;
-        if (this.q != lMSPrivateKeyParameters.q || this.maxQ != lMSPrivateKeyParameters.maxQ || !Arrays.areEqual(this.I, lMSPrivateKeyParameters.I)) {
+        if (this.f81650q != lMSPrivateKeyParameters.f81650q || this.maxQ != lMSPrivateKeyParameters.maxQ || !Arrays.areEqual(this.f81649I, lMSPrivateKeyParameters.f81649I)) {
             return false;
         }
         LMSigParameters lMSigParameters = this.parameters;
@@ -213,12 +219,12 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
                     throw new IllegalArgumentException("usageCount cannot be negative");
                 }
                 int i2 = this.maxQ;
-                int i3 = this.q;
+                int i3 = this.f81650q;
                 if (i > i2 - i3) {
                     throw new IllegalArgumentException("usageCount exceeds usages remaining");
                 }
                 int i4 = i + i3;
-                this.q = i4;
+                this.f81650q = i4;
                 lMSPrivateKeyParameters = new LMSPrivateKeyParameters(this, i3, i4);
             } catch (Throwable th) {
                 throw th;
@@ -251,26 +257,26 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     public LMOtsPrivateKey getCurrentOTSKey() {
         LMOtsPrivateKey lMOtsPrivateKey;
         synchronized (this) {
-            int i = this.q;
+            int i = this.f81650q;
             if (i >= this.maxQ) {
                 throw new ExhaustedPrivateKeyException("ots private keys expired");
             }
-            lMOtsPrivateKey = new LMOtsPrivateKey(this.otsParameters, this.I, i, this.masterSecret);
+            lMOtsPrivateKey = new LMOtsPrivateKey(this.otsParameters, this.f81649I, i, this.masterSecret);
         }
         return lMOtsPrivateKey;
     }
 
     @Override // org.bouncycastle.pqc.crypto.lms.LMSKeyParameters, org.bouncycastle.util.Encodable
     public byte[] getEncoded() {
-        return Composer.compose().u32str(0).u32str(this.parameters.getType()).u32str(this.otsParameters.getType()).bytes(this.I).u32str(this.q).u32str(this.maxQ).u32str(this.masterSecret.length).bytes(this.masterSecret).build();
+        return Composer.compose().u32str(0).u32str(this.parameters.getType()).u32str(this.otsParameters.getType()).bytes(this.f81649I).u32str(this.f81650q).u32str(this.maxQ).u32str(this.masterSecret.length).bytes(this.masterSecret).build();
     }
 
     public byte[] getI() {
-        return Arrays.clone(this.I);
+        return Arrays.clone(this.f81649I);
     }
 
     public synchronized int getIndex() {
-        return this.q;
+        return this.f81650q;
     }
 
     public int getIndexLimit() {
@@ -284,11 +290,11 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     public LMOtsPrivateKey getNextOtsPrivateKey() {
         LMOtsPrivateKey lMOtsPrivateKey;
         synchronized (this) {
-            int i = this.q;
+            int i = this.f81650q;
             if (i >= this.maxQ) {
                 throw new ExhaustedPrivateKeyException("ots private key exhausted");
             }
-            lMOtsPrivateKey = new LMOtsPrivateKey(this.otsParameters, this.I, i, this.masterSecret);
+            lMOtsPrivateKey = new LMOtsPrivateKey(this.otsParameters, this.f81649I, i, this.masterSecret);
             incIndex();
         }
         return lMOtsPrivateKey;
@@ -302,7 +308,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
         LMSPublicKeyParameters lMSPublicKeyParameters;
         synchronized (this) {
             if (this.publicKey == null) {
-                this.publicKey = new LMSPublicKeyParameters(this.parameters, this.otsParameters, findT(T1), this.I);
+                this.publicKey = new LMSPublicKeyParameters(this.parameters, this.otsParameters, findT(f81648T1), this.f81649I);
             }
             lMSPublicKeyParameters = this.publicKey;
         }
@@ -319,7 +325,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     }
 
     public int hashCode() {
-        int iHashCode = (Arrays.hashCode(this.I) + (this.q * 31)) * 31;
+        int iHashCode = (Arrays.hashCode(this.f81649I) + (this.f81650q * 31)) * 31;
         LMSigParameters lMSigParameters = this.parameters;
         int iHashCode2 = (iHashCode + (lMSigParameters != null ? lMSigParameters.hashCode() : 0)) * 31;
         LMOtsParameters lMOtsParameters = this.otsParameters;
@@ -327,7 +333,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
     }
 
     public synchronized void incIndex() {
-        this.q++;
+        this.f81650q++;
     }
 
     @Override // org.bouncycastle.pqc.crypto.lms.LMSContextBasedSigner
@@ -335,7 +341,7 @@ public class LMSPrivateKeyParameters extends LMSKeyParameters implements LMSCont
         try {
             return LMS.generateSign(lMSContext).getEncoded();
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to encode signature: ")), e);
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to encode signature: ")), e);
         }
     }
 }

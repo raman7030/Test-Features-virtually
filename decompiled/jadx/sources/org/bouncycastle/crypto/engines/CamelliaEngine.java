@@ -22,8 +22,12 @@ public class CamelliaEngine implements BlockCipher {
     public static final int[] SBOX3_3033 = {939538488, 1090535745, 369104406, 1979741814, -654255655, -1828678765, 1610637408, -234818830, 1912631922, -1040137534, -1426019413, -1711236454, 1962964341, 100664838, 1459640151, -1610571616, -1862233711, -150931465, -1258244683, -922695223, -1577016670, -1946121076, -771697966, -1879011184, -167708938, 117442311, -1493129305, 654321447, -1912566130, -1308577102, 1224755529, -570368290, 1124090691, 1543527516, -687810601, -956250169, 1040203326, -184486411, -1895788657, 1728079719, 520101663, 402659352, 1845522030, -1358909521, 788541231, -503258398, -2063563387, 218107149, 1392530259, -268373776, -1677681508, 1694524773, -369038614, -1560239197, -1375686994, -1644126562, -335483668, -2147450752, 754986285, 1795189611, -1476351832, 721431339, 905983542, -1509906778, -989805115, -2046785914, 1291865421, 855651123, -50266627, 1711302246, 1476417624, -1778346346, 973093434, 150997257, -1795123819, 268439568, 2013296760, -671033128, 1107313218, -872362804, -285151249, 637543974, -452925979, 1627414881, 436214298, 1056980799, 989870907, -2113895806, -1241467210, -620700709, -738143020, -1744791400, -402593560, -1962898549, 33554946, -352261141, 167774730, 738208812, 486546717, -1342132048, 1862299503, -1929343603, -2013230968, 234884622, 419436825, -2030008441, 1308642894, 184552203, -1459574359, 201329676, 2030074233, 285217041, 2130739071, 570434082, -419371033, 1493195097, -520035871, -637478182, 1023425853, -939472696, 301994514, 67109892, 1946186868, 1409307732, 805318704, 2113961598, -1275022156, 671098920, 1426085205, 1744857192, 1342197840, -1107247426, -805252912, -1006582588, 822096177, -889140277, 704653866, -1392464467, 251662095, -905917750, 1879076976, -16711681, 838873650, 1761634665, 134219784, 1644192354, 0, 603989028, -788475439, -83821573, -1174357318, -318706195, 1157645637, -2130673279, 1929409395, 1828744557, -2080340860, -1627349089, -301928722, 1241533002, -1023360061, 771763758, -1056915007, 16777473, -436148506, 620766501, 1207978056, -1728013927, -1191134791, -1291799629, 2063629179, -117376519, -838807858, -1090469953, -553590817, 1895854449, 687876393, -855585331, 1811967084, 318771987, 1677747300, -1694458981, 1660969827, -1660904035, -1073692480, 1258310475, -1224689737, -1526684251, -1996453495, 1593859935, -1325354575, 385881879, -201263884, -1140802372, -754920493, 1174423110, -822030385, 922761015, 1577082462, 1191200583, -1811901292, -100599046, -67044100, 1526750043, -1761568873, -33489154, 1509972570, -1409241940, 1006648380, 1275087948, 50332419, 889206069, -218041357, 587211555, -1207912264, 1560304989, 1778412138, -1845456238, -721365547, 553656609, 1140868164, 1358975313, -973027642, 2097184125, 956315961, -2097118333, -603923236, -1442796886, 2080406652, 1996519287, 1442862678, 83887365, 452991771, -1543461724, 352326933, 872428596, 503324190, 469769244, -134153992, 1375752786, 536879136, 335549460, -385816087, -1124024899, -587145763, -469703452, -1593794143, -536813344, -1979676022, -251596303, -704588074, 2046851706, -1157579845, -486480925, 1073758272, 1325420367};
     public boolean initialised = false;
     public int[] subkey = new int[96];
-    public int[] kw = new int[8];
-    public int[] ke = new int[12];
+
+    /* JADX INFO: renamed from: kw */
+    public int[] f81003kw = new int[8];
+
+    /* JADX INFO: renamed from: ke */
+    public int[] f81002ke = new int[12];
 
     public CamelliaEngine() {
         CryptoServicesRegistrar.checkConstraints(new DefaultServiceProperties(getAlgorithmName(), bitsOfSecurity()));
@@ -127,21 +131,21 @@ public class CamelliaEngine implements BlockCipher {
     private int processBlock128(byte[] bArr, int i, byte[] bArr2, int i2) {
         int[] iArr = new int[4];
         for (int i3 = 0; i3 < 4; i3++) {
-            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.kw[i3];
+            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.f81003kw[i3];
         }
         camelliaF2(iArr, this.subkey, 0);
         camelliaF2(iArr, this.subkey, 4);
         camelliaF2(iArr, this.subkey, 8);
-        camelliaFLs(iArr, this.ke, 0);
+        camelliaFLs(iArr, this.f81002ke, 0);
         camelliaF2(iArr, this.subkey, 12);
         camelliaF2(iArr, this.subkey, 16);
         camelliaF2(iArr, this.subkey, 20);
-        camelliaFLs(iArr, this.ke, 4);
+        camelliaFLs(iArr, this.f81002ke, 4);
         camelliaF2(iArr, this.subkey, 24);
         camelliaF2(iArr, this.subkey, 28);
         camelliaF2(iArr, this.subkey, 32);
         int i4 = iArr[2];
-        int[] iArr2 = this.kw;
+        int[] iArr2 = this.f81003kw;
         int i5 = iArr2[4] ^ i4;
         iArr[2] = i5;
         iArr[3] = iArr[3] ^ iArr2[5];
@@ -157,25 +161,25 @@ public class CamelliaEngine implements BlockCipher {
     private int processBlock192or256(byte[] bArr, int i, byte[] bArr2, int i2) {
         int[] iArr = new int[4];
         for (int i3 = 0; i3 < 4; i3++) {
-            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.kw[i3];
+            iArr[i3] = bytes2int(bArr, (i3 * 4) + i) ^ this.f81003kw[i3];
         }
         camelliaF2(iArr, this.subkey, 0);
         camelliaF2(iArr, this.subkey, 4);
         camelliaF2(iArr, this.subkey, 8);
-        camelliaFLs(iArr, this.ke, 0);
+        camelliaFLs(iArr, this.f81002ke, 0);
         camelliaF2(iArr, this.subkey, 12);
         camelliaF2(iArr, this.subkey, 16);
         camelliaF2(iArr, this.subkey, 20);
-        camelliaFLs(iArr, this.ke, 4);
+        camelliaFLs(iArr, this.f81002ke, 4);
         camelliaF2(iArr, this.subkey, 24);
         camelliaF2(iArr, this.subkey, 28);
         camelliaF2(iArr, this.subkey, 32);
-        camelliaFLs(iArr, this.ke, 8);
+        camelliaFLs(iArr, this.f81002ke, 8);
         camelliaF2(iArr, this.subkey, 36);
         camelliaF2(iArr, this.subkey, 40);
         camelliaF2(iArr, this.subkey, 44);
         int i4 = iArr[2];
-        int[] iArr2 = this.kw;
+        int[] iArr2 = this.f81003kw;
         int i5 = i4 ^ iArr2[4];
         iArr[2] = i5;
         iArr[3] = iArr[3] ^ iArr2[5];
@@ -277,7 +281,7 @@ public class CamelliaEngine implements BlockCipher {
         }
         camelliaF2(iArr2, SIGMA, 4);
         if (this._keySize == 16) {
-            int[] iArr5 = this.kw;
+            int[] iArr5 = this.f81003kw;
             if (z) {
                 iArr5[0] = iArr[0];
                 iArr5[1] = iArr[1];
@@ -289,7 +293,7 @@ public class CamelliaEngine implements BlockCipher {
                 int[] iArr6 = this.subkey;
                 iArr6[18] = iArr4[2];
                 iArr6[19] = iArr4[3];
-                roldq(17, iArr, 0, this.ke, 4);
+                roldq(17, iArr, 0, this.f81002ke, 4);
                 roldq(17, iArr, 0, this.subkey, 24);
                 roldq(17, iArr, 0, this.subkey, 32);
                 int[] iArr7 = this.subkey;
@@ -298,14 +302,14 @@ public class CamelliaEngine implements BlockCipher {
                 iArr7[2] = iArr2[2];
                 iArr7[3] = iArr2[3];
                 roldq(15, iArr2, 0, iArr7, 8);
-                roldq(15, iArr2, 0, this.ke, 0);
+                roldq(15, iArr2, 0, this.f81002ke, 0);
                 roldq(15, iArr2, 0, iArr4, 0);
                 int[] iArr8 = this.subkey;
                 iArr8[16] = iArr4[0];
                 iArr8[17] = iArr4[1];
                 roldq(15, iArr2, 0, iArr8, 20);
                 roldqo32(34, iArr2, 0, this.subkey, 28);
-                roldq(17, iArr2, 0, this.kw, 4);
+                roldq(17, iArr2, 0, this.f81003kw, 4);
                 return;
             }
             iArr5[4] = iArr[0];
@@ -318,7 +322,7 @@ public class CamelliaEngine implements BlockCipher {
             int[] iArr9 = this.subkey;
             iArr9[16] = iArr4[0];
             iArr9[17] = iArr4[1];
-            decroldq(17, iArr, 0, this.ke, 0);
+            decroldq(17, iArr, 0, this.f81002ke, 0);
             decroldq(17, iArr, 0, this.subkey, 8);
             decroldq(17, iArr, 0, this.subkey, 0);
             int[] iArr10 = this.subkey;
@@ -327,37 +331,37 @@ public class CamelliaEngine implements BlockCipher {
             iArr10[32] = iArr2[2];
             iArr10[33] = iArr2[3];
             decroldq(15, iArr2, 0, iArr10, 24);
-            decroldq(15, iArr2, 0, this.ke, 4);
+            decroldq(15, iArr2, 0, this.f81002ke, 4);
             decroldq(15, iArr2, 0, iArr4, 0);
             int[] iArr11 = this.subkey;
             iArr11[18] = iArr4[2];
             iArr11[19] = iArr4[3];
             decroldq(15, iArr2, 0, iArr11, 12);
             decroldqo32(34, iArr2, 0, this.subkey, 4);
-            roldq(17, iArr2, 0, this.kw, 0);
+            roldq(17, iArr2, 0, this.f81003kw, 0);
             return;
         }
         for (int i3 = 0; i3 < 4; i3++) {
             iArr3[i3] = iArr2[i3] ^ iArr[i3 + 4];
         }
         camelliaF2(iArr3, SIGMA, 8);
-        int[] iArr12 = this.kw;
+        int[] iArr12 = this.f81003kw;
         if (z) {
             iArr12[0] = iArr[0];
             iArr12[1] = iArr[1];
             iArr12[2] = iArr[2];
             iArr12[3] = iArr[3];
             roldqo32(45, iArr, 0, this.subkey, 16);
-            roldq(15, iArr, 0, this.ke, 4);
+            roldq(15, iArr, 0, this.f81002ke, 4);
             roldq(17, iArr, 0, this.subkey, 32);
             roldqo32(34, iArr, 0, this.subkey, 44);
             roldq(15, iArr, 4, this.subkey, 4);
-            roldq(15, iArr, 4, this.ke, 0);
+            roldq(15, iArr, 4, this.f81002ke, 0);
             roldq(30, iArr, 4, this.subkey, 24);
             roldqo32(34, iArr, 4, this.subkey, 36);
             roldq(15, iArr2, 0, this.subkey, 8);
             roldq(30, iArr2, 0, this.subkey, 20);
-            int[] iArr13 = this.ke;
+            int[] iArr13 = this.f81002ke;
             iArr13[8] = iArr2[1];
             iArr13[9] = iArr2[2];
             iArr13[10] = iArr2[3];
@@ -370,7 +374,7 @@ public class CamelliaEngine implements BlockCipher {
             iArr14[3] = iArr3[3];
             roldq(30, iArr3, 0, iArr14, 12);
             roldq(30, iArr3, 0, this.subkey, 28);
-            roldqo32(51, iArr3, 0, this.kw, 4);
+            roldqo32(51, iArr3, 0, this.f81003kw, 4);
             return;
         }
         iArr12[4] = iArr[0];
@@ -378,16 +382,16 @@ public class CamelliaEngine implements BlockCipher {
         iArr12[6] = iArr[2];
         iArr12[7] = iArr[3];
         decroldqo32(45, iArr, 0, this.subkey, 28);
-        decroldq(15, iArr, 0, this.ke, 4);
+        decroldq(15, iArr, 0, this.f81002ke, 4);
         decroldq(17, iArr, 0, this.subkey, 12);
         decroldqo32(34, iArr, 0, this.subkey, 0);
         decroldq(15, iArr, 4, this.subkey, 40);
-        decroldq(15, iArr, 4, this.ke, 8);
+        decroldq(15, iArr, 4, this.f81002ke, 8);
         decroldq(30, iArr, 4, this.subkey, 20);
         decroldqo32(34, iArr, 4, this.subkey, 8);
         decroldq(15, iArr2, 0, this.subkey, 36);
         decroldq(30, iArr2, 0, this.subkey, 24);
-        int[] iArr15 = this.ke;
+        int[] iArr15 = this.f81002ke;
         iArr15[2] = iArr2[1];
         iArr15[3] = iArr2[2];
         iArr15[0] = iArr2[3];
@@ -400,7 +404,7 @@ public class CamelliaEngine implements BlockCipher {
         iArr16[45] = iArr3[3];
         decroldq(30, iArr3, 0, iArr16, 32);
         decroldq(30, iArr3, 0, this.subkey, 16);
-        roldqo32(51, iArr3, 0, this.kw, 0);
+        roldqo32(51, iArr3, 0, this.f81003kw, 0);
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher

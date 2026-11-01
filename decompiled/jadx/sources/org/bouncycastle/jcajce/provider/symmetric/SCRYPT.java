@@ -3,8 +3,6 @@ package org.bouncycastle.jcajce.provider.symmetric;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
-import l.C11010;
-import l.C12662;
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.crypto.generators.SCrypt;
 import org.bouncycastle.crypto.params.KeyParameter;
@@ -14,6 +12,8 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.spec.ScryptKeySpec;
+import p067l.C12832;
+import p067l.C14403;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SCRYPT {
@@ -56,8 +56,8 @@ public class SCRYPT {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$ScryptWithUTF8", "SecretKeyFactory.SCRYPT", sb, configurableProvider);
-            C11010.m27351(configurableProvider, str, "$ScryptWithUTF8", "SecretKeyFactory", MiscObjectIdentifiers.id_scrypt);
+            C14403.m33021(str, "$ScryptWithUTF8", "SecretKeyFactory.SCRYPT", sb, configurableProvider);
+            C12832.m29413(configurableProvider, str, "$ScryptWithUTF8", "SecretKeyFactory", MiscObjectIdentifiers.id_scrypt);
         }
     }
 

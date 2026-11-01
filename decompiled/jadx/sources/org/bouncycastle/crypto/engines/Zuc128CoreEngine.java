@@ -1,8 +1,8 @@
 package org.bouncycastle.crypto.engines;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
-import com.umeng.analytics.pro.bo;
-import com.umeng.analytics.pro.cb;
+import com.umeng.analytics.pro.C0684bo;
+import com.umeng.analytics.pro.C0698cb;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicePurpose;
@@ -24,26 +24,32 @@ import org.bouncycastle.util.encoders.UTF8;
 /* JADX INFO: loaded from: classes.dex */
 public class Zuc128CoreEngine implements StreamCipher, Memoable {
     public final int[] BRC;
-    public final int[] F;
+
+    /* JADX INFO: renamed from: F */
+    public final int[] f81100F;
     public final int[] LFSR;
     public final byte[] keyStream;
     public int theIndex;
     public int theIterations;
     public Zuc128CoreEngine theResetState;
-    public static final byte[] S0 = {62, 114, 91, 71, -54, bo.k, 0, 51, 4, -47, 84, -104, 9, -71, 109, -53, 123, 27, -7, 50, -81, -99, 106, -91, -72, 45, -4, 29, 8, 83, 3, -112, 77, 78, -124, -103, -28, -50, -39, -111, -35, -74, -123, 72, -117, 41, KeyFactorySpi.x25519_type, -84, -51, -63, -8, 30, 115, 67, 105, -58, -75, -67, -3, 57, 99, UTF8.S_CS3, -44, 56, 118, 125, -78, -89, -49, -19, 87, -59, -13, 44, -69, 20, PublicSuffixDatabase.EXCEPTION_MARKER, 6, 85, -101, -29, -17, 94, 49, 79, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, 90, -92, cb.k, bo.h, 81, 73, 95, -70, 88, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 74, 22, -43, 23, -88, -110, 36, bo.j, -116, -1, -40, -82, 46, 1, -45, -83, 59, 75, -38, 70, -21, -55, -34, -102, -113, -121, -41, 58, GCMSIVBlockCipher.MASK, KeyFactorySpi.x448_type, 47, -56, -79, -76, 55, -9, 10, 34, 19, 40, 124, -52, 60, -119, -57, -61, -106, 86, 7, -65, 126, -16, 11, 43, -105, 82, 53, 65, 121, 97, -90, 76, 16, -2, PSSSigner.TRAILER_IMPLICIT, 38, -107, -120, -118, -80, -93, -5, -64, 24, -108, -14, GCMSIVBlockCipher.ADD, -27, -23, 93, -48, -36, 17, 102, 100, 92, -20, 89, 66, 117, 18, -11, 116, -100, -86, 35, cb.f77931l, -122, -85, -66, 42, 2, -25, 103, -26, 68, -94, 108, -62, -109, -97, -15, -10, -6, 54, -46, UTF8.S_P4A, 104, -98, 98, KeyFactorySpi.Ed448_type, 21, Base32Encoder.DEFAULT_PADDING, -42, 64, -60, -30, 15, -114, -125, 119, 107, 37, 5, 63, 12, UTF8.S_P3A, -22, KeyFactorySpi.Ed25519_type, -73, -95, -24, -87, 101, -115, 39, 26, -37, -127, -77, -96, -12, 69, 122, 25, -33, -18, 120, 52, UTF8.S_P4B};
-    public static final byte[] S1 = {85, -62, 99, KeyFactorySpi.Ed448_type, 59, -56, 71, -122, -97, 60, -38, 91, 41, -86, -3, 119, -116, -59, -108, 12, -90, 26, 19, 0, -29, -88, 22, 114, 64, -7, -8, 66, 68, 38, 104, -106, -127, -39, 69, 62, 16, 118, -58, -89, -117, 57, 67, GCMSIVBlockCipher.ADD, 58, -75, 86, 42, -64, 109, -77, 5, 34, 102, -65, -36, 11, -6, 98, 72, -35, UTF8.S_CS3, 17, 6, 54, -55, -63, -49, -10, 39, 82, -69, 105, -11, -44, -121, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -124, 76, -46, -100, 87, -92, PSSSigner.TRAILER_IMPLICIT, 79, -102, -33, -2, -42, -115, 122, -21, 43, 83, -40, 92, -95, 20, 23, -5, 35, -43, 125, UTF8.S_P3A, 103, 115, 8, 9, -18, -73, KeyFactorySpi.Ed25519_type, 63, 97, -78, 25, -114, 78, -27, 75, -109, -113, 93, -37, -87, -83, -15, -82, 46, -53, cb.k, -4, -12, 45, 70, KeyFactorySpi.x25519_type, 29, -105, -24, -47, -23, 77, 55, -91, 117, 94, -125, -98, -85, bo.h, -99, -71, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, bo.k, -51, 73, -119, 1, -74, -67, 88, 36, -94, 95, 56, 120, -103, 21, -112, UTF8.S_P4A, -72, -107, -28, -48, -111, -57, -50, -19, 15, -76, KeyFactorySpi.x448_type, -96, -52, -16, 2, 74, 121, -61, -34, -93, -17, -22, 81, -26, 107, 24, -20, 27, 44, GCMSIVBlockCipher.MASK, -9, 116, -25, -1, PublicSuffixDatabase.EXCEPTION_MARKER, 90, 106, 84, 30, 65, 49, -110, 53, -60, 51, 7, 10, -70, 126, cb.f77931l, 52, -120, -79, -104, 124, -13, Base32Encoder.DEFAULT_PADDING, UTF8.S_P4B, 108, 123, -54, -45, bo.j, 50, 101, 4, 40, 100, -66, -123, -101, 47, 89, -118, -41, -80, 37, -84, -81, 18, 3, -30, -14};
+
+    /* JADX INFO: renamed from: S0 */
+    public static final byte[] f81098S0 = {62, 114, 91, 71, -54, C0684bo.f2506k, 0, 51, 4, -47, 84, -104, 9, -71, 109, -53, 123, 27, -7, 50, -81, -99, 106, -91, -72, 45, -4, 29, 8, 83, 3, -112, 77, 78, -124, -103, -28, -50, -39, -111, -35, -74, -123, 72, -117, 41, KeyFactorySpi.x25519_type, -84, -51, -63, -8, 30, 115, 67, 105, -58, -75, -67, -3, 57, 99, UTF8.S_CS3, -44, 56, 118, 125, -78, -89, -49, -19, 87, -59, -13, 44, -69, 20, PublicSuffixDatabase.EXCEPTION_MARKER, 6, 85, -101, -29, -17, 94, 49, 79, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, 90, -92, C0698cb.f2569k, C0684bo.f2503h, 81, 73, 95, -70, 88, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, 74, 22, -43, 23, -88, -110, 36, C0684bo.f2505j, -116, -1, -40, -82, 46, 1, -45, -83, 59, 75, -38, 70, -21, -55, -34, -102, -113, -121, -41, 58, GCMSIVBlockCipher.MASK, KeyFactorySpi.x448_type, 47, -56, -79, -76, 55, -9, 10, 34, 19, 40, 124, -52, 60, -119, -57, -61, -106, 86, 7, -65, 126, -16, 11, 43, -105, 82, 53, 65, 121, 97, -90, 76, 16, -2, PSSSigner.TRAILER_IMPLICIT, 38, -107, -120, -118, -80, -93, -5, -64, 24, -108, -14, GCMSIVBlockCipher.ADD, -27, -23, 93, -48, -36, 17, 102, 100, 92, -20, 89, 66, 117, 18, -11, 116, -100, -86, 35, C0698cb.f2570l, -122, -85, -66, 42, 2, -25, 103, -26, 68, -94, 108, -62, -109, -97, -15, -10, -6, 54, -46, UTF8.S_P4A, 104, -98, 98, KeyFactorySpi.Ed448_type, 21, Base32Encoder.DEFAULT_PADDING, -42, 64, -60, -30, 15, -114, -125, 119, 107, 37, 5, 63, 12, UTF8.S_P3A, -22, KeyFactorySpi.Ed25519_type, -73, -95, -24, -87, 101, -115, 39, 26, -37, -127, -77, -96, -12, 69, 122, 25, -33, -18, 120, 52, UTF8.S_P4B};
+
+    /* JADX INFO: renamed from: S1 */
+    public static final byte[] f81099S1 = {85, -62, 99, KeyFactorySpi.Ed448_type, 59, -56, 71, -122, -97, 60, -38, 91, 41, -86, -3, 119, -116, -59, -108, 12, -90, 26, 19, 0, -29, -88, 22, 114, 64, -7, -8, 66, 68, 38, 104, -106, -127, -39, 69, 62, 16, 118, -58, -89, -117, 57, 67, GCMSIVBlockCipher.ADD, 58, -75, 86, 42, -64, 109, -77, 5, 34, 102, -65, -36, 11, -6, 98, 72, -35, UTF8.S_CS3, 17, 6, 54, -55, -63, -49, -10, 39, 82, -69, 105, -11, -44, -121, ColorResourcesTableCreator.APPLICATION_PACKAGE_ID, -124, 76, -46, -100, 87, -92, PSSSigner.TRAILER_IMPLICIT, 79, -102, -33, -2, -42, -115, 122, -21, 43, 83, -40, 92, -95, 20, 23, -5, 35, -43, 125, UTF8.S_P3A, 103, 115, 8, 9, -18, -73, KeyFactorySpi.Ed25519_type, 63, 97, -78, 25, -114, 78, -27, 75, -109, -113, 93, -37, -87, -83, -15, -82, 46, -53, C0698cb.f2569k, -4, -12, 45, 70, KeyFactorySpi.x25519_type, 29, -105, -24, -47, -23, 77, 55, -91, 117, 94, -125, -98, -85, C0684bo.f2503h, -99, -71, ColorResourcesTableCreator.ResEntry.DATA_TYPE_AARRGGBB, C0684bo.f2506k, -51, 73, -119, 1, -74, -67, 88, 36, -94, 95, 56, 120, -103, 21, -112, UTF8.S_P4A, -72, -107, -28, -48, -111, -57, -50, -19, 15, -76, KeyFactorySpi.x448_type, -96, -52, -16, 2, 74, 121, -61, -34, -93, -17, -22, 81, -26, 107, 24, -20, 27, 44, GCMSIVBlockCipher.MASK, -9, 116, -25, -1, PublicSuffixDatabase.EXCEPTION_MARKER, 90, 106, 84, 30, 65, 49, -110, 53, -60, 51, 7, 10, -70, 126, C0698cb.f2570l, 52, -120, -79, -104, 124, -13, Base32Encoder.DEFAULT_PADDING, UTF8.S_P4B, 108, 123, -54, -45, C0684bo.f2505j, 50, 101, 4, 40, 100, -66, -123, -101, 47, 89, -118, -41, -80, 37, -84, -81, 18, 3, -30, -14};
     public static final short[] EK_d = {17623, 9916, 25195, 4958, 22409, 13794, 28981, 2479, 19832, 12051, 27588, 6897, 24102, 15437, 30874, 18348};
 
     public Zuc128CoreEngine() {
         this.LFSR = new int[16];
-        this.F = new int[2];
+        this.f81100F = new int[2];
         this.BRC = new int[4];
         this.keyStream = new byte[4];
     }
 
     public Zuc128CoreEngine(Zuc128CoreEngine zuc128CoreEngine) {
         this.LFSR = new int[16];
-        this.F = new int[2];
+        this.f81100F = new int[2];
         this.BRC = new int[4];
         this.keyStream = new byte[4];
         reset(zuc128CoreEngine);
@@ -63,11 +69,13 @@ public class Zuc128CoreEngine implements StreamCipher, Memoable {
         iArr[3] = (iArr2[0] >>> 15) | ((iArr2[2] & 65535) << 16);
     }
 
-    public static int L1(int i) {
+    /* JADX INFO: renamed from: L1 */
+    public static int m55401L1(int i) {
         return ROT(i, 24) ^ (((ROT(i, 2) ^ i) ^ ROT(i, 10)) ^ ROT(i, 18));
     }
 
-    public static int L2(int i) {
+    /* JADX INFO: renamed from: L2 */
+    public static int m55402L2(int i) {
         return ROT(i, 30) ^ (((ROT(i, 8) ^ i) ^ ROT(i, 14)) ^ ROT(i, 22));
     }
 
@@ -144,40 +152,41 @@ public class Zuc128CoreEngine implements StreamCipher, Memoable {
 
     private void setKeyAndIV(byte[] bArr, byte[] bArr2) {
         setKeyAndIV(this.LFSR, bArr, bArr2);
-        int[] iArr = this.F;
+        int[] iArr = this.f81100F;
         iArr[0] = 0;
         iArr[1] = 0;
         int i = 32;
         while (true) {
             BitReorganization();
             if (i <= 0) {
-                F();
+                m55403F();
                 LFSRWithWorkMode();
                 return;
             } else {
-                LFSRWithInitialisationMode(F() >>> 1);
+                LFSRWithInitialisationMode(m55403F() >>> 1);
                 i--;
             }
         }
     }
 
-    public int F() {
+    /* JADX INFO: renamed from: F */
+    public int m55403F() {
         int[] iArr = this.BRC;
         int i = iArr[0];
-        int[] iArr2 = this.F;
+        int[] iArr2 = this.f81100F;
         int i2 = iArr2[0];
         int i3 = iArr2[1];
         int i4 = (i ^ i2) + i3;
         int i5 = i2 + iArr[1];
         int i6 = iArr[2] ^ i3;
-        int iL1 = L1((i5 << 16) | (i6 >>> 16));
-        int iL2 = L2((i6 << 16) | (i5 >>> 16));
-        int[] iArr3 = this.F;
-        byte[] bArr = S0;
-        byte b = bArr[iL1 >>> 24];
-        byte[] bArr2 = S1;
-        iArr3[0] = MAKEU32(b, bArr2[(iL1 >>> 16) & 255], bArr[(iL1 >>> 8) & 255], bArr2[iL1 & 255]);
-        this.F[1] = MAKEU32(bArr[iL2 >>> 24], bArr2[(iL2 >>> 16) & 255], bArr[(iL2 >>> 8) & 255], bArr2[iL2 & 255]);
+        int iM55401L1 = m55401L1((i5 << 16) | (i6 >>> 16));
+        int iM55402L2 = m55402L2((i6 << 16) | (i5 >>> 16));
+        int[] iArr3 = this.f81100F;
+        byte[] bArr = f81098S0;
+        byte b = bArr[iM55401L1 >>> 24];
+        byte[] bArr2 = f81099S1;
+        iArr3[0] = MAKEU32(b, bArr2[(iM55401L1 >>> 16) & 255], bArr[(iM55401L1 >>> 8) & 255], bArr2[iM55401L1 & 255]);
+        this.f81100F[1] = MAKEU32(bArr[iM55402L2 >>> 24], bArr2[(iM55402L2 >>> 16) & 255], bArr[(iM55402L2 >>> 8) & 255], bArr2[iM55402L2 & 255]);
         return i4;
     }
 
@@ -222,9 +231,9 @@ public class Zuc128CoreEngine implements StreamCipher, Memoable {
             throw new IllegalStateException("Too much data processed by singleKey/IV");
         }
         BitReorganization();
-        int iF = F() ^ this.BRC[3];
+        int iM55403F = m55403F() ^ this.BRC[3];
         LFSRWithWorkMode();
-        return iF;
+        return iM55403F;
     }
 
     @Override // org.bouncycastle.crypto.StreamCipher
@@ -258,8 +267,8 @@ public class Zuc128CoreEngine implements StreamCipher, Memoable {
         int[] iArr = zuc128CoreEngine.LFSR;
         int[] iArr2 = this.LFSR;
         System.arraycopy(iArr, 0, iArr2, 0, iArr2.length);
-        int[] iArr3 = zuc128CoreEngine.F;
-        int[] iArr4 = this.F;
+        int[] iArr3 = zuc128CoreEngine.f81100F;
+        int[] iArr4 = this.f81100F;
         System.arraycopy(iArr3, 0, iArr4, 0, iArr4.length);
         int[] iArr5 = zuc128CoreEngine.BRC;
         int[] iArr6 = this.BRC;

@@ -9,7 +9,9 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CBCBlockCipher extends DefaultMultiBlockCipher implements CBCModeCipher {
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81168IV;
     public int blockSize;
     public byte[] cbcNextV;
     public byte[] cbcV;
@@ -20,7 +22,7 @@ public class CBCBlockCipher extends DefaultMultiBlockCipher implements CBCModeCi
         this.cipher = blockCipher;
         int blockSize = blockCipher.getBlockSize();
         this.blockSize = blockSize;
-        this.IV = new byte[blockSize];
+        this.f81168IV = new byte[blockSize];
         this.cbcV = new byte[blockSize];
         this.cbcNextV = new byte[blockSize];
     }
@@ -85,10 +87,10 @@ public class CBCBlockCipher extends DefaultMultiBlockCipher implements CBCModeCi
             if (iv.length != this.blockSize) {
                 throw new IllegalArgumentException("initialisation vector must be the same length as block size");
             }
-            System.arraycopy(iv, 0, this.IV, 0, iv.length);
+            System.arraycopy(iv, 0, this.f81168IV, 0, iv.length);
             cipherParameters = parametersWithIV.getParameters();
         } else {
-            Arrays.fill(this.IV, (byte) 0);
+            Arrays.fill(this.f81168IV, (byte) 0);
         }
         reset();
         if (cipherParameters != null) {
@@ -105,7 +107,7 @@ public class CBCBlockCipher extends DefaultMultiBlockCipher implements CBCModeCi
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81168IV;
         System.arraycopy(bArr, 0, this.cbcV, 0, bArr.length);
         Arrays.fill(this.cbcNextV, (byte) 0);
         this.cipher.reset();

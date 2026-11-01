@@ -1,7 +1,7 @@
 package org.bouncycastle.crypto.digests;
 
-import com.alipay.sdk.m.p.a;
-import com.umeng.analytics.pro.cb;
+import com.alipay.sdk.p010m.p041p.C0184a;
+import com.umeng.analytics.pro.C0698cb;
 import org.bouncycastle.crypto.CryptoServicePurpose;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.ExtendedDigest;
@@ -18,8 +18,12 @@ public class Blake2bDigest implements ExtendedDigest {
     public long[] chainValue;
     public int depth;
     public int digestLength;
-    public long f0;
-    public long f1;
+
+    /* JADX INFO: renamed from: f0 */
+    public long f80795f0;
+
+    /* JADX INFO: renamed from: f1 */
+    public long f80796f1;
     public int fanout;
     public int innerHashLength;
     public long[] internalState;
@@ -32,10 +36,14 @@ public class Blake2bDigest implements ExtendedDigest {
     public byte[] personalization;
     public final CryptoServicePurpose purpose;
     public byte[] salt;
-    public long t0;
-    public long t1;
+
+    /* JADX INFO: renamed from: t0 */
+    public long f80797t0;
+
+    /* JADX INFO: renamed from: t1 */
+    public long f80798t1;
     public static final long[] blake2b_IV = {7640891576956012808L, -4942790177534073029L, 4354685564936845355L, -6534734903238641935L, 5840696475078001361L, -7276294671716946913L, 2270897969802886507L, 6620516959819538809L};
-    public static final byte[][] blake2b_sigma = {new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, cb.k, cb.f77931l, 15}, new byte[]{cb.f77931l, 10, 4, 8, 9, 15, cb.k, 6, 1, 12, 0, 2, 11, 7, 5, 3}, new byte[]{11, 8, 12, 0, 5, 2, 15, cb.k, 10, cb.f77931l, 3, 6, 7, 1, 9, 4}, new byte[]{7, 9, 3, 1, cb.k, 12, 11, cb.f77931l, 2, 6, 5, 10, 4, 0, 15, 8}, new byte[]{9, 0, 5, 7, 2, 4, 10, 15, cb.f77931l, 1, 11, 12, 6, 8, 3, cb.k}, new byte[]{2, 12, 6, 10, 0, 11, 8, 3, 4, cb.k, 7, 5, 15, cb.f77931l, 1, 9}, new byte[]{12, 5, 1, 15, cb.f77931l, cb.k, 4, 10, 0, 7, 6, 3, 9, 2, 8, 11}, new byte[]{cb.k, 11, 7, cb.f77931l, 12, 1, 3, 9, 5, 0, 15, 4, 8, 6, 2, 10}, new byte[]{6, 15, cb.f77931l, 9, 11, 3, 0, 8, 12, 2, cb.k, 7, 1, 4, 10, 5}, new byte[]{10, 2, 8, 4, 7, 6, 1, 5, 15, 11, 9, cb.f77931l, 3, 12, cb.k, 0}, new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, cb.k, cb.f77931l, 15}, new byte[]{cb.f77931l, 10, 4, 8, 9, 15, cb.k, 6, 1, 12, 0, 2, 11, 7, 5, 3}};
+    public static final byte[][] blake2b_sigma = {new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, C0698cb.f2569k, C0698cb.f2570l, 15}, new byte[]{C0698cb.f2570l, 10, 4, 8, 9, 15, C0698cb.f2569k, 6, 1, 12, 0, 2, 11, 7, 5, 3}, new byte[]{11, 8, 12, 0, 5, 2, 15, C0698cb.f2569k, 10, C0698cb.f2570l, 3, 6, 7, 1, 9, 4}, new byte[]{7, 9, 3, 1, C0698cb.f2569k, 12, 11, C0698cb.f2570l, 2, 6, 5, 10, 4, 0, 15, 8}, new byte[]{9, 0, 5, 7, 2, 4, 10, 15, C0698cb.f2570l, 1, 11, 12, 6, 8, 3, C0698cb.f2569k}, new byte[]{2, 12, 6, 10, 0, 11, 8, 3, 4, C0698cb.f2569k, 7, 5, 15, C0698cb.f2570l, 1, 9}, new byte[]{12, 5, 1, 15, C0698cb.f2570l, C0698cb.f2569k, 4, 10, 0, 7, 6, 3, 9, 2, 8, 11}, new byte[]{C0698cb.f2569k, 11, 7, C0698cb.f2570l, 12, 1, 3, 9, 5, 0, 15, 4, 8, 6, 2, 10}, new byte[]{6, 15, C0698cb.f2570l, 9, 11, 3, 0, 8, 12, 2, C0698cb.f2569k, 7, 1, 4, 10, 5}, new byte[]{10, 2, 8, 4, 7, 6, 1, 5, 15, 11, 9, C0698cb.f2570l, 3, 12, C0698cb.f2569k, 0}, new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, C0698cb.f2569k, C0698cb.f2570l, 15}, new byte[]{C0698cb.f2570l, 10, 4, 8, 9, 15, C0698cb.f2569k, 6, 1, 12, 0, 2, 11, 7, 5, 3}};
     public static int ROUNDS = 12;
 
     public Blake2bDigest() {
@@ -63,10 +71,10 @@ public class Blake2bDigest implements ExtendedDigest {
         this.bufferPos = 0;
         this.internalState = new long[16];
         this.chainValue = null;
-        this.t0 = 0L;
-        this.t1 = 0L;
-        this.f0 = 0L;
-        this.f1 = 0L;
+        this.f80797t0 = 0L;
+        this.f80798t1 = 0L;
+        this.f80795f0 = 0L;
+        this.f80796f1 = 0L;
         this.purpose = cryptoServicePurpose;
         if (i < 8 || i > 512 || i % 8 != 0) {
             throw new IllegalArgumentException("BLAKE2b digest bit length must be a multiple of 8 and not greater than 512");
@@ -95,10 +103,10 @@ public class Blake2bDigest implements ExtendedDigest {
         this.bufferPos = 0;
         this.internalState = new long[16];
         this.chainValue = null;
-        this.t0 = 0L;
-        this.t1 = 0L;
-        this.f0 = 0L;
-        this.f1 = 0L;
+        this.f80797t0 = 0L;
+        this.f80798t1 = 0L;
+        this.f80795f0 = 0L;
+        this.f80796f1 = 0L;
         this.bufferPos = blake2bDigest.bufferPos;
         this.buffer = Arrays.clone(blake2bDigest.buffer);
         this.keyLength = blake2bDigest.keyLength;
@@ -107,9 +115,9 @@ public class Blake2bDigest implements ExtendedDigest {
         this.chainValue = Arrays.clone(blake2bDigest.chainValue);
         this.personalization = Arrays.clone(blake2bDigest.personalization);
         this.salt = Arrays.clone(blake2bDigest.salt);
-        this.t0 = blake2bDigest.t0;
-        this.t1 = blake2bDigest.t1;
-        this.f0 = blake2bDigest.f0;
+        this.f80797t0 = blake2bDigest.f80797t0;
+        this.f80798t1 = blake2bDigest.f80798t1;
+        this.f80795f0 = blake2bDigest.f80795f0;
         this.purpose = blake2bDigest.purpose;
     }
 
@@ -137,10 +145,10 @@ public class Blake2bDigest implements ExtendedDigest {
         this.bufferPos = 0;
         this.internalState = new long[16];
         this.chainValue = null;
-        this.t0 = 0L;
-        this.t1 = 0L;
-        this.f0 = 0L;
-        this.f1 = 0L;
+        this.f80797t0 = 0L;
+        this.f80798t1 = 0L;
+        this.f80795f0 = 0L;
+        this.f80796f1 = 0L;
         this.purpose = cryptoServicePurpose;
         this.buffer = new byte[128];
         if (i < 1 || i > 64) {
@@ -194,10 +202,10 @@ public class Blake2bDigest implements ExtendedDigest {
         this.bufferPos = 0;
         this.internalState = new long[16];
         this.chainValue = null;
-        this.t0 = 0L;
-        this.t1 = 0L;
-        this.f0 = 0L;
-        this.f1 = 0L;
+        this.f80797t0 = 0L;
+        this.f80798t1 = 0L;
+        this.f80795f0 = 0L;
+        this.f80796f1 = 0L;
         this.buffer = new byte[128];
         if (bArr != null) {
             byte[] bArr2 = new byte[bArr.length];
@@ -232,10 +240,10 @@ public class Blake2bDigest implements ExtendedDigest {
         this.bufferPos = 0;
         this.internalState = new long[16];
         this.chainValue = null;
-        this.t0 = 0L;
-        this.t1 = 0L;
-        this.f0 = 0L;
-        this.f1 = 0L;
+        this.f80797t0 = 0L;
+        this.f80798t1 = 0L;
+        this.f80795f0 = 0L;
+        this.f80796f1 = 0L;
         this.buffer = new byte[128];
         this.purpose = CryptoServicePurpose.ANY;
         this.digestLength = bArr2[0];
@@ -249,7 +257,8 @@ public class Blake2bDigest implements ExtendedDigest {
         init();
     }
 
-    private void G(long j, long j2, int i, int i2, int i3, int i4) {
+    /* JADX INFO: renamed from: G */
+    private void m55308G(long j, long j2, int i, int i2, int i3, int i4) {
         long[] jArr = this.internalState;
         long j3 = jArr[i] + jArr[i2] + j;
         jArr[i] = j3;
@@ -276,21 +285,21 @@ public class Blake2bDigest implements ExtendedDigest {
         for (int i3 = 0; i3 < ROUNDS; i3++) {
             byte[][] bArr2 = blake2b_sigma;
             byte[] bArr3 = bArr2[i3];
-            G(jArr[bArr3[0]], jArr[bArr3[1]], 0, 4, 8, 12);
+            m55308G(jArr[bArr3[0]], jArr[bArr3[1]], 0, 4, 8, 12);
             byte[] bArr4 = bArr2[i3];
-            G(jArr[bArr4[2]], jArr[bArr4[3]], 1, 5, 9, 13);
+            m55308G(jArr[bArr4[2]], jArr[bArr4[3]], 1, 5, 9, 13);
             byte[] bArr5 = bArr2[i3];
-            G(jArr[bArr5[4]], jArr[bArr5[5]], 2, 6, 10, 14);
+            m55308G(jArr[bArr5[4]], jArr[bArr5[5]], 2, 6, 10, 14);
             byte[] bArr6 = bArr2[i3];
-            G(jArr[bArr6[6]], jArr[bArr6[7]], 3, 7, 11, 15);
+            m55308G(jArr[bArr6[6]], jArr[bArr6[7]], 3, 7, 11, 15);
             byte[] bArr7 = bArr2[i3];
-            G(jArr[bArr7[8]], jArr[bArr7[9]], 0, 5, 10, 15);
+            m55308G(jArr[bArr7[8]], jArr[bArr7[9]], 0, 5, 10, 15);
             byte[] bArr8 = bArr2[i3];
-            G(jArr[bArr8[10]], jArr[bArr8[11]], 1, 6, 11, 12);
+            m55308G(jArr[bArr8[10]], jArr[bArr8[11]], 1, 6, 11, 12);
             byte[] bArr9 = bArr2[i3];
-            G(jArr[bArr9[12]], jArr[bArr9[13]], 2, 7, 8, 13);
+            m55308G(jArr[bArr9[12]], jArr[bArr9[13]], 2, 7, 8, 13);
             byte[] bArr10 = bArr2[i3];
-            G(jArr[bArr10[14]], jArr[bArr10[15]], 3, 4, 9, 14);
+            m55308G(jArr[bArr10[14]], jArr[bArr10[15]], 3, 4, 9, 14);
         }
         while (true) {
             long[] jArr2 = this.chainValue;
@@ -335,10 +344,10 @@ public class Blake2bDigest implements ExtendedDigest {
         long[] jArr2 = blake2b_IV;
         System.arraycopy(jArr2, 0, this.internalState, this.chainValue.length, 4);
         long[] jArr3 = this.internalState;
-        jArr3[12] = this.t0 ^ jArr2[4];
-        jArr3[13] = this.t1 ^ jArr2[5];
-        jArr3[14] = this.f0 ^ jArr2[6];
-        jArr3[15] = this.f1 ^ jArr2[7];
+        jArr3[12] = this.f80797t0 ^ jArr2[4];
+        jArr3[13] = this.f80798t1 ^ jArr2[5];
+        jArr3[14] = this.f80795f0 ^ jArr2[6];
+        jArr3[15] = this.f80796f1 ^ jArr2[7];
     }
 
     public void clearKey() {
@@ -361,16 +370,16 @@ public class Blake2bDigest implements ExtendedDigest {
         if (i > bArr.length - this.digestLength) {
             throw new OutputLengthException("output buffer too short");
         }
-        this.f0 = -1L;
+        this.f80795f0 = -1L;
         if (this.isLastNode) {
-            this.f1 = -1L;
+            this.f80796f1 = -1L;
         }
-        long j = this.t0;
+        long j = this.f80797t0;
         int i2 = this.bufferPos;
         long j2 = j + ((long) i2);
-        this.t0 = j2;
+        this.f80797t0 = j2;
         if (i2 > 0 && j2 == 0) {
-            this.t1++;
+            this.f80798t1++;
         }
         compress(this.buffer, 0);
         Arrays.fill(this.buffer, (byte) 0);
@@ -407,10 +416,10 @@ public class Blake2bDigest implements ExtendedDigest {
     @Override // org.bouncycastle.crypto.Digest
     public void reset() {
         this.bufferPos = 0;
-        this.f0 = 0L;
-        this.f1 = 0L;
-        this.t0 = 0L;
-        this.t1 = 0L;
+        this.f80795f0 = 0L;
+        this.f80796f1 = 0L;
+        this.f80797t0 = 0L;
+        this.f80798t1 = 0L;
         this.isLastNode = false;
         this.chainValue = null;
         Arrays.fill(this.buffer, (byte) 0);
@@ -434,10 +443,10 @@ public class Blake2bDigest implements ExtendedDigest {
             this.bufferPos = i + 1;
             return;
         }
-        long j = this.t0 + 128;
-        this.t0 = j;
+        long j = this.f80797t0 + 128;
+        this.f80797t0 = j;
         if (j == 0) {
-            this.t1++;
+            this.f80798t1++;
         }
         compress(this.buffer, 0);
         Arrays.fill(this.buffer, (byte) 0);
@@ -456,10 +465,10 @@ public class Blake2bDigest implements ExtendedDigest {
             i3 = 128 - i4;
             if (i3 < i2) {
                 System.arraycopy(bArr, i, this.buffer, i4, i3);
-                long j = this.t0 + 128;
-                this.t0 = j;
+                long j = this.f80797t0 + 128;
+                this.f80797t0 = j;
                 if (j == 0) {
-                    this.t1++;
+                    this.f80798t1++;
                 }
                 compress(this.buffer, 0);
                 this.bufferPos = 0;
@@ -471,13 +480,13 @@ public class Blake2bDigest implements ExtendedDigest {
         }
         i3 = 0;
         int i5 = i2 + i;
-        int i6 = i5 + a.g;
+        int i6 = i5 + C0184a.f879g;
         int i7 = i + i3;
         while (i7 < i6) {
-            long j2 = this.t0 + 128;
-            this.t0 = j2;
+            long j2 = this.f80797t0 + 128;
+            this.f80797t0 = j2;
             if (j2 == 0) {
-                this.t1++;
+                this.f80798t1++;
             }
             compress(bArr, i7);
             i7 += 128;

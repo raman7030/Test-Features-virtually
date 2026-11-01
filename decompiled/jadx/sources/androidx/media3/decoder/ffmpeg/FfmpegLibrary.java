@@ -1,22 +1,22 @@
 package androidx.media3.decoder.ffmpeg;
 
-import com.umeng.analytics.pro.cb;
-import l.AbstractC0199;
-import l.C16840;
-import l.C19956;
-import l.C23253;
-import l.C8353;
+import com.umeng.analytics.pro.C0698cb;
+import p067l.AbstractC2557;
+import p067l.C10307;
+import p067l.C18373;
+import p067l.C21334;
+import p067l.C24468;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class FfmpegLibrary {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static final AbstractC0199 f11;
+    /* JADX INFO: renamed from: ֫ */
+    public static final AbstractC2557 f11;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ۧ */
     public static int f12;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ܽ */
     public static String f13;
 
     public static native int ffmpegGetInputBufferPaddingSize();
@@ -26,14 +26,14 @@ public final class FfmpegLibrary {
     public static native boolean ffmpegHasDecoder(String str);
 
     static {
-        C16840.m39615("media3.decoder.ffmpeg");
-        f11 = new C23253("ffmpegJNI");
+        C18373.m41851("media3.decoder.ffmpeg");
+        f11 = new C24468("ffmpegJNI");
         f12 = -1;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ֫ */
     public static int m18() {
-        if (!f11.m1360()) {
+        if (!f11.m3773()) {
             return -1;
         }
         if (f12 == -1) {
@@ -42,9 +42,9 @@ public final class FfmpegLibrary {
         return f12;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ۧ */
     public static String m20() {
-        if (!f11.m1360()) {
+        if (!f11.m3773()) {
             return null;
         }
         if (f13 == null) {
@@ -53,28 +53,28 @@ public final class FfmpegLibrary {
         return f13;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static boolean m21(C8353 c8353) {
+    /* JADX INFO: renamed from: ۧ */
+    public static boolean m21(C10307 c10307) {
         String strM19;
-        if (!f11.m1360() || (strM19 = m19(c8353)) == null) {
+        if (!f11.m3773() || (strM19 = m19(c10307)) == null) {
             return false;
         }
         if (ffmpegHasDecoder(strM19)) {
             return true;
         }
-        C19956.m46037("No " + strM19 + " decoder available. Check the FFmpeg build configuration.");
+        C21334.m48351("No " + strM19 + " decoder available. Check the FFmpeg build configuration.");
         return false;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
+    /* JADX INFO: renamed from: ܽ */
     public static boolean m22() {
-        return f11.m1360();
+        return f11.m3773();
     }
 
     /* JADX WARN: Failed to restore switch over string. Please report as a decompilation issue */
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m19(C8353 c8353) {
-        String str = c8353.f25614;
+    /* JADX INFO: renamed from: ֫ */
+    public static String m19(C10307 c10307) {
+        String str = c10307.f28528;
         if (str == null) {
             return null;
         }
@@ -147,12 +147,12 @@ public final class FfmpegLibrary {
                 break;
             case 1504619009:
                 if (str.equals("audio/flac")) {
-                    b = cb.k;
+                    b = C0698cb.f2569k;
                 }
                 break;
             case 1504831518:
                 if (str.equals("audio/mpeg")) {
-                    b = cb.f77931l;
+                    b = C0698cb.f2570l;
                 }
                 break;
             case 1504891608:

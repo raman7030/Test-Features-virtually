@@ -5,7 +5,6 @@ import java.io.PrintStream;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Vector;
-import l.C13325;
 import moe.shizuku.server.IShizukuService;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
@@ -20,6 +19,7 @@ import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
 import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
 import org.bouncycastle.math.Primes;
 import org.bouncycastle.util.BigIntegers;
+import p067l.C15033;
 
 /* JADX INFO: loaded from: classes.dex */
 public class NaccacheSternKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
@@ -167,9 +167,9 @@ public class NaccacheSternKeyPairGenerator implements AsymmetricCipherKeyPairGen
                     if (zIsDebug) {
                         PrintStream printStream3 = System.out;
                         i2 = i4;
-                        StringBuilder sbM32308 = C13325.m32308(i2, "key size too small. Should be ", " but is actually ");
-                        sbM32308.append(bigIntegerAdd.multiply(bigIntegerAdd2).bitLength());
-                        printStream3.println(sbM32308.toString());
+                        StringBuilder sbM34408 = C15033.m34408(i2, "key size too small. Should be ", " but is actually ");
+                        sbM34408.append(bigIntegerAdd.multiply(bigIntegerAdd2).bitLength());
+                        printStream3.println(sbM34408.toString());
                     } else {
                         i2 = i4;
                     }

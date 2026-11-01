@@ -7,9 +7,13 @@ import org.bouncycastle.crypto.OutputLengthException;
 
 /* JADX INFO: loaded from: classes.dex */
 public class OpenPGPCFBBlockCipher implements BlockCipher {
-    public byte[] FR;
+
+    /* JADX INFO: renamed from: FR */
+    public byte[] f81196FR;
     public byte[] FRE;
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81197IV;
     public int blockSize;
     public BlockCipher cipher;
     public int count;
@@ -19,8 +23,8 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
         this.cipher = blockCipher;
         int blockSize = blockCipher.getBlockSize();
         this.blockSize = blockSize;
-        this.IV = new byte[blockSize];
-        this.FR = new byte[blockSize];
+        this.f81197IV = new byte[blockSize];
+        this.f81196FR = new byte[blockSize];
         this.FRE = new byte[blockSize];
     }
 
@@ -38,32 +42,32 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
         int i7 = 0;
         if (i5 > i4) {
             byte b = bArr[i];
-            this.FR[i4 - 2] = b;
+            this.f81196FR[i4 - 2] = b;
             bArr2[i2] = encryptByte(b, i4 - 2);
             byte b2 = bArr[i + 1];
-            byte[] bArr3 = this.FR;
+            byte[] bArr3 = this.f81196FR;
             int i8 = this.blockSize;
             bArr3[i8 - 1] = b2;
             bArr2[i2 + 1] = encryptByte(b2, i8 - 1);
-            this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+            this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
             while (i6 < this.blockSize) {
                 byte b3 = bArr[i + i6];
                 int i9 = i6 - 2;
-                this.FR[i9] = b3;
+                this.f81196FR[i9] = b3;
                 bArr2[i2 + i6] = encryptByte(b3, i9);
                 i6++;
             }
         } else {
             if (i5 != 0) {
                 if (i5 == i4) {
-                    this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                    this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
                     byte b4 = bArr[i];
                     byte b5 = bArr[i + 1];
                     bArr2[i2] = encryptByte(b4, 0);
                     bArr2[i2 + 1] = encryptByte(b5, 1);
-                    byte[] bArr4 = this.FR;
+                    byte[] bArr4 = this.f81196FR;
                     System.arraycopy(bArr4, 2, bArr4, 0, this.blockSize - 2);
-                    byte[] bArr5 = this.FR;
+                    byte[] bArr5 = this.f81196FR;
                     int i10 = this.blockSize;
                     bArr5[i10 - 2] = b4;
                     bArr5[i10 - 1] = b5;
@@ -75,20 +79,20 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
                         }
                         byte b6 = bArr[i + i6];
                         int i11 = i6 - 2;
-                        this.FR[i11] = b6;
+                        this.f81196FR[i11] = b6;
                         bArr2[i2 + i6] = encryptByte(b6, i11);
                         i6++;
                     }
                 }
             } else {
-                this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
                 while (true) {
                     i3 = this.blockSize;
                     if (i7 >= i3) {
                         break;
                     }
                     int i12 = i + i7;
-                    this.FR[i7] = bArr[i12];
+                    this.f81196FR[i7] = bArr[i12];
                     bArr2[i2 + i7] = encryptByte(bArr[i12], i7);
                     i7++;
                 }
@@ -111,20 +115,20 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
         int i6 = 2;
         int i7 = 0;
         if (i5 > i4) {
-            byte[] bArr3 = this.FR;
+            byte[] bArr3 = this.f81196FR;
             int i8 = i4 - 2;
             byte bEncryptByte = encryptByte(bArr[i], i4 - 2);
             bArr2[i2] = bEncryptByte;
             bArr3[i8] = bEncryptByte;
-            byte[] bArr4 = this.FR;
+            byte[] bArr4 = this.f81196FR;
             int i9 = this.blockSize;
             int i10 = i9 - 1;
             byte bEncryptByte2 = encryptByte(bArr[i + 1], i9 - 1);
             bArr2[i2 + 1] = bEncryptByte2;
             bArr4[i10] = bEncryptByte2;
-            this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+            this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
             while (i6 < this.blockSize) {
-                byte[] bArr5 = this.FR;
+                byte[] bArr5 = this.f81196FR;
                 int i11 = i6 - 2;
                 byte bEncryptByte3 = encryptByte(bArr[i + i6], i11);
                 bArr2[i2 + i6] = bEncryptByte3;
@@ -134,19 +138,19 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
         } else {
             if (i5 != 0) {
                 if (i5 == i4) {
-                    this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                    this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
                     bArr2[i2] = encryptByte(bArr[i], 0);
                     bArr2[i2 + 1] = encryptByte(bArr[i + 1], 1);
-                    byte[] bArr6 = this.FR;
+                    byte[] bArr6 = this.f81196FR;
                     System.arraycopy(bArr6, 2, bArr6, 0, this.blockSize - 2);
-                    System.arraycopy(bArr2, i2, this.FR, this.blockSize - 2, 2);
-                    this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                    System.arraycopy(bArr2, i2, this.f81196FR, this.blockSize - 2, 2);
+                    this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
                     while (true) {
                         i3 = this.blockSize;
                         if (i6 >= i3) {
                             break;
                         }
-                        byte[] bArr7 = this.FR;
+                        byte[] bArr7 = this.f81196FR;
                         int i12 = i6 - 2;
                         byte bEncryptByte4 = encryptByte(bArr[i + i6], i12);
                         bArr2[i2 + i6] = bEncryptByte4;
@@ -155,13 +159,13 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
                     }
                 }
             } else {
-                this.cipher.processBlock(this.FR, 0, this.FRE, 0);
+                this.cipher.processBlock(this.f81196FR, 0, this.FRE, 0);
                 while (true) {
                     i3 = this.blockSize;
                     if (i7 >= i3) {
                         break;
                     }
-                    byte[] bArr8 = this.FR;
+                    byte[] bArr8 = this.f81196FR;
                     byte bEncryptByte5 = encryptByte(bArr[i + i7], i7);
                     bArr2[i2 + i7] = bEncryptByte5;
                     bArr8[i7] = bEncryptByte5;
@@ -206,8 +210,8 @@ public class OpenPGPCFBBlockCipher implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
         this.count = 0;
-        byte[] bArr = this.IV;
-        byte[] bArr2 = this.FR;
+        byte[] bArr = this.f81197IV;
+        byte[] bArr2 = this.f81196FR;
         System.arraycopy(bArr, 0, bArr2, 0, bArr2.length);
         this.cipher.reset();
     }

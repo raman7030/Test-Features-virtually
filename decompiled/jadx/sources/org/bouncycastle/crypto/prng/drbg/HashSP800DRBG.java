@@ -14,8 +14,12 @@ public class HashSP800DRBG implements SP80090DRBG {
     public static final byte[] ONE = {1};
     public static final long RESEED_MAX = 140737488355328L;
     public static final Hashtable seedlens;
-    public byte[] _C;
-    public byte[] _V;
+
+    /* JADX INFO: renamed from: _C */
+    public byte[] f81309_C;
+
+    /* JADX INFO: renamed from: _V */
+    public byte[] f81310_V;
     public Digest _digest;
     public EntropySource _entropySource;
     public long _reseedCounter;
@@ -46,10 +50,10 @@ public class HashSP800DRBG implements SP80090DRBG {
         this._securityStrength = i;
         this._seedLength = ((Integer) seedlens.get(digest.getAlgorithmName())).intValue();
         byte[] bArrHash_df = Utils.hash_df(this._digest, Arrays.concatenate(getEntropy(), bArr2, bArr), this._seedLength);
-        this._V = bArrHash_df;
+        this.f81310_V = bArrHash_df;
         byte[] bArr3 = new byte[bArrHash_df.length + 1];
         System.arraycopy(bArrHash_df, 0, bArr3, 1, bArrHash_df.length);
-        this._C = Utils.hash_df(this._digest, bArr3, this._seedLength);
+        this.f81309_C = Utils.hash_df(this._digest, bArr3, this._seedLength);
         this._reseedCounter = 1L;
     }
 
@@ -126,22 +130,22 @@ public class HashSP800DRBG implements SP80090DRBG {
             bArr2 = null;
         }
         if (bArr2 != null) {
-            byte[] bArr3 = this._V;
+            byte[] bArr3 = this.f81310_V;
             byte[] bArr4 = new byte[bArr3.length + 1 + bArr2.length];
             bArr4[0] = 2;
             System.arraycopy(bArr3, 0, bArr4, 1, bArr3.length);
-            System.arraycopy(bArr2, 0, bArr4, this._V.length + 1, bArr2.length);
-            addTo(this._V, hash(bArr4));
+            System.arraycopy(bArr2, 0, bArr4, this.f81310_V.length + 1, bArr2.length);
+            addTo(this.f81310_V, hash(bArr4));
         }
-        byte[] bArrHashgen = hashgen(this._V, length);
-        byte[] bArr5 = this._V;
+        byte[] bArrHashgen = hashgen(this.f81310_V, length);
+        byte[] bArr5 = this.f81310_V;
         byte[] bArr6 = new byte[bArr5.length + 1];
         System.arraycopy(bArr5, 0, bArr6, 1, bArr5.length);
         bArr6[0] = 3;
-        addTo(this._V, hash(bArr6));
-        addTo(this._V, this._C);
+        addTo(this.f81310_V, hash(bArr6));
+        addTo(this.f81310_V, this.f81309_C);
         long j = this._reseedCounter;
-        addTo(this._V, new byte[]{(byte) (j >> 24), (byte) (j >> 16), (byte) (j >> 8), (byte) j});
+        addTo(this.f81310_V, new byte[]{(byte) (j >> 24), (byte) (j >> 16), (byte) (j >> 8), (byte) j});
         this._reseedCounter++;
         System.arraycopy(bArrHashgen, 0, bArr, 0, bArr.length);
         return length;
@@ -154,12 +158,12 @@ public class HashSP800DRBG implements SP80090DRBG {
 
     @Override // org.bouncycastle.crypto.prng.drbg.SP80090DRBG
     public void reseed(byte[] bArr) {
-        byte[] bArrHash_df = Utils.hash_df(this._digest, Arrays.concatenate(ONE, this._V, getEntropy(), bArr), this._seedLength);
-        this._V = bArrHash_df;
+        byte[] bArrHash_df = Utils.hash_df(this._digest, Arrays.concatenate(ONE, this.f81310_V, getEntropy(), bArr), this._seedLength);
+        this.f81310_V = bArrHash_df;
         byte[] bArr2 = new byte[bArrHash_df.length + 1];
         bArr2[0] = 0;
         System.arraycopy(bArrHash_df, 0, bArr2, 1, bArrHash_df.length);
-        this._C = Utils.hash_df(this._digest, bArr2, this._seedLength);
+        this.f81309_C = Utils.hash_df(this._digest, bArr2, this._seedLength);
         this._reseedCounter = 1L;
     }
 }

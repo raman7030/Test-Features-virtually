@@ -4,7 +4,7 @@ import java.security.PrivateKey;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import l.C20195;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class AnnotatedPrivateKey implements PrivateKey {
@@ -25,7 +25,7 @@ public class AnnotatedPrivateKey implements PrivateKey {
     public AnnotatedPrivateKey addAnnotation(String str, Object obj) {
         HashMap map = new HashMap(this.annotations);
         map.put(str, obj);
-        return new AnnotatedPrivateKey(this.key, C20195.unmodifiableMap(map));
+        return new AnnotatedPrivateKey(this.key, C21562.unmodifiableMap(map));
     }
 
     public boolean equals(Object obj) {
@@ -73,7 +73,7 @@ public class AnnotatedPrivateKey implements PrivateKey {
     public AnnotatedPrivateKey removeAnnotation(String str) {
         HashMap map = new HashMap(this.annotations);
         map.remove(str);
-        return new AnnotatedPrivateKey(this.key, C20195.unmodifiableMap(map));
+        return new AnnotatedPrivateKey(this.key, C21562.unmodifiableMap(map));
     }
 
     public String toString() {

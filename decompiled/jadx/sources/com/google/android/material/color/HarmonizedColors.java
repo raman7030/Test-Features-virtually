@@ -7,8 +7,8 @@ import android.os.Build;
 import android.view.ContextThemeWrapper;
 import java.util.HashMap;
 import java.util.Map;
-import l.C0881;
-import l.C18637;
+import p067l.C0886;
+import p067l.C20081;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HarmonizedColors {
@@ -28,7 +28,7 @@ public class HarmonizedColors {
     public static Context wrapContextIfAvailable(Context context, HarmonizedColorsOptions harmonizedColorsOptions) {
         if (isHarmonizedColorAvailable()) {
             Map mapCreateHarmonizedColorReplacementMap = createHarmonizedColorReplacementMap(context, harmonizedColorsOptions);
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, harmonizedColorsOptions.getThemeOverlayResourceId(C18637.f58114));
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, harmonizedColorsOptions.getThemeOverlayResourceId(C20081.f61337));
             contextThemeWrapper.applyOverrideConfiguration(new Configuration());
             if (ResourcesLoaderUtils.addResourcesLoaderToContext(contextThemeWrapper, mapCreateHarmonizedColorReplacementMap)) {
                 return contextThemeWrapper;
@@ -45,7 +45,7 @@ public class HarmonizedColors {
         HashMap map = new HashMap();
         int color = MaterialColors.getColor(context, harmonizedColorsOptions.getColorAttributeToHarmonizeWith(), TAG);
         for (int i : harmonizedColorsOptions.getColorResourceIds()) {
-            map.put(Integer.valueOf(i), Integer.valueOf(MaterialColors.harmonize(C0881.m3228(context, i), color)));
+            map.put(Integer.valueOf(i), Integer.valueOf(MaterialColors.harmonize(C0886.m5542(context, i), color)));
         }
         HarmonizedColorAttributes colorAttributes = harmonizedColorsOptions.getColorAttributes();
         if (colorAttributes != null) {

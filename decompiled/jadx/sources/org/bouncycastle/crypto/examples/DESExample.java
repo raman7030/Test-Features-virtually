@@ -23,14 +23,16 @@ import org.bouncycastle.util.encoders.Hex;
 public class DESExample {
     public PaddedBufferedBlockCipher cipher;
     public boolean encrypt;
-    public BufferedInputStream in;
+
+    /* JADX INFO: renamed from: in */
+    public BufferedInputStream f81101in;
     public byte[] key;
     public BufferedOutputStream out;
 
     public DESExample() {
         this.encrypt = true;
         this.cipher = null;
-        this.in = null;
+        this.f81101in = null;
         this.out = null;
         this.key = null;
     }
@@ -41,12 +43,12 @@ public class DESExample {
         SecureRandom secureRandom;
         SecureRandom secureRandom2 = null;
         this.cipher = null;
-        this.in = null;
+        this.f81101in = null;
         this.out = null;
         this.key = null;
         this.encrypt = z;
         try {
-            this.in = new BufferedInputStream(new FileInputStream(str));
+            this.f81101in = new BufferedInputStream(new FileInputStream(str));
         } catch (FileNotFoundException unused) {
             System.err.println("Input file not found [" + str + "]");
             System.exit(1);
@@ -124,7 +126,7 @@ public class DESExample {
 
     private void performDecrypt(byte[] bArr) {
         this.cipher.init(false, new KeyParameter(bArr));
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.in));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f81101in));
         byte[] bArr2 = null;
         while (true) {
             try {
@@ -154,7 +156,7 @@ public class DESExample {
         byte[] bArr3 = new byte[this.cipher.getOutputSize(47)];
         while (true) {
             try {
-                int i = this.in.read(bArr2, 0, 47);
+                int i = this.f81101in.read(bArr2, 0, 47);
                 if (i <= 0) {
                     break;
                 }
@@ -184,7 +186,7 @@ public class DESExample {
             performDecrypt(this.key);
         }
         try {
-            this.in.close();
+            this.f81101in.close();
             this.out.flush();
             this.out.close();
         } catch (IOException e) {

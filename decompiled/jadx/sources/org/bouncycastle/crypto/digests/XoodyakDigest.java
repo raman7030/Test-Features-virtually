@@ -9,7 +9,9 @@ public class XoodyakDigest extends BufferBaseDigest {
     public static final int PhaseUp = 2;
     public static final int TAGLEN = 16;
     public static final int mode = 1;
-    public int Cd;
+
+    /* JADX INFO: renamed from: Cd */
+    public int f80945Cd;
     public int phase;
     public final byte[] state;
 
@@ -35,14 +37,14 @@ public class XoodyakDigest extends BufferBaseDigest {
     public void finish(byte[] bArr, int i) {
         if (this.m_bufPos != 0) {
             if (this.phase != 2) {
-                XoodyakEngine.up(Friend.INSTANCE, 1, this.state, 0);
+                XoodyakEngine.m55400up(Friend.INSTANCE, 1, this.state, 0);
             }
-            XoodyakEngine.down(Friend.INSTANCE, 1, this.state, this.m_buf, 0, this.m_bufPos, this.Cd);
+            XoodyakEngine.down(Friend.INSTANCE, 1, this.state, this.m_buf, 0, this.m_bufPos, this.f80945Cd);
         }
-        XoodyakEngine.up(Friend.INSTANCE, 1, this.state, 64);
+        XoodyakEngine.m55400up(Friend.INSTANCE, 1, this.state, 64);
         System.arraycopy(this.state, 0, bArr, i, 16);
         XoodyakEngine.down(Friend.INSTANCE, 1, this.state, null, 0, 0, 0);
-        XoodyakEngine.up(Friend.INSTANCE, 1, this.state, 0);
+        XoodyakEngine.m55400up(Friend.INSTANCE, 1, this.state, 0);
         System.arraycopy(this.state, 0, bArr, i + 16, 16);
         this.phase = 1;
     }
@@ -65,11 +67,11 @@ public class XoodyakDigest extends BufferBaseDigest {
     @Override // org.bouncycastle.crypto.digests.BufferBaseDigest
     public void processBytes(byte[] bArr, int i) {
         if (this.phase != 2) {
-            XoodyakEngine.up(Friend.INSTANCE, 1, this.state, 0);
+            XoodyakEngine.m55400up(Friend.INSTANCE, 1, this.state, 0);
         }
-        XoodyakEngine.down(Friend.INSTANCE, 1, this.state, bArr, i, this.BlockSize, this.Cd);
+        XoodyakEngine.down(Friend.INSTANCE, 1, this.state, bArr, i, this.BlockSize, this.f80945Cd);
         this.phase = 1;
-        this.Cd = 0;
+        this.f80945Cd = 0;
     }
 
     @Override // org.bouncycastle.crypto.digests.BufferBaseDigest, org.bouncycastle.crypto.Digest
@@ -77,7 +79,7 @@ public class XoodyakDigest extends BufferBaseDigest {
         super.reset();
         Arrays.fill(this.state, (byte) 0);
         this.phase = 2;
-        this.Cd = 3;
+        this.f80945Cd = 3;
     }
 
     @Override // org.bouncycastle.crypto.digests.BufferBaseDigest, org.bouncycastle.crypto.Digest

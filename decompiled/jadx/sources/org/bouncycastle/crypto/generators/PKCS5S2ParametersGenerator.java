@@ -24,7 +24,8 @@ public class PKCS5S2ParametersGenerator extends PBEParametersGenerator {
         this.state = new byte[hMac.getMacSize()];
     }
 
-    private void F(byte[] bArr, int i, byte[] bArr2, byte[] bArr3, int i2) {
+    /* JADX INFO: renamed from: F */
+    private void m55406F(byte[] bArr, int i, byte[] bArr2, byte[] bArr3, int i2) {
         if (i == 0) {
             throw new IllegalArgumentException("iteration count must be at least 1.");
         }
@@ -66,7 +67,7 @@ public class PKCS5S2ParametersGenerator extends PBEParametersGenerator {
                 bArr[i2] = b;
                 i2 = b == 0 ? i2 - 1 : 3;
             }
-            F(this.salt, this.iterationCount, bArr, bArr2, i4);
+            m55406F(this.salt, this.iterationCount, bArr, bArr2, i4);
             i4 += macSize;
         }
         return bArr2;

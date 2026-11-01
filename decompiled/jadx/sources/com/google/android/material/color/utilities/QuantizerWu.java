@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import l.C19373;
-import l.C4153;
+import p067l.C20780;
+import p067l.C6316;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class QuantizerWu implements Quantizer {
@@ -39,7 +39,7 @@ public final class QuantizerWu implements Quantizer {
     }
 
     public static int getIndex(int i, int i2, int i3) {
-        return C19373.m44633((i << 10) + (i << 6) + i, i2 << 5, i2, i3);
+        return C20780.m46927((i << 10) + (i << 6) + i, i2 << 5, i2, i3);
     }
 
     public void constructHistogram(Map map) {
@@ -64,7 +64,7 @@ public final class QuantizerWu implements Quantizer {
             int[] iArr4 = this.momentsB;
             iArr4[index] = (iBlueFromArgb * iIntValue2) + iArr4[index];
             double[] dArr = this.moments;
-            dArr[index] = dArr[index] + ((double) C4153.m12551(iBlueFromArgb, iBlueFromArgb, (iGreenFromArgb * iGreenFromArgb) + (iRedFromArgb * iRedFromArgb), iIntValue2));
+            dArr[index] = dArr[index] + ((double) C6316.m14441(iBlueFromArgb, iBlueFromArgb, (iGreenFromArgb * iGreenFromArgb) + (iRedFromArgb * iRedFromArgb), iIntValue2));
         }
     }
 
@@ -133,9 +133,9 @@ public final class QuantizerWu implements Quantizer {
         }
         double[] dArr = new double[i];
         Box box = this.cubes[0];
-        box.r1 = 32;
-        box.g1 = 32;
-        box.b1 = 32;
+        box.f2044r1 = 32;
+        box.f2042g1 = 32;
+        box.f2040b1 = 32;
         int i4 = 1;
         int i5 = 0;
         while (i4 < i) {
@@ -188,7 +188,7 @@ public final class QuantizerWu implements Quantizer {
         int iVolume2 = volume(box, this.momentsG);
         int iVolume3 = volume(box, this.momentsB);
         int i = iVolume3 * iVolume3;
-        return (((((((this.moments[getIndex(box.r1, box.g1, box.b1)] - this.moments[getIndex(box.r1, box.g1, box.b0)]) - this.moments[getIndex(box.r1, box.g0, box.b1)]) + this.moments[getIndex(box.r1, box.g0, box.b0)]) - this.moments[getIndex(box.r0, box.g1, box.b1)]) + this.moments[getIndex(box.r0, box.g1, box.b0)]) + this.moments[getIndex(box.r0, box.g0, box.b1)]) - this.moments[getIndex(box.r0, box.g0, box.b0)]) - (((double) (i + ((iVolume2 * iVolume2) + (iVolume * iVolume)))) / ((double) volume(box, this.weights)));
+        return (((((((this.moments[getIndex(box.f2044r1, box.f2042g1, box.f2040b1)] - this.moments[getIndex(box.f2044r1, box.f2042g1, box.f2039b0)]) - this.moments[getIndex(box.f2044r1, box.f2041g0, box.f2040b1)]) + this.moments[getIndex(box.f2044r1, box.f2041g0, box.f2039b0)]) - this.moments[getIndex(box.f2043r0, box.f2042g1, box.f2040b1)]) + this.moments[getIndex(box.f2043r0, box.f2042g1, box.f2039b0)]) + this.moments[getIndex(box.f2043r0, box.f2041g0, box.f2040b1)]) - this.moments[getIndex(box.f2043r0, box.f2041g0, box.f2039b0)]) - (((double) (i + ((iVolume2 * iVolume2) + (iVolume * iVolume)))) / ((double) volume(box, this.weights)));
     }
 
     public Boolean cut(Box box, Box box2) {
@@ -197,11 +197,11 @@ public final class QuantizerWu implements Quantizer {
         int iVolume3 = volume(box, this.momentsB);
         int iVolume4 = volume(box, this.weights);
         Direction direction = Direction.RED;
-        MaximizeResult maximizeResultMaximize = maximize(box, direction, box.r0 + 1, box.r1, iVolume, iVolume2, iVolume3, iVolume4);
+        MaximizeResult maximizeResultMaximize = maximize(box, direction, box.f2043r0 + 1, box.f2044r1, iVolume, iVolume2, iVolume3, iVolume4);
         Direction direction2 = Direction.GREEN;
-        MaximizeResult maximizeResultMaximize2 = maximize(box, direction2, box.g0 + 1, box.g1, iVolume, iVolume2, iVolume3, iVolume4);
+        MaximizeResult maximizeResultMaximize2 = maximize(box, direction2, box.f2041g0 + 1, box.f2042g1, iVolume, iVolume2, iVolume3, iVolume4);
         Direction direction3 = Direction.BLUE;
-        MaximizeResult maximizeResultMaximize3 = maximize(box, direction3, box.b0 + 1, box.b1, iVolume, iVolume2, iVolume3, iVolume4);
+        MaximizeResult maximizeResultMaximize3 = maximize(box, direction3, box.f2039b0 + 1, box.f2040b1, iVolume, iVolume2, iVolume3, iVolume4);
         double d = maximizeResultMaximize.maximum;
         double d2 = maximizeResultMaximize2.maximum;
         double d3 = maximizeResultMaximize3.maximum;
@@ -210,51 +210,53 @@ public final class QuantizerWu implements Quantizer {
         } else if (maximizeResultMaximize.cutLocation < 0) {
             return Boolean.FALSE;
         }
-        box2.r1 = box.r1;
-        box2.g1 = box.g1;
-        box2.b1 = box.b1;
-        int i = AnonymousClass1.$SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction[direction.ordinal()];
+        box2.f2044r1 = box.f2044r1;
+        box2.f2042g1 = box.f2042g1;
+        box2.f2040b1 = box.f2040b1;
+        int i = C03551.f2038x8739cebf[direction.ordinal()];
         if (i == 1) {
             int i2 = maximizeResultMaximize.cutLocation;
-            box.r1 = i2;
-            box2.r0 = i2;
-            box2.g0 = box.g0;
-            box2.b0 = box.b0;
+            box.f2044r1 = i2;
+            box2.f2043r0 = i2;
+            box2.f2041g0 = box.f2041g0;
+            box2.f2039b0 = box.f2039b0;
         } else if (i == 2) {
             int i3 = maximizeResultMaximize2.cutLocation;
-            box.g1 = i3;
-            box2.r0 = box.r0;
-            box2.g0 = i3;
-            box2.b0 = box.b0;
+            box.f2042g1 = i3;
+            box2.f2043r0 = box.f2043r0;
+            box2.f2041g0 = i3;
+            box2.f2039b0 = box.f2039b0;
         } else if (i == 3) {
             int i4 = maximizeResultMaximize3.cutLocation;
-            box.b1 = i4;
-            box2.r0 = box.r0;
-            box2.g0 = box.g0;
-            box2.b0 = i4;
+            box.f2040b1 = i4;
+            box2.f2043r0 = box.f2043r0;
+            box2.f2041g0 = box.f2041g0;
+            box2.f2039b0 = i4;
         }
-        box.vol = (box.b1 - box.b0) * (box.g1 - box.g0) * (box.r1 - box.r0);
-        box2.vol = (box2.b1 - box2.b0) * (box2.g1 - box2.g0) * (box2.r1 - box2.r0);
+        box.vol = (box.f2040b1 - box.f2039b0) * (box.f2042g1 - box.f2041g0) * (box.f2044r1 - box.f2043r0);
+        box2.vol = (box2.f2040b1 - box2.f2039b0) * (box2.f2042g1 - box2.f2041g0) * (box2.f2044r1 - box2.f2043r0);
         return Boolean.TRUE;
     }
 
-    /* JADX INFO: renamed from: com.google.android.material.color.utilities.QuantizerWu$1, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass1 {
-        public static final /* synthetic */ int[] $SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction;
+    /* JADX INFO: renamed from: com.google.android.material.color.utilities.QuantizerWu$1 */
+    public /* synthetic */ class C03551 {
+
+        /* JADX INFO: renamed from: $SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction */
+        public static final /* synthetic */ int[] f2038x8739cebf;
 
         static {
             int[] iArr = new int[Direction.values().length];
-            $SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction = iArr;
+            f2038x8739cebf = iArr;
             try {
                 iArr[Direction.RED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                $SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction[Direction.GREEN.ordinal()] = 2;
+                f2038x8739cebf[Direction.GREEN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                $SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction[Direction.BLUE.ordinal()] = 3;
+                f2038x8739cebf[Direction.BLUE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -304,22 +306,22 @@ public final class QuantizerWu implements Quantizer {
     }
 
     public static int volume(Box box, int[] iArr) {
-        return ((((((iArr[getIndex(box.r1, box.g1, box.b1)] - iArr[getIndex(box.r1, box.g1, box.b0)]) - iArr[getIndex(box.r1, box.g0, box.b1)]) + iArr[getIndex(box.r1, box.g0, box.b0)]) - iArr[getIndex(box.r0, box.g1, box.b1)]) + iArr[getIndex(box.r0, box.g1, box.b0)]) + iArr[getIndex(box.r0, box.g0, box.b1)]) - iArr[getIndex(box.r0, box.g0, box.b0)];
+        return ((((((iArr[getIndex(box.f2044r1, box.f2042g1, box.f2040b1)] - iArr[getIndex(box.f2044r1, box.f2042g1, box.f2039b0)]) - iArr[getIndex(box.f2044r1, box.f2041g0, box.f2040b1)]) + iArr[getIndex(box.f2044r1, box.f2041g0, box.f2039b0)]) - iArr[getIndex(box.f2043r0, box.f2042g1, box.f2040b1)]) + iArr[getIndex(box.f2043r0, box.f2042g1, box.f2039b0)]) + iArr[getIndex(box.f2043r0, box.f2041g0, box.f2040b1)]) - iArr[getIndex(box.f2043r0, box.f2041g0, box.f2039b0)];
     }
 
     public static int bottom(Box box, Direction direction, int[] iArr) {
         int i;
         int i2;
-        int i3 = AnonymousClass1.$SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction[direction.ordinal()];
+        int i3 = C03551.f2038x8739cebf[direction.ordinal()];
         if (i3 == 1) {
-            i = (-iArr[getIndex(box.r0, box.g1, box.b1)]) + iArr[getIndex(box.r0, box.g1, box.b0)] + iArr[getIndex(box.r0, box.g0, box.b1)];
-            i2 = iArr[getIndex(box.r0, box.g0, box.b0)];
+            i = (-iArr[getIndex(box.f2043r0, box.f2042g1, box.f2040b1)]) + iArr[getIndex(box.f2043r0, box.f2042g1, box.f2039b0)] + iArr[getIndex(box.f2043r0, box.f2041g0, box.f2040b1)];
+            i2 = iArr[getIndex(box.f2043r0, box.f2041g0, box.f2039b0)];
         } else if (i3 == 2) {
-            i = (-iArr[getIndex(box.r1, box.g0, box.b1)]) + iArr[getIndex(box.r1, box.g0, box.b0)] + iArr[getIndex(box.r0, box.g0, box.b1)];
-            i2 = iArr[getIndex(box.r0, box.g0, box.b0)];
+            i = (-iArr[getIndex(box.f2044r1, box.f2041g0, box.f2040b1)]) + iArr[getIndex(box.f2044r1, box.f2041g0, box.f2039b0)] + iArr[getIndex(box.f2043r0, box.f2041g0, box.f2040b1)];
+            i2 = iArr[getIndex(box.f2043r0, box.f2041g0, box.f2039b0)];
         } else if (i3 == 3) {
-            i = (-iArr[getIndex(box.r1, box.g1, box.b0)]) + iArr[getIndex(box.r1, box.g0, box.b0)] + iArr[getIndex(box.r0, box.g1, box.b0)];
-            i2 = iArr[getIndex(box.r0, box.g0, box.b0)];
+            i = (-iArr[getIndex(box.f2044r1, box.f2042g1, box.f2039b0)]) + iArr[getIndex(box.f2044r1, box.f2041g0, box.f2039b0)] + iArr[getIndex(box.f2043r0, box.f2042g1, box.f2039b0)];
+            i2 = iArr[getIndex(box.f2043r0, box.f2041g0, box.f2039b0)];
         } else {
             throw new IllegalArgumentException("unexpected direction " + direction);
         }
@@ -329,16 +331,16 @@ public final class QuantizerWu implements Quantizer {
     public static int top(Box box, Direction direction, int i, int[] iArr) {
         int i2;
         int i3;
-        int i4 = AnonymousClass1.$SwitchMap$com$google$android$material$color$utilities$QuantizerWu$Direction[direction.ordinal()];
+        int i4 = C03551.f2038x8739cebf[direction.ordinal()];
         if (i4 == 1) {
-            i2 = (iArr[getIndex(i, box.g1, box.b1)] - iArr[getIndex(i, box.g1, box.b0)]) - iArr[getIndex(i, box.g0, box.b1)];
-            i3 = iArr[getIndex(i, box.g0, box.b0)];
+            i2 = (iArr[getIndex(i, box.f2042g1, box.f2040b1)] - iArr[getIndex(i, box.f2042g1, box.f2039b0)]) - iArr[getIndex(i, box.f2041g0, box.f2040b1)];
+            i3 = iArr[getIndex(i, box.f2041g0, box.f2039b0)];
         } else if (i4 == 2) {
-            i2 = (iArr[getIndex(box.r1, i, box.b1)] - iArr[getIndex(box.r1, i, box.b0)]) - iArr[getIndex(box.r0, i, box.b1)];
-            i3 = iArr[getIndex(box.r0, i, box.b0)];
+            i2 = (iArr[getIndex(box.f2044r1, i, box.f2040b1)] - iArr[getIndex(box.f2044r1, i, box.f2039b0)]) - iArr[getIndex(box.f2043r0, i, box.f2040b1)];
+            i3 = iArr[getIndex(box.f2043r0, i, box.f2039b0)];
         } else if (i4 == 3) {
-            i2 = (iArr[getIndex(box.r1, box.g1, i)] - iArr[getIndex(box.r1, box.g0, i)]) - iArr[getIndex(box.r0, box.g1, i)];
-            i3 = iArr[getIndex(box.r0, box.g0, i)];
+            i2 = (iArr[getIndex(box.f2044r1, box.f2042g1, i)] - iArr[getIndex(box.f2044r1, box.f2041g0, i)]) - iArr[getIndex(box.f2043r0, box.f2042g1, i)];
+            i3 = iArr[getIndex(box.f2043r0, box.f2041g0, i)];
         } else {
             throw new IllegalArgumentException("unexpected direction " + direction);
         }
@@ -364,25 +366,37 @@ public final class QuantizerWu implements Quantizer {
     }
 
     public final class Box {
-        public int b0;
-        public int b1;
-        public int g0;
-        public int g1;
-        public int r0;
-        public int r1;
+
+        /* JADX INFO: renamed from: b0 */
+        public int f2039b0;
+
+        /* JADX INFO: renamed from: b1 */
+        public int f2040b1;
+
+        /* JADX INFO: renamed from: g0 */
+        public int f2041g0;
+
+        /* JADX INFO: renamed from: g1 */
+        public int f2042g1;
+
+        /* JADX INFO: renamed from: r0 */
+        public int f2043r0;
+
+        /* JADX INFO: renamed from: r1 */
+        public int f2044r1;
         public int vol;
 
         public Box() {
-            this.r0 = 0;
-            this.r1 = 0;
-            this.g0 = 0;
-            this.g1 = 0;
-            this.b0 = 0;
-            this.b1 = 0;
+            this.f2043r0 = 0;
+            this.f2044r1 = 0;
+            this.f2041g0 = 0;
+            this.f2042g1 = 0;
+            this.f2039b0 = 0;
+            this.f2040b1 = 0;
             this.vol = 0;
         }
 
-        public /* synthetic */ Box(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ Box(C03551 c03551) {
             this();
         }
     }

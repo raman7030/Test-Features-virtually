@@ -5,8 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import l.C12662;
-import l.C5368;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -20,6 +18,8 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C14403;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class Shacal2 {
@@ -95,7 +95,7 @@ public final class Shacal2 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$AlgParams", "AlgorithmParameters.SHACAL-2", C5368.m15340(str, "$AlgParamGen", "AlgorithmParameterGenerator.SHACAL-2", C5368.m15340(str, "$KeyGen", "KeyGenerator.SHACAL-2", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.Shacal2", C5368.m15340(str, "$AlgParamGen", "AlgorithmParameterGenerator.Shacal2", C5368.m15340(str, "$KeyGen", "KeyGenerator.Shacal2", C5368.m15340(str, "$ECB", "Cipher.SHACAL-2", C5368.m15340(str, "$ECB", "Cipher.Shacal2", C5368.m15340(str, "$CMAC", "Mac.Shacal-2CMAC", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            C14403.m33021(str, "$AlgParams", "AlgorithmParameters.SHACAL-2", C7470.m17249(str, "$AlgParamGen", "AlgorithmParameterGenerator.SHACAL-2", C7470.m17249(str, "$KeyGen", "KeyGenerator.SHACAL-2", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.Shacal2", C7470.m17249(str, "$AlgParamGen", "AlgorithmParameterGenerator.Shacal2", C7470.m17249(str, "$KeyGen", "KeyGenerator.Shacal2", C7470.m17249(str, "$ECB", "Cipher.SHACAL-2", C7470.m17249(str, "$ECB", "Cipher.Shacal2", C7470.m17249(str, "$CMAC", "Mac.Shacal-2CMAC", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
         }
     }
 }

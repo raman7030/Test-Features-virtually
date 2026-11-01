@@ -36,10 +36,10 @@ public class NTRUSampling {
     public HPSPolynomial sampleFixedType(byte[] bArr) {
         int i;
         int i2;
-        int iN = this.params.n();
+        int iM55436n = this.params.m55436n();
         int iWeight = ((NTRUHPSParameterSet) this.params).weight();
         HPSPolynomial hPSPolynomial = new HPSPolynomial((NTRUHPSParameterSet) this.params);
-        int i3 = iN - 1;
+        int i3 = iM55436n - 1;
         int[] iArr = new int[i3];
         int i4 = 0;
         while (true) {
@@ -86,20 +86,20 @@ public class NTRUSampling {
 
     public Polynomial sampleIid(byte[] bArr) {
         Polynomial polynomialCreatePolynomial = this.params.createPolynomial();
-        for (int i = 0; i < this.params.n() - 1; i++) {
+        for (int i = 0; i < this.params.m55436n() - 1; i++) {
             polynomialCreatePolynomial.coeffs[i] = (short) mod3(bArr[i] & 255);
         }
-        polynomialCreatePolynomial.coeffs[this.params.n() - 1] = 0;
+        polynomialCreatePolynomial.coeffs[this.params.m55436n() - 1] = 0;
         return polynomialCreatePolynomial;
     }
 
     public HRSSPolynomial sampleIidPlus(byte[] bArr) {
         int i;
-        int iN = this.params.n();
+        int iM55436n = this.params.m55436n();
         HRSSPolynomial hRSSPolynomial = (HRSSPolynomial) sampleIid(bArr);
         int i2 = 0;
         while (true) {
-            i = iN - 1;
+            i = iM55436n - 1;
             if (i2 >= i) {
                 break;
             }

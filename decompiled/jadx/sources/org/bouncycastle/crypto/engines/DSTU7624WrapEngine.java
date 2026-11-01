@@ -12,7 +12,9 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes.dex */
 public class DSTU7624WrapEngine implements Wrapper {
     public static final int BYTES_IN_INTEGER = 4;
-    public byte[] B;
+
+    /* JADX INFO: renamed from: B */
+    public byte[] f81019B;
     public ArrayList Btemp;
     public byte[] checkSumArray;
     public DSTU7624Engine engine;
@@ -23,7 +25,7 @@ public class DSTU7624WrapEngine implements Wrapper {
     public DSTU7624WrapEngine(int i) {
         DSTU7624Engine dSTU7624Engine = new DSTU7624Engine(i);
         this.engine = dSTU7624Engine;
-        this.B = new byte[dSTU7624Engine.getBlockSize() / 2];
+        this.f81019B = new byte[dSTU7624Engine.getBlockSize() / 2];
         this.checkSumArray = new byte[this.engine.getBlockSize()];
         this.zeroArray = new byte[this.engine.getBlockSize()];
         this.Btemp = new ArrayList();
@@ -127,7 +129,7 @@ public class DSTU7624WrapEngine implements Wrapper {
         int blockSize2 = this.engine.getBlockSize() + i2;
         byte[] bArr2 = new byte[blockSize2];
         System.arraycopy(bArr, i, bArr2, 0, i2);
-        System.arraycopy(bArr2, 0, this.B, 0, this.engine.getBlockSize() / 2);
+        System.arraycopy(bArr2, 0, this.f81019B, 0, this.engine.getBlockSize() / 2);
         this.Btemp.clear();
         int blockSize3 = blockSize2 - (this.engine.getBlockSize() / 2);
         int blockSize4 = this.engine.getBlockSize() / 2;
@@ -140,7 +142,7 @@ public class DSTU7624WrapEngine implements Wrapper {
         }
         int i5 = 0;
         while (i5 < i4) {
-            System.arraycopy(this.B, 0, bArr2, 0, this.engine.getBlockSize() / 2);
+            System.arraycopy(this.f81019B, 0, bArr2, 0, this.engine.getBlockSize() / 2);
             System.arraycopy(this.Btemp.get(0), 0, bArr2, this.engine.getBlockSize() / 2, this.engine.getBlockSize() / 2);
             this.engine.processBlock(bArr2, 0, bArr2, 0);
             i5++;
@@ -149,13 +151,13 @@ public class DSTU7624WrapEngine implements Wrapper {
                 int blockSize5 = (this.engine.getBlockSize() / 2) + i6;
                 bArr2[blockSize5] = (byte) (bArr2[blockSize5] ^ this.intArray[i6]);
             }
-            System.arraycopy(bArr2, this.engine.getBlockSize() / 2, this.B, 0, this.engine.getBlockSize() / 2);
+            System.arraycopy(bArr2, this.engine.getBlockSize() / 2, this.f81019B, 0, this.engine.getBlockSize() / 2);
             for (int i7 = 2; i7 < blockSize; i7++) {
                 System.arraycopy(this.Btemp.get(i7 - 1), 0, this.Btemp.get(i7 - 2), 0, this.engine.getBlockSize() / 2);
             }
             System.arraycopy(bArr2, 0, this.Btemp.get(blockSize - 2), 0, this.engine.getBlockSize() / 2);
         }
-        System.arraycopy(this.B, 0, bArr2, 0, this.engine.getBlockSize() / 2);
+        System.arraycopy(this.f81019B, 0, bArr2, 0, this.engine.getBlockSize() / 2);
         int blockSize6 = this.engine.getBlockSize() / 2;
         for (int i8 = 0; i8 < i3; i8++) {
             System.arraycopy(this.Btemp.get(i8), 0, bArr2, blockSize6, this.engine.getBlockSize() / 2);

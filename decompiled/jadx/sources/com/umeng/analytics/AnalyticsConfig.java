@@ -2,7 +2,8 @@ package com.umeng.analytics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.umeng.analytics.pro.j;
+import com.umeng.analytics.pro.C0714j;
+import com.umeng.common.C0744b;
 import com.umeng.commonsdk.debug.UMLog;
 import com.umeng.commonsdk.utils.UMUtils;
 import java.util.Map;
@@ -20,53 +21,70 @@ public class AnalyticsConfig {
     public static final String RTD_PERIOD = "period";
     public static final String RTD_SP_FILE = "um_rtd_conf";
     public static final String RTD_START_TIME = "startTime";
-    public static double[] a = null;
-    public static String b = null;
-    public static String c = null;
-    public static String d = null;
-    public static int e = 0;
+
+    /* JADX INFO: renamed from: a */
+    public static double[] f2144a = null;
+
+    /* JADX INFO: renamed from: b */
+    public static String f2145b = null;
+
+    /* JADX INFO: renamed from: c */
+    public static String f2146c = null;
+
+    /* JADX INFO: renamed from: d */
+    public static String f2147d = null;
+
+    /* JADX INFO: renamed from: e */
+    public static int f2148e = 0;
     public static boolean enable = true;
-    public static Object f = new Object();
-    public static boolean g = false;
-    public static String h = "";
+
+    /* JADX INFO: renamed from: f */
+    public static Object f2149f = new Object();
+
+    /* JADX INFO: renamed from: g */
+    public static boolean f2150g = false;
+
+    /* JADX INFO: renamed from: h */
+    public static String f2151h = "";
     public static long kContinueSessionMillis = 30000;
     public static String mWrapperType;
     public static String mWrapperVersion;
 
     public static void turnOnRealTimeDebug(Map map) {
-        synchronized (f) {
-            g = true;
+        synchronized (f2149f) {
+            f2150g = true;
             if (map != null && map.containsKey(DEBUG_KEY)) {
-                h = (String) map.get(DEBUG_KEY);
+                f2151h = (String) map.get(DEBUG_KEY);
             }
         }
     }
 
     public static void turnOffRealTimeDebug() {
-        synchronized (f) {
-            g = false;
-            h = "";
+        synchronized (f2149f) {
+            f2150g = false;
+            f2151h = "";
         }
     }
 
     public static boolean isRealTimeDebugMode() {
         boolean z;
-        synchronized (f) {
-            z = g;
+        synchronized (f2149f) {
+            z = f2150g;
         }
         return z;
     }
 
     public static String getRealTimeDebugKey() {
         String str;
-        synchronized (f) {
-            str = h;
+        synchronized (f2149f) {
+            str = f2151h;
         }
         return str;
     }
 
-    public static void a(String str) {
-        c = str;
+    /* JADX INFO: renamed from: a */
+    public static void m2048a(String str) {
+        f2146c = str;
     }
 
     public static String getAppkey(Context context) {
@@ -78,35 +96,37 @@ public class AnalyticsConfig {
     }
 
     public static double[] getLocation() {
-        return a;
+        return f2144a;
     }
 
-    public static void a(Context context, String str) {
+    /* JADX INFO: renamed from: a */
+    public static void m2047a(Context context, String str) {
         if (!TextUtils.isEmpty(str)) {
-            d = str;
-            com.umeng.common.b.a(context).a(d);
+            f2147d = str;
+            C0744b.m2703a(context).m2709a(f2147d);
         } else {
-            UMLog.aq(j.A, 0, "\\|");
+            UMLog.m2750aq(C0714j.f2766A, 0, "\\|");
         }
     }
 
     public static String getSecretKey(Context context) {
-        if (TextUtils.isEmpty(d)) {
-            d = com.umeng.common.b.a(context).c();
+        if (TextUtils.isEmpty(f2147d)) {
+            f2147d = C0744b.m2703a(context).m2713c();
         }
-        return d;
+        return f2147d;
     }
 
-    public static void a(Context context, int i) {
-        e = i;
-        com.umeng.common.b.a(context).a(e);
+    /* JADX INFO: renamed from: a */
+    public static void m2046a(Context context, int i) {
+        f2148e = i;
+        C0744b.m2703a(context).m2708a(f2148e);
     }
 
     public static int getVerticalType(Context context) {
-        if (e == 0) {
-            e = com.umeng.common.b.a(context).d();
+        if (f2148e == 0) {
+            f2148e = C0744b.m2703a(context).m2714d();
         }
-        return e;
+        return f2148e;
     }
 
     public static String getGameSdkVersion(Context context) {

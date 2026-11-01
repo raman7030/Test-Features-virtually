@@ -138,7 +138,7 @@ public class FalconSign {
         do {
             samplerCtx = new SamplerCtx();
             samplerCtx.sigma_min = FPREngine.fpr_sigma_min[i];
-            samplerCtx.p.prng_init(sHAKEDigest);
+            samplerCtx.f81607p.prng_init(sHAKEDigest);
         } while (do_sign_dyn(samplerCtx, sArr, bArr, bArr2, bArr3, bArr4, sArr2, i, dArr, 0) == 0);
     }
 

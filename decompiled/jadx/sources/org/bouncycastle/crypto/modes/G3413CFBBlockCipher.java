@@ -8,7 +8,9 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class G3413CFBBlockCipher extends StreamBlockCipher {
-    public byte[] R;
+
+    /* JADX INFO: renamed from: R */
+    public byte[] f81172R;
     public byte[] R_init;
     public int blockSize;
     public int byteCount;
@@ -17,8 +19,12 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
     public byte[] gamma;
     public byte[] inBuf;
     public boolean initialized;
-    public int m;
-    public final int s;
+
+    /* JADX INFO: renamed from: m */
+    public int f81173m;
+
+    /* JADX INFO: renamed from: s */
+    public final int f81174s;
 
     public G3413CFBBlockCipher(BlockCipher blockCipher) {
         this(blockCipher, blockCipher.getBlockSize() * 8);
@@ -32,18 +38,18 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
         }
         this.blockSize = blockCipher.getBlockSize();
         this.cipher = blockCipher;
-        this.s = i / 8;
+        this.f81174s = i / 8;
         this.inBuf = new byte[getBlockSize()];
     }
 
     private void initArrays() {
-        int i = this.m;
-        this.R = new byte[i];
+        int i = this.f81173m;
+        this.f81172R = new byte[i];
         this.R_init = new byte[i];
     }
 
     private void setupDefaultParams() {
-        this.m = this.blockSize * 2;
+        this.f81173m = this.blockSize * 2;
     }
 
     @Override // org.bouncycastle.crypto.StreamBlockCipher
@@ -69,16 +75,16 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
     }
 
     public byte[] createGamma() {
-        byte[] bArrMSB = GOST3413CipherUtil.MSB(this.R, this.blockSize);
+        byte[] bArrMSB = GOST3413CipherUtil.MSB(this.f81172R, this.blockSize);
         byte[] bArr = new byte[bArrMSB.length];
         this.cipher.processBlock(bArrMSB, 0, bArr, 0);
-        return GOST3413CipherUtil.MSB(bArr, this.s);
+        return GOST3413CipherUtil.MSB(bArr, this.f81174s);
     }
 
     public void generateR(byte[] bArr) {
-        byte[] bArrLSB = GOST3413CipherUtil.LSB(this.R, this.m - this.s);
-        System.arraycopy(bArrLSB, 0, this.R, 0, bArrLSB.length);
-        System.arraycopy(bArr, 0, this.R, bArrLSB.length, this.m - bArrLSB.length);
+        byte[] bArrLSB = GOST3413CipherUtil.LSB(this.f81172R, this.f81173m - this.f81174s);
+        System.arraycopy(bArrLSB, 0, this.f81172R, 0, bArrLSB.length);
+        System.arraycopy(bArr, 0, this.f81172R, bArrLSB.length, this.f81173m - bArrLSB.length);
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher
@@ -88,7 +94,7 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public int getBlockSize() {
-        return this.s;
+        return this.f81174s;
     }
 
     @Override // org.bouncycastle.crypto.BlockCipher
@@ -101,11 +107,11 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
             if (iv.length < this.blockSize) {
                 throw new IllegalArgumentException("Parameter m must blockSize <= m");
             }
-            this.m = iv.length;
+            this.f81173m = iv.length;
             initArrays();
             byte[] bArrClone = Arrays.clone(iv);
             this.R_init = bArrClone;
-            System.arraycopy(bArrClone, 0, this.R, 0, bArrClone.length);
+            System.arraycopy(bArrClone, 0, this.f81172R, 0, bArrClone.length);
             if (parametersWithIV.getParameters() != null) {
                 blockCipher = this.cipher;
                 cipherParameters = parametersWithIV.getParameters();
@@ -115,7 +121,7 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
             setupDefaultParams();
             initArrays();
             byte[] bArr = this.R_init;
-            System.arraycopy(bArr, 0, this.R, 0, bArr.length);
+            System.arraycopy(bArr, 0, this.f81172R, 0, bArr.length);
             if (cipherParameters != null) {
                 blockCipher = this.cipher;
                 blockCipher.init(true, cipherParameters);
@@ -137,7 +143,7 @@ public class G3413CFBBlockCipher extends StreamBlockCipher {
         Arrays.clear(this.gamma);
         if (this.initialized) {
             byte[] bArr = this.R_init;
-            System.arraycopy(bArr, 0, this.R, 0, bArr.length);
+            System.arraycopy(bArr, 0, this.f81172R, 0, bArr.length);
             this.cipher.reset();
         }
     }

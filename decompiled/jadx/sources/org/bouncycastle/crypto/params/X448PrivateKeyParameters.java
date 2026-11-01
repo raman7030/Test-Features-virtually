@@ -3,9 +3,9 @@ package org.bouncycastle.crypto.params;
 import java.io.EOFException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.rfc7748.X448;
+import org.bouncycastle.math.p080ec.rfc7748.X448;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes2.dex */
 public final class X448PrivateKeyParameters extends AsymmetricKeyParameter {

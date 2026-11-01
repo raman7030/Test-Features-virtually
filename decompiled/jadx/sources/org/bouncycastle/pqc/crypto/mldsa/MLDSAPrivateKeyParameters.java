@@ -7,15 +7,27 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
     public static final int BOTH = 0;
     public static final int EXPANDED_KEY = 2;
     public static final int SEED_ONLY = 1;
-    public final byte[] k;
+
+    /* JADX INFO: renamed from: k */
+    public final byte[] f81668k;
     public final int prefFormat;
     public final byte[] rho;
-    public final byte[] s1;
-    public final byte[] s2;
+
+    /* JADX INFO: renamed from: s1 */
+    public final byte[] f81669s1;
+
+    /* JADX INFO: renamed from: s2 */
+    public final byte[] f81670s2;
     public final byte[] seed;
-    public final byte[] t0;
-    public final byte[] t1;
-    public final byte[] tr;
+
+    /* JADX INFO: renamed from: t0 */
+    public final byte[] f81671t0;
+
+    /* JADX INFO: renamed from: t1 */
+    public final byte[] f81672t1;
+
+    /* JADX INFO: renamed from: tr */
+    public final byte[] f81673tr;
 
     public MLDSAPrivateKeyParameters(MLDSAParameters mLDSAParameters, byte[] bArr) {
         this(mLDSAParameters, bArr, null);
@@ -27,32 +39,32 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
         if (bArr.length == 32) {
             byte[][] bArrGenerateKeyPairInternal = engine.generateKeyPairInternal(bArr);
             this.rho = bArrGenerateKeyPairInternal[0];
-            this.k = bArrGenerateKeyPairInternal[1];
-            this.tr = bArrGenerateKeyPairInternal[2];
-            this.s1 = bArrGenerateKeyPairInternal[3];
-            this.s2 = bArrGenerateKeyPairInternal[4];
-            this.t0 = bArrGenerateKeyPairInternal[5];
-            this.t1 = bArrGenerateKeyPairInternal[6];
+            this.f81668k = bArrGenerateKeyPairInternal[1];
+            this.f81673tr = bArrGenerateKeyPairInternal[2];
+            this.f81669s1 = bArrGenerateKeyPairInternal[3];
+            this.f81670s2 = bArrGenerateKeyPairInternal[4];
+            this.f81671t0 = bArrGenerateKeyPairInternal[5];
+            this.f81672t1 = bArrGenerateKeyPairInternal[6];
             this.seed = bArrGenerateKeyPairInternal[7];
         } else {
             byte[] bArrCopyOfRange = Arrays.copyOfRange(bArr, 0, 32);
             this.rho = bArrCopyOfRange;
             byte[] bArrCopyOfRange2 = Arrays.copyOfRange(bArr, 32, 64);
-            this.k = bArrCopyOfRange2;
+            this.f81668k = bArrCopyOfRange2;
             byte[] bArrCopyOfRange3 = Arrays.copyOfRange(bArr, 64, 128);
-            this.tr = bArrCopyOfRange3;
+            this.f81673tr = bArrCopyOfRange3;
             int dilithiumL = (engine.getDilithiumL() * engine.getDilithiumPolyEtaPackedBytes()) + 128;
             byte[] bArrCopyOfRange4 = Arrays.copyOfRange(bArr, 128, dilithiumL);
-            this.s1 = bArrCopyOfRange4;
+            this.f81669s1 = bArrCopyOfRange4;
             int dilithiumK = (engine.getDilithiumK() * engine.getDilithiumPolyEtaPackedBytes()) + dilithiumL;
             byte[] bArrCopyOfRange5 = Arrays.copyOfRange(bArr, dilithiumL, dilithiumK);
-            this.s2 = bArrCopyOfRange5;
+            this.f81670s2 = bArrCopyOfRange5;
             byte[] bArrCopyOfRange6 = Arrays.copyOfRange(bArr, dilithiumK, (engine.getDilithiumK() * 416) + dilithiumK);
-            this.t0 = bArrCopyOfRange6;
-            this.t1 = engine.deriveT1(bArrCopyOfRange, bArrCopyOfRange2, bArrCopyOfRange3, bArrCopyOfRange4, bArrCopyOfRange5, bArrCopyOfRange6);
+            this.f81671t0 = bArrCopyOfRange6;
+            this.f81672t1 = engine.deriveT1(bArrCopyOfRange, bArrCopyOfRange2, bArrCopyOfRange3, bArrCopyOfRange4, bArrCopyOfRange5, bArrCopyOfRange6);
             this.seed = null;
         }
-        if (mLDSAPublicKeyParameters != null && !Arrays.constantTimeAreEqual(this.t1, mLDSAPublicKeyParameters.getT1())) {
+        if (mLDSAPublicKeyParameters != null && !Arrays.constantTimeAreEqual(this.f81672t1, mLDSAPublicKeyParameters.getT1())) {
             throw new IllegalArgumentException("passed in public key does not match private values");
         }
         this.prefFormat = this.seed != null ? 0 : 2;
@@ -65,12 +77,12 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
     public MLDSAPrivateKeyParameters(MLDSAParameters mLDSAParameters, byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, byte[] bArr5, byte[] bArr6, byte[] bArr7, byte[] bArr8) {
         super(true, mLDSAParameters);
         this.rho = Arrays.clone(bArr);
-        this.k = Arrays.clone(bArr2);
-        this.tr = Arrays.clone(bArr3);
-        this.s1 = Arrays.clone(bArr4);
-        this.s2 = Arrays.clone(bArr5);
-        this.t0 = Arrays.clone(bArr6);
-        this.t1 = Arrays.clone(bArr7);
+        this.f81668k = Arrays.clone(bArr2);
+        this.f81673tr = Arrays.clone(bArr3);
+        this.f81669s1 = Arrays.clone(bArr4);
+        this.f81670s2 = Arrays.clone(bArr5);
+        this.f81671t0 = Arrays.clone(bArr6);
+        this.f81672t1 = Arrays.clone(bArr7);
         this.seed = Arrays.clone(bArr8);
         this.prefFormat = bArr8 != null ? 0 : 2;
     }
@@ -78,22 +90,22 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
     public MLDSAPrivateKeyParameters(MLDSAPrivateKeyParameters mLDSAPrivateKeyParameters, int i) {
         super(true, mLDSAPrivateKeyParameters.getParameters());
         this.rho = mLDSAPrivateKeyParameters.rho;
-        this.k = mLDSAPrivateKeyParameters.k;
-        this.tr = mLDSAPrivateKeyParameters.tr;
-        this.s1 = mLDSAPrivateKeyParameters.s1;
-        this.s2 = mLDSAPrivateKeyParameters.s2;
-        this.t0 = mLDSAPrivateKeyParameters.t0;
-        this.t1 = mLDSAPrivateKeyParameters.t1;
+        this.f81668k = mLDSAPrivateKeyParameters.f81668k;
+        this.f81673tr = mLDSAPrivateKeyParameters.f81673tr;
+        this.f81669s1 = mLDSAPrivateKeyParameters.f81669s1;
+        this.f81670s2 = mLDSAPrivateKeyParameters.f81670s2;
+        this.f81671t0 = mLDSAPrivateKeyParameters.f81671t0;
+        this.f81672t1 = mLDSAPrivateKeyParameters.f81672t1;
         this.seed = mLDSAPrivateKeyParameters.seed;
         this.prefFormat = i;
     }
 
     public byte[] getEncoded() {
-        return Arrays.concatenate(new byte[][]{this.rho, this.k, this.tr, this.s1, this.s2, this.t0});
+        return Arrays.concatenate(new byte[][]{this.rho, this.f81668k, this.f81673tr, this.f81669s1, this.f81670s2, this.f81671t0});
     }
 
     public byte[] getK() {
-        return Arrays.clone(this.k);
+        return Arrays.clone(this.f81668k);
     }
 
     public MLDSAPrivateKeyParameters getParametersWithFormat(int i) {
@@ -120,14 +132,14 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
     }
 
     public byte[] getPublicKey() {
-        return MLDSAPublicKeyParameters.getEncoded(this.rho, this.t1);
+        return MLDSAPublicKeyParameters.getEncoded(this.rho, this.f81672t1);
     }
 
     public MLDSAPublicKeyParameters getPublicKeyParameters() {
-        if (this.t1 == null) {
+        if (this.f81672t1 == null) {
             return null;
         }
-        return new MLDSAPublicKeyParameters(getParameters(), this.rho, this.t1);
+        return new MLDSAPublicKeyParameters(getParameters(), this.rho, this.f81672t1);
     }
 
     public byte[] getRho() {
@@ -135,11 +147,11 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
     }
 
     public byte[] getS1() {
-        return Arrays.clone(this.s1);
+        return Arrays.clone(this.f81669s1);
     }
 
     public byte[] getS2() {
-        return Arrays.clone(this.s2);
+        return Arrays.clone(this.f81670s2);
     }
 
     public byte[] getSeed() {
@@ -147,14 +159,14 @@ public class MLDSAPrivateKeyParameters extends MLDSAKeyParameters {
     }
 
     public byte[] getT0() {
-        return Arrays.clone(this.t0);
+        return Arrays.clone(this.f81671t0);
     }
 
     public byte[] getT1() {
-        return Arrays.clone(this.t1);
+        return Arrays.clone(this.f81672t1);
     }
 
     public byte[] getTr() {
-        return Arrays.clone(this.tr);
+        return Arrays.clone(this.f81673tr);
     }
 }

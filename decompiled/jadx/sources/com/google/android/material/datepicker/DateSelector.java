@@ -10,7 +10,7 @@ import android.widget.EditText;
 import com.google.android.material.internal.ViewUtils;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
-import l.RunnableC19009;
+import p067l.RunnableC20435;
 
 /* JADX INFO: loaded from: classes.dex */
 public interface DateSelector extends Parcelable {
@@ -56,7 +56,7 @@ public interface DateSelector extends Parcelable {
                 editText.setOnFocusChangeListener(onFocusChangeListener);
             }
             EditText editText2 = editTextArr[0];
-            editText2.postDelayed(new RunnableC19009(6, editText2), 100L);
+            editText2.postDelayed(new RunnableC20435(6, editText2), 100L);
         }
 
         public static /* synthetic */ void lambda$showKeyboardWithAutoHideBehavior$0(EditText[] editTextArr, View view, boolean z) {

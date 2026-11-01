@@ -10,7 +10,7 @@ import android.view.ContextThemeWrapper;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import l.C0881;
+import p067l.C0886;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ColorContrast {
@@ -109,7 +109,7 @@ public class ColorContrast {
                         }
                     }
                 };
-                uiModeManager.addContrastChangeListener(C0881.m3231(activity.getApplicationContext()), this.contrastChangeListener);
+                uiModeManager.addContrastChangeListener(C0886.m5545(activity.getApplicationContext()), this.contrastChangeListener);
             }
             this.activitiesInStack.add(activity);
             if (uiModeManager != null) {

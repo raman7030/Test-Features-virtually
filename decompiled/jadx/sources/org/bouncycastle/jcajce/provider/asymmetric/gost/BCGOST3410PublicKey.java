@@ -24,10 +24,12 @@ import org.bouncycastle.jce.spec.GOST3410PublicKeySpec;
 public class BCGOST3410PublicKey implements GOST3410PublicKey {
     public static final long serialVersionUID = -6251023343619275990L;
     public transient GOST3410Params gost3410Spec;
-    public BigInteger y;
+
+    /* JADX INFO: renamed from: y */
+    public BigInteger f81350y;
 
     public BCGOST3410PublicKey(BigInteger bigInteger, GOST3410ParameterSpec gOST3410ParameterSpec) {
-        this.y = bigInteger;
+        this.f81350y = bigInteger;
         this.gost3410Spec = gOST3410ParameterSpec;
     }
 
@@ -39,7 +41,7 @@ public class BCGOST3410PublicKey implements GOST3410PublicKey {
             for (int i = 0; i != octets.length; i++) {
                 bArr[i] = octets[(octets.length - 1) - i];
             }
-            this.y = new BigInteger(1, bArr);
+            this.f81350y = new BigInteger(1, bArr);
             this.gost3410Spec = GOST3410ParameterSpec.fromPublicKeyAlg(gOST3410PublicKeyAlgParameters);
         } catch (IOException unused) {
             throw new IllegalArgumentException("invalid info structure in GOST3410 public key");
@@ -47,17 +49,17 @@ public class BCGOST3410PublicKey implements GOST3410PublicKey {
     }
 
     public BCGOST3410PublicKey(GOST3410PublicKeyParameters gOST3410PublicKeyParameters, GOST3410ParameterSpec gOST3410ParameterSpec) {
-        this.y = gOST3410PublicKeyParameters.getY();
+        this.f81350y = gOST3410PublicKeyParameters.getY();
         this.gost3410Spec = gOST3410ParameterSpec;
     }
 
     public BCGOST3410PublicKey(GOST3410PublicKey gOST3410PublicKey) {
-        this.y = gOST3410PublicKey.getY();
+        this.f81350y = gOST3410PublicKey.getY();
         this.gost3410Spec = gOST3410PublicKey.getParameters();
     }
 
     public BCGOST3410PublicKey(GOST3410PublicKeySpec gOST3410PublicKeySpec) {
-        this.y = gOST3410PublicKeySpec.getY();
+        this.f81350y = gOST3410PublicKeySpec.getY();
         this.gost3410Spec = new GOST3410ParameterSpec(new GOST3410PublicKeyParameterSetSpec(gOST3410PublicKeySpec.getP(), gOST3410PublicKeySpec.getQ(), gOST3410PublicKeySpec.getA()));
     }
 
@@ -92,7 +94,7 @@ public class BCGOST3410PublicKey implements GOST3410PublicKey {
     public boolean equals(Object obj) {
         if (obj instanceof BCGOST3410PublicKey) {
             BCGOST3410PublicKey bCGOST3410PublicKey = (BCGOST3410PublicKey) obj;
-            if (this.y.equals(bCGOST3410PublicKey.y) && this.gost3410Spec.equals(bCGOST3410PublicKey.gost3410Spec)) {
+            if (this.f81350y.equals(bCGOST3410PublicKey.f81350y) && this.gost3410Spec.equals(bCGOST3410PublicKey.gost3410Spec)) {
                 return true;
             }
         }
@@ -131,16 +133,16 @@ public class BCGOST3410PublicKey implements GOST3410PublicKey {
 
     @Override // org.bouncycastle.jce.interfaces.GOST3410PublicKey
     public BigInteger getY() {
-        return this.y;
+        return this.f81350y;
     }
 
     public int hashCode() {
-        return this.y.hashCode() ^ this.gost3410Spec.hashCode();
+        return this.f81350y.hashCode() ^ this.gost3410Spec.hashCode();
     }
 
     public String toString() {
         try {
-            return GOSTUtil.publicKeyToString("GOST3410", this.y, ((GOST3410PublicKeyParameters) GOST3410Util.generatePublicKeyParameter(this)).getParameters());
+            return GOSTUtil.publicKeyToString("GOST3410", this.f81350y, ((GOST3410PublicKeyParameters) GOST3410Util.generatePublicKeyParameter(this)).getParameters());
         } catch (InvalidKeyException e) {
             throw new IllegalStateException(e.getMessage());
         }

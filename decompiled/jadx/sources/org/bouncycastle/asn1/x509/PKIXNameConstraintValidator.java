@@ -8,8 +8,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import l.C19370;
-import l.C5368;
 import org.bouncycastle.asn1.ASN1IA5String;
 import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
@@ -22,6 +20,8 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
+import p067l.C20778;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public class PKIXNameConstraintValidator implements NameConstraintValidator {
@@ -445,7 +445,7 @@ public class PKIXNameConstraintValidator implements NameConstraintValidator {
         byte[] bArr5 = bArrExtractIPsAndSubnetMasks[2];
         byte[] bArr6 = bArrExtractIPsAndSubnetMasks[3];
         byte[][] bArrMinMaxIPs = minMaxIPs(bArr3, bArr4, bArr5, bArr6);
-        return compareTo(max(bArrMinMaxIPs[0], bArrMinMaxIPs[2]), min(bArrMinMaxIPs[1], bArrMinMaxIPs[3])) == 1 ? Collections.EMPTY_SET : Collections.singleton(ipWithSubnetMask(or(bArrMinMaxIPs[0], bArrMinMaxIPs[2]), or(bArr4, bArr6)));
+        return compareTo(max(bArrMinMaxIPs[0], bArrMinMaxIPs[2]), min(bArrMinMaxIPs[1], bArrMinMaxIPs[3])) == 1 ? Collections.EMPTY_SET : Collections.singleton(ipWithSubnetMask(m55305or(bArrMinMaxIPs[0], bArrMinMaxIPs[2]), m55305or(bArr4, bArr6)));
     }
 
     private Set intersectOtherName(Set set, Set set2) {
@@ -616,7 +616,8 @@ public class PKIXNameConstraintValidator implements NameConstraintValidator {
         return new byte[][]{bArr5, bArr6, bArr7, bArr8};
     }
 
-    public static byte[] or(byte[] bArr, byte[] bArr2) {
+    /* JADX INFO: renamed from: or */
+    public static byte[] m55305or(byte[] bArr, byte[] bArr2) {
         byte[] bArr3 = new byte[bArr.length];
         for (int i = 0; i < bArr.length; i++) {
             bArr3[i] = (byte) (bArr[i] | bArr2[i]);
@@ -650,36 +651,36 @@ public class PKIXNameConstraintValidator implements NameConstraintValidator {
     }
 
     private String stringifyIPCollection(Set set) {
-        StringBuilder sbM15339 = C5368.m15339("[");
+        StringBuilder sbM17248 = C7470.m17248("[");
         Iterator it = set.iterator();
         while (it.hasNext()) {
-            if (sbM15339.length() > 1) {
-                sbM15339.append(",");
+            if (sbM17248.length() > 1) {
+                sbM17248.append(",");
             }
-            sbM15339.append(stringifyIP((byte[]) it.next()));
+            sbM17248.append(stringifyIP((byte[]) it.next()));
         }
-        sbM15339.append("]");
-        return sbM15339.toString();
+        sbM17248.append("]");
+        return sbM17248.toString();
     }
 
     private String stringifyOtherNameCollection(Set set) {
-        StringBuilder sbM15339 = C5368.m15339("[");
+        StringBuilder sbM17248 = C7470.m17248("[");
         Iterator it = set.iterator();
         while (it.hasNext()) {
-            if (sbM15339.length() > 1) {
-                sbM15339.append(",");
+            if (sbM17248.length() > 1) {
+                sbM17248.append(",");
             }
             OtherName otherName = OtherName.getInstance(it.next());
-            sbM15339.append(otherName.getTypeID().getId());
-            sbM15339.append(":");
+            sbM17248.append(otherName.getTypeID().getId());
+            sbM17248.append(":");
             try {
-                sbM15339.append(Hex.toHexString(otherName.getValue().toASN1Primitive().getEncoded()));
+                sbM17248.append(Hex.toHexString(otherName.getValue().toASN1Primitive().getEncoded()));
             } catch (IOException e) {
-                sbM15339.append(e.toString());
+                sbM17248.append(e.toString());
             }
         }
-        sbM15339.append("]");
-        return sbM15339.toString();
+        sbM17248.append("]");
+        return sbM17248.toString();
     }
 
     private Set unionDN(Set set, ASN1Sequence aSN1Sequence) {
@@ -1147,7 +1148,7 @@ public class PKIXNameConstraintValidator implements NameConstraintValidator {
                 this.permittedSubtreesURI = intersectURI(this.permittedSubtreesURI, (Set) entry.getValue());
             } else {
                 if (iIntValue != 7) {
-                    throw new IllegalStateException(C19370.m44628(iIntValue, "Unknown tag encountered: "));
+                    throw new IllegalStateException(C20778.m46922(iIntValue, "Unknown tag encountered: "));
                 }
                 this.permittedSubtreesIP = intersectIP(this.permittedSubtreesIP, (Set) entry.getValue());
             }
@@ -1229,7 +1230,7 @@ public class PKIXNameConstraintValidator implements NameConstraintValidator {
             this.permittedSubtreesURI = new HashSet();
         } else {
             if (i != 7) {
-                throw new IllegalStateException(C19370.m44628(i, "Unknown tag encountered: "));
+                throw new IllegalStateException(C20778.m46922(i, "Unknown tag encountered: "));
             }
             this.permittedSubtreesIP = new HashSet();
         }

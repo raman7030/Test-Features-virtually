@@ -45,14 +45,14 @@ public class SHA512Digest extends LongDigest {
     @Override // org.bouncycastle.crypto.Digest
     public int doFinal(byte[] bArr, int i) {
         finish();
-        Pack.longToBigEndian(this.H1, bArr, i);
-        Pack.longToBigEndian(this.H2, bArr, i + 8);
-        Pack.longToBigEndian(this.H3, bArr, i + 16);
-        Pack.longToBigEndian(this.H4, bArr, i + 24);
-        Pack.longToBigEndian(this.H5, bArr, i + 32);
-        Pack.longToBigEndian(this.H6, bArr, i + 40);
-        Pack.longToBigEndian(this.H7, bArr, i + 48);
-        Pack.longToBigEndian(this.H8, bArr, i + 56);
+        Pack.longToBigEndian(this.f80836H1, bArr, i);
+        Pack.longToBigEndian(this.f80837H2, bArr, i + 8);
+        Pack.longToBigEndian(this.f80838H3, bArr, i + 16);
+        Pack.longToBigEndian(this.f80839H4, bArr, i + 24);
+        Pack.longToBigEndian(this.f80840H5, bArr, i + 32);
+        Pack.longToBigEndian(this.f80841H6, bArr, i + 40);
+        Pack.longToBigEndian(this.f80842H7, bArr, i + 48);
+        Pack.longToBigEndian(this.f80843H8, bArr, i + 56);
         reset();
         return 64;
     }
@@ -79,14 +79,14 @@ public class SHA512Digest extends LongDigest {
     @Override // org.bouncycastle.crypto.digests.LongDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        this.H1 = 7640891576956012808L;
-        this.H2 = -4942790177534073029L;
-        this.H3 = 4354685564936845355L;
-        this.H4 = -6534734903238641935L;
-        this.H5 = 5840696475078001361L;
-        this.H6 = -7276294671716946913L;
-        this.H7 = 2270897969802886507L;
-        this.H8 = 6620516959819538809L;
+        this.f80836H1 = 7640891576956012808L;
+        this.f80837H2 = -4942790177534073029L;
+        this.f80838H3 = 4354685564936845355L;
+        this.f80839H4 = -6534734903238641935L;
+        this.f80840H5 = 5840696475078001361L;
+        this.f80841H6 = -7276294671716946913L;
+        this.f80842H7 = 2270897969802886507L;
+        this.f80843H8 = 6620516959819538809L;
     }
 
     @Override // org.bouncycastle.util.Memoable

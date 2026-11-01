@@ -1,7 +1,7 @@
 package com.google.android.material.transition.platform;
 
 import android.graphics.RectF;
-import l.C19370;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class FitModeEvaluators {
@@ -56,7 +56,7 @@ public class FitModeEvaluators {
         if (i == 2) {
             return HEIGHT;
         }
-        throw new IllegalArgumentException(C19370.m44628(i, "Invalid fit mode: "));
+        throw new IllegalArgumentException(C20778.m46922(i, "Invalid fit mode: "));
     }
 
     public static boolean shouldAutoFitToWidth(boolean z, RectF rectF, RectF rectF2) {

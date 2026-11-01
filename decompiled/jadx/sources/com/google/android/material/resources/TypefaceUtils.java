@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Build;
-import l.C1814;
+import p067l.C0932;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TypefaceUtils {
@@ -17,6 +17,6 @@ public class TypefaceUtils {
         if (Build.VERSION.SDK_INT < 31 || (i = configuration.fontWeightAdjustment) == Integer.MAX_VALUE || i == 0 || typeface == null) {
             return null;
         }
-        return Typeface.create(typeface, C1814.m6036(typeface.getWeight() + configuration.fontWeightAdjustment, 1, 1000), typeface.isItalic());
+        return Typeface.create(typeface, C0932.m8234(typeface.getWeight() + configuration.fontWeightAdjustment, 1, 1000), typeface.isItalic());
     }
 }

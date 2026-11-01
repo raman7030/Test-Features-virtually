@@ -1,15 +1,17 @@
 package org.bouncycastle.crypto.modes;
 
-import l.C18307;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.StreamBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Arrays;
+import p067l.C19768;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CFBBlockCipher extends StreamBlockCipher implements CFBModeCipher {
-    public byte[] IV;
+
+    /* JADX INFO: renamed from: IV */
+    public byte[] f81169IV;
     public int blockSize;
     public int byteCount;
     public byte[] cfbOutV;
@@ -109,12 +111,12 @@ public class CFBBlockCipher extends StreamBlockCipher implements CFBModeCipher {
             ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
             byte[] iv = parametersWithIV.getIV();
             int length = iv.length;
-            byte[] bArr = this.IV;
+            byte[] bArr = this.f81169IV;
             if (length < bArr.length) {
                 System.arraycopy(iv, 0, bArr, bArr.length - iv.length, iv.length);
                 int i = 0;
                 while (true) {
-                    byte[] bArr2 = this.IV;
+                    byte[] bArr2 = this.f81169IV;
                     if (i >= bArr2.length - iv.length) {
                         break;
                     }
@@ -149,7 +151,7 @@ public class CFBBlockCipher extends StreamBlockCipher implements CFBModeCipher {
 
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
-        byte[] bArr = this.IV;
+        byte[] bArr = this.f81169IV;
         System.arraycopy(bArr, 0, this.cfbV, 0, bArr.length);
         Arrays.fill(this.inBuf, (byte) 0);
         this.byteCount = 0;
@@ -160,11 +162,11 @@ public class CFBBlockCipher extends StreamBlockCipher implements CFBModeCipher {
         super(blockCipher);
         this.cipher = null;
         if (i > blockCipher.getBlockSize() * 8 || i < 8 || i % 8 != 0) {
-            throw new IllegalArgumentException(C18307.m42645(i, "CFB", " not supported"));
+            throw new IllegalArgumentException(C19768.m44906(i, "CFB", " not supported"));
         }
         this.cipher = blockCipher;
         this.blockSize = i / 8;
-        this.IV = new byte[blockCipher.getBlockSize()];
+        this.f81169IV = new byte[blockCipher.getBlockSize()];
         this.cfbV = new byte[blockCipher.getBlockSize()];
         this.cfbOutV = new byte[blockCipher.getBlockSize()];
         this.inBuf = new byte[this.blockSize];

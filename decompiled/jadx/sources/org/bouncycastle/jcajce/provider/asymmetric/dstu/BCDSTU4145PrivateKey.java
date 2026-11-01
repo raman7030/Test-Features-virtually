@@ -17,19 +17,19 @@ import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERNull;
+import org.bouncycastle.asn1.p072ua.DSTU4145BinaryField;
+import org.bouncycastle.asn1.p072ua.DSTU4145ECBinary;
+import org.bouncycastle.asn1.p072ua.DSTU4145NamedCurves;
+import org.bouncycastle.asn1.p072ua.DSTU4145Params;
+import org.bouncycastle.asn1.p072ua.DSTU4145PointEncoder;
+import org.bouncycastle.asn1.p072ua.UAObjectIdentifiers;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECPoint;
+import org.bouncycastle.asn1.p073x9.X9ObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.ua.DSTU4145BinaryField;
-import org.bouncycastle.asn1.ua.DSTU4145ECBinary;
-import org.bouncycastle.asn1.ua.DSTU4145NamedCurves;
-import org.bouncycastle.asn1.ua.DSTU4145Params;
-import org.bouncycastle.asn1.ua.DSTU4145PointEncoder;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
@@ -40,14 +40,16 @@ import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECCurve;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder {
     public static final long serialVersionUID = 7245981689601667138L;
     public String algorithm;
     public transient PKCS12BagAttributeCarrierImpl attrCarrier;
-    public transient BigInteger d;
+
+    /* JADX INFO: renamed from: d */
+    public transient BigInteger f81342d;
     public transient ECParameterSpec ecSpec;
     public transient ASN1BitString publicKey;
     public boolean withCompression;
@@ -61,7 +63,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
         this.algorithm = "DSTU4145";
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
         this.algorithm = str;
-        this.d = eCPrivateKeyParameters.getD();
+        this.f81342d = eCPrivateKeyParameters.getD();
         this.ecSpec = null;
     }
 
@@ -70,7 +72,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
         ECDomainParameters parameters = eCPrivateKeyParameters.getParameters();
         this.algorithm = str;
-        this.d = eCPrivateKeyParameters.getD();
+        this.f81342d = eCPrivateKeyParameters.getD();
         if (eCParameterSpec == null) {
             this.ecSpec = new ECParameterSpec(EC5Util.convertCurve(parameters.getCurve(), parameters.getSeed()), EC5Util.convertPoint(parameters.getG()), parameters.getN(), parameters.getH().intValue());
         } else {
@@ -84,7 +86,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
         ECDomainParameters parameters = eCPrivateKeyParameters.getParameters();
         this.algorithm = str;
-        this.d = eCPrivateKeyParameters.getD();
+        this.f81342d = eCPrivateKeyParameters.getD();
         this.ecSpec = eCParameterSpec == null ? new ECParameterSpec(EC5Util.convertCurve(parameters.getCurve(), parameters.getSeed()), EC5Util.convertPoint(parameters.getG()), parameters.getN(), parameters.getH().intValue()) : new ECParameterSpec(EC5Util.convertCurve(eCParameterSpec.getCurve(), eCParameterSpec.getSeed()), EC5Util.convertPoint(eCParameterSpec.getG()), eCParameterSpec.getN(), eCParameterSpec.getH().intValue());
         this.publicKey = getPublicKeyDetails(bCDSTU4145PublicKey);
     }
@@ -92,7 +94,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
     public BCDSTU4145PrivateKey(ECPrivateKey eCPrivateKey) {
         this.algorithm = "DSTU4145";
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
-        this.d = eCPrivateKey.getS();
+        this.f81342d = eCPrivateKey.getS();
         this.algorithm = eCPrivateKey.getAlgorithm();
         this.ecSpec = eCPrivateKey.getParams();
     }
@@ -100,7 +102,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
     public BCDSTU4145PrivateKey(ECPrivateKeySpec eCPrivateKeySpec) {
         this.algorithm = "DSTU4145";
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
-        this.d = eCPrivateKeySpec.getS();
+        this.f81342d = eCPrivateKeySpec.getS();
         this.ecSpec = eCPrivateKeySpec.getParams();
     }
 
@@ -113,7 +115,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
     public BCDSTU4145PrivateKey(BCDSTU4145PrivateKey bCDSTU4145PrivateKey) {
         this.algorithm = "DSTU4145";
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
-        this.d = bCDSTU4145PrivateKey.d;
+        this.f81342d = bCDSTU4145PrivateKey.f81342d;
         this.ecSpec = bCDSTU4145PrivateKey.ecSpec;
         this.withCompression = bCDSTU4145PrivateKey.withCompression;
         this.attrCarrier = bCDSTU4145PrivateKey.attrCarrier;
@@ -123,7 +125,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
     public BCDSTU4145PrivateKey(org.bouncycastle.jce.spec.ECPrivateKeySpec eCPrivateKeySpec) {
         this.algorithm = "DSTU4145";
         this.attrCarrier = new PKCS12BagAttributeCarrierImpl();
-        this.d = eCPrivateKeySpec.getD();
+        this.f81342d = eCPrivateKeySpec.getD();
         this.ecSpec = eCPrivateKeySpec.getParams() != null ? EC5Util.convertSpec(EC5Util.convertCurve(eCPrivateKeySpec.getParams().getCurve(), eCPrivateKeySpec.getParams().getSeed()), eCPrivateKeySpec.getParams()) : null;
     }
 
@@ -177,11 +179,11 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
             }
             privateKey = privateKeyInfo.parsePrivateKey();
             if (privateKey instanceof ASN1Integer) {
-                this.d = ASN1Integer.getInstance(privateKey).getValue();
+                this.f81342d = ASN1Integer.getInstance(privateKey).getValue();
                 return;
             }
             org.bouncycastle.asn1.sec.ECPrivateKey eCPrivateKey = org.bouncycastle.asn1.sec.ECPrivateKey.getInstance(privateKey);
-            this.d = eCPrivateKey.getKey();
+            this.f81342d = eCPrivateKey.getKey();
             this.publicKey = eCPrivateKey.getPublicKey();
         }
         ASN1ObjectIdentifier aSN1ObjectIdentifier2 = ASN1ObjectIdentifier.getInstance(x962Parameters.getParameters());
@@ -195,11 +197,11 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
         this.ecSpec = eCParameterSpec2;
         privateKey = privateKeyInfo.parsePrivateKey();
         if (privateKey instanceof ASN1Integer) {
-            this.d = ASN1Integer.getInstance(privateKey).getValue();
+            this.f81342d = ASN1Integer.getInstance(privateKey).getValue();
             return;
         }
         org.bouncycastle.asn1.sec.ECPrivateKey eCPrivateKey2 = org.bouncycastle.asn1.sec.ECPrivateKey.getInstance(privateKey);
-        this.d = eCPrivateKey2.getKey();
+        this.f81342d = eCPrivateKey2.getKey();
         this.publicKey = eCPrivateKey2.getPublicKey();
     }
 
@@ -252,7 +254,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
 
     @Override // org.bouncycastle.jce.interfaces.ECPrivateKey
     public BigInteger getD() {
-        return this.d;
+        return this.f81342d;
     }
 
     /* JADX WARN: Code duplicated, block: B:14:0x0090  */
@@ -333,7 +335,7 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
 
     @Override // java.security.interfaces.ECPrivateKey
     public BigInteger getS() {
-        return this.d;
+        return this.f81342d;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier
@@ -361,6 +363,6 @@ public class BCDSTU4145PrivateKey implements ECPrivateKey, org.bouncycastle.jce.
     }
 
     public String toString() {
-        return ECUtil.privateKeyToString(this.algorithm, this.d, engineGetSpec());
+        return ECUtil.privateKeyToString(this.algorithm, this.f81342d, engineGetSpec());
     }
 }

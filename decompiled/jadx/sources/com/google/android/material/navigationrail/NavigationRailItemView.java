@@ -3,8 +3,8 @@ package com.google.android.material.navigationrail;
 import android.content.Context;
 import android.view.View;
 import com.google.android.material.navigation.NavigationBarItemView;
-import l.C15813;
-import l.C23575;
+import p067l.C17397;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class NavigationRailItemView extends NavigationBarItemView {
@@ -22,11 +22,11 @@ public final class NavigationRailItemView extends NavigationBarItemView {
 
     @Override // com.google.android.material.navigation.NavigationBarItemView
     public int getItemLayoutResId() {
-        return C15813.f48788;
+        return C17397.f51926;
     }
 
     @Override // com.google.android.material.navigation.NavigationBarItemView
     public int getItemDefaultMarginResId() {
-        return C23575.f76145;
+        return C24774.f78891;
     }
 }

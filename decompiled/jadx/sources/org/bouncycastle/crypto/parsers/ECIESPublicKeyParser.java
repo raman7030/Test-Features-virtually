@@ -7,8 +7,8 @@ import org.bouncycastle.crypto.KeyParser;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.util.p082io.Streams;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECIESPublicKeyParser implements KeyParser {

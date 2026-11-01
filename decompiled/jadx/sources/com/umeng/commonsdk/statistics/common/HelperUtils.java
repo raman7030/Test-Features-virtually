@@ -1,6 +1,7 @@
 package com.umeng.commonsdk.statistics.common;
 
 import android.text.TextUtils;
+import com.alipay.sdk.p010m.p055w.C0233a;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,17 +25,17 @@ public class HelperUtils {
         try {
             if (!TextUtils.isEmpty(str)) {
                 strSubstring = str.substring(0, str.length() < i ? str.length() : i);
-                int length = strSubstring.getBytes(com.alipay.sdk.m.w.a.D).length;
+                int length = strSubstring.getBytes(C0233a.f1077D).length;
                 int i2 = i;
                 while (length > i) {
                     i2--;
                     strSubstring = str.substring(0, i2 > str.length() ? str.length() : i2);
-                    length = strSubstring.getBytes(com.alipay.sdk.m.w.a.D).length;
+                    length = strSubstring.getBytes(C0233a.f1077D).length;
                 }
             }
             return strSubstring;
         } catch (Exception e) {
-            MLog.e(e);
+            MLog.m2951e(e);
             return strSubstring;
         }
     }
@@ -78,7 +79,7 @@ public class HelperUtils {
             }
             return stringBuffer.toString();
         } catch (Throwable th) {
-            MLog.i(TAG, "getMD5 error", th);
+            MLog.m2954i(TAG, "getMD5 error", th);
             return "";
         }
     }
@@ -94,7 +95,7 @@ public class HelperUtils {
             }
             return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e) {
-            MLog.i(TAG, "getMD5 error", e);
+            MLog.m2954i(TAG, "getMD5 error", e);
             return "";
         }
     }

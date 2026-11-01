@@ -3,23 +3,35 @@ package com.google.android.material.color.utilities;
 /* JADX INFO: loaded from: classes.dex */
 public final class ViewingConditions {
     public static final ViewingConditions DEFAULT = defaultWithBackgroundLstar(50.0d);
-    public final double aw;
-    public final double c;
-    public final double fl;
+
+    /* JADX INFO: renamed from: aw */
+    public final double f2045aw;
+
+    /* JADX INFO: renamed from: c */
+    public final double f2046c;
+
+    /* JADX INFO: renamed from: fl */
+    public final double f2047fl;
     public final double flRoot;
-    public final double n;
+
+    /* JADX INFO: renamed from: n */
+    public final double f2048n;
     public final double nbb;
-    public final double nc;
+
+    /* JADX INFO: renamed from: nc */
+    public final double f2049nc;
     public final double ncb;
     public final double[] rgbD;
-    public final double z;
+
+    /* JADX INFO: renamed from: z */
+    public final double f2050z;
 
     public double getAw() {
-        return this.aw;
+        return this.f2045aw;
     }
 
     public double getN() {
-        return this.n;
+        return this.f2048n;
     }
 
     public double getNbb() {
@@ -31,11 +43,11 @@ public final class ViewingConditions {
     }
 
     public double getC() {
-        return this.c;
+        return this.f2046c;
     }
 
     public double getNc() {
-        return this.nc;
+        return this.f2049nc;
     }
 
     public double[] getRgbD() {
@@ -43,7 +55,7 @@ public final class ViewingConditions {
     }
 
     public double getFl() {
-        return this.fl;
+        return this.f2047fl;
     }
 
     public double getFlRoot() {
@@ -51,7 +63,7 @@ public final class ViewingConditions {
     }
 
     public double getZ() {
-        return this.z;
+        return this.f2050z;
     }
 
     public static ViewingConditions make(double[] dArr, double d, double d2, double d3, boolean z) {
@@ -101,15 +113,15 @@ public final class ViewingConditions {
     }
 
     public ViewingConditions(double d, double d2, double d3, double d4, double d5, double d6, double[] dArr, double d7, double d8, double d9) {
-        this.n = d;
-        this.aw = d2;
+        this.f2048n = d;
+        this.f2045aw = d2;
         this.nbb = d3;
         this.ncb = d4;
-        this.c = d5;
-        this.nc = d6;
+        this.f2046c = d5;
+        this.f2049nc = d6;
         this.rgbD = dArr;
-        this.fl = d7;
+        this.f2047fl = d7;
         this.flRoot = d8;
-        this.z = d9;
+        this.f2050z = d9;
     }
 }

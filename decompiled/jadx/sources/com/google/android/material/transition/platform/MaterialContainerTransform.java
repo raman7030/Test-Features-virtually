@@ -33,10 +33,10 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import l.C17648;
-import l.C17931;
-import l.C20382;
-import l.C20754;
+import p067l.C1717;
+import p067l.C19410;
+import p067l.C21740;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class MaterialContainerTransform extends Transition {
@@ -360,13 +360,13 @@ public final class MaterialContainerTransform extends Transition {
             transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
         } else if (view != null) {
             transitionValues.view = view;
-        } else if (transitionValues.view.getTag(C20754.f67206) instanceof View) {
-            View view2 = (View) transitionValues.view.getTag(C20754.f67206);
-            transitionValues.view.setTag(C20754.f67206, null);
+        } else if (transitionValues.view.getTag(C22093.f69890) instanceof View) {
+            View view2 = (View) transitionValues.view.getTag(C22093.f69890);
+            transitionValues.view.setTag(C22093.f69890, null);
             transitionValues.view = view2;
         }
         View view3 = transitionValues.view;
-        int i2 = C17648.f53953;
+        int i2 = C1717.f57146;
         if (!view3.isLaidOut() && view3.getWidth() == 0 && view3.getHeight() == 0) {
             return;
         }
@@ -384,8 +384,8 @@ public final class MaterialContainerTransform extends Transition {
         if (shapeAppearanceModel != null) {
             return shapeAppearanceModel;
         }
-        if (view.getTag(C20754.f67206) instanceof ShapeAppearanceModel) {
-            return (ShapeAppearanceModel) view.getTag(C20754.f67206);
+        if (view.getTag(C22093.f69890) instanceof ShapeAppearanceModel) {
+            return (ShapeAppearanceModel) view.getTag(C22093.f69890);
         }
         Context context = view.getContext();
         int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -399,7 +399,7 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     public static int getTransitionShapeAppearanceResId(Context context) {
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(new int[]{C17931.f55910});
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(new int[]{C19410.f59107});
         int resourceId = typedArrayObtainStyledAttributes.getResourceId(0, -1);
         typedArrayObtainStyledAttributes.recycle();
         return resourceId;
@@ -472,16 +472,16 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     private void maybeApplyThemeValues(Context context, boolean z) {
-        TransitionUtils.maybeApplyThemeInterpolator(this, context, C17931.f55271, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
-        TransitionUtils.maybeApplyThemeDuration(this, context, z ? C17931.f54897 : C17931.f54828);
+        TransitionUtils.maybeApplyThemeInterpolator(this, context, C19410.f58468, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+        TransitionUtils.maybeApplyThemeDuration(this, context, z ? C19410.f58094 : C19410.f58025);
         if (this.pathMotionCustom) {
             return;
         }
-        TransitionUtils.maybeApplyThemePath(this, context, C17931.f55580);
+        TransitionUtils.maybeApplyThemePath(this, context, C19410.f58777);
     }
 
     public static float getElevationOrDefault(float f, View view) {
-        return f != -1.0f ? f : C17648.m41320(view);
+        return f != -1.0f ? f : C1717.m43566(view);
     }
 
     public static RectF calculateDrawableBounds(View view, View view2, float f, float f2) {
@@ -746,8 +746,8 @@ public final class MaterialContainerTransform extends Transition {
             this.scrimPaint.setAlpha((int) (this.entering ? TransitionUtils.lerp(0.0f, 255.0f, f) : TransitionUtils.lerp(255.0f, 0.0f, f)));
             this.motionPathMeasure.getPosTan(this.motionPathLength * f, this.motionPathPosition, null);
             float[] fArr = this.motionPathPosition;
-            float fM46695 = fArr[0];
-            float fM46696 = fArr[1];
+            float fM49018 = fArr[0];
+            float fM49019 = fArr[1];
             if (f > 1.0f || f < 0.0f) {
                 if (f > 1.0f) {
                     f3 = (f - 1.0f) / 0.00999999f;
@@ -760,11 +760,11 @@ public final class MaterialContainerTransform extends Transition {
                 float[] fArr2 = this.motionPathPosition;
                 float f4 = fArr2[0];
                 float f5 = fArr2[1];
-                fM46695 = C20382.m46695(fM46695, f4, f3, fM46695);
-                fM46696 = C20382.m46695(fM46696, f5, f3, fM46696);
+                fM49018 = C21740.m49018(fM49018, f4, f3, fM49018);
+                fM49019 = C21740.m49018(fM49019, f5, f3, fM49019);
             }
-            float f6 = fM46695;
-            float f7 = fM46696;
+            float f6 = fM49018;
+            float f7 = fM49019;
             FitModeResult fitModeResultEvaluate = this.fitModeEvaluator.evaluate(f, Float.valueOf(this.progressThresholds.scale.start).floatValue(), Float.valueOf(this.progressThresholds.scale.end).floatValue(), this.startBounds.width(), this.startBounds.height(), this.endBounds.width(), this.endBounds.height());
             this.fitModeResult = fitModeResultEvaluate;
             RectF rectF = this.currentStartBounds;

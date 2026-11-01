@@ -15,53 +15,53 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import com.alipay.sdk.app.AlipayApi;
-import com.alipay.sdk.m.u0.c;
-import com.alipay.sdk.m.y.o;
-import l.C11073;
-import l.C14599;
-import l.C18317;
-import l.C18338;
-import l.C1900;
-import l.C19750;
-import l.C20361;
-import l.C20434;
-import l.C6839;
-import l.C7544;
-import l.C8956;
-import l.C9145;
-import l.HandlerC16716;
-import l.InterfaceC4227;
-import l.RunnableC17422;
-import l.ViewOnTouchListenerC18128;
+import com.alipay.sdk.p010m.p052u0.C0227c;
+import com.alipay.sdk.p010m.p058y.C0252o;
 import org.json.JSONObject;
+import p067l.C10880;
+import p067l.C11060;
+import p067l.C12892;
+import p067l.C16243;
+import p067l.C19777;
+import p067l.C19797;
+import p067l.C21139;
+import p067l.C21720;
+import p067l.C21789;
+import p067l.C4174;
+import p067l.C8868;
+import p067l.C9538;
+import p067l.HandlerC18255;
+import p067l.InterfaceC6386;
+import p067l.RunnableC18926;
+import p067l.ViewOnTouchListenerC19597;
 
 /* JADX INFO: compiled from: 51RR */
 /* JADX INFO: loaded from: classes.dex */
 public class AssistActivity extends Activity {
 
-    /* JADX INFO: renamed from: ۗ, reason: not valid java name and contains not printable characters */
-    public String f887;
+    /* JADX INFO: renamed from: ۗ */
+    public String f2084;
 
-    /* JADX INFO: renamed from: ۫, reason: not valid java name and contains not printable characters */
-    public boolean f890;
+    /* JADX INFO: renamed from: ۫ */
+    public boolean f2087;
 
-    /* JADX INFO: renamed from: ۬, reason: not valid java name and contains not printable characters */
-    public C14599 f891;
+    /* JADX INFO: renamed from: ۬ */
+    public C16243 f2088;
 
-    /* JADX INFO: renamed from: ᩶, reason: not valid java name and contains not printable characters */
-    public final String f892 = "openSDK_LOG.AssistActivity_" + hashCode();
+    /* JADX INFO: renamed from: ᩶ */
+    public final String f2089 = "openSDK_LOG.AssistActivity_" + hashCode();
 
-    /* JADX INFO: renamed from: ۙ, reason: not valid java name and contains not printable characters */
-    public boolean f888 = false;
+    /* JADX INFO: renamed from: ۙ */
+    public boolean f2085 = false;
 
-    /* JADX INFO: renamed from: ᩸, reason: not valid java name and contains not printable characters */
-    public boolean f893 = false;
+    /* JADX INFO: renamed from: ᩸ */
+    public boolean f2090 = false;
 
-    /* JADX INFO: renamed from: ۤ, reason: not valid java name and contains not printable characters */
-    public C1900 f889 = new C1900();
+    /* JADX INFO: renamed from: ۤ */
+    public C4174 f2086 = new C4174();
 
-    /* JADX INFO: renamed from: ᩹, reason: not valid java name and contains not printable characters */
-    public Handler f894 = new HandlerC16716(this, Looper.getMainLooper());
+    /* JADX INFO: renamed from: ᩹ */
+    public Handler f2091 = new HandlerC18255(this, Looper.getMainLooper());
 
     /* JADX WARN: Code duplicated, block: B:66:0x01a6  */
     /* JADX WARN: Code duplicated, block: B:88:0x0222  */
@@ -73,57 +73,57 @@ public class AssistActivity extends Activity {
         String str2;
         String str3;
         String str4;
-        InterfaceC4227 interfaceC4227M23093;
+        InterfaceC6386 interfaceC6386M25067;
         getWindow().addFlags(67108864);
         boolean z = true;
         requestWindowFeature(1);
-        C20434.m46833(this);
+        C21789.m49156(this);
         super.onCreate(bundle);
         String str5 = null;
-        this.f889.m6251(0);
-        boolean zM27470 = C11073.m27470(this);
-        String str6 = this.f892;
-        if (zM27470) {
-            C9145.m23516(str6, "--onCreate-- callPack: " + getCallingPackage());
+        this.f2086.m8453(0);
+        boolean zM29532 = C12892.m29532(this);
+        String str6 = this.f2089;
+        if (zM29532) {
+            C11060.m25467(str6, "--onCreate-- callPack: " + getCallingPackage());
             finish();
             return;
         }
-        this.f890 = getIntent().getBooleanExtra(C6839.f21175, false);
-        C9145.m23518(str6, "--onCreate-- mRestoreLandscape=" + this.f890);
+        this.f2087 = getIntent().getBooleanExtra(C8868.f24054, false);
+        C11060.m25469(str6, "--onCreate-- mRestoreLandscape=" + this.f2087);
         if (getIntent() == null) {
-            C9145.m23516(str6, "-->onCreate--getIntent() returns null");
+            C11060.m25467(str6, "-->onCreate--getIntent() returns null");
             finish();
         }
         Intent intent = (Intent) getIntent().getParcelableExtra("openSDK_LOG.AssistActivity.ExtraIntent");
         int intExtra = intent == null ? 0 : intent.getIntExtra("key_request_code", 0);
         str5 = "";
-        this.f887 = intent == null ? "" : intent.getStringExtra(c.d);
+        this.f2084 = intent == null ? "" : intent.getStringExtra(C0227c.f1027d);
         Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
         if (bundle != null) {
-            this.f888 = bundle.getBoolean("RESTART_FLAG");
-            this.f893 = bundle.getBoolean("RESUME_FLAG", false);
+            this.f2085 = bundle.getBoolean("RESTART_FLAG");
+            this.f2090 = bundle.getBoolean("RESUME_FLAG", false);
         }
-        if (this.f888) {
-            C9145.m23513(str6, "is restart");
+        if (this.f2085) {
+            C11060.m25464(str6, "is restart");
         } else if (bundleExtra == null) {
             PendingIntent pendingIntent = (PendingIntent) getIntent().getParcelableExtra("key_extra_pending_intent");
             if (intent != null && pendingIntent != null) {
-                C9145.m23518(str6, "--onCreate--activityIntent not null, will start activity, reqcode = " + intExtra);
+                C11060.m25469(str6, "--onCreate--activityIntent not null, will start activity, reqcode = " + intExtra);
                 try {
                     Uri data = intent.getData();
                     if (data != null) {
                         IntentFilter intentFilter = new IntentFilter("com.tencent.tauth.opensdk.SHARE_SUCCESS_AND_STAY_QQ_" + data.getQueryParameter("share_id"));
-                        if (this.f891 == null) {
-                            this.f891 = new C14599(this);
+                        if (this.f2088 == null) {
+                            this.f2088 = new C16243(this);
                         }
                         if (Build.VERSION.SDK_INT >= 33) {
-                            registerReceiver(this.f891, intentFilter, 2);
+                            registerReceiver(this.f2088, intentFilter, 2);
                         } else {
-                            registerReceiver(this.f891, intentFilter);
+                            registerReceiver(this.f2088, intentFilter);
                         }
                     }
                 } catch (Exception e) {
-                    C9145.m23514(str6, "registerReceiver exception: ", e);
+                    C11060.m25465(str6, "registerReceiver exception: ", e);
                 }
                 try {
                     try {
@@ -135,25 +135,25 @@ public class AssistActivity extends Activity {
                                 } else {
                                     startIntentSender(intentSender, null, 0, 0, 0);
                                 }
-                                m919(intent, true);
+                                m2005(intent, true);
                             } catch (ActivityNotFoundException e2) {
                                 e = e2;
-                                C9145.m23516(str6, "--onCreate--startActivity exception, ActivityNotFoundException : " + e);
-                                InterfaceC4227 interfaceC4227M23092 = C8956.m23090().m23092(intExtra);
-                                if (interfaceC4227M23092 != null) {
-                                    interfaceC4227M23092.mo3454(new C19750(-20, "手Q版本过低，请下载安装最新版手Q", str5));
+                                C11060.m25467(str6, "--onCreate--startActivity exception, ActivityNotFoundException : " + e);
+                                InterfaceC6386 interfaceC6386M25066 = C10880.m25064().m25066(intExtra);
+                                if (interfaceC6386M25066 != null) {
+                                    interfaceC6386M25066.mo5757(new C21139(-20, "手Q版本过低，请下载安装最新版手Q", str5));
                                 }
-                                m919(intent, false);
+                                m2005(intent, false);
                             }
                         } catch (Exception e3) {
                             try {
-                                C9145.m23516(str6, "--onCreate--startActivity exception: " + e3.getMessage());
-                                C9145.m23516(str6, "--onCreate--startActException");
+                                C11060.m25467(str6, "--onCreate--startActivity exception: " + e3.getMessage());
+                                C11060.m25467(str6, "--onCreate--startActException");
                                 finish();
                             } catch (Throwable th) {
                                 th = th;
                                 if (z) {
-                                    C9145.m23516(str6, "--onCreate--startActException");
+                                    C11060.m25467(str6, "--onCreate--startActException");
                                     finish();
                                 }
                                 throw th;
@@ -163,7 +163,7 @@ public class AssistActivity extends Activity {
                         th = th2;
                         z = false;
                         if (z) {
-                            C9145.m23516(str6, "--onCreate--startActException");
+                            C11060.m25467(str6, "--onCreate--startActException");
                             finish();
                         }
                         throw th;
@@ -178,16 +178,16 @@ public class AssistActivity extends Activity {
                 sb.append(intent == null);
                 sb.append(", pendingIntent is null? ");
                 sb.append(pendingIntent == null);
-                C9145.m23516(str6, sb.toString());
+                C11060.m25467(str6, sb.toString());
                 finish();
             }
         } else {
-            C9145.m23519(str6, "--onCreate--h5 bundle not null, will open browser");
+            C11060.m25470(str6, "--onCreate--h5 bundle not null, will open browser");
             String string = bundleExtra.getString("viaShareType");
             String string2 = bundleExtra.getString("callbackAction");
             String string3 = bundleExtra.getString("url");
             String string4 = bundleExtra.getString("openId");
-            String string5 = bundleExtra.getString(AlipayApi.c);
+            String string5 = bundleExtra.getString(AlipayApi.f219c);
             if ("shareToQQ".equals(string2)) {
                 str3 = "ANDROIDQQ.SHARETOQQ.XX";
                 str4 = "10";
@@ -199,33 +199,33 @@ public class AssistActivity extends Activity {
                     str = "";
                     str2 = str;
                 }
-                if (!C18338.m42740(this, string3)) {
-                    interfaceC4227M23093 = C8956.m23090().m23093(string2);
-                    if (interfaceC4227M23093 != null) {
-                        interfaceC4227M23093.mo3454(new C19750(-6, "打开浏览器失败!", null));
+                if (!C19797.m45002(this, string3)) {
+                    interfaceC6386M25067 = C10880.m25064().m25067(string2);
+                    if (interfaceC6386M25067 != null) {
+                        interfaceC6386M25067.mo5757(new C21139(-6, "打开浏览器失败!", null));
                     }
-                    C7544.m20258().getClass();
-                    C18317.m42686().m42688(C18338.m42735(string4, str, "3", str2, string5, "1", string, "", "", "0", "2", "0"), string5, false);
+                    C9538.m22234().getClass();
+                    C19777.m44948().m44950(C19797.m44997(string4, str, "3", str2, string5, "1", string, "", "", "0", "2", "0"), string5, false);
                     finish();
                 } else {
-                    C7544.m20258().getClass();
-                    C18317.m42686().m42688(C18338.m42735(string4, str, "3", str2, string5, "0", string, "", "", "0", "2", "0"), string5, false);
+                    C9538.m22234().getClass();
+                    C19777.m44948().m44950(C19797.m44997(string4, str, "3", str2, string5, "0", string, "", "", "0", "2", "0"), string5, false);
                 }
                 getIntent().removeExtra("shareH5");
             }
             str2 = str3;
             str = str4;
-            if (!C18338.m42740(this, string3)) {
-                interfaceC4227M23093 = C8956.m23090().m23093(string2);
-                if (interfaceC4227M23093 != null) {
-                    interfaceC4227M23093.mo3454(new C19750(-6, "打开浏览器失败!", null));
+            if (!C19797.m45002(this, string3)) {
+                interfaceC6386M25067 = C10880.m25064().m25067(string2);
+                if (interfaceC6386M25067 != null) {
+                    interfaceC6386M25067.mo5757(new C21139(-6, "打开浏览器失败!", null));
                 }
-                C7544.m20258().getClass();
-                C18317.m42686().m42688(C18338.m42735(string4, str, "3", str2, string5, "1", string, "", "", "0", "2", "0"), string5, false);
+                C9538.m22234().getClass();
+                C19777.m44948().m44950(C19797.m44997(string4, str, "3", str2, string5, "1", string, "", "", "0", "2", "0"), string5, false);
                 finish();
             } else {
-                C7544.m20258().getClass();
-                C18317.m42686().m42688(C18338.m42735(string4, str, "3", str2, string5, "0", string, "", "", "0", "2", "0"), string5, false);
+                C9538.m22234().getClass();
+                C19777.m44948().m44950(C19797.m44997(string4, str, "3", str2, string5, "0", string, "", "", "0", "2", "0"), string5, false);
             }
             getIntent().removeExtra("shareH5");
         }
@@ -233,94 +233,94 @@ public class AssistActivity extends Activity {
         if (viewFindViewById == null) {
             return;
         }
-        viewFindViewById.setOnTouchListener(new ViewOnTouchListenerC18128(this));
+        viewFindViewById.setOnTouchListener(new ViewOnTouchListenerC19597(this));
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    private void m919(Intent intent, boolean z) {
-        Bundle bundleExtra = intent.getBundleExtra(C6839.f21173);
+    /* JADX INFO: renamed from: ֫ */
+    private void m2005(Intent intent, boolean z) {
+        Bundle bundleExtra = intent.getBundleExtra(C8868.f24052);
         if (bundleExtra != null) {
-            bundleExtra.putString(o.c, z ? "0" : "1");
-            C18317.m42686().m42688(bundleExtra, this.f887, intent.getBooleanExtra(C6839.f21174, false));
+            bundleExtra.putString(C0252o.f1208c, z ? "0" : "1");
+            C19777.m44948().m44950(bundleExtra, this.f2084, intent.getBooleanExtra(C8868.f24053, false));
         }
     }
 
     @Override // android.app.Activity
     public final void onStart() {
-        C9145.m23518(this.f892, "-->onStart");
+        C11060.m25469(this.f2089, "-->onStart");
         super.onStart();
-        this.f889.m6251(1);
+        this.f2086.m8453(1);
     }
 
     @Override // android.app.Activity
     public final void onResume() {
-        C9145.m23518(this.f892, "-->onResume");
+        C11060.m25469(this.f2089, "-->onResume");
         super.onResume();
-        C1900 c1900 = this.f889;
-        c1900.m6251(2);
+        C4174 c4174 = this.f2086;
+        c4174.m8453(2);
         Intent intent = getIntent();
         if (intent.getBooleanExtra("is_login", false)) {
             return;
         }
-        if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.f888 && !isFinishing()) {
+        if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.f2085 && !isFinishing()) {
             finish();
         }
-        if (this.f893 && c1900.m6252()) {
-            Handler handler = this.f894;
+        if (this.f2090 && c4174.m8454()) {
+            Handler handler = this.f2091;
             handler.sendMessage(handler.obtainMessage(0));
         } else {
-            this.f893 = true;
+            this.f2090 = true;
         }
     }
 
     @Override // android.app.Activity
     public final void onPause() {
-        C9145.m23518(this.f892, "-->onPause");
-        this.f894.removeMessages(0);
+        C11060.m25469(this.f2089, "-->onPause");
+        this.f2091.removeMessages(0);
         super.onPause();
-        this.f889.m6251(3);
+        this.f2086.m8453(3);
     }
 
     @Override // android.app.Activity
     public final void onStop() {
-        String str = this.f892;
-        C9145.m23518(str, "-->onStop");
+        String str = this.f2089;
+        C11060.m25469(str, "-->onStop");
         super.onStop();
-        this.f889.m6251(4);
+        this.f2086.m8453(4);
         try {
             int intExtra = getIntent().getIntExtra("key_request_orientation", -1);
-            C9145.m23518(str, "getRequestedOrientation= " + intExtra);
+            C11060.m25469(str, "getRequestedOrientation= " + intExtra);
             if (intExtra != -1) {
                 setRequestedOrientation(intExtra);
             }
         } catch (Throwable th) {
-            C9145.m23514(str, "reset requestedOrientation catch exception", th);
+            C11060.m25465(str, "reset requestedOrientation catch exception", th);
         }
     }
 
     @Override // android.app.Activity
     public final void onDestroy() {
-        C9145.m23518(this.f892, "-->onDestroy");
+        C11060.m25469(this.f2089, "-->onDestroy");
         super.onDestroy();
-        this.f889.m6251(5);
-        C14599 c14599 = this.f891;
-        if (c14599 != null) {
-            unregisterReceiver(c14599);
+        this.f2086.m8453(5);
+        C16243 c16243 = this.f2088;
+        if (c16243 != null) {
+            unregisterReceiver(c16243);
         }
     }
 
     @Override // android.app.Activity
     public final void onNewIntent(Intent intent) {
         String str = "--onNewIntent: " + hashCode();
-        String str2 = this.f892;
-        C9145.m23518(str2, str);
+        String str2 = this.f2089;
+        C11060.m25469(str2, str);
         super.onNewIntent(intent);
-        this.f889.m6251(6);
+        this.f2086.m8453(6);
         if (intent != null) {
             intent.setFlags(intent.getFlags() & (-196));
         }
         int intExtra = intent.getIntExtra("key_request_code", -1);
-        C9145.m23518(str2, "--onNewIntent callbackRequestCode= " + intExtra);
+        C11060.m25469(str2, "--onNewIntent callbackRequestCode= " + intExtra);
         if (intExtra == 10108) {
             intent.putExtra("key_action", "action_request_avatar");
             if (intent.getBooleanExtra("stay_back_stack", false)) {
@@ -387,7 +387,7 @@ public class AssistActivity extends Activity {
             if (isFinishing()) {
                 return;
             }
-            C9145.m23518(str2, "--onNewIntent--activity not finished, finish now");
+            C11060.m25469(str2, "--onNewIntent--activity not finished, finish now");
             finish();
             return;
         }
@@ -397,7 +397,7 @@ public class AssistActivity extends Activity {
             if (isFinishing()) {
                 return;
             }
-            C9145.m23518(str2, "--onNewIntent--activity not finished, finish now");
+            C11060.m25469(str2, "--onNewIntent--activity not finished, finish now");
             finish();
             return;
         }
@@ -406,31 +406,31 @@ public class AssistActivity extends Activity {
         if (isFinishing()) {
             return;
         }
-        C9145.m23518(str2, "--onNewIntent--activity not finished, finish now");
+        C11060.m25469(str2, "--onNewIntent--activity not finished, finish now");
         finish();
     }
 
     @Override // android.app.Activity
     public final void onSaveInstanceState(Bundle bundle) {
-        C9145.m23518(this.f892, "--onSaveInstanceState--");
+        C11060.m25469(this.f2089, "--onSaveInstanceState--");
         bundle.putBoolean("RESTART_FLAG", true);
-        bundle.putBoolean("RESUME_FLAG", this.f893);
+        bundle.putBoolean("RESUME_FLAG", this.f2090);
         super.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity
     public final void onActivityResult(int i, int i2, Intent intent) {
-        StringBuilder sbM46682 = C20361.m46682("--onActivityResult--requestCode: ", i, " | resultCode: ", "data = null ? ", i2);
-        sbM46682.append(intent == null);
-        String string = sbM46682.toString();
-        String str = this.f892;
-        C9145.m23518(str, string);
+        StringBuilder sbM49005 = C21720.m49005("--onActivityResult--requestCode: ", i, " | resultCode: ", "data = null ? ", i2);
+        sbM49005.append(intent == null);
+        String string = sbM49005.toString();
+        String str = this.f2089;
+        C11060.m25469(str, string);
         super.onActivityResult(i, i2, intent);
         if (i == 0) {
             return;
         }
-        if (C11073.m27470(this)) {
-            C9145.m23516(str, "onActivityResult callPack: " + getCallingPackage());
+        if (C12892.m29532(this)) {
+            C11060.m25467(str, "onActivityResult callPack: " + getCallingPackage());
             finish();
             return;
         }
@@ -439,22 +439,22 @@ public class AssistActivity extends Activity {
         }
         Bundle extras = intent == null ? null : intent.getExtras();
         if (extras == null) {
-            C9145.m23519(str, "--setResultData--bundle is null, setResult ACTIVITY_CANCEL");
+            C11060.m25470(str, "--setResultData--bundle is null, setResult ACTIVITY_CANCEL");
             setResult(0);
             if (i == 11101) {
-                C7544 c7544M20258 = C7544.m20258();
-                String str2 = this.f887;
-                c7544M20258.getClass();
-                C7544.m20259("", str2, "2");
+                C9538 c9538M22234 = C9538.m22234();
+                String str2 = this.f2084;
+                c9538M22234.getClass();
+                C9538.m22235("", str2, "2");
             }
         } else {
             try {
                 String string2 = extras.getString("key_response");
-                C9145.m23513(str, "--setResultDataForLogin-- ");
+                C11060.m25464(str, "--setResultDataForLogin-- ");
                 Intent intent2 = new Intent();
                 intent2.putExtras(extras);
                 if (TextUtils.isEmpty(string2)) {
-                    C9145.m23519(str, "--setResultData--response is empty, setResult ACTIVITY_OK");
+                    C11060.m25470(str, "--setResultData--response is empty, setResult ACTIVITY_OK");
                     setResult(-1, intent2);
                 } else {
                     JSONObject jSONObject = new JSONObject(string2);
@@ -463,40 +463,40 @@ public class AssistActivity extends Activity {
                     String strOptString3 = jSONObject.optString("proxy_code");
                     long jOptLong = jSONObject.optLong("proxy_expires_in");
                     if (!TextUtils.isEmpty(strOptString) && !TextUtils.isEmpty(strOptString2)) {
-                        C9145.m23518(str, "--setResultData--openid and token not empty, setResult ACTIVITY_OK");
+                        C11060.m25469(str, "--setResultData--openid and token not empty, setResult ACTIVITY_OK");
                         setResult(-1, intent2);
-                        C7544 c7544M20259 = C7544.m20258();
-                        String str3 = this.f887;
-                        c7544M20259.getClass();
-                        C7544.m20259(strOptString, str3, "0");
+                        C9538 c9538M22235 = C9538.m22234();
+                        String str3 = this.f2084;
+                        c9538M22235.getClass();
+                        C9538.m22235(strOptString, str3, "0");
                     } else if (TextUtils.isEmpty(strOptString3) || jOptLong == 0) {
-                        C9145.m23519(str, "--setResultData--openid or token is empty, setResult ACTIVITY_CANCEL");
+                        C11060.m25470(str, "--setResultData--openid or token is empty, setResult ACTIVITY_CANCEL");
                         setResult(0, intent2);
-                        C7544 c7544M202510 = C7544.m20258();
-                        String str4 = this.f887;
-                        c7544M202510.getClass();
-                        C7544.m20259("", str4, "1");
+                        C9538 c9538M22236 = C9538.m22234();
+                        String str4 = this.f2084;
+                        c9538M22236.getClass();
+                        C9538.m22235("", str4, "1");
                     } else {
-                        C9145.m23518(str, "--setResultData--proxy_code and proxy_expires_in are valid");
+                        C11060.m25469(str, "--setResultData--proxy_code and proxy_expires_in are valid");
                         setResult(-1, intent2);
                     }
                 }
             } catch (Exception e) {
-                C9145.m23516(str, "--setResultData--parse response failed");
-                C9145.m23514(str, "--setResultData--parse response exception", e);
+                C11060.m25467(str, "--setResultData--parse response failed");
+                C11060.m25465(str, "--setResultData--parse response exception", e);
             }
         }
-        if (this.f890) {
-            new Handler(Looper.getMainLooper()).postDelayed(new RunnableC17422(this), 200L);
+        if (this.f2087) {
+            new Handler(Looper.getMainLooper()).postDelayed(new RunnableC18926(this), 200L);
         } else {
-            C9145.m23518(str, "onActivityResult finish immediate");
+            C11060.m25469(str, "onActivityResult finish immediate");
             finish();
         }
     }
 
     @Override // android.app.Activity
     public final void setRequestedOrientation(int i) {
-        if (C20434.m46834(this)) {
+        if (C21789.m49157(this)) {
             return;
         }
         super.setRequestedOrientation(i);

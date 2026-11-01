@@ -10,15 +10,15 @@ import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-import l.C17931;
-import l.C18637;
-import l.C19343;
-import l.C23575;
-import l.C2978;
+import p067l.C0990;
+import p067l.C19410;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SwitchMaterial extends C2978 {
-    public static final int DEF_STYLE_RES = C18637.f58428;
+public class SwitchMaterial extends C0990 {
+    public static final int DEF_STYLE_RES = C20081.f61651;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{R.attr.state_enabled, R.attr.state_checked}, new int[]{R.attr.state_enabled, -16842912}, new int[]{-16842910, R.attr.state_checked}, new int[]{-16842910, -16842912}};
     public final ElevationOverlayProvider elevationOverlayProvider;
     public ColorStateList materialThemeColorsThumbTintList;
@@ -30,7 +30,7 @@ public class SwitchMaterial extends C2978 {
     }
 
     public SwitchMaterial(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, C17931.f55704);
+        this(context, attributeSet, C19410.f58901);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -39,8 +39,8 @@ public class SwitchMaterial extends C2978 {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, i2), attributeSet, i);
         Context context2 = getContext();
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
-        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C19343.f61080, i, i2, new int[0]);
-        this.useMaterialThemeColors = typedArrayObtainStyledAttributes.getBoolean(C19343.f61823, false);
+        TypedArray typedArrayObtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, C20752.f82412, i, i2, new int[0]);
+        this.useMaterialThemeColors = typedArrayObtainStyledAttributes.getBoolean(C20752.f82665, false);
         typedArrayObtainStyledAttributes.recycle();
     }
 
@@ -72,9 +72,9 @@ public class SwitchMaterial extends C2978 {
 
     private ColorStateList getMaterialThemeColorsThumbTintList() {
         if (this.materialThemeColorsThumbTintList == null) {
-            int color = MaterialColors.getColor(this, C17931.f55377);
-            int color2 = MaterialColors.getColor(this, C17931.f55500);
-            float dimension = getResources().getDimension(C23575.f76201);
+            int color = MaterialColors.getColor(this, C19410.f58574);
+            int color2 = MaterialColors.getColor(this, C19410.f58697);
+            float dimension = getResources().getDimension(C24774.f78947);
             if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                 dimension += ViewUtils.getParentAbsoluteElevation(this);
             }
@@ -94,9 +94,9 @@ public class SwitchMaterial extends C2978 {
         if (this.materialThemeColorsTrackTintList == null) {
             int[][] iArr = ENABLED_CHECKED_STATES;
             int[] iArr2 = new int[iArr.length];
-            int color = MaterialColors.getColor(this, C17931.f55377);
-            int color2 = MaterialColors.getColor(this, C17931.f55500);
-            int color3 = MaterialColors.getColor(this, C17931.f55479);
+            int color = MaterialColors.getColor(this, C19410.f58574);
+            int color2 = MaterialColors.getColor(this, C19410.f58697);
+            int color3 = MaterialColors.getColor(this, C19410.f58676);
             iArr2[0] = MaterialColors.layer(color, color2, 0.54f);
             iArr2[1] = MaterialColors.layer(color, color3, 0.32f);
             iArr2[2] = MaterialColors.layer(color, color2, 0.12f);

@@ -3,8 +3,6 @@ package org.bouncycastle.asn1.x509;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import l.C3200;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Boolean;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
@@ -14,6 +12,8 @@ import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C5410;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509Extensions extends ASN1Object {
@@ -94,7 +94,7 @@ public class X509Extensions extends ASN1Object {
                 this.extensions.put(aSN1Sequence2.getObjectAt(0), new X509Extension(ASN1Boolean.getInstance(aSN1Sequence2.getObjectAt(1)), ASN1OctetString.getInstance(aSN1Sequence2.getObjectAt(2))));
             } else {
                 if (aSN1Sequence2.size() != 2) {
-                    throw new IllegalArgumentException(C5688.m16003(aSN1Sequence2, new StringBuilder("Bad sequence size: ")));
+                    throw new IllegalArgumentException(C7775.m17938(aSN1Sequence2, new StringBuilder("Bad sequence size: ")));
                 }
                 this.extensions.put(aSN1Sequence2.getObjectAt(0), new X509Extension(false, ASN1OctetString.getInstance(aSN1Sequence2.getObjectAt(1))));
             }
@@ -126,7 +126,7 @@ public class X509Extensions extends ASN1Object {
         if (obj instanceof ASN1TaggedObject) {
             return getInstance(ASN1TaggedObject.getInstance(obj, 128).getBaseObject().toASN1Primitive());
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 
     public static X509Extensions getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z) {

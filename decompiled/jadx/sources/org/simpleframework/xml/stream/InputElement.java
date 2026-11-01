@@ -1,6 +1,6 @@
 package org.simpleframework.xml.stream;
 
-import l.C20094;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class InputElement implements InputNode {
@@ -95,6 +95,6 @@ public class InputElement implements InputNode {
     }
 
     public String toString() {
-        return C20094.m46315("element ", getName());
+        return C21466.m48631("element ", getName());
     }
 }

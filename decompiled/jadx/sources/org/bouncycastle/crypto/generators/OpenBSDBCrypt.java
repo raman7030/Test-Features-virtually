@@ -3,16 +3,16 @@ package org.bouncycastle.crypto.generators;
 import java.io.ByteArrayOutputStream;
 import java.util.HashSet;
 import java.util.Set;
-import l.C18307;
-import l.C19370;
-import l.C20094;
-import l.C3200;
-import l.C4860;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.UTF8;
+import p067l.C19768;
+import p067l.C20778;
+import p067l.C21466;
+import p067l.C5410;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class OpenBSDBCrypt {
@@ -66,7 +66,7 @@ public class OpenBSDBCrypt {
     public static void encodeData(StringBuilder sb, byte[] bArr) {
         boolean z;
         if (bArr.length != 24 && bArr.length != 16) {
-            throw new DataLengthException(C3200.m9831(bArr.length, ", 24 for key or 16 for salt expected", new StringBuilder("Invalid length: ")));
+            throw new DataLengthException(C5410.m11876(bArr.length, ", 24 for key or 16 for salt expected", new StringBuilder("Invalid length: ")));
         }
         if (bArr.length == 16) {
             byte[] bArr2 = new byte[18];
@@ -116,13 +116,13 @@ public class OpenBSDBCrypt {
 
     public static String createBcryptString(String str, byte[] bArr, byte[] bArr2, int i) {
         if (!allowedVersions.contains(str)) {
-            throw new IllegalArgumentException(C4860.m14172("Version ", str, " is not accepted by this implementation."));
+            throw new IllegalArgumentException(C6988.m16053("Version ", str, " is not accepted by this implementation."));
         }
         StringBuilder sb = new StringBuilder(60);
         sb.append('$');
         sb.append(str);
         sb.append('$');
-        sb.append(i < 10 ? C19370.m44628(i, "0") : Integer.toString(i));
+        sb.append(i < 10 ? C20778.m46922(i, "0") : Integer.toString(i));
         sb.append('$');
         encodeData(sb, bArr2);
         encodeData(sb, BCrypt.generate(bArr, bArr2, i));
@@ -131,7 +131,7 @@ public class OpenBSDBCrypt {
 
     public static String doGenerate(String str, byte[] bArr, byte[] bArr2, int i) {
         if (!allowedVersions.contains(str)) {
-            throw new IllegalArgumentException(C4860.m14172("Version ", str, " is not accepted by this implementation."));
+            throw new IllegalArgumentException(C6988.m16053("Version ", str, " is not accepted by this implementation."));
         }
         if (bArr2 == null) {
             throw new IllegalArgumentException("Salt required.");
@@ -158,11 +158,11 @@ public class OpenBSDBCrypt {
         char[] charArray = str.toCharArray();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16);
         if (charArray.length != 22) {
-            throw new DataLengthException(C3200.m9831(charArray.length, " , 22 required.", new StringBuilder("Invalid base64 salt length: ")));
+            throw new DataLengthException(C5410.m11876(charArray.length, " , 22 required.", new StringBuilder("Invalid base64 salt length: ")));
         }
         for (char c : charArray) {
             if (c > 'z' || c < '.' || (c > '9' && c < 'A')) {
-                throw new IllegalArgumentException(C19370.m44628(c, "Salt string contains invalid character: "));
+                throw new IllegalArgumentException(C20778.m46922(c, "Salt string contains invalid character: "));
             }
         }
         char[] cArr = new char[24];
@@ -193,7 +193,7 @@ public class OpenBSDBCrypt {
         }
         int length = str.length();
         if (length != 60 && (length != 59 || str.charAt(2) != '$')) {
-            throw new DataLengthException(C18307.m42645(length, "Bcrypt String length: ", ", 60 required."));
+            throw new DataLengthException(C19768.m44906(length, "Bcrypt String length: ", ", 60 required."));
         }
         int i = 3;
         if (str.charAt(2) == '$') {
@@ -210,17 +210,17 @@ public class OpenBSDBCrypt {
             i = 4;
         }
         if (!allowedVersions.contains(strSubstring)) {
-            throw new IllegalArgumentException(C4860.m14172("Bcrypt version '", strSubstring, "' is not supported by this implementation"));
+            throw new IllegalArgumentException(C6988.m16053("Bcrypt version '", strSubstring, "' is not supported by this implementation"));
         }
         String strSubstring2 = str.substring(i, i + 2);
         try {
             int i2 = Integer.parseInt(strSubstring2);
             if (i2 < 4 || i2 > 31) {
-                throw new IllegalArgumentException(C18307.m42645(i2, "Invalid cost factor: ", ", 4 < cost < 31 expected."));
+                throw new IllegalArgumentException(C19768.m44906(i2, "Invalid cost factor: ", ", 4 < cost < 31 expected."));
             }
             return Strings.constantTimeAreEqual(str, doGenerate(strSubstring, bArr, decodeSaltString(str.substring(str.lastIndexOf(36) + 1, length - 31)), i2));
         } catch (NumberFormatException unused) {
-            throw new IllegalArgumentException(C20094.m46315("Invalid cost factor: ", strSubstring2));
+            throw new IllegalArgumentException(C21466.m48631("Invalid cost factor: ", strSubstring2));
         }
     }
 }

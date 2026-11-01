@@ -18,7 +18,9 @@ public final class BDS implements Serializable {
     public static final long serialVersionUID = 1;
     public List authenticationPath;
     public int index;
-    public int k;
+
+    /* JADX INFO: renamed from: k */
+    public int f81790k;
     public Map keep;
     public transient int maxIndex;
     public Map retain;
@@ -32,7 +34,7 @@ public final class BDS implements Serializable {
     public BDS(BDS bds) {
         this.wotsPlus = new WOTSPlus(bds.wotsPlus.getParams());
         this.treeHeight = bds.treeHeight;
-        this.k = bds.k;
+        this.f81790k = bds.f81790k;
         this.root = bds.root;
         ArrayList arrayList = new ArrayList();
         this.authenticationPath = arrayList;
@@ -58,7 +60,7 @@ public final class BDS implements Serializable {
     public BDS(BDS bds, int i, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
         this.wotsPlus = new WOTSPlus(new WOTSPlusParameters(aSN1ObjectIdentifier));
         this.treeHeight = bds.treeHeight;
-        this.k = bds.k;
+        this.f81790k = bds.f81790k;
         this.root = bds.root;
         ArrayList arrayList = new ArrayList();
         this.authenticationPath = arrayList;
@@ -85,7 +87,7 @@ public final class BDS implements Serializable {
     public BDS(BDS bds, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
         this.wotsPlus = new WOTSPlus(new WOTSPlusParameters(aSN1ObjectIdentifier));
         this.treeHeight = bds.treeHeight;
-        this.k = bds.k;
+        this.f81790k = bds.f81790k;
         this.root = bds.root;
         ArrayList arrayList = new ArrayList();
         this.authenticationPath = arrayList;
@@ -112,7 +114,7 @@ public final class BDS implements Serializable {
     public BDS(BDS bds, byte[] bArr, byte[] bArr2, OTSHashAddress oTSHashAddress) {
         this.wotsPlus = new WOTSPlus(bds.wotsPlus.getParams());
         this.treeHeight = bds.treeHeight;
-        this.k = bds.k;
+        this.f81790k = bds.f81790k;
         this.root = bds.root;
         ArrayList arrayList = new ArrayList();
         this.authenticationPath = arrayList;
@@ -140,7 +142,7 @@ public final class BDS implements Serializable {
         this.wotsPlus = wOTSPlus;
         this.treeHeight = i;
         this.maxIndex = i3;
-        this.k = i2;
+        this.f81790k = i2;
         if (i2 <= i && i2 >= 2) {
             int i4 = i - i2;
             if (i4 % 2 == 0) {
@@ -210,10 +212,10 @@ public final class BDS implements Serializable {
                 if (height == 1) {
                     this.authenticationPath.add(xMSSNodeLTree);
                 }
-                if (height == 3 && xMSSNodeLTree.getHeight() < this.treeHeight - this.k) {
+                if (height == 3 && xMSSNodeLTree.getHeight() < this.treeHeight - this.f81790k) {
                     ((BDSTreeHash) this.treeHashInstances.get(xMSSNodeLTree.getHeight())).setNode(xMSSNodeLTree);
                 }
-                if (height >= 3 && (height & 1) == 1 && xMSSNodeLTree.getHeight() >= this.treeHeight - this.k && xMSSNodeLTree.getHeight() <= this.treeHeight - 2) {
+                if (height >= 3 && (height & 1) == 1 && xMSSNodeLTree.getHeight() >= this.treeHeight - this.f81790k && xMSSNodeLTree.getHeight() <= this.treeHeight - 2) {
                     if (this.retain.get(Integer.valueOf(xMSSNodeLTree.getHeight())) == null) {
                         LinkedList linkedList = new LinkedList();
                         linkedList.add(xMSSNodeLTree);
@@ -266,7 +268,7 @@ public final class BDS implements Serializable {
             this.authenticationPath.set(iCalculateTau, new XMSSNode(xMSSNodeRandomizeHash.getHeight() + 1, xMSSNodeRandomizeHash.getValue()));
             this.keep.remove(Integer.valueOf(i2));
             for (int i3 = 0; i3 < iCalculateTau; i3++) {
-                if (i3 < this.treeHeight - this.k) {
+                if (i3 < this.treeHeight - this.f81790k) {
                     list = this.authenticationPath;
                     tailNode = ((BDSTreeHash) this.treeHashInstances.get(i3)).getTailNode();
                 } else {
@@ -275,7 +277,7 @@ public final class BDS implements Serializable {
                 }
                 list.set(i3, tailNode);
             }
-            int iMin = Math.min(iCalculateTau, this.treeHeight - this.k);
+            int iMin = Math.min(iCalculateTau, this.treeHeight - this.f81790k);
             for (int i4 = 0; i4 < iMin; i4++) {
                 int i5 = ((1 << i4) * 3) + this.index + 1;
                 if (i5 < (1 << this.treeHeight)) {
@@ -283,7 +285,7 @@ public final class BDS implements Serializable {
                 }
             }
         }
-        for (int i6 = 0; i6 < ((this.treeHeight - this.k) >> 1); i6++) {
+        for (int i6 = 0; i6 < ((this.treeHeight - this.f81790k) >> 1); i6++) {
             BDSTreeHash bDSTreeHashInstanceForUpdate = getBDSTreeHashInstanceForUpdate();
             if (bDSTreeHashInstanceForUpdate != null) {
                 bDSTreeHashInstanceForUpdate.update(this.stack, this.wotsPlus, bArr, bArr2, oTSHashAddress);

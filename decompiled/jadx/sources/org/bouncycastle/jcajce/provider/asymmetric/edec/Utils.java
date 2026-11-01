@@ -38,8 +38,8 @@ public class Utils {
         } else {
             encoded = asymmetricKeyParameter instanceof X25519PublicKeyParameters ? ((X25519PublicKeyParameters) asymmetricKeyParameter).getEncoded() : ((Ed25519PublicKeyParameters) asymmetricKeyParameter).getEncoded();
         }
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, str2, " ", str, " [");
-        ASN1BMPString$$ExternalSyntheticOutline0.m(sb, generateKeyFingerprint(encoded), "]", strLineSeparator, "    public data: ");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, str2, " ", str, " [");
+        ASN1BMPString$$ExternalSyntheticOutline0.m55303m(sb, generateKeyFingerprint(encoded), "]", strLineSeparator, "    public data: ");
         sb.append(Hex.toHexString(encoded));
         sb.append(strLineSeparator);
         return sb.toString();

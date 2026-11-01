@@ -9,10 +9,12 @@ import org.bouncycastle.util.Arrays;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HQCKEMGenerator implements EncapsulatedSecretGenerator {
-    public final SecureRandom sr;
+
+    /* JADX INFO: renamed from: sr */
+    public final SecureRandom f81628sr;
 
     public HQCKEMGenerator(SecureRandom secureRandom) {
-        this.sr = secureRandom;
+        this.f81628sr = secureRandom;
     }
 
     @Override // org.bouncycastle.crypto.EncapsulatedSecretGenerator
@@ -23,7 +25,7 @@ public class HQCKEMGenerator implements EncapsulatedSecretGenerator {
         byte[] bArr2 = new byte[hQCPublicKeyParameters.getParameters().getN_BYTES()];
         byte[] bArr3 = new byte[hQCPublicKeyParameters.getParameters().getN1N2_BYTES()];
         byte[] bArr4 = new byte[hQCPublicKeyParameters.getParameters().getSALT_SIZE_BYTES()];
-        engine.encaps(bArr2, bArr3, bArr, hQCPublicKeyParameters.getPublicKey(), bArr4, this.sr);
+        engine.encaps(bArr2, bArr3, bArr, hQCPublicKeyParameters.getPublicKey(), bArr4, this.f81628sr);
         return new SecretWithEncapsulationImpl(Arrays.copyOfRange(bArr, 0, 32), Arrays.concatenate(bArr2, bArr3, bArr4));
     }
 }

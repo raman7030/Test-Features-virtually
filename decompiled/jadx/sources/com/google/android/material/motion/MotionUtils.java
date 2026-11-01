@@ -5,10 +5,10 @@ import android.content.Context;
 import android.util.TypedValue;
 import android.view.animation.AnimationUtils;
 import com.google.android.material.resources.MaterialAttributes;
-import l.C14533;
-import l.C15472;
-import l.C20094;
-import l.C8020;
+import p067l.C1240;
+import p067l.C1563;
+import p067l.C17073;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MotionUtils {
@@ -39,13 +39,13 @@ public class MotionUtils {
     public static TimeInterpolator getLegacyThemeInterpolator(String str) {
         if (!isLegacyEasingType(str, EASING_TYPE_CUBIC_BEZIER)) {
             if (isLegacyEasingType(str, EASING_TYPE_PATH)) {
-                return C8020.m21342(C14533.m34681(getLegacyEasingContent(str, EASING_TYPE_PATH)));
+                return C1240.m23308(C1563.m36824(getLegacyEasingContent(str, EASING_TYPE_PATH)));
             }
-            throw new IllegalArgumentException(C20094.m46315("Invalid motion easing type: ", str));
+            throw new IllegalArgumentException(C21466.m48631("Invalid motion easing type: ", str));
         }
         String[] strArrSplit = getLegacyEasingContent(str, EASING_TYPE_CUBIC_BEZIER).split(",");
         if (strArrSplit.length == 4) {
-            return C8020.m21341(getLegacyControlPoint(strArrSplit, 0), getLegacyControlPoint(strArrSplit, 1), getLegacyControlPoint(strArrSplit, 2), getLegacyControlPoint(strArrSplit, 3));
+            return C1240.m23307(getLegacyControlPoint(strArrSplit, 0), getLegacyControlPoint(strArrSplit, 1), getLegacyControlPoint(strArrSplit, 2), getLegacyControlPoint(strArrSplit, 3));
         }
         throw new IllegalArgumentException("Motion easing theme attribute must have 4 control points if using bezier curve format; instead got: " + strArrSplit.length);
     }
@@ -62,7 +62,7 @@ public class MotionUtils {
     }
 
     public static String getLegacyEasingContent(String str, String str2) {
-        return C15472.m36561(1, str2.length() + 1, str);
+        return C17073.m38720(1, str2.length() + 1, str);
     }
 
     public static float getLegacyControlPoint(String[] strArr, int i) {

@@ -2,7 +2,7 @@ package org.bouncycastle.util.encoders;
 
 import com.google.android.material.color.ColorResourcesTableCreator;
 import com.google.android.material.slider.BaseSlider;
-import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.C0684bo;
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import moe.shizuku.server.IShizukuService;
 
@@ -56,7 +56,7 @@ public class UTF8 {
         fill(bArr, 72, 73, (byte) 0);
         fill(bArr, 89, 91, (byte) 16);
         fill(bArr, IShizukuService.Stub.TRANSACTION_isHidden, IShizukuService.Stub.TRANSACTION_isHidden, (byte) 16);
-        byte[] bArr3 = {0, 0, 0, 0, bo.j, 15, 15, 15, 7, 7, 7};
+        byte[] bArr3 = {0, 0, 0, 0, C0684bo.f2505j, 15, 15, 15, 7, 7, 7};
         byte[] bArr4 = {-2, -2, -2, -2, 0, S_P3A, 16, 64, S_P4A, S_CS3, S_P4B};
         for (int i = 0; i < 128; i++) {
             byte b = bArr2[i];

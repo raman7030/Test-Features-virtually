@@ -87,6 +87,6 @@ public class XMSSNodeUtil {
         for (int i2 = 0; i2 < treeDigestSize; i2++) {
             bArr[i2 + treeDigestSize] = (byte) (xMSSNode2.getValue()[i2] ^ bArrPRF3[i2]);
         }
-        return new XMSSNode(xMSSNode.getHeight(), wOTSPlus.getKhf().H(bArrPRF, bArr));
+        return new XMSSNode(xMSSNode.getHeight(), wOTSPlus.getKhf().m55435H(bArrPRF, bArr));
     }
 }

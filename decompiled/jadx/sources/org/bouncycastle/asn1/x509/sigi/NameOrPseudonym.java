@@ -1,8 +1,6 @@
 package org.bouncycastle.asn1.x509.sigi;
 
 import java.util.Enumeration;
-import l.C3200;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
@@ -10,6 +8,8 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1String;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.x500.DirectoryString;
+import p067l.C5410;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class NameOrPseudonym extends ASN1Object implements ASN1Choice {
@@ -23,7 +23,7 @@ public class NameOrPseudonym extends ASN1Object implements ASN1Choice {
 
     public NameOrPseudonym(ASN1Sequence aSN1Sequence) {
         if (aSN1Sequence.size() != 2) {
-            throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+            throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
         }
         if (aSN1Sequence.getObjectAt(0) instanceof ASN1String) {
             this.surname = DirectoryString.getInstance(aSN1Sequence.getObjectAt(0));
@@ -77,6 +77,6 @@ public class NameOrPseudonym extends ASN1Object implements ASN1Choice {
         if (obj instanceof ASN1Sequence) {
             return new NameOrPseudonym((ASN1Sequence) obj);
         }
-        throw new IllegalArgumentException(C3200.m9832(obj, "illegal object in getInstance: "));
+        throw new IllegalArgumentException(C5410.m11877(obj, "illegal object in getInstance: "));
     }
 }

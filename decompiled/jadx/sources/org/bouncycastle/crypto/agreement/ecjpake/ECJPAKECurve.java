@@ -1,21 +1,23 @@
 package org.bouncycastle.crypto.agreement.ecjpake;
 
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECCurve;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECJPAKECurve {
     public final ECCurve.AbstractFp curve;
-    public final ECPoint g;
+
+    /* JADX INFO: renamed from: g */
+    public final ECPoint f80740g;
 
     public ECJPAKECurve(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3, BigInteger bigInteger4, BigInteger bigInteger5, BigInteger bigInteger6, BigInteger bigInteger7) {
-        ECJPAKEUtil.validateNotNull(bigInteger2, am.av);
+        ECJPAKEUtil.validateNotNull(bigInteger2, C0655am.f2320av);
         ECJPAKEUtil.validateNotNull(bigInteger3, "b");
         ECJPAKEUtil.validateNotNull(bigInteger, "q");
         ECJPAKEUtil.validateNotNull(bigInteger4, "n");
-        ECJPAKEUtil.validateNotNull(bigInteger5, am.aG);
+        ECJPAKEUtil.validateNotNull(bigInteger5, C0655am.f2279aG);
         ECJPAKEUtil.validateNotNull(bigInteger6, "g_x");
         ECJPAKEUtil.validateNotNull(bigInteger7, "g_y");
         if (!bigInteger.isProbablePrime(20)) {
@@ -34,18 +36,18 @@ public class ECJPAKECurve {
         if (!bigInteger4.isProbablePrime(20)) {
             throw new IllegalArgumentException("The order n must be prime");
         }
-        ECCurve.Fp fp = new ECCurve.Fp(bigInteger, bigInteger2, bigInteger3, bigInteger4, bigInteger5);
-        this.curve = fp;
-        this.g = fp.validatePoint(bigInteger6, bigInteger7);
+        ECCurve.C2315Fp c2315Fp = new ECCurve.C2315Fp(bigInteger, bigInteger2, bigInteger3, bigInteger4, bigInteger5);
+        this.curve = c2315Fp;
+        this.f80740g = c2315Fp.validatePoint(bigInteger6, bigInteger7);
     }
 
     public ECJPAKECurve(ECCurve.AbstractFp abstractFp, ECPoint eCPoint) {
         ECJPAKEUtil.validateNotNull(abstractFp, "curve");
         ECJPAKEUtil.validateNotNull(eCPoint, "g");
         ECJPAKEUtil.validateNotNull(abstractFp.getOrder(), "n");
-        ECJPAKEUtil.validateNotNull(abstractFp.getCofactor(), am.aG);
+        ECJPAKEUtil.validateNotNull(abstractFp.getCofactor(), C0655am.f2279aG);
         this.curve = abstractFp;
-        this.g = eCPoint;
+        this.f80740g = eCPoint;
     }
 
     public static BigInteger calculateDeterminant(BigInteger bigInteger, BigInteger bigInteger2, BigInteger bigInteger3) {
@@ -65,7 +67,7 @@ public class ECJPAKECurve {
     }
 
     public ECPoint getG() {
-        return this.g;
+        return this.f80740g;
     }
 
     public BigInteger getH() {

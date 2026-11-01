@@ -31,7 +31,9 @@ public class BCGOST3410PrivateKey implements GOST3410PrivateKey, PKCS12BagAttrib
     public static final long serialVersionUID = 8581661527592305464L;
     public transient PKCS12BagAttributeCarrier attrCarrier = new PKCS12BagAttributeCarrierImpl();
     public transient GOST3410Params gost3410Spec;
-    public BigInteger x;
+
+    /* JADX INFO: renamed from: x */
+    public BigInteger f81349x;
 
     public BCGOST3410PrivateKey() {
     }
@@ -50,12 +52,12 @@ public class BCGOST3410PrivateKey implements GOST3410PrivateKey, PKCS12BagAttrib
             }
             bigInteger = new BigInteger(1, bArr);
         }
-        this.x = bigInteger;
+        this.f81349x = bigInteger;
         this.gost3410Spec = GOST3410ParameterSpec.fromPublicKeyAlg(gOST3410PublicKeyAlgParameters);
     }
 
     public BCGOST3410PrivateKey(GOST3410PrivateKeyParameters gOST3410PrivateKeyParameters, GOST3410ParameterSpec gOST3410ParameterSpec) {
-        this.x = gOST3410PrivateKeyParameters.getX();
+        this.f81349x = gOST3410PrivateKeyParameters.getX();
         this.gost3410Spec = gOST3410ParameterSpec;
         if (gOST3410ParameterSpec == null) {
             throw new IllegalArgumentException("spec is null");
@@ -63,12 +65,12 @@ public class BCGOST3410PrivateKey implements GOST3410PrivateKey, PKCS12BagAttrib
     }
 
     public BCGOST3410PrivateKey(GOST3410PrivateKey gOST3410PrivateKey) {
-        this.x = gOST3410PrivateKey.getX();
+        this.f81349x = gOST3410PrivateKey.getX();
         this.gost3410Spec = gOST3410PrivateKey.getParameters();
     }
 
     public BCGOST3410PrivateKey(GOST3410PrivateKeySpec gOST3410PrivateKeySpec) {
-        this.x = gOST3410PrivateKeySpec.getX();
+        this.f81349x = gOST3410PrivateKeySpec.getX();
         this.gost3410Spec = new GOST3410ParameterSpec(new GOST3410PublicKeyParameterSetSpec(gOST3410PrivateKeySpec.getP(), gOST3410PrivateKeySpec.getQ(), gOST3410PrivateKeySpec.getA()));
     }
 
@@ -160,7 +162,7 @@ public class BCGOST3410PrivateKey implements GOST3410PrivateKey, PKCS12BagAttrib
 
     @Override // org.bouncycastle.jce.interfaces.GOST3410PrivateKey
     public BigInteger getX() {
-        return this.x;
+        return this.f81349x;
     }
 
     @Override // org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier
@@ -184,7 +186,7 @@ public class BCGOST3410PrivateKey implements GOST3410PrivateKey, PKCS12BagAttrib
 
     public String toString() {
         try {
-            return GOSTUtil.privateKeyToString("GOST3410", this.x, ((GOST3410PrivateKeyParameters) GOST3410Util.generatePrivateKeyParameter(this)).getParameters());
+            return GOSTUtil.privateKeyToString("GOST3410", this.f81349x, ((GOST3410PrivateKeyParameters) GOST3410Util.generatePrivateKeyParameter(this)).getParameters());
         } catch (InvalidKeyException e) {
             throw new IllegalStateException(e.getMessage());
         }

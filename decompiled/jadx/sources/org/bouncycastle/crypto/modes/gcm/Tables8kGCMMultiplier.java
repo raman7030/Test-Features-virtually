@@ -5,24 +5,28 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Tables8kGCMMultiplier implements GCMMultiplier {
-    public byte[] H;
-    public long[][][] T;
+
+    /* JADX INFO: renamed from: H */
+    public byte[] f81208H;
+
+    /* JADX INFO: renamed from: T */
+    public long[][][] f81209T;
 
     @Override // org.bouncycastle.crypto.modes.gcm.GCMMultiplier
     public void init(byte[] bArr) {
-        if (this.T == null) {
-            this.T = (long[][][]) Array.newInstance((Class<?>) Long.TYPE, 2, 256, 2);
-        } else if (GCMUtil.areEqual(this.H, bArr) != 0) {
+        if (this.f81209T == null) {
+            this.f81209T = (long[][][]) Array.newInstance((Class<?>) Long.TYPE, 2, 256, 2);
+        } else if (GCMUtil.areEqual(this.f81208H, bArr) != 0) {
             return;
         }
         byte[] bArr2 = new byte[16];
-        this.H = bArr2;
+        this.f81208H = bArr2;
         GCMUtil.copy(bArr, bArr2);
         for (int i = 0; i < 2; i++) {
-            long[][][] jArr = this.T;
+            long[][][] jArr = this.f81209T;
             long[][] jArr2 = jArr[i];
             if (i == 0) {
-                GCMUtil.asLongs(this.H, jArr2[1]);
+                GCMUtil.asLongs(this.f81208H, jArr2[1]);
                 long[] jArr3 = jArr2[1];
                 GCMUtil.multiplyP7(jArr3, jArr3);
             } else {
@@ -37,7 +41,7 @@ public class Tables8kGCMMultiplier implements GCMMultiplier {
 
     @Override // org.bouncycastle.crypto.modes.gcm.GCMMultiplier
     public void multiplyH(byte[] bArr) {
-        long[][][] jArr = this.T;
+        long[][][] jArr = this.f81209T;
         long[][] jArr2 = jArr[0];
         long[][] jArr3 = jArr[1];
         long[] jArr4 = jArr2[bArr[14] & 255];

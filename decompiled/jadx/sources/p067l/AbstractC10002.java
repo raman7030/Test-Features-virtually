@@ -1,0 +1,9 @@
+package p067l;
+
+/* JADX INFO: renamed from: l.۠۟ܺ, reason: contains not printable characters */
+/* JADX INFO: compiled from: XAXR */
+/* JADX INFO: loaded from: classes3.dex */
+public abstract class AbstractC10002 {
+    /* JADX INFO: renamed from: ֫ */
+    public abstract int mo5745();
+}

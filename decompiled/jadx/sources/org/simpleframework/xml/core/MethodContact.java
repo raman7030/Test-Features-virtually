@@ -2,7 +2,7 @@ package org.simpleframework.xml.core;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
-import l.C4860;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MethodContact implements Contact {
@@ -100,6 +100,6 @@ public class MethodContact implements Contact {
 
     @Override // org.simpleframework.xml.core.Contact, org.simpleframework.xml.strategy.Type
     public String toString() {
-        return C4860.m14172("method '", this.name, "'");
+        return C6988.m16053("method '", this.name, "'");
     }
 }

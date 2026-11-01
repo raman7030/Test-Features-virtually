@@ -4,17 +4,17 @@ import java.io.IOException;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
+import org.bouncycastle.asn1.p073x9.ECNamedCurveTable;
+import org.bouncycastle.asn1.p073x9.X962Parameters;
+import org.bouncycastle.asn1.p073x9.X9ECParameters;
+import org.bouncycastle.asn1.p073x9.X9ECParametersHolder;
+import org.bouncycastle.asn1.p073x9.X9ECPoint;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECParametersHolder;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.crypto.p074ec.CustomNamedCurves;
+import org.bouncycastle.math.p080ec.ECCurve;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECKeyUtil {
@@ -67,7 +67,7 @@ public class ECKeyUtil {
             try {
                 return new SubjectPublicKeyInfo(subjectPublicKeyInfo.getAlgorithm(), ASN1OctetString.getInstance(new X9ECPoint(curve.decodePoint(subjectPublicKeyInfo.getPublicKeyData().getOctets()), true).toASN1Primitive()).getOctets()).getEncoded();
             } catch (IOException e) {
-                throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to encode EC public key: ")));
+                throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to encode EC public key: ")));
             }
         }
     }

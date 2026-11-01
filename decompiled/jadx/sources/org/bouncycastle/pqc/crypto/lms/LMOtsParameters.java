@@ -27,12 +27,20 @@ public class LMOtsParameters {
     public static final LMOtsParameters shake256_n32_w8;
     public static final Map suppliers;
     public final ASN1ObjectIdentifier digestOID;
-    public final int ls;
-    public final int n;
-    public final int p;
+
+    /* JADX INFO: renamed from: ls */
+    public final int f81636ls;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81637n;
+
+    /* JADX INFO: renamed from: p */
+    public final int f81638p;
     public final int sigLen;
     public final int type;
-    public final int w;
+
+    /* JADX INFO: renamed from: w */
+    public final int f81639w;
 
     static {
         ASN1ObjectIdentifier aSN1ObjectIdentifier = NISTObjectIdentifiers.id_sha256;
@@ -93,10 +101,10 @@ public class LMOtsParameters {
 
     public LMOtsParameters(int i, int i2, int i3, int i4, int i5, int i6, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
         this.type = i;
-        this.n = i2;
-        this.w = i3;
-        this.p = i4;
-        this.ls = i5;
+        this.f81637n = i2;
+        this.f81639w = i3;
+        this.f81638p = i4;
+        this.f81636ls = i5;
         this.sigLen = i6;
         this.digestOID = aSN1ObjectIdentifier;
     }
@@ -110,15 +118,15 @@ public class LMOtsParameters {
     }
 
     public int getLs() {
-        return this.ls;
+        return this.f81636ls;
     }
 
     public int getN() {
-        return this.n;
+        return this.f81637n;
     }
 
     public int getP() {
-        return this.p;
+        return this.f81638p;
     }
 
     public int getSigLen() {
@@ -130,6 +138,6 @@ public class LMOtsParameters {
     }
 
     public int getW() {
-        return this.w;
+        return this.f81639w;
     }
 }

@@ -5,14 +5,20 @@ import org.bouncycastle.pqc.crypto.KEMParameters;
 /* JADX INFO: loaded from: classes2.dex */
 public class SNTRUPrimeParameters implements KEMParameters {
     public final String name;
-    public final int p;
+
+    /* JADX INFO: renamed from: p */
+    public final int f81690p;
     public final int privateKeyBytes;
     public final int publicKeyBytes;
-    public final int q;
+
+    /* JADX INFO: renamed from: q */
+    public final int f81691q;
     public final int roundedPolynomialBytes;
     public final int rqPolynomialBytes;
     public final int sharedKeyBytes;
-    public final int w;
+
+    /* JADX INFO: renamed from: w */
+    public final int f81692w;
     public static final SNTRUPrimeParameters sntrup653 = new SNTRUPrimeParameters("sntrup653", 653, 4621, 288, 994, 865, 994, 1518, 32);
     public static final SNTRUPrimeParameters sntrup761 = new SNTRUPrimeParameters("sntrup761", 761, 4591, 286, 1158, 1007, 1158, 1763, 32);
     public static final SNTRUPrimeParameters sntrup857 = new SNTRUPrimeParameters("sntrup857", 857, 5167, 322, 1322, 1152, 1322, 1999, 32);
@@ -22,9 +28,9 @@ public class SNTRUPrimeParameters implements KEMParameters {
 
     public SNTRUPrimeParameters(String str, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         this.name = str;
-        this.p = i;
-        this.q = i2;
-        this.w = i3;
+        this.f81690p = i;
+        this.f81691q = i2;
+        this.f81692w = i3;
         this.rqPolynomialBytes = i4;
         this.roundedPolynomialBytes = i5;
         this.publicKeyBytes = i6;
@@ -37,7 +43,7 @@ public class SNTRUPrimeParameters implements KEMParameters {
     }
 
     public int getP() {
-        return this.p;
+        return this.f81690p;
     }
 
     public int getPrivateKeyBytes() {
@@ -49,7 +55,7 @@ public class SNTRUPrimeParameters implements KEMParameters {
     }
 
     public int getQ() {
-        return this.q;
+        return this.f81691q;
     }
 
     public int getRoundedPolynomialBytes() {
@@ -65,6 +71,6 @@ public class SNTRUPrimeParameters implements KEMParameters {
     }
 
     public int getW() {
-        return this.w;
+        return this.f81692w;
     }
 }

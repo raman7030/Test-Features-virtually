@@ -50,7 +50,7 @@ public abstract class AsconXofBase extends AsconBaseDigest implements Xof {
     @Override // org.bouncycastle.crypto.digests.AsconBaseDigest
     public void padAndAbsorb() {
         if (this.m_squeezing) {
-            this.p.p(this.ASCON_PB_ROUNDS);
+            this.f80789p.m55366p(this.ASCON_PB_ROUNDS);
         } else {
             this.m_squeezing = true;
             super.padAndAbsorb();

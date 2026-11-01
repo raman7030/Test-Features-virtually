@@ -3,11 +3,11 @@ package com.google.android.material.appbar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import l.AbstractC6317;
-import l.C18333;
+import p067l.AbstractC1155;
+import p067l.C1751;
 
 /* JADX INFO: loaded from: classes.dex */
-public class ViewOffsetBehavior extends AbstractC6317 {
+public class ViewOffsetBehavior extends AbstractC1155 {
     public int tempLeftRightOffset;
     public int tempTopBottomOffset;
     public ViewOffsetHelper viewOffsetHelper;
@@ -23,9 +23,9 @@ public class ViewOffsetBehavior extends AbstractC6317 {
         this.tempLeftRightOffset = 0;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onLayoutChild(C18333 c18333, View view, int i) {
-        layoutChild(c18333, view, i);
+    @Override // p067l.AbstractC1155
+    public boolean onLayoutChild(C1751 c1751, View view, int i) {
+        layoutChild(c1751, view, i);
         if (this.viewOffsetHelper == null) {
             this.viewOffsetHelper = new ViewOffsetHelper(view);
         }
@@ -45,8 +45,8 @@ public class ViewOffsetBehavior extends AbstractC6317 {
         return true;
     }
 
-    public void layoutChild(C18333 c18333, View view, int i) {
-        c18333.onLayoutChild(view, i);
+    public void layoutChild(C1751 c1751, View view, int i) {
+        c1751.onLayoutChild(view, i);
     }
 
     public boolean setTopAndBottomOffset(int i) {

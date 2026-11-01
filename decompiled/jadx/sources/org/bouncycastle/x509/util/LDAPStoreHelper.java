@@ -25,12 +25,6 @@ import javax.naming.directory.InitialDirContext;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 import javax.security.auth.x500.X500Principal;
-import l.C15472;
-import l.C20087;
-import l.C4860;
-import l.C5127;
-import l.C7166;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.x509.Certificate;
 import org.bouncycastle.asn1.x509.CertificatePair;
@@ -47,6 +41,12 @@ import org.bouncycastle.x509.X509CRLStoreSelector;
 import org.bouncycastle.x509.X509CertPairStoreSelector;
 import org.bouncycastle.x509.X509CertStoreSelector;
 import org.bouncycastle.x509.X509CertificatePair;
+import p067l.C10965;
+import p067l.C17073;
+import p067l.C21459;
+import p067l.C6988;
+import p067l.C7241;
+import p067l.C9179;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LDAPStoreHelper {
@@ -345,7 +345,7 @@ public class LDAPStoreHelper {
         }
         if (name != null) {
             for (String str : strArr3) {
-                arrayList.addAll(search(strArr2, C4860.m14172("*", parseDN(name, str), "*"), strArr));
+                arrayList.addAll(search(strArr2, C6988.m16053("*", parseDN(name, str), "*"), strArr));
             }
         }
         if (hashSet.size() > 0 && this.params.getSearchForSerialNumberIn() != null) {
@@ -381,7 +381,7 @@ public class LDAPStoreHelper {
         while (it.hasNext()) {
             name = ((X500Principal) it.next()).getName("RFC1779");
             for (String str : strArr3) {
-                arrayList.addAll(search(strArr2, C4860.m14172("*", parseDN(name, str), "*"), strArr));
+                arrayList.addAll(search(strArr2, C6988.m16053("*", parseDN(name, str), "*"), strArr));
             }
         }
         if (name == null) {
@@ -400,7 +400,7 @@ public class LDAPStoreHelper {
         }
         if (subjectAsString != null) {
             for (String str : strArr3) {
-                arrayList.addAll(search(strArr2, C4860.m14172("*", parseDN(subjectAsString, str), "*"), strArr));
+                arrayList.addAll(search(strArr2, C6988.m16053("*", parseDN(subjectAsString, str), "*"), strArr));
             }
         }
         if (string != null && this.params.getSearchForSerialNumberIn() != null) {
@@ -420,7 +420,7 @@ public class LDAPStoreHelper {
         }
         if (subjectAsString != null) {
             for (String str : strArr3) {
-                arrayList.addAll(search(strArr2, C4860.m14172("*", parseDN(subjectAsString, str), "*"), strArr));
+                arrayList.addAll(search(strArr2, C6988.m16053("*", parseDN(subjectAsString, str), "*"), strArr));
             }
         }
         if (subjectAsString == null) {
@@ -437,7 +437,7 @@ public class LDAPStoreHelper {
             }
             return null;
         } catch (IOException e) {
-            throw new StoreException(C5127.m14678(e, new StringBuilder("exception processing name: ")), e);
+            throw new StoreException(C7241.m16586(e, new StringBuilder("exception processing name: ")), e);
         }
     }
 
@@ -464,41 +464,41 @@ public class LDAPStoreHelper {
             if (strSubstring3.startsWith("\"")) {
                 strSubstring3 = strSubstring3.substring(1);
             }
-            return strSubstring3.endsWith("\"") ? C15472.m36561(1, 0, strSubstring3) : strSubstring3;
+            return strSubstring3.endsWith("\"") ? C17073.m38720(1, 0, strSubstring3) : strSubstring3;
         }
         length = strSubstring.length();
     }
 
     private List search(String[] strArr, String str, String[] strArr2) {
-        String strM14172;
+        String strM16053;
         DirContext dirContextConnectLDAP = null;
         if (strArr == null) {
-            strM14172 = null;
+            strM16053 = null;
         } else {
             if (str.equals("**")) {
                 str = "*";
             }
             String string = "";
             for (String str2 : strArr) {
-                StringBuilder sbM19190 = C7166.m19190(string, MotionUtils.EASING_TYPE_FORMAT_START);
-                sbM19190.append(str2);
-                sbM19190.append("=");
-                sbM19190.append(str);
-                sbM19190.append(MotionUtils.EASING_TYPE_FORMAT_END);
-                string = sbM19190.toString();
+                StringBuilder sbM21133 = C9179.m21133(string, MotionUtils.EASING_TYPE_FORMAT_START);
+                sbM21133.append(str2);
+                sbM21133.append("=");
+                sbM21133.append(str);
+                sbM21133.append(MotionUtils.EASING_TYPE_FORMAT_END);
+                string = sbM21133.toString();
             }
-            strM14172 = C4860.m14172("(|", string, MotionUtils.EASING_TYPE_FORMAT_END);
+            strM16053 = C6988.m16053("(|", string, MotionUtils.EASING_TYPE_FORMAT_END);
         }
-        String strM23341 = "";
+        String strM25286 = "";
         for (String str3 : strArr2) {
-            strM23341 = C9045.m23341(C7166.m19190(strM23341, MotionUtils.EASING_TYPE_FORMAT_START), str3, "=*)");
+            strM25286 = C10965.m25286(C9179.m21133(strM25286, MotionUtils.EASING_TYPE_FORMAT_START), str3, "=*)");
         }
-        String strM14173 = C4860.m14172("(|", strM23341, MotionUtils.EASING_TYPE_FORMAT_END);
-        String strM46306 = C20087.m46306("(&", strM14172, "", strM14173, MotionUtils.EASING_TYPE_FORMAT_END);
-        if (strM14172 != null) {
-            strM14173 = strM46306;
+        String strM16054 = C6988.m16053("(|", strM25286, MotionUtils.EASING_TYPE_FORMAT_END);
+        String strM48622 = C21459.m48622("(&", strM16053, "", strM16054, MotionUtils.EASING_TYPE_FORMAT_END);
+        if (strM16053 != null) {
+            strM16054 = strM48622;
         }
-        List fromCache = getFromCache(strM14173);
+        List fromCache = getFromCache(strM16054);
         if (fromCache != null) {
             return fromCache;
         }
@@ -510,14 +510,14 @@ public class LDAPStoreHelper {
                 searchControls.setSearchScope(2);
                 searchControls.setCountLimit(0L);
                 searchControls.setReturningAttributes(strArr2);
-                NamingEnumeration namingEnumerationSearch = dirContextConnectLDAP.search(this.params.getBaseDN(), strM14173, searchControls);
+                NamingEnumeration namingEnumerationSearch = dirContextConnectLDAP.search(this.params.getBaseDN(), strM16054, searchControls);
                 while (namingEnumerationSearch.hasMoreElements()) {
                     NamingEnumeration all = ((Attribute) ((SearchResult) namingEnumerationSearch.next()).getAttributes().getAll().next()).getAll();
                     while (all.hasMore()) {
                         arrayList.add(all.next());
                     }
                 }
-                addToCache(strM14173, arrayList);
+                addToCache(strM16054, arrayList);
                 dirContextConnectLDAP.close();
                 return arrayList;
             } catch (Exception unused) {

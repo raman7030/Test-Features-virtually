@@ -8,10 +8,12 @@ import org.bouncycastle.pqc.crypto.util.SecretWithEncapsulationImpl;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class CMCEKEMGenerator implements EncapsulatedSecretGenerator {
-    public final SecureRandom sr;
+
+    /* JADX INFO: renamed from: sr */
+    public final SecureRandom f81581sr;
 
     public CMCEKEMGenerator(SecureRandom secureRandom) {
-        this.sr = secureRandom;
+        this.f81581sr = secureRandom;
     }
 
     @Override // org.bouncycastle.crypto.EncapsulatedSecretGenerator
@@ -24,7 +26,7 @@ public class CMCEKEMGenerator implements EncapsulatedSecretGenerator {
         CMCEEngine engine = cMCEPublicKeyParameters.getParameters().getEngine();
         byte[] bArr = new byte[engine.getCipherTextSize()];
         byte[] bArr2 = new byte[i / 8];
-        engine.kem_enc(bArr, bArr2, cMCEPublicKeyParameters.getPublicKey(), this.sr);
+        engine.kem_enc(bArr, bArr2, cMCEPublicKeyParameters.getPublicKey(), this.f81581sr);
         return new SecretWithEncapsulationImpl(bArr2, bArr);
     }
 }

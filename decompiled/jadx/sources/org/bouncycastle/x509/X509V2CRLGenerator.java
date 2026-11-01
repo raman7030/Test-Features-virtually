@@ -15,7 +15,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C16014;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1GeneralizedTime;
@@ -39,6 +38,7 @@ import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.provider.X509CRLObject;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class X509V2CRLGenerator {
@@ -193,7 +193,7 @@ public class X509V2CRLGenerator {
         try {
             this.tbsGen.setIssuer(new X509Principal(x500Principal.getEncoded()));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't process principal: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't process principal: ", e));
         }
     }
 

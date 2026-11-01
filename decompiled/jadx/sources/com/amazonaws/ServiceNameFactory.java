@@ -7,12 +7,12 @@ import com.amazonaws.internal.config.InternalConfig;
 public enum ServiceNameFactory {
     ;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m201(String str) {
-        HttpClientConfig httpClientConfigM286 = InternalConfig.Factory.m289().m286(str);
-        if (httpClientConfigM286 == null) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1367(String str) {
+        HttpClientConfig httpClientConfigM1452 = InternalConfig.Factory.m1455().m1452(str);
+        if (httpClientConfigM1452 == null) {
             return null;
         }
-        return httpClientConfigM286.m285();
+        return httpClientConfigM1452.m1451();
     }
 }

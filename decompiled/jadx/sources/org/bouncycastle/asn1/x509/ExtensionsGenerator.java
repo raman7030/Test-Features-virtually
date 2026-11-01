@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.Vector;
-import l.C12803;
-import l.C20195;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -17,6 +15,8 @@ import org.bouncycastle.asn1.ASN1ParsingException;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C14536;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ExtensionsGenerator {
@@ -30,7 +30,7 @@ public class ExtensionsGenerator {
         hashSet.add(Extension.issuerAlternativeName);
         hashSet.add(Extension.subjectDirectoryAttributes);
         hashSet.add(Extension.certificateIssuer);
-        dupsAllowed = C20195.unmodifiableSet(hashSet);
+        dupsAllowed = C21562.unmodifiableSet(hashSet);
     }
 
     private void implAddExtension(Extension extension) {
@@ -121,7 +121,7 @@ public class ExtensionsGenerator {
     private void implAddExtensionDup(Extension extension, boolean z, byte[] bArr) {
         ASN1ObjectIdentifier extnId = extension.getExtnId();
         if (!dupsAllowed.contains(extnId)) {
-            throw new IllegalArgumentException(C12803.m31105("extension ", extnId, " already added"));
+            throw new IllegalArgumentException(C14536.m33190("extension ", extnId, " already added"));
         }
         ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(ASN1OctetString.getInstance(extension.getExtnValue()).getOctets());
         ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(bArr);
@@ -143,7 +143,7 @@ public class ExtensionsGenerator {
 
     public void removeExtension(ASN1ObjectIdentifier aSN1ObjectIdentifier) {
         if (!hasExtension(aSN1ObjectIdentifier)) {
-            throw new IllegalArgumentException(C12803.m31105("extension ", aSN1ObjectIdentifier, " not present"));
+            throw new IllegalArgumentException(C14536.m33190("extension ", aSN1ObjectIdentifier, " not present"));
         }
         this.extOrdering.removeElement(aSN1ObjectIdentifier);
         this.extensions.remove(aSN1ObjectIdentifier);

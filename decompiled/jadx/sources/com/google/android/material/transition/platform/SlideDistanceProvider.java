@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import l.C17648;
-import l.C19370;
-import l.C23575;
+import p067l.C1717;
+import p067l.C20778;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
@@ -59,7 +59,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     private int getSlideDistanceOrDefault(Context context) {
         int i = this.slideDistance;
-        return i != -1 ? i : context.getResources().getDimensionPixelSize(C23575.f76438);
+        return i != -1 ? i : context.getResources().getDimensionPixelSize(C24774.f79184);
     }
 
     public static Animator createTranslationAppearAnimator(View view, View view2, int i, int i2) {
@@ -83,7 +83,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         if (i == 8388613) {
             return createTranslationXAnimator(view2, isRtl(view) ? translationX - i2 : i2 + translationX, translationX, translationX);
         }
-        throw new IllegalArgumentException(C19370.m44628(i, "Invalid slide direction: "));
+        throw new IllegalArgumentException(C20778.m46922(i, "Invalid slide direction: "));
     }
 
     public static Animator createTranslationDisappearAnimator(View view, View view2, int i, int i2) {
@@ -107,7 +107,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         if (i == 8388613) {
             return createTranslationXAnimator(view2, translationX, isRtl(view) ? i2 + translationX : translationX - i2, translationX);
         }
-        throw new IllegalArgumentException(C19370.m44628(i, "Invalid slide direction: "));
+        throw new IllegalArgumentException(C20778.m46922(i, "Invalid slide direction: "));
     }
 
     public static Animator createTranslationXAnimator(final View view, float f, float f2, final float f3) {
@@ -133,7 +133,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     }
 
     public static boolean isRtl(View view) {
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         return view.getLayoutDirection() == 1;
     }
 }

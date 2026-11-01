@@ -35,7 +35,9 @@ public class KeyPurposeId extends ASN1Object {
     public static final KeyPurposeId id_kp_serverAuth;
     public static final KeyPurposeId id_kp_smartcardlogon;
     public static final KeyPurposeId id_kp_timeStamping;
-    public ASN1ObjectIdentifier id;
+
+    /* JADX INFO: renamed from: id */
+    public ASN1ObjectIdentifier f80711id;
 
     static {
         ASN1ObjectIdentifier aSN1ObjectIdentifier = new ASN1ObjectIdentifier("1.3.6.1.5.5.7.3");
@@ -70,7 +72,7 @@ public class KeyPurposeId extends ASN1Object {
     }
 
     public KeyPurposeId(ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-        this.id = aSN1ObjectIdentifier;
+        this.f80711id = aSN1ObjectIdentifier;
     }
 
     public static KeyPurposeId getInstance(Object obj) {
@@ -84,19 +86,19 @@ public class KeyPurposeId extends ASN1Object {
     }
 
     public String getId() {
-        return this.id.getId();
+        return this.f80711id.getId();
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
-        return this.id;
+        return this.f80711id;
     }
 
     public ASN1ObjectIdentifier toOID() {
-        return this.id;
+        return this.f80711id;
     }
 
     public String toString() {
-        return this.id.toString();
+        return this.f80711id.toString();
     }
 }

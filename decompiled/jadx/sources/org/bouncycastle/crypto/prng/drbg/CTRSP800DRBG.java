@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.prng.drbg;
 
-import com.umeng.analytics.pro.bo;
+import com.umeng.analytics.pro.C0684bo;
 import com.umeng.commonsdk.statistics.UMErrorCode;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
@@ -20,7 +20,9 @@ public class CTRSP800DRBG implements SP80090DRBG {
     public static final int TDEA_MAX_BITS_REQUEST = 4096;
     public static final long TDEA_RESEED_MAX = 2147483648L;
     public byte[] _Key;
-    public byte[] _V;
+
+    /* JADX INFO: renamed from: _V */
+    public byte[] f81301_V;
     public BlockCipher _engine;
     public EntropySource _entropySource;
     public boolean _isTDEA;
@@ -122,13 +124,13 @@ public class CTRSP800DRBG implements SP80090DRBG {
         byte[] bArr4 = new byte[(this._keySizeInBits + 7) / 8];
         this._Key = bArr4;
         byte[] bArr5 = new byte[blockSize];
-        this._V = bArr5;
+        this.f81301_V = bArr5;
         CTR_DRBG_Update(bArrBlock_Cipher_df, bArr4, bArr5);
         this._reseedCounter = 1L;
     }
 
     private void CTR_DRBG_Reseed_algorithm(byte[] bArr) {
-        CTR_DRBG_Update(Block_Cipher_df(Arrays.concatenate(getEntropy(), bArr), this._seedLength), this._Key, this._V);
+        CTR_DRBG_Update(Block_Cipher_df(Arrays.concatenate(getEntropy(), bArr), this._seedLength), this._Key, this.f81301_V);
         this._reseedCounter = 1L;
     }
 
@@ -209,7 +211,7 @@ public class CTRSP800DRBG implements SP80090DRBG {
         bArr2[i2 + 3] = (byte) (i6 | ((bArr[i7] & 240) >>> 3));
         int i8 = bArr[i7] << 4;
         int i9 = i + 4;
-        bArr2[i2 + 4] = (byte) (i8 | ((bArr[i9] & bo.k) >>> 4));
+        bArr2[i2 + 4] = (byte) (i8 | ((bArr[i9] & C0684bo.f2506k) >>> 4));
         int i10 = bArr[i9] << 3;
         int i11 = i + 5;
         bArr2[i2 + 5] = (byte) (i10 | ((bArr[i11] & 192) >>> 5));
@@ -261,30 +263,30 @@ public class CTRSP800DRBG implements SP80090DRBG {
         }
         if (bArr2 != null) {
             bArrBlock_Cipher_df = Block_Cipher_df(bArr2, this._seedLength);
-            CTR_DRBG_Update(bArrBlock_Cipher_df, this._Key, this._V);
+            CTR_DRBG_Update(bArrBlock_Cipher_df, this._Key, this.f81301_V);
         } else {
             bArrBlock_Cipher_df = new byte[this._seedLength / 8];
         }
-        int length = this._V.length;
+        int length = this.f81301_V.length;
         byte[] bArr3 = new byte[length];
         this._engine.init(true, new KeyParameter(expandKey(this._Key)));
         for (int i = 0; i <= bArr.length / length; i++) {
             int i2 = i * length;
-            int length2 = bArr.length - i2 > length ? length : bArr.length - (this._V.length * i);
+            int length2 = bArr.length - i2 > length ? length : bArr.length - (this.f81301_V.length * i);
             if (length2 != 0) {
-                addOneTo(this._V);
-                this._engine.processBlock(this._V, 0, bArr3, 0);
+                addOneTo(this.f81301_V);
+                this._engine.processBlock(this.f81301_V, 0, bArr3, 0);
                 System.arraycopy(bArr3, 0, bArr, i2, length2);
             }
         }
-        CTR_DRBG_Update(bArrBlock_Cipher_df, this._Key, this._V);
+        CTR_DRBG_Update(bArrBlock_Cipher_df, this._Key, this.f81301_V);
         this._reseedCounter++;
         return bArr.length * 8;
     }
 
     @Override // org.bouncycastle.crypto.prng.drbg.SP80090DRBG
     public int getBlockSize() {
-        return this._V.length * 8;
+        return this.f81301_V.length * 8;
     }
 
     @Override // org.bouncycastle.crypto.prng.drbg.SP80090DRBG

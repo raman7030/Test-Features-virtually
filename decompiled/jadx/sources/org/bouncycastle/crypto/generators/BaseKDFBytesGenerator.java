@@ -12,7 +12,9 @@ import org.bouncycastle.util.Pack;
 public class BaseKDFBytesGenerator implements DigestDerivationFunction {
     public int counterStart;
     public Digest digest;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81108iv;
     public byte[] shared;
 
     public BaseKDFBytesGenerator(int i, Digest digest) {
@@ -41,7 +43,7 @@ public class BaseKDFBytesGenerator implements DigestDerivationFunction {
             byte[] bArr4 = this.shared;
             digest.update(bArr4, 0, bArr4.length);
             this.digest.update(bArr3, 0, 4);
-            byte[] bArr5 = this.iv;
+            byte[] bArr5 = this.f81108iv;
             if (bArr5 != null) {
                 this.digest.update(bArr5, 0, bArr5.length);
             }
@@ -74,13 +76,13 @@ public class BaseKDFBytesGenerator implements DigestDerivationFunction {
         if (derivationParameters instanceof KDFParameters) {
             KDFParameters kDFParameters = (KDFParameters) derivationParameters;
             this.shared = kDFParameters.getSharedSecret();
-            this.iv = kDFParameters.getIV();
+            this.f81108iv = kDFParameters.getIV();
         } else {
             if (!(derivationParameters instanceof ISO18033KDFParameters)) {
                 throw new IllegalArgumentException("KDF parameters required for generator");
             }
             this.shared = ((ISO18033KDFParameters) derivationParameters).getSeed();
-            this.iv = null;
+            this.f81108iv = null;
         }
     }
 }

@@ -5,9 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import l.C16014;
-import l.C5368;
-import l.C9045;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -23,6 +20,9 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import p067l.C10965;
+import p067l.C17588;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class SM4 {
@@ -98,9 +98,9 @@ public final class SM4 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            addCMacAlgorithm(configurableProvider, "SM4", C9045.m23341(C5368.m15340(str, "$KeyGen", "KeyGenerator.SM4", C5368.m15340(str, "$ECB", "Cipher.SM4", C5368.m15340(str, "$AlgParamGen", "AlgorithmParameterGenerator.SM4", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.SM4", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), str, "$CMAC"), C16014.m37867(str, "$KeyGen"));
-            addGMacAlgorithm(configurableProvider, "SM4", C16014.m37867(str, "$GMAC"), C16014.m37867(str, "$KeyGen"));
-            addPoly1305Algorithm(configurableProvider, "SM4", C16014.m37867(str, "$Poly1305"), C16014.m37867(str, "$Poly1305KeyGen"));
+            addCMacAlgorithm(configurableProvider, "SM4", C10965.m25286(C7470.m17249(str, "$KeyGen", "KeyGenerator.SM4", C7470.m17249(str, "$ECB", "Cipher.SM4", C7470.m17249(str, "$AlgParamGen", "AlgorithmParameterGenerator.SM4", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.SM4", sb, configurableProvider), configurableProvider), configurableProvider), configurableProvider), str, "$CMAC"), C17588.m40053(str, "$KeyGen"));
+            addGMacAlgorithm(configurableProvider, "SM4", C17588.m40053(str, "$GMAC"), C17588.m40053(str, "$KeyGen"));
+            addPoly1305Algorithm(configurableProvider, "SM4", C17588.m40053(str, "$Poly1305"), C17588.m40053(str, "$Poly1305KeyGen"));
         }
     }
 

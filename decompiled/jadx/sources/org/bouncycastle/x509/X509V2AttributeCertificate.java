@@ -227,7 +227,7 @@ public class X509V2AttributeCertificate implements X509AttributeCertificate {
         } catch (IOException e) {
             throw e;
         } catch (Exception e2) {
-            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m(e2, new StringBuilder("exception decoding certificate structure: ")));
+            throw new IOException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e2, new StringBuilder("exception decoding certificate structure: ")));
         }
     }
 
@@ -241,7 +241,7 @@ public class X509V2AttributeCertificate implements X509AttributeCertificate {
         try {
             return extension.getExtnValue().getEncoded(ASN1Encoding.DER);
         } catch (Exception e) {
-            throw new RuntimeException(ASN1BMPString$$ExternalSyntheticOutline0.m(e, new StringBuilder("error encoding ")));
+            throw new RuntimeException(ASN1BMPString$$ExternalSyntheticOutline0.m55302m(e, new StringBuilder("error encoding ")));
         }
     }
 }

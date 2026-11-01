@@ -12,25 +12,27 @@ import org.bouncycastle.util.Longs;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class MayoKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
-    public MayoParameters p;
+
+    /* JADX INFO: renamed from: p */
+    public MayoParameters f81660p;
     public SecureRandom random;
 
     @Override // org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator
     public AsymmetricCipherKeyPair generateKeyPair() {
-        int mVecLimbs = this.p.getMVecLimbs();
-        int m = this.p.getM();
-        int v = this.p.getV();
-        int o = this.p.getO();
-        int oBytes = this.p.getOBytes();
-        int p1Limbs = this.p.getP1Limbs();
-        int p3Limbs = this.p.getP3Limbs();
-        int pkSeedBytes = this.p.getPkSeedBytes();
-        int skSeedBytes = this.p.getSkSeedBytes();
-        byte[] bArr = new byte[this.p.getCpkBytes()];
-        byte[] bArr2 = new byte[this.p.getCskBytes()];
+        int mVecLimbs = this.f81660p.getMVecLimbs();
+        int m = this.f81660p.getM();
+        int v = this.f81660p.getV();
+        int o = this.f81660p.getO();
+        int oBytes = this.f81660p.getOBytes();
+        int p1Limbs = this.f81660p.getP1Limbs();
+        int p3Limbs = this.f81660p.getP3Limbs();
+        int pkSeedBytes = this.f81660p.getPkSeedBytes();
+        int skSeedBytes = this.f81660p.getSkSeedBytes();
+        byte[] bArr = new byte[this.f81660p.getCpkBytes()];
+        byte[] bArr2 = new byte[this.f81660p.getCskBytes()];
         int i = oBytes + pkSeedBytes;
         byte[] bArr3 = new byte[i];
-        long[] jArr = new long[this.p.getP2Limbs() + p1Limbs];
+        long[] jArr = new long[this.f81660p.getP2Limbs() + p1Limbs];
         int i2 = v * o;
         byte[] bArr4 = new byte[i2];
         this.random.nextBytes(bArr2);
@@ -38,7 +40,7 @@ public class MayoKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
         sHAKEDigest.update(bArr2, 0, skSeedBytes);
         sHAKEDigest.doFinal(bArr3, 0, i);
         GF16.decode(bArr3, pkSeedBytes, bArr4, 0, i2);
-        Utils.expandP1P2(this.p, jArr, bArr3);
+        Utils.expandP1P2(this.f81660p, jArr, bArr3);
         long[] jArr2 = new long[o * o * mVecLimbs];
         GF16Utils.mulAddMUpperTriangularMatXMat(mVecLimbs, jArr, bArr4, jArr, p1Limbs, v, o);
         GF16Utils.mulAddMatTransXMMat(mVecLimbs, bArr4, jArr, p1Limbs, jArr2, v, o);
@@ -76,12 +78,12 @@ public class MayoKeyPairGenerator implements AsymmetricCipherKeyPairGenerator {
         Utils.packMVecs(jArr3, bArr, pkSeedBytes, p3Limbs / mVecLimbs, m);
         Arrays.clear(bArr4);
         Arrays.clear(jArr2);
-        return new AsymmetricCipherKeyPair((AsymmetricKeyParameter) new MayoPublicKeyParameters(this.p, bArr), (AsymmetricKeyParameter) new MayoPrivateKeyParameters(this.p, bArr2));
+        return new AsymmetricCipherKeyPair((AsymmetricKeyParameter) new MayoPublicKeyParameters(this.f81660p, bArr), (AsymmetricKeyParameter) new MayoPrivateKeyParameters(this.f81660p, bArr2));
     }
 
     @Override // org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator
     public void init(KeyGenerationParameters keyGenerationParameters) {
-        this.p = ((MayoKeyGenerationParameters) keyGenerationParameters).getParameters();
+        this.f81660p = ((MayoKeyGenerationParameters) keyGenerationParameters).getParameters();
         this.random = keyGenerationParameters.getRandom();
     }
 }

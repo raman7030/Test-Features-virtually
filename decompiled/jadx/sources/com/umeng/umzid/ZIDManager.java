@@ -7,12 +7,13 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.Settings;
 import android.text.TextUtils;
-import com.umeng.analytics.pro.am;
+import com.umeng.analytics.pro.C0655am;
 import com.umeng.commonsdk.statistics.AnalyticsConstants;
 import com.umeng.commonsdk.statistics.common.DeviceConfig;
-import com.umeng.commonsdk.statistics.idtracking.f;
-import com.umeng.commonsdk.statistics.idtracking.g;
-import com.umeng.commonsdk.statistics.idtracking.h;
+import com.umeng.commonsdk.statistics.idtracking.C0803b;
+import com.umeng.commonsdk.statistics.idtracking.C0807f;
+import com.umeng.commonsdk.statistics.idtracking.C0808g;
+import com.umeng.commonsdk.statistics.idtracking.C0809h;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.util.Calendar;
@@ -23,97 +24,112 @@ import org.json.JSONObject;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ZIDManager {
-    public static ZIDManager c;
-    public boolean a = false;
-    public boolean b = false;
 
-    public class a implements Runnable {
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ IZIDCompletionCallback b;
+    /* JADX INFO: renamed from: c */
+    public static ZIDManager f3672c;
 
-        public a(Context context, IZIDCompletionCallback iZIDCompletionCallback) {
-            this.a = context;
-            this.b = iZIDCompletionCallback;
+    /* JADX INFO: renamed from: a */
+    public boolean f3673a = false;
+
+    /* JADX INFO: renamed from: b */
+    public boolean f3674b = false;
+
+    /* JADX INFO: renamed from: com.umeng.umzid.ZIDManager$a */
+    public class RunnableC0836a implements Runnable {
+
+        /* JADX INFO: renamed from: a */
+        public final /* synthetic */ Context f3675a;
+
+        /* JADX INFO: renamed from: b */
+        public final /* synthetic */ IZIDCompletionCallback f3676b;
+
+        public RunnableC0836a(Context context, IZIDCompletionCallback iZIDCompletionCallback) {
+            this.f3675a = context;
+            this.f3676b = iZIDCompletionCallback;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String strA = ZIDManager.a(ZIDManager.this, this.a);
-            if (TextUtils.isEmpty(strA)) {
-                IZIDCompletionCallback iZIDCompletionCallback = this.b;
+            String strM3323a = ZIDManager.m3323a(ZIDManager.this, this.f3675a);
+            if (TextUtils.isEmpty(strM3323a)) {
+                IZIDCompletionCallback iZIDCompletionCallback = this.f3676b;
                 if (iZIDCompletionCallback != null) {
                     iZIDCompletionCallback.onFailure("1002", "获取zid失败");
                     return;
                 }
                 return;
             }
-            IZIDCompletionCallback iZIDCompletionCallback2 = this.b;
+            IZIDCompletionCallback iZIDCompletionCallback2 = this.f3676b;
             if (iZIDCompletionCallback2 != null) {
-                iZIDCompletionCallback2.onSuccess(strA);
+                iZIDCompletionCallback2.onSuccess(strM3323a);
             }
         }
     }
 
-    public class c implements Runnable {
-        public final /* synthetic */ Context a;
+    /* JADX INFO: renamed from: com.umeng.umzid.ZIDManager$c */
+    public class RunnableC0838c implements Runnable {
 
-        public c(Context context) {
-            this.a = context;
+        /* JADX INFO: renamed from: a */
+        public final /* synthetic */ Context f3680a;
+
+        public RunnableC0838c(Context context) {
+            this.f3680a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ZIDManager.a(ZIDManager.this, this.a);
+            ZIDManager.m3323a(ZIDManager.this, this.f3680a);
         }
     }
 
-    public static /* synthetic */ String a(ZIDManager zIDManager, Context context) {
+    /* JADX INFO: renamed from: a */
+    public static /* synthetic */ String m3323a(ZIDManager zIDManager, Context context) {
         String strOptString = null;
-        if (zIDManager.a) {
+        if (zIDManager.f3673a) {
             return null;
         }
-        zIDManager.a = true;
+        zIDManager.f3673a = true;
         JSONObject jSONObject = new JSONObject();
         try {
             String id = Spy.getID();
             jSONObject.put("zdata", id);
-            String strB = com.umeng.umzid.c.b(context);
-            jSONObject.put(g.a, strB);
-            String strC = com.umeng.umzid.c.c(context);
-            jSONObject.put(h.d, strC);
-            zIDManager.a(context, jSONObject);
-            String strA = com.umeng.umzid.a.a("https://aaid.umeng.com/api/postZdata", jSONObject.toString());
-            if (!TextUtils.isEmpty(strA)) {
-                JSONObject jSONObject2 = new JSONObject(strA);
+            String strM3332b = C0841c.m3332b(context);
+            jSONObject.put(C0808g.f3432a, strM3332b);
+            String strM3335c = C0841c.m3335c(context);
+            jSONObject.put(C0809h.f3437d, strM3335c);
+            zIDManager.m3324a(context, jSONObject);
+            String strM3326a = C0839a.m3326a("https://aaid.umeng.com/api/postZdata", jSONObject.toString());
+            if (!TextUtils.isEmpty(strM3326a)) {
+                JSONObject jSONObject2 = new JSONObject(strM3326a);
                 if (jSONObject2.optBoolean("suc")) {
-                    com.umeng.umzid.c.f(context, id);
-                    com.umeng.umzid.c.a(context, strB);
-                    com.umeng.umzid.c.b(context, strC);
+                    C0841c.m3340f(context, id);
+                    C0841c.m3331a(context, strM3332b);
+                    C0841c.m3334b(context, strM3335c);
                     strOptString = jSONObject2.optString("aaid");
                     if (!TextUtils.isEmpty(strOptString)) {
-                        com.umeng.umzid.c.e(context, strOptString);
+                        C0841c.m3339e(context, strOptString);
                     }
                     String string = jSONObject2.getString("uabc");
                     if (!TextUtils.isEmpty(string)) {
-                        com.umeng.umzid.c.d(context, string);
+                        C0841c.m3338d(context, string);
                     }
                     String string2 = jSONObject2.getString("resetToken");
                     if (!TextUtils.isEmpty(string2)) {
-                        com.umeng.umzid.c.c(context, string2);
+                        C0841c.m3336c(context, string2);
                     }
                 }
             }
         } catch (Throwable unused) {
         }
-        zIDManager.a = false;
+        zIDManager.f3673a = false;
         return strOptString;
     }
 
     public static synchronized ZIDManager getInstance() {
-        if (c == null) {
-            c = new ZIDManager();
+        if (f3672c == null) {
+            f3672c = new ZIDManager();
         }
-        return c;
+        return f3672c;
     }
 
     public static String getSDKVersion() {
@@ -125,16 +141,16 @@ public class ZIDManager {
             return "";
         }
         Context applicationContext = context.getApplicationContext();
-        String strA = com.umeng.umzid.c.a(applicationContext);
-        if (!TextUtils.isEmpty(strA)) {
-            return strA;
+        String strM3329a = C0841c.m3329a(applicationContext);
+        if (!TextUtils.isEmpty(strM3329a)) {
+            return strM3329a;
         }
-        com.umeng.umzid.b.a(new c(applicationContext));
+        C0840b.m3328a(new RunnableC0838c(applicationContext));
         return "";
     }
 
     public synchronized void init(Context context, String str, IZIDCompletionCallback iZIDCompletionCallback) {
-        SharedPreferences sharedPreferencesA;
+        SharedPreferences sharedPreferencesM3325a;
         SharedPreferences.Editor editorEdit;
         try {
             if (context == null) {
@@ -150,28 +166,28 @@ public class ZIDManager {
                 return;
             }
             Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null && str != null && !TextUtils.isEmpty(str) && (sharedPreferencesA = com.umeng.umzid.a.a(applicationContext)) != null && (editorEdit = sharedPreferencesA.edit()) != null) {
+            if (applicationContext != null && str != null && !TextUtils.isEmpty(str) && (sharedPreferencesM3325a = C0839a.m3325a(applicationContext)) != null && (editorEdit = sharedPreferencesM3325a.edit()) != null) {
                 editorEdit.putString("appkey", str).commit();
             }
-            String strA = com.umeng.umzid.c.a(applicationContext);
-            if (strA == null || TextUtils.isEmpty(strA)) {
-                com.umeng.umzid.b.a(new a(applicationContext, iZIDCompletionCallback));
+            String strM3329a = C0841c.m3329a(applicationContext);
+            if (strM3329a == null || TextUtils.isEmpty(strM3329a)) {
+                C0840b.m3328a(new RunnableC0836a(applicationContext, iZIDCompletionCallback));
             } else {
-                com.umeng.umzid.b.a(new b(applicationContext));
+                C0840b.m3328a(new RunnableC0837b(applicationContext));
                 if (iZIDCompletionCallback != null) {
-                    iZIDCompletionCallback.onSuccess(strA);
+                    iZIDCompletionCallback.onSuccess(strM3329a);
                 }
             }
-            SharedPreferences sharedPreferencesA2 = com.umeng.umzid.a.a(context);
-            if (TextUtils.isEmpty(sharedPreferencesA2 != null ? sharedPreferencesA2.getString("uuid", "") : "")) {
+            SharedPreferences sharedPreferencesM3325a2 = C0839a.m3325a(context);
+            if (TextUtils.isEmpty(sharedPreferencesM3325a2 != null ? sharedPreferencesM3325a2.getString("uuid", "") : "")) {
                 String string = "";
-                SharedPreferences sharedPreferencesA3 = com.umeng.umzid.a.a(context);
+                SharedPreferences sharedPreferencesM3325a3 = C0839a.m3325a(context);
                 try {
                     string = UUID.randomUUID().toString();
                 } catch (Throwable unused) {
                 }
-                if (sharedPreferencesA3 != null) {
-                    sharedPreferencesA3.edit().putString("uuid", string).commit();
+                if (sharedPreferencesM3325a3 != null) {
+                    sharedPreferencesM3325a3.edit().putString("uuid", string).commit();
                 }
             }
         } catch (Throwable th) {
@@ -183,7 +199,8 @@ public class ZIDManager {
     /* JADX WARN: Code duplicated, block: B:31:0x008c A[Catch: all -> 0x0099, TRY_LEAVE, TryCatch #6 {all -> 0x0099, blocks: (B:28:0x0082, B:29:0x0086, B:31:0x008c), top: B:116:0x0082 }] */
     /* JADX WARN: Code duplicated, block: B:33:0x0099  */
     /* JADX WARN: Code duplicated, block: B:45:0x00cd  */
-    public final JSONObject a(Context context, JSONObject jSONObject) throws JSONException {
+    /* JADX INFO: renamed from: a */
+    public final JSONObject m3324a(Context context, JSONObject jSONObject) throws JSONException {
         Object obj;
         Locale locale;
         Calendar calendar;
@@ -193,7 +210,7 @@ public class ZIDManager {
         Object obj3;
         Object string2;
         Object country;
-        SharedPreferences sharedPreferencesA;
+        SharedPreferences sharedPreferencesM3325a;
         jSONObject.putOpt("zdata_ver", Spy.getVersion());
         Object obj4 = "";
         try {
@@ -212,10 +229,10 @@ public class ZIDManager {
             }
         } catch (Throwable unused) {
         }
-        jSONObject.putOpt(com.umeng.commonsdk.statistics.idtracking.b.a, obj);
+        jSONObject.putOpt(C0803b.f3412a, obj);
         String externalStorageState = Environment.getExternalStorageState();
         jSONObject.putOpt("storage", Long.valueOf(("mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState)) ? Environment.getExternalStorageDirectory().getFreeSpace() : 0L));
-        jSONObject.putOpt(am.y, Build.VERSION.RELEASE);
+        jSONObject.putOpt(C0655am.f2364y, Build.VERSION.RELEASE);
         Object string3 = null;
         if (context == null) {
             rawOffset = 8;
@@ -248,7 +265,7 @@ public class ZIDManager {
                 }
             }
         }
-        jSONObject.putOpt(am.M, Integer.valueOf(rawOffset));
+        jSONObject.putOpt(C0655am.f2258M, Integer.valueOf(rawOffset));
         jSONObject.putOpt("model", Build.MODEL);
         try {
             String str2 = DeviceConfig.UNKNOW;
@@ -266,7 +283,7 @@ public class ZIDManager {
             }
         } catch (Throwable unused4) {
         }
-        jSONObject.putOpt(f.a, obj2);
+        jSONObject.putOpt(C0807f.f3430a, obj2);
         try {
             Method declaredMethod3 = Build.class.getDeclaredMethod("getString", String.class);
             declaredMethod3.setAccessible(true);
@@ -279,8 +296,8 @@ public class ZIDManager {
                             messageDigest.update(string.getBytes());
                             byte[] bArrDigest = messageDigest.digest();
                             StringBuffer stringBuffer = new StringBuffer();
-                            for (byte b2 : bArrDigest) {
-                                stringBuffer.append(Integer.toHexString(b2 & 255));
+                            for (byte b : bArrDigest) {
+                                stringBuffer.append(Integer.toHexString(b & 255));
                             }
                             string = stringBuffer.toString();
                         } catch (Throwable unused5) {
@@ -295,10 +312,10 @@ public class ZIDManager {
         }
         jSONObject.putOpt("hostname", string);
         jSONObject.putOpt("sdk_version", "1.4.1");
-        jSONObject.putOpt(am.o, context == null ? null : context.getPackageName());
-        jSONObject.putOpt(am.u, AnalyticsConstants.SDK_TYPE);
-        SharedPreferences sharedPreferencesA2 = com.umeng.umzid.a.a(context);
-        jSONObject.putOpt("uuid", sharedPreferencesA2 != null ? sharedPreferencesA2.getString("uuid", "") : "");
+        jSONObject.putOpt(C0655am.f2354o, context == null ? null : context.getPackageName());
+        jSONObject.putOpt(C0655am.f2360u, AnalyticsConstants.SDK_TYPE);
+        SharedPreferences sharedPreferencesM3325a2 = C0839a.m3325a(context);
+        jSONObject.putOpt("uuid", sharedPreferencesM3325a2 != null ? sharedPreferencesM3325a2.getString("uuid", "") : "");
         jSONObject.putOpt("source_id", "umeng");
         try {
             obj3 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
@@ -317,9 +334,9 @@ public class ZIDManager {
         } catch (Exception unused10) {
             country = null;
         }
-        jSONObject.putOpt(am.O, country);
-        if (context != null && (sharedPreferencesA = com.umeng.umzid.a.a(context)) != null) {
-            string3 = sharedPreferencesA.getString("appkey", null);
+        jSONObject.putOpt(C0655am.f2260O, country);
+        if (context != null && (sharedPreferencesM3325a = C0839a.m3325a(context)) != null) {
+            string3 = sharedPreferencesM3325a.getString("appkey", null);
         }
         jSONObject.putOpt("appkey", string3);
         try {
@@ -338,11 +355,14 @@ public class ZIDManager {
         return jSONObject;
     }
 
-    public class b implements Runnable {
-        public final /* synthetic */ Context a;
+    /* JADX INFO: renamed from: com.umeng.umzid.ZIDManager$b */
+    public class RunnableC0837b implements Runnable {
 
-        public b(Context context) {
-            this.a = context;
+        /* JADX INFO: renamed from: a */
+        public final /* synthetic */ Context f3678a;
+
+        public RunnableC0837b(Context context) {
+            this.f3678a = context;
         }
 
         /* JADX WARN: Code duplicated, block: B:10:0x0025  */
@@ -370,92 +390,92 @@ public class ZIDManager {
             String string;
             String id;
             String string2;
-            String strC;
+            String strM3335c;
             String string3;
-            String strB;
+            String strM3332b;
             String string4;
-            String strA;
+            String strM3326a;
             JSONObject jSONObject;
             String strOptString;
             String string5;
             String string6;
-            SharedPreferences sharedPreferencesA;
-            SharedPreferences sharedPreferencesA2;
-            SharedPreferences sharedPreferencesA3;
-            SharedPreferences sharedPreferencesA4;
+            SharedPreferences sharedPreferencesM3325a;
+            SharedPreferences sharedPreferencesM3325a2;
+            SharedPreferences sharedPreferencesM3325a3;
+            SharedPreferences sharedPreferencesM3325a4;
             ZIDManager zIDManager = ZIDManager.this;
-            Context context = this.a;
-            if (zIDManager.b) {
+            Context context = this.f3678a;
+            if (zIDManager.f3674b) {
                 return;
             }
-            zIDManager.b = true;
+            zIDManager.f3674b = true;
             JSONObject jSONObject2 = new JSONObject();
             String string7 = "";
             if (context != null) {
                 try {
-                    SharedPreferences sharedPreferencesA5 = com.umeng.umzid.a.a(context);
-                    if (sharedPreferencesA5 != null) {
-                        string = sharedPreferencesA5.getString("zdata", null);
+                    SharedPreferences sharedPreferencesM3325a5 = C0839a.m3325a(context);
+                    if (sharedPreferencesM3325a5 != null) {
+                        string = sharedPreferencesM3325a5.getString("zdata", null);
                     } else {
                         string = "";
                     }
                     id = Spy.getID();
                     jSONObject2.put("zdata", id);
                     jSONObject2.put("old_zdata", string);
-                    if (context != null || (sharedPreferencesA4 = com.umeng.umzid.a.a(context)) == null) {
+                    if (context != null || (sharedPreferencesM3325a4 = C0839a.m3325a(context)) == null) {
                         string2 = "";
                     } else {
-                        string2 = sharedPreferencesA4.getString(h.d, "");
-                        if (com.umeng.umzid.c.c(string2)) {
-                            string2 = com.umeng.umzid.c.a(string2);
+                        string2 = sharedPreferencesM3325a4.getString(C0809h.f3437d, "");
+                        if (C0841c.m3337c(string2)) {
+                            string2 = C0841c.m3330a(string2);
                         }
                     }
-                    strC = com.umeng.umzid.c.c(context);
+                    strM3335c = C0841c.m3335c(context);
                     jSONObject2.put("old_oaid", string2);
-                    jSONObject2.put(h.d, strC);
-                    if (context != null || (sharedPreferencesA3 = com.umeng.umzid.a.a(context)) == null) {
+                    jSONObject2.put(C0809h.f3437d, strM3335c);
+                    if (context != null || (sharedPreferencesM3325a3 = C0839a.m3325a(context)) == null) {
                         string3 = "";
                     } else {
-                        string3 = sharedPreferencesA3.getString(g.a, "");
-                        if (com.umeng.umzid.c.c(string3)) {
-                            string3 = com.umeng.umzid.c.a(string3);
+                        string3 = sharedPreferencesM3325a3.getString(C0808g.f3432a, "");
+                        if (C0841c.m3337c(string3)) {
+                            string3 = C0841c.m3330a(string3);
                         }
                     }
-                    strB = com.umeng.umzid.c.b(context);
-                    jSONObject2.put(g.a, strB);
+                    strM3332b = C0841c.m3332b(context);
+                    jSONObject2.put(C0808g.f3432a, strM3332b);
                     jSONObject2.put("old_mac", string3);
-                    zIDManager.a(context, jSONObject2);
-                    jSONObject2.put("aaid", com.umeng.umzid.c.a(context));
-                    if (context != null || (sharedPreferencesA2 = com.umeng.umzid.a.a(context)) == null) {
+                    zIDManager.m3324a(context, jSONObject2);
+                    jSONObject2.put("aaid", C0841c.m3329a(context));
+                    if (context != null || (sharedPreferencesM3325a2 = C0839a.m3325a(context)) == null) {
                         string4 = "";
                     } else {
-                        string4 = sharedPreferencesA2.getString("uabc", "");
+                        string4 = sharedPreferencesM3325a2.getString("uabc", "");
                     }
                     jSONObject2.put("uabc", string4);
-                    if (context != null && (sharedPreferencesA = com.umeng.umzid.a.a(context)) != null) {
-                        string7 = sharedPreferencesA.getString("resetToken", "");
+                    if (context != null && (sharedPreferencesM3325a = C0839a.m3325a(context)) != null) {
+                        string7 = sharedPreferencesM3325a.getString("resetToken", "");
                     }
                     if (!TextUtils.isEmpty(string7)) {
                         jSONObject2.put("resetToken", string7);
                     }
-                    strA = com.umeng.umzid.a.a("https://aaid.umeng.com/api/updateZdata", jSONObject2.toString());
-                    if (!TextUtils.isEmpty(strA)) {
-                        jSONObject = new JSONObject(strA);
+                    strM3326a = C0839a.m3326a("https://aaid.umeng.com/api/updateZdata", jSONObject2.toString());
+                    if (!TextUtils.isEmpty(strM3326a)) {
+                        jSONObject = new JSONObject(strM3326a);
                         if (jSONObject.optBoolean("suc")) {
-                            com.umeng.umzid.c.f(context, id);
-                            com.umeng.umzid.c.a(context, strB);
-                            com.umeng.umzid.c.b(context, strC);
+                            C0841c.m3340f(context, id);
+                            C0841c.m3331a(context, strM3332b);
+                            C0841c.m3334b(context, strM3335c);
                             strOptString = jSONObject.optString("aaid");
                             if (!TextUtils.isEmpty(strOptString)) {
-                                com.umeng.umzid.c.e(context, strOptString);
+                                C0841c.m3339e(context, strOptString);
                             }
                             string5 = jSONObject.getString("uabc");
                             if (!TextUtils.isEmpty(string5)) {
-                                com.umeng.umzid.c.d(context, string5);
+                                C0841c.m3338d(context, string5);
                             }
                             string6 = jSONObject.getString("resetToken");
                             if (!TextUtils.isEmpty(string6)) {
-                                com.umeng.umzid.c.c(context, string6);
+                                C0841c.m3336c(context, string6);
                             }
                         }
                     }
@@ -471,19 +491,19 @@ public class ZIDManager {
                 } else {
                     string2 = "";
                 }
-                strC = com.umeng.umzid.c.c(context);
+                strM3335c = C0841c.m3335c(context);
                 jSONObject2.put("old_oaid", string2);
-                jSONObject2.put(h.d, strC);
+                jSONObject2.put(C0809h.f3437d, strM3335c);
                 if (context != null) {
                     string3 = "";
                 } else {
                     string3 = "";
                 }
-                strB = com.umeng.umzid.c.b(context);
-                jSONObject2.put(g.a, strB);
+                strM3332b = C0841c.m3332b(context);
+                jSONObject2.put(C0808g.f3432a, strM3332b);
                 jSONObject2.put("old_mac", string3);
-                zIDManager.a(context, jSONObject2);
-                jSONObject2.put("aaid", com.umeng.umzid.c.a(context));
+                zIDManager.m3324a(context, jSONObject2);
+                jSONObject2.put("aaid", C0841c.m3329a(context));
                 if (context != null) {
                     string4 = "";
                 } else {
@@ -491,34 +511,34 @@ public class ZIDManager {
                 }
                 jSONObject2.put("uabc", string4);
                 if (context != null) {
-                    string7 = sharedPreferencesA.getString("resetToken", "");
+                    string7 = sharedPreferencesM3325a.getString("resetToken", "");
                 }
                 if (!TextUtils.isEmpty(string7)) {
                     jSONObject2.put("resetToken", string7);
                 }
-                strA = com.umeng.umzid.a.a("https://aaid.umeng.com/api/updateZdata", jSONObject2.toString());
-                if (!TextUtils.isEmpty(strA)) {
-                    jSONObject = new JSONObject(strA);
+                strM3326a = C0839a.m3326a("https://aaid.umeng.com/api/updateZdata", jSONObject2.toString());
+                if (!TextUtils.isEmpty(strM3326a)) {
+                    jSONObject = new JSONObject(strM3326a);
                     if (jSONObject.optBoolean("suc")) {
-                        com.umeng.umzid.c.f(context, id);
-                        com.umeng.umzid.c.a(context, strB);
-                        com.umeng.umzid.c.b(context, strC);
+                        C0841c.m3340f(context, id);
+                        C0841c.m3331a(context, strM3332b);
+                        C0841c.m3334b(context, strM3335c);
                         strOptString = jSONObject.optString("aaid");
                         if (!TextUtils.isEmpty(strOptString)) {
-                            com.umeng.umzid.c.e(context, strOptString);
+                            C0841c.m3339e(context, strOptString);
                         }
                         string5 = jSONObject.getString("uabc");
                         if (!TextUtils.isEmpty(string5)) {
-                            com.umeng.umzid.c.d(context, string5);
+                            C0841c.m3338d(context, string5);
                         }
                         string6 = jSONObject.getString("resetToken");
                         if (!TextUtils.isEmpty(string6)) {
-                            com.umeng.umzid.c.c(context, string6);
+                            C0841c.m3336c(context, string6);
                         }
                     }
                 }
             }
-            zIDManager.b = false;
+            zIDManager.f3674b = false;
         }
     }
 }

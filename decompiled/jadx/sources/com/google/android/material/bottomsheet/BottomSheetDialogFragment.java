@@ -3,10 +3,10 @@ package com.google.android.material.bottomsheet;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
-import l.C15278;
+import p067l.C1600;
 
 /* JADX INFO: loaded from: classes2.dex */
-public class BottomSheetDialogFragment extends C15278 {
+public class BottomSheetDialogFragment extends C1600 {
     public boolean waitingForDismissAllowingStateLoss;
 
     public BottomSheetDialogFragment() {
@@ -16,12 +16,12 @@ public class BottomSheetDialogFragment extends C15278 {
         super(i);
     }
 
-    @Override // l.C15278, l.DialogInterfaceOnCancelListenerC10344
+    @Override // p067l.C1600, p067l.DialogInterfaceOnCancelListenerC12199
     public Dialog onCreateDialog(Bundle bundle) {
         return new BottomSheetDialog(getContext(), getTheme());
     }
 
-    @Override // l.DialogInterfaceOnCancelListenerC10344
+    @Override // p067l.DialogInterfaceOnCancelListenerC12199
     public void dismiss() {
         if (tryDismissWithAnimation(false)) {
             return;
@@ -29,7 +29,7 @@ public class BottomSheetDialogFragment extends C15278 {
         super.dismiss();
     }
 
-    @Override // l.DialogInterfaceOnCancelListenerC10344
+    @Override // p067l.DialogInterfaceOnCancelListenerC12199
     public void dismissAllowingStateLoss() {
         if (tryDismissWithAnimation(true)) {
             return;

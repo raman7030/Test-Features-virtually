@@ -1,26 +1,28 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SABERPublicKey extends ASN1Object {
-    public byte[] b;
+
+    /* JADX INFO: renamed from: b */
+    public byte[] f81566b;
     public byte[] seed_A;
 
     public SABERPublicKey(ASN1Sequence aSN1Sequence) {
-        this.seed_A = C16014.m37869(aSN1Sequence, 0);
-        this.b = C16014.m37869(aSN1Sequence, 1);
+        this.seed_A = C17588.m40055(aSN1Sequence, 0);
+        this.f81566b = C17588.m40055(aSN1Sequence, 1);
     }
 
     public SABERPublicKey(byte[] bArr, byte[] bArr2) {
         this.seed_A = bArr;
-        this.b = bArr2;
+        this.f81566b = bArr2;
     }
 
     public static SABERPublicKey getInstance(Object obj) {
@@ -34,7 +36,7 @@ public class SABERPublicKey extends ASN1Object {
     }
 
     public byte[] getB() {
-        return this.b;
+        return this.f81566b;
     }
 
     public byte[] getSeed_A() {
@@ -45,7 +47,7 @@ public class SABERPublicKey extends ASN1Object {
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
         aSN1EncodableVector.add(new DEROctetString(this.seed_A));
-        aSN1EncodableVector.add(new DEROctetString(this.b));
+        aSN1EncodableVector.add(new DEROctetString(this.f81566b));
         return new DERSequence(aSN1EncodableVector);
     }
 }

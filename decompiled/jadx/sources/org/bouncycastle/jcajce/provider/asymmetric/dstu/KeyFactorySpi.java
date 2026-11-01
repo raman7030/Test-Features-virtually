@@ -8,11 +8,10 @@ import java.security.PublicKey;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.KeySpec;
-import l.C12803;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.p072ua.UAObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
@@ -20,6 +19,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.jce.spec.ECPublicKeySpec;
+import p067l.C14536;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class KeyFactorySpi extends BaseKeyFactorySpi {
@@ -85,7 +85,7 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (algorithm.equals((ASN1Primitive) UAObjectIdentifiers.dstu4145le) || algorithm.equals((ASN1Primitive) UAObjectIdentifiers.dstu4145be)) {
             return new BCDSTU4145PrivateKey(privateKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 
     @Override // org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter
@@ -94,6 +94,6 @@ public class KeyFactorySpi extends BaseKeyFactorySpi {
         if (algorithm.equals((ASN1Primitive) UAObjectIdentifiers.dstu4145le) || algorithm.equals((ASN1Primitive) UAObjectIdentifiers.dstu4145be)) {
             return new BCDSTU4145PublicKey(subjectPublicKeyInfo);
         }
-        throw new IOException(C12803.m31105("algorithm identifier ", algorithm, " in key not recognised"));
+        throw new IOException(C14536.m33190("algorithm identifier ", algorithm, " in key not recognised"));
     }
 }

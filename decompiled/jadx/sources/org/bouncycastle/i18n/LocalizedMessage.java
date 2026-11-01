@@ -9,14 +9,14 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
-import l.C22870;
-import l.C3200;
-import l.C4860;
-import l.C9045;
 import org.bouncycastle.i18n.filter.Filter;
 import org.bouncycastle.i18n.filter.TrustedInput;
 import org.bouncycastle.i18n.filter.UntrustedInput;
 import org.bouncycastle.i18n.filter.UntrustedUrlInput;
+import p067l.C10965;
+import p067l.C24104;
+import p067l.C5410;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class LocalizedMessage {
@@ -25,7 +25,9 @@ public class LocalizedMessage {
     public String encoding;
     public FilteredArguments extraArgs;
     public Filter filter;
-    public final String id;
+
+    /* JADX INFO: renamed from: id */
+    public final String f81327id;
     public ClassLoader loader;
     public final String resource;
 
@@ -143,7 +145,7 @@ public class LocalizedMessage {
         if (str == null || str2 == null) {
             throw null;
         }
-        this.id = str2;
+        this.f81327id = str2;
         this.resource = str;
         this.arguments = new FilteredArguments();
     }
@@ -156,11 +158,11 @@ public class LocalizedMessage {
         if (str == null || str2 == null) {
             throw null;
         }
-        this.id = str2;
+        this.f81327id = str2;
         this.resource = str;
         this.arguments = new FilteredArguments();
         if (!Charset.isSupported(str3)) {
-            throw new UnsupportedEncodingException(C4860.m14172("The encoding \"", str3, "\" is not supported."));
+            throw new UnsupportedEncodingException(C6988.m16053("The encoding \"", str3, "\" is not supported."));
         }
         this.encoding = str3;
     }
@@ -173,11 +175,11 @@ public class LocalizedMessage {
         if (str == null || str2 == null || objArr == null) {
             throw null;
         }
-        this.id = str2;
+        this.f81327id = str2;
         this.resource = str;
         this.arguments = new FilteredArguments(objArr);
         if (!Charset.isSupported(str3)) {
-            throw new UnsupportedEncodingException(C4860.m14172("The encoding \"", str3, "\" is not supported."));
+            throw new UnsupportedEncodingException(C6988.m16053("The encoding \"", str3, "\" is not supported."));
         }
         this.encoding = str3;
     }
@@ -190,7 +192,7 @@ public class LocalizedMessage {
         if (str == null || str2 == null || objArr == null) {
             throw null;
         }
-        this.id = str2;
+        this.f81327id = str2;
         this.resource = str;
         this.arguments = new FilteredArguments(objArr);
     }
@@ -246,7 +248,7 @@ public class LocalizedMessage {
     }
 
     public String getId() {
-        return this.id;
+        return this.f81327id;
     }
 
     public String getResource() {
@@ -284,7 +286,7 @@ public class LocalizedMessage {
         StringBuilder sb = new StringBuilder("Resource: \"");
         sb.append(this.resource);
         sb.append("\" Id: \"");
-        sb.append(this.id);
+        sb.append(this.f81327id);
         sb.append("\" Arguments: ");
         sb.append(this.arguments.getArguments().length);
         sb.append(" normal");
@@ -302,11 +304,11 @@ public class LocalizedMessage {
     }
 
     public String getEntry(String str, Locale locale, TimeZone timeZone) {
-        String strM50967 = this.id;
+        String strM53357 = this.f81327id;
         if (str != null) {
-            strM50967 = C22870.m50967(strM50967, ".", str);
+            strM53357 = C24104.m53357(strM53357, ".", str);
         }
-        String str2 = strM50967;
+        String str2 = strM53357;
         try {
             ClassLoader classLoader = this.loader;
             String string = (classLoader == null ? ResourceBundle.getBundle(this.resource, locale) : ResourceBundle.getBundle(this.resource, locale, classLoader)).getString(str2);
@@ -320,13 +322,13 @@ public class LocalizedMessage {
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         } catch (MissingResourceException unused) {
-            String strM23341 = C9045.m23341(C3200.m9834("Can't find entry ", str2, " in resource file "), this.resource, ".");
+            String strM25286 = C10965.m25286(C5410.m11879("Can't find entry ", str2, " in resource file "), this.resource, ".");
             String str3 = this.resource;
             ClassLoader classLoader2 = this.loader;
             if (classLoader2 == null) {
                 classLoader2 = getClassLoader();
             }
-            throw new MissingEntryException(strM23341, str3, str2, locale, classLoader2);
+            throw new MissingEntryException(strM25286, str3, str2, locale, classLoader2);
         }
     }
 }

@@ -6,9 +6,6 @@ import java.security.PublicKey;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.List;
-import l.C20195;
-import l.C3200;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
@@ -23,6 +20,9 @@ import org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.KeyFactor
 import org.bouncycastle.pqc.crypto.util.PublicKeyFactory;
 import org.bouncycastle.pqc.crypto.util.SubjectPublicKeyInfoFactory;
 import org.bouncycastle.util.Arrays;
+import p067l.C21562;
+import p067l.C5410;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CompositePublicKey implements PublicKey {
@@ -55,7 +55,7 @@ public class CompositePublicKey implements PublicKey {
             int i = this.count;
             PublicKey[] publicKeyArr = this.keys;
             if (i == publicKeyArr.length) {
-                throw new IllegalStateException(C3200.m9831(this.keys.length, " allowed in composite", new StringBuilder("only ")));
+                throw new IllegalStateException(C5410.m11876(this.keys.length, " allowed in composite", new StringBuilder("only ")));
             }
             publicKeyArr[i] = publicKey;
             Provider[] providerArr = this.providers;
@@ -84,7 +84,7 @@ public class CompositePublicKey implements PublicKey {
         for (PublicKey publicKey : publicKeyArr) {
             arrayList.add(publicKey);
         }
-        this.keys = C20195.unmodifiableList(arrayList);
+        this.keys = C21562.unmodifiableList(arrayList);
         this.providers = null;
     }
 
@@ -109,10 +109,10 @@ public class CompositePublicKey implements PublicKey {
                 arrayList.add(publicKeyArr[i]);
                 i++;
             }
-            listUnmodifiableList = C20195.unmodifiableList(arrayList2);
+            listUnmodifiableList = C21562.unmodifiableList(arrayList2);
         }
         this.providers = listUnmodifiableList;
-        this.keys = C20195.unmodifiableList(arrayList);
+        this.keys = C21562.unmodifiableList(arrayList);
     }
 
     public CompositePublicKey(SubjectPublicKeyInfo subjectPublicKeyInfo) {
@@ -185,11 +185,11 @@ public class CompositePublicKey implements PublicKey {
 
     @Override // java.security.Key
     public byte[] getEncoded() {
-        if (this.algorithmIdentifier.getAlgorithm().on(IANAObjectIdentifiers.id_alg)) {
+        if (this.algorithmIdentifier.getAlgorithm().m55304on(IANAObjectIdentifiers.id_alg)) {
             try {
                 return new SubjectPublicKeyInfo(getAlgorithmIdentifier(), Arrays.concatenate(SubjectPublicKeyInfoFactory.createSubjectPublicKeyInfo(PublicKeyFactory.createKey(((PublicKey) this.keys.get(0)).getEncoded())).getPublicKeyData().getBytes(), org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory.createSubjectPublicKeyInfo(org.bouncycastle.crypto.util.PublicKeyFactory.createKey(((PublicKey) this.keys.get(1)).getEncoded())).getPublicKeyData().getBytes())).getEncoded();
             } catch (IOException e) {
-                throw new IllegalStateException(C5127.m14678(e, new StringBuilder("unable to encode composite public key: ")));
+                throw new IllegalStateException(C7241.m16586(e, new StringBuilder("unable to encode composite public key: ")));
             }
         }
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
@@ -199,7 +199,7 @@ public class CompositePublicKey implements PublicKey {
         try {
             return new SubjectPublicKeyInfo(this.algorithmIdentifier, new DERSequence(aSN1EncodableVector)).getEncoded(ASN1Encoding.DER);
         } catch (IOException e2) {
-            throw new IllegalStateException(C5127.m14678(e2, new StringBuilder("unable to encode composite public key: ")));
+            throw new IllegalStateException(C7241.m16586(e2, new StringBuilder("unable to encode composite public key: ")));
         }
     }
 }

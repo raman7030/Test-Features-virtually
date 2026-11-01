@@ -3,12 +3,12 @@ package org.bouncycastle.asn1.x509;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
-import l.C12803;
-import l.C16014;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.DEROctetString;
+import p067l.C14536;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509ExtensionsGenerator {
@@ -19,13 +19,13 @@ public class X509ExtensionsGenerator {
         try {
             addExtension(aSN1ObjectIdentifier, z, aSN1Encodable.toASN1Primitive().getEncoded(ASN1Encoding.DER));
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("error encoding value: ", e));
+            throw new IllegalArgumentException(C17588.m40052("error encoding value: ", e));
         }
     }
 
     public void addExtension(ASN1ObjectIdentifier aSN1ObjectIdentifier, boolean z, byte[] bArr) {
         if (this.extensions.containsKey(aSN1ObjectIdentifier)) {
-            throw new IllegalArgumentException(C12803.m31105("extension ", aSN1ObjectIdentifier, " already added"));
+            throw new IllegalArgumentException(C14536.m33190("extension ", aSN1ObjectIdentifier, " already added"));
         }
         this.extOrdering.addElement(aSN1ObjectIdentifier);
         this.extensions.put(aSN1ObjectIdentifier, new X509Extension(z, new DEROctetString(bArr)));

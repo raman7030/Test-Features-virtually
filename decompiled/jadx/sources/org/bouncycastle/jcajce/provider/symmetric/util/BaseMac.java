@@ -12,7 +12,6 @@ import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
-import l.C19370;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Mac;
@@ -28,6 +27,7 @@ import org.bouncycastle.jcajce.spec.AEADParameterSpec;
 import org.bouncycastle.jcajce.spec.SkeinParameterSpec;
 import org.bouncycastle.pqc.crypto.mlkem.MLKEMEngine;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BaseMac extends MacSpi implements PBE {
@@ -178,7 +178,7 @@ public class BaseMac extends MacSpi implements PBE {
         try {
             this.macEngine.init(cipherParametersMakePBEMacParameters);
         } catch (Exception e) {
-            throw new InvalidAlgorithmParameterException(C19370.m44629(e, new StringBuilder("cannot initialize MAC: ")));
+            throw new InvalidAlgorithmParameterException(C20778.m46923(e, new StringBuilder("cannot initialize MAC: ")));
         }
     }
 }

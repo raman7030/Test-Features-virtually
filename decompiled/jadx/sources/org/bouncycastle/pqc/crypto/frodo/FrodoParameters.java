@@ -15,11 +15,17 @@ public class FrodoParameters implements KEMParameters {
     public static final FrodoParameters frodokem640shake;
     public static final FrodoParameters frodokem976aes;
     public static final FrodoParameters frodokem976shake;
-    public final int B;
-    public final int D;
+
+    /* JADX INFO: renamed from: B */
+    public final int f81618B;
+
+    /* JADX INFO: renamed from: D */
+    public final int f81619D;
     public final int defaultKeySize;
     public final FrodoEngine engine;
-    public final int n;
+
+    /* JADX INFO: renamed from: n */
+    public final int f81620n;
     public final String name;
 
     static {
@@ -39,19 +45,19 @@ public class FrodoParameters implements KEMParameters {
 
     public FrodoParameters(String str, int i, int i2, int i3, short[] sArr, Xof xof, FrodoMatrixGenerator frodoMatrixGenerator) {
         this.name = str;
-        this.n = i;
-        this.D = i2;
-        this.B = i3;
+        this.f81620n = i;
+        this.f81619D = i2;
+        this.f81618B = i3;
         this.defaultKeySize = i3 * 64;
         this.engine = new FrodoEngine(i, i2, i3, sArr, xof, frodoMatrixGenerator);
     }
 
     public int getB() {
-        return this.B;
+        return this.f81618B;
     }
 
     public int getD() {
-        return this.D;
+        return this.f81619D;
     }
 
     public FrodoEngine getEngine() {
@@ -59,7 +65,7 @@ public class FrodoParameters implements KEMParameters {
     }
 
     public int getN() {
-        return this.n;
+        return this.f81620n;
     }
 
     public String getName() {

@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<l.C7055 xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/MT_Protector_res_0x7f120949">
-    <l.C11268
+<p067l.C9074 xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:title="@string/MT_Protector_res_0x7f120949">
+    <p067l.C13078
         android:title="@string/MT_Protector_res_0x7f120949"
         app:iconSpaceReserved="false">
-        <l.C6845
+        <p067l.C8874
             android:title="@string/MT_Protector_res_0x7f120a4e"
             android:key="term_start_path"
             android:defaultValue="/sdcard"
             app:iconSpaceReserved="false"/>
-        <l.C5839
+        <p067l.C7918
             android:title="@string/MT_Protector_res_0x7f1203fe"
             android:key="term_text_font"
             app:fontEntries="@array/MT_Protector_res_0x7f030024"
             app:iconSpaceReserved="false"/>
-        <l.C19546
+        <p067l.C20945
             android:entries="@array/MT_Protector_res_0x7f030023"
             android:title="@string/MT_Protector_res_0x7f1203ff"
             android:key="term_font_size"
             android:defaultValue="12"
             android:entryValues="@array/MT_Protector_res_0x7f030023"
             app:iconSpaceReserved="false"/>
-        <l.C1410
+        <p067l.C3709
             android:title="@string/MT_Protector_res_0x7f120a43"
             android:key="term_keep_dark"
             android:summary="@string/MT_Protector_res_0x7f120a44"
             android:defaultValue="true"
             app:iconSpaceReserved="false"/>
-        <l.C1410
+        <p067l.C3709
             android:title="@string/MT_Protector_res_0x7f120205"
             android:key="term_create_session_as_root"
             android:summary="@string/MT_Protector_res_0x7f120206"
             android:defaultValue="false"
             app:iconSpaceReserved="false"/>
-        <l.C1410
+        <p067l.C3709
             android:title="@string/MT_Protector_res_0x7f1202c6"
             android:key="term_double_confirm_to_exit"
             android:summary="@string/MT_Protector_res_0x7f1202c7"
             android:defaultValue="true"
             app:iconSpaceReserved="false"/>
-    </l.C11268>
-    <l.C11268
+    </p067l.C13078>
+    <p067l.C13078
         android:title="@string/MT_Protector_res_0x7f120a36"
         app:iconSpaceReserved="false">
-        <l.C9368
+        <p067l.C11272
             android:title="@string/MT_Protector_res_0x7f120a36"
             android:key="term_ex"
             android:summary="@string/MT_Protector_res_0x7f120a3e"
             app:iconSpaceReserved="false"/>
-        <l.C20903
+        <p067l.C22235
             android:title="@string/MT_Protector_res_0x7f120a4f"
             android:key="terminal_su2_help"
             android:summary="@string/MT_Protector_res_0x7f120a50"
             app:iconSpaceReserved="false"/>
-    </l.C11268>
-</l.C7055>
+    </p067l.C13078>
+</p067l.C9074>

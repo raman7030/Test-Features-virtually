@@ -7,80 +7,80 @@ import com.amazonaws.util.VersionInfoUtils;
 /* JADX INFO: loaded from: classes.dex */
 public class ClientConfiguration {
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public String f97;
+    /* JADX INFO: renamed from: ᩳ */
+    public String f1257;
 
-    /* JADX INFO: renamed from: ᩻, reason: not valid java name and contains not printable characters */
-    public String f98;
+    /* JADX INFO: renamed from: ᩻ */
+    public String f1258;
 
-    /* JADX INFO: renamed from: ᩷, reason: not valid java name and contains not printable characters */
-    public static final String f91 = VersionInfoUtils.m798();
+    /* JADX INFO: renamed from: ᩷ */
+    public static final String f1251 = VersionInfoUtils.m1963();
 
-    /* JADX INFO: renamed from: ۜ, reason: not valid java name and contains not printable characters */
-    public static final RetryPolicy f90 = PredefinedRetryPolicies.f450;
+    /* JADX INFO: renamed from: ۜ */
+    public static final RetryPolicy f1250 = PredefinedRetryPolicies.f1610;
 
-    /* JADX INFO: renamed from: ܳ, reason: not valid java name and contains not printable characters */
-    public String f94 = f91;
+    /* JADX INFO: renamed from: ܳ */
+    public String f1254 = f1251;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public RetryPolicy f95 = f90;
+    /* JADX INFO: renamed from: ܽ */
+    public RetryPolicy f1255 = f1250;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public Protocol f93 = Protocol.HTTPS;
+    /* JADX INFO: renamed from: ۧ */
+    public Protocol f1253 = Protocol.HTTPS;
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public int f96 = 15000;
+    /* JADX INFO: renamed from: ܿ */
+    public int f1256 = 15000;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public int f92 = 15000;
+    /* JADX INFO: renamed from: ֫ */
+    public int f1252 = 15000;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final Protocol m170() {
-        return this.f93;
+    /* JADX INFO: renamed from: ۧ */
+    public final Protocol m1336() {
+        return this.f1253;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final void m168(Protocol protocol) {
-        this.f93 = protocol;
+    /* JADX INFO: renamed from: ֫ */
+    public final void m1334(Protocol protocol) {
+        this.f1253 = protocol;
     }
 
-    /* JADX INFO: renamed from: ܳ, reason: not valid java name and contains not printable characters */
-    public final String m171() {
-        return this.f94;
+    /* JADX INFO: renamed from: ܳ */
+    public final String m1337() {
+        return this.f1254;
     }
 
-    /* JADX INFO: renamed from: ᩻, reason: not valid java name and contains not printable characters */
-    public final String m176() {
-        return this.f98;
+    /* JADX INFO: renamed from: ᩻ */
+    public final String m1342() {
+        return this.f1258;
     }
 
-    /* JADX INFO: renamed from: ᩷, reason: not valid java name and contains not printable characters */
-    public final void m175() {
-        this.f98 = "s3drive rclone s3 browser obsidian";
+    /* JADX INFO: renamed from: ᩷ */
+    public final void m1341() {
+        this.f1258 = "s3drive rclone s3 browser obsidian";
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final RetryPolicy m172() {
-        return this.f95;
+    /* JADX INFO: renamed from: ܽ */
+    public final RetryPolicy m1338() {
+        return this.f1255;
     }
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final int m173() {
-        return this.f96;
+    /* JADX INFO: renamed from: ܿ */
+    public final int m1339() {
+        return this.f1256;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final int m167() {
-        return this.f92;
+    /* JADX INFO: renamed from: ֫ */
+    public final int m1333() {
+        return this.f1252;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final String m174() {
-        return this.f97;
+    /* JADX INFO: renamed from: ᩳ */
+    public final String m1340() {
+        return this.f1257;
     }
 
-    /* JADX INFO: renamed from: ۜ, reason: not valid java name and contains not printable characters */
-    public final void m169() {
-        this.f97 = "UnsignedPayloadSignerType";
+    /* JADX INFO: renamed from: ۜ */
+    public final void m1335() {
+        this.f1257 = "UnsignedPayloadSignerType";
     }
 }

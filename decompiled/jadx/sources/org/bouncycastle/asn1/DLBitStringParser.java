@@ -2,7 +2,7 @@ package org.bouncycastle.asn1;
 
 import java.io.IOException;
 import java.io.InputStream;
-import l.C5127;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 @Deprecated
@@ -60,7 +60,7 @@ public class DLBitStringParser implements ASN1BitStringParser {
         try {
             return getLoadedObject();
         } catch (IOException e) {
-            throw new ASN1ParsingException(C5127.m14678(e, new StringBuilder("IOException converting stream to byte array: ")), e);
+            throw new ASN1ParsingException(C7241.m16586(e, new StringBuilder("IOException converting stream to byte array: ")), e);
         }
     }
 }

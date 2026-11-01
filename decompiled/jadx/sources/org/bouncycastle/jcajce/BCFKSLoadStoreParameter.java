@@ -23,7 +23,9 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
     public class Builder {
         public X509Certificate[] certs;
         public EncryptionAlgorithm encAlg;
-        public final InputStream in;
+
+        /* JADX INFO: renamed from: in */
+        public final InputStream f81332in;
         public MacAlgorithm macAlg;
         public final OutputStream out;
         public final KeyStore.ProtectionParameter protectionParameter;
@@ -42,7 +44,7 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
             this.macAlg = MacAlgorithm.HmacSHA512;
             this.sigAlg = SignatureAlgorithm.SHA512withECDSA;
             this.certs = null;
-            this.in = inputStream;
+            this.f81332in = inputStream;
             this.out = null;
             this.protectionParameter = protectionParameter;
             this.sigKey = null;
@@ -54,7 +56,7 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
             this.macAlg = MacAlgorithm.HmacSHA512;
             this.sigAlg = SignatureAlgorithm.SHA512withECDSA;
             this.certs = null;
-            this.in = inputStream;
+            this.f81332in = inputStream;
             this.out = null;
             this.protectionParameter = null;
             this.sigKey = publicKey;
@@ -66,7 +68,7 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
             this.macAlg = MacAlgorithm.HmacSHA512;
             this.sigAlg = SignatureAlgorithm.SHA512withECDSA;
             this.certs = null;
-            this.in = inputStream;
+            this.f81332in = inputStream;
             this.out = null;
             this.protectionParameter = null;
             this.validator = certChainValidator;
@@ -83,7 +85,7 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
             this.macAlg = MacAlgorithm.HmacSHA512;
             this.sigAlg = SignatureAlgorithm.SHA512withECDSA;
             this.certs = null;
-            this.in = null;
+            this.f81332in = null;
             this.out = outputStream;
             this.protectionParameter = protectionParameter;
             this.sigKey = null;
@@ -95,7 +97,7 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
             this.macAlg = MacAlgorithm.HmacSHA512;
             this.sigAlg = SignatureAlgorithm.SHA512withECDSA;
             this.certs = null;
-            this.in = null;
+            this.f81332in = null;
             this.out = outputStream;
             this.protectionParameter = null;
             this.sigKey = privateKey;
@@ -162,7 +164,7 @@ public class BCFKSLoadStoreParameter extends BCLoadStoreParameter {
     }
 
     public BCFKSLoadStoreParameter(Builder builder) {
-        super(builder.in, builder.out, builder.protectionParameter);
+        super(builder.f81332in, builder.out, builder.protectionParameter);
         this.storeConfig = builder.storeConfig;
         this.encAlg = builder.encAlg;
         this.macAlg = builder.macAlg;

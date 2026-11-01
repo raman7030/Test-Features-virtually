@@ -4,73 +4,73 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import bin.mt.plus.R;
-import l.AbstractC15440;
-import l.ActivityC0477;
-import l.ApplicationC20075;
-import l.C16999;
-import l.C19258;
-import l.C20441;
-import l.C21374;
-import l.C21610;
-import l.C8239;
-import l.DialogInterfaceOnClickListenerC4318;
-import l.InterfaceC11918;
-import l.InterfaceC14930;
-import l.InterfaceC16610;
+import bin.p000mt.plus.R;
+import p067l.AbstractC17043;
+import p067l.ActivityC2822;
+import p067l.ApplicationC21448;
+import p067l.C10199;
+import p067l.C18524;
+import p067l.C1914;
+import p067l.C20671;
+import p067l.C21796;
+import p067l.C22682;
+import p067l.DialogInterfaceOnClickListenerC6472;
+import p067l.InterfaceC13696;
+import p067l.InterfaceC1583;
+import p067l.InterfaceC1666;
 
 /* JADX INFO: loaded from: classes.dex */
-public final /* synthetic */ class H5PayActivity$$ExternalSyntheticLambda0 implements InterfaceC11918, InterfaceC14930, InterfaceC16610 {
+public final /* synthetic */ class H5PayActivity$$ExternalSyntheticLambda0 implements InterfaceC13696, InterfaceC1583, InterfaceC1666 {
     public final /* synthetic */ Object f$0;
 
     public /* synthetic */ H5PayActivity$$ExternalSyntheticLambda0(Object obj) {
         this.f$0 = obj;
     }
 
-    @Override // l.InterfaceC16610
-    public C21610 onApplyWindowInsets(View view, C21610 c21610) {
-        return H5PayActivity.a((View) this.f$0, view, c21610);
+    @Override // p067l.InterfaceC1666
+    public C1914 onApplyWindowInsets(View view, C1914 c1914) {
+        return H5PayActivity.m401a((View) this.f$0, view, c1914);
     }
 
-    @Override // l.InterfaceC11918
+    @Override // p067l.InterfaceC13696
     public /* synthetic */ void onCanceled() {
     }
 
-    @Override // l.InterfaceC14930
+    @Override // p067l.InterfaceC1583
     public boolean onMenuItemClick(MenuItem menuItem) {
-        C20441.m46837((C20441) this.f$0, menuItem);
+        C21796.m49160((C21796) this.f$0, menuItem);
         return true;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r7v4, types: [int[], java.io.Serializable] */
-    @Override // l.InterfaceC11918
+    @Override // p067l.InterfaceC13696
     public void onGetPath(Bundle bundle, String str) {
-        final ActivityC0477 activityC0477 = (ActivityC0477) this.f$0;
-        int i = ActivityC0477.f2061;
-        final AbstractC15440 abstractC15440M39866 = C16999.m39866(str, new String[0]);
-        ApplicationC20075.f65008.edit().putString("tfdp", str).apply();
+        final ActivityC2822 activityC2822 = (ActivityC2822) this.f$0;
+        int i = ActivityC2822.f4836;
+        final AbstractC17043 abstractC17043M42109 = C18524.m42109(str, new String[0]);
+        ApplicationC21448.f67649.edit().putString("tfdp", str).apply();
         if (bundle.getBoolean("export")) {
             try {
-                C8239.m21818(abstractC15440M39866, bundle.getIntegerArrayList("indices"));
-                C21374.m48457(R.string.MT_Protector);
+                C10199.m23787(abstractC17043M42109, bundle.getIntegerArrayList("indices"));
+                C22682.m50793(R.string.MT_Protector);
                 return;
             } catch (Exception e) {
-                activityC0477.m10223(e, (DialogInterface.OnDismissListener) null);
+                activityC2822.m12259(e, (DialogInterface.OnDismissListener) null);
                 return;
             }
         }
         final ?? r7 = {0};
-        C19258 c19258BuildDialog = activityC0477.buildDialog();
-        c19258BuildDialog.m44433(R.string.MT_Protector);
-        c19258BuildDialog.m44417(R.array.MT_Protector, r7[0], new DialogInterfaceOnClickListenerC4318(1, r7));
-        c19258BuildDialog.m44442(R.string.MT_Protector, new DialogInterface.OnClickListener() { // from class: l.᩷ܿܿ
+        C20671 c20671BuildDialog = activityC2822.buildDialog();
+        c20671BuildDialog.m46727(R.string.MT_Protector);
+        c20671BuildDialog.m46711(R.array.MT_Protector, r7[0], new DialogInterfaceOnClickListenerC6472(1, r7));
+        c20671BuildDialog.m46736(R.string.MT_Protector, new DialogInterface.OnClickListener() { // from class: l.᩷ܿܿ
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i2) {
-                ActivityC0477.m2095(activityC0477, abstractC15440M39866, r7);
+                ActivityC2822.m4476(activityC2822, abstractC17043M42109, r7);
             }
         });
-        c19258BuildDialog.m44434(R.string.MT_Protector, (DialogInterface.OnClickListener) null);
-        c19258BuildDialog.m44438();
+        c20671BuildDialog.m46728(R.string.MT_Protector, (DialogInterface.OnClickListener) null);
+        c20671BuildDialog.m46732();
     }
 }

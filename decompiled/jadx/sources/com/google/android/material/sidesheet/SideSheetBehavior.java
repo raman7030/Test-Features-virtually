@@ -28,29 +28,29 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import l.AbstractC6317;
-import l.AbstractC7152;
-import l.AbstractC8832;
-import l.AbstractC9432;
-import l.C13847;
-import l.C14077;
-import l.C15886;
-import l.C17648;
-import l.C1814;
-import l.C18307;
-import l.C18333;
-import l.C18637;
-import l.C19343;
-import l.C19370;
-import l.C20118;
-import l.C3820;
-import l.C9045;
-import l.InterfaceC5198;
+import p067l.AbstractC10762;
+import p067l.AbstractC1155;
+import p067l.AbstractC1310;
+import p067l.AbstractC9165;
+import p067l.C0932;
+import p067l.C10965;
+import p067l.C1529;
+import p067l.C1540;
+import p067l.C1717;
+import p067l.C17466;
+import p067l.C1751;
+import p067l.C1840;
+import p067l.C19768;
+import p067l.C20081;
+import p067l.C20752;
+import p067l.C20778;
+import p067l.C5999;
+import p067l.InterfaceC1100;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SideSheetBehavior extends AbstractC6317 implements Sheet {
-    public static final int DEFAULT_ACCESSIBILITY_PANE_TITLE = C3820.f12148;
-    public static final int DEF_STYLE_RES = C18637.f58072;
+public class SideSheetBehavior extends AbstractC1155 implements Sheet {
+    public static final int DEFAULT_ACCESSIBILITY_PANE_TITLE = C5999.f14955;
+    public static final int DEF_STYLE_RES = C20081.f61295;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int NO_MAX_SIZE = -1;
@@ -60,7 +60,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
     public int childWidth;
     public int coplanarSiblingViewId;
     public WeakReference coplanarSiblingViewRef;
-    public final AbstractC8832 dragCallback;
+    public final AbstractC10762 dragCallback;
     public boolean draggable;
     public float elevation;
     public float hideFriction;
@@ -78,7 +78,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
     public int state;
     public final StateSettlingTracker stateSettlingTracker;
     public VelocityTracker velocityTracker;
-    public C15886 viewDragHelper;
+    public C17466 viewDragHelper;
     public WeakReference viewRef;
 
     public float getHideThreshold() {
@@ -101,13 +101,13 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         this.hideFriction = 0.1f;
         this.coplanarSiblingViewId = -1;
         this.callbacks = new LinkedHashSet();
-        this.dragCallback = new AbstractC8832() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.1
-            @Override // l.AbstractC8832
+        this.dragCallback = new AbstractC10762() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.1
+            @Override // p067l.AbstractC10762
             public boolean tryCaptureView(View view, int i) {
                 return (SideSheetBehavior.this.state == 1 || SideSheetBehavior.this.viewRef == null || SideSheetBehavior.this.viewRef.get() != view) ? false : true;
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 ViewGroup.MarginLayoutParams marginLayoutParams;
                 View coplanarSiblingView = SideSheetBehavior.this.getCoplanarSiblingView();
@@ -118,31 +118,31 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
                 SideSheetBehavior.this.dispatchOnSlide(view, i);
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public void onViewDragStateChanged(int i) {
                 if (i == 1 && SideSheetBehavior.this.draggable) {
                     SideSheetBehavior.this.setStateInternal(1);
                 }
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public void onViewReleased(View view, float f, float f2) {
                 int iCalculateTargetStateOnViewReleased = SideSheetBehavior.this.calculateTargetStateOnViewReleased(view, f, f2);
                 SideSheetBehavior sideSheetBehavior = SideSheetBehavior.this;
                 sideSheetBehavior.startSettling(view, iCalculateTargetStateOnViewReleased, sideSheetBehavior.shouldSkipSmoothAnimation());
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public int clampViewPositionVertical(View view, int i, int i2) {
                 return view.getTop();
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public int clampViewPositionHorizontal(View view, int i, int i2) {
-                return C1814.m6036(i, SideSheetBehavior.this.sheetDelegate.getMinViewPositionHorizontal(), SideSheetBehavior.this.sheetDelegate.getMaxViewPositionHorizontal());
+                return C0932.m8234(i, SideSheetBehavior.this.sheetDelegate.getMinViewPositionHorizontal(), SideSheetBehavior.this.sheetDelegate.getMaxViewPositionHorizontal());
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public int getViewHorizontalDragRange(View view) {
                 return SideSheetBehavior.this.childWidth + SideSheetBehavior.this.getInnerMargin();
             }
@@ -158,13 +158,13 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         this.hideFriction = 0.1f;
         this.coplanarSiblingViewId = -1;
         this.callbacks = new LinkedHashSet();
-        this.dragCallback = new AbstractC8832() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.1
-            @Override // l.AbstractC8832
+        this.dragCallback = new AbstractC10762() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.1
+            @Override // p067l.AbstractC10762
             public boolean tryCaptureView(View view, int i) {
                 return (SideSheetBehavior.this.state == 1 || SideSheetBehavior.this.viewRef == null || SideSheetBehavior.this.viewRef.get() != view) ? false : true;
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 ViewGroup.MarginLayoutParams marginLayoutParams;
                 View coplanarSiblingView = SideSheetBehavior.this.getCoplanarSiblingView();
@@ -175,54 +175,54 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
                 SideSheetBehavior.this.dispatchOnSlide(view, i);
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public void onViewDragStateChanged(int i) {
                 if (i == 1 && SideSheetBehavior.this.draggable) {
                     SideSheetBehavior.this.setStateInternal(1);
                 }
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public void onViewReleased(View view, float f, float f2) {
                 int iCalculateTargetStateOnViewReleased = SideSheetBehavior.this.calculateTargetStateOnViewReleased(view, f, f2);
                 SideSheetBehavior sideSheetBehavior = SideSheetBehavior.this;
                 sideSheetBehavior.startSettling(view, iCalculateTargetStateOnViewReleased, sideSheetBehavior.shouldSkipSmoothAnimation());
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public int clampViewPositionVertical(View view, int i, int i2) {
                 return view.getTop();
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public int clampViewPositionHorizontal(View view, int i, int i2) {
-                return C1814.m6036(i, SideSheetBehavior.this.sheetDelegate.getMinViewPositionHorizontal(), SideSheetBehavior.this.sheetDelegate.getMaxViewPositionHorizontal());
+                return C0932.m8234(i, SideSheetBehavior.this.sheetDelegate.getMinViewPositionHorizontal(), SideSheetBehavior.this.sheetDelegate.getMaxViewPositionHorizontal());
             }
 
-            @Override // l.AbstractC8832
+            @Override // p067l.AbstractC10762
             public int getViewHorizontalDragRange(View view) {
                 return SideSheetBehavior.this.childWidth + SideSheetBehavior.this.getInnerMargin();
             }
         };
-        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C19343.f62186);
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f61333)) {
-            this.backgroundTint = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C19343.f61333);
+        TypedArray typedArrayObtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C20752.f82792);
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f82499)) {
+            this.backgroundTint = MaterialResources.getColorStateList(context, typedArrayObtainStyledAttributes, C20752.f82499);
         }
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f61492)) {
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f82553)) {
             this.shapeAppearanceModel = ShapeAppearanceModel.builder(context, attributeSet, 0, DEF_STYLE_RES).build();
         }
-        if (typedArrayObtainStyledAttributes.hasValue(C19343.f61545)) {
-            setCoplanarSiblingViewId(typedArrayObtainStyledAttributes.getResourceId(C19343.f61545, -1));
+        if (typedArrayObtainStyledAttributes.hasValue(C20752.f82571)) {
+            setCoplanarSiblingViewId(typedArrayObtainStyledAttributes.getResourceId(C20752.f82571, -1));
         }
         createMaterialShapeDrawableIfNeeded(context);
-        this.elevation = typedArrayObtainStyledAttributes.getDimension(C19343.f62132, -1.0f);
-        setDraggable(typedArrayObtainStyledAttributes.getBoolean(C19343.f62398, true));
+        this.elevation = typedArrayObtainStyledAttributes.getDimension(C20752.f82773, -1.0f);
+        setDraggable(typedArrayObtainStyledAttributes.getBoolean(C20752.f82864, true));
         typedArrayObtainStyledAttributes.recycle();
         this.maximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
     }
 
     private void setSheetEdge(View view, int i) {
-        setSheetEdge(Gravity.getAbsoluteGravity(((C14077) view.getLayoutParams()).f42518, i) == 3 ? 1 : 0);
+        setSheetEdge(Gravity.getAbsoluteGravity(((C1540) view.getLayoutParams()).f45604, i) == 3 ? 1 : 0);
     }
 
     private void setSheetEdge(int i) {
@@ -239,7 +239,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
                 return;
             }
             if (i != 1) {
-                throw new IllegalArgumentException(C18307.m42645(i, "Invalid sheet edge position value: ", ". Must be 0 or 1."));
+                throw new IllegalArgumentException(C19768.m44906(i, "Invalid sheet edge position value: ", ". Must be 0 or 1."));
             }
             this.sheetDelegate = new LeftSheetDelegate(this);
             if (this.shapeAppearanceModel == null || hasLeftMargin()) {
@@ -257,22 +257,22 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
     }
 
     private boolean hasRightMargin() {
-        C14077 viewLayoutParams = getViewLayoutParams();
+        C1540 viewLayoutParams = getViewLayoutParams();
         return viewLayoutParams != null && ((ViewGroup.MarginLayoutParams) viewLayoutParams).rightMargin > 0;
     }
 
     private boolean hasLeftMargin() {
-        C14077 viewLayoutParams = getViewLayoutParams();
+        C1540 viewLayoutParams = getViewLayoutParams();
         return viewLayoutParams != null && ((ViewGroup.MarginLayoutParams) viewLayoutParams).leftMargin > 0;
     }
 
-    private C14077 getViewLayoutParams() {
+    private C1540 getViewLayoutParams() {
         View view;
         WeakReference weakReference = this.viewRef;
-        if (weakReference == null || (view = (View) weakReference.get()) == null || !(view.getLayoutParams() instanceof C14077)) {
+        if (weakReference == null || (view = (View) weakReference.get()) == null || !(view.getLayoutParams() instanceof C1540)) {
             return null;
         }
-        return (C14077) view.getLayoutParams();
+        return (C1540) view.getLayoutParams();
     }
 
     private void updateMaterialShapeDrawable(ShapeAppearanceModel shapeAppearanceModel) {
@@ -290,16 +290,16 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         setState(5);
     }
 
-    @Override // l.AbstractC6317
-    public Parcelable onSaveInstanceState(C18333 c18333, View view) {
-        return new SavedState(super.onSaveInstanceState(c18333, view), this);
+    @Override // p067l.AbstractC1155
+    public Parcelable onSaveInstanceState(C1751 c1751, View view) {
+        return new SavedState(super.onSaveInstanceState(c1751, view), this);
     }
 
-    @Override // l.AbstractC6317
-    public void onRestoreInstanceState(C18333 c18333, View view, Parcelable parcelable) {
+    @Override // p067l.AbstractC1155
+    public void onRestoreInstanceState(C1751 c1751, View view, Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         if (savedState.getSuperState() != null) {
-            super.onRestoreInstanceState(c18333, view, savedState.getSuperState());
+            super.onRestoreInstanceState(c1751, view, savedState.getSuperState());
         }
         int i = savedState.state;
         if (i == 1 || i == 2) {
@@ -309,15 +309,15 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         this.lastStableState = i;
     }
 
-    @Override // l.AbstractC6317
-    public void onAttachedToLayoutParams(C14077 c14077) {
-        super.onAttachedToLayoutParams(c14077);
+    @Override // p067l.AbstractC1155
+    public void onAttachedToLayoutParams(C1540 c1540) {
+        super.onAttachedToLayoutParams(c1540);
         this.viewRef = null;
         this.viewDragHelper = null;
         this.sideContainerBackHelper = null;
     }
 
-    @Override // l.AbstractC6317
+    @Override // p067l.AbstractC1155
     public void onDetachedFromLayoutParams() {
         super.onDetachedFromLayoutParams();
         this.viewRef = null;
@@ -325,10 +325,10 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         this.sideContainerBackHelper = null;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onMeasureChild(C18333 c18333, View view, int i, int i2, int i3, int i4) {
+    @Override // p067l.AbstractC1155
+    public boolean onMeasureChild(C1751 c1751, View view, int i, int i2, int i3, int i4) {
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        view.measure(getChildMeasureSpec(i, c18333.getPaddingRight() + c18333.getPaddingLeft() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, -1, marginLayoutParams.width), getChildMeasureSpec(i3, c18333.getPaddingBottom() + c18333.getPaddingTop() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, -1, marginLayoutParams.height));
+        view.measure(getChildMeasureSpec(i, c1751.getPaddingRight() + c1751.getPaddingLeft() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, -1, marginLayoutParams.width), getChildMeasureSpec(i3, c1751.getPaddingBottom() + c1751.getPaddingTop() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, -1, marginLayoutParams.height));
         return true;
     }
 
@@ -348,10 +348,10 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         return View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
     }
 
-    @Override // l.AbstractC6317
-    public boolean onLayoutChild(C18333 c18333, View view, int i) {
-        int i2 = C17648.f53953;
-        if (c18333.getFitsSystemWindows() && !view.getFitsSystemWindows()) {
+    @Override // p067l.AbstractC1155
+    public boolean onLayoutChild(C1751 c1751, View view, int i) {
+        int i2 = C1717.f57146;
+        if (c1751.getFitsSystemWindows() && !view.getFitsSystemWindows()) {
             view.setFitsSystemWindows(true);
         }
         if (this.viewRef == null) {
@@ -361,16 +361,16 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
             if (materialShapeDrawable == null) {
                 ColorStateList colorStateList = this.backgroundTint;
                 if (colorStateList != null) {
-                    C17648.m41303(view, colorStateList);
+                    C1717.m43549(view, colorStateList);
                 }
             } else {
                 view.setBackground(materialShapeDrawable);
                 MaterialShapeDrawable materialShapeDrawable2 = this.materialShapeDrawable;
-                float fM41320 = this.elevation;
-                if (fM41320 == -1.0f) {
-                    fM41320 = C17648.m41320(view);
+                float fM43566 = this.elevation;
+                if (fM43566 == -1.0f) {
+                    fM43566 = C1717.m43566(view);
                 }
-                materialShapeDrawable2.setElevation(fM41320);
+                materialShapeDrawable2.setElevation(fM43566);
             }
             updateSheetVisibility(view);
             updateAccessibilityActions();
@@ -381,17 +381,17 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         }
         setSheetEdge(view, i);
         if (this.viewDragHelper == null) {
-            this.viewDragHelper = C15886.m37623(c18333, this.dragCallback);
+            this.viewDragHelper = C17466.m39795(c1751, this.dragCallback);
         }
         int outerEdge = this.sheetDelegate.getOuterEdge(view);
-        c18333.onLayoutChild(view, i);
-        this.parentWidth = c18333.getWidth();
-        this.parentInnerEdge = this.sheetDelegate.getParentInnerEdge(c18333);
+        c1751.onLayoutChild(view, i);
+        this.parentWidth = c1751.getWidth();
+        this.parentInnerEdge = this.sheetDelegate.getParentInnerEdge(c1751);
         this.childWidth = view.getWidth();
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
         this.innerMargin = marginLayoutParams != null ? this.sheetDelegate.calculateInnerMargin(marginLayoutParams) : 0;
-        C17648.m41325(calculateCurrentOffset(outerEdge, view), view);
-        maybeAssignCoplanarSiblingViewBasedId(c18333);
+        C1717.m43571(calculateCurrentOffset(outerEdge, view), view);
+        maybeAssignCoplanarSiblingViewBasedId(c1751);
         for (SheetCallback sheetCallback : this.callbacks) {
             if (sheetCallback instanceof SideSheetCallback) {
                 ((SideSheetCallback) sheetCallback).onLayout(view);
@@ -408,15 +408,15 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
     }
 
     private void ensureAccessibilityPaneTitleIsSet(View view) {
-        if (C17648.m41336(view) == null) {
-            C17648.m41305(view, (CharSequence) view.getResources().getString(DEFAULT_ACCESSIBILITY_PANE_TITLE));
+        if (C1717.m43582(view) == null) {
+            C1717.m43551(view, (CharSequence) view.getResources().getString(DEFAULT_ACCESSIBILITY_PANE_TITLE));
         }
     }
 
-    private void maybeAssignCoplanarSiblingViewBasedId(C18333 c18333) {
+    private void maybeAssignCoplanarSiblingViewBasedId(C1751 c1751) {
         int i;
         View viewFindViewById;
-        if (this.coplanarSiblingViewRef != null || (i = this.coplanarSiblingViewId) == -1 || (viewFindViewById = c18333.findViewById(i)) == null) {
+        if (this.coplanarSiblingViewRef != null || (i = this.coplanarSiblingViewId) == -1 || (viewFindViewById = c1751.findViewById(i)) == null) {
             return;
         }
         this.coplanarSiblingViewRef = new WeakReference(viewFindViewById);
@@ -452,9 +452,9 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         throw new IllegalStateException("Unexpected value: " + this.state);
     }
 
-    @Override // l.AbstractC6317
-    public boolean onInterceptTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
-        C15886 c15886;
+    @Override // p067l.AbstractC1155
+    public boolean onInterceptTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
+        C17466 c17466;
         if (!shouldInterceptTouchEvent(view)) {
             this.ignoreEvents = true;
             return false;
@@ -475,15 +475,15 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         } else {
             this.initialX = (int) motionEvent.getX();
         }
-        return (this.ignoreEvents || (c15886 = this.viewDragHelper) == null || !c15886.m37645(motionEvent)) ? false : true;
+        return (this.ignoreEvents || (c17466 = this.viewDragHelper) == null || !c17466.m39817(motionEvent)) ? false : true;
     }
 
     private boolean shouldInterceptTouchEvent(View view) {
-        return (view.isShown() || C17648.m41336(view) != null) && this.draggable;
+        return (view.isShown() || C1717.m43582(view) != null) && this.draggable;
     }
 
-    @Override // l.AbstractC6317
-    public boolean onTouchEvent(C18333 c18333, View view, MotionEvent motionEvent) {
+    @Override // p067l.AbstractC1155
+    public boolean onTouchEvent(C1751 c1751, View view, MotionEvent motionEvent) {
         if (!view.isShown()) {
             return false;
         }
@@ -492,7 +492,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
             return true;
         }
         if (shouldHandleDraggingWithHelper()) {
-            this.viewDragHelper.m37638(motionEvent);
+            this.viewDragHelper.m39810(motionEvent);
         }
         if (actionMasked == 0) {
             resetVelocity();
@@ -502,13 +502,13 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         }
         this.velocityTracker.addMovement(motionEvent);
         if (shouldHandleDraggingWithHelper() && actionMasked == 2 && !this.ignoreEvents && isDraggedFarEnough(motionEvent)) {
-            this.viewDragHelper.m37637(motionEvent.getPointerId(motionEvent.getActionIndex()), view);
+            this.viewDragHelper.m39809(motionEvent.getPointerId(motionEvent.getActionIndex()), view);
         }
         return !this.ignoreEvents;
     }
 
     private boolean isDraggedFarEnough(MotionEvent motionEvent) {
-        return shouldHandleDraggingWithHelper() && calculateDragDistance((float) this.initialX, motionEvent.getX()) > ((float) this.viewDragHelper.m37640());
+        return shouldHandleDraggingWithHelper() && calculateDragDistance((float) this.initialX, motionEvent.getX()) > ((float) this.viewDragHelper.m39812());
     }
 
     private float calculateDragDistance(float f, float f2) {
@@ -548,7 +548,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
     @Override // com.google.android.material.sidesheet.Sheet
     public void setState(final int i) {
         if (i == 1 || i == 2) {
-            throw new IllegalArgumentException(C9045.m23341(new StringBuilder("STATE_"), i == 1 ? "DRAGGING" : "SETTLING", " should not be set externally."));
+            throw new IllegalArgumentException(C10965.m25286(new StringBuilder("STATE_"), i == 1 ? "DRAGGING" : "SETTLING", " should not be set externally."));
         }
         WeakReference weakReference = this.viewRef;
         if (weakReference == null || weakReference.get() == null) {
@@ -584,7 +584,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         if (parent == null || !parent.isLayoutRequested()) {
             return false;
         }
-        int i = C17648.f53953;
+        int i = C1717.f57146;
         return view.isAttachedToWindow();
     }
 
@@ -671,14 +671,14 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
 
     private boolean isSettling(View view, int i, boolean z) {
         int outerEdgeOffsetForState = getOuterEdgeOffsetForState(i);
-        C15886 viewDragHelper = getViewDragHelper();
+        C17466 viewDragHelper = getViewDragHelper();
         if (viewDragHelper == null) {
             return false;
         }
         if (z) {
-            return viewDragHelper.m37643(outerEdgeOffsetForState, view.getTop());
+            return viewDragHelper.m39815(outerEdgeOffsetForState, view.getTop());
         }
-        return viewDragHelper.m37639(view, outerEdgeOffsetForState, view.getTop());
+        return viewDragHelper.m39811(view, outerEdgeOffsetForState, view.getTop());
     }
 
     public int getOuterEdgeOffsetForState(int i) {
@@ -688,10 +688,10 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         if (i == 5) {
             return this.sheetDelegate.getHiddenOffset();
         }
-        throw new IllegalArgumentException(C19370.m44628(i, "Invalid state to get outer edge offset: "));
+        throw new IllegalArgumentException(C20778.m46922(i, "Invalid state to get outer edge offset: "));
     }
 
-    public C15886 getViewDragHelper() {
+    public C17466 getViewDragHelper() {
         return this.viewDragHelper;
     }
 
@@ -733,7 +733,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         if (weakReference != null) {
             View view = (View) weakReference.get();
             if (i != -1) {
-                int i2 = C17648.f53953;
+                int i2 = C1717.f57146;
                 if (view.isLaidOut()) {
                     view.requestLayout();
                 }
@@ -751,7 +751,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         WeakReference weakReference = this.viewRef;
         if (weakReference != null) {
             View view2 = (View) weakReference.get();
-            int i = C17648.f53953;
+            int i = C1717.f57146;
             if (view2.isLaidOut()) {
                 view2.requestLayout();
             }
@@ -779,21 +779,21 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
-    public void startBackProgress(C20118 c20118) {
+    public void startBackProgress(C1840 c1840) {
         MaterialSideContainerBackHelper materialSideContainerBackHelper = this.sideContainerBackHelper;
         if (materialSideContainerBackHelper == null) {
             return;
         }
-        materialSideContainerBackHelper.startBackProgress(c20118);
+        materialSideContainerBackHelper.startBackProgress(c1840);
     }
 
     @Override // com.google.android.material.motion.MaterialBackHandler
-    public void updateBackProgress(C20118 c20118) {
+    public void updateBackProgress(C1840 c1840) {
         MaterialSideContainerBackHelper materialSideContainerBackHelper = this.sideContainerBackHelper;
         if (materialSideContainerBackHelper == null) {
             return;
         }
-        materialSideContainerBackHelper.updateBackProgress(c20118, getGravityFromSheetEdge());
+        materialSideContainerBackHelper.updateBackProgress(c1840, getGravityFromSheetEdge());
         updateCoplanarSiblingBackProgress();
     }
 
@@ -818,11 +818,11 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         if (materialSideContainerBackHelper == null) {
             return;
         }
-        C20118 c20118OnHandleBackInvoked = materialSideContainerBackHelper.onHandleBackInvoked();
-        if (c20118OnHandleBackInvoked == null || Build.VERSION.SDK_INT < 34) {
+        C1840 c1840OnHandleBackInvoked = materialSideContainerBackHelper.onHandleBackInvoked();
+        if (c1840OnHandleBackInvoked == null || Build.VERSION.SDK_INT < 34) {
             setState(5);
         } else {
-            this.sideContainerBackHelper.finishBackProgress(c20118OnHandleBackInvoked, getGravityFromSheetEdge(), new AnimatorListenerAdapter() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.2
+            this.sideContainerBackHelper.finishBackProgress(c1840OnHandleBackInvoked, getGravityFromSheetEdge(), new AnimatorListenerAdapter() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     SideSheetBehavior.this.setStateInternal(5);
@@ -885,7 +885,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ void lambda$new$0() {
             this.isContinueSettlingRunnablePosted = false;
-            if (SideSheetBehavior.this.viewDragHelper == null || !SideSheetBehavior.this.viewDragHelper.m37650()) {
+            if (SideSheetBehavior.this.viewDragHelper == null || !SideSheetBehavior.this.viewDragHelper.m39822()) {
                 if (SideSheetBehavior.this.state == 2) {
                     SideSheetBehavior.this.setStateInternal(this.targetState);
                     return;
@@ -905,13 +905,13 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
             }
             View view = (View) SideSheetBehavior.this.viewRef.get();
             Runnable runnable = this.continueSettlingRunnable;
-            int i2 = C17648.f53953;
+            int i2 = C1717.f57146;
             view.postOnAnimation(runnable);
             this.isContinueSettlingRunnablePosted = true;
         }
     }
 
-    public class SavedState extends AbstractC7152 {
+    public class SavedState extends AbstractC9165 {
         public static final Parcelable.Creator CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.sidesheet.SideSheetBehavior.SavedState.1
             @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
@@ -944,7 +944,7 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
             this.state = sideSheetBehavior.state;
         }
 
-        @Override // l.AbstractC7152, android.os.Parcelable
+        @Override // p067l.AbstractC9165, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.state);
@@ -953,14 +953,14 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
 
     public static SideSheetBehavior from(View view) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (!(layoutParams instanceof C14077)) {
+        if (!(layoutParams instanceof C1540)) {
             throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
         }
-        AbstractC6317 abstractC6317M33687 = ((C14077) layoutParams).m33687();
-        if (!(abstractC6317M33687 instanceof SideSheetBehavior)) {
+        AbstractC1155 abstractC1155M35812 = ((C1540) layoutParams).m35812();
+        if (!(abstractC1155M35812 instanceof SideSheetBehavior)) {
             throw new IllegalArgumentException("The view is not associated with SideSheetBehavior");
         }
-        return (SideSheetBehavior) abstractC6317M33687;
+        return (SideSheetBehavior) abstractC1155M35812;
     }
 
     private void updateAccessibilityActions() {
@@ -969,31 +969,31 @@ public class SideSheetBehavior extends AbstractC6317 implements Sheet {
         if (weakReference == null || (view = (View) weakReference.get()) == null) {
             return;
         }
-        C17648.m41337(262144, view);
-        C17648.m41337(1048576, view);
+        C1717.m43583(262144, view);
+        C1717.m43583(1048576, view);
         if (this.state != 5) {
-            replaceAccessibilityActionForState(view, C13847.f41298, 5);
+            replaceAccessibilityActionForState(view, C1529.f44377, 5);
         }
         if (this.state != 3) {
-            replaceAccessibilityActionForState(view, C13847.f41305, 3);
+            replaceAccessibilityActionForState(view, C1529.f44384, 3);
         }
     }
 
-    private void replaceAccessibilityActionForState(View view, C13847 c13847, int i) {
-        C17648.m41308(view, c13847, null, createAccessibilityViewCommandForState(i));
+    private void replaceAccessibilityActionForState(View view, C1529 c1529, int i) {
+        C1717.m43554(view, c1529, null, createAccessibilityViewCommandForState(i));
     }
 
-    private InterfaceC5198 createAccessibilityViewCommandForState(final int i) {
-        return new InterfaceC5198() { // from class: com.google.android.material.sidesheet.SideSheetBehavior$$ExternalSyntheticLambda1
-            @Override // l.InterfaceC5198
-            public final boolean perform(View view, AbstractC9432 abstractC9432) {
-                return this.f$0.lambda$createAccessibilityViewCommandForState$2(i, view, abstractC9432);
+    private InterfaceC1100 createAccessibilityViewCommandForState(final int i) {
+        return new InterfaceC1100() { // from class: com.google.android.material.sidesheet.SideSheetBehavior$$ExternalSyntheticLambda1
+            @Override // p067l.InterfaceC1100
+            public final boolean perform(View view, AbstractC1310 abstractC1310) {
+                return this.f$0.lambda$createAccessibilityViewCommandForState$2(i, view, abstractC1310);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ boolean lambda$createAccessibilityViewCommandForState$2(int i, View view, AbstractC9432 abstractC9432) {
+    public /* synthetic */ boolean lambda$createAccessibilityViewCommandForState$2(int i, View view, AbstractC1310 abstractC1310) {
         setState(i);
         return true;
     }

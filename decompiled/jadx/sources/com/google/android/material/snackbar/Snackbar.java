@@ -15,10 +15,10 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import l.C15813;
-import l.C17931;
-import l.C18333;
-import l.ViewOnClickListenerC2531;
+import p067l.C17397;
+import p067l.C1751;
+import p067l.C19410;
+import p067l.ViewOnClickListenerC4774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Snackbar extends BaseTransientBottomBar {
@@ -45,9 +45,9 @@ public class Snackbar extends BaseTransientBottomBar {
     }
 
     static {
-        int i = C17931.f54851;
+        int i = C19410.f58048;
         SNACKBAR_BUTTON_STYLE_ATTR = new int[]{i};
-        SNACKBAR_CONTENT_STYLE_ATTRS = new int[]{i, C17931.f55567};
+        SNACKBAR_CONTENT_STYLE_ATTRS = new int[]{i, C19410.f58764};
     }
 
     public Snackbar(Context context, ViewGroup viewGroup, View view, ContentViewCallback contentViewCallback) {
@@ -89,9 +89,9 @@ public class Snackbar extends BaseTransientBottomBar {
         }
         LayoutInflater layoutInflaterFrom = LayoutInflater.from(context);
         if (hasSnackbarContentStyleAttrs(context)) {
-            i2 = C15813.f48874;
+            i2 = C17397.f52012;
         } else {
-            i2 = C15813.f48845;
+            i2 = C17397.f51983;
         }
         SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) layoutInflaterFrom.inflate(i2, viewGroupFindSuitableParent, false);
         Snackbar snackbar = new Snackbar(context, viewGroupFindSuitableParent, snackbarContentLayout, snackbarContentLayout);
@@ -122,7 +122,7 @@ public class Snackbar extends BaseTransientBottomBar {
 
     public static ViewGroup findSuitableParent(View view) {
         ViewGroup viewGroup = null;
-        while (!(view instanceof C18333)) {
+        while (!(view instanceof C1751)) {
             if (view instanceof FrameLayout) {
                 if (view.getId() == 16908290) {
                     return (ViewGroup) view;
@@ -164,7 +164,7 @@ public class Snackbar extends BaseTransientBottomBar {
         this.hasAction = true;
         actionView.setVisibility(0);
         actionView.setText(charSequence);
-        actionView.setOnClickListener(new ViewOnClickListenerC2531(1, this, onClickListener));
+        actionView.setOnClickListener(new ViewOnClickListenerC4774(1, this, onClickListener));
         return this;
     }
 

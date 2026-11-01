@@ -5,9 +5,15 @@ import org.bouncycastle.pqc.math.ntru.parameters.NTRUHRSSParameterSet;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class HRSS1373Polynomial extends HRSSPolynomial {
-    public static final int K = 86;
-    public static final int L = 1376;
-    public static final int M = 344;
+
+    /* JADX INFO: renamed from: K */
+    public static final int f81792K = 86;
+
+    /* JADX INFO: renamed from: L */
+    public static final int f81793L = 1376;
+
+    /* JADX INFO: renamed from: M */
+    public static final int f81794M = 344;
 
     public HRSS1373Polynomial(NTRUHRSSParameterSet nTRUHRSSParameterSet) {
         super(nTRUHRSSParameterSet);
@@ -41,7 +47,7 @@ public class HRSS1373Polynomial extends HRSSPolynomial {
             sArr2[i7] = (short) (b4 | ((b5 & 63) << 8));
             sArr2[i7 + 1] = (short) (((bArr[i8 + 3] & 15) << 10) | (b5 >>> 6) | (bArr[i8 + 2] << 2));
         }
-        this.coeffs[this.params.n() - 1] = 0;
+        this.coeffs[this.params.m55436n() - 1] = 0;
     }
 
     @Override // org.bouncycastle.pqc.math.ntru.HRSSPolynomial, org.bouncycastle.pqc.math.ntru.Polynomial
@@ -51,7 +57,7 @@ public class HRSS1373Polynomial extends HRSSPolynomial {
         int i2 = 0;
         while (i2 < this.params.packDegree() / 4) {
             for (int i3 = 0; i3 < 4; i3++) {
-                sArr[i3] = (short) Polynomial.modQ(this.coeffs[(i2 * 4) + i3] & HPKE.aead_EXPORT_ONLY, this.params.q());
+                sArr[i3] = (short) Polynomial.modQ(this.coeffs[(i2 * 4) + i3] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             }
             int i4 = i2 * 7;
             short s = sArr[0];
@@ -68,8 +74,8 @@ public class HRSS1373Polynomial extends HRSSPolynomial {
             i2++;
         }
         if (this.params.packDegree() % 4 == 2) {
-            sArr[0] = (short) Polynomial.modQ(this.coeffs[this.params.packDegree() - 2] & HPKE.aead_EXPORT_ONLY, this.params.q());
-            short sModQ = (short) Polynomial.modQ(this.coeffs[this.params.packDegree() - 1] & HPKE.aead_EXPORT_ONLY, this.params.q());
+            sArr[0] = (short) Polynomial.modQ(this.coeffs[this.params.packDegree() - 2] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
+            short sModQ = (short) Polynomial.modQ(this.coeffs[this.params.packDegree() - 1] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             sArr[1] = sModQ;
             int i5 = i2 * 7;
             short s5 = sArr[0];

@@ -2,19 +2,19 @@ package com.google.android.material.internal;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import l.C13132;
-import l.C3060;
-import l.C6495;
-import l.InterfaceC7002;
+import p067l.C0994;
+import p067l.C14849;
+import p067l.C8541;
+import p067l.InterfaceC1189;
 
 /* JADX INFO: loaded from: classes.dex */
-public class NavigationMenuView extends C13132 implements InterfaceC7002 {
+public class NavigationMenuView extends C14849 implements InterfaceC1189 {
     public int getWindowAnimations() {
         return 0;
     }
 
-    @Override // l.InterfaceC7002
-    public void initialize(C3060 c3060) {
+    @Override // p067l.InterfaceC1189
+    public void initialize(C0994 c0994) {
     }
 
     public NavigationMenuView(Context context) {
@@ -27,6 +27,6 @@ public class NavigationMenuView extends C13132 implements InterfaceC7002 {
 
     public NavigationMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        setLayoutManager(new C6495(context, 1, false));
+        setLayoutManager(new C8541(context, 1, false));
     }
 }

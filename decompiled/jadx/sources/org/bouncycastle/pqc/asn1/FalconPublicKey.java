@@ -1,24 +1,26 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class FalconPublicKey extends ASN1Object {
-    public byte[] h;
+
+    /* JADX INFO: renamed from: h */
+    public byte[] f81559h;
 
     @Deprecated
     public FalconPublicKey(ASN1Sequence aSN1Sequence) {
-        this.h = C16014.m37869(aSN1Sequence, 0);
+        this.f81559h = C17588.m40055(aSN1Sequence, 0);
     }
 
     public FalconPublicKey(byte[] bArr) {
-        this.h = bArr;
+        this.f81559h = bArr;
     }
 
     public static FalconPublicKey getInstance(Object obj) {
@@ -32,13 +34,13 @@ public class FalconPublicKey extends ASN1Object {
     }
 
     public byte[] getH() {
-        return this.h;
+        return this.f81559h;
     }
 
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
-        aSN1EncodableVector.add(new DEROctetString(this.h));
+        aSN1EncodableVector.add(new DEROctetString(this.f81559h));
         return new DERSequence(aSN1EncodableVector);
     }
 }

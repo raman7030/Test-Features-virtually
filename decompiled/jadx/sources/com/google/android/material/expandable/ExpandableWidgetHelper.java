@@ -3,7 +3,7 @@ package com.google.android.material.expandable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewParent;
-import l.C18333;
+import p067l.C1751;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class ExpandableWidgetHelper {
@@ -54,8 +54,8 @@ public final class ExpandableWidgetHelper {
 
     private void dispatchExpandedStateChanged() {
         ViewParent parent = this.widget.getParent();
-        if (parent instanceof C18333) {
-            ((C18333) parent).dispatchDependentViewsChanged(this.widget);
+        if (parent instanceof C1751) {
+            ((C1751) parent).dispatchDependentViewsChanged(this.widget);
         }
     }
 }

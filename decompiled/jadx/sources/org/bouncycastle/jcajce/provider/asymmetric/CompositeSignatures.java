@@ -2,12 +2,12 @@ package org.bouncycastle.jcajce.provider.asymmetric;
 
 import java.util.HashMap;
 import java.util.Map;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.CompositeIndex;
 import org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import p067l.C10965;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CompositeSignatures {
@@ -35,7 +35,7 @@ public class CompositeSignatures {
                 configurableProvider.addAlgorithm("Alg.Alias.KeyPairGenerator", aSN1ObjectIdentifier, algorithmName);
                 configurableProvider.addAlgorithm("Signature.".concat(algorithmName), "org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.SignatureSpi$" + strReplace);
                 configurableProvider.addAlgorithm("Alg.Alias.Signature", aSN1ObjectIdentifier, algorithmName);
-                configurableProvider.addAlgorithm(C9045.m23341(new StringBuilder("Signature."), algorithmName, "-PREHASH"), "org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.SignatureSpi$" + strReplace + "_PREHASH");
+                configurableProvider.addAlgorithm(C10965.m25286(new StringBuilder("Signature."), algorithmName, "-PREHASH"), "org.bouncycastle.jcajce.provider.asymmetric.compositesignatures.SignatureSpi$" + strReplace + "_PREHASH");
                 configurableProvider.addKeyInfoConverter(aSN1ObjectIdentifier, new KeyFactorySpi());
             }
         }

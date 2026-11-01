@@ -1,7 +1,6 @@
 package org.bouncycastle.asn1.x509;
 
 import java.math.BigInteger;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -11,6 +10,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.x500.X500Name;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class IssuerSerial extends ASN1Object {
@@ -20,7 +20,7 @@ public class IssuerSerial extends ASN1Object {
 
     public IssuerSerial(ASN1Sequence aSN1Sequence) {
         if (aSN1Sequence.size() != 2 && aSN1Sequence.size() != 3) {
-            throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+            throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
         }
         this.issuer = GeneralNames.getInstance(aSN1Sequence.getObjectAt(0));
         this.serial = ASN1Integer.getInstance(aSN1Sequence.getObjectAt(1));

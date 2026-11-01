@@ -36,58 +36,82 @@ public class SLHDSAParameters {
     public static final SLHDSAParameters shake_256s_with_shake256 = new SLHDSAParameters("shake-256s-with-shake256", new Shake256EngineProvider(32, 16, 8, 14, 22, 64), 4);
 
     public class Sha2EngineProvider implements SLHDSAEngineProvider {
-        public final int a;
-        public final int d;
-        public final int h;
-        public final int k;
-        public final int n;
-        public final int w;
+
+        /* JADX INFO: renamed from: a */
+        public final int f81732a;
+
+        /* JADX INFO: renamed from: d */
+        public final int f81733d;
+
+        /* JADX INFO: renamed from: h */
+        public final int f81734h;
+
+        /* JADX INFO: renamed from: k */
+        public final int f81735k;
+
+        /* JADX INFO: renamed from: n */
+        public final int f81736n;
+
+        /* JADX INFO: renamed from: w */
+        public final int f81737w;
 
         public Sha2EngineProvider(int i, int i2, int i3, int i4, int i5, int i6) {
-            this.n = i;
-            this.w = i2;
-            this.d = i3;
-            this.a = i4;
-            this.k = i5;
-            this.h = i6;
+            this.f81736n = i;
+            this.f81737w = i2;
+            this.f81733d = i3;
+            this.f81732a = i4;
+            this.f81735k = i5;
+            this.f81734h = i6;
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngineProvider
         public SLHDSAEngine get() {
-            return new SLHDSAEngine.Sha2Engine(this.n, this.w, this.d, this.a, this.k, this.h);
+            return new SLHDSAEngine.Sha2Engine(this.f81736n, this.f81737w, this.f81733d, this.f81732a, this.f81735k, this.f81734h);
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngineProvider
         public int getN() {
-            return this.n;
+            return this.f81736n;
         }
     }
 
     public class Shake256EngineProvider implements SLHDSAEngineProvider {
-        public final int a;
-        public final int d;
-        public final int h;
-        public final int k;
-        public final int n;
-        public final int w;
+
+        /* JADX INFO: renamed from: a */
+        public final int f81738a;
+
+        /* JADX INFO: renamed from: d */
+        public final int f81739d;
+
+        /* JADX INFO: renamed from: h */
+        public final int f81740h;
+
+        /* JADX INFO: renamed from: k */
+        public final int f81741k;
+
+        /* JADX INFO: renamed from: n */
+        public final int f81742n;
+
+        /* JADX INFO: renamed from: w */
+        public final int f81743w;
 
         public Shake256EngineProvider(int i, int i2, int i3, int i4, int i5, int i6) {
-            this.n = i;
-            this.w = i2;
-            this.d = i3;
-            this.a = i4;
-            this.k = i5;
-            this.h = i6;
+            this.f81742n = i;
+            this.f81743w = i2;
+            this.f81739d = i3;
+            this.f81738a = i4;
+            this.f81741k = i5;
+            this.f81740h = i6;
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngineProvider
         public SLHDSAEngine get() {
-            return new SLHDSAEngine.Shake256Engine(this.n, this.w, this.d, this.a, this.k, this.h);
+            return new SLHDSAEngine.Shake256Engine(this.f81742n, this.f81743w, this.f81739d, this.f81738a, this.f81741k, this.f81740h);
         }
 
         @Override // org.bouncycastle.pqc.crypto.slhdsa.SLHDSAEngineProvider
         public int getN() {
-            return this.n;
+            return this.f81742n;
         }
     }
 

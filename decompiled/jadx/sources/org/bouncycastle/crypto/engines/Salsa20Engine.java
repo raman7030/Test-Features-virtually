@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C3200;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.DataLengthException;
@@ -13,6 +12,7 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Pack;
 import org.bouncycastle.util.Strings;
+import p067l.C5410;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Salsa20Engine implements SkippingStreamCipher {
@@ -29,7 +29,9 @@ public class Salsa20Engine implements SkippingStreamCipher {
     public boolean initialised;
     public byte[] keyStream;
     public int rounds;
-    public int[] x;
+
+    /* JADX INFO: renamed from: x */
+    public int[] f81079x;
 
     public Salsa20Engine() {
         this(20);
@@ -38,7 +40,7 @@ public class Salsa20Engine implements SkippingStreamCipher {
     public Salsa20Engine(int i) {
         this.index = 0;
         this.engineState = new int[16];
-        this.x = new int[16];
+        this.f81079x = new int[16];
         this.keyStream = new byte[64];
         this.initialised = false;
         if (i <= 0 || (i & 1) != 0) {
@@ -221,8 +223,8 @@ public class Salsa20Engine implements SkippingStreamCipher {
     }
 
     public void generateKeyStream(byte[] bArr) {
-        salsaCore(this.rounds, this.engineState, this.x);
-        Pack.intToLittleEndian(this.x, bArr, 0);
+        salsaCore(this.rounds, this.engineState, this.f81079x);
+        Pack.intToLittleEndian(this.f81079x, bArr, 0);
     }
 
     @Override // org.bouncycastle.crypto.StreamCipher
@@ -423,7 +425,7 @@ public class Salsa20Engine implements SkippingStreamCipher {
             StringBuilder sb = new StringBuilder();
             sb.append(getAlgorithmName());
             sb.append(" requires exactly ");
-            throw new IllegalArgumentException(C3200.m9831(getNonceSize(), " bytes of IV", sb));
+            throw new IllegalArgumentException(C5410.m11876(getNonceSize(), " bytes of IV", sb));
         }
         CipherParameters parameters = parametersWithIV.getParameters();
         if (parameters == null) {

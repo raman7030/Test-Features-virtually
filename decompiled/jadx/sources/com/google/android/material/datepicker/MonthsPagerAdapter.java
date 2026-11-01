@@ -8,15 +8,15 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import l.AbstractC19902;
-import l.AbstractC3255;
-import l.C14543;
-import l.C15813;
-import l.C17648;
-import l.C20754;
+import p067l.AbstractC21283;
+import p067l.AbstractC5462;
+import p067l.C16190;
+import p067l.C1717;
+import p067l.C17397;
+import p067l.C22093;
 
 /* JADX INFO: loaded from: classes.dex */
-public class MonthsPagerAdapter extends AbstractC19902 {
+public class MonthsPagerAdapter extends AbstractC21283 {
     public final CalendarConstraints calendarConstraints;
     public final DateSelector dateSelector;
     public final DayViewDecorator dayViewDecorator;
@@ -41,16 +41,16 @@ public class MonthsPagerAdapter extends AbstractC19902 {
         setHasStableIds(true);
     }
 
-    public class ViewHolder extends AbstractC3255 {
+    public class ViewHolder extends AbstractC5462 {
         public final MaterialCalendarGridView monthGrid;
         public final TextView monthTitle;
 
         public ViewHolder(LinearLayout linearLayout, boolean z) {
             super(linearLayout);
-            TextView textView = (TextView) linearLayout.findViewById(C20754.f67182);
+            TextView textView = (TextView) linearLayout.findViewById(C22093.f69866);
             this.monthTitle = textView;
-            C17648.m41312((View) textView, true);
-            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(C20754.f67134);
+            C1717.m43558((View) textView, true);
+            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(C22093.f69818);
             if (z) {
                 return;
             }
@@ -58,21 +58,21 @@ public class MonthsPagerAdapter extends AbstractC19902 {
         }
     }
 
-    @Override // l.AbstractC19902
+    @Override // p067l.AbstractC21283
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(C15813.f48828, viewGroup, false);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(C17397.f51966, viewGroup, false);
         if (MaterialDatePicker.isFullscreen(viewGroup.getContext())) {
-            linearLayout.setLayoutParams(new C14543(-1, this.itemHeight));
+            linearLayout.setLayoutParams(new C16190(-1, this.itemHeight));
             return new ViewHolder(linearLayout, true);
         }
         return new ViewHolder(linearLayout, false);
     }
 
-    @Override // l.AbstractC19902
+    @Override // p067l.AbstractC21283
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Month monthMonthsLater = this.calendarConstraints.getStart().monthsLater(i);
         viewHolder.monthTitle.setText(monthMonthsLater.getLongName());
-        final MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(C20754.f67134);
+        final MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(C22093.f69818);
         if (materialCalendarGridView.getAdapter() != null && monthMonthsLater.equals(materialCalendarGridView.getAdapter().month)) {
             materialCalendarGridView.invalidate();
             materialCalendarGridView.getAdapter().updateSelectedStates(materialCalendarGridView);
@@ -91,12 +91,12 @@ public class MonthsPagerAdapter extends AbstractC19902 {
         });
     }
 
-    @Override // l.AbstractC19902
+    @Override // p067l.AbstractC21283
     public long getItemId(int i) {
         return this.calendarConstraints.getStart().monthsLater(i).getStableId();
     }
 
-    @Override // l.AbstractC19902
+    @Override // p067l.AbstractC21283
     public int getItemCount() {
         return this.calendarConstraints.getMonthSpan();
     }

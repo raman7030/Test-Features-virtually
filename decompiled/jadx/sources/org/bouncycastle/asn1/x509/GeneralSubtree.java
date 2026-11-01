@@ -1,7 +1,6 @@
 package org.bouncycastle.asn1.x509;
 
 import java.math.BigInteger;
-import l.C5688;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Integer;
@@ -11,6 +10,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.asn1.DERTaggedObject;
+import p067l.C7775;
 
 /* JADX INFO: loaded from: classes.dex */
 public class GeneralSubtree extends ASN1Object {
@@ -37,7 +37,7 @@ public class GeneralSubtree extends ASN1Object {
                 }
             }
             if (size != 3) {
-                throw new IllegalArgumentException(C5688.m16003(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
+                throw new IllegalArgumentException(C7775.m17938(aSN1Sequence, new StringBuilder("Bad sequence size: ")));
             }
             ASN1TaggedObject aSN1TaggedObject2 = ASN1TaggedObject.getInstance(aSN1Sequence.getObjectAt(1));
             if (aSN1TaggedObject2.getTagNo() != 0) {

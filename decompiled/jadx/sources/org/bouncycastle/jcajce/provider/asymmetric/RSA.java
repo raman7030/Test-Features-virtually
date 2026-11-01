@@ -1,15 +1,8 @@
 package org.bouncycastle.jcajce.provider.asymmetric;
 
-import com.alipay.sdk.m.p.d;
+import com.alipay.sdk.p010m.p041p.C0187d;
 import java.util.HashMap;
 import java.util.Map;
-import l.C16014;
-import l.C18473;
-import l.C19462;
-import l.C20094;
-import l.C23202;
-import l.C4860;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
@@ -20,6 +13,13 @@ import org.bouncycastle.internal.asn1.oiw.OIWObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import p067l.C10965;
+import p067l.C17588;
+import p067l.C19925;
+import p067l.C20865;
+import p067l.C21466;
+import p067l.C24420;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RSA {
@@ -36,59 +36,59 @@ public class RSA {
     /* JADX INFO: loaded from: classes2.dex */
     public class Mappings extends AsymmetricAlgorithmProvider {
         private void addDigestSignature(ConfigurableProvider configurableProvider, String str, String str2, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-            String strM37867 = C16014.m37867(str, "WITHRSA");
-            String strM37868 = C16014.m37867(str, "withRSA");
-            String strM37869 = C16014.m37867(str, "WithRSA");
-            String strM378610 = C16014.m37867(str, "/RSA");
-            String strM378611 = C16014.m37867(str, "WITHRSAENCRYPTION");
-            String strM378612 = C16014.m37867(str, "withRSAEncryption");
-            String strM378613 = C16014.m37867(str, "WithRSAEncryption");
-            configurableProvider.addAlgorithm("Signature." + strM37867, str2);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM37868, strM37867);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM37869, strM37867);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM378611, strM37867);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM378612, strM37867);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM378613, strM37867);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM378610, strM37867);
+            String strM40053 = C17588.m40053(str, "WITHRSA");
+            String strM40054 = C17588.m40053(str, "withRSA");
+            String strM40055 = C17588.m40053(str, "WithRSA");
+            String strM40056 = C17588.m40053(str, "/RSA");
+            String strM40057 = C17588.m40053(str, "WITHRSAENCRYPTION");
+            String strM40058 = C17588.m40053(str, "withRSAEncryption");
+            String strM40059 = C17588.m40053(str, "WithRSAEncryption");
+            configurableProvider.addAlgorithm("Signature." + strM40053, str2);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM40054, strM40053);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM40055, strM40053);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM40057, strM40053);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM40058, strM40053);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM40059, strM40053);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature." + strM40056, strM40053);
             if (aSN1ObjectIdentifier != null) {
-                configurableProvider.addAlgorithm("Alg.Alias.Signature." + aSN1ObjectIdentifier, strM37867);
-                C19462.m44861(new StringBuilder("Alg.Alias.Signature.OID."), aSN1ObjectIdentifier, configurableProvider, strM37867);
+                configurableProvider.addAlgorithm("Alg.Alias.Signature." + aSN1ObjectIdentifier, strM40053);
+                C20865.m47157(new StringBuilder("Alg.Alias.Signature.OID."), aSN1ObjectIdentifier, configurableProvider, strM40053);
             }
-            configurableProvider.addAttributes(C20094.m46315("Signature.", strM37867), RSA.generalRsaAttributes);
+            configurableProvider.addAttributes(C21466.m48631("Signature.", strM40053), RSA.generalRsaAttributes);
         }
 
         private void addISO9796Signature(ConfigurableProvider configurableProvider, String str, String str2) {
-            StringBuilder sbM46316 = C20094.m46316(str, "WITHRSA/ISO9796-2", C9045.m23341(C20094.m46316(str, "WITHRSA/ISO9796-2", C4860.m14172("Alg.Alias.Signature.", str, "withRSA/ISO9796-2"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/ISO9796-2"), "Signature.", configurableProvider);
-            sbM46316.append(str);
-            sbM46316.append("WITHRSA/ISO9796-2");
-            configurableProvider.addAlgorithm(sbM46316.toString(), str2);
-            configurableProvider.addAttributes(C4860.m14172("Signature.", str, "WITHRSA/ISO9796-2"), RSA.generalRsaAttributes);
+            StringBuilder sbM48632 = C21466.m48632(str, "WITHRSA/ISO9796-2", C10965.m25286(C21466.m48632(str, "WITHRSA/ISO9796-2", C6988.m16053("Alg.Alias.Signature.", str, "withRSA/ISO9796-2"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/ISO9796-2"), "Signature.", configurableProvider);
+            sbM48632.append(str);
+            sbM48632.append("WITHRSA/ISO9796-2");
+            configurableProvider.addAlgorithm(sbM48632.toString(), str2);
+            configurableProvider.addAttributes(C6988.m16053("Signature.", str, "WITHRSA/ISO9796-2"), RSA.generalRsaAttributes);
         }
 
         private void addPSSSignature(ConfigurableProvider configurableProvider, String str, String str2, String str3) {
-            String strM46315 = C20094.m46315("WITHRSAAND", str2);
+            String strM48631 = C21466.m48631("WITHRSAAND", str2);
             if (str2.equals("MGF1")) {
-                configurableProvider.addAlgorithm(C9045.m23341(C20094.m46316(str, strM46315, C9045.m23341(C20094.m46316(str, strM46315, C9045.m23341(C20094.m46316(str, strM46315, C9045.m23341(C20094.m46316(str, strM46315, C9045.m23341(C20094.m46316(str, strM46315, C4860.m14172("Alg.Alias.Signature.", str, "withRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WITHRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "withRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WITHRSASSA-PSS"), str + strM46315);
+                configurableProvider.addAlgorithm(C10965.m25286(C21466.m48632(str, strM48631, C10965.m25286(C21466.m48632(str, strM48631, C10965.m25286(C21466.m48632(str, strM48631, C10965.m25286(C21466.m48632(str, strM48631, C10965.m25286(C21466.m48632(str, strM48631, C6988.m16053("Alg.Alias.Signature.", str, "withRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WITHRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "withRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WITHRSASSA-PSS"), str + strM48631);
             }
-            configurableProvider.addAlgorithm(C23202.m51498(C20094.m46316(str, strM46315, C23202.m51498(C20094.m46316(str, strM46315, C19462.m44858("Alg.Alias.Signature.", str, "withRSAand", str2), "Alg.Alias.Signature.", configurableProvider), str, "WithRSAAnd", str2), "Signature.", configurableProvider), str, "WITHRSAAND", str2), str3);
+            configurableProvider.addAlgorithm(C24420.m53894(C21466.m48632(str, strM48631, C24420.m53894(C21466.m48632(str, strM48631, C20865.m47154("Alg.Alias.Signature.", str, "withRSAand", str2), "Alg.Alias.Signature.", configurableProvider), str, "WithRSAAnd", str2), "Signature.", configurableProvider), str, "WITHRSAAND", str2), str3);
             StringBuilder sb = new StringBuilder("Signature.");
             sb.append(str);
-            configurableProvider.addAttributes(C9045.m23341(sb, "WITHRSAAND", str2), RSA.generalRsaAttributes);
+            configurableProvider.addAttributes(C10965.m25286(sb, "WITHRSAAND", str2), RSA.generalRsaAttributes);
         }
 
         private void addPSSSignature(ConfigurableProvider configurableProvider, String str, String str2, ASN1ObjectIdentifier aSN1ObjectIdentifier) {
-            configurableProvider.addAlgorithm(C9045.m23341(C20094.m46316(str, "WITHRSAPSS", C9045.m23341(C20094.m46316(str, "WITHRSAPSS", C9045.m23341(C20094.m46316(str, "WITHRSAPSS", C9045.m23341(C20094.m46316(str, "WITHRSAPSS", C4860.m14172("Alg.Alias.Signature.", str, "withRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "withRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WITHRSASSA-PSS"), str + "WITHRSAPSS");
+            configurableProvider.addAlgorithm(C10965.m25286(C21466.m48632(str, "WITHRSAPSS", C10965.m25286(C21466.m48632(str, "WITHRSAPSS", C10965.m25286(C21466.m48632(str, "WITHRSAPSS", C10965.m25286(C21466.m48632(str, "WITHRSAPSS", C6988.m16053("Alg.Alias.Signature.", str, "withRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/PSS"), "Alg.Alias.Signature.", configurableProvider), str, "withRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSASSA-PSS"), "Alg.Alias.Signature.", configurableProvider), str, "WITHRSASSA-PSS"), str + "WITHRSAPSS");
             configurableProvider.addAlgorithm("Signature", aSN1ObjectIdentifier, str2);
             configurableProvider.addAlgorithm("Signature." + str + "WITHRSAPSS", str2);
-            configurableProvider.addAttributes(C4860.m14172("Signature.", str, "WITHRSAPSS"), RSA.generalRsaAttributes);
+            configurableProvider.addAttributes(C6988.m16053("Signature.", str, "WITHRSAPSS"), RSA.generalRsaAttributes);
         }
 
         private void addX931Signature(ConfigurableProvider configurableProvider, String str, String str2) {
-            StringBuilder sbM46316 = C20094.m46316(str, "WITHRSA/X9.31", C9045.m23341(C20094.m46316(str, "WITHRSA/X9.31", C4860.m14172("Alg.Alias.Signature.", str, "withRSA/X9.31"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/X9.31"), "Signature.", configurableProvider);
-            sbM46316.append(str);
-            sbM46316.append("WITHRSA/X9.31");
-            configurableProvider.addAlgorithm(sbM46316.toString(), str2);
-            configurableProvider.addAttributes(C4860.m14172("Signature.", str, "WITHRSA/X9.31"), RSA.generalRsaAttributes);
+            StringBuilder sbM48632 = C21466.m48632(str, "WITHRSA/X9.31", C10965.m25286(C21466.m48632(str, "WITHRSA/X9.31", C6988.m16053("Alg.Alias.Signature.", str, "withRSA/X9.31"), "Alg.Alias.Signature.", configurableProvider), str, "WithRSA/X9.31"), "Signature.", configurableProvider);
+            sbM48632.append(str);
+            sbM48632.append("WITHRSA/X9.31");
+            configurableProvider.addAlgorithm(sbM48632.toString(), str2);
+            configurableProvider.addAttributes(C6988.m16053("Signature.", str, "WITHRSA/X9.31"), RSA.generalRsaAttributes);
         }
 
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
@@ -127,8 +127,8 @@ public class RSA {
             ASN1ObjectIdentifier aSN1ObjectIdentifier3 = PKCSObjectIdentifiers.id_RSAES_OAEP;
             configurableProvider.addAlgorithm("Cipher", aSN1ObjectIdentifier3, "org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi$OAEPPadding", RSA.generalRsaAttributes);
             configurableProvider.addAlgorithm("Cipher.RSA/ISO9796-1", "org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi$ISO9796d1Padding", RSA.generalRsaAttributes);
-            configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//RAW", d.a);
-            configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//NOPADDING", d.a);
+            configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//RAW", C0187d.f883a);
+            configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//NOPADDING", C0187d.f883a);
             configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//PKCS1PADDING", "RSA/PKCS1");
             configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//OAEPPADDING", "RSA/OAEP");
             configurableProvider.addAlgorithm("Alg.Alias.Cipher.RSA//ISO9796-1PADDING", "RSA/ISO9796-1");
@@ -137,21 +137,21 @@ public class RSA {
             configurableProvider.addAlgorithm("KeyFactory.RSASSA-PSS", "org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyFactorySpi");
             configurableProvider.addAlgorithm("KeyPairGenerator.RSASSA-PSS", "org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyPairGeneratorSpi$PSS");
             KeyFactorySpi keyFactorySpi = new KeyFactorySpi();
-            registerOid(configurableProvider, aSN1ObjectIdentifier, d.a, keyFactorySpi);
-            registerOid(configurableProvider, aSN1ObjectIdentifier2, d.a, keyFactorySpi);
-            registerOid(configurableProvider, aSN1ObjectIdentifier3, d.a, keyFactorySpi);
+            registerOid(configurableProvider, aSN1ObjectIdentifier, C0187d.f883a, keyFactorySpi);
+            registerOid(configurableProvider, aSN1ObjectIdentifier2, C0187d.f883a, keyFactorySpi);
+            registerOid(configurableProvider, aSN1ObjectIdentifier3, C0187d.f883a, keyFactorySpi);
             ASN1ObjectIdentifier aSN1ObjectIdentifier4 = PKCSObjectIdentifiers.id_RSASSA_PSS;
-            registerOid(configurableProvider, aSN1ObjectIdentifier4, d.a, keyFactorySpi);
-            registerOidAlgorithmParameters(configurableProvider, aSN1ObjectIdentifier, d.a);
-            registerOidAlgorithmParameters(configurableProvider, aSN1ObjectIdentifier2, d.a);
+            registerOid(configurableProvider, aSN1ObjectIdentifier4, C0187d.f883a, keyFactorySpi);
+            registerOidAlgorithmParameters(configurableProvider, aSN1ObjectIdentifier, C0187d.f883a);
+            registerOidAlgorithmParameters(configurableProvider, aSN1ObjectIdentifier2, C0187d.f883a);
             registerOidAlgorithmParameters(configurableProvider, aSN1ObjectIdentifier3, "OAEP");
             registerOidAlgorithmParameters(configurableProvider, aSN1ObjectIdentifier4, "PSS");
             configurableProvider.addAlgorithm("Signature.RSASSA-PSS", "org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi$PSSwithRSA", RSA.generalRsaAttributes);
-            C19462.m44861(C18473.m42951("RSASSA-PSS", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifier4, configurableProvider), aSN1ObjectIdentifier4, configurableProvider, "RSASSA-PSS");
+            C20865.m47157(C19925.m45227("RSASSA-PSS", "Alg.Alias.Signature.OID.", new StringBuilder("Alg.Alias.Signature."), aSN1ObjectIdentifier4, configurableProvider), aSN1ObjectIdentifier4, configurableProvider, "RSASSA-PSS");
             configurableProvider.addAlgorithm("Signature.RSA", "org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi$noneRSA", RSA.generalRsaAttributes);
             configurableProvider.addAlgorithm("Signature.RAWRSASSA-PSS", "org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi$nonePSS", RSA.generalRsaAttributes);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature.RAWRSA", d.a);
-            configurableProvider.addAlgorithm("Alg.Alias.Signature.NONEWITHRSA", d.a);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature.RAWRSA", C0187d.f883a);
+            configurableProvider.addAlgorithm("Alg.Alias.Signature.NONEWITHRSA", C0187d.f883a);
             configurableProvider.addAlgorithm("Alg.Alias.Signature.RAWRSAPSS", "RAWRSASSA-PSS");
             configurableProvider.addAlgorithm("Alg.Alias.Signature.NONEWITHRSAPSS", "RAWRSASSA-PSS");
             configurableProvider.addAlgorithm("Alg.Alias.Signature.NONEWITHRSASSA-PSS", "RAWRSASSA-PSS");
@@ -209,7 +209,7 @@ public class RSA {
                 addISO9796Signature(configurableProvider, "SHA1", "org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi$SHA1WithRSAEncryption");
                 StringBuilder sb = new StringBuilder("Alg.Alias.Signature.");
                 ASN1ObjectIdentifier aSN1ObjectIdentifier5 = OIWObjectIdentifiers.sha1WithRSA;
-                C19462.m44861(C18473.m42951("SHA1WITHRSA", "Alg.Alias.Signature.OID.", sb, aSN1ObjectIdentifier5, configurableProvider), aSN1ObjectIdentifier5, configurableProvider, "SHA1WITHRSA");
+                C20865.m47157(C19925.m45227("SHA1WITHRSA", "Alg.Alias.Signature.OID.", sb, aSN1ObjectIdentifier5, configurableProvider), aSN1ObjectIdentifier5, configurableProvider, "SHA1WITHRSA");
                 addX931Signature(configurableProvider, "SHA1", "org.bouncycastle.jcajce.provider.asymmetric.rsa.X931SignatureSpi$SHA1WithRSAEncryption");
             }
             addDigestSignature(configurableProvider, "SHA224", "org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi$SHA224", PKCSObjectIdentifiers.sha224WithRSAEncryption);

@@ -27,23 +27,25 @@ import org.bouncycastle.util.Strings;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509CRLEntryObject extends X509CRLEntry {
-    public TBSCertList.CRLEntry c;
+
+    /* JADX INFO: renamed from: c */
+    public TBSCertList.CRLEntry f81352c;
     public X500Name certificateIssuer;
     public volatile int hashValue;
     public volatile boolean hashValueSet;
 
     public X509CRLEntryObject(TBSCertList.CRLEntry cRLEntry) {
-        this.c = cRLEntry;
+        this.f81352c = cRLEntry;
         this.certificateIssuer = null;
     }
 
     public X509CRLEntryObject(TBSCertList.CRLEntry cRLEntry, boolean z, X500Name x500Name) {
-        this.c = cRLEntry;
+        this.f81352c = cRLEntry;
         this.certificateIssuer = loadCertificateIssuer(z, x500Name);
     }
 
     private Set getExtensionOIDs(boolean z) {
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81352c.getExtensions();
         if (extensions == null) {
             return null;
         }
@@ -62,7 +64,7 @@ public class X509CRLEntryObject extends X509CRLEntry {
         if (!z) {
             return null;
         }
-        ASN1OctetString extensionValue = Extensions.getExtensionValue(this.c.getExtensions(), Extension.certificateIssuer);
+        ASN1OctetString extensionValue = Extensions.getExtensionValue(this.f81352c.getExtensions(), Extension.certificateIssuer);
         if (extensionValue == null) {
             return x500Name;
         }
@@ -90,7 +92,7 @@ public class X509CRLEntryObject extends X509CRLEntry {
         if (this.hashValueSet && x509CRLEntryObject.hashValueSet && this.hashValue != x509CRLEntryObject.hashValue) {
             return false;
         }
-        return this.c.equals(x509CRLEntryObject.c);
+        return this.f81352c.equals(x509CRLEntryObject.f81352c);
     }
 
     @Override // java.security.cert.X509CRLEntry
@@ -113,7 +115,7 @@ public class X509CRLEntryObject extends X509CRLEntry {
     @Override // java.security.cert.X509CRLEntry
     public byte[] getEncoded() throws CRLException {
         try {
-            return this.c.getEncoded(ASN1Encoding.DER);
+            return this.f81352c.getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CRLException(e.toString());
         }
@@ -121,7 +123,7 @@ public class X509CRLEntryObject extends X509CRLEntry {
 
     @Override // java.security.cert.X509Extension
     public byte[] getExtensionValue(String str) {
-        return X509SignatureUtil.getExtensionValue(this.c.getExtensions(), str);
+        return X509SignatureUtil.getExtensionValue(this.f81352c.getExtensions(), str);
     }
 
     @Override // java.security.cert.X509Extension
@@ -131,22 +133,22 @@ public class X509CRLEntryObject extends X509CRLEntry {
 
     @Override // java.security.cert.X509CRLEntry
     public Date getRevocationDate() {
-        return this.c.getRevocationDate().getDate();
+        return this.f81352c.getRevocationDate().getDate();
     }
 
     @Override // java.security.cert.X509CRLEntry
     public BigInteger getSerialNumber() {
-        return this.c.getUserCertificate().getValue();
+        return this.f81352c.getUserCertificate().getValue();
     }
 
     @Override // java.security.cert.X509CRLEntry
     public boolean hasExtensions() {
-        return this.c.getExtensions() != null;
+        return this.f81352c.getExtensions() != null;
     }
 
     @Override // java.security.cert.X509Extension
     public boolean hasUnsupportedCriticalExtension() {
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81352c.getExtensions();
         return extensions != null && extensions.hasAnyCriticalExtensions();
     }
 
@@ -172,7 +174,7 @@ public class X509CRLEntryObject extends X509CRLEntry {
         sb.append("       certificateIssuer: ");
         sb.append(getCertificateIssuer());
         sb.append(strLineSeparator);
-        Extensions extensions = this.c.getExtensions();
+        Extensions extensions = this.f81352c.getExtensions();
         if (extensions != null) {
             Enumeration enumerationOids = extensions.oids();
             if (enumerationOids.hasMoreElements()) {

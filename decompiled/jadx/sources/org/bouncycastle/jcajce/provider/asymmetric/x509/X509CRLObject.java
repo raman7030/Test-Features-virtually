@@ -2,7 +2,6 @@ package org.bouncycastle.jcajce.provider.asymmetric.x509;
 
 import java.io.IOException;
 import java.security.cert.CRLException;
-import l.C19370;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -12,6 +11,7 @@ import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.IssuingDistributionPoint;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.util.Arrays;
+import p067l.C20778;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509CRLObject extends X509CRLImpl {
@@ -66,12 +66,12 @@ public class X509CRLObject extends X509CRLImpl {
             }
             try {
                 x509CRLException = null;
-                encoded = this.c.getEncoded(ASN1Encoding.DER);
+                encoded = this.f81353c.getEncoded(ASN1Encoding.DER);
             } catch (IOException e) {
                 encoded = null;
                 x509CRLException = new X509CRLException(e);
             }
-            X509CRLInternal x509CRLInternal3 = new X509CRLInternal(this.bcHelper, this.c, this.sigAlgName, this.sigAlgParams, this.isIndirect, encoded, x509CRLException);
+            X509CRLInternal x509CRLInternal3 = new X509CRLInternal(this.bcHelper, this.f81353c, this.sigAlgName, this.sigAlgParams, this.isIndirect, encoded, x509CRLException);
             synchronized (this.cacheLock) {
                 if (this.internalCRLValue == null) {
                     this.internalCRLValue = x509CRLInternal3;
@@ -107,7 +107,7 @@ public class X509CRLObject extends X509CRLImpl {
                 if (this.hashValue != x509CRLObject.hashValue) {
                     return false;
                 }
-            } else if ((this.internalCRLValue == null || x509CRLObject.internalCRLValue == null) && (signature = this.c.getSignature()) != null && !signature.equals((ASN1Primitive) x509CRLObject.c.getSignature())) {
+            } else if ((this.internalCRLValue == null || x509CRLObject.internalCRLValue == null) && (signature = this.f81353c.getSignature()) != null && !signature.equals((ASN1Primitive) x509CRLObject.f81353c.getSignature())) {
                 return false;
             }
             internalCRL = getInternalCRL();
@@ -136,7 +136,7 @@ public class X509CRLObject extends X509CRLImpl {
         try {
             return X509SignatureUtil.getSignatureName(certificateList.getSignatureAlgorithm());
         } catch (Exception e) {
-            throw new X509CRLException(C19370.m44629(e, new StringBuilder("CRL contents invalid: ")), e);
+            throw new X509CRLException(C20778.m46923(e, new StringBuilder("CRL contents invalid: ")), e);
         }
     }
 }

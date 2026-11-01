@@ -1,12 +1,12 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.constraints.DefaultServiceProperties;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.RC5Parameters;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RC532Engine implements BlockCipher {
@@ -14,7 +14,9 @@ public class RC532Engine implements BlockCipher {
     public static final int Q32 = -1640531527;
     public boolean forEncryption;
     public int _noRounds = 12;
-    public int[] _S = null;
+
+    /* JADX INFO: renamed from: _S */
+    public int[] f81053_S = null;
 
     private int bytesToWord(byte[] bArr, int i) {
         return ((bArr[i + 3] & 255) << 24) | (bArr[i] & 255) | ((bArr[i + 1] & 255) << 8) | ((bArr[i + 2] & 255) << 16);
@@ -25,21 +27,21 @@ public class RC532Engine implements BlockCipher {
         int iBytesToWord2 = bytesToWord(bArr, i + 4);
         for (int i3 = this._noRounds; i3 >= 1; i3--) {
             int i4 = i3 * 2;
-            iBytesToWord2 = rotateRight(iBytesToWord2 - this._S[i4 + 1], iBytesToWord) ^ iBytesToWord;
-            iBytesToWord = rotateRight(iBytesToWord - this._S[i4], iBytesToWord2) ^ iBytesToWord2;
+            iBytesToWord2 = rotateRight(iBytesToWord2 - this.f81053_S[i4 + 1], iBytesToWord) ^ iBytesToWord;
+            iBytesToWord = rotateRight(iBytesToWord - this.f81053_S[i4], iBytesToWord2) ^ iBytesToWord2;
         }
-        wordToBytes(iBytesToWord - this._S[0], bArr2, i2);
-        wordToBytes(iBytesToWord2 - this._S[1], bArr2, i2 + 4);
+        wordToBytes(iBytesToWord - this.f81053_S[0], bArr2, i2);
+        wordToBytes(iBytesToWord2 - this.f81053_S[1], bArr2, i2 + 4);
         return 8;
     }
 
     private int encryptBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
-        int iBytesToWord = bytesToWord(bArr, i) + this._S[0];
-        int iBytesToWord2 = bytesToWord(bArr, i + 4) + this._S[1];
+        int iBytesToWord = bytesToWord(bArr, i) + this.f81053_S[0];
+        int iBytesToWord2 = bytesToWord(bArr, i + 4) + this.f81053_S[1];
         for (int i3 = 1; i3 <= this._noRounds; i3++) {
             int i4 = i3 * 2;
-            iBytesToWord = rotateLeft(iBytesToWord ^ iBytesToWord2, iBytesToWord2) + this._S[i4];
-            iBytesToWord2 = rotateLeft(iBytesToWord2 ^ iBytesToWord, iBytesToWord) + this._S[i4 + 1];
+            iBytesToWord = rotateLeft(iBytesToWord ^ iBytesToWord2, iBytesToWord2) + this.f81053_S[i4];
+            iBytesToWord2 = rotateLeft(iBytesToWord2 ^ iBytesToWord, iBytesToWord) + this.f81053_S[i4 + 1];
         }
         wordToBytes(iBytesToWord, bArr2, i2);
         wordToBytes(iBytesToWord2, bArr2, i2 + 4);
@@ -65,11 +67,11 @@ public class RC532Engine implements BlockCipher {
             iArr2[i2] = iArr2[i2] + ((bArr[i] & 255) << ((i % 4) * 8));
         }
         int[] iArr3 = new int[(this._noRounds + 1) * 2];
-        this._S = iArr3;
+        this.f81053_S = iArr3;
         iArr3[0] = -1209970333;
         int i3 = 1;
         while (true) {
-            iArr = this._S;
+            iArr = this.f81053_S;
             if (i3 >= iArr.length) {
                 break;
             }
@@ -82,12 +84,12 @@ public class RC532Engine implements BlockCipher {
         int iRotateLeft2 = 0;
         int i4 = 0;
         for (int i5 = 0; i5 < length2; i5++) {
-            int[] iArr4 = this._S;
+            int[] iArr4 = this.f81053_S;
             iRotateLeft = rotateLeft(iArr4[length3] + iRotateLeft + iRotateLeft2, 3);
             iArr4[length3] = iRotateLeft;
             iRotateLeft2 = rotateLeft(iArr2[i4] + iRotateLeft + iRotateLeft2, iRotateLeft2 + iRotateLeft);
             iArr2[i4] = iRotateLeft2;
-            length3 = (length3 + 1) % this._S.length;
+            length3 = (length3 + 1) % this.f81053_S.length;
             i4 = (i4 + 1) % length;
         }
     }
@@ -128,7 +130,7 @@ public class RC532Engine implements BlockCipher {
             setKey(key);
         } else {
             if (!(cipherParameters instanceof KeyParameter)) {
-                throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to RC532 init - ", cipherParameters));
+                throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to RC532 init - ", cipherParameters));
             }
             key = ((KeyParameter) cipherParameters).getKey();
             setKey(key);

@@ -4,11 +4,11 @@ import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureSpi;
-import l.C18473;
-import l.C19462;
 import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import p067l.C19925;
+import p067l.C20865;
 
 /* JADX INFO: loaded from: classes.dex */
 public class NoSig {
@@ -18,7 +18,7 @@ public class NoSig {
     public class Mappings extends AsymmetricAlgorithmProvider {
         @Override // org.bouncycastle.jcajce.provider.util.AlgorithmProvider
         public void configure(ConfigurableProvider configurableProvider) {
-            C19462.m44861(C18473.m42951("org.bouncycastle.jcajce.provider.asymmetric.NoSig$SigSpi", "Signature.", new StringBuilder("Signature."), X509ObjectIdentifiers.id_alg_noSignature, configurableProvider), X509ObjectIdentifiers.id_alg_unsigned, configurableProvider, "org.bouncycastle.jcajce.provider.asymmetric.NoSig$SigSpi");
+            C20865.m47157(C19925.m45227("org.bouncycastle.jcajce.provider.asymmetric.NoSig$SigSpi", "Signature.", new StringBuilder("Signature."), X509ObjectIdentifiers.id_alg_noSignature, configurableProvider), X509ObjectIdentifiers.id_alg_unsigned, configurableProvider, "org.bouncycastle.jcajce.provider.asymmetric.NoSig$SigSpi");
         }
     }
 

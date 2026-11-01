@@ -6,11 +6,13 @@ import org.bouncycastle.util.Pack;
 /* JADX INFO: loaded from: classes2.dex */
 public class WotsPlus {
     public final SPHINCSPlusEngine engine;
-    public final int w;
+
+    /* JADX INFO: renamed from: w */
+    public final int f81789w;
 
     public WotsPlus(SPHINCSPlusEngine sPHINCSPlusEngine) {
         this.engine = sPHINCSPlusEngine;
-        this.w = sPHINCSPlusEngine.WOTS_W;
+        this.f81789w = sPHINCSPlusEngine.WOTS_W;
     }
 
     public void base_w(byte[] bArr, int i, int i2, int[] iArr, int i3, int i4) {
@@ -34,12 +36,12 @@ public class WotsPlus {
         if (i2 == 0) {
             return Arrays.clone(bArr);
         }
-        if (i + i2 > this.w - 1) {
+        if (i + i2 > this.f81789w - 1) {
             return null;
         }
         for (int i3 = 0; i3 < i2; i3++) {
             adrs.setHashAddress(i + i3);
-            bArr = this.engine.F(bArr2, adrs, bArr);
+            bArr = this.engine.mo55432F(bArr2, adrs, bArr);
         }
         return bArr;
     }
@@ -49,7 +51,7 @@ public class WotsPlus {
         ADRS adrs2 = new ADRS(adrs);
         SPHINCSPlusEngine sPHINCSPlusEngine2 = this.engine;
         int[] iArr = new int[sPHINCSPlusEngine2.WOTS_LEN];
-        base_w(bArr2, 0, this.w, iArr, 0, sPHINCSPlusEngine2.WOTS_LEN1);
+        base_w(bArr2, 0, this.f81789w, iArr, 0, sPHINCSPlusEngine2.WOTS_LEN1);
         int i = 0;
         int i2 = 0;
         while (true) {
@@ -57,25 +59,25 @@ public class WotsPlus {
             if (i >= sPHINCSPlusEngine.WOTS_LEN1) {
                 break;
             }
-            i2 += (this.w - 1) - iArr[i];
+            i2 += (this.f81789w - 1) - iArr[i];
             i++;
         }
         int i3 = sPHINCSPlusEngine.WOTS_LEN2;
         int i4 = sPHINCSPlusEngine.WOTS_LOGW;
         byte[] bArrIntToBigEndian = Pack.intToBigEndian(i2 << (8 - ((i3 * i4) % 8)));
         int i5 = 4 - (((i3 * i4) + 7) / 8);
-        int i6 = this.w;
+        int i6 = this.f81789w;
         SPHINCSPlusEngine sPHINCSPlusEngine3 = this.engine;
         base_w(bArrIntToBigEndian, i5, i6, iArr, sPHINCSPlusEngine3.WOTS_LEN1, sPHINCSPlusEngine3.WOTS_LEN2);
         SPHINCSPlusEngine sPHINCSPlusEngine4 = this.engine;
-        byte[] bArr4 = new byte[sPHINCSPlusEngine4.N];
+        byte[] bArr4 = new byte[sPHINCSPlusEngine4.f81764N];
         byte[][] bArr5 = new byte[sPHINCSPlusEngine4.WOTS_LEN][];
         for (int i7 = 0; i7 < this.engine.WOTS_LEN; i7++) {
             adrs.setChainAddress(i7);
-            int i8 = this.engine.N;
+            int i8 = this.engine.f81764N;
             System.arraycopy(bArr, i7 * i8, bArr4, 0, i8);
             int i9 = iArr[i7];
-            bArr5[i7] = chain(bArr4, i9, (this.w - 1) - i9, bArr3, adrs);
+            bArr5[i7] = chain(bArr4, i9, (this.f81789w - 1) - i9, bArr3, adrs);
         }
         adrs2.setTypeAndClear(1);
         adrs2.setKeyPairAddress(adrs.getKeyPairAddress());
@@ -96,7 +98,7 @@ public class WotsPlus {
             adrs3.setKeyPairAddress(adrs.getKeyPairAddress());
             adrs3.setChainAddress(i);
             adrs3.setHashAddress(0);
-            bArr3[i] = chain(bArrPRF, 0, this.w - 1, bArr2, adrs3);
+            bArr3[i] = chain(bArrPRF, 0, this.f81789w - 1, bArr2, adrs3);
         }
         adrs2.setTypeAndClear(1);
         adrs2.setKeyPairAddress(adrs.getKeyPairAddress());
@@ -108,7 +110,7 @@ public class WotsPlus {
         ADRS adrs2 = new ADRS(adrs);
         SPHINCSPlusEngine sPHINCSPlusEngine2 = this.engine;
         int[] iArr = new int[sPHINCSPlusEngine2.WOTS_LEN];
-        base_w(bArr, 0, this.w, iArr, 0, sPHINCSPlusEngine2.WOTS_LEN1);
+        base_w(bArr, 0, this.f81789w, iArr, 0, sPHINCSPlusEngine2.WOTS_LEN1);
         int i = 0;
         int i2 = 0;
         while (true) {
@@ -116,7 +118,7 @@ public class WotsPlus {
             if (i >= sPHINCSPlusEngine.WOTS_LEN1) {
                 break;
             }
-            i2 += (this.w - 1) - iArr[i];
+            i2 += (this.f81789w - 1) - iArr[i];
             i++;
         }
         int i3 = sPHINCSPlusEngine.WOTS_LOGW;
@@ -124,7 +126,7 @@ public class WotsPlus {
             i2 <<= 8 - ((sPHINCSPlusEngine.WOTS_LEN2 * i3) % 8);
         }
         int i4 = ((sPHINCSPlusEngine.WOTS_LEN2 * i3) + 7) / 8;
-        int i5 = this.w;
+        int i5 = this.f81789w;
         SPHINCSPlusEngine sPHINCSPlusEngine3 = this.engine;
         base_w(Pack.intToBigEndian(i2), 4 - i4, i5, iArr, sPHINCSPlusEngine3.WOTS_LEN1, sPHINCSPlusEngine3.WOTS_LEN2);
         byte[][] bArr4 = new byte[this.engine.WOTS_LEN][];

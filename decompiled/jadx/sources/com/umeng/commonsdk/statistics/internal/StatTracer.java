@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import com.umeng.commonsdk.statistics.common.MLog;
 
 /* JADX INFO: loaded from: classes.dex */
-public class StatTracer implements b {
+public class StatTracer implements InterfaceC0815b {
     public static final String KEY_CLIENT_REQUEST_FAILED = "failed_requests ";
     public static final String KEY_CLIENT_REQUEST_LATENCY = "last_request_spent_ms";
     public static final String KEY_CLIENT_REQUEST_SUCCESS = "successful_request";
@@ -21,8 +21,11 @@ public class StatTracer implements b {
     public long mLastSuccessfulRequestTime;
     public int mSuccessfulRequest;
 
-    public class a {
-        public static final StatTracer a = new StatTracer();
+    /* JADX INFO: renamed from: com.umeng.commonsdk.statistics.internal.StatTracer$a */
+    public class C0813a {
+
+        /* JADX INFO: renamed from: a */
+        public static final StatTracer f3442a = new StatTracer();
     }
 
     public StatTracer() {
@@ -37,10 +40,10 @@ public class StatTracer implements b {
             if (context != null) {
                 mContext = context.getApplicationContext();
             } else {
-                MLog.e("inside StatTracer. please check context. context must not be null!");
+                MLog.m2947e("inside StatTracer. please check context. context must not be null!");
             }
         }
-        return a.a;
+        return C0813a.f3442a;
     }
 
     private void init() {
@@ -102,22 +105,22 @@ public class StatTracer implements b {
         return this.lastRequestTime;
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.b
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0815b
     public void onRequestStart() {
         logRequestStart();
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.b
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0815b
     public void onRequestEnd() {
         logRequestEnd();
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.b
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0815b
     public void onRequestSucceed(boolean z) {
         logSuccessfulRequest(z);
     }
 
-    @Override // com.umeng.commonsdk.statistics.internal.b
+    @Override // com.umeng.commonsdk.statistics.internal.InterfaceC0815b
     public void onRequestFailed() {
         logFailedRequest();
     }

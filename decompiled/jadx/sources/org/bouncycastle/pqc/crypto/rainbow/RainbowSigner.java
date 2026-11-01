@@ -12,15 +12,17 @@ import org.bouncycastle.util.Arrays;
 /* JADX INFO: loaded from: classes2.dex */
 public class RainbowSigner implements MessageSigner {
     public static final int MAXITS = 65536;
-    public ComputeInField cf = new ComputeInField();
+
+    /* JADX INFO: renamed from: cf */
+    public ComputeInField f81718cf = new ComputeInField();
     public Digest hashAlgo;
     public RainbowKeyParameters key;
     public SecureRandom random;
     public int signableDocumentLength;
     public Version version;
 
-    /* JADX INFO: renamed from: org.bouncycastle.pqc.crypto.rainbow.RainbowSigner$1, reason: invalid class name */
-    public /* synthetic */ class AnonymousClass1 {
+    /* JADX INFO: renamed from: org.bouncycastle.pqc.crypto.rainbow.RainbowSigner$1 */
+    public /* synthetic */ class C23691 {
         public static final /* synthetic */ int[] $SwitchMap$org$bouncycastle$pqc$crypto$rainbow$Version;
 
         static {
@@ -105,7 +107,7 @@ public class RainbowSigner implements MessageSigner {
                     cls = cls2;
                 }
             }
-            sArrInverse = this.cf.inverse(sArr11);
+            sArrInverse = this.f81718cf.inverse(sArr11);
             i++;
             bArr4 = bArr2;
         }
@@ -115,11 +117,11 @@ public class RainbowSigner implements MessageSigner {
         short[][] sArr15 = sArr5;
         Class cls3 = cls;
         for (int i8 = 0; i8 < o1; i8++) {
-            sArr3[i8] = this.cf.multiplyMatrix_quad(rainbowPrivateKeyParameters.l1_F1[i8], sArr2);
+            sArr3[i8] = this.f81718cf.multiplyMatrix_quad(rainbowPrivateKeyParameters.l1_F1[i8], sArr2);
         }
         for (int i9 = 0; i9 < v1; i9++) {
             for (int i10 = 0; i10 < o2; i10++) {
-                sArr4[i10] = this.cf.multiplyMatrix_quad(rainbowPrivateKeyParameters.l2_F1[i10], sArr2);
+                sArr4[i10] = this.f81718cf.multiplyMatrix_quad(rainbowPrivateKeyParameters.l2_F1[i10], sArr2);
                 for (int i11 = 0; i11 < o1; i11++) {
                     short sMultElem2 = GF2Field.multElem(rainbowPrivateKeyParameters.l2_F2[i10][i9][i11], sArr2[i9]);
                     short[] sArr16 = sArr15[i10];
@@ -144,11 +146,11 @@ public class RainbowSigner implements MessageSigner {
             short[] sArrMakeMessageRepresentative = makeMessageRepresentative(RainbowUtil.hash(this.hashAlgo, bArr3, bArr6, bArr7));
             byte[] bArr8 = bArr7;
             short[] sArr20 = sArr10;
-            System.arraycopy(this.cf.addVect(Arrays.copyOf(sArrMakeMessageRepresentative, o1), this.cf.multiplyMatrix(rainbowPrivateKeyParameters.s1, Arrays.copyOfRange(sArrMakeMessageRepresentative, o1, i13))), 0, sArr20, 0, o1);
+            System.arraycopy(this.f81718cf.addVect(Arrays.copyOf(sArrMakeMessageRepresentative, o1), this.f81718cf.multiplyMatrix(rainbowPrivateKeyParameters.f81712s1, Arrays.copyOfRange(sArrMakeMessageRepresentative, o1, i13))), 0, sArr20, 0, o1);
             System.arraycopy(sArrMakeMessageRepresentative, o1, sArr20, o1, o2);
-            short[] sArrMultiplyMatrix = this.cf.multiplyMatrix(sArrInverse, this.cf.addVect(sArr3, Arrays.copyOf(sArr20, o1)));
+            short[] sArrMultiplyMatrix = this.f81718cf.multiplyMatrix(sArrInverse, this.f81718cf.addVect(sArr3, Arrays.copyOf(sArr20, o1)));
             short[][] sArr21 = sArr15;
-            short[] sArrMultiplyMatrix2 = this.cf.multiplyMatrix(sArr21, sArrMultiplyMatrix);
+            short[] sArrMultiplyMatrix2 = this.f81718cf.multiplyMatrix(sArr21, sArrMultiplyMatrix);
             short[][] sArr22 = sArrInverse;
             int i14 = 0;
             while (true) {
@@ -156,14 +158,14 @@ public class RainbowSigner implements MessageSigner {
                 if (i14 >= o2) {
                     break;
                 }
-                sArr7[i14] = this.cf.multiplyMatrix_quad(rainbowPrivateKeyParameters.l2_F5[i14], sArrMultiplyMatrix);
+                sArr7[i14] = this.f81718cf.multiplyMatrix_quad(rainbowPrivateKeyParameters.l2_F5[i14], sArrMultiplyMatrix);
                 i14++;
                 sArr3 = sArr;
                 sArr21 = sArr21;
             }
             sArr15 = sArr21;
             short[] sArr23 = sArr7;
-            short[] sArrAddVect = this.cf.addVect(this.cf.addVect(this.cf.addVect(sArrMultiplyMatrix2, sArr23), sArr4), Arrays.copyOfRange(sArr20, o1, i13));
+            short[] sArrAddVect = this.f81718cf.addVect(this.f81718cf.addVect(this.f81718cf.addVect(sArrMultiplyMatrix2, sArr23), sArr4), Arrays.copyOfRange(sArr20, o1, i13));
             for (int i15 = 0; i15 < o1; i15++) {
                 int i16 = 0;
                 while (i16 < o2) {
@@ -187,7 +189,7 @@ public class RainbowSigner implements MessageSigner {
             int i19 = i13;
             short[] sArr27 = sArrMultiplyMatrix;
             sArr7 = sArr23;
-            short[] sArrSolveEquation = this.cf.solveEquation(this.cf.addMatrix(sArr19, sArr14), sArrAddVect);
+            short[] sArrSolveEquation = this.f81718cf.solveEquation(this.f81718cf.addMatrix(sArr19, sArr14), sArrAddVect);
             i++;
             bArr7 = bArr8;
             sArr18 = sArr27;
@@ -199,8 +201,8 @@ public class RainbowSigner implements MessageSigner {
             i13 = i19;
         }
         short[] sArr28 = sArr9 == null ? new short[o2] : sArr9;
-        short[] sArrAddVect2 = this.cf.addVect(this.cf.addVect(sArr2, this.cf.multiplyMatrix(rainbowPrivateKeyParameters.t1, sArr18)), this.cf.multiplyMatrix(rainbowPrivateKeyParameters.t4, sArr28));
-        short[] sArrAddVect3 = this.cf.addVect(sArr18, this.cf.multiplyMatrix(rainbowPrivateKeyParameters.t3, sArr28));
+        short[] sArrAddVect2 = this.f81718cf.addVect(this.f81718cf.addVect(sArr2, this.f81718cf.multiplyMatrix(rainbowPrivateKeyParameters.f81713t1, sArr18)), this.f81718cf.multiplyMatrix(rainbowPrivateKeyParameters.f81715t4, sArr28));
+        short[] sArrAddVect3 = this.f81718cf.addVect(sArr18, this.f81718cf.multiplyMatrix(rainbowPrivateKeyParameters.f81714t3, sArr28));
         short[] sArrCopyOf = Arrays.copyOf(sArrAddVect2, n);
         System.arraycopy(sArrAddVect3, 0, sArrCopyOf, v1, o1);
         System.arraycopy(sArr28, 0, sArrCopyOf, o1 + v1, o2);
@@ -268,7 +270,7 @@ public class RainbowSigner implements MessageSigner {
         RainbowPublicMap rainbowPublicMap = new RainbowPublicMap(this.key.getParameters());
         short[] sArrMakeMessageRepresentative = makeMessageRepresentative(RainbowUtil.hash(this.hashAlgo, bArr3, Arrays.copyOfRange(bArr2, n, bArr2.length), new byte[m]));
         short[] sArrConvertArray = RainbowUtil.convertArray(Arrays.copyOfRange(bArr2, 0, n));
-        int i = AnonymousClass1.$SwitchMap$org$bouncycastle$pqc$crypto$rainbow$Version[this.version.ordinal()];
+        int i = C23691.$SwitchMap$org$bouncycastle$pqc$crypto$rainbow$Version[this.version.ordinal()];
         if (i == 1) {
             sArrPublicMap = rainbowPublicMap.publicMap((RainbowPublicKeyParameters) this.key, sArrConvertArray);
         } else {

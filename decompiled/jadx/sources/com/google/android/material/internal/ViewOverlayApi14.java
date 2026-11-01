@@ -11,7 +11,7 @@ import android.view.ViewParent;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import l.C17648;
+import p067l.C1717;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ViewOverlayApi14 implements ViewOverlayImpl {
@@ -119,14 +119,14 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             if (view.getParent() instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view.getParent();
                 if (viewGroup != this.hostView && viewGroup.getParent() != null) {
-                    int i = C17648.f53953;
+                    int i = C1717.f57146;
                     if (viewGroup.isAttachedToWindow()) {
                         int[] iArr = new int[2];
                         int[] iArr2 = new int[2];
                         viewGroup.getLocationOnScreen(iArr);
                         this.hostView.getLocationOnScreen(iArr2);
-                        C17648.m41325(iArr[0] - iArr2[0], view);
-                        C17648.m41332(iArr[1] - iArr2[1], view);
+                        C1717.m43571(iArr[0] - iArr2[0], view);
+                        C1717.m43578(iArr[1] - iArr2[1], view);
                     }
                 }
                 viewGroup.removeView(view);

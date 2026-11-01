@@ -4,15 +4,19 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import l.C5127;
-import l.C5368;
 import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+import org.bouncycastle.util.p082io.Streams;
+import p067l.C7241;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSContextBasedVerifier {
-    public final byte[] I;
-    public final byte[] T1;
+
+    /* JADX INFO: renamed from: I */
+    public final byte[] f81651I;
+
+    /* JADX INFO: renamed from: T1 */
+    public final byte[] f81652T1;
     public final LMOtsParameters lmOtsType;
     public final LMSigParameters parameterSet;
 
@@ -20,8 +24,8 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
         super(false);
         this.parameterSet = lMSigParameters;
         this.lmOtsType = lMOtsParameters;
-        this.I = Arrays.clone(bArr2);
-        this.T1 = Arrays.clone(bArr);
+        this.f81651I = Arrays.clone(bArr2);
+        this.f81652T1 = Arrays.clone(bArr);
     }
 
     public boolean equals(Object obj) {
@@ -32,8 +36,8 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
             return false;
         }
         LMSPublicKeyParameters lMSPublicKeyParameters = (LMSPublicKeyParameters) obj;
-        if (this.parameterSet.equals(lMSPublicKeyParameters.parameterSet) && this.lmOtsType.equals(lMSPublicKeyParameters.lmOtsType) && Arrays.areEqual(this.I, lMSPublicKeyParameters.I)) {
-            return Arrays.areEqual(this.T1, lMSPublicKeyParameters.T1);
+        if (this.parameterSet.equals(lMSPublicKeyParameters.parameterSet) && this.lmOtsType.equals(lMSPublicKeyParameters.lmOtsType) && Arrays.areEqual(this.f81651I, lMSPublicKeyParameters.f81651I)) {
+            return Arrays.areEqual(this.f81652T1, lMSPublicKeyParameters.f81652T1);
         }
         return false;
     }
@@ -41,7 +45,7 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
     public LMSContext generateOtsContext(LMSSignature lMSSignature) {
         int type = getOtsParameters().getType();
         if (lMSSignature.getOtsSignature().getType().getType() == type) {
-            return new LMOtsPublicKey(LMOtsParameters.getParametersForType(type), this.I, lMSSignature.getQ(), null).createOtsContext(lMSSignature);
+            return new LMOtsPublicKey(LMOtsParameters.getParametersForType(type), this.f81651I, lMSSignature.getQ(), null).createOtsContext(lMSSignature);
         }
         throw new IllegalArgumentException("ots type from lsm signature does not match ots signature type from embedded ots signature");
     }
@@ -52,7 +56,7 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
     }
 
     public byte[] getI() {
-        return Arrays.clone(this.I);
+        return Arrays.clone(this.f81651I);
     }
 
     public LMSParameters getLMSParameters() {
@@ -68,23 +72,23 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
     }
 
     public byte[] getT1() {
-        return Arrays.clone(this.T1);
+        return Arrays.clone(this.f81652T1);
     }
 
     public int hashCode() {
-        return Arrays.hashCode(this.T1) + ((Arrays.hashCode(this.I) + ((this.lmOtsType.hashCode() + (this.parameterSet.hashCode() * 31)) * 31)) * 31);
+        return Arrays.hashCode(this.f81652T1) + ((Arrays.hashCode(this.f81651I) + ((this.lmOtsType.hashCode() + (this.parameterSet.hashCode() * 31)) * 31)) * 31);
     }
 
     public boolean matchesT1(byte[] bArr) {
-        return Arrays.constantTimeAreEqual(this.T1, bArr);
+        return Arrays.constantTimeAreEqual(this.f81652T1, bArr);
     }
 
     public byte[] refI() {
-        return this.I;
+        return this.f81651I;
     }
 
     public byte[] toByteArray() {
-        return Composer.compose().u32str(this.parameterSet.getType()).u32str(this.lmOtsType.getType()).bytes(this.I).bytes(this.T1).build();
+        return Composer.compose().u32str(this.parameterSet.getType()).u32str(this.lmOtsType.getType()).bytes(this.f81651I).bytes(this.f81652T1).build();
     }
 
     @Override // org.bouncycastle.pqc.crypto.lms.LMSContextBasedVerifier
@@ -110,7 +114,7 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
             if (obj instanceof InputStream) {
                 return getInstance(Streams.readAll((InputStream) obj));
             }
-            throw new IllegalArgumentException(C5368.m15337(obj, "cannot parse "));
+            throw new IllegalArgumentException(C7470.m17246(obj, "cannot parse "));
         }
         DataInputStream dataInputStream2 = null;
         try {
@@ -137,7 +141,7 @@ public class LMSPublicKeyParameters extends LMSKeyParameters implements LMSConte
         try {
             return generateOtsContext(LMSSignature.getInstance(bArr));
         } catch (IOException e) {
-            throw new IllegalStateException(C5127.m14678(e, new StringBuilder("cannot parse signature: ")));
+            throw new IllegalStateException(C7241.m16586(e, new StringBuilder("cannot parse signature: ")));
         }
     }
 }

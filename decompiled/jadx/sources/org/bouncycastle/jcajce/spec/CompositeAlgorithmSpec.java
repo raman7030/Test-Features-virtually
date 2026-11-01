@@ -3,7 +3,7 @@ package org.bouncycastle.jcajce.spec;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.ArrayList;
 import java.util.List;
-import l.C20195;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CompositeAlgorithmSpec implements AlgorithmParameterSpec {
@@ -36,8 +36,8 @@ public class CompositeAlgorithmSpec implements AlgorithmParameterSpec {
     }
 
     public CompositeAlgorithmSpec(Builder builder) {
-        this.algorithmNames = C20195.unmodifiableList(new ArrayList(builder.algorithmNames));
-        this.parameterSpecs = C20195.unmodifiableList(new ArrayList(builder.parameterSpecs));
+        this.algorithmNames = C21562.unmodifiableList(new ArrayList(builder.algorithmNames));
+        this.parameterSpecs = C21562.unmodifiableList(new ArrayList(builder.parameterSpecs));
     }
 
     public List getAlgorithmNames() {

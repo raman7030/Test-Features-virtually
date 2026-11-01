@@ -1,6 +1,5 @@
 package org.bouncycastle.pqc.asn1;
 
-import l.C16014;
 import org.bouncycastle.asn1.ASN1EncodableVector;
 import org.bouncycastle.asn1.ASN1Object;
 import org.bouncycastle.asn1.ASN1Primitive;
@@ -8,6 +7,7 @@ import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.util.Arrays;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class SPHINCSPLUSPublicKey extends ASN1Object {
@@ -16,8 +16,8 @@ public class SPHINCSPLUSPublicKey extends ASN1Object {
 
     @Deprecated
     public SPHINCSPLUSPublicKey(ASN1Sequence aSN1Sequence) {
-        this.pkseed = C16014.m37869(aSN1Sequence, 0);
-        this.pkroot = C16014.m37869(aSN1Sequence, 1);
+        this.pkseed = C17588.m40055(aSN1Sequence, 0);
+        this.pkroot = C17588.m40055(aSN1Sequence, 1);
     }
 
     public SPHINCSPLUSPublicKey(byte[] bArr, byte[] bArr2) {

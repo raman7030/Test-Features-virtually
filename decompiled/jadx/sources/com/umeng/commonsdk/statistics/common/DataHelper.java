@@ -14,8 +14,8 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import l.C16014;
-import l.C20094;
+import p067l.C17588;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class DataHelper {
@@ -25,11 +25,11 @@ public class DataHelper {
     public static String UMENG_PLUS = "umeng+0123456789";
 
     public static String assembleStatelessURL(String str) {
-        return C20094.m46315("https://", str);
+        return C21466.m48631("https://", str);
     }
 
     public static String assembleURL(String str) {
-        return C20094.m46315("https://", str);
+        return C21466.m48631("https://", str);
     }
 
     public static boolean largeThanMaxSize(long j, long j2) {
@@ -92,7 +92,7 @@ public class DataHelper {
         if (new Random().nextFloat() < 0.001d) {
             int i2 = 0;
             if (str == null) {
-                MLog.e("--->", "null signature..");
+                MLog.m2950e("--->", "null signature..");
             }
             try {
                 i2 = Integer.parseInt(str.substring(9, 11), 16);
@@ -140,15 +140,15 @@ public class DataHelper {
     }
 
     public static String bytes2Hex(byte[] bArr) {
-        String strM37867 = "";
+        String strM40053 = "";
         for (byte b : bArr) {
             String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
-                strM37867 = C16014.m37867(strM37867, "0");
+                strM40053 = C17588.m40053(strM40053, "0");
             }
-            strM37867 = C16014.m37867(strM37867, hexString);
+            strM40053 = C17588.m40053(strM40053, hexString);
         }
-        return strM37867;
+        return strM40053;
     }
 
     public static String encryptEx(String str) {

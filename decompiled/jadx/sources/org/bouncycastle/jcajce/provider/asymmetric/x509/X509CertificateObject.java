@@ -120,12 +120,12 @@ public class X509CertificateObject extends X509CertificateImpl implements PKCS12
             }
             try {
                 x509CertificateEncodingException = null;
-                encoded = this.c.getEncoded(ASN1Encoding.DER);
+                encoded = this.f81354c.getEncoded(ASN1Encoding.DER);
             } catch (IOException e) {
                 encoded = null;
                 x509CertificateEncodingException = new X509CertificateEncodingException(e);
             }
-            X509CertificateInternal x509CertificateInternal3 = new X509CertificateInternal(this.bcHelper, this.c, this.basicConstraints, this.keyUsage, this.sigAlgName, this.sigAlgParams, encoded, x509CertificateEncodingException);
+            X509CertificateInternal x509CertificateInternal3 = new X509CertificateInternal(this.bcHelper, this.f81354c, this.basicConstraints, this.keyUsage, this.sigAlgName, this.sigAlgParams, encoded, x509CertificateEncodingException);
             synchronized (this.cacheLock) {
                 if (this.internalCertificateValue == null) {
                     this.internalCertificateValue = x509CertificateInternal3;
@@ -141,12 +141,12 @@ public class X509CertificateObject extends X509CertificateImpl implements PKCS12
         long time = date.getTime();
         long[] validityValues = getValidityValues();
         if (time > validityValues[1]) {
-            throw new CertificateExpiredException("certificate expired on " + this.c.getEndDate().getTime());
+            throw new CertificateExpiredException("certificate expired on " + this.f81354c.getEndDate().getTime());
         }
         if (time >= validityValues[0]) {
             return;
         }
-        throw new CertificateNotYetValidException("certificate not valid till " + this.c.getStartDate().getTime());
+        throw new CertificateNotYetValidException("certificate not valid till " + this.f81354c.getStartDate().getTime());
     }
 
     @Override // java.security.cert.Certificate
@@ -162,7 +162,7 @@ public class X509CertificateObject extends X509CertificateImpl implements PKCS12
                 if (this.hashValue != x509CertificateObject.hashValue) {
                     return false;
                 }
-            } else if ((this.internalCertificateValue == null || x509CertificateObject.internalCertificateValue == null) && (signature = this.c.getSignature()) != null && !signature.equals((ASN1Primitive) x509CertificateObject.c.getSignature())) {
+            } else if ((this.internalCertificateValue == null || x509CertificateObject.internalCertificateValue == null) && (signature = this.f81354c.getSignature()) != null && !signature.equals((ASN1Primitive) x509CertificateObject.f81354c.getSignature())) {
                 return false;
             }
             internalCertificate = getInternalCertificate();

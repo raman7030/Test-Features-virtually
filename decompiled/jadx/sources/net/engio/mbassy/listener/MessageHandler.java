@@ -1,13 +1,13 @@
 package net.engio.mbassy.listener;
 
-import com.alipay.sdk.m.y.l;
+import com.alipay.sdk.p010m.p058y.C0249l;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import l.C4860;
 import net.engio.mbassy.common.ReflectionUtils;
-import net.engio.mbassy.dispatch.el.ElFilter;
+import net.engio.mbassy.dispatch.p068el.ElFilter;
+import p067l.C6988;
 
 /* JADX INFO: loaded from: classes.dex */
 public class MessageHandler {
@@ -78,7 +78,7 @@ public class MessageHandler {
         }
 
         public static String cleanEL(String str) {
-            return (str.trim().startsWith("${") || str.trim().startsWith("#{")) ? str : C4860.m14172("${", str, l.d);
+            return (str.trim().startsWith("${") || str.trim().startsWith("#{")) ? str : C6988.m16053("${", str, C0249l.f1198d);
         }
     }
 

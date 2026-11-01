@@ -2,74 +2,74 @@ package com.amazonaws.util;
 
 import com.amazonaws.logging.Log;
 import com.amazonaws.logging.LogFactory;
-import l.C13325;
+import p067l.C15033;
 
 /* JADX INFO: loaded from: classes.dex */
 public class VersionInfoUtils {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static final /* synthetic */ int f849 = 0;
+    /* JADX INFO: renamed from: ֫ */
+    public static final /* synthetic */ int f2009 = 0;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static final Log f850 = LogFactory.m302(VersionInfoUtils.class);
+    /* JADX INFO: renamed from: ۧ */
+    public static final Log f2010 = LogFactory.m1468(VersionInfoUtils.class);
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public static volatile String f851;
+    /* JADX INFO: renamed from: ܽ */
+    public static volatile String f2011;
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public static String m798() {
-        if (f851 == null) {
+    /* JADX INFO: renamed from: ֫ */
+    public static String m1963() {
+        if (f2011 == null) {
             synchronized (VersionInfoUtils.class) {
-                if (f851 == null) {
-                    m799();
+                if (f2011 == null) {
+                    m1964();
                 }
             }
         }
-        return f851;
+        return f2011;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static void m799() {
-        StringBuilder sbM32307 = C13325.m32307(128, "aws-sdk-");
-        sbM32307.append(StringUtils.m789("android"));
-        sbM32307.append("/2.81.1 ");
+    /* JADX INFO: renamed from: ۧ */
+    public static void m1964() {
+        StringBuilder sbM34407 = C15033.m34407(128, "aws-sdk-");
+        sbM34407.append(StringUtils.m1954("android"));
+        sbM34407.append("/2.81.1 ");
         String property = System.getProperty("os.name");
         if (property != null) {
             property = property.replace(' ', '_');
         }
-        sbM32307.append(property);
-        sbM32307.append("/");
+        sbM34407.append(property);
+        sbM34407.append("/");
         String property2 = System.getProperty("os.version");
         if (property2 != null) {
             property2 = property2.replace(' ', '_');
         }
-        sbM32307.append(property2);
-        sbM32307.append(" ");
+        sbM34407.append(property2);
+        sbM34407.append(" ");
         String property3 = System.getProperty("java.vm.name");
         if (property3 != null) {
             property3 = property3.replace(' ', '_');
         }
-        sbM32307.append(property3);
-        sbM32307.append("/");
+        sbM34407.append(property3);
+        sbM34407.append("/");
         String property4 = System.getProperty("java.vm.version");
         if (property4 != null) {
             property4 = property4.replace(' ', '_');
         }
-        sbM32307.append(property4);
-        sbM32307.append("/");
+        sbM34407.append(property4);
+        sbM34407.append("/");
         String property5 = System.getProperty("java.version");
         if (property5 != null) {
             property5 = property5.replace(' ', '_');
         }
-        sbM32307.append(property5);
+        sbM34407.append(property5);
         String property6 = System.getProperty("user.language");
         String property7 = System.getProperty("user.region");
         if (property6 != null && property7 != null) {
-            sbM32307.append(" ");
-            sbM32307.append(property6.replace(' ', '_'));
-            sbM32307.append("_");
-            sbM32307.append(property7.replace(' ', '_'));
+            sbM34407.append(" ");
+            sbM34407.append(property6.replace(' ', '_'));
+            sbM34407.append("_");
+            sbM34407.append(property7.replace(' ', '_'));
         }
-        f851 = sbM32307.toString();
+        f2011 = sbM34407.toString();
     }
 }

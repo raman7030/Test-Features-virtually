@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.examples;
 
-import com.alipay.sdk.m.y.l;
+import com.alipay.sdk.p010m.p058y.C0249l;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
@@ -12,7 +12,7 @@ import org.bouncycastle.crypto.agreement.ecjpake.ECJPAKERound1Payload;
 import org.bouncycastle.crypto.agreement.ecjpake.ECJPAKERound2Payload;
 import org.bouncycastle.crypto.agreement.ecjpake.ECJPAKERound3Payload;
 import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECPoint;
 
 /* JADX INFO: loaded from: classes.dex */
 public class ECJPAKEExample {
@@ -55,14 +55,14 @@ public class ECJPAKEExample {
         System.out.println("Alice sends to Bob: ");
         System.out.println("g^{x1}=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend.getGx1().getEncoded(true)).toString(16));
         System.out.println("g^{x2}=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend.getGx2().getEncoded(true)).toString(16));
-        System.out.println("KP{x1}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1().getr().toString(16) + l.d);
-        System.out.println("KP{x2}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2().getr().toString(16) + l.d);
+        System.out.println("KP{x1}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX1().getr().toString(16) + C0249l.f1198d);
+        System.out.println("KP{x2}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend.getKnowledgeProofForX2().getr().toString(16) + C0249l.f1198d);
         System.out.println("");
         System.out.println("Bob sends to Alice: ");
         System.out.println("g^{x3}=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend2.getGx1().getEncoded(true)).toString(16));
         System.out.println("g^{x4}=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend2.getGx2().getEncoded(true)).toString(16));
-        System.out.println("KP{x3}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1().getr().toString(16) + l.d);
-        System.out.println("KP{x4}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2().getr().toString(16) + l.d);
+        System.out.println("KP{x3}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX1().getr().toString(16) + C0249l.f1198d);
+        System.out.println("KP{x4}: {V=" + new BigInteger(eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2().getV().getEncoded(true)).toString(16) + "; r=" + eCJPAKERound1PayloadCreateRound1PayloadToSend2.getKnowledgeProofForX2().getr().toString(16) + C0249l.f1198d);
         System.out.println("");
         eCJPAKEParticipant.validateRound1PayloadReceived(eCJPAKERound1PayloadCreateRound1PayloadToSend2);
         System.out.println("Alice checks g^{x4}!=1: OK");
@@ -79,11 +79,11 @@ public class ECJPAKEExample {
         System.out.println("************ Round 2 **************");
         System.out.println("Alice sends to Bob: ");
         System.out.println("A=" + new BigInteger(eCJPAKERound2PayloadCreateRound2PayloadToSend.getA().getEncoded(true)).toString(16));
-        System.out.println("KP{x2*s}: {V=" + new BigInteger(eCJPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s().getV().getEncoded(true)).toString(16) + ", r=" + eCJPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s().getr().toString(16) + l.d);
+        System.out.println("KP{x2*s}: {V=" + new BigInteger(eCJPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s().getV().getEncoded(true)).toString(16) + ", r=" + eCJPAKERound2PayloadCreateRound2PayloadToSend.getKnowledgeProofForX2s().getr().toString(16) + C0249l.f1198d);
         System.out.println("");
         System.out.println("Bob sends to Alice");
         System.out.println("B=" + new BigInteger(eCJPAKERound2PayloadCreateRound2PayloadToSend2.getA().getEncoded(true)).toString(16));
-        System.out.println("KP{x4*s}: {V=" + new BigInteger(eCJPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s().getV().getEncoded(true)).toString(16) + ", r=" + eCJPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s().getr().toString(16) + l.d);
+        System.out.println("KP{x4*s}: {V=" + new BigInteger(eCJPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s().getV().getEncoded(true)).toString(16) + ", r=" + eCJPAKERound2PayloadCreateRound2PayloadToSend2.getKnowledgeProofForX2s().getr().toString(16) + C0249l.f1198d);
         System.out.println("");
         eCJPAKEParticipant.validateRound2PayloadReceived(eCJPAKERound2PayloadCreateRound2PayloadToSend2);
         System.out.println("Alice checks KP{x4*s}: OK\n");

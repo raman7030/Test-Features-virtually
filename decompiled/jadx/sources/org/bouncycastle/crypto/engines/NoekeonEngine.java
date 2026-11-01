@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.engines;
 
-import l.C20177;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
@@ -12,13 +11,16 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.signers.PSSSigner;
 import org.bouncycastle.util.Integers;
 import org.bouncycastle.util.Pack;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class NoekeonEngine implements BlockCipher {
     public static final int SIZE = 16;
     public static final byte[] roundConstants = {GCMSIVBlockCipher.MASK, 27, 54, 108, -40, -85, 77, -102, 47, 94, PSSSigner.TRAILER_IMPLICIT, 99, -58, -105, 53, 106, -44};
     public boolean _forEncryption;
-    public final int[] k = new int[4];
+
+    /* JADX INFO: renamed from: k */
+    public final int[] f81044k = new int[4];
     public boolean _initialised = false;
 
     private int decryptBlock(byte[] bArr, int i, byte[] bArr2, int i2) {
@@ -26,7 +28,7 @@ public class NoekeonEngine implements BlockCipher {
         int iBigEndianToInt2 = Pack.bigEndianToInt(bArr, i + 4);
         int iBigEndianToInt3 = Pack.bigEndianToInt(bArr, i + 8);
         int iBigEndianToInt4 = Pack.bigEndianToInt(bArr, i + 12);
-        int[] iArr = this.k;
+        int[] iArr = this.f81044k;
         int i3 = iArr[0];
         int i4 = iArr[1];
         int i5 = iArr[2];
@@ -73,7 +75,7 @@ public class NoekeonEngine implements BlockCipher {
         int iBigEndianToInt2 = Pack.bigEndianToInt(bArr, i + 4);
         int iBigEndianToInt3 = Pack.bigEndianToInt(bArr, i + 8);
         int iBigEndianToInt4 = Pack.bigEndianToInt(bArr, i + 12);
-        int[] iArr = this.k;
+        int[] iArr = this.f81044k;
         int i3 = 0;
         int i4 = iArr[0];
         int i5 = iArr[1];
@@ -147,15 +149,15 @@ public class NoekeonEngine implements BlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void init(boolean z, CipherParameters cipherParameters) {
         if (!(cipherParameters instanceof KeyParameter)) {
-            throw new IllegalArgumentException(C20177.m46409("invalid parameter passed to Noekeon init - ", cipherParameters));
+            throw new IllegalArgumentException(C21545.m48728("invalid parameter passed to Noekeon init - ", cipherParameters));
         }
         byte[] key = ((KeyParameter) cipherParameters).getKey();
         if (key.length != 16) {
             throw new IllegalArgumentException("Key length not 128 bits.");
         }
-        Pack.bigEndianToInt(key, 0, this.k, 0, 4);
+        Pack.bigEndianToInt(key, 0, this.f81044k, 0, 4);
         if (!z) {
-            int[] iArr = this.k;
+            int[] iArr = this.f81044k;
             int i = iArr[0];
             int i2 = iArr[1];
             int i3 = iArr[2];
@@ -166,7 +168,7 @@ public class NoekeonEngine implements BlockCipher {
             int iRotateLeft2 = (Integers.rotateLeft(i6, 8) ^ Integers.rotateLeft(i6, 24)) ^ i6;
             int i7 = i2 ^ iRotateLeft;
             int i8 = i4 ^ iRotateLeft;
-            int[] iArr2 = this.k;
+            int[] iArr2 = this.f81044k;
             iArr2[0] = i ^ iRotateLeft2;
             iArr2[1] = i7;
             iArr2[2] = i3 ^ iRotateLeft2;

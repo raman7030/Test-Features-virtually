@@ -4,104 +4,104 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-import l.C20195;
+import p067l.C21562;
 
 /* JADX INFO: loaded from: classes.dex */
 public class HttpResponse {
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public InputStream f198;
+    /* JADX INFO: renamed from: ֫ */
+    public InputStream f1358;
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final Map f199;
+    /* JADX INFO: renamed from: ۧ */
+    public final Map f1359;
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final InputStream f200;
+    /* JADX INFO: renamed from: ܽ */
+    public final InputStream f1360;
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final String f201;
+    /* JADX INFO: renamed from: ܿ */
+    public final String f1361;
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final int f202;
+    /* JADX INFO: renamed from: ᩳ */
+    public final int f1362;
 
     public HttpResponse(String str, int i, Map map, InputStream inputStream) {
-        this.f201 = str;
-        this.f202 = i;
-        this.f199 = map;
-        this.f200 = inputStream;
+        this.f1361 = str;
+        this.f1362 = i;
+        this.f1359 = map;
+        this.f1360 = inputStream;
     }
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public final Map m267() {
-        return this.f199;
+    /* JADX INFO: renamed from: ۧ */
+    public final Map m1433() {
+        return this.f1359;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final InputStream m266() {
-        if (this.f198 == null) {
+    /* JADX INFO: renamed from: ֫ */
+    public final InputStream m1432() {
+        if (this.f1358 == null) {
             synchronized (this) {
-                if (this.f200 != null && "gzip".equals(this.f199.get("Content-Encoding"))) {
-                    this.f198 = new GZIPInputStream(this.f200);
+                if (this.f1360 != null && "gzip".equals(this.f1359.get("Content-Encoding"))) {
+                    this.f1358 = new GZIPInputStream(this.f1360);
                 } else {
-                    this.f198 = this.f200;
+                    this.f1358 = this.f1360;
                 }
             }
         }
-        return this.f198;
+        return this.f1358;
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public final InputStream m268() {
-        return this.f200;
+    /* JADX INFO: renamed from: ܽ */
+    public final InputStream m1434() {
+        return this.f1360;
     }
 
-    /* JADX INFO: renamed from: ܿ, reason: not valid java name and contains not printable characters */
-    public final String m269() {
-        return this.f201;
+    /* JADX INFO: renamed from: ܿ */
+    public final String m1435() {
+        return this.f1361;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final int m270() {
-        return this.f202;
+    /* JADX INFO: renamed from: ᩳ */
+    public final int m1436() {
+        return this.f1362;
     }
 
     public class Builder {
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public InputStream f203;
+        /* JADX INFO: renamed from: ֫ */
+        public InputStream f1363;
 
-        /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-        public final HashMap f204 = new HashMap();
+        /* JADX INFO: renamed from: ۧ */
+        public final HashMap f1364 = new HashMap();
 
-        /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-        public int f205;
+        /* JADX INFO: renamed from: ܽ */
+        public int f1365;
 
-        /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-        public String f206;
+        /* JADX INFO: renamed from: ᩳ */
+        public String f1366;
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final void m274(String str) {
-            this.f206 = str;
+        /* JADX INFO: renamed from: ֫ */
+        public final void m1440(String str) {
+            this.f1366 = str;
         }
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final void m272(int i) {
-            this.f205 = i;
+        /* JADX INFO: renamed from: ֫ */
+        public final void m1438(int i) {
+            this.f1365 = i;
         }
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final void m273(InputStream inputStream) {
-            this.f203 = inputStream;
+        /* JADX INFO: renamed from: ֫ */
+        public final void m1439(InputStream inputStream) {
+            this.f1363 = inputStream;
         }
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final void m275(String str, String str2) {
-            this.f204.put(str, str2);
+        /* JADX INFO: renamed from: ֫ */
+        public final void m1441(String str, String str2) {
+            this.f1364.put(str, str2);
         }
 
-        /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-        public final HttpResponse m271() {
-            return new HttpResponse(this.f206, this.f205, C20195.unmodifiableMap(this.f204), this.f203);
+        /* JADX INFO: renamed from: ֫ */
+        public final HttpResponse m1437() {
+            return new HttpResponse(this.f1366, this.f1365, C21562.unmodifiableMap(this.f1364), this.f1363);
         }
     }
 }

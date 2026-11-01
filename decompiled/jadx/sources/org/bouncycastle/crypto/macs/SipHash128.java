@@ -13,18 +13,18 @@ public class SipHash128 extends SipHash {
 
     @Override // org.bouncycastle.crypto.macs.SipHash, org.bouncycastle.crypto.Mac
     public int doFinal(byte[] bArr, int i) {
-        long j = this.m;
+        long j = this.f81154m;
         int i2 = this.wordPos;
-        this.m = ((j >>> ((7 - i2) << 3)) >>> 8) | ((((long) ((this.wordCount << 3) + i2)) & 255) << 56);
+        this.f81154m = ((j >>> ((7 - i2) << 3)) >>> 8) | ((((long) ((this.wordCount << 3) + i2)) & 255) << 56);
         processMessageWord();
-        this.v2 ^= 238;
-        applySipRounds(this.d);
-        long j2 = this.v0;
-        long j3 = this.v1;
-        long j4 = ((j2 ^ j3) ^ this.v2) ^ this.v3;
-        this.v1 = j3 ^ 221;
-        applySipRounds(this.d);
-        long j5 = ((this.v0 ^ this.v1) ^ this.v2) ^ this.v3;
+        this.f81157v2 ^= 238;
+        applySipRounds(this.f81151d);
+        long j2 = this.f81155v0;
+        long j3 = this.f81156v1;
+        long j4 = ((j2 ^ j3) ^ this.f81157v2) ^ this.f81158v3;
+        this.f81156v1 = j3 ^ 221;
+        applySipRounds(this.f81151d);
+        long j5 = ((this.f81155v0 ^ this.f81156v1) ^ this.f81157v2) ^ this.f81158v3;
         reset();
         Pack.longToLittleEndian(j4, bArr, i);
         Pack.longToLittleEndian(j5, bArr, i + 8);
@@ -38,7 +38,7 @@ public class SipHash128 extends SipHash {
 
     @Override // org.bouncycastle.crypto.macs.SipHash, org.bouncycastle.crypto.Mac
     public String getAlgorithmName() {
-        return "SipHash128-" + this.c + "-" + this.d;
+        return "SipHash128-" + this.f81150c + "-" + this.f81151d;
     }
 
     @Override // org.bouncycastle.crypto.macs.SipHash, org.bouncycastle.crypto.Mac
@@ -49,6 +49,6 @@ public class SipHash128 extends SipHash {
     @Override // org.bouncycastle.crypto.macs.SipHash, org.bouncycastle.crypto.Mac
     public void reset() {
         super.reset();
-        this.v1 ^= 238;
+        this.f81156v1 ^= 238;
     }
 }

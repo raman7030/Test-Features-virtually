@@ -67,8 +67,8 @@ public class ShapePath {
 
     public void lineTo(float f, float f2) {
         PathLineOperation pathLineOperation = new PathLineOperation();
-        pathLineOperation.x = f;
-        pathLineOperation.y = f2;
+        pathLineOperation.f2053x = f;
+        pathLineOperation.f2054y = f2;
         this.operations.add(pathLineOperation);
         LineShadowOperation lineShadowOperation = new LineShadowOperation(pathLineOperation, getEndX(), getEndY());
         addShadowCompatOperation(lineShadowOperation, lineShadowOperation.getAngle() + 270.0f, lineShadowOperation.getAngle() + 270.0f);
@@ -82,12 +82,12 @@ public class ShapePath {
             return;
         }
         PathLineOperation pathLineOperation = new PathLineOperation();
-        pathLineOperation.x = f;
-        pathLineOperation.y = f2;
+        pathLineOperation.f2053x = f;
+        pathLineOperation.f2054y = f2;
         this.operations.add(pathLineOperation);
         PathLineOperation pathLineOperation2 = new PathLineOperation();
-        pathLineOperation2.x = f3;
-        pathLineOperation2.y = f4;
+        pathLineOperation2.f2053x = f3;
+        pathLineOperation2.f2054y = f4;
         this.operations.add(pathLineOperation2);
         InnerCornerShadowOperation innerCornerShadowOperation = new InnerCornerShadowOperation(pathLineOperation, pathLineOperation2, getEndX(), getEndY());
         if (innerCornerShadowOperation.getSweepAngle() > 0.0f) {
@@ -255,7 +255,7 @@ public class ShapePath {
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
         public void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas) {
-            RectF rectF = new RectF(0.0f, 0.0f, (float) Math.hypot(this.operation.y - this.startY, this.operation.x - this.startX), 0.0f);
+            RectF rectF = new RectF(0.0f, 0.0f, (float) Math.hypot(this.operation.f2054y - this.startY, this.operation.f2053x - this.startX), 0.0f);
             this.renderMatrix.set(matrix);
             this.renderMatrix.preTranslate(this.startX, this.startY);
             this.renderMatrix.preRotate(getAngle());
@@ -263,7 +263,7 @@ public class ShapePath {
         }
 
         public float getAngle() {
-            return (float) Math.toDegrees(Math.atan((this.operation.y - this.startY) / (this.operation.x - this.startX)));
+            return (float) Math.toDegrees(Math.atan((this.operation.f2054y - this.startY) / (this.operation.f2053x - this.startX)));
         }
     }
 
@@ -286,8 +286,8 @@ public class ShapePath {
             if (sweepAngle > 0.0f) {
                 return;
             }
-            double dHypot = Math.hypot(this.operation1.x - this.startX, this.operation1.y - this.startY);
-            double dHypot2 = Math.hypot(this.operation2.x - this.operation1.x, this.operation2.y - this.operation1.y);
+            double dHypot = Math.hypot(this.operation1.f2053x - this.startX, this.operation1.f2054y - this.startY);
+            double dHypot2 = Math.hypot(this.operation2.f2053x - this.operation1.f2053x, this.operation2.f2054y - this.operation1.f2054y);
             float fMin = (float) Math.min(i, Math.min(dHypot, dHypot2));
             double d = fMin;
             double dTan = Math.tan(Math.toRadians((-sweepAngle) / 2.0f)) * d;
@@ -301,14 +301,14 @@ public class ShapePath {
             float f = 2.0f * fMin;
             RectF rectF2 = new RectF(0.0f, 0.0f, f, f);
             this.renderMatrix.set(matrix);
-            this.renderMatrix.preTranslate(this.operation1.x, this.operation1.y);
+            this.renderMatrix.preTranslate(this.operation1.f2053x, this.operation1.f2054y);
             this.renderMatrix.preRotate(getStartAngle());
             this.renderMatrix.preTranslate((float) ((-dTan) - d), (-2.0f) * fMin);
             shadowRenderer.drawInnerCornerShadow(canvas, this.renderMatrix, rectF2, (int) fMin, 450.0f, sweepAngle, new float[]{(float) (d + dTan), f});
             if (dHypot2 > dTan) {
                 RectF rectF3 = new RectF(0.0f, 0.0f, (float) (dHypot2 - dTan), 0.0f);
                 this.renderMatrix.set(matrix);
-                this.renderMatrix.preTranslate(this.operation1.x, this.operation1.y);
+                this.renderMatrix.preTranslate(this.operation1.f2053x, this.operation1.f2054y);
                 this.renderMatrix.preRotate(getEndAngle());
                 this.renderMatrix.preTranslate((float) dTan, 0.0f);
                 shadowRenderer.drawEdgeShadow(canvas, this.renderMatrix, rectF3, i);
@@ -316,11 +316,11 @@ public class ShapePath {
         }
 
         public float getStartAngle() {
-            return (float) Math.toDegrees(Math.atan((this.operation1.y - this.startY) / (this.operation1.x - this.startX)));
+            return (float) Math.toDegrees(Math.atan((this.operation1.f2054y - this.startY) / (this.operation1.f2053x - this.startX)));
         }
 
         public float getEndAngle() {
-            return (float) Math.toDegrees(Math.atan((this.operation2.y - this.operation1.y) / (this.operation2.x - this.operation1.x)));
+            return (float) Math.toDegrees(Math.atan((this.operation2.f2054y - this.operation1.f2054y) / (this.operation2.f2053x - this.operation1.f2053x)));
         }
 
         public float getSweepAngle() {
@@ -343,15 +343,19 @@ public class ShapePath {
     }
 
     public class PathLineOperation extends PathOperation {
-        public float x;
-        public float y;
+
+        /* JADX INFO: renamed from: x */
+        public float f2053x;
+
+        /* JADX INFO: renamed from: y */
+        public float f2054y;
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
         public void applyToPath(Matrix matrix, Path path) {
             Matrix matrix2 = this.matrix;
             matrix.invert(matrix2);
             path.transform(matrix2);
-            path.lineTo(this.x, this.y);
+            path.lineTo(this.f2053x, this.f2054y);
             path.transform(matrix);
         }
     }

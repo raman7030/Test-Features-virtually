@@ -24,7 +24,7 @@ public class NTRUOWCPA {
     private int checkM(HPSPolynomial hPSPolynomial) {
         short s = 0;
         short s2 = 0;
-        for (int i = 0; i < this.params.n() - 1; i++) {
+        for (int i = 0; i < this.params.m55436n() - 1; i++) {
             short s3 = hPSPolynomial.coeffs[i];
             s = (short) (s + (s3 & 1));
             s2 = (short) (s2 + (s3 & 2));
@@ -33,12 +33,12 @@ public class NTRUOWCPA {
     }
 
     private int checkR(Polynomial polynomial) {
-        int iQ = 0;
-        for (int i = 0; i < this.params.n() - 1; i++) {
+        int iM55437q = 0;
+        for (int i = 0; i < this.params.m55436n() - 1; i++) {
             short s = polynomial.coeffs[i];
-            iQ = iQ | ((s + 1) & (this.params.q() - 4)) | ((s + 2) & 4);
+            iM55437q = iM55437q | ((s + 1) & (this.params.m55437q() - 4)) | ((s + 2) & 4);
         }
-        return (((~(polynomial.coeffs[this.params.n() - 1] | iQ)) + 1) >>> 31) & 1;
+        return (((~(polynomial.coeffs[this.params.m55436n() - 1] | iM55437q)) + 1) >>> 31) & 1;
     }
 
     public OWCPADecryptResult decrypt(byte[] bArr, byte[] bArr2) {
@@ -60,7 +60,7 @@ public class NTRUOWCPA {
             iCheckCiphertext |= checkM((HPSPolynomial) polynomialCreatePolynomial4);
         }
         polynomialCreatePolynomial2.lift(polynomialCreatePolynomial4);
-        for (int i = 0; i < this.params.n(); i++) {
+        for (int i = 0; i < this.params.m55436n(); i++) {
             short[] sArr = polynomialCreatePolynomial.coeffs;
             sArr[i] = (short) (sArr[i] - polynomialCreatePolynomial2.coeffs[i]);
         }
@@ -78,7 +78,7 @@ public class NTRUOWCPA {
         polynomialCreatePolynomial.rqSumZeroFromBytes(bArr);
         polynomialCreatePolynomial2.rqMul(polynomial, polynomialCreatePolynomial);
         polynomialCreatePolynomial.lift(polynomial2);
-        for (int i = 0; i < this.params.n(); i++) {
+        for (int i = 0; i < this.params.m55436n(); i++) {
             short[] sArr = polynomialCreatePolynomial2.coeffs;
             sArr[i] = (short) (sArr[i] + polynomialCreatePolynomial.coeffs[i]);
         }
@@ -88,44 +88,44 @@ public class NTRUOWCPA {
     public OWCPAKeyPair keypair(byte[] bArr) {
         int iOwcpaSecretKeyBytes = this.params.owcpaSecretKeyBytes();
         byte[] bArr2 = new byte[iOwcpaSecretKeyBytes];
-        int iN = this.params.n();
-        this.params.q();
+        int iM55436n = this.params.m55436n();
+        this.params.m55437q();
         Polynomial polynomialCreatePolynomial = this.params.createPolynomial();
         Polynomial polynomialCreatePolynomial2 = this.params.createPolynomial();
         Polynomial polynomialCreatePolynomial3 = this.params.createPolynomial();
         PolynomialPair polynomialPairSampleFg = this.sampling.sampleFg(bArr);
-        Polynomial polynomialF = polynomialPairSampleFg.f();
-        Polynomial polynomialG = polynomialPairSampleFg.g();
-        polynomialCreatePolynomial.s3Inv(polynomialF);
-        polynomialF.s3ToBytes(bArr2, 0);
+        Polynomial polynomialM55423f = polynomialPairSampleFg.m55423f();
+        Polynomial polynomialM55424g = polynomialPairSampleFg.m55424g();
+        polynomialCreatePolynomial.s3Inv(polynomialM55423f);
+        polynomialM55423f.s3ToBytes(bArr2, 0);
         polynomialCreatePolynomial.s3ToBytes(bArr2, this.params.packTrinaryBytes());
-        polynomialF.z3ToZq();
-        polynomialG.z3ToZq();
+        polynomialM55423f.z3ToZq();
+        polynomialM55424g.z3ToZq();
         if (this.params instanceof NTRUHRSSParameterSet) {
             while (true) {
-                iN--;
-                if (iN <= 0) {
+                iM55436n--;
+                if (iM55436n <= 0) {
                     break;
                 }
-                short[] sArr = polynomialG.coeffs;
-                sArr[iN] = (short) ((sArr[iN - 1] - sArr[iN]) * 3);
+                short[] sArr = polynomialM55424g.coeffs;
+                sArr[iM55436n] = (short) ((sArr[iM55436n - 1] - sArr[iM55436n]) * 3);
             }
-            short[] sArr2 = polynomialG.coeffs;
+            short[] sArr2 = polynomialM55424g.coeffs;
             sArr2[0] = (short) (-(sArr2[0] * 3));
         } else {
-            for (int i = 0; i < iN; i++) {
-                short[] sArr3 = polynomialG.coeffs;
+            for (int i = 0; i < iM55436n; i++) {
+                short[] sArr3 = polynomialM55424g.coeffs;
                 sArr3[i] = (short) (sArr3[i] * 3);
             }
         }
-        polynomialCreatePolynomial.rqMul(polynomialG, polynomialF);
+        polynomialCreatePolynomial.rqMul(polynomialM55424g, polynomialM55423f);
         polynomialCreatePolynomial2.rqInv(polynomialCreatePolynomial);
-        polynomialCreatePolynomial3.rqMul(polynomialCreatePolynomial2, polynomialF);
-        polynomialCreatePolynomial.sqMul(polynomialCreatePolynomial3, polynomialF);
+        polynomialCreatePolynomial3.rqMul(polynomialCreatePolynomial2, polynomialM55423f);
+        polynomialCreatePolynomial.sqMul(polynomialCreatePolynomial3, polynomialM55423f);
         byte[] bArrSqToBytes = polynomialCreatePolynomial.sqToBytes(iOwcpaSecretKeyBytes - (this.params.packTrinaryBytes() * 2));
         System.arraycopy(bArrSqToBytes, 0, bArr2, this.params.packTrinaryBytes() * 2, bArrSqToBytes.length);
-        polynomialCreatePolynomial3.rqMul(polynomialCreatePolynomial2, polynomialG);
-        polynomialCreatePolynomial.rqMul(polynomialCreatePolynomial3, polynomialG);
+        polynomialCreatePolynomial3.rqMul(polynomialCreatePolynomial2, polynomialM55424g);
+        polynomialCreatePolynomial.rqMul(polynomialCreatePolynomial3, polynomialM55424g);
         return new OWCPAKeyPair(polynomialCreatePolynomial.rqSumZeroToBytes(this.params.owcpaPublicKeyBytes()), bArr2);
     }
 }

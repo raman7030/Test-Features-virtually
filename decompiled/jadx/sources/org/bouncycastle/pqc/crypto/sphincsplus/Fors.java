@@ -28,30 +28,30 @@ public class Fors {
         int i = 2;
         byte[][] bArr3 = new byte[2][];
         SPHINCSPlusEngine sPHINCSPlusEngine = this.engine;
-        int i2 = sPHINCSPlusEngine.K;
+        int i2 = sPHINCSPlusEngine.f81763K;
         byte[][] bArr4 = new byte[i2][];
-        int i3 = sPHINCSPlusEngine.T;
-        int[] iArrMessage_to_idxs = message_to_idxs(bArr, i2, sPHINCSPlusEngine.A);
+        int i3 = sPHINCSPlusEngine.f81765T;
+        int[] iArrMessage_to_idxs = message_to_idxs(bArr, i2, sPHINCSPlusEngine.f81760A);
         int i4 = 0;
-        while (i4 < this.engine.K) {
+        while (i4 < this.engine.f81763K) {
             int i5 = iArrMessage_to_idxs[i4];
             byte[] sk = sig_forsArr[i4].getSK();
             adrs.setTreeHeight(0);
             int i6 = (i4 * i3) + i5;
             adrs.setTreeIndex(i6);
-            bArr3[0] = this.engine.F(bArr2, adrs, sk);
+            bArr3[0] = this.engine.mo55432F(bArr2, adrs, sk);
             byte[][] authPath = sig_forsArr[i4].getAuthPath();
             adrs.setTreeIndex(i6);
             int i7 = 0;
-            while (i7 < this.engine.A) {
+            while (i7 < this.engine.f81760A) {
                 int i8 = i7 + 1;
                 adrs.setTreeHeight(i8);
                 if ((i5 / (1 << i7)) % i == 0) {
                     adrs.setTreeIndex(adrs.getTreeIndex() / i);
-                    bArr3[1] = this.engine.H(bArr2, adrs, bArr3[0], authPath[i7]);
+                    bArr3[1] = this.engine.mo55433H(bArr2, adrs, bArr3[0], authPath[i7]);
                 } else {
                     adrs.setTreeIndex((adrs.getTreeIndex() - 1) / 2);
-                    bArr3[1] = this.engine.H(bArr2, adrs, authPath[i7], bArr3[0]);
+                    bArr3[1] = this.engine.mo55433H(bArr2, adrs, authPath[i7], bArr3[0]);
                 }
                 bArr3[0] = bArr3[1];
                 i = 2;
@@ -71,13 +71,13 @@ public class Fors {
         Fors fors = this;
         ADRS adrs2 = new ADRS(adrs);
         SPHINCSPlusEngine sPHINCSPlusEngine = fors.engine;
-        int[] iArrMessage_to_idxs = message_to_idxs(bArr, sPHINCSPlusEngine.K, sPHINCSPlusEngine.A);
+        int[] iArrMessage_to_idxs = message_to_idxs(bArr, sPHINCSPlusEngine.f81763K, sPHINCSPlusEngine.f81760A);
         SPHINCSPlusEngine sPHINCSPlusEngine2 = fors.engine;
-        SIG_FORS[] sig_forsArr = new SIG_FORS[sPHINCSPlusEngine2.K];
-        int i = sPHINCSPlusEngine2.T;
+        SIG_FORS[] sig_forsArr = new SIG_FORS[sPHINCSPlusEngine2.f81763K];
+        int i = sPHINCSPlusEngine2.f81765T;
         int i2 = 0;
         int i3 = 0;
-        while (i3 < fors.engine.K) {
+        while (i3 < fors.engine.f81763K) {
             int i4 = iArrMessage_to_idxs[i3];
             adrs2.setTypeAndClear(6);
             adrs2.setKeyPairAddress(adrs.getKeyPairAddress());
@@ -86,9 +86,9 @@ public class Fors {
             adrs2.setTreeIndex(i5 + i4);
             byte[] bArrPRF = fors.engine.PRF(bArr3, bArr2, adrs2);
             adrs2.changeType(3);
-            byte[][] bArr4 = new byte[fors.engine.A][];
+            byte[][] bArr4 = new byte[fors.engine.f81760A][];
             int i6 = 0;
-            while (i6 < fors.engine.A) {
+            while (i6 < fors.engine.f81760A) {
                 int i7 = 1 << i6;
                 int i8 = i6;
                 byte[][] bArr5 = bArr4;
@@ -120,17 +120,17 @@ public class Fors {
             adrs2.setTreeIndex(i4);
             byte[] bArrPRF = this.engine.PRF(bArr2, bArr, adrs2);
             adrs2.changeType(3);
-            byte[] bArrF = this.engine.F(bArr2, adrs2, bArrPRF);
+            byte[] bArrMo55432F = this.engine.mo55432F(bArr2, adrs2, bArrPRF);
             adrs2.setTreeHeight(1);
             int i5 = 1;
             while (!linkedList.isEmpty() && ((NodeEntry) linkedList.get(0)).nodeHeight == i5) {
                 i4 = (i4 - 1) / 2;
                 adrs2.setTreeIndex(i4);
-                bArrF = this.engine.H(bArr2, adrs2, ((NodeEntry) linkedList.remove(0)).nodeValue, bArrF);
+                bArrMo55432F = this.engine.mo55433H(bArr2, adrs2, ((NodeEntry) linkedList.remove(0)).nodeValue, bArrMo55432F);
                 i5++;
                 adrs2.setTreeHeight(i5);
             }
-            linkedList.add(0, new NodeEntry(bArrF, i5));
+            linkedList.add(0, new NodeEntry(bArrMo55432F, i5));
         }
         return ((NodeEntry) linkedList.get(0)).nodeValue;
     }

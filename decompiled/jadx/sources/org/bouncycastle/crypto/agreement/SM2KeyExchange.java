@@ -10,9 +10,9 @@ import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithID;
 import org.bouncycastle.crypto.params.SM2KeyExchangePrivateParameters;
 import org.bouncycastle.crypto.params.SM2KeyExchangePublicParameters;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
+import org.bouncycastle.math.p080ec.ECAlgorithms;
+import org.bouncycastle.math.p080ec.ECFieldElement;
+import org.bouncycastle.math.p080ec.ECPoint;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Memoable;
 import org.bouncycastle.util.Pack;
@@ -27,7 +27,9 @@ public class SM2KeyExchange {
     public ECPrivateKeyParameters staticKey;
     public ECPoint staticPubPoint;
     public byte[] userID;
-    public int w;
+
+    /* JADX INFO: renamed from: w */
+    public int f80739w;
 
     public SM2KeyExchange() {
         this(new SM3Digest());
@@ -37,14 +39,16 @@ public class SM2KeyExchange {
         this.digest = digest;
     }
 
-    private byte[] S1(Digest digest, ECPoint eCPoint, byte[] bArr) {
+    /* JADX INFO: renamed from: S1 */
+    private byte[] m55306S1(Digest digest, ECPoint eCPoint, byte[] bArr) {
         digest.update((byte) 2);
         addFieldElement(digest, eCPoint.getAffineYCoord());
         digest.update(bArr, 0, bArr.length);
         return digestDoFinal();
     }
 
-    private byte[] S2(Digest digest, ECPoint eCPoint, byte[] bArr) {
+    /* JADX INFO: renamed from: S2 */
+    private byte[] m55307S2(Digest digest, ECPoint eCPoint, byte[] bArr) {
         digest.update((byte) 3);
         addFieldElement(digest, eCPoint.getAffineYCoord());
         digest.update(bArr, 0, bArr.length);
@@ -150,7 +154,7 @@ public class SM2KeyExchange {
     }
 
     private BigInteger reduce(BigInteger bigInteger) {
-        return bigInteger.and(BigInteger.valueOf(1L).shiftLeft(this.w).subtract(BigInteger.valueOf(1L))).setBit(this.w);
+        return bigInteger.and(BigInteger.valueOf(1L).shiftLeft(this.f80739w).subtract(BigInteger.valueOf(1L))).setBit(this.f80739w);
     }
 
     public byte[] calculateKey(int i, CipherParameters cipherParameters) {
@@ -190,12 +194,12 @@ public class SM2KeyExchange {
         if (!this.initiator) {
             byte[] bArrKdf = kdf(eCPointCalculateU, z2, z, i);
             byte[] bArrCalculateInnerHash = calculateInnerHash(this.digest, eCPointCalculateU, z2, z, sM2KeyExchangePublicParameters.getEphemeralPublicKey().getQ(), this.ephemeralPubPoint);
-            return new byte[][]{bArrKdf, S1(this.digest, eCPointCalculateU, bArrCalculateInnerHash), S2(this.digest, eCPointCalculateU, bArrCalculateInnerHash)};
+            return new byte[][]{bArrKdf, m55306S1(this.digest, eCPointCalculateU, bArrCalculateInnerHash), m55307S2(this.digest, eCPointCalculateU, bArrCalculateInnerHash)};
         }
         byte[] bArrKdf2 = kdf(eCPointCalculateU, z, z2, i);
         byte[] bArrCalculateInnerHash2 = calculateInnerHash(this.digest, eCPointCalculateU, z, z2, this.ephemeralPubPoint, sM2KeyExchangePublicParameters.getEphemeralPublicKey().getQ());
-        if (Arrays.constantTimeAreEqual(S1(this.digest, eCPointCalculateU, bArrCalculateInnerHash2), bArr)) {
-            return new byte[][]{bArrKdf2, S2(this.digest, eCPointCalculateU, bArrCalculateInnerHash2)};
+        if (Arrays.constantTimeAreEqual(m55306S1(this.digest, eCPointCalculateU, bArrCalculateInnerHash2), bArr)) {
+            return new byte[][]{bArrKdf2, m55307S2(this.digest, eCPointCalculateU, bArrCalculateInnerHash2)};
         }
         throw new IllegalStateException("confirmation tag mismatch");
     }
@@ -216,7 +220,7 @@ public class SM2KeyExchange {
         this.ecParams = this.staticKey.getParameters();
         this.staticPubPoint = sM2KeyExchangePrivateParameters.getStaticPublicPoint();
         this.ephemeralPubPoint = sM2KeyExchangePrivateParameters.getEphemeralPublicPoint();
-        this.w = (this.ecParams.getCurve().getFieldSize() / 2) - 1;
+        this.f80739w = (this.ecParams.getCurve().getFieldSize() / 2) - 1;
         CryptoServicesRegistrar.checkConstraints(Utils.getDefaultProperties("SM2KE", this.staticKey));
     }
 }

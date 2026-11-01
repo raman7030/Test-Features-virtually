@@ -85,7 +85,7 @@ public class HPSPolynomial extends Polynomial {
                 break;
             }
             for (int i3 = 0; i3 < 8; i3++) {
-                sArr[i3] = (short) Polynomial.modQ(this.coeffs[(i2 * 8) + i3] & HPKE.aead_EXPORT_ONLY, this.params.q());
+                sArr[i3] = (short) Polynomial.modQ(this.coeffs[(i2 * 8) + i3] & HPKE.aead_EXPORT_ONLY, this.params.m55437q());
             }
             int i4 = i2 * 11;
             short s2 = sArr[0];
@@ -116,7 +116,7 @@ public class HPSPolynomial extends Polynomial {
             if (i6 >= this.params.packDegree() - i7) {
                 break;
             }
-            sArr[i6] = (short) Polynomial.modQ(this.coeffs[i7 + i6] & s, this.params.q());
+            sArr[i6] = (short) Polynomial.modQ(this.coeffs[i7 + i6] & s, this.params.m55437q());
             i6++;
             s = HPKE.aead_EXPORT_ONLY;
         }

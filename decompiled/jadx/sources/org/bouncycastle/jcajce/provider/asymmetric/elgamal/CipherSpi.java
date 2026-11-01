@@ -20,9 +20,6 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import l.C16014;
-import l.C18307;
-import l.C20094;
 import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
@@ -39,6 +36,9 @@ import org.bouncycastle.jcajce.provider.util.DigestFactory;
 import org.bouncycastle.jce.interfaces.ElGamalKey;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
 import org.bouncycastle.util.Strings;
+import p067l.C17588;
+import p067l.C19768;
+import p067l.C21466;
 
 /* JADX INFO: loaded from: classes.dex */
 public class CipherSpi extends BaseCipherSpi {
@@ -230,7 +230,7 @@ public class CipherSpi extends BaseCipherSpi {
                 if (i == 3) {
                     asymmetricBlockCipher = this.cipher;
                 } else if (i != 4) {
-                    throw new InvalidParameterException(C18307.m42645(i, "unknown opmode ", " passed to ElGamal"));
+                    throw new InvalidParameterException(C19768.m44906(i, "unknown opmode ", " passed to ElGamal"));
                 }
             }
             asymmetricBlockCipher = this.cipher;
@@ -255,7 +255,7 @@ public class CipherSpi extends BaseCipherSpi {
     public void engineSetMode(String str) throws NoSuchAlgorithmException {
         String upperCase = Strings.toUpperCase(str);
         if (!upperCase.equals("NONE") && !upperCase.equals("ECB")) {
-            throw new NoSuchAlgorithmException(C20094.m46315("can't support mode ", str));
+            throw new NoSuchAlgorithmException(C21466.m48631("can't support mode ", str));
         }
     }
 
@@ -312,7 +312,7 @@ public class CipherSpi extends BaseCipherSpi {
             initFromSpec(new OAEPParameterSpec("SHA3-384", "MGF1", new MGF1ParameterSpec("SHA3-384"), PSource.PSpecified.DEFAULT));
         } else {
             if (!upperCase.equals("OAEPWITHSHA3-512ANDMGF1PADDING")) {
-                throw new NoSuchPaddingException(C16014.m37867(str, " unavailable with ElGamal."));
+                throw new NoSuchPaddingException(C17588.m40053(str, " unavailable with ElGamal."));
             }
             initFromSpec(new OAEPParameterSpec("SHA3-512", "MGF1", new MGF1ParameterSpec("SHA3-512"), PSource.PSpecified.DEFAULT));
         }

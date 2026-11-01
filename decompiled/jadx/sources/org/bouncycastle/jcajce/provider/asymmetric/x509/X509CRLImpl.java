@@ -23,8 +23,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import l.C20195;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1BitString;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
@@ -41,36 +39,40 @@ import org.bouncycastle.asn1.x509.GeneralNames;
 import org.bouncycastle.asn1.x509.TBSCertList;
 import org.bouncycastle.asn1.x509.Time;
 import org.bouncycastle.jcajce.CompositePublicKey;
-import org.bouncycastle.jcajce.io.OutputStreamFactory;
+import org.bouncycastle.jcajce.p076io.OutputStreamFactory;
 import org.bouncycastle.jcajce.util.JcaJceHelper;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.util.Arrays;
+import p067l.C21562;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public abstract class X509CRLImpl extends X509CRL {
     public JcaJceHelper bcHelper;
-    public CertificateList c;
+
+    /* JADX INFO: renamed from: c */
+    public CertificateList f81353c;
     public boolean isIndirect;
     public String sigAlgName;
     public byte[] sigAlgParams;
 
     public X509CRLImpl(JcaJceHelper jcaJceHelper, CertificateList certificateList, String str, byte[] bArr, boolean z) {
         this.bcHelper = jcaJceHelper;
-        this.c = certificateList;
+        this.f81353c = certificateList;
         this.sigAlgName = str;
         this.sigAlgParams = bArr;
         this.isIndirect = z;
     }
 
     private void checkSignature(PublicKey publicKey, Signature signature, ASN1Encodable aSN1Encodable, byte[] bArr) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, CRLException {
-        if (!X509SignatureUtil.areEquivalentAlgorithms(this.c.getSignatureAlgorithm(), this.c.getTBSCertList().getSignature())) {
+        if (!X509SignatureUtil.areEquivalentAlgorithms(this.f81353c.getSignatureAlgorithm(), this.f81353c.getTBSCertList().getSignature())) {
             throw new CRLException("Signature algorithm on CertificateList does not match TbsCertList.");
         }
         X509SignatureUtil.setSignatureParameters(signature, aSN1Encodable);
         signature.initVerify(publicKey);
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(OutputStreamFactory.createStream(signature), 512);
-            this.c.getTBSCertList().encodeTo(bufferedOutputStream, ASN1Encoding.DER);
+            this.f81353c.getTBSCertList().encodeTo(bufferedOutputStream, ASN1Encoding.DER);
             bufferedOutputStream.close();
             if (!signature.verify(bArr)) {
                 throw new SignatureException("CRL does not verify with supplied public key.");
@@ -82,7 +84,7 @@ public abstract class X509CRLImpl extends X509CRL {
 
     private Set getExtensionOIDs(boolean z) {
         Extensions extensions;
-        if (getVersion() != 2 || (extensions = this.c.getExtensions()) == null) {
+        if (getVersion() != 2 || (extensions = this.f81353c.getExtensions()) == null) {
             return null;
         }
         HashSet hashSet = new HashSet();
@@ -107,7 +109,7 @@ public abstract class X509CRLImpl extends X509CRL {
     private Set loadCRLEntries() {
         Extension extension;
         HashSet hashSet = new HashSet();
-        Enumeration revokedCertificateEnumeration = this.c.getRevokedCertificateEnumeration();
+        Enumeration revokedCertificateEnumeration = this.f81353c.getRevokedCertificateEnumeration();
         X500Name x500Name = null;
         while (revokedCertificateEnumeration.hasMoreElements()) {
             TBSCertList.CRLEntry cRLEntry = (TBSCertList.CRLEntry) revokedCertificateEnumeration.nextElement();
@@ -126,18 +128,18 @@ public abstract class X509CRLImpl extends X509CRL {
 
     @Override // java.security.cert.X509Extension
     public byte[] getExtensionValue(String str) {
-        return X509SignatureUtil.getExtensionValue(this.c.getExtensions(), str);
+        return X509SignatureUtil.getExtensionValue(this.f81353c.getExtensions(), str);
     }
 
     @Override // java.security.cert.X509CRL
     public Principal getIssuerDN() {
-        return new X509Principal(X500Name.getInstance(this.c.getIssuer().toASN1Primitive()));
+        return new X509Principal(X500Name.getInstance(this.f81353c.getIssuer().toASN1Primitive()));
     }
 
     @Override // java.security.cert.X509CRL
     public X500Principal getIssuerX500Principal() {
         try {
-            return new X500Principal(this.c.getIssuer().getEncoded());
+            return new X500Principal(this.f81353c.getIssuer().getEncoded());
         } catch (IOException unused) {
             throw new IllegalStateException("can't encode issuer DN");
         }
@@ -145,7 +147,7 @@ public abstract class X509CRLImpl extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public Date getNextUpdate() {
-        Time nextUpdate = this.c.getNextUpdate();
+        Time nextUpdate = this.f81353c.getNextUpdate();
         if (nextUpdate == null) {
             return null;
         }
@@ -160,7 +162,7 @@ public abstract class X509CRLImpl extends X509CRL {
     @Override // java.security.cert.X509CRL
     public X509CRLEntry getRevokedCertificate(BigInteger bigInteger) {
         Extension extension;
-        Enumeration revokedCertificateEnumeration = this.c.getRevokedCertificateEnumeration();
+        Enumeration revokedCertificateEnumeration = this.f81353c.getRevokedCertificateEnumeration();
         X500Name x500Name = null;
         while (revokedCertificateEnumeration.hasMoreElements()) {
             TBSCertList.CRLEntry cRLEntry = (TBSCertList.CRLEntry) revokedCertificateEnumeration.nextElement();
@@ -180,7 +182,7 @@ public abstract class X509CRLImpl extends X509CRL {
         if (setLoadCRLEntries.isEmpty()) {
             return null;
         }
-        return C20195.unmodifiableSet(setLoadCRLEntries);
+        return C21562.unmodifiableSet(setLoadCRLEntries);
     }
 
     @Override // java.security.cert.X509CRL
@@ -190,7 +192,7 @@ public abstract class X509CRLImpl extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public String getSigAlgOID() {
-        return this.c.getSignatureAlgorithm().getAlgorithm().getId();
+        return this.f81353c.getSignatureAlgorithm().getAlgorithm().getId();
     }
 
     @Override // java.security.cert.X509CRL
@@ -200,13 +202,13 @@ public abstract class X509CRLImpl extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public byte[] getSignature() {
-        return this.c.getSignature().getOctets();
+        return this.f81353c.getSignature().getOctets();
     }
 
     @Override // java.security.cert.X509CRL
     public byte[] getTBSCertList() throws CRLException {
         try {
-            return this.c.getTBSCertList().getEncoded(ASN1Encoding.DER);
+            return this.f81353c.getTBSCertList().getEncoded(ASN1Encoding.DER);
         } catch (IOException e) {
             throw new CRLException(e.toString());
         }
@@ -214,18 +216,18 @@ public abstract class X509CRLImpl extends X509CRL {
 
     @Override // java.security.cert.X509CRL
     public Date getThisUpdate() {
-        return this.c.getThisUpdate().getDate();
+        return this.f81353c.getThisUpdate().getDate();
     }
 
     @Override // java.security.cert.X509CRL
     public int getVersion() {
-        return this.c.getVersionNumber();
+        return this.f81353c.getVersionNumber();
     }
 
     @Override // java.security.cert.X509Extension
     public boolean hasUnsupportedCriticalExtension() {
         Extensions extensions;
-        if (getVersion() != 2 || (extensions = this.c.getExtensions()) == null) {
+        if (getVersion() != 2 || (extensions = this.f81353c.getExtensions()) == null) {
             return false;
         }
         Enumeration enumerationOids = extensions.oids();
@@ -245,8 +247,8 @@ public abstract class X509CRLImpl extends X509CRL {
         if (!certificate.getType().equals("X.509")) {
             throw new IllegalArgumentException("X.509 CRL used with non X.509 Cert");
         }
-        Enumeration revokedCertificateEnumeration = this.c.getRevokedCertificateEnumeration();
-        X500Name issuer2 = this.c.getIssuer();
+        Enumeration revokedCertificateEnumeration = this.f81353c.getRevokedCertificateEnumeration();
+        X500Name issuer2 = this.f81353c.getIssuer();
         if (revokedCertificateEnumeration.hasMoreElements()) {
             X509Certificate x509Certificate = (X509Certificate) certificate;
             BigInteger serialNumber = x509Certificate.getSerialNumber();
@@ -350,14 +352,14 @@ public abstract class X509CRLImpl extends X509CRL {
     }
 
     private void doVerify(PublicKey publicKey, SignatureCreator signatureCreator) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, CRLException {
-        if (!this.c.getSignatureAlgorithm().equals(this.c.getTBSCertList().getSignature())) {
+        if (!this.f81353c.getSignatureAlgorithm().equals(this.f81353c.getTBSCertList().getSignature())) {
             throw new CRLException("Signature algorithm on CertificateList does not match TBSCertList.");
         }
         int i = 0;
-        if ((publicKey instanceof CompositePublicKey) && X509SignatureUtil.isCompositeAlgorithm(this.c.getSignatureAlgorithm())) {
+        if ((publicKey instanceof CompositePublicKey) && X509SignatureUtil.isCompositeAlgorithm(this.f81353c.getSignatureAlgorithm())) {
             List publicKeys = ((CompositePublicKey) publicKey).getPublicKeys();
-            ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(this.c.getSignatureAlgorithm().getParameters());
-            ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(this.c.getSignature().getOctets());
+            ASN1Sequence aSN1Sequence = ASN1Sequence.getInstance(this.f81353c.getSignatureAlgorithm().getParameters());
+            ASN1Sequence aSN1Sequence2 = ASN1Sequence.getInstance(this.f81353c.getSignature().getOctets());
             boolean z = false;
             while (i != publicKeys.size()) {
                 if (publicKeys.get(i) != null) {
@@ -380,7 +382,7 @@ public abstract class X509CRLImpl extends X509CRL {
             }
             return;
         }
-        if (!X509SignatureUtil.isCompositeAlgorithm(this.c.getSignatureAlgorithm())) {
+        if (!X509SignatureUtil.isCompositeAlgorithm(this.f81353c.getSignatureAlgorithm())) {
             Signature signatureCreateSignature = signatureCreator.createSignature(getSigAlgName());
             byte[] bArr = this.sigAlgParams;
             if (bArr == null) {
@@ -391,11 +393,11 @@ public abstract class X509CRLImpl extends X509CRL {
                 checkSignature(publicKey, signatureCreateSignature, ASN1Primitive.fromByteArray(bArr), getSignature());
                 return;
             } catch (IOException e2) {
-                throw new SignatureException(C5127.m14678(e2, new StringBuilder("cannot decode signature parameters: ")));
+                throw new SignatureException(C7241.m16586(e2, new StringBuilder("cannot decode signature parameters: ")));
             }
         }
-        ASN1Sequence aSN1Sequence3 = ASN1Sequence.getInstance(this.c.getSignatureAlgorithm().getParameters());
-        ASN1Sequence aSN1Sequence4 = ASN1Sequence.getInstance(this.c.getSignature().getOctets());
+        ASN1Sequence aSN1Sequence3 = ASN1Sequence.getInstance(this.f81353c.getSignatureAlgorithm().getParameters());
+        ASN1Sequence aSN1Sequence4 = ASN1Sequence.getInstance(this.f81353c.getSignature().getOctets());
         boolean z2 = false;
         while (i != aSN1Sequence4.size()) {
             AlgorithmIdentifier algorithmIdentifier2 = AlgorithmIdentifier.getInstance(aSN1Sequence3.getObjectAt(i));

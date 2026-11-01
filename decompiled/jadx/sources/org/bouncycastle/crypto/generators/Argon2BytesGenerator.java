@@ -1,14 +1,14 @@
 package org.bouncycastle.crypto.generators;
 
 import com.umeng.commonsdk.statistics.UMErrorCode;
-import l.C23202;
-import l.C8083;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.digests.Blake2bDigest;
 import org.bouncycastle.crypto.params.Argon2Parameters;
 import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.Longs;
 import org.bouncycastle.util.Pack;
+import p067l.C10050;
+import p067l.C24420;
 
 /* JADX INFO: loaded from: classes.dex */
 public class Argon2BytesGenerator {
@@ -31,22 +31,24 @@ public class Argon2BytesGenerator {
 
     public class Block {
         public static final int SIZE = 128;
-        public final long[] v;
+
+        /* JADX INFO: renamed from: v */
+        public final long[] f81102v;
 
         public Block() {
-            this.v = new long[128];
+            this.f81102v = new long[128];
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void copyBlock(Block block) {
-            System.arraycopy(block.v, 0, this.v, 0, 128);
+            System.arraycopy(block.f81102v, 0, this.f81102v, 0, 128);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void xor(Block block, Block block2) {
-            long[] jArr = this.v;
-            long[] jArr2 = block.v;
-            long[] jArr3 = block2.v;
+            long[] jArr = this.f81102v;
+            long[] jArr2 = block.f81102v;
+            long[] jArr3 = block2.f81102v;
             for (int i = 0; i < 128; i++) {
                 jArr[i] = jArr2[i] ^ jArr3[i];
             }
@@ -54,8 +56,8 @@ public class Argon2BytesGenerator {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void xorWith(Block block) {
-            long[] jArr = this.v;
-            long[] jArr2 = block.v;
+            long[] jArr = this.f81102v;
+            long[] jArr2 = block.f81102v;
             for (int i = 0; i < 128; i++) {
                 jArr[i] = jArr[i] ^ jArr2[i];
             }
@@ -63,16 +65,16 @@ public class Argon2BytesGenerator {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void xorWith(Block block, Block block2) {
-            long[] jArr = this.v;
-            long[] jArr2 = block.v;
-            long[] jArr3 = block2.v;
+            long[] jArr = this.f81102v;
+            long[] jArr2 = block.f81102v;
+            long[] jArr3 = block2.f81102v;
             for (int i = 0; i < 128; i++) {
                 jArr[i] = jArr[i] ^ (jArr2[i] ^ jArr3[i]);
             }
         }
 
         public Block clear() {
-            Arrays.fill(this.v, 0L);
+            Arrays.fill(this.f81102v, 0L);
             return this;
         }
 
@@ -80,26 +82,30 @@ public class Argon2BytesGenerator {
             if (bArr.length < 1024) {
                 throw new IllegalArgumentException("input shorter than blocksize");
             }
-            Pack.littleEndianToLong(bArr, 0, this.v);
+            Pack.littleEndianToLong(bArr, 0, this.f81102v);
         }
 
         public void toBytes(byte[] bArr) {
             if (bArr.length < 1024) {
                 throw new IllegalArgumentException("output shorter than blocksize");
             }
-            Pack.longToLittleEndian(this.v, bArr, 0);
+            Pack.longToLittleEndian(this.f81102v, bArr, 0);
         }
     }
 
     public class FillBlock {
-        public Block R;
-        public Block Z;
+
+        /* JADX INFO: renamed from: R */
+        public Block f81103R;
+
+        /* JADX INFO: renamed from: Z */
+        public Block f81104Z;
         public Block addressBlock;
         public Block inputBlock;
 
         public FillBlock() {
-            this.R = new Block();
-            this.Z = new Block();
+            this.f81103R = new Block();
+            this.f81104Z = new Block();
             this.addressBlock = new Block();
             this.inputBlock = new Block();
         }
@@ -107,35 +113,35 @@ public class Argon2BytesGenerator {
         private void applyBlake() {
             for (int i = 0; i < 8; i++) {
                 int i2 = i * 16;
-                Argon2BytesGenerator.roundFunction(this.Z, i2, i2 + 1, i2 + 2, i2 + 3, i2 + 4, i2 + 5, i2 + 6, i2 + 7, i2 + 8, i2 + 9, i2 + 10, i2 + 11, i2 + 12, i2 + 13, i2 + 14, i2 + 15);
+                Argon2BytesGenerator.roundFunction(this.f81104Z, i2, i2 + 1, i2 + 2, i2 + 3, i2 + 4, i2 + 5, i2 + 6, i2 + 7, i2 + 8, i2 + 9, i2 + 10, i2 + 11, i2 + 12, i2 + 13, i2 + 14, i2 + 15);
             }
             for (int i3 = 0; i3 < 8; i3++) {
                 int i4 = i3 * 2;
-                Argon2BytesGenerator.roundFunction(this.Z, i4, i4 + 1, i4 + 16, i4 + 17, i4 + 32, i4 + 33, i4 + 48, i4 + 49, i4 + 64, i4 + 65, i4 + 80, i4 + 81, i4 + 96, i4 + 97, i4 + UMErrorCode.E_UM_BE_DEFLATE_FAILED, i4 + UMErrorCode.E_UM_BE_RAW_OVERSIZE);
+                Argon2BytesGenerator.roundFunction(this.f81104Z, i4, i4 + 1, i4 + 16, i4 + 17, i4 + 32, i4 + 33, i4 + 48, i4 + 49, i4 + 64, i4 + 65, i4 + 80, i4 + 81, i4 + 96, i4 + 97, i4 + UMErrorCode.E_UM_BE_DEFLATE_FAILED, i4 + UMErrorCode.E_UM_BE_RAW_OVERSIZE);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void fillBlock(Block block, Block block2) {
-            this.Z.copyBlock(block);
+            this.f81104Z.copyBlock(block);
             applyBlake();
-            block2.xor(block, this.Z);
+            block2.xor(block, this.f81104Z);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void fillBlock(Block block, Block block2, Block block3) {
-            this.R.xor(block, block2);
-            this.Z.copyBlock(this.R);
+            this.f81103R.xor(block, block2);
+            this.f81104Z.copyBlock(this.f81103R);
             applyBlake();
-            block3.xor(this.R, this.Z);
+            block3.xor(this.f81103R, this.f81104Z);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void fillBlockWithXor(Block block, Block block2, Block block3) {
-            this.R.xor(block, block2);
-            this.Z.copyBlock(this.R);
+            this.f81103R.xor(block, block2);
+            this.f81104Z.copyBlock(this.f81103R);
             applyBlake();
-            block3.xorWith(this.R, this.Z);
+            block3.xorWith(this.f81103R, this.f81104Z);
         }
     }
 
@@ -145,7 +151,8 @@ public class Argon2BytesGenerator {
         public int slice;
     }
 
-    public static void F(long[] jArr, int i, int i2, int i3, int i4) {
+    /* JADX INFO: renamed from: F */
+    public static void m55404F(long[] jArr, int i, int i2, int i3, int i4) {
         quarterRound(jArr, i, i2, i4, 32);
         quarterRound(jArr, i3, i4, i2, 24);
         quarterRound(jArr, i, i2, i4, 16);
@@ -206,8 +213,8 @@ public class Argon2BytesGenerator {
         Block block2;
         boolean zIsDataIndependentAddressing = isDataIndependentAddressing(position);
         int startingIndex = getStartingIndex(position);
-        int iM51496 = C23202.m51496(position.slice, this.segmentLength, position.lane * this.laneLength, startingIndex);
-        int prevOffset = getPrevOffset(iM51496);
+        int iM53892 = C24420.m53892(position.slice, this.segmentLength, position.lane * this.laneLength, startingIndex);
+        int prevOffset = getPrevOffset(iM53892);
         if (zIsDataIndependentAddressing) {
             Block blockClear = fillBlock.addressBlock.clear();
             Block blockClear2 = fillBlock.inputBlock.clear();
@@ -220,7 +227,7 @@ public class Argon2BytesGenerator {
         }
         boolean zIsWithXor = isWithXor(position);
         int i = startingIndex;
-        int i2 = iM51496;
+        int i2 = iM53892;
         int i3 = prevOffset;
         while (i < this.segmentLength) {
             long pseudoRandom = getPseudoRandom(fillBlock, i, block, block2, i3, zIsDataIndependentAddressing);
@@ -251,13 +258,13 @@ public class Argon2BytesGenerator {
 
     private long getPseudoRandom(FillBlock fillBlock, int i, Block block, Block block2, int i2, boolean z) {
         if (!z) {
-            return this.memory[i2].v[0];
+            return this.memory[i2].f81102v[0];
         }
         int i3 = i % 128;
         if (i3 == 0) {
             nextAddresses(fillBlock, block2, block);
         }
-        return block.v[i3];
+        return block.f81102v[i3];
     }
 
     private int getRefColumn(Position position, int i, long j, boolean z) {
@@ -328,12 +335,12 @@ public class Argon2BytesGenerator {
     }
 
     private void initAddressBlocks(FillBlock fillBlock, Position position, Block block, Block block2) {
-        block.v[0] = intToLong(position.pass);
-        block.v[1] = intToLong(position.lane);
-        block.v[2] = intToLong(position.slice);
-        block.v[3] = intToLong(this.memory.length);
-        block.v[4] = intToLong(this.parameters.getIterations());
-        block.v[5] = intToLong(this.parameters.getType());
+        block.f81102v[0] = intToLong(position.pass);
+        block.f81102v[1] = intToLong(position.lane);
+        block.f81102v[2] = intToLong(position.slice);
+        block.f81102v[3] = intToLong(this.memory.length);
+        block.f81102v[4] = intToLong(this.parameters.getIterations());
+        block.f81102v[5] = intToLong(this.parameters.getType());
         if (position.pass == 0 && position.slice == 0) {
             nextAddresses(fillBlock, block, block2);
         }
@@ -365,7 +372,7 @@ public class Argon2BytesGenerator {
     }
 
     private void nextAddresses(FillBlock fillBlock, Block block, Block block2) {
-        long[] jArr = block.v;
+        long[] jArr = block.f81102v;
         jArr[6] = jArr[6] + 1;
         fillBlock.fillBlock(block, block2);
         fillBlock.fillBlock(block2, block2);
@@ -375,9 +382,9 @@ public class Argon2BytesGenerator {
         long j = jArr[i];
         long j2 = jArr[i2];
         long j3 = jArr[i3];
-        long jM21450 = C8083.m21450((j & 4294967295L) * 2, j2 & 4294967295L, j2, j);
-        long jRotateRight = Longs.rotateRight(j3 ^ jM21450, i4);
-        jArr[i] = jM21450;
+        long jM23418 = C10050.m23418((j & 4294967295L) * 2, j2 & 4294967295L, j2, j);
+        long jRotateRight = Longs.rotateRight(j3 ^ jM23418, i4);
+        jArr[i] = jM23418;
         jArr[i3] = jRotateRight;
     }
 
@@ -400,15 +407,15 @@ public class Argon2BytesGenerator {
     }
 
     public static void roundFunction(Block block, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16) {
-        long[] jArr = block.v;
-        F(jArr, i, i5, i9, i13);
-        F(jArr, i2, i6, i10, i14);
-        F(jArr, i3, i7, i11, i15);
-        F(jArr, i4, i8, i12, i16);
-        F(jArr, i, i6, i11, i16);
-        F(jArr, i2, i7, i12, i13);
-        F(jArr, i3, i8, i9, i14);
-        F(jArr, i4, i5, i10, i15);
+        long[] jArr = block.f81102v;
+        m55404F(jArr, i, i5, i9, i13);
+        m55404F(jArr, i2, i6, i10, i14);
+        m55404F(jArr, i3, i7, i11, i15);
+        m55404F(jArr, i4, i8, i12, i16);
+        m55404F(jArr, i, i6, i11, i16);
+        m55404F(jArr, i2, i7, i12, i13);
+        m55404F(jArr, i3, i8, i9, i14);
+        m55404F(jArr, i4, i5, i10, i15);
     }
 
     public int generateBytes(byte[] bArr, byte[] bArr2) {

@@ -1,11 +1,11 @@
 package org.bouncycastle.crypto.macs;
 
-import l.C20177;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.digests.SkeinEngine;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.SkeinParameters;
+import p067l.C21545;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SkeinMac implements Mac {
@@ -59,7 +59,7 @@ public class SkeinMac implements Mac {
             skeinParametersBuild = (SkeinParameters) cipherParameters;
         } else {
             if (!(cipherParameters instanceof KeyParameter)) {
-                throw new IllegalArgumentException(C20177.m46409("Invalid parameter passed to Skein MAC init - ", cipherParameters));
+                throw new IllegalArgumentException(C21545.m48728("Invalid parameter passed to Skein MAC init - ", cipherParameters));
             }
             skeinParametersBuild = new SkeinParameters.Builder().setKey(((KeyParameter) cipherParameters).getKey()).build();
         }

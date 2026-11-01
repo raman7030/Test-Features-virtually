@@ -8,9 +8,9 @@ import com.google.android.material.navigation.NavigationBarItemView;
 import com.google.android.material.navigation.NavigationBarMenuView;
 import java.util.ArrayList;
 import java.util.List;
-import l.C17648;
-import l.C23575;
-import l.C3060;
+import p067l.C0994;
+import p067l.C1717;
+import p067l.C24774;
 
 /* JADX INFO: loaded from: classes.dex */
 public class BottomNavigationMenuView extends NavigationBarMenuView {
@@ -28,17 +28,17 @@ public class BottomNavigationMenuView extends NavigationBarMenuView {
         layoutParams.gravity = 17;
         setLayoutParams(layoutParams);
         Resources resources = getResources();
-        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(C23575.f75909);
-        this.inactiveItemMinWidth = resources.getDimensionPixelSize(C23575.f75724);
-        this.activeItemMaxWidth = resources.getDimensionPixelSize(C23575.f76074);
-        this.activeItemMinWidth = resources.getDimensionPixelSize(C23575.f76004);
+        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(C24774.f78655);
+        this.inactiveItemMinWidth = resources.getDimensionPixelSize(C24774.f78470);
+        this.activeItemMaxWidth = resources.getDimensionPixelSize(C24774.f78820);
+        this.activeItemMinWidth = resources.getDimensionPixelSize(C24774.f78750);
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         int i3;
         int i4;
-        C3060 menu = getMenu();
+        C0994 menu = getMenu();
         int size = View.MeasureSpec.getSize(i);
         int size2 = menu.getVisibleItems().size();
         int childCount = getChildCount();
@@ -107,7 +107,7 @@ public class BottomNavigationMenuView extends NavigationBarMenuView {
         for (int i7 = 0; i7 < childCount; i7++) {
             View childAt = getChildAt(i7);
             if (childAt.getVisibility() != 8) {
-                int i8 = C17648.f53953;
+                int i8 = C1717.f57146;
                 if (getLayoutDirection() == 1) {
                     int i9 = i5 - measuredWidth;
                     childAt.layout(i9 - childAt.getMeasuredWidth(), 0, i9, i6);

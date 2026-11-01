@@ -1,12 +1,12 @@
 package org.bouncycastle.asn1.x509;
 
 import java.io.IOException;
-import l.C16014;
 import org.bouncycastle.asn1.ASN1Boolean;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
 import org.bouncycastle.asn1.ASN1Primitive;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class X509Extension {
@@ -82,7 +82,7 @@ public class X509Extension {
         try {
             return ASN1Primitive.fromByteArray(x509Extension.getValue().getOctets());
         } catch (IOException e) {
-            throw new IllegalArgumentException(C16014.m37866("can't convert extension: ", e));
+            throw new IllegalArgumentException(C17588.m40052("can't convert extension: ", e));
         }
     }
 }

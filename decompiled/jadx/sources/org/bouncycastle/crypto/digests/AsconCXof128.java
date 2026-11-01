@@ -6,11 +6,21 @@ import org.bouncycastle.util.Pack;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class AsconCXof128 extends AsconXofBase {
-    public final long z0;
-    public final long z1;
-    public final long z2;
-    public final long z3;
-    public final long z4;
+
+    /* JADX INFO: renamed from: z0 */
+    public final long f80790z0;
+
+    /* JADX INFO: renamed from: z1 */
+    public final long f80791z1;
+
+    /* JADX INFO: renamed from: z2 */
+    public final long f80792z2;
+
+    /* JADX INFO: renamed from: z3 */
+    public final long f80793z3;
+
+    /* JADX INFO: renamed from: z4 */
+    public final long f80794z4;
 
     public AsconCXof128() {
         this(new byte[0], 0, 0);
@@ -27,22 +37,22 @@ public class AsconCXof128 extends AsconXofBase {
             throw new DataLengthException("customized string is too long");
         }
         initState(bArr, i, i2);
-        AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-        this.z0 = asconPermutation.x0;
-        this.z1 = asconPermutation.x1;
-        this.z2 = asconPermutation.x2;
-        this.z3 = asconPermutation.x3;
-        this.z4 = asconPermutation.x4;
+        AsconPermutationFriend.AsconPermutation asconPermutation = this.f80789p;
+        this.f80790z0 = asconPermutation.f80983x0;
+        this.f80791z1 = asconPermutation.f80984x1;
+        this.f80792z2 = asconPermutation.f80985x2;
+        this.f80793z3 = asconPermutation.f80986x3;
+        this.f80794z4 = asconPermutation.f80987x4;
     }
 
     private void initState(byte[] bArr, int i, int i2) {
         if (i2 == 0) {
-            this.p.set(5768210384618244584L, 6623958265790276749L, 4252419465292010770L, 1238191464582506891L, 56353695744608240L);
+            this.f80789p.set(5768210384618244584L, 6623958265790276749L, 4252419465292010770L, 1238191464582506891L, 56353695744608240L);
         } else {
-            this.p.set(7445901275803737603L, 4886737088792722364L, -1616759365661982283L, 3076320316797452470L, -8124743304765850554L);
-            AsconPermutationFriend.AsconPermutation asconPermutation = this.p;
-            asconPermutation.x0 ^= ((long) i2) << 3;
-            asconPermutation.p(12);
+            this.f80789p.set(7445901275803737603L, 4886737088792722364L, -1616759365661982283L, 3076320316797452470L, -8124743304765850554L);
+            AsconPermutationFriend.AsconPermutation asconPermutation = this.f80789p;
+            asconPermutation.f80983x0 ^= ((long) i2) << 3;
+            asconPermutation.m55366p(12);
             update(bArr, i, i2);
             padAndAbsorb();
         }
@@ -97,7 +107,7 @@ public class AsconCXof128 extends AsconXofBase {
     @Override // org.bouncycastle.crypto.digests.AsconXofBase, org.bouncycastle.crypto.digests.BufferBaseDigest, org.bouncycastle.crypto.Digest
     public void reset() {
         super.reset();
-        this.p.set(this.z0, this.z1, this.z2, this.z3, this.z4);
+        this.f80789p.set(this.f80790z0, this.f80791z1, this.f80792z2, this.f80793z3, this.f80794z4);
     }
 
     @Override // org.bouncycastle.crypto.digests.AsconBaseDigest

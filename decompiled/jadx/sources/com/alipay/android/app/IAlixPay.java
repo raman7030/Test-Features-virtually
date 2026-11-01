@@ -25,12 +25,15 @@ public interface IAlixPay extends IInterface {
         public static final int TRANSACTION_test = 2;
         public static final int TRANSACTION_unregisterCallback = 4;
 
+        /* JADX INFO: renamed from: com.alipay.android.app.IAlixPay$Stub$a */
         /* JADX INFO: compiled from: N673 */
-        public class a implements IAlixPay {
-            public IBinder a;
+        public class C0001a implements IAlixPay {
 
-            public a(IBinder iBinder) {
-                this.a = iBinder;
+            /* JADX INFO: renamed from: a */
+            public IBinder f68a;
+
+            public C0001a(IBinder iBinder) {
+                this.f68a = iBinder;
             }
 
             @Override // com.alipay.android.app.IAlixPay
@@ -40,7 +43,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeString(str);
-                    this.a.transact(1, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(1, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readString();
                 } finally {
@@ -51,10 +54,11 @@ public interface IAlixPay extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.a;
+                return this.f68a;
             }
 
-            public String d() {
+            /* JADX INFO: renamed from: d */
+            public String m140d() {
                 return Stub.DESCRIPTOR;
             }
 
@@ -64,7 +68,7 @@ public interface IAlixPay extends IInterface {
                 Parcel parcelObtain2 = Parcel.obtain();
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.a.transact(6, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(6, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                 } finally {
                     parcelObtain2.recycle();
@@ -78,7 +82,7 @@ public interface IAlixPay extends IInterface {
                 Parcel parcelObtain2 = Parcel.obtain();
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.a.transact(8, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(8, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readInt();
                 } finally {
@@ -94,7 +98,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeString(str);
-                    this.a.transact(7, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(7, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readInt() != 0;
                 } finally {
@@ -111,7 +115,7 @@ public interface IAlixPay extends IInterface {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeString(str);
                     parcelObtain.writeMap(map);
-                    this.a.transact(9, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(9, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readString();
                 } finally {
@@ -127,7 +131,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeString(str);
-                    this.a.transact(5, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(5, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readString();
                 } finally {
@@ -144,7 +148,7 @@ public interface IAlixPay extends IInterface {
                     parcelObtain.writeString(str);
                     parcelObtain.writeString(str2);
                     parcelObtain.writeMap(map);
-                    this.a.transact(10, parcelObtain, null, 1);
+                    this.f68a.transact(10, parcelObtain, null, 1);
                 } finally {
                     parcelObtain.recycle();
                 }
@@ -157,7 +161,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
-                    this.a.transact(3, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(3, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                 } finally {
                     parcelObtain2.recycle();
@@ -174,7 +178,7 @@ public interface IAlixPay extends IInterface {
                     parcelObtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
                     parcelObtain.writeString(str);
                     parcelObtain.writeMap(map);
-                    this.a.transact(11, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(11, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                 } finally {
                     parcelObtain2.recycle();
@@ -188,7 +192,7 @@ public interface IAlixPay extends IInterface {
                 Parcel parcelObtain2 = Parcel.obtain();
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.a.transact(2, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(2, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                     return parcelObtain2.readString();
                 } finally {
@@ -204,7 +208,7 @@ public interface IAlixPay extends IInterface {
                 try {
                     parcelObtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     parcelObtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
-                    this.a.transact(4, parcelObtain, parcelObtain2, 0);
+                    this.f68a.transact(4, parcelObtain, parcelObtain2, 0);
                     parcelObtain2.readException();
                 } finally {
                     parcelObtain2.recycle();
@@ -222,7 +226,7 @@ public interface IAlixPay extends IInterface {
                 return null;
             }
             IInterface iInterfaceQueryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IAlixPay)) ? new a(iBinder) : (IAlixPay) iInterfaceQueryLocalInterface;
+            return (iInterfaceQueryLocalInterface == null || !(iInterfaceQueryLocalInterface instanceof IAlixPay)) ? new C0001a(iBinder) : (IAlixPay) iInterfaceQueryLocalInterface;
         }
 
         @Override // android.os.IInterface

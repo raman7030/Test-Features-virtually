@@ -49,8 +49,8 @@ public class ShamirSplitSecret implements SplitSecret {
                 if (i3 != i2) {
                     Polynomial polynomial = this.poly;
                     ShamirSplitSecretShare[] shamirSplitSecretShareArr2 = this.secretShares;
-                    int i4 = shamirSplitSecretShareArr2[i3].r;
-                    bArr2[b] = polynomial.gfDiv(i4, shamirSplitSecretShareArr2[i2].r ^ i4);
+                    int i4 = shamirSplitSecretShareArr2[i3].f81326r;
+                    bArr2[b] = polynomial.gfDiv(i4, shamirSplitSecretShareArr2[i2].f81326r ^ i4);
                     b = (byte) (b + 1);
                 }
             }

@@ -13,14 +13,16 @@ public class KCTRBlockCipher extends StreamBlockCipher {
     public int byteCount;
     public BlockCipher engine;
     public boolean initialised;
-    public byte[] iv;
+
+    /* JADX INFO: renamed from: iv */
+    public byte[] f81191iv;
     public byte[] ofbOutV;
     public byte[] ofbV;
 
     public KCTRBlockCipher(BlockCipher blockCipher) {
         super(blockCipher);
         this.engine = blockCipher;
-        this.iv = new byte[blockCipher.getBlockSize()];
+        this.f81191iv = new byte[blockCipher.getBlockSize()];
         this.ofbV = new byte[blockCipher.getBlockSize()];
         this.ofbOutV = new byte[blockCipher.getBlockSize()];
     }
@@ -85,10 +87,10 @@ public class KCTRBlockCipher extends StreamBlockCipher {
         }
         ParametersWithIV parametersWithIV = (ParametersWithIV) cipherParameters;
         byte[] iv = parametersWithIV.getIV();
-        byte[] bArr = this.iv;
+        byte[] bArr = this.f81191iv;
         int length = bArr.length - iv.length;
         Arrays.fill(bArr, (byte) 0);
-        System.arraycopy(iv, 0, this.iv, length, iv.length);
+        System.arraycopy(iv, 0, this.f81191iv, length, iv.length);
         CipherParameters parameters = parametersWithIV.getParameters();
         if (parameters != null) {
             this.engine.init(true, parameters);
@@ -111,7 +113,7 @@ public class KCTRBlockCipher extends StreamBlockCipher {
     @Override // org.bouncycastle.crypto.BlockCipher
     public void reset() {
         if (this.initialised) {
-            this.engine.processBlock(this.iv, 0, this.ofbV, 0);
+            this.engine.processBlock(this.f81191iv, 0, this.ofbV, 0);
         }
         this.engine.reset();
         this.byteCount = 0;

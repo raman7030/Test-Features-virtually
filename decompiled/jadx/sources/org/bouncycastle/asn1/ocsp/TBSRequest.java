@@ -15,7 +15,9 @@ import org.bouncycastle.asn1.x509.X509Extensions;
 
 /* JADX INFO: loaded from: classes.dex */
 public class TBSRequest extends ASN1Object {
-    public static final ASN1Integer V1 = new ASN1Integer(0);
+
+    /* JADX INFO: renamed from: V1 */
+    public static final ASN1Integer f80673V1 = new ASN1Integer(0);
     public Extensions requestExtensions;
     public ASN1Sequence requestList;
     public GeneralName requestorName;
@@ -29,7 +31,7 @@ public class TBSRequest extends ASN1Object {
             this.version = ASN1Integer.getInstance((ASN1TaggedObject) aSN1Sequence.getObjectAt(0), true);
             i = 1;
         } else {
-            this.version = V1;
+            this.version = f80673V1;
         }
         if (aSN1Sequence.getObjectAt(i) instanceof ASN1TaggedObject) {
             this.requestorName = GeneralName.getInstance((ASN1TaggedObject) aSN1Sequence.getObjectAt(i), true);
@@ -43,14 +45,14 @@ public class TBSRequest extends ASN1Object {
     }
 
     public TBSRequest(GeneralName generalName, ASN1Sequence aSN1Sequence, Extensions extensions) {
-        this.version = V1;
+        this.version = f80673V1;
         this.requestorName = generalName;
         this.requestList = aSN1Sequence;
         this.requestExtensions = extensions;
     }
 
     public TBSRequest(GeneralName generalName, ASN1Sequence aSN1Sequence, X509Extensions x509Extensions) {
-        this.version = V1;
+        this.version = f80673V1;
         this.requestorName = generalName;
         this.requestList = aSN1Sequence;
         this.requestExtensions = Extensions.getInstance(x509Extensions);
@@ -89,7 +91,7 @@ public class TBSRequest extends ASN1Object {
     @Override // org.bouncycastle.asn1.ASN1Object, org.bouncycastle.asn1.ASN1Encodable
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector(4);
-        if (!this.version.equals((ASN1Primitive) V1) || this.versionSet) {
+        if (!this.version.equals((ASN1Primitive) f80673V1) || this.versionSet) {
             aSN1EncodableVector.add(new DERTaggedObject(true, 0, (ASN1Encodable) this.version));
         }
         GeneralName generalName = this.requestorName;

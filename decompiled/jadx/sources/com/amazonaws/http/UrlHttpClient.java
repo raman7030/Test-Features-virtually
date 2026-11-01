@@ -14,32 +14,32 @@ import javax.net.ssl.HttpsURLConnection;
 /* JADX INFO: loaded from: classes.dex */
 public class UrlHttpClient {
 
-    /* JADX INFO: renamed from: ۧ, reason: not valid java name and contains not printable characters */
-    public static final Log f209 = LogFactory.m302(UrlHttpClient.class);
+    /* JADX INFO: renamed from: ۧ */
+    public static final Log f1369 = LogFactory.m1468(UrlHttpClient.class);
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final ClientConfiguration f210;
+    /* JADX INFO: renamed from: ֫ */
+    public final ClientConfiguration f1370;
 
     public UrlHttpClient(ClientConfiguration clientConfiguration) {
-        this.f210 = clientConfiguration;
-        int i = TLS12SocketFactory.f207;
+        this.f1370 = clientConfiguration;
+        int i = TLS12SocketFactory.f1367;
     }
 
-    /* JADX INFO: renamed from: ֫, reason: not valid java name and contains not printable characters */
-    public final HttpResponse m278(HttpRequest httpRequest) throws IOException {
-        HttpURLConnection httpURLConnection = (HttpURLConnection) httpRequest.m263().toURL().openConnection();
-        ClientConfiguration clientConfiguration = this.f210;
-        httpURLConnection.setConnectTimeout(clientConfiguration.m167());
-        httpURLConnection.setReadTimeout(clientConfiguration.m173());
+    /* JADX INFO: renamed from: ֫ */
+    public final HttpResponse m1444(HttpRequest httpRequest) throws IOException {
+        HttpURLConnection httpURLConnection = (HttpURLConnection) httpRequest.m1429().toURL().openConnection();
+        ClientConfiguration clientConfiguration = this.f1370;
+        httpURLConnection.setConnectTimeout(clientConfiguration.m1333());
+        httpURLConnection.setReadTimeout(clientConfiguration.m1339());
         httpURLConnection.setInstanceFollowRedirects(false);
         httpURLConnection.setUseCaches(false);
-        if (httpRequest.m261()) {
+        if (httpRequest.m1427()) {
             httpURLConnection.setChunkedStreamingMode(0);
         }
         if (httpURLConnection instanceof HttpsURLConnection) {
         }
-        if (httpRequest.m262() != null && !httpRequest.m262().isEmpty()) {
-            for (Map.Entry entry : httpRequest.m262().entrySet()) {
+        if (httpRequest.m1428() != null && !httpRequest.m1428().isEmpty()) {
+            for (Map.Entry entry : httpRequest.m1428().entrySet()) {
                 String str = (String) entry.getKey();
                 if (!str.equals("Content-Length") && !str.equals("Host")) {
                     str.equals("Expect");
@@ -47,17 +47,17 @@ public class UrlHttpClient {
                 }
             }
         }
-        httpURLConnection.setRequestMethod(httpRequest.m264());
-        if (httpRequest.m258() != null && httpRequest.m260() >= 0) {
+        httpURLConnection.setRequestMethod(httpRequest.m1430());
+        if (httpRequest.m1424() != null && httpRequest.m1426() >= 0) {
             httpURLConnection.setDoOutput(true);
-            if (!httpRequest.m261()) {
-                httpURLConnection.setFixedLengthStreamingMode((int) httpRequest.m260());
+            if (!httpRequest.m1427()) {
+                httpURLConnection.setFixedLengthStreamingMode((int) httpRequest.m1426());
             }
             OutputStream outputStream = httpURLConnection.getOutputStream();
-            InputStream inputStreamM258 = httpRequest.m258();
+            InputStream inputStreamM1424 = httpRequest.m1424();
             byte[] bArr = new byte[8192];
             while (true) {
-                int i = inputStreamM258.read(bArr);
+                int i = inputStreamM1424.read(bArr);
                 if (i == -1) {
                     break;
                 }
@@ -69,21 +69,21 @@ public class UrlHttpClient {
         String responseMessage = httpURLConnection.getResponseMessage();
         int responseCode = httpURLConnection.getResponseCode();
         InputStream errorStream = httpURLConnection.getErrorStream();
-        if (errorStream == null && !"HEAD".equals(httpRequest.m264())) {
+        if (errorStream == null && !"HEAD".equals(httpRequest.m1430())) {
             try {
                 errorStream = httpURLConnection.getInputStream();
             } catch (IOException unused) {
             }
         }
         HttpResponse.Builder builder = new HttpResponse.Builder();
-        builder.m272(responseCode);
-        builder.m274(responseMessage);
-        builder.m273(errorStream);
+        builder.m1438(responseCode);
+        builder.m1440(responseMessage);
+        builder.m1439(errorStream);
         for (Map.Entry<String, List<String>> entry2 : httpURLConnection.getHeaderFields().entrySet()) {
             if (entry2.getKey() != null) {
-                builder.m275(entry2.getKey(), entry2.getValue().get(0));
+                builder.m1441(entry2.getKey(), entry2.getValue().get(0));
             }
         }
-        return builder.m271();
+        return builder.m1437();
     }
 }

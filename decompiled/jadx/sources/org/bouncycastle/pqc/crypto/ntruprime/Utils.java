@@ -1,9 +1,6 @@
 package org.bouncycastle.pqc.crypto.ntruprime;
 
 import java.security.SecureRandom;
-import l.C20094;
-import l.C23202;
-import l.C7416;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.engines.AESEngine;
 import org.bouncycastle.crypto.hpke.HPKE;
@@ -12,6 +9,9 @@ import org.bouncycastle.crypto.modes.SICBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.math.raw.Mod;
+import p067l.C21466;
+import p067l.C24420;
+import p067l.C9417;
 
 /* JADX INFO: loaded from: classes2.dex */
 public class Utils {
@@ -243,7 +243,7 @@ public class Utils {
         short[] sArr2 = new short[i];
         short[] sArr3 = new short[i];
         for (int i3 = 0; i3 < i; i3++) {
-            sArr2[i3] = (short) C7416.m19938(i2, 1, 2, sArr[i3]);
+            sArr2[i3] = (short) C9417.m21912(i2, 1, 2, sArr[i3]);
         }
         for (int i4 = 0; i4 < i; i4++) {
             sArr3[i4] = (short) i2;
@@ -564,7 +564,7 @@ public class Utils {
 
     public static void right(byte[] bArr, short[] sArr, byte[] bArr2, int i, int i2, int i3, int i4) {
         for (int i5 = 0; i5 < bArr.length; i5++) {
-            bArr[i5] = (byte) (-checkLessThanZero(getModFreeze(C23202.m51496(i2, 4, getModFreeze((bArr2[i5] * i4) - i3, i) - sArr[i5], 1), i)));
+            bArr[i5] = (byte) (-checkLessThanZero(getModFreeze(C24420.m53892(i2, 4, getModFreeze((bArr2[i5] * i4) - i3, i) - sArr[i5], 1), i)));
         }
     }
 
@@ -609,7 +609,7 @@ public class Utils {
 
     public static void top(byte[] bArr, short[] sArr, byte[] bArr2, int i, int i2, int i3) {
         for (int i4 = 0; i4 < bArr.length; i4++) {
-            bArr[i4] = (byte) (C20094.m46314(getModFreeze((((i - 1) / 2) * bArr2[i4]) + sArr[i4], i), i2, i3, 16384) >>> 15);
+            bArr[i4] = (byte) (C21466.m48630(getModFreeze((((i - 1) / 2) * bArr2[i4]) + sArr[i4], i), i2, i3, 16384) >>> 15);
         }
     }
 

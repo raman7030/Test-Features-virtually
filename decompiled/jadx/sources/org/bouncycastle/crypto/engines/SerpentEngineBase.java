@@ -37,7 +37,8 @@ public abstract class SerpentEngineBase implements BlockCipher {
         return (i << (-i2)) | (i >>> i2);
     }
 
-    public final void LT(int[] iArr) {
+    /* JADX INFO: renamed from: LT */
+    public final void m55392LT(int[] iArr) {
         int iRotateLeft = rotateLeft(iArr[0], 13);
         int iRotateLeft2 = rotateLeft(iArr[2], 3);
         int i = (iArr[1] ^ iRotateLeft) ^ iRotateLeft2;

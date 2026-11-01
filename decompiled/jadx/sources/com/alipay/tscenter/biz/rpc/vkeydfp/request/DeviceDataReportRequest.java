@@ -9,7 +9,9 @@ public class DeviceDataReportRequest implements Serializable {
     public String apdid;
     public Map dataMap;
     public String lastTime;
-    public String os;
+
+    /* JADX INFO: renamed from: os */
+    public String f1229os;
     public String priApdid;
     public String pubApdid;
     public String token;

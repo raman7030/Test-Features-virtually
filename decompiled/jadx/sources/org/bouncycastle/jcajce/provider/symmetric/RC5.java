@@ -5,10 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import l.C12662;
-import l.C20382;
-import l.C5368;
-import l.C8954;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.engines.RC532Engine;
@@ -23,6 +19,10 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import p067l.C10878;
+import p067l.C14403;
+import p067l.C21740;
+import p067l.C7470;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class RC5 {
@@ -112,9 +112,9 @@ public final class RC5 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$ECB32", "Cipher.RC5", sb, configurableProvider);
-            C12662.m30943(str, "$Mac32", "Mac.RC5MAC", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.RC5-64", C5368.m15340(str, "$AlgParams", "AlgorithmParameters.RC5", C5368.m15340(str, "$KeyGen64", "KeyGenerator.RC5-64", C20382.m46696("KeyGenerator.RC5", C8954.m23074("Cipher.RC5-64", C8954.m23074("Alg.Alias.Cipher.RC5-32", "RC5", str, "$ECB64", configurableProvider), str, "$KeyGen32", configurableProvider), "Alg.Alias.KeyGenerator.RC5-32", "RC5", configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
-            configurableProvider.addAlgorithm("Mac.RC5MAC/CFB8", C8954.m23074("Alg.Alias.Mac.RC5", "RC5MAC", str, "$CFB8Mac32", configurableProvider));
+            C14403.m33021(str, "$ECB32", "Cipher.RC5", sb, configurableProvider);
+            C14403.m33021(str, "$Mac32", "Mac.RC5MAC", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.RC5-64", C7470.m17249(str, "$AlgParams", "AlgorithmParameters.RC5", C7470.m17249(str, "$KeyGen64", "KeyGenerator.RC5-64", C21740.m49019("KeyGenerator.RC5", C10878.m25048("Cipher.RC5-64", C10878.m25048("Alg.Alias.Cipher.RC5-32", "RC5", str, "$ECB64", configurableProvider), str, "$KeyGen32", configurableProvider), "Alg.Alias.KeyGenerator.RC5-32", "RC5", configurableProvider), configurableProvider), configurableProvider), configurableProvider), configurableProvider);
+            configurableProvider.addAlgorithm("Mac.RC5MAC/CFB8", C10878.m25048("Alg.Alias.Mac.RC5", "RC5MAC", str, "$CFB8Mac32", configurableProvider));
             configurableProvider.addAlgorithm("Alg.Alias.Mac.RC5/CFB8", "RC5MAC/CFB8");
         }
     }

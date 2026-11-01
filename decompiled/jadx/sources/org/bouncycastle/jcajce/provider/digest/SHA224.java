@@ -1,12 +1,5 @@
 package org.bouncycastle.jcajce.provider.digest;
 
-import l.C12662;
-import l.C16014;
-import l.C18515;
-import l.C19462;
-import l.C20094;
-import l.C3435;
-import l.C9045;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.BERTags;
 import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
@@ -18,6 +11,13 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
+import p067l.C10965;
+import p067l.C14403;
+import p067l.C17588;
+import p067l.C19965;
+import p067l.C20865;
+import p067l.C21466;
+import p067l.C5633;
 
 /* JADX INFO: loaded from: classes.dex */
 public class SHA224 {
@@ -63,13 +63,13 @@ public class SHA224 {
         public void configure(ConfigurableProvider configurableProvider) {
             StringBuilder sb = new StringBuilder();
             String str = PREFIX;
-            C12662.m30943(str, "$Digest", "MessageDigest.SHA-224", sb, configurableProvider);
-            StringBuilder sbM10502 = C3435.m10502("$HashMac", "Mac.PBEWITHHMACSHA224", str, C9045.m23342("SHA-224", str, C18515.m43029(configurableProvider, "Alg.Alias.MessageDigest.SHA224", "SHA-224", "Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha224, configurableProvider), configurableProvider);
-            sbM10502.append("$HashMac");
-            addHMACAlgorithm(configurableProvider, "SHA224", sbM10502.toString(), C16014.m37867(str, "$KeyGenerator"));
+            C14403.m33021(str, "$Digest", "MessageDigest.SHA-224", sb, configurableProvider);
+            StringBuilder sbM12526 = C5633.m12526("$HashMac", "Mac.PBEWITHHMACSHA224", str, C10965.m25287("SHA-224", str, C19965.m45307(configurableProvider, "Alg.Alias.MessageDigest.SHA224", "SHA-224", "Alg.Alias.MessageDigest."), NISTObjectIdentifiers.id_sha224, configurableProvider), configurableProvider);
+            sbM12526.append("$HashMac");
+            addHMACAlgorithm(configurableProvider, "SHA224", sbM12526.toString(), C17588.m40053(str, "$KeyGenerator"));
             ASN1ObjectIdentifier aSN1ObjectIdentifier = PKCSObjectIdentifiers.id_hmacWithSHA224;
             addHMACAlias(configurableProvider, "SHA224", aSN1ObjectIdentifier);
-            C19462.m44861(C20094.m46316(str, "$KeyFactory", "SecretKeyFactory.HMACSHA224", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier, configurableProvider, "HMACSHA224");
+            C20865.m47157(C21466.m48632(str, "$KeyFactory", "SecretKeyFactory.HMACSHA224", "Alg.Alias.SecretKeyFactory.", configurableProvider), aSN1ObjectIdentifier, configurableProvider, "HMACSHA224");
         }
     }
 }

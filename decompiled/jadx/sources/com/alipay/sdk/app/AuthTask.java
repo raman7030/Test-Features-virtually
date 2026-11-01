@@ -6,13 +6,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.alipay.sdk.R;
-import com.alipay.sdk.m.l.c;
-import com.alipay.sdk.m.w.b;
-import com.alipay.sdk.m.y.g;
-import com.alipay.sdk.m.y.k;
-import com.alipay.sdk.m.y.o;
-import com.alipay.sdk.m.y.q;
+import com.alipay.sdk.C0067R;
+import com.alipay.sdk.p010m.p016c0.C0091a;
+import com.alipay.sdk.p010m.p033l.C0161a;
+import com.alipay.sdk.p010m.p033l.C0162b;
+import com.alipay.sdk.p010m.p033l.EnumC0163c;
+import com.alipay.sdk.p010m.p035m.C0167a;
+import com.alipay.sdk.p010m.p035m.C0168b;
+import com.alipay.sdk.p010m.p037n.C0172c;
+import com.alipay.sdk.p010m.p039o.C0180b;
+import com.alipay.sdk.p010m.p051u.C0217a;
+import com.alipay.sdk.p010m.p053v.C0231b;
+import com.alipay.sdk.p010m.p053v.EnumC0230a;
+import com.alipay.sdk.p010m.p055w.C0233a;
+import com.alipay.sdk.p010m.p055w.C0234b;
+import com.alipay.sdk.p010m.p058y.C0244g;
+import com.alipay.sdk.p010m.p058y.C0248k;
+import com.alipay.sdk.p010m.p058y.C0252o;
+import com.alipay.sdk.p010m.p058y.C0254q;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -20,111 +31,125 @@ import java.util.Map;
 /* JADX INFO: compiled from: N673 */
 /* JADX INFO: loaded from: classes.dex */
 public class AuthTask {
-    public static final Object c = k.class;
-    public Activity a;
-    public com.alipay.sdk.m.c0.a b;
 
+    /* JADX INFO: renamed from: c */
+    public static final Object f225c = C0248k.class;
+
+    /* JADX INFO: renamed from: a */
+    public Activity f226a;
+
+    /* JADX INFO: renamed from: b */
+    public C0091a f227b;
+
+    /* JADX INFO: renamed from: com.alipay.sdk.app.AuthTask$a */
     /* JADX INFO: compiled from: N673 */
-    public class a implements k.f {
-        public a() {
+    public class C0071a implements C0248k.f {
+        public C0071a() {
         }
 
-        @Override // com.alipay.sdk.m.y.k.f
-        public void a() {
-            AuthTask.this.a();
+        @Override // com.alipay.sdk.p010m.p058y.C0248k.f
+        /* JADX INFO: renamed from: a */
+        public void mo398a() {
+            AuthTask.this.m394a();
         }
 
-        @Override // com.alipay.sdk.m.y.k.f
-        public void b() {
+        @Override // com.alipay.sdk.p010m.p058y.C0248k.f
+        /* JADX INFO: renamed from: b */
+        public void mo399b() {
         }
     }
 
     public AuthTask(Activity activity) {
-        this.a = activity;
-        b.c().a(this.a);
-        this.b = new com.alipay.sdk.m.c0.a(activity, this.a.getString(R.string.alipay_standard_sdk_loading_go_auth));
+        this.f226a = activity;
+        C0234b.m1121c().m1124a(this.f226a);
+        this.f227b = new C0091a(activity, this.f226a.getString(C0067R.string.alipay_standard_sdk_loading_go_auth));
     }
 
     public synchronized String auth(String str, boolean z) {
-        return innerAuth(new com.alipay.sdk.m.w.a(this.a, str, com.alipay.sdk.m.m.b.n), str, z);
+        return innerAuth(new C0233a(this.f226a, str, C0168b.f622n), str, z);
     }
 
     public synchronized Map authV2(String str, boolean z) {
-        com.alipay.sdk.m.w.a aVar;
-        aVar = new com.alipay.sdk.m.w.a(this.a, str, "authV2");
-        return o.a(aVar, innerAuth(aVar, str, z));
+        C0233a c0233a;
+        c0233a = new C0233a(this.f226a, str, "authV2");
+        return C0252o.m1237a(c0233a, innerAuth(c0233a, str, z));
     }
 
-    public final k.f b() {
-        return new a();
+    /* JADX INFO: renamed from: b */
+    public final C0248k.f m395b() {
+        return new C0071a();
     }
 
-    public final void c() {
-        com.alipay.sdk.m.c0.a aVar = this.b;
-        if (aVar != null) {
-            aVar.d();
+    /* JADX INFO: renamed from: c */
+    public final void m397c() {
+        C0091a c0091a = this.f227b;
+        if (c0091a != null) {
+            c0091a.m493d();
         }
     }
 
-    public final void a() {
-        com.alipay.sdk.m.c0.a aVar = this.b;
-        if (aVar != null) {
-            aVar.a();
+    /* JADX INFO: renamed from: a */
+    public final void m394a() {
+        C0091a c0091a = this.f227b;
+        if (c0091a != null) {
+            c0091a.m488a();
         }
     }
 
-    public final String b(Activity activity, String str, com.alipay.sdk.m.w.a aVar) {
-        c();
-        c cVarA = null;
+    /* JADX INFO: renamed from: b */
+    public final String m396b(Activity activity, String str, C0233a c0233a) {
+        m397c();
+        EnumC0163c enumC0163cM736a = null;
         try {
             try {
-                List listA = com.alipay.sdk.m.v.b.a(new com.alipay.sdk.m.u.a().a(aVar, activity, str).c().optJSONObject(com.alipay.sdk.m.n.c.c).optJSONObject(com.alipay.sdk.m.n.c.d));
-                a();
-                for (int i = 0; i < listA.size(); i++) {
-                    if (((com.alipay.sdk.m.v.b) listA.get(i)).a() == com.alipay.sdk.m.v.a.WapPay) {
-                        String strA = a(aVar, (com.alipay.sdk.m.v.b) listA.get(i));
-                        a();
-                        return strA;
+                List listM1076a = C0231b.m1076a(new C0217a().mo1038a(c0233a, activity, str).m1022c().optJSONObject(C0172c.f707c).optJSONObject(C0172c.f708d));
+                m394a();
+                for (int i = 0; i < listM1076a.size(); i++) {
+                    if (((C0231b) listM1076a.get(i)).m1080a() == EnumC0230a.WapPay) {
+                        String strM393a = m393a(c0233a, (C0231b) listM1076a.get(i));
+                        m394a();
+                        return strM393a;
                     }
                 }
-                a();
+                m394a();
             } catch (Throwable th) {
-                a();
+                m394a();
                 throw th;
             }
         } catch (IOException e) {
-            c cVarA2 = c.a(c.NETWORK_ERROR.c());
-            com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.k, e);
-            cVarA = cVarA2;
-            a();
+            EnumC0163c enumC0163cM736a2 = EnumC0163c.m736a(EnumC0163c.NETWORK_ERROR.m741c());
+            C0167a.m753a(c0233a, C0168b.f616k, e);
+            enumC0163cM736a = enumC0163cM736a2;
+            m394a();
         } catch (Throwable th2) {
-            com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.C, th2);
-            a();
+            C0167a.m751a(c0233a, C0168b.f618l, C0168b.f580C, th2);
+            m394a();
         }
-        if (cVarA == null) {
-            cVarA = c.a(c.FAILED.c());
+        if (enumC0163cM736a == null) {
+            enumC0163cM736a = EnumC0163c.m736a(EnumC0163c.FAILED.m741c());
         }
-        return com.alipay.sdk.m.l.b.a(cVarA.c(), cVarA.b(), "");
+        return C0162b.m729a(enumC0163cM736a.m741c(), enumC0163cM736a.m739b(), "");
     }
 
-    public final String a(Activity activity, String str, com.alipay.sdk.m.w.a aVar) {
-        String strA = aVar.a(str);
-        List listM = com.alipay.sdk.m.o.b.i().m();
-        if (!com.alipay.sdk.m.o.b.i().g || listM == null) {
-            listM = com.alipay.sdk.m.l.a.d;
+    /* JADX INFO: renamed from: a */
+    public final String m392a(Activity activity, String str, C0233a c0233a) {
+        String strM1095a = c0233a.m1095a(str);
+        List listM862m = C0180b.m829i().m862m();
+        if (!C0180b.m829i().f825g || listM862m == null) {
+            listM862m = C0161a.f547d;
         }
-        if (q.a(aVar, (Context) this.a, listM, true)) {
-            k kVar = new k(activity, aVar, b());
-            String strA2 = kVar.a(strA, false);
-            kVar.a();
-            if (!TextUtils.equals(strA2, k.j) && !TextUtils.equals(strA2, k.k)) {
-                return TextUtils.isEmpty(strA2) ? com.alipay.sdk.m.l.b.a() : strA2;
+        if (C0254q.m1268a(c0233a, (Context) this.f226a, listM862m, true)) {
+            C0248k c0248k = new C0248k(activity, c0233a, m395b());
+            String strM1221a = c0248k.m1221a(strM1095a, false);
+            c0248k.m1222a();
+            if (!TextUtils.equals(strM1221a, C0248k.f1176j) && !TextUtils.equals(strM1221a, C0248k.f1177k)) {
+                return TextUtils.isEmpty(strM1221a) ? C0162b.m728a() : strM1221a;
             }
-            com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.i0);
-            return b(activity, strA, aVar);
+            C0167a.m749a(c0233a, C0168b.f618l, C0168b.f614i0);
+            return m396b(activity, strM1095a, c0233a);
         }
-        com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.j0);
-        return b(activity, strA, aVar);
+        C0167a.m749a(c0233a, C0168b.f618l, C0168b.f615j0);
+        return m396b(activity, strM1095a, c0233a);
     }
 
     /* JADX WARN: Code duplicated, block: B:18:0x00be A[Catch: all -> 0x012f, DONT_GENERATE, PHI: r11
@@ -132,8 +157,8 @@ public class AuthTask {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v14, types: [android.app.Activity, android.content.Context] */
-    public synchronized String innerAuth(com.alipay.sdk.m.w.a aVar, String str, boolean z) {
-        String strA;
+    public synchronized String innerAuth(C0233a c0233a, String str, boolean z) {
+        String strM728a;
         StringBuilder sb;
         long jElapsedRealtime;
         String string;
@@ -141,66 +166,67 @@ public class AuthTask {
         String str3;
         StringBuilder sb2;
         String str4;
-        String strA2;
+        String strM1235a;
         String str5;
         String str6;
-        String strA3;
+        String strM1235a2;
         String string2;
         String str7;
         String str8;
-        com.alipay.sdk.m.o.b bVarI;
-        boolean zT;
+        C0180b c0180bM829i;
+        boolean zM869t;
         String str9 = "";
         synchronized (this) {
             if (z) {
-                c();
-                b.c().a(this.a);
-                strA = com.alipay.sdk.m.l.b.a();
-                com.alipay.sdk.m.l.a.a("");
+                m397c();
+                C0234b.m1121c().m1124a(this.f226a);
+                strM728a = C0162b.m728a();
+                C0161a.m726a("");
                 try {
-                    strA = a(this.a, str, aVar);
+                    strM728a = m392a(this.f226a, str, c0233a);
                     sb = new StringBuilder("");
                 } catch (Exception e) {
-                    g.a(e);
+                    C0244g.m1199a(e);
                     sb = new StringBuilder("");
                 } finally {
-                    com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.V, str9 + SystemClock.elapsedRealtime());
-                    com.alipay.sdk.m.m.a.a(aVar, com.alipay.sdk.m.m.b.f77909l, com.alipay.sdk.m.m.b.W, o.a(strA, o.a) + "|" + o.a(strA, o.b));
-                    if (!com.alipay.sdk.m.o.b.i().t()) {
-                        com.alipay.sdk.m.o.b.i().a(aVar, this.a, false, 1);
+                    C0167a.m750a(c0233a, C0168b.f618l, C0168b.f601V, str9 + SystemClock.elapsedRealtime());
+                    C0167a.m750a(c0233a, C0168b.f618l, C0168b.f602W, C0252o.m1235a(strM728a, C0252o.f1206a) + "|" + C0252o.m1235a(strM728a, C0252o.f1207b));
+                    if (!C0180b.m829i().m869t()) {
+                        C0180b.m829i().m835a(c0233a, this.f226a, false, 1);
                     }
-                    a();
-                    com.alipay.sdk.m.m.a.b(this.a, aVar, str, aVar.d);
+                    m394a();
+                    C0167a.m754b(this.f226a, c0233a, str, c0233a.f1098d);
                 }
             } else {
-                b.c().a(this.a);
-                strA = com.alipay.sdk.m.l.b.a();
-                com.alipay.sdk.m.l.a.a("");
-                strA = a(this.a, str, aVar);
+                C0234b.m1121c().m1124a(this.f226a);
+                strM728a = C0162b.m728a();
+                C0161a.m726a("");
+                strM728a = m392a(this.f226a, str, c0233a);
                 sb = new StringBuilder("");
             }
             throw th;
         }
-        return strA;
+        return strM728a;
     }
 
-    public final String a(com.alipay.sdk.m.w.a aVar, com.alipay.sdk.m.v.b bVar) {
-        String[] strArrC = bVar.c();
+    /* JADX INFO: renamed from: a */
+    public final String m393a(C0233a c0233a, C0231b c0231b) {
+        String[] strArrM1082c = c0231b.m1082c();
         Bundle bundle = new Bundle();
-        bundle.putString("url", strArrC[0]);
-        Intent intent = new Intent(this.a, (Class<?>) H5AuthActivity.class);
+        bundle.putString("url", strArrM1082c[0]);
+        Intent intent = new Intent(this.f226a, (Class<?>) H5AuthActivity.class);
         intent.putExtras(bundle);
-        com.alipay.sdk.m.w.a.C0028a.a(aVar, intent);
-        this.a.startActivity(intent);
-        Object obj = c;
+        C0233a.a.m1119a(c0233a, intent);
+        this.f226a.startActivity(intent);
+        Object obj = f225c;
         synchronized (obj) {
             try {
                 obj.wait();
             } catch (InterruptedException unused) {
-                return com.alipay.sdk.m.l.b.a();
+                return C0162b.m728a();
             }
         }
-        String strD = com.alipay.sdk.m.l.b.d();
-        return TextUtils.isEmpty(strD) ? com.alipay.sdk.m.l.b.a() : strD;
+        String strM734d = C0162b.m734d();
+        return TextUtils.isEmpty(strM734d) ? C0162b.m728a() : strM734d;
     }
 }

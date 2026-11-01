@@ -4,83 +4,83 @@ import com.amazonaws.AbortedException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import l.C0794;
-import l.InterfaceC14905;
+import p067l.C3123;
+import p067l.InterfaceC16534;
 
 /* JADX INFO: loaded from: classes.dex */
-public class SdkFilterInputStream extends FilterInputStream implements MetricAware, InterfaceC14905 {
+public class SdkFilterInputStream extends FilterInputStream implements MetricAware, InterfaceC16534 {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void mark(int i) {
-        m281();
+        m1447();
         ((FilterInputStream) this).in.mark(i);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void reset() {
-        m281();
+        m1447();
         ((FilterInputStream) this).in.reset();
     }
 
-    @Override // java.io.InputStream, l.InterfaceC14905
+    @Override // java.io.InputStream, p067l.InterfaceC16534
     public /* synthetic */ long transferTo(OutputStream outputStream) {
-        return C0794.transferTo(this, outputStream);
+        return C3123.transferTo(this, outputStream);
     }
 
-    /* JADX INFO: renamed from: ܽ, reason: not valid java name and contains not printable characters */
-    public void mo280() {
+    /* JADX INFO: renamed from: ܽ */
+    public void mo1446() {
     }
 
     @Override // com.amazonaws.internal.MetricAware
     @Deprecated
     /* JADX INFO: renamed from: ֫ */
-    public boolean mo279() {
+    public boolean mo1445() {
         if (((FilterInputStream) this).in instanceof MetricAware) {
-            return ((MetricAware) ((FilterInputStream) this).in).mo279();
+            return ((MetricAware) ((FilterInputStream) this).in).mo1445();
         }
         return false;
     }
 
-    /* JADX INFO: renamed from: ᩳ, reason: not valid java name and contains not printable characters */
-    public final void m281() {
+    /* JADX INFO: renamed from: ᩳ */
+    public final void m1447() {
         if (Thread.interrupted()) {
-            mo280();
+            mo1446();
             throw new AbortedException();
         }
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() {
-        m281();
+        m1447();
         return ((FilterInputStream) this).in.read();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr, int i, int i2) {
-        m281();
+        m1447();
         return ((FilterInputStream) this).in.read(bArr, i, i2);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public long skip(long j) {
-        m281();
+        m1447();
         return ((FilterInputStream) this).in.skip(j);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() {
-        m281();
+        m1447();
         return ((FilterInputStream) this).in.available();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         ((FilterInputStream) this).in.close();
-        m281();
+        m1447();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public final boolean markSupported() {
-        m281();
+        m1447();
         return ((FilterInputStream) this).in.markSupported();
     }
 }

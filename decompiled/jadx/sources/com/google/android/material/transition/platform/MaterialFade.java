@@ -6,16 +6,16 @@ import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
 import com.google.android.material.animation.AnimationUtils;
-import l.C17931;
+import p067l.C19410;
 
 /* JADX INFO: loaded from: classes.dex */
 public final class MaterialFade extends MaterialVisibility {
     public static final float DEFAULT_FADE_END_THRESHOLD_ENTER = 0.3f;
     public static final float DEFAULT_START_SCALE = 0.8f;
-    public static final int DEFAULT_THEMED_INCOMING_DURATION_ATTR = C17931.f54828;
-    public static final int DEFAULT_THEMED_OUTGOING_DURATION_ATTR = C17931.f55819;
-    public static final int DEFAULT_THEMED_INCOMING_EASING_ATTR = C17931.f55374;
-    public static final int DEFAULT_THEMED_OUTGOING_EASING_ATTR = C17931.f55408;
+    public static final int DEFAULT_THEMED_INCOMING_DURATION_ATTR = C19410.f58025;
+    public static final int DEFAULT_THEMED_OUTGOING_DURATION_ATTR = C19410.f59016;
+    public static final int DEFAULT_THEMED_INCOMING_EASING_ATTR = C19410.f58571;
+    public static final int DEFAULT_THEMED_OUTGOING_EASING_ATTR = C19410.f58605;
 
     @Override // com.google.android.material.transition.platform.MaterialVisibility
     public /* bridge */ /* synthetic */ void addAdditionalAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {

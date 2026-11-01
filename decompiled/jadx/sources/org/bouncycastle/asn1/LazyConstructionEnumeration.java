@@ -3,7 +3,7 @@ package org.bouncycastle.asn1;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
-import l.C16014;
+import p067l.C17588;
 
 /* JADX INFO: loaded from: classes.dex */
 public class LazyConstructionEnumeration implements Enumeration {
@@ -33,7 +33,7 @@ public class LazyConstructionEnumeration implements Enumeration {
         try {
             return this.aIn.readObject();
         } catch (IOException e) {
-            throw new ASN1ParsingException(C16014.m37866("malformed ASN.1: ", e), e);
+            throw new ASN1ParsingException(C17588.m40052("malformed ASN.1: ", e), e);
         }
     }
 }

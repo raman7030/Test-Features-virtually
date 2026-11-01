@@ -2,7 +2,6 @@ package org.bouncycastle.crypto.signers;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import l.C5127;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.DERNull;
@@ -24,6 +23,7 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
 import org.bouncycastle.util.Arrays;
+import p067l.C7241;
 
 /* JADX INFO: loaded from: classes.dex */
 public class RSADigestSigner implements Signer {
@@ -156,7 +156,7 @@ public class RSADigestSigner implements Signer {
             byte[] bArrDerEncode = derEncode(bArr);
             return this.rsaEngine.processBlock(bArrDerEncode, 0, bArrDerEncode.length);
         } catch (IOException e) {
-            throw new CryptoException(C5127.m14678(e, new StringBuilder("unable to encode signature: ")), e);
+            throw new CryptoException(C7241.m16586(e, new StringBuilder("unable to encode signature: ")), e);
         }
     }
 }
