@@ -134,6 +134,28 @@ jobs:
             echo "- Rebuilt APK archive integrity: not available" >> decompiled/README.md
           fi
 
+      - name: Try fallback rebuild preserving original compiled resources
+        if: always() && hashFiles('decompiled/apktool/AndroidManifest.xml') != ''
+        run: |
+          set +e
+          java -jar work/apktool.jar d -f -r -o work/apktool-no-res work/input.apk
+          DECODE_EXIT=$?
+          if [ "$DECODE_EXIT" -eq 0 ]; then
+            java -jar work/apktool.jar b -f work/apktool-no-res -o decompiled/rebuilt-unsigned-preserved-res.apk
+            BUILD_EXIT=$?
+          else
+            BUILD_EXIT=90
+          fi
+          set -e
+          echo "$BUILD_EXIT" > decompiled/apktool-preserved-res-build-exit-code.txt
+          echo "- Apktool fallback rebuild (original compiled resources preserved) exit code: $BUILD_EXIT" >> decompiled/README.md
+          if [ "$BUILD_EXIT" -eq 0 ]; then
+            unzip -t decompiled/rebuilt-unsigned-preserved-res.apk >/dev/null
+            echo "- Fallback rebuilt APK archive integrity: passed" >> decompiled/README.md
+          else
+            echo "- Fallback rebuilt APK archive integrity: not available" >> decompiled/README.md
+          fi
+
       - name: Commit readable output
         env:
           GH_TOKEN: ${{ github.token }}
