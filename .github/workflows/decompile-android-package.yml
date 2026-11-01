@@ -156,6 +156,30 @@ jobs:
             echo "- Fallback rebuilt APK archive integrity: not available" >> decompiled/README.md
           fi
 
+      - name: Sign and verify reconstructed APK with a temporary test certificate
+        if: always() && hashFiles('decompiled/rebuilt-unsigned-preserved-res.apk') != ''
+        run: |
+          set -euo pipefail
+          SDK_ROOT="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          APKSIGNER="$(find "$SDK_ROOT/build-tools" -type f -name apksigner 2>/dev/null | sort -V | tail -n1)"
+          ZIPALIGN="$(find "$SDK_ROOT/build-tools" -type f -name zipalign 2>/dev/null | sort -V | tail -n1)"
+          if [ -z "$APKSIGNER" ]; then
+            echo "Android apksigner not available; signing skipped." >> decompiled/README.md
+            exit 0
+          fi
+          if [ -n "$ZIPALIGN" ]; then
+            "$ZIPALIGN" -f -p 4 decompiled/rebuilt-unsigned-preserved-res.apk work/rebuilt-aligned.apk
+            SIGN_INPUT=work/rebuilt-aligned.apk
+          else
+            SIGN_INPUT=decompiled/rebuilt-unsigned-preserved-res.apk
+          fi
+          keytool -genkeypair -v -keystore work/rebuild-test.jks -storepass changeit -keypass changeit -alias rebuilt-test -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Reconstruction Test,O=Local,C=IN"
+          "$APKSIGNER" sign --ks work/rebuild-test.jks --ks-key-alias rebuilt-test --ks-pass pass:changeit --key-pass pass:changeit --out decompiled/rebuilt-test-signed.apk "$SIGN_INPUT"
+          "$APKSIGNER" verify --verbose --print-certs decompiled/rebuilt-test-signed.apk
+          unzip -t decompiled/rebuilt-test-signed.apk >/dev/null
+          echo "- Test-signed APK: rebuilt-test-signed.apk (signed with a newly generated temporary certificate, not the app's original publisher certificate)" >> decompiled/README.md
+          echo "- Test APK signature verification: passed" >> decompiled/README.md
+
       - name: Commit readable output
         env:
           GH_TOKEN: ${{ github.token }}
