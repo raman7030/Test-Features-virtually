@@ -92,7 +92,7 @@ jobs:
           if [ -z "$JADX_BIN" ]; then echo "JADX executable not found"; exit 1; fi
           chmod +x "$JADX_BIN"
           set +e
-          "$JADX_BIN" --show-bad-code -d decompiled/jadx work/input.apk
+          "$JADX_BIN" --deobf --show-bad-code -d decompiled/jadx work/input.apk
           JADX_EXIT=$?
           set -e
           echo "$JADX_EXIT" > decompiled/jadx-exit-code.txt
@@ -103,15 +103,15 @@ jobs:
           {
             echo "# Decompilation report"
             echo
-            echo "- Input SHA-256: `$(sha256sum work/input.zip | cut -d' ' -f1)`"
+            echo "- Input SHA-256: $(sha256sum work/input.zip | cut -d' ' -f1)"
             echo "- JADX: 1.5.6"
             echo "- Apktool: 3.0.3"
             echo "- JADX exit code: $(cat decompiled/jadx-exit-code.txt) (non-zero indicates incomplete Java reconstruction)"
             echo "- Decompiled on: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             echo
             echo "## Output"
-            echo "- `jadx/`: reconstructed Java source and JADX resources"
-            echo "- `apktool/`: decoded manifest, resources, smali, assets and package structure"
+            echo "- jadx/: reconstructed Java source and JADX resources (deobfuscation enabled)"
+            echo "- apktool/: decoded manifest, resources, smali, assets and package structure"
             echo
             echo "Decompilation is best-effort. Decompiled Java is reconstructed output, not the original authoring source. JADX may omit classes it cannot reconstruct; Apktool output is retained separately. Native libraries and other binary assets remain binary."
           } > decompiled/README.md
@@ -132,3 +132,20 @@ jobs:
           fi
           git commit -m "Add readable decompiled Android package sources"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Package decompiled source ZIP
+        if: always() && hashFiles('decompiled/**') != ''
+        run: |
+          set -euo pipefail
+          cd decompiled
+          zip -qr ../readable-decompiled-android-source.zip .
+
+      - name: Upload downloadable ZIP artifact
+        if: always() && hashFiles('readable-decompiled-android-source.zip') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: readable-decompiled-android-source
+          path: readable-decompiled-android-source.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
