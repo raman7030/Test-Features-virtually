@@ -118,6 +118,22 @@ jobs:
           du -sh decompiled
           find decompiled -type f | wc -l
 
+      - name: Attempt Apktool rebuild from decoded resources and Smali
+        if: always() && hashFiles('decompiled/apktool/AndroidManifest.xml') != ''
+        run: |
+          set +e
+          java -jar work/apktool.jar b -f decompiled/apktool -o decompiled/rebuilt-unsigned.apk
+          BUILD_EXIT=$?
+          set -e
+          echo "$BUILD_EXIT" > decompiled/apktool-build-exit-code.txt
+          echo "- Apktool rebuild exit code: $BUILD_EXIT (0 means resource/Smali assembly completed; it does not prove runtime functionality)" >> decompiled/README.md
+          if [ "$BUILD_EXIT" -eq 0 ]; then
+            unzip -t decompiled/rebuilt-unsigned.apk >/dev/null
+            echo "- Rebuilt APK archive integrity: passed" >> decompiled/README.md
+          else
+            echo "- Rebuilt APK archive integrity: not available" >> decompiled/README.md
+          fi
+
       - name: Commit readable output
         env:
           GH_TOKEN: ${{ github.token }}
