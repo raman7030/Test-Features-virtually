@@ -91,45 +91,49 @@ public class TransferNetworkLossHandler extends BroadcastReceiver {
     public static void m1546(TransferNetworkLossHandler transferNetworkLossHandler) {
         TransferRecord transferRecordM1558;
         synchronized (transferNetworkLossHandler) {
-            int i = 0;
-            TransferState[] transferStateArr = {TransferState.WAITING_FOR_NETWORK};
-            f1460.mo1460("Loading transfers from database...");
-            ArrayList<Integer> arrayList = new ArrayList();
-            Cursor cursorM1528 = null;
             try {
-                TransferDBUtil transferDBUtil = transferNetworkLossHandler.f1462;
-                TransferType transferType = TransferType.ANY;
-                transferDBUtil.getClass();
-                cursorM1528 = TransferDBUtil.m1528(transferType, transferStateArr);
-                while (cursorM1528.moveToNext()) {
-                    int i2 = cursorM1528.getInt(cursorM1528.getColumnIndexOrThrow(C0659aq.f2425d));
-                    if (transferNetworkLossHandler.f1463.m1558(i2) == null) {
-                        TransferRecord transferRecord = new TransferRecord(i2);
-                        transferRecord.m1549(cursorM1528);
-                        transferNetworkLossHandler.f1463.m1563(transferRecord);
-                        i++;
-                    }
-                    arrayList.add(Integer.valueOf(i2));
-                }
-                f1460.mo1460("Closing the cursor for resumeAllTransfers");
-                cursorM1528.close();
+                int i = 0;
+                TransferState[] transferStateArr = {TransferState.WAITING_FOR_NETWORK};
+                f1460.mo1460("Loading transfers from database...");
+                ArrayList<Integer> arrayList = new ArrayList();
+                Cursor cursorM1528 = null;
                 try {
-                    for (Integer num : arrayList) {
-                        AmazonS3 amazonS3M1519 = S3ClientReference.m1519(num);
-                        if (amazonS3M1519 != null && (transferRecordM1558 = transferNetworkLossHandler.f1463.m1558(num.intValue())) != null && !transferRecordM1558.m1551()) {
-                            transferRecordM1558.m1550(amazonS3M1519, transferNetworkLossHandler.f1462, transferNetworkLossHandler.f1463, transferNetworkLossHandler.f1461);
+                    TransferDBUtil transferDBUtil = transferNetworkLossHandler.f1462;
+                    TransferType transferType = TransferType.ANY;
+                    transferDBUtil.getClass();
+                    cursorM1528 = TransferDBUtil.m1528(transferType, transferStateArr);
+                    while (cursorM1528.moveToNext()) {
+                        int i2 = cursorM1528.getInt(cursorM1528.getColumnIndexOrThrow(C0659aq.f2425d));
+                        if (transferNetworkLossHandler.f1463.m1558(i2) == null) {
+                            TransferRecord transferRecord = new TransferRecord(i2);
+                            transferRecord.m1549(cursorM1528);
+                            transferNetworkLossHandler.f1463.m1563(transferRecord);
+                            i++;
                         }
+                        arrayList.add(Integer.valueOf(i2));
                     }
-                } catch (Exception e) {
-                    f1460.mo1457("Error in resuming the transfers." + e.getMessage());
-                }
-                f1460.mo1460(i + " transfers are loaded from database.");
-            } catch (Throwable th) {
-                if (cursorM1528 != null) {
                     f1460.mo1460("Closing the cursor for resumeAllTransfers");
                     cursorM1528.close();
+                    try {
+                        for (Integer num : arrayList) {
+                            AmazonS3 amazonS3M1519 = S3ClientReference.m1519(num);
+                            if (amazonS3M1519 != null && (transferRecordM1558 = transferNetworkLossHandler.f1463.m1558(num.intValue())) != null && !transferRecordM1558.m1551()) {
+                                transferRecordM1558.m1550(amazonS3M1519, transferNetworkLossHandler.f1462, transferNetworkLossHandler.f1463, transferNetworkLossHandler.f1461);
+                            }
+                        }
+                    } catch (Exception e) {
+                        f1460.mo1457("Error in resuming the transfers." + e.getMessage());
+                    }
+                    f1460.mo1460(i + " transfers are loaded from database.");
+                } catch (Throwable th) {
+                    if (cursorM1528 != null) {
+                        f1460.mo1460("Closing the cursor for resumeAllTransfers");
+                        cursorM1528.close();
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Throwable th2) {
+                throw th2;
             }
         }
     }

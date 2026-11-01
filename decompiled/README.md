@@ -4,7 +4,7 @@
 - JADX: 1.5.6
 - Apktool: 3.0.3
 - JADX exit code: 3 (non-zero indicates incomplete Java reconstruction)
-- Decompiled on: 2026-11-01T01:48:16Z
+- Decompiled on: 2026-11-01T01:53:47Z
 
 ## Output
 - jadx/: reconstructed Java source and JADX resources (deobfuscation enabled)
@@ -15,3 +15,5 @@ Decompilation is best-effort. Decompiled Java is reconstructed output, not the o
 - Rebuilt APK archive integrity: not available
 - Apktool fallback rebuild (original compiled resources preserved) exit code: 0
 - Fallback rebuilt APK archive integrity: passed
+- Test-signed APK: rebuilt-test-signed.apk (signed with a newly generated temporary certificate, not the app's original publisher certificate)
+- Test APK signature verification: passed

@@ -174,30 +174,34 @@ public class UMFrUtils {
     public static void removeRedundantEnvelopeFiles(Context context, int i) {
         File file = new File(getEnvelopeDirPath(context));
         synchronized (mEnvelopeFileLock) {
-            File[] fileArrListFiles = file.listFiles();
-            if (fileArrListFiles != null && fileArrListFiles.length > i) {
-                Arrays.sort(fileArrListFiles, new Comparator() { // from class: com.umeng.commonsdk.framework.UMFrUtils.1
-                    @Override // java.util.Comparator
-                    /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
-                    public int compare(File file2, File file3) {
-                        long jLastModified = file2.lastModified() - file3.lastModified();
-                        if (jLastModified > 0) {
-                            return 1;
-                        }
-                        return jLastModified == 0 ? 0 : -1;
-                    }
-                });
-                if (fileArrListFiles.length > i) {
-                    for (int i2 = 0; i2 < fileArrListFiles.length - i; i2++) {
-                        try {
-                            if (!fileArrListFiles[i2].delete()) {
-                                ULog.m2971d("--->>> remove [" + i2 + "] file fail.");
+            try {
+                File[] fileArrListFiles = file.listFiles();
+                if (fileArrListFiles != null && fileArrListFiles.length > i) {
+                    Arrays.sort(fileArrListFiles, new Comparator() { // from class: com.umeng.commonsdk.framework.UMFrUtils.1
+                        @Override // java.util.Comparator
+                        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+                        public int compare(File file2, File file3) {
+                            long jLastModified = file2.lastModified() - file3.lastModified();
+                            if (jLastModified > 0) {
+                                return 1;
                             }
-                        } catch (Throwable th) {
-                            UMCrashManager.reportCrash(context, th);
+                            return jLastModified == 0 ? 0 : -1;
+                        }
+                    });
+                    if (fileArrListFiles.length > i) {
+                        for (int i2 = 0; i2 < fileArrListFiles.length - i; i2++) {
+                            try {
+                                if (!fileArrListFiles[i2].delete()) {
+                                    ULog.m2971d("--->>> remove [" + i2 + "] file fail.");
+                                }
+                            } catch (Throwable th) {
+                                UMCrashManager.reportCrash(context, th);
+                            }
                         }
                     }
                 }
+            } catch (Throwable th2) {
+                throw th2;
             }
         }
     }
