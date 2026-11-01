@@ -25,27 +25,23 @@ public final class C9649 implements Closeable {
 
     /* JADX INFO: renamed from: ֫ */
     public final synchronized void m22440() {
-        try {
-            if (!this.f26559 && !this.f26562) {
-                this.f26559 = true;
-                try {
-                    C4081.f8988.execute(new Runnable() { // from class: l.ܰᩴᩳ
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            C9649 c9649 = this.f45458;
-                            c9649.getClass();
-                            try {
-                                c9649.close();
-                            } catch (IOException unused) {
-                            }
+        if (!this.f26559 && !this.f26562) {
+            this.f26559 = true;
+            try {
+                C4081.f8988.execute(new Runnable() { // from class: l.ܰᩴᩳ
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        C9649 c9649 = this.f45458;
+                        c9649.getClass();
+                        try {
+                            c9649.close();
+                        } catch (IOException unused) {
                         }
-                    });
-                } catch (RuntimeException unused) {
-                    this.f26559 = false;
-                }
+                    }
+                });
+            } catch (RuntimeException unused) {
+                this.f26559 = false;
             }
-        } catch (Throwable th) {
-            throw th;
         }
     }
 

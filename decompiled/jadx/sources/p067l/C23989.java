@@ -59,11 +59,7 @@ public final class C23989 implements AutoCloseable {
         }
     }
 
-    /* JADX WARN: Bottom block not found for handler: all -> 0x00b2 */
     /* JADX INFO: renamed from: ܽ */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final void m53161() {
         for (int i = 0; i < this.f76191.m34768(); i++) {
             if (i != this.f76194) {
@@ -72,26 +68,31 @@ public final class C23989 implements AutoCloseable {
                         InterfaceC22097 interfaceC22097M34766 = this.f76191.m34766(i);
                         C8467 c8467 = this.f76193;
                         C13693 c13693M31105 = C13693.m31105(interfaceC22097M34766, c8467.f22723, c8467.f22725, c8467.f22724, 8388608, new C13261(), (String) null);
-                        c13693M31105.f38639.mo3998(false);
-                        Bundle bundleM46652 = c13693M31105.f38632.f34416.f22201.m46652();
-                        bundleM46652.putBoolean("changed", false);
-                        C14443 c14443M54760 = c13693M31105.f38639.mo3999().m54760();
                         try {
-                            C12332 c12332 = c13693M31105.f38632;
-                            C14343 c14343M19162 = c12332.f34416.m19162(c14443M54760, bundleM46652, c12332.f34415, this.f76191.m34770(), true, 8388608);
-                            c14443M54760.close();
-                            this.f76191.m34766(i);
-                            c13693M31105.m31126(bundleM46652, c13693M31105.f38632.f34415, c14343M19162, this.f76193, new C13261());
-                            c13693M31105.m31121(c13693M31105.f38639.mo3999().m54774()).m12907();
-                            c13693M31105.m31120().m12907();
-                        } catch (Throwable th) {
+                            c13693M31105.f38639.mo3998(false);
+                            Bundle bundleM46652 = c13693M31105.f38632.f34416.f22201.m46652();
+                            bundleM46652.putBoolean("changed", false);
+                            C14443 c14443M54760 = c13693M31105.f38639.mo3999().m54760();
                             try {
+                                C12332 c12332 = c13693M31105.f38632;
+                                C14343 c14343M19162 = c12332.f34416.m19162(c14443M54760, bundleM46652, c12332.f34415, this.f76191.m34770(), true, 8388608);
                                 c14443M54760.close();
-                                throw th;
-                            } catch (Throwable th2) {
-                                th.addSuppressed(th2);
-                                throw th;
+                                this.f76191.m34766(i);
+                                c13693M31105.m31126(bundleM46652, c13693M31105.f38632.f34415, c14343M19162, this.f76193, new C13261());
+                                c13693M31105.m31121(c13693M31105.f38639.mo3999().m54774()).m12907();
+                                c13693M31105.m31120().m12907();
+                            } catch (Throwable th) {
+                                try {
+                                    c14443M54760.close();
+                                    throw th;
+                                } catch (Throwable th2) {
+                                    th.addSuppressed(th2);
+                                    throw th;
+                                }
                             }
+                        } catch (Throwable th3) {
+                            c13693M31105.m31120().m12907();
+                            throw th3;
                         }
                     }
                 }

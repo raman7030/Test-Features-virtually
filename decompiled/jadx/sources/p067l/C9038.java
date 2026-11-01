@@ -87,70 +87,74 @@ public final class C9038 {
 
     /* JADX INFO: renamed from: ᩻ */
     public static synchronized void m20944() {
-        final AssetManager assetManagerM16222 = C7050.m16222();
-        C17182 c17182M38692 = C17853.f53284.m38684("syntax/online").m38692();
-        C19096 c19096M20915 = null;
-        if (c17182M38692.mo25087()) {
-            final C17182 c17182M38693 = c17182M38692.m38684("init/styles.mtsx").m38692();
-            final C17182 c17182M38694 = c17182M38692.m38684("init/builtins.mtsx").m38692();
-            C17182 c17182M38695 = c17182M38692.m38684("VERSION").m38692();
-            int i = -1;
-            try {
-                if (c17182M38695.mo25094()) {
-                    i = c17182M38695.m38686().readInt();
-                }
-            } catch (Exception unused) {
-            }
-            if (i > 14) {
-                final List list = (List) C7480.stream(c17182M38692.mo25500(true)).filter(new C22726(0)).collect(C24205.toList());
+        try {
+            final AssetManager assetManagerM16222 = C7050.m16222();
+            C17182 c17182M38692 = C17853.f53284.m38684("syntax/online").m38692();
+            C19096 c19096M20915 = null;
+            if (c17182M38692.mo25087()) {
+                final C17182 c17182M38693 = c17182M38692.m38684("init/styles.mtsx").m38692();
+                final C17182 c17182M38694 = c17182M38692.m38684("init/builtins.mtsx").m38692();
+                C17182 c17182M38695 = c17182M38692.m38684("VERSION").m38692();
+                int i = -1;
                 try {
-                    if (!c17182M38693.mo25093() || !c17182M38694.mo25093() || list.isEmpty()) {
-                        throw new IOException("Incomplete online syntax package");
+                    if (c17182M38695.mo25094()) {
+                        i = c17182M38695.m38686().readInt();
                     }
-                    c19096M20915 = m20915(new InterfaceC25131() { // from class: l.᩶ۜܿ
+                } catch (Exception unused) {
+                }
+                if (i > 14) {
+                    final List list = (List) C7480.stream(c17182M38692.mo25500(true)).filter(new C22726(0)).collect(C24205.toList());
+                    try {
+                        if (!c17182M38693.mo25093() || !c17182M38694.mo25093() || list.isEmpty()) {
+                            throw new IOException("Incomplete online syntax package");
+                        }
+                        c19096M20915 = m20915(new InterfaceC25131() { // from class: l.᩶ۜܿ
+                            @Override // p067l.InterfaceC25131
+                            /* JADX INFO: renamed from: ֫ */
+                            public final void mo15115(C16413 c16413) throws IOException {
+                                C9038.m20926(c17182M38693, c17182M38694, list, assetManagerM16222, c16413);
+                            }
+                        });
+                    } catch (Throwable th) {
+                        try {
+                            AbstractC17043 abstractC17043M38682 = c17182M38692.m38682("online_bad");
+                            abstractC17043M38682.mo25503();
+                            c17182M38692.mo25502(abstractC17043M38682);
+                            abstractC17043M38682.m38684("_error.log").m38668(C6112.m13907(th));
+                        } catch (Exception unused2) {
+                        }
+                    }
+                }
+            }
+            if (c19096M20915 == null) {
+                try {
+                    c19096M20915 = m20915(new InterfaceC25131() { // from class: l.ۙۜܿ
                         @Override // p067l.InterfaceC25131
                         /* JADX INFO: renamed from: ֫ */
                         public final void mo15115(C16413 c16413) throws IOException {
-                            C9038.m20926(c17182M38693, c17182M38694, list, assetManagerM16222, c16413);
+                            C9038.m20917(assetManagerM16222, c16413);
                         }
                     });
-                } catch (Throwable th) {
-                    try {
-                        AbstractC17043 abstractC17043M38682 = c17182M38692.m38682("online_bad");
-                        abstractC17043M38682.mo25503();
-                        c17182M38692.mo25502(abstractC17043M38682);
-                        abstractC17043M38682.m38684("_error.log").m38668(C6112.m13907(th));
-                    } catch (Exception unused2) {
+                } catch (Exception e) {
+                    if (!(e instanceof RuntimeException)) {
+                        throw new RuntimeException(e);
+                    }
+                    throw ((RuntimeException) e);
+                }
+            }
+            m20927(c19096M20915);
+            for (Map.Entry entry : c19096M20915.f56971.entrySet()) {
+                if (!((C16689) entry.getValue()).m37812()) {
+                    String str = (String) entry.getKey();
+                    if (str.lastIndexOf(46) == 0) {
+                        C4463.m9373(str);
                     }
                 }
             }
+            C4463.m9380(false);
+        } catch (Throwable th2) {
+            throw th2;
         }
-        if (c19096M20915 == null) {
-            try {
-                c19096M20915 = m20915(new InterfaceC25131() { // from class: l.ۙۜܿ
-                    @Override // p067l.InterfaceC25131
-                    /* JADX INFO: renamed from: ֫ */
-                    public final void mo15115(C16413 c16413) throws IOException {
-                        C9038.m20917(assetManagerM16222, c16413);
-                    }
-                });
-            } catch (Exception e) {
-                if (!(e instanceof RuntimeException)) {
-                    throw new RuntimeException(e);
-                }
-                throw ((RuntimeException) e);
-            }
-        }
-        m20927(c19096M20915);
-        for (Map.Entry entry : c19096M20915.f56971.entrySet()) {
-            if (!((C16689) entry.getValue()).m37812()) {
-                String str = (String) entry.getKey();
-                if (str.lastIndexOf(46) == 0) {
-                    C4463.m9373(str);
-                }
-            }
-        }
-        C4463.m9380(false);
     }
 
     static {

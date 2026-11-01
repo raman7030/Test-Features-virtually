@@ -317,11 +317,7 @@ public final class C2917 {
         }
     }
 
-    /* JADX WARN: Bottom block not found for handler: all -> 0x006b */
     /* JADX INFO: renamed from: ֫ */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void m4729(C19486 c19486, C14679 c14679) throws IOException {
         C15230 c15230M33606 = c14679.m33606();
         try {
@@ -339,31 +335,35 @@ public final class C2917 {
                 }
                 C20353 c20353 = this.f5052;
                 synchronized (c20353) {
-                    if (c20353.f62842.f5058.containsKey(str) || c20353.f62842.f5059.contains(str)) {
-                        return;
-                    }
                     try {
-                        if (c20353.f62847 == null) {
-                            c20353.f62847 = new C5173(c20353.f62842.f5053.m29402().mo25506(true));
+                        if (c20353.f62842.f5058.containsKey(str) || c20353.f62842.f5059.contains(str)) {
+                            return;
                         }
-                        C5173 c5173 = c20353.f62847;
-                        C14009.m31808(c5173, C7855.m18152(str));
-                        C7855.m18155(c5173, str);
-                        c20353.f62847.flush();
-                        c20353.f62842.f5059.add(str);
-                    } catch (IOException e) {
-                        c20353.m45929();
-                        throw e;
+                        try {
+                            if (c20353.f62847 == null) {
+                                c20353.f62847 = new C5173(c20353.f62842.f5053.m29402().mo25506(true));
+                            }
+                            C5173 c5173 = c20353.f62847;
+                            C14009.m31808(c5173, C7855.m18152(str));
+                            C7855.m18155(c5173, str);
+                            c20353.f62847.flush();
+                            c20353.f62842.f5059.add(str);
+                        } catch (IOException e) {
+                            c20353.m45929();
+                            throw e;
+                        }
+                    } catch (Throwable th) {
+                        throw th;
                     }
                 }
             }
-        } catch (Throwable th) {
+        } catch (Throwable th2) {
             try {
                 c15230M33606.close();
-            } catch (Throwable th2) {
-                th.addSuppressed(th2);
+            } catch (Throwable th3) {
+                th2.addSuppressed(th3);
             }
-            throw th;
+            throw th2;
         }
     }
 
@@ -395,15 +395,19 @@ public final class C2917 {
         byte[] bArr = reference != null ? (byte[]) reference.get() : null;
         if (bArr == null) {
             synchronized (this.f5055) {
-                Reference reference2 = (Reference) this.f5055.get(Integer.valueOf(i2));
-                bArrM38664 = reference2 != null ? (byte[]) reference2.get() : null;
-                if (bArrM38664 == null) {
-                    try {
-                        bArrM38664 = this.f5056.m29392(String.valueOf(i2)).m38664();
-                        this.f5055.put(Integer.valueOf(i2), new SoftReference(bArrM38664));
-                    } catch (IOException unused) {
-                        bArr = new byte[0];
+                try {
+                    Reference reference2 = (Reference) this.f5055.get(Integer.valueOf(i2));
+                    bArrM38664 = reference2 != null ? (byte[]) reference2.get() : null;
+                    if (bArrM38664 == null) {
+                        try {
+                            bArrM38664 = this.f5056.m29392(String.valueOf(i2)).m38664();
+                            this.f5055.put(Integer.valueOf(i2), new SoftReference(bArrM38664));
+                        } catch (IOException unused) {
+                            bArr = new byte[0];
+                        }
                     }
+                } catch (Throwable th) {
+                    throw th;
                 }
             }
             bArr = bArrM38664;

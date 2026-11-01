@@ -527,33 +527,37 @@ public class C0094d extends AbstractC0093c implements C0095e.f, C0095e.g, C0095e
     @Override // com.alipay.sdk.p010m.p016c0.C0095e.g
     /* JADX INFO: renamed from: d */
     public synchronized boolean mo523d(C0095e c0095e, String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        Activity activity = this.f365a;
-        if (activity == null) {
-            return true;
-        }
-        if (C0254q.m1271a(this.f393h, str, activity)) {
-            return true;
-        }
-        if (str.startsWith(f377n)) {
-            m518b(str.substring(17));
-        } else if (TextUtils.equals(str, C0170a.f679r)) {
-            m513a(false);
-        } else if (!str.startsWith("http://") && !str.startsWith("https://")) {
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.setData(Uri.parse(str));
-                activity.startActivity(intent);
-            } catch (Throwable th) {
-                C0167a.m753a(this.f393h, C0168b.f618l, th);
+        try {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-        } else {
-            this.f396k.m544a(str);
+            Activity activity = this.f365a;
+            if (activity == null) {
+                return true;
+            }
+            if (C0254q.m1271a(this.f393h, str, activity)) {
+                return true;
+            }
+            if (str.startsWith(f377n)) {
+                m518b(str.substring(17));
+            } else if (TextUtils.equals(str, C0170a.f679r)) {
+                m513a(false);
+            } else if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setAction("android.intent.action.VIEW");
+                    intent.setData(Uri.parse(str));
+                    activity.startActivity(intent);
+                } catch (Throwable th) {
+                    C0167a.m753a(this.f393h, C0168b.f618l, th);
+                }
+            } else {
+                this.f396k.m544a(str);
+            }
+            return true;
+        } catch (Throwable th2) {
+            throw th2;
         }
-        return true;
     }
 
     @Override // com.alipay.sdk.p010m.p016c0.C0095e.f
@@ -601,113 +605,109 @@ public class C0094d extends AbstractC0093c implements C0095e.f, C0095e.g, C0095e
     /* JADX WARN: Failed to restore switch over string. Please report as a decompilation issue */
     /* JADX INFO: renamed from: a */
     public final synchronized void m511a(String str, String str2, String str3) {
+        C0095e c0095e = this.f396k;
+        if (c0095e == null) {
+            return;
+        }
+        JSONObject jSONObjectM1299h = C0254q.m1299h(str3);
+        f fVar = new f(c0095e, str, str2, jSONObjectM1299h);
+        Context context = c0095e.getContext();
         try {
-            C0095e c0095e = this.f396k;
-            if (c0095e == null) {
-                return;
-            }
-            JSONObject jSONObjectM1299h = C0254q.m1299h(str3);
-            f fVar = new f(c0095e, str, str2, jSONObjectM1299h);
-            Context context = c0095e.getContext();
-            try {
-                String str4 = fVar.f409b;
-                switch (str4.hashCode()) {
-                    case -1785164386:
-                        if (str4.equals(f372F)) {
-                            String url = c0095e.getUrl();
-                            if (!C0254q.m1270a(this.f393h, url)) {
-                                C0167a.m755b(this.f393h, C0168b.f618l, "jsUrlErr", url);
-                            } else {
-                                JSONObject jSONObject = new JSONObject();
-                                boolean zM744a = C0164d.m744a(this.f393h, context);
-                                jSONObject.put("enabled", zM744a);
-                                C0167a.m750a(this.f393h, C0168b.f618l, C0168b.f635t0, String.valueOf(zM744a));
-                                fVar.m531a(jSONObject);
-                            }
+            String str4 = fVar.f409b;
+            switch (str4.hashCode()) {
+                case -1785164386:
+                    if (str4.equals(f372F)) {
+                        String url = c0095e.getUrl();
+                        if (!C0254q.m1270a(this.f393h, url)) {
+                            C0167a.m755b(this.f393h, C0168b.f618l, "jsUrlErr", url);
+                        } else {
+                            JSONObject jSONObject = new JSONObject();
+                            boolean zM744a = C0164d.m744a(this.f393h, context);
+                            jSONObject.put("enabled", zM744a);
+                            C0167a.m750a(this.f393h, C0168b.f618l, C0168b.f635t0, String.valueOf(zM744a));
+                            fVar.m531a(jSONObject);
                         }
-                        break;
-                    case -552487705:
-                        if (str4.equals(f373G)) {
-                            String url2 = c0095e.getUrl();
-                            if (!C0254q.m1270a(this.f393h, url2)) {
-                                C0167a.m755b(this.f393h, C0168b.f618l, "jsUrlErr", url2);
-                            } else {
-                                String strOptString = jSONObjectM1299h.optString("random");
-                                JSONObject jSONObjectOptJSONObject = jSONObjectM1299h.optJSONObject("options");
-                                if (!TextUtils.isEmpty("random") && jSONObjectOptJSONObject != null) {
-                                    String strOptString2 = jSONObjectOptJSONObject.optString("url");
-                                    String strOptString3 = jSONObjectOptJSONObject.optString("action");
-                                    if (!TextUtils.isEmpty(strOptString2) && !TextUtils.isEmpty(strOptString3) && (context instanceof Activity)) {
-                                        C0164d.m743a(this.f393h, (Activity) context, C0164d.f561a, strOptString2, strOptString3, new g(fVar, strOptString));
-                                    }
+                    }
+                    break;
+                case -552487705:
+                    if (str4.equals(f373G)) {
+                        String url2 = c0095e.getUrl();
+                        if (!C0254q.m1270a(this.f393h, url2)) {
+                            C0167a.m755b(this.f393h, C0168b.f618l, "jsUrlErr", url2);
+                        } else {
+                            String strOptString = jSONObjectM1299h.optString("random");
+                            JSONObject jSONObjectOptJSONObject = jSONObjectM1299h.optJSONObject("options");
+                            if (!TextUtils.isEmpty("random") && jSONObjectOptJSONObject != null) {
+                                String strOptString2 = jSONObjectOptJSONObject.optString("url");
+                                String strOptString3 = jSONObjectOptJSONObject.optString("action");
+                                if (!TextUtils.isEmpty(strOptString2) && !TextUtils.isEmpty(strOptString3) && (context instanceof Activity)) {
+                                    C0164d.m743a(this.f393h, (Activity) context, C0164d.f561a, strOptString2, strOptString3, new g(fVar, strOptString));
                                 }
                             }
                         }
-                        break;
-                    case 3015911:
-                        if (str4.equals(f385v)) {
-                            m528i();
-                        }
-                        break;
-                    case 3127582:
-                        if (str4.equals(f367A)) {
-                            C0162b.m730a(jSONObjectM1299h.optString(C0252o.f1208c, null));
-                            m513a(jSONObjectM1299h.optBoolean("success", false));
-                        }
-                        break;
-                    case 110371416:
-                        if (str4.equals("title") && jSONObjectM1299h.has("title")) {
-                            c0095e.getTitle().setText(jSONObjectM1299h.optString("title", ""));
-                        }
-                        break;
-                    case 1085444827:
-                        if (str4.equals(f387x)) {
-                            c0095e.getWebView().reload();
-                        }
-                        break;
-                    case 1235264121:
-                        if (str4.equals(f375I)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put(C0252o.f1208c, !C0180b.m829i().m852f(null) ? "-2" : C0247j.m1209a(getContext()));
-                            fVar.m531a(jSONObject2);
-                        }
-                        break;
-                    case 1703426986:
-                        if (str4.equals(f369C)) {
-                            m520b(jSONObjectM1299h.optString("url"), jSONObjectM1299h.optString("title", ""));
-                        }
-                        break;
-                    case 1906413305:
-                        if (str4.equals(f388y)) {
-                            c0095e.getBackButton().setVisibility(jSONObjectM1299h.optBoolean("show", true) ? 0 : 4);
-                        }
-                        break;
-                    case 1942429949:
-                        if (str4.equals(f374H)) {
-                            String strOptString4 = jSONObjectM1299h.optString("type");
-                            C0167a.m749a(this.f393h, C0168b.f618l, "h5LifeCycle|" + strOptString4);
-                        }
-                        break;
-                    case 1947723784:
-                        if (str4.equals(f371E)) {
-                            JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("sdk_version", "15.8.40");
-                            jSONObject3.put("app_name", this.f393h.m1105c());
-                            jSONObject3.put("app_version", this.f393h.m1108d());
-                            fVar.m531a(jSONObject3);
-                        }
-                        break;
-                    case 2033767917:
-                        if (str4.equals(f389z)) {
-                            c0095e.getRefreshButton().setVisibility(jSONObjectM1299h.optBoolean("show", true) ? 0 : 4);
-                        }
-                        break;
-                }
-            } catch (Throwable th) {
-                C0167a.m752a(this.f393h, C0168b.f618l, "jInfoErr", th, str);
+                    }
+                    break;
+                case 3015911:
+                    if (str4.equals(f385v)) {
+                        m528i();
+                    }
+                    break;
+                case 3127582:
+                    if (str4.equals(f367A)) {
+                        C0162b.m730a(jSONObjectM1299h.optString(C0252o.f1208c, null));
+                        m513a(jSONObjectM1299h.optBoolean("success", false));
+                    }
+                    break;
+                case 110371416:
+                    if (str4.equals("title") && jSONObjectM1299h.has("title")) {
+                        c0095e.getTitle().setText(jSONObjectM1299h.optString("title", ""));
+                    }
+                    break;
+                case 1085444827:
+                    if (str4.equals(f387x)) {
+                        c0095e.getWebView().reload();
+                    }
+                    break;
+                case 1235264121:
+                    if (str4.equals(f375I)) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put(C0252o.f1208c, !C0180b.m829i().m852f(null) ? "-2" : C0247j.m1209a(getContext()));
+                        fVar.m531a(jSONObject2);
+                    }
+                    break;
+                case 1703426986:
+                    if (str4.equals(f369C)) {
+                        m520b(jSONObjectM1299h.optString("url"), jSONObjectM1299h.optString("title", ""));
+                    }
+                    break;
+                case 1906413305:
+                    if (str4.equals(f388y)) {
+                        c0095e.getBackButton().setVisibility(jSONObjectM1299h.optBoolean("show", true) ? 0 : 4);
+                    }
+                    break;
+                case 1942429949:
+                    if (str4.equals(f374H)) {
+                        String strOptString4 = jSONObjectM1299h.optString("type");
+                        C0167a.m749a(this.f393h, C0168b.f618l, "h5LifeCycle|" + strOptString4);
+                    }
+                    break;
+                case 1947723784:
+                    if (str4.equals(f371E)) {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("sdk_version", "15.8.40");
+                        jSONObject3.put("app_name", this.f393h.m1105c());
+                        jSONObject3.put("app_version", this.f393h.m1108d());
+                        fVar.m531a(jSONObject3);
+                    }
+                    break;
+                case 2033767917:
+                    if (str4.equals(f389z)) {
+                        c0095e.getRefreshButton().setVisibility(jSONObjectM1299h.optBoolean("show", true) ? 0 : 4);
+                    }
+                    break;
             }
-        } catch (Throwable th2) {
-            throw th2;
+        } catch (Throwable th) {
+            C0167a.m752a(this.f393h, C0168b.f618l, "jInfoErr", th, str);
         }
     }
 

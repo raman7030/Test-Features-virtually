@@ -39,36 +39,40 @@ public final class C10987 {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX INFO: renamed from: ֡ */
     public final synchronized void m25340() {
-        f30436.removeMessages(0);
         try {
+            f30436.removeMessages(0);
             try {
-                C11996 c11996 = new C11996();
-                c11996.writeInt(1647457332);
-                ArrayList<C8975> arrayList = f30432;
-                c11996.mo15113(arrayList.size());
-                for (C8975 c8975 : arrayList) {
-                    c11996.m27444(c8975.m20746());
-                    if (c8975.m20741()) {
-                        c11996.mo15113(0);
-                    } else {
-                        c11996.mo15113(c8975.m20749().size());
-                        Iterator it = c8975.m20749().iterator();
-                        while (it.hasNext()) {
-                            ((C18362) it.next()).m41817(c11996);
+                try {
+                    C11996 c11996 = new C11996();
+                    c11996.writeInt(1647457332);
+                    ArrayList<C8975> arrayList = f30432;
+                    c11996.mo15113(arrayList.size());
+                    for (C8975 c8975 : arrayList) {
+                        c11996.m27444(c8975.m20746());
+                        if (c8975.m20741()) {
+                            c11996.mo15113(0);
+                        } else {
+                            c11996.mo15113(c8975.m20749().size());
+                            Iterator it = c8975.m20749().iterator();
+                            while (it.hasNext()) {
+                                ((C18362) it.next()).m41817(c11996);
+                            }
                         }
                     }
+                    byte[] bArrM27464 = c11996.m27464();
+                    ApplicationC21448.f67649.edit().mo27877("bookmarks_data_new", bArrM27464).apply();
+                    C4081.m8187(C10987.class, 1000L, new RunnableC15902(1, bArrM27464));
+                } catch (IOException e) {
+                    Main mainM38753 = C17127.m38753();
+                    if (mainM38753 != null) {
+                        mainM38753.m12259(e, (DialogInterface.OnDismissListener) null);
+                    }
                 }
-                byte[] bArrM27464 = c11996.m27464();
-                ApplicationC21448.f67649.edit().mo27877("bookmarks_data_new", bArrM27464).apply();
-                C4081.m8187(C10987.class, 1000L, new RunnableC15902(1, bArrM27464));
-            } catch (IOException e) {
-                Main mainM38753 = C17127.m38753();
-                if (mainM38753 != null) {
-                    mainM38753.m12259(e, (DialogInterface.OnDismissListener) null);
-                }
+            } catch (ConcurrentModificationException unused) {
+                f30436.sendEmptyMessage(0);
             }
-        } catch (ConcurrentModificationException unused) {
-            f30436.sendEmptyMessage(0);
+        } catch (Throwable th) {
+            throw th;
         }
     }
 

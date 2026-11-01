@@ -193,13 +193,9 @@ public final class C11785 {
             while (true) {
                 boolean z = false;
                 for (int i2 = 0; i2 < c11785.f32923; i2++) {
-                    try {
-                        if (c11785.f32924[i2] == i) {
-                            z = true;
-                            break;
-                        }
-                    } catch (Throwable th) {
-                        throw th;
+                    if (c11785.f32924[i2] == i) {
+                        z = true;
+                        break;
                     }
                 }
                 if (z) {

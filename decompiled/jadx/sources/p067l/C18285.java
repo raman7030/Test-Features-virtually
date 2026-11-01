@@ -373,7 +373,11 @@ public final class C18285 {
         }
     }
 
+    /* JADX WARN: Bottom block not found for handler: all -> 0x019a */
     /* JADX INFO: renamed from: ֫ */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void m41632(C24320 c24320, InterfaceC21800 interfaceC21800, int i, int i2, EnumC24125 enumC24125, C11209 c11209, int i3, int i4, int i5, int i6, int i7, int i8) {
         boolean zM41641;
         C16611 c16611;
@@ -383,76 +387,71 @@ public final class C18285 {
         if (enumC24125 != EnumC24125.WINDOW && c11209 != null && c11209.m25889() != i2) {
             throw new IllegalArgumentException("Display syntax base length mismatch");
         }
-        try {
-            synchronized (this.f54588) {
-                try {
-                    C12056 c12056 = this.f54586;
-                    boolean z = this.f54604 != interfaceC21800;
-                    C24320 c24321 = this.f54608;
-                    boolean z2 = (c24321 == c24320 && !z && (c24321 == null || this.f54617 == enumC24125.m53371())) ? false : true;
-                    m41640();
-                    m41644();
-                    if (z2) {
-                        this.f54594.m18709();
-                        this.f54600.m49541();
-                        if (this.f54602 != interfaceC21800) {
-                            this.f54602 = null;
-                            this.f54591 = -1L;
-                        }
-                        this.f54608 = c24320;
-                        this.f54604 = interfaceC21800;
-                        this.f54617 = enumC24125.m53371();
-                        this.f54605 = null;
-                        this.f54593 = null;
-                        m41635();
-                        m41637();
-                    } else if (enumC24125.m53371()) {
-                        this.f54600.m49544();
-                    } else {
-                        this.f54594.m18711();
+        synchronized (this.f54588) {
+            try {
+                C12056 c12056 = this.f54586;
+                boolean z = this.f54604 != interfaceC21800;
+                C24320 c24321 = this.f54608;
+                boolean z2 = (c24321 == c24320 && !z && (c24321 == null || this.f54617 == enumC24125.m53371())) ? false : true;
+                m41640();
+                m41644();
+                if (z2) {
+                    this.f54594.m18709();
+                    this.f54600.m49541();
+                    if (this.f54602 != interfaceC21800) {
+                        this.f54602 = null;
+                        this.f54591 = -1L;
                     }
-                    boolean z3 = z2;
-                    long j = (((long) i2) - ((long) i6)) + ((long) i5);
-                    if (enumC24125 == EnumC24125.EDIT && this.f54614 && this.f54605 != null && (c16612 = this.f54587) != null && this.f54599 + 1 == i && c16612.m37665() == j) {
-                        this.f54587 = this.f54587.m37655(new C9906(i4, i5 + i4, i6));
-                        this.f54599 = i;
-                    } else {
-                        m41635();
-                    }
-                    if (!enumC24125.m53371() || (c16611 = this.f54601) == null || this.f54598 != i || c16611.m37665() != i2) {
-                        m41637();
-                    }
-                    C8032 c8032 = this.f54614 ? this.f54605 : null;
-                    C22135 c22135 = this.f54613;
-                    if (c22135 == null || c22135.f70017 != c24320 || c22135.f70019 != interfaceC21800 || c22135.f70016 != i || c22135.f70018 != i2) {
-                        this.f54613 = new C22135(c24320, interfaceC21800, i, i2, this.f54585);
-                    }
-                    C13397 c13397 = new C13397(this.f54596, this.f54613, enumC24125, c8032, enumC24125.m53371() ? this.f54601 : this.f54587, c11209, i3, i7, i8, this.f54601 == null ? null : this.f54593);
-                    this.f54592 = c13397;
-                    if (this.f54602 == interfaceC21800 && this.f54589 == i) {
-                        long j2 = this.f54591;
-                        if (j2 != -1) {
-                            c13397.f37595 = j2;
-                        }
-                    }
-                    if (!z3 && c12056 != null && enumC24125.m53371() && c12056.f33587 == this.f54613) {
-                        C14757 c14757 = c12056.f33588;
-                        if (c14757.f42082 < i8 && c14757.f42081 > i7) {
-                            this.f54586 = new C12056(this.f54592, c14757);
-                        }
-                    }
-                    zM41641 = m41641();
-                } catch (Throwable th) {
-                    throw th;
+                    this.f54608 = c24320;
+                    this.f54604 = interfaceC21800;
+                    this.f54617 = enumC24125.m53371();
+                    this.f54605 = null;
+                    this.f54593 = null;
+                    m41635();
+                    m41637();
+                } else if (enumC24125.m53371()) {
+                    this.f54600.m49544();
+                } else {
+                    this.f54594.m18711();
                 }
+                boolean z3 = z2;
+                long j = (((long) i2) - ((long) i6)) + ((long) i5);
+                if (enumC24125 == EnumC24125.EDIT && this.f54614 && this.f54605 != null && (c16612 = this.f54587) != null && this.f54599 + 1 == i && c16612.m37665() == j) {
+                    this.f54587 = this.f54587.m37655(new C9906(i4, i5 + i4, i6));
+                    this.f54599 = i;
+                } else {
+                    m41635();
+                }
+                if (!enumC24125.m53371() || (c16611 = this.f54601) == null || this.f54598 != i || c16611.m37665() != i2) {
+                    m41637();
+                }
+                C8032 c8032 = this.f54614 ? this.f54605 : null;
+                C22135 c22135 = this.f54613;
+                if (c22135 == null || c22135.f70017 != c24320 || c22135.f70019 != interfaceC21800 || c22135.f70016 != i || c22135.f70018 != i2) {
+                    this.f54613 = new C22135(c24320, interfaceC21800, i, i2, this.f54585);
+                }
+                C13397 c13397 = new C13397(this.f54596, this.f54613, enumC24125, c8032, enumC24125.m53371() ? this.f54601 : this.f54587, c11209, i3, i7, i8, this.f54601 == null ? null : this.f54593);
+                this.f54592 = c13397;
+                if (this.f54602 == interfaceC21800 && this.f54589 == i) {
+                    long j2 = this.f54591;
+                    if (j2 != -1) {
+                        c13397.f37595 = j2;
+                    }
+                }
+                if (!z3 && c12056 != null && enumC24125.m53371() && c12056.f33587 == this.f54613) {
+                    C14757 c14757 = c12056.f33588;
+                    if (c14757.f42082 < i8 && c14757.f42081 > i7) {
+                        this.f54586 = new C12056(this.f54592, c14757);
+                    }
+                }
+                zM41641 = m41641();
+            } catch (Throwable th) {
+                throw th;
             }
-            m41634();
-            if (zM41641) {
-                m41636();
-            }
-        } catch (Throwable th2) {
-            m41634();
-            throw th2;
+        }
+        m41634();
+        if (zM41641) {
+            m41636();
         }
     }
 

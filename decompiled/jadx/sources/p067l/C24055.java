@@ -774,14 +774,11 @@ public final class C24055 extends AbstractC9303 {
                 } else {
                     i8 += (int) jSkip;
                 }
-            } catch (Throwable th) {
+            } finally {
                 this.f76410 += i8;
                 m53320();
-                throw th;
             }
         }
-        this.f76410 += i8;
-        m53320();
         if (i8 >= i) {
             return;
         }

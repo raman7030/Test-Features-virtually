@@ -22,17 +22,21 @@ public final class C6352 {
     public final InterfaceC3669 m14516(Object... objArr) {
         Constructor constructorMo10647;
         synchronized (this.f16459) {
-            if (!this.f16459.get()) {
-                try {
-                    constructorMo10647 = this.f16458.mo10647();
-                } catch (ClassNotFoundException unused) {
-                    this.f16459.set(true);
-                    constructorMo10647 = null;
-                } catch (Exception e) {
-                    throw new RuntimeException("Error instantiating extension", e);
+            try {
+                if (!this.f16459.get()) {
+                    try {
+                        constructorMo10647 = this.f16458.mo10647();
+                    } catch (ClassNotFoundException unused) {
+                        this.f16459.set(true);
+                        constructorMo10647 = null;
+                    } catch (Exception e) {
+                        throw new RuntimeException("Error instantiating extension", e);
+                    }
                 }
+                constructorMo10647 = null;
+            } catch (Throwable th) {
+                throw th;
             }
-            constructorMo10647 = null;
         }
         if (constructorMo10647 == null) {
             return null;

@@ -81,40 +81,36 @@ public final class C5099 {
 
     /* JADX INFO: renamed from: ֫ */
     private synchronized void m10864(boolean z) {
-        try {
-            if (this.f11956) {
-                return;
-            }
-            boolean z2 = true;
-            this.f11956 = true;
-            System.currentTimeMillis();
-            synchronized (this.f11953) {
-                C2700.m4192(this.f11953);
-            }
-            boolean z3 = false;
-            if (z || this.f11960.get() != null || this.f11952.get() < this.f11947) {
-                z2 = false;
-            }
-            System.currentTimeMillis();
-            if (z2) {
-                try {
-                    m10863();
-                } catch (Exception e) {
-                    AtomicReference atomicReference = this.f11960;
-                    while (!atomicReference.compareAndSet(null, e) && atomicReference.get() == null) {
-                    }
-                    this.f11955.mo25503();
+        if (this.f11956) {
+            return;
+        }
+        boolean z2 = true;
+        this.f11956 = true;
+        System.currentTimeMillis();
+        synchronized (this.f11953) {
+            C2700.m4192(this.f11953);
+        }
+        boolean z3 = false;
+        if (z || this.f11960.get() != null || this.f11952.get() < this.f11947) {
+            z2 = false;
+        }
+        System.currentTimeMillis();
+        if (z2) {
+            try {
+                m10863();
+            } catch (Exception e) {
+                AtomicReference atomicReference = this.f11960;
+                while (!atomicReference.compareAndSet(null, e) && atomicReference.get() == null) {
                 }
-            } else {
                 this.f11955.mo25503();
             }
-            z3 = z2;
-            InterfaceC25215 interfaceC25215 = this.f11954;
-            if (interfaceC25215 != null) {
-                interfaceC25215.mo5874(this, z3);
-            }
-        } catch (Throwable th) {
-            throw th;
+        } else {
+            this.f11955.mo25503();
+        }
+        z3 = z2;
+        InterfaceC25215 interfaceC25215 = this.f11954;
+        if (interfaceC25215 != null) {
+            interfaceC25215.mo5874(this, z3);
         }
     }
 

@@ -147,29 +147,33 @@ public final class C21001 {
     private void m47339(C16305 c16305) {
         boolean z;
         synchronized (this.f65938) {
-            int i = c16305.f47924 % 16;
-            while (true) {
-                z = this.f65924;
-                if (z || this.f65934[i] == null) {
-                    break;
+            try {
+                int i = c16305.f47924 % 16;
+                while (true) {
+                    z = this.f65924;
+                    if (z || this.f65934[i] == null) {
+                        break;
+                    }
+                    Object obj = this.f65938;
+                    try {
+                        obj.wait();
+                    } catch (InterruptedException unused) {
+                        Thread.currentThread().interrupt();
+                        this.f65924 = true;
+                        obj.notifyAll();
+                    }
                 }
-                Object obj = this.f65938;
-                try {
-                    obj.wait();
-                } catch (InterruptedException unused) {
-                    Thread.currentThread().interrupt();
-                    this.f65924 = true;
-                    obj.notifyAll();
+                if (z) {
+                    return;
                 }
+                this.f65934[i] = c16305;
+                if (c16305.f47925 != null) {
+                    this.f65925 = true;
+                }
+                this.f65938.notifyAll();
+            } catch (Throwable th) {
+                throw th;
             }
-            if (z) {
-                return;
-            }
-            this.f65934[i] = c16305;
-            if (c16305.f47925 != null) {
-                this.f65925 = true;
-            }
-            this.f65938.notifyAll();
         }
     }
 
