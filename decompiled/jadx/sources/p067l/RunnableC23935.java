@@ -48,10 +48,8 @@ public final class RunnableC23935 implements Runnable {
                 } catch (Exception unused2) {
                 }
             }
+        } finally {
             Thread.currentThread().setContextClassLoader(contextClassLoader);
-        } catch (Throwable th) {
-            Thread.currentThread().setContextClassLoader(contextClassLoader);
-            throw th;
         }
     }
 

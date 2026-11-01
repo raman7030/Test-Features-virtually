@@ -335,21 +335,13 @@ public final class C12485 {
         }
     }
 
-    /* JADX WARN: Bottom block not found for handler: all -> 0x0281 */
-    /* JADX WARN: Code duplicated, block: B:155:0x023b  */
-    /* JADX WARN: Code duplicated, block: B:158:0x024a A[Catch: all -> 0x027e, TryCatch #10 {all -> 0x027e, blocks: (B:156:0x023c, B:158:0x024a, B:166:0x0278, B:167:0x027c, B:159:0x024e, B:165:0x026d, B:162:0x0259, B:164:0x0266), top: B:234:0x023c, outer: #11 }] */
-    /* JADX WARN: Code duplicated, block: B:159:0x024e A[Catch: all -> 0x027e, TryCatch #10 {all -> 0x027e, blocks: (B:156:0x023c, B:158:0x024a, B:166:0x0278, B:167:0x027c, B:159:0x024e, B:165:0x026d, B:162:0x0259, B:164:0x0266), top: B:234:0x023c, outer: #11 }] */
     /* JADX WARN: Code duplicated, block: B:197:0x02b9  */
     /* JADX WARN: Code duplicated, block: B:199:0x02bc  */
     /* JADX WARN: Code duplicated, block: B:247:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Code duplicated, block: B:261:? A[Catch: all -> 0x021a, IOException -> 0x022b, CancellationException -> 0x0283, SYNTHETIC, TryCatch #21 {all -> 0x021a, blocks: (B:31:0x008f, B:32:0x0094, B:68:0x010c, B:71:0x0119, B:93:0x016b, B:94:0x0178, B:111:0x01d6, B:175:0x0285, B:177:0x028b, B:179:0x0290, B:194:0x02b5, B:120:0x01e5, B:121:0x01e6, B:122:0x01fe, B:137:0x0219, B:136:0x0216, B:145:0x0224, B:146:0x022a, B:181:0x0292, B:182:0x02a1), top: B:253:0x008e, inners: #6 }] */
     /* JADX INFO: renamed from: ֫ */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final LinkedHashMap m28773(String str, String str2, String str3, long j, InputStream inputStream) throws Throwable {
         IOException iOException;
-        String str4;
         Throwable th;
         AbstractC17043 abstractC17043;
         LinkedHashMap linkedHashMapM28754;
@@ -516,24 +508,21 @@ public final class C12485 {
                                                 e = e;
                                                 abstractC17044 = abstractC17043;
                                                 iOException = e;
-                                                if (abstractC17044 == null) {
-                                                    synchronized (c3767) {
-                                                        c3767.f8025 = false;
-                                                        c3767.f8014 = 0L;
-                                                        if (c3767.f8031) {
-                                                            m28759(c3767);
-                                                        } else {
-                                                            str4 = c9663.f26626;
-                                                            if (!TextUtils.isEmpty(str4)) {
-                                                                c3767.f8011.remove(str4);
-                                                            }
-                                                            m28757(c3767, m28768(iOException.getMessage()));
+                                                if (abstractC17044 != null) {
+                                                    try {
+                                                        if (abstractC17044.mo25094()) {
+                                                            abstractC17044.mo25503();
                                                         }
-                                                        return m28754(c3767);
+                                                    } catch (Throwable th9) {
+                                                        th = th9;
+                                                        if (iOException == null) {
+                                                            synchronized (c3767) {
+                                                                c3767.f8025 = false;
+                                                                c3767.f8014 = 0L;
+                                                            }
+                                                        }
+                                                        throw th;
                                                     }
-                                                }
-                                                if (abstractC17044.mo25094()) {
-                                                    abstractC17044.mo25503();
                                                 }
                                                 synchronized (c3767) {
                                                     try {
@@ -542,24 +531,17 @@ public final class C12485 {
                                                         if (c3767.f8031) {
                                                             m28759(c3767);
                                                         } else {
-                                                            str4 = c9663.f26626;
+                                                            String str4 = c9663.f26626;
                                                             if (!TextUtils.isEmpty(str4) && !C18524.m42109(str4, new String[0]).mo25094()) {
                                                                 c3767.f8011.remove(str4);
                                                             }
                                                             m28757(c3767, m28768(iOException.getMessage()));
                                                         }
                                                         return m28754(c3767);
-                                                    } catch (Throwable th9) {
-                                                        throw th9;
+                                                    } catch (Throwable th10) {
+                                                        throw th10;
                                                     }
                                                 }
-                                                if (iOException == null) {
-                                                    synchronized (c3767) {
-                                                        c3767.f8025 = false;
-                                                        c3767.f8014 = 0L;
-                                                    }
-                                                }
-                                                throw th;
                                             } catch (CancellationException unused) {
                                                 abstractC17044 = abstractC17043;
                                                 if (abstractC17044 != null && abstractC17044.mo25094()) {
@@ -577,8 +559,8 @@ public final class C12485 {
                                                     }
                                                 }
                                             }
-                                        } catch (Throwable th10) {
-                                            th = th10;
+                                        } catch (Throwable th11) {
+                                            th = th11;
                                         }
                                     } catch (C3924 e2) {
                                         throw new IOException(e2);
@@ -589,8 +571,8 @@ public final class C12485 {
                                 } catch (CancellationException unused2) {
                                     abstractC17044 = abstractC17046;
                                 }
-                            } catch (Throwable th11) {
-                                th = th11;
+                            } catch (Throwable th12) {
+                                th = th12;
                                 iOException = null;
                                 if (iOException == null) {
                                     synchronized (c3767) {

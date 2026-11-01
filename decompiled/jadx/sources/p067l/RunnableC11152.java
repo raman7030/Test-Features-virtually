@@ -138,26 +138,22 @@ public final class RunnableC11152 implements Runnable, InterfaceC21447 {
         C17185 c17185M25709 = m25708(c17856);
         if (c17185M25709 == null) {
             synchronized (this.f30944) {
-                try {
-                    if (!this.f30944.contains(c17856)) {
-                        this.f30944.add(c17856);
-                    } else {
-                        while (this.f30944.contains(c17856)) {
-                            try {
-                                this.f30944.wait();
-                            } catch (InterruptedException e) {
-                                f30934.mo9192("Interrupted", e);
-                            }
-                        }
-                        c17185M25708 = m25708(c17856);
-                        if (c17185M25708 == null) {
-                            synchronized (this.f30944) {
-                                this.f30944.add(c17856);
-                            }
+                if (!this.f30944.contains(c17856)) {
+                    this.f30944.add(c17856);
+                } else {
+                    while (this.f30944.contains(c17856)) {
+                        try {
+                            this.f30944.wait();
+                        } catch (InterruptedException e) {
+                            f30934.mo9192("Interrupted", e);
                         }
                     }
-                } catch (Throwable th) {
-                    throw th;
+                    c17185M25708 = m25708(c17856);
+                    if (c17185M25708 == null) {
+                        synchronized (this.f30944) {
+                            this.f30944.add(c17856);
+                        }
+                    }
                 }
             }
             try {
@@ -173,10 +169,10 @@ public final class RunnableC11152 implements Runnable, InterfaceC21447 {
                 } else {
                     c17185M25709 = c17185M25708;
                 }
-            } catch (Throwable th2) {
+            } catch (Throwable th) {
                 m25699(c17856, c17185M25708);
                 m25691(c17856);
-                throw th2;
+                throw th;
             }
         }
         if (c17185M25709 != this.f30946) {

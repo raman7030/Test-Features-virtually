@@ -42,65 +42,61 @@ public final class C3570 {
             return;
         }
         synchronized (this.f7250) {
-            try {
-                ArrayList<C7594> arrayListM6565 = m6565();
-                boolean z2 = false;
-                for (C7594 c7594 : arrayListM6565) {
-                    if (c7594.f19892.equals(c20335.f62804) && c7594.f19891.equals(str)) {
-                        z2 = true;
-                    }
+            ArrayList<C7594> arrayListM6565 = m6565();
+            boolean z2 = false;
+            for (C7594 c7594 : arrayListM6565) {
+                if (c7594.f19892.equals(c20335.f62804) && c7594.f19891.equals(str)) {
+                    z2 = true;
                 }
-                if (z2 || z) {
-                    C7480.removeIf(arrayListM6565, new Predicate() { // from class: l.᩵ܿܳ
-                        @Override // java.util.function.Predicate
-                        public /* synthetic */ Predicate and(Predicate predicate) {
-                            return C20697.$default$and(this, predicate);
-                        }
-
-                        @Override // java.util.function.Predicate
-                        /* JADX INFO: renamed from: negate */
-                        public /* synthetic */ Predicate mo55838negate() {
-                            return C20697.$default$negate(this);
-                        }
-
-                        /* JADX INFO: renamed from: or */
-                        public /* synthetic */ Predicate m47346or(Predicate predicate) {
-                            return C20697.$default$or(this, predicate);
-                        }
-
-                        @Override // java.util.function.Predicate
-                        public final boolean test(Object obj) {
-                            C7594 c7595 = (C7594) obj;
-                            String str2 = c7595.f19892;
-                            C20335 c20336 = c20335;
-                            if (!str2.equals(c20336.f62804)) {
-                                return false;
-                            }
-                            String str3 = c7595.f19891;
-                            String str4 = str;
-                            if (str3.equals(str4)) {
-                                return true;
-                            }
-                            return z && c20336.m45901(c7595.f19891) > c20336.m45901(str4);
-                        }
-                    });
-                    arrayListM6565.add(0, new C7594(c20335.f62804, str));
-                    while (arrayListM6565.size() > 64) {
-                        arrayListM6565.remove(arrayListM6565.size() - 1);
+            }
+            if (z2 || z) {
+                C7480.removeIf(arrayListM6565, new Predicate() { // from class: l.᩵ܿܳ
+                    @Override // java.util.function.Predicate
+                    public /* synthetic */ Predicate and(Predicate predicate) {
+                        return C20697.$default$and(this, predicate);
                     }
-                    JSONArray jSONArray = new JSONArray();
-                    for (C7594 c7595 : arrayListM6565) {
-                        jSONArray.put(new JSONArray().put(c7595.f19892).put(c7595.f19891));
+
+                    @Override // java.util.function.Predicate
+                    /* JADX INFO: renamed from: negate */
+                    public /* synthetic */ Predicate mo55838negate() {
+                        return C20697.$default$negate(this);
                     }
-                    try {
-                        f7249.put(this.f7250, new JSONObject().put("version", 1).put("roots", jSONArray).toString());
-                        C4081.f8987.execute(new RunnableC2899(0, this));
-                    } catch (JSONException e) {
-                        throw new IllegalStateException(e);
+
+                    /* JADX INFO: renamed from: or */
+                    public /* synthetic */ Predicate m47346or(Predicate predicate) {
+                        return C20697.$default$or(this, predicate);
                     }
+
+                    @Override // java.util.function.Predicate
+                    public final boolean test(Object obj) {
+                        C7594 c7595 = (C7594) obj;
+                        String str2 = c7595.f19892;
+                        C20335 c20336 = c20335;
+                        if (!str2.equals(c20336.f62804)) {
+                            return false;
+                        }
+                        String str3 = c7595.f19891;
+                        String str4 = str;
+                        if (str3.equals(str4)) {
+                            return true;
+                        }
+                        return z && c20336.m45901(c7595.f19891) > c20336.m45901(str4);
+                    }
+                });
+                arrayListM6565.add(0, new C7594(c20335.f62804, str));
+                while (arrayListM6565.size() > 64) {
+                    arrayListM6565.remove(arrayListM6565.size() - 1);
                 }
-            } catch (Throwable th) {
-                throw th;
+                JSONArray jSONArray = new JSONArray();
+                for (C7594 c7595 : arrayListM6565) {
+                    jSONArray.put(new JSONArray().put(c7595.f19892).put(c7595.f19891));
+                }
+                try {
+                    f7249.put(this.f7250, new JSONObject().put("version", 1).put("roots", jSONArray).toString());
+                    C4081.f8987.execute(new RunnableC2899(0, this));
+                } catch (JSONException e) {
+                    throw new IllegalStateException(e);
+                }
             }
         }
     }

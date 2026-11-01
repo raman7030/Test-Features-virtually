@@ -265,15 +265,17 @@ public final class C13280 {
         }
     }
 
-    /* JADX WARN: Code duplicated, block: B:54:0x00de  */
+    /* JADX WARN: Bottom block not found for handler: all -> 0x00da */
     /* JADX INFO: renamed from: ֫ */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void m30346(InterfaceC22097 interfaceC22097, UUID uuid, List list) throws Throwable {
-        boolean z;
         InterfaceC24242 interfaceC24242 = InterfaceC24242.f76829;
         HashSet hashSet = new HashSet();
         Iterator it = list.iterator();
         while (true) {
-            boolean z2 = false;
+            boolean z = false;
             if (it.hasNext()) {
                 C13280 c13280 = (C13280) it.next();
                 if (!c13280.f37288.equals(uuid)) {
@@ -288,60 +290,51 @@ public final class C13280 {
                 if (hashSet.isEmpty()) {
                     throw new IOException("Attachment collection requires a durable live reference");
                 }
+                DirectoryStream<InterfaceC22097> directoryStreamNewDirectoryStream = C18743.newDirectoryStream(interfaceC22097, "state-*.bin");
                 try {
-                    DirectoryStream<InterfaceC22097> directoryStreamNewDirectoryStream = C18743.newDirectoryStream(interfaceC22097, "state-*.bin");
-                    try {
-                        z = false;
-                        for (InterfaceC22097 interfaceC22098 : directoryStreamNewDirectoryStream) {
-                            try {
-                                String string2 = interfaceC22098.getFileName().toString();
-                                if (!hashSet.contains(string2) && C18743.isRegularFile(interfaceC22098, EnumC16060.NOFOLLOW_LINKS) && string2.length() == 46) {
-                                    try {
-                                        if (string2.equals("state-" + UUID.fromString(string2.substring(6, 42)) + ".bin")) {
-                                            C18743.delete(interfaceC22098);
-                                            z = true;
-                                        }
-                                    } catch (IllegalArgumentException unused) {
-                                        continue;
-                                    }
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                z2 = z;
-                                if (directoryStreamNewDirectoryStream != null) {
-                                    try {
-                                        directoryStreamNewDirectoryStream.close();
-                                    } catch (Throwable th2) {
-                                        th.addSuppressed(th2);
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
+                    boolean z2 = false;
+                    for (InterfaceC22097 interfaceC22098 : directoryStreamNewDirectoryStream) {
                         try {
-                            directoryStreamNewDirectoryStream.close();
-                            if (z) {
-                                interfaceC24242.mo30678(interfaceC22097);
-                                return;
+                            String string2 = interfaceC22098.getFileName().toString();
+                            if (!hashSet.contains(string2) && C18743.isRegularFile(interfaceC22098, EnumC16060.NOFOLLOW_LINKS) && string2.length() == 46) {
+                                try {
+                                    if (string2.equals("state-" + UUID.fromString(string2.substring(6, 42)) + ".bin")) {
+                                        C18743.delete(interfaceC22098);
+                                        z2 = true;
+                                    }
+                                } catch (IllegalArgumentException unused) {
+                                    continue;
+                                }
                             }
-                            return;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            if (z) {
-                                interfaceC24242.mo30678(interfaceC22097);
+                        } catch (Throwable th) {
+                            th = th;
+                            z = z2;
+                            if (directoryStreamNewDirectoryStream != null) {
+                                try {
+                                    directoryStreamNewDirectoryStream.close();
+                                } catch (Throwable th2) {
+                                    th.addSuppressed(th2);
+                                }
                             }
                             throw th;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
                     }
-                } catch (Throwable th5) {
-                    th = th5;
-                    z = z2;
-                    if (z) {
-                        interfaceC24242.mo30678(interfaceC22097);
+                    try {
+                        directoryStreamNewDirectoryStream.close();
+                        if (z2) {
+                            interfaceC24242.mo30678(interfaceC22097);
+                            return;
+                        }
+                        return;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        if (z2) {
+                            interfaceC24242.mo30678(interfaceC22097);
+                        }
+                        throw th;
                     }
-                    throw th;
+                } catch (Throwable th4) {
+                    th = th4;
                 }
             }
         }

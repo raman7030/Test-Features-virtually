@@ -250,14 +250,10 @@ public class C14506 extends AbstractC5375 implements InterfaceC18509 {
             synchronized (this.f41406) {
                 while (this.f41412 > 0) {
                     try {
-                        try {
-                            this.f41406.wait();
-                        } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
-                            throw new IOException("Interrupted while waiting for SMB connection refresh to finish", e);
-                        }
-                    } catch (Throwable th) {
-                        throw th;
+                        this.f41406.wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        throw new IOException("Interrupted while waiting for SMB connection refresh to finish", e);
                     }
                 }
                 c21213 = this.f41408;

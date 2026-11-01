@@ -368,7 +368,10 @@ public final class ViewOnClickListenerC11390 extends AbstractC5462 implements Vi
     }
 
     /*  JADX ERROR: NullPointerException in pass: ConstructorVisitor
-        java.lang.NullPointerException
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(jadx.core.dex.instructions.args.InsnArg)" because "resultArg" is null
+        	at jadx.core.dex.visitors.MoveInlineVisitor.processMove(MoveInlineVisitor.java:52)
+        	at jadx.core.dex.visitors.MoveInlineVisitor.moveInline(MoveInlineVisitor.java:41)
+        	at jadx.core.dex.visitors.ConstructorVisitor.visit(ConstructorVisitor.java:43)
         */
     public ViewOnClickListenerC11390(
     /*  JADX ERROR: Method generation error
@@ -385,6 +388,8 @@ public final class ViewOnClickListenerC11390 extends AbstractC5462 implements Vi
         	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
         */
     /*  JADX ERROR: NullPointerException in pass: ConstructorVisitor
-        java.lang.NullPointerException
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(jadx.core.dex.instructions.args.InsnArg)" because "resultArg" is null
+        	at jadx.core.dex.visitors.MoveInlineVisitor.processMove(MoveInlineVisitor.java:52)
+        	at jadx.core.dex.visitors.MoveInlineVisitor.moveInline(MoveInlineVisitor.java:41)
         */
 }

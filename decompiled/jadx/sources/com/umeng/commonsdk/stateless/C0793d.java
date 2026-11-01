@@ -443,72 +443,68 @@ public class C0793d {
         }
     }
 
-    /* JADX WARN: Bottom block not found for handler: all -> 0x00fb */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00ff, code lost:
-    
-        return;
-     */
     /* JADX INFO: renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void m2904a(Context context, String str, final String str2, int i) {
         if (str == null) {
             return;
         }
-        File file = new File(str);
-        if (file.isDirectory()) {
-            synchronized (f3336b) {
-                try {
-                    File[] fileArrListFiles = file.listFiles(new FilenameFilter() { // from class: com.umeng.commonsdk.stateless.d.5
-                        @Override // java.io.FilenameFilter
-                        public boolean accept(File file2, String str3) {
-                            return str3.startsWith(str2);
-                        }
-                    });
-                    if (fileArrListFiles != null && fileArrListFiles.length >= i) {
-                        ULog.m2986i("AmapLBS", "[lbs-build] file size >= max");
-                        ArrayList arrayList = new ArrayList();
-                        for (File file2 : fileArrListFiles) {
-                            if (file2 != null) {
-                                arrayList.add(file2);
+        try {
+            File file = new File(str);
+            if (file.isDirectory()) {
+                synchronized (f3336b) {
+                    try {
+                        File[] fileArrListFiles = file.listFiles(new FilenameFilter() { // from class: com.umeng.commonsdk.stateless.d.5
+                            @Override // java.io.FilenameFilter
+                            public boolean accept(File file2, String str3) {
+                                return str3.startsWith(str2);
                             }
-                        }
-                        if (arrayList.size() >= i) {
-                            Collections.sort(arrayList, new Comparator() { // from class: com.umeng.commonsdk.stateless.d.6
-                                @Override // java.util.Comparator
-                                /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
-                                public int compare(File file3, File file4) {
-                                    if (file3 == null || file4 == null || file3.lastModified() >= file4.lastModified()) {
-                                        return (file3 == null || file4 == null || file3.lastModified() != file4.lastModified()) ? 1 : 0;
+                        });
+                        if (fileArrListFiles != null && fileArrListFiles.length >= i) {
+                            ULog.m2986i("AmapLBS", "[lbs-build] file size >= max");
+                            ArrayList arrayList = new ArrayList();
+                            for (File file2 : fileArrListFiles) {
+                                if (file2 != null) {
+                                    arrayList.add(file2);
+                                }
+                            }
+                            if (arrayList.size() >= i) {
+                                Collections.sort(arrayList, new Comparator() { // from class: com.umeng.commonsdk.stateless.d.6
+                                    @Override // java.util.Comparator
+                                    /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+                                    public int compare(File file3, File file4) {
+                                        if (file3 == null || file4 == null || file3.lastModified() >= file4.lastModified()) {
+                                            return (file3 == null || file4 == null || file3.lastModified() != file4.lastModified()) ? 1 : 0;
+                                        }
+                                        return -1;
                                     }
-                                    return -1;
-                                }
-                            });
-                            if (ULog.DEBUG) {
-                                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                                    ULog.m2986i("AmapLBS", "[lbs-build] overrun native file is " + ((File) arrayList.get(i2)).getPath());
-                                }
-                            }
-                            for (int i3 = 0; i3 <= arrayList.size() - i; i3++) {
-                                if (arrayList.get(i3) != null) {
-                                    ULog.m2986i("AmapLBS", "[lbs-build] overrun remove file is " + ((File) arrayList.get(i3)).getPath());
-                                    try {
-                                        ((File) arrayList.get(i3)).delete();
-                                        arrayList.remove(i3);
-                                    } catch (Exception unused) {
+                                });
+                                if (ULog.DEBUG) {
+                                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                                        ULog.m2986i("AmapLBS", "[lbs-build] overrun native file is " + ((File) arrayList.get(i2)).getPath());
                                     }
                                 }
+                                for (int i3 = 0; i3 <= arrayList.size() - i; i3++) {
+                                    if (arrayList.get(i3) != null) {
+                                        ULog.m2986i("AmapLBS", "[lbs-build] overrun remove file is " + ((File) arrayList.get(i3)).getPath());
+                                        try {
+                                            ((File) arrayList.get(i3)).delete();
+                                            arrayList.remove(i3);
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                }
                             }
+                        } else {
+                            ULog.m2986i("AmapLBS", "[lbs-build] file size < max");
                         }
-                    } else {
-                        ULog.m2986i("AmapLBS", "[lbs-build] file size < max");
+                        ULog.m2986i("AmapLBS", "[lbs-build] delete file end " + fileArrListFiles.length + ", thread is " + Thread.currentThread());
+                    } catch (Throwable th) {
+                        throw th;
                     }
-                    ULog.m2986i("AmapLBS", "[lbs-build] delete file end " + fileArrListFiles.length + ", thread is " + Thread.currentThread());
-                } catch (Throwable th) {
-                    throw th;
                 }
             }
+        } catch (Throwable th2) {
+            UMCrashManager.reportCrash(context, th2);
         }
     }
 

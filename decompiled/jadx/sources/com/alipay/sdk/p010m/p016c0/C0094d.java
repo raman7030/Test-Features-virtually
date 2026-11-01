@@ -527,37 +527,33 @@ public class C0094d extends AbstractC0093c implements C0095e.f, C0095e.g, C0095e
     @Override // com.alipay.sdk.p010m.p016c0.C0095e.g
     /* JADX INFO: renamed from: d */
     public synchronized boolean mo523d(C0095e c0095e, String str) {
-        try {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Activity activity = this.f365a;
-            if (activity == null) {
-                return true;
-            }
-            if (C0254q.m1271a(this.f393h, str, activity)) {
-                return true;
-            }
-            if (str.startsWith(f377n)) {
-                m518b(str.substring(17));
-            } else if (TextUtils.equals(str, C0170a.f679r)) {
-                m513a(false);
-            } else if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                try {
-                    Intent intent = new Intent();
-                    intent.setAction("android.intent.action.VIEW");
-                    intent.setData(Uri.parse(str));
-                    activity.startActivity(intent);
-                } catch (Throwable th) {
-                    C0167a.m753a(this.f393h, C0168b.f618l, th);
-                }
-            } else {
-                this.f396k.m544a(str);
-            }
-            return true;
-        } catch (Throwable th2) {
-            throw th2;
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
+        Activity activity = this.f365a;
+        if (activity == null) {
+            return true;
+        }
+        if (C0254q.m1271a(this.f393h, str, activity)) {
+            return true;
+        }
+        if (str.startsWith(f377n)) {
+            m518b(str.substring(17));
+        } else if (TextUtils.equals(str, C0170a.f679r)) {
+            m513a(false);
+        } else if (!str.startsWith("http://") && !str.startsWith("https://")) {
+            try {
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                intent.setData(Uri.parse(str));
+                activity.startActivity(intent);
+            } catch (Throwable th) {
+                C0167a.m753a(this.f393h, C0168b.f618l, th);
+            }
+        } else {
+            this.f396k.m544a(str);
+        }
+        return true;
     }
 
     @Override // com.alipay.sdk.p010m.p016c0.C0095e.f

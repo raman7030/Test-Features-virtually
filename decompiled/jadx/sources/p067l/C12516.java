@@ -210,55 +210,59 @@ public final class C12516 implements Closeable, Flushable {
 
     /* JADX INFO: renamed from: ᩳ */
     public final synchronized void m28842() {
-        InterfaceC12257 interfaceC12257 = this.f35107;
-        if (interfaceC12257 != null) {
-            interfaceC12257.close();
-        }
-        InterfaceC12257 interfaceC12257M54977 = C25037.m54977(this.f35106.mo41664(this.f35115));
         try {
-            interfaceC12257M54977.mo28280("libcore.io.DiskLruCache");
-            interfaceC12257M54977.writeByte(10);
-            interfaceC12257M54977.mo28280("1");
-            interfaceC12257M54977.writeByte(10);
-            interfaceC12257M54977.mo28278(this.f35113);
-            interfaceC12257M54977.writeByte(10);
-            interfaceC12257M54977.mo28278(this.f35116);
-            interfaceC12257M54977.writeByte(10);
-            interfaceC12257M54977.writeByte(10);
-            Iterator it = this.f35101.values().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                C9336 c9336 = (C9336) it.next();
-                if (c9336.f25435 != null) {
-                    interfaceC12257M54977.mo28280("DIRTY");
-                    interfaceC12257M54977.writeByte(32);
-                    interfaceC12257M54977.mo28280(c9336.f25439);
-                    interfaceC12257M54977.writeByte(10);
-                } else {
-                    interfaceC12257M54977.mo28280("CLEAN");
-                    interfaceC12257M54977.writeByte(32);
-                    interfaceC12257M54977.mo28280(c9336.f25439);
-                    for (long j : c9336.f25438) {
-                        interfaceC12257M54977.writeByte(32);
-                        interfaceC12257M54977.mo28278(j);
+            InterfaceC12257 interfaceC12257 = this.f35107;
+            if (interfaceC12257 != null) {
+                interfaceC12257.close();
+            }
+            InterfaceC12257 interfaceC12257M54977 = C25037.m54977(this.f35106.mo41664(this.f35115));
+            try {
+                interfaceC12257M54977.mo28280("libcore.io.DiskLruCache");
+                interfaceC12257M54977.writeByte(10);
+                interfaceC12257M54977.mo28280("1");
+                interfaceC12257M54977.writeByte(10);
+                interfaceC12257M54977.mo28278(this.f35113);
+                interfaceC12257M54977.writeByte(10);
+                interfaceC12257M54977.mo28278(this.f35116);
+                interfaceC12257M54977.writeByte(10);
+                interfaceC12257M54977.writeByte(10);
+                Iterator it = this.f35101.values().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                    interfaceC12257M54977.writeByte(10);
+                    C9336 c9336 = (C9336) it.next();
+                    if (c9336.f25435 != null) {
+                        interfaceC12257M54977.mo28280("DIRTY");
+                        interfaceC12257M54977.writeByte(32);
+                        interfaceC12257M54977.mo28280(c9336.f25439);
+                        interfaceC12257M54977.writeByte(10);
+                    } else {
+                        interfaceC12257M54977.mo28280("CLEAN");
+                        interfaceC12257M54977.writeByte(32);
+                        interfaceC12257M54977.mo28280(c9336.f25439);
+                        for (long j : c9336.f25438) {
+                            interfaceC12257M54977.writeByte(32);
+                            interfaceC12257M54977.mo28278(j);
+                        }
+                        interfaceC12257M54977.writeByte(10);
+                    }
                 }
+                interfaceC12257M54977.close();
+                if (this.f35106.mo41663(this.f35100)) {
+                    this.f35106.mo41662(this.f35100, this.f35104);
+                }
+                this.f35106.mo41662(this.f35115, this.f35100);
+                this.f35106.mo41668(this.f35104);
+                this.f35107 = C25037.m54977(new C13360(this, this.f35106.mo41665(this.f35100)));
+                this.f35105 = false;
+                this.f35103 = false;
+            } catch (Throwable th) {
+                interfaceC12257M54977.close();
+                throw th;
             }
-            interfaceC12257M54977.close();
-            if (this.f35106.mo41663(this.f35100)) {
-                this.f35106.mo41662(this.f35100, this.f35104);
-            }
-            this.f35106.mo41662(this.f35115, this.f35100);
-            this.f35106.mo41668(this.f35104);
-            this.f35107 = C25037.m54977(new C13360(this, this.f35106.mo41665(this.f35100)));
-            this.f35105 = false;
-            this.f35103 = false;
-        } catch (Throwable th) {
-            interfaceC12257M54977.close();
-            throw th;
+        } catch (Throwable th2) {
+            throw th2;
         }
     }
 

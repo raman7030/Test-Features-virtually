@@ -65,78 +65,74 @@ public final class C9428 implements InterfaceC24947, InterfaceC9173 {
         this.f25743 = true;
     }
 
+    /* JADX WARN: Bottom block not found for handler: all -> 0x012e */
     @Override // p067l.InterfaceC24947
     /* JADX INFO: renamed from: ֫ */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void mo8651() {
         int iM38987 = 0;
         while (iM38987 == 0 && !this.f25743) {
-            try {
-                long j = this.f25745.f79276;
-                C5318 c5318M21933 = m21933(j);
-                this.f25739 = c5318M21933;
-                long jMo4020 = this.f25733.mo4020(c5318M21933);
-                if (!this.f25743) {
-                    if (jMo4020 != -1) {
-                        jMo4020 += j;
-                        C19643.m44540(this.f25734);
-                    }
-                    long j2 = jMo4020;
-                    this.f25734.f59715 = C12052.m27609(this.f25733.mo8131());
-                    InterfaceC22753 c4064 = this.f25733;
-                    if (this.f25734.f59715 != null && this.f25734.f59715.f33580 != -1) {
-                        c4064 = new C4064(this.f25733, this.f25734.f59715.f33580, this);
-                        InterfaceC20790 interfaceC20790M44558 = this.f25734.m44558();
-                        this.f25744 = interfaceC20790M44558;
-                        interfaceC20790M44558.mo10503(C19643.f59700);
-                    }
-                    InterfaceC22753 interfaceC22753 = c4064;
-                    long jM38991 = j;
-                    ((C17218) this.f25738).m38990(interfaceC22753, this.f25735, this.f25733.mo8131(), j, j2, this.f25742);
-                    if (this.f25734.f59715 != null) {
-                        ((C17218) this.f25738).m38988();
-                    }
-                    if (this.f25736) {
-                        ((C17218) this.f25738).m38989(jM38991, this.f25737);
-                        this.f25736 = false;
-                    }
+            long j = this.f25745.f79276;
+            C5318 c5318M21933 = m21933(j);
+            this.f25739 = c5318M21933;
+            long jMo4020 = this.f25733.mo4020(c5318M21933);
+            if (!this.f25743) {
+                if (jMo4020 != -1) {
+                    jMo4020 += j;
+                    C19643.m44540(this.f25734);
+                }
+                long j2 = jMo4020;
+                this.f25734.f59715 = C12052.m27609(this.f25733.mo8131());
+                InterfaceC22753 c4064 = this.f25733;
+                if (this.f25734.f59715 != null && this.f25734.f59715.f33580 != -1) {
+                    c4064 = new C4064(this.f25733, this.f25734.f59715.f33580, this);
+                    InterfaceC20790 interfaceC20790M44558 = this.f25734.m44558();
+                    this.f25744 = interfaceC20790M44558;
+                    interfaceC20790M44558.mo10503(C19643.f59700);
+                }
+                InterfaceC22753 interfaceC22753 = c4064;
+                long jM38991 = j;
+                ((C17218) this.f25738).m38990(interfaceC22753, this.f25735, this.f25733.mo8131(), j, j2, this.f25742);
+                if (this.f25734.f59715 != null) {
+                    ((C17218) this.f25738).m38988();
+                }
+                if (this.f25736) {
+                    ((C17218) this.f25738).m38989(jM38991, this.f25737);
+                    this.f25736 = false;
+                }
+                while (true) {
+                    long j3 = jM38991;
                     while (true) {
-                        long j3 = jM38991;
-                        while (true) {
-                            if (iM38987 != 0 || this.f25743) {
-                                break;
+                        if (iM38987 != 0 || this.f25743) {
+                            break;
+                        }
+                        try {
+                            this.f25740.m36280();
+                            iM38987 = ((C17218) this.f25738).m38987(this.f25745);
+                            jM38991 = ((C17218) this.f25738).m38991();
+                            if (jM38991 > this.f25734.f59735 + j3) {
+                                this.f25740.m36283();
+                                this.f25734.f59742.post(this.f25734.f59706);
                             }
-                            try {
-                                this.f25740.m36280();
-                                iM38987 = ((C17218) this.f25738).m38987(this.f25745);
-                                jM38991 = ((C17218) this.f25738).m38991();
-                                if (jM38991 > this.f25734.f59735 + j3) {
-                                    this.f25740.m36283();
-                                    this.f25734.f59742.post(this.f25734.f59706);
-                                }
-                            } catch (InterruptedException unused) {
-                                throw new InterruptedIOException();
-                            }
+                        } catch (InterruptedException unused) {
+                            throw new InterruptedIOException();
                         }
                     }
-                    if (iM38987 == 1) {
-                        iM38987 = 0;
-                    } else if (((C17218) this.f25738).m38991() != -1) {
-                        this.f25745.f79276 = ((C17218) this.f25738).m38991();
-                    }
-                    C10685.m24613(this.f25733);
-                } else {
-                    if (iM38987 != 1 && ((C17218) this.f25738).m38991() != -1) {
-                        this.f25745.f79276 = ((C17218) this.f25738).m38991();
-                    }
-                    C10685.m24613(this.f25733);
-                    return;
                 }
-            } catch (Throwable th) {
+                if (iM38987 == 1) {
+                    iM38987 = 0;
+                } else if (((C17218) this.f25738).m38991() != -1) {
+                    this.f25745.f79276 = ((C17218) this.f25738).m38991();
+                }
+                C10685.m24613(this.f25733);
+            } else {
                 if (iM38987 != 1 && ((C17218) this.f25738).m38991() != -1) {
                     this.f25745.f79276 = ((C17218) this.f25738).m38991();
                 }
                 C10685.m24613(this.f25733);
-                throw th;
+                return;
             }
         }
     }
